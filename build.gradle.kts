@@ -10,7 +10,10 @@ repositories {
 }
 
 dependencies {
+
+    /* Test Dependencies */
     testImplementation(kotlin("test"))
+    testImplementation(libs.kotest.assertions.core)
 }
 
 tasks.test {
