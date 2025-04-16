@@ -12,11 +12,14 @@ class Measure<T> private constructor(
         (Prefix.allEntries(prefix::class)
             .map { unit -> prefix.rescale(unit) * magnitude to unit }
             .lastOrNull { (magnitude, _) -> magnitude >= 1 } ?: (0.0 to prefix.base))
-            .let { (magnitude, prefix) -> format(magnitude, prefix.toString(), unit) }
+            .let { (magnitude, prefix) ->
+                if (prefix.toString() != BASE) "$magnitude ${prefix.toString().lowercase()}$unit" else "$magnitude $unit"
+            }
     }
 
     val readable by lazy {
-        format(magnitude, prefix.toString(), unit, false)
+        val magnitudeFormatted = DecimalFormat(DECIMAL_FORMAT).format(magnitude)
+        if (prefix.toString() != BASE) "$magnitudeFormatted ${prefix.toString().lowercase()}$unit" else "$magnitudeFormatted $unit"
     }
 
     val isZero: Boolean by lazy { magnitude == 0.0 }
@@ -28,11 +31,6 @@ class Measure<T> private constructor(
         return Measure(magnitude * conversion, other, unit)
     }
 
-    private fun format(magnitude: Double, prefix: String, unit: String, scientificNotation: Boolean = true): String {
-        val magnitudeFormatted =
-            if (!scientificNotation) DecimalFormat(DECIMAL_FORMAT).format(magnitude) else magnitude.toString()
-        return if (prefix != BASE) "$magnitudeFormatted ${prefix.lowercase()}$unit" else "$magnitudeFormatted $unit"
-    }
 
     companion object {
         const val DECIMAL_FORMAT = "0.################"
