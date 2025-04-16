@@ -30,13 +30,12 @@ class Measure<T> private constructor(
 
     val isZero: Boolean by lazy { magnitude == 0.0 }
 
-    override fun toString(): String = optimal
-
     fun rescale(other: T): Measure<T> {
         val conversion = prefix.rescale(other)
         return Measure(magnitude * conversion, other, unit)
     }
 
+    override fun toString(): String = optimal
 
     companion object {
         const val DECIMAL_FORMAT = "0.################"
