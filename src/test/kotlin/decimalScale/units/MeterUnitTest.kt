@@ -3,9 +3,19 @@ package decimalScale.units
 import com.kisu.common.Measure
 import com.kisu.decimalScale.DecimalScale
 import com.kisu.decimalScale.units.Meter
+import com.kisu.test.extensions.LocaleExtension
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.parallel.ResourceAccessMode
+import org.junit.jupiter.api.parallel.ResourceLock
+import org.junit.jupiter.api.parallel.ResourceLocks
+import org.junit.jupiter.api.parallel.Resources
 
+@ExtendWith(LocaleExtension::class)
+@ResourceLocks(
+    ResourceLock(Resources.LOCALE, mode = ResourceAccessMode.READ_WRITE)
+)
 class MeterUnitTest {
 
     @Test
