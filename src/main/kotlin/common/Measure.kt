@@ -1,5 +1,6 @@
 package com.kisu.common
 
+import com.kisu.decimalScale.DecimalScale
 import java.text.DecimalFormat
 
 class Measure<T> private constructor(
@@ -8,7 +9,7 @@ class Measure<T> private constructor(
     private val unit: String,
 ) where T : Enum<T>, T : Prefix {
 
-    private val readableAutoScale by lazy {
+    private val optimal by lazy {
         (Prefix.allEntries(prefix::class)
             .map { unit -> prefix.rescale(unit) * magnitude to unit }
             .lastOrNull { (magnitude, _) -> magnitude >= 1 } ?: (0.0 to prefix.base))
@@ -17,14 +18,19 @@ class Measure<T> private constructor(
             }
     }
 
-    val readable by lazy {
+    val literal by lazy {
         val magnitudeFormatted = DecimalFormat(DECIMAL_FORMAT).format(magnitude)
         if (prefix.toString() != BASE) "$magnitudeFormatted ${prefix.toString().lowercase()}$unit" else "$magnitudeFormatted $unit"
     }
 
+    val canonical by lazy {
+        val baseMagnitude = prefix.rescale(DecimalScale.BASE) * magnitude
+        "$baseMagnitude $unit"
+    }
+
     val isZero: Boolean by lazy { magnitude == 0.0 }
 
-    override fun toString(): String = readableAutoScale
+    override fun toString(): String = optimal
 
     fun rescale(other: T): Measure<T> {
         val conversion = prefix.rescale(other)
