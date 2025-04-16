@@ -1,0 +1,50 @@
+name: Task
+description: A general development task or internal improvement
+title: "[Task]: "
+labels: [task, enhancement, tech-debt]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a general task or chore to improve the codebase or development process.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Task Summary
+      description: A brief description of the task
+      placeholder: e.g. Refactor the network module to improve testability
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / Background
+      description: Why is this task necessary? What problem does it address?
+      placeholder: e.g. We currently have duplicated logic in the network layer...
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Proposed Steps or Checklist
+      description: What needs to be done to complete the task?
+      placeholder: |
+        - [ ] Analyze current module
+        - [ ] Create abstraction layer
+        - [ ] Write tests
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any extra notes, links, or references
+      placeholder: Links to related issues, PRs, docs, etc.
+    validations:
+      required: false
