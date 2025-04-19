@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.10"
+    jacoco
 }
 
 group = "com.kisu"
@@ -9,8 +10,12 @@ repositories {
     mavenCentral()
 }
 
+jacoco {
+    toolVersion = "0.8.13"
+}
+
 dependencies {
-    /* Test Dependencies */
+    // Test Dependencies
     testImplementation(kotlin("test"))
 
     // JUnit 5
@@ -24,8 +29,18 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
 }
 
 kotlin {
     jvmToolchain(19)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
 }
