@@ -1,4 +1,5 @@
 [versions]
+jacoco = "0.8.13"
 jqwik = "1.8.2"
 junit = "5.10.1"
 kotest = "5.9.1"
