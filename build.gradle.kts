@@ -1,46 +1,35 @@
+val jacocoVersion = libs.versions.jacoco.get()
+
 plugins {
-    kotlin("jvm") version "2.1.10"
     jacoco
 }
-
-group = "com.kisu"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-jacoco {
-    toolVersion = "0.8.13"
-}
+subprojects {
+    apply(plugin = "jacoco")
 
-dependencies {
-    // Test Dependencies
-    testImplementation(kotlin("test"))
+    extensions.configure<JacocoPluginExtension> {
+        toolVersion = jacocoVersion
+    }
 
-    // JUnit 5
-    testRuntimeOnly(libs.junit.jupiter.engine)
-    testImplementation(libs.junit.jupiter.api)
-    testImplementation(libs.junit.jupiter.params)
-    testImplementation(libs.jqwik)
+    repositories {
+        mavenCentral()
+    }
 
-    testImplementation(libs.kotest.assertions.core)
-}
+    tasks.withType<Test>().configureEach {
+        useJUnitPlatform()
+        finalizedBy("jacocoTestReport")
+    }
 
-tasks.test {
-    useJUnitPlatform()
-    finalizedBy(tasks.jacocoTestReport)
-}
+    tasks.withType<JacocoReport>().configureEach {
+        dependsOn("test")
 
-kotlin {
-    jvmToolchain(19)
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
+        reports {
+            xml.required.set(true)
+            html.required.set(true)
+        }
     }
 }
