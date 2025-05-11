@@ -1,6 +1,7 @@
-package com.kisu.common
+package org.kisu.units
 
 import com.kisu.decimalScale.DecimalScale
+import org.kisu.prefixes.Prefix
 import java.text.DecimalFormat
 
 class Measure<T> private constructor(
@@ -10,7 +11,7 @@ class Measure<T> private constructor(
 ) where T : Enum<T>, T : Prefix {
 
     private val optimal by lazy {
-        (Prefix.allEntries(prefix::class)
+        (Prefix.Companion.allEntries(prefix::class)
             .map { unit -> prefix.rescale(unit) * magnitude to unit }
             .lastOrNull { (magnitude, _) -> magnitude >= 1 } ?: (0.0 to prefix.base))
             .let { (magnitude, prefix) ->

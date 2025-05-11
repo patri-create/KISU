@@ -1,6 +1,6 @@
 package com.kisu.common.utils
 
-import com.kisu.common.Prefix
+import org.kisu.prefixes.Prefix
 import java.util.*
 
 fun Double.pow(exp: Int): Double {

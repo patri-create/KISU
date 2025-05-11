@@ -1,9 +1,9 @@
-package com.kisu.test.extensions
+package org.kisu.test.extensions
 
 import org.junit.jupiter.api.extension.AfterEachCallback
 import org.junit.jupiter.api.extension.BeforeEachCallback
 import org.junit.jupiter.api.extension.ExtensionContext
-import java.util.*
+import java.util.Locale
 
 class LocaleExtension : BeforeEachCallback, AfterEachCallback {
 
