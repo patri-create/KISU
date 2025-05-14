@@ -1,15 +1,10 @@
 package org.kisu.prefixes
 
-import org.kisu.common.isSingleUnit
-import org.kisu.common.pow
-import org.kisu.common.toString
-
 enum class Binary(
     override val base: Double,
     override val power: Int,
     override val symbol: String
 ) : Prefix {
-
     BASE(BINARY_BASE, 0, ""),
     KIBI(BINARY_BASE, 10, "Ki"),
     KILO(BINARY_BASE, 10, "K"),
@@ -24,15 +19,6 @@ enum class Binary(
     YOBI(BINARY_BASE, 80, "Yi"),
     ROBI(BINARY_BASE, 90, "Ri"),
     QUEBI(BINARY_BASE, 100, "Qi");
-
-    fun format(value: Double): String {
-        return "${value.toString(decimalPlaces = 1)} " +
-                if (value.isSingleUnit()) symbol.dropLast(1) else symbol
-    }
-
-    fun rescale(number: Double): Double = number / base.pow(power)
-
-    fun inBase(number: Double): Double = number * base.pow(power)
 }
 
 private const val BINARY_BASE = 2.0

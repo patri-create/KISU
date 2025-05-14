@@ -176,7 +176,7 @@ class MeterUnitTest {
     fun `1 petameter is 1000000000000 meter`() {
         val measure = Measure.create(1.0, Metric.PETA, Meter)
         val rescaled = measure.rescale(Metric.BASE)
-        rescaled.literal shouldBe "1000000000000 meter"
+        rescaled.literal shouldBe "1000000000000000 meter"
     }
 
     @Test

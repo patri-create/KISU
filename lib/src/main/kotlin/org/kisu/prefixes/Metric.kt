@@ -1,15 +1,10 @@
 package org.kisu.prefixes
 
-import org.kisu.common.isSingleUnit
-import org.kisu.common.pow
-import org.kisu.common.toString
-
 enum class Metric(
     override val base: Double,
     override val power: Int,
     override val symbol: String
 ) : Prefix {
-
     QUECTO(METRIC_BASE, -30, "q"),
     RONTO(METRIC_BASE, -27, "r"),
     YOCTO(METRIC_BASE, -24, "y"),
@@ -35,13 +30,6 @@ enum class Metric(
     YOTTA(METRIC_BASE, 24, "Y"),
     RONNA(METRIC_BASE, 27, "R"),
     QUETTA(METRIC_BASE, 30, "Q");
-
-    fun format(meters: Double) =
-        "${meters.toString(decimalPlaces = 1)} ${if (meters.isSingleUnit()) symbol.dropLast(1) else symbol}"
-
-    fun rescale(number: Double): Double = number / base.pow(power)
-
-    fun inBase(number: Double): Double = number * base.pow(power)
 }
 
 private const val METRIC_BASE = 10.0
