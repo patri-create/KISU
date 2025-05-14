@@ -1,3 +1,3 @@
-package com.kisu.decimalScale.units
+package org.kisu.units.distance
 
 internal val Meter = "meter"

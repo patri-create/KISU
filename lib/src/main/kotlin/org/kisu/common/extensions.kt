@@ -1,4 +1,4 @@
-package com.kisu.common.utils
+package org.kisu.common
 
 import org.kisu.prefixes.Prefix
 import java.util.*
