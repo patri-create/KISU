@@ -1,6 +1,6 @@
 package com.kisu.decimalScale
 
-import com.kisu.common.Prefix
+import org.kisu.prefixes.Prefix
 import com.kisu.common.utils.isSingleUnit
 import com.kisu.common.utils.toString
 

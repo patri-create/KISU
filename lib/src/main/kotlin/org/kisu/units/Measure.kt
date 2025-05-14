@@ -1,6 +1,7 @@
-package com.kisu.common
+package org.kisu.units
 
 import com.kisu.decimalScale.DecimalScale
+import org.kisu.prefixes.Prefix
 import java.text.DecimalFormat
 
 class Measure<T> private constructor(

@@ -1,4 +1,4 @@
-package com.kisu.common
+package org.kisu.prefixes
 
 import kotlin.math.pow
 import kotlin.reflect.KClass
