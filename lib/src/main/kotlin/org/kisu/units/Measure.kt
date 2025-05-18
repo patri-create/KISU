@@ -1,6 +1,6 @@
 package org.kisu.units
 
-import com.kisu.decimalScale.DecimalScale
+import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
 import java.text.DecimalFormat
 
@@ -25,7 +25,7 @@ class Measure<T> private constructor(
     }
 
     val canonical by lazy {
-        val baseMagnitude = prefix.rescale(DecimalScale.BASE) * magnitude
+        val baseMagnitude = prefix.rescale(Metric.BASE) * magnitude
         "$baseMagnitude $unit"
     }
 
