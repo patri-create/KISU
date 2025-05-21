@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    alias(libs.plugins.klint)
     alias(libs.plugins.dokka)
 }
 
