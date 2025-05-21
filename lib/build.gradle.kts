@@ -1,7 +1,10 @@
+import io.gitlab.arturbosch.detekt.Detekt
+
 plugins {
     kotlin("jvm")
     alias(libs.plugins.klint)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.detekt)
 }
 
 group = "org.kisu"
@@ -11,7 +14,22 @@ repositories {
     mavenCentral()
 }
 
+detekt {
+    buildUponDefaultConfig = true
+}
+
+tasks.withType<Detekt>().configureEach {
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+        sarif.required.set(true)
+        md.required.set(true)
+    }
+}
+
 dependencies {
+    detektPlugins(libs.detekt.cli)
+
     // Test Dependencies
     testImplementation(kotlin("test"))
 
