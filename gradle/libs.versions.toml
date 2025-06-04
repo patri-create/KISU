@@ -1,8 +1,12 @@
 [versions]
+dokka = "2.0.0"
 jacoco = "0.8.13"
 jqwik = "1.8.2"
 junit = "5.10.1"
 kotest = "5.9.1"
+
+[plugins]
+dokka = { id = "org.jetbrains.dokka",  version.ref = "dokka" }
 
 
 [libraries]

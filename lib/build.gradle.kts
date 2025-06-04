@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    alias(libs.plugins.dokka)
 }
 
 group = "org.kisu"
@@ -24,4 +25,18 @@ dependencies {
 
 kotlin {
     jvmToolchain(19)
+}
+
+dokka {
+    moduleName.set("KISU")
+    dokkaPublications {
+        html {
+            outputDirectory.set(layout.buildDirectory.dir("docs"))
+        }
+    }
+    pluginsConfiguration{
+        html {
+            footerMessage.set("(c) Sefford & Patri-create 2025")
+        }
+    }
 }
