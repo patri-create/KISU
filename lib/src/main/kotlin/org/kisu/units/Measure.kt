@@ -2,20 +2,21 @@ package org.kisu.units
 
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
+import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
 import java.text.DecimalFormat
 
-class Measure<T> private constructor(
+class Measure<T>(
     private val magnitude: BigDecimal,
     private val prefix: T,
     private val unit: String,
-) where T : Enum<T>, T : Prefix {
+) where T : System<T>, T : Prefix {
 
-    constructor(magnitude: Double, prefix: T, unit: String): this(BigDecimal.valueOf(magnitude), prefix, unit)
+    constructor(magnitude: Double, prefix: T, unit: String) : this(BigDecimal.valueOf(magnitude), prefix, unit)
 
     private val optimal by lazy {
-        (Prefix.allEntries(prefix::class)
-            .map { unit -> prefix.rescale(unit) * magnitude to unit }
+        (prefix.all
+            .map { unit -> prefix.scale(unit) * magnitude to unit }
             .lastOrNull { (magnitude, _) -> magnitude >= BigDecimal.ONE } ?: (0.0 to prefix.base))
             .let { (magnitude, prefix) ->
                 if (prefix.toString() != BASE) "$magnitude ${prefix.toString().lowercase()}$unit" else "$magnitude $unit"
@@ -28,14 +29,14 @@ class Measure<T> private constructor(
     }
 
     val canonical by lazy {
-        val baseMagnitude = prefix.rescale(Metric.BASE) * magnitude
+        val baseMagnitude = prefix.scale(Metric.BASE) * magnitude
         "$baseMagnitude $unit"
     }
 
     val isZero: Boolean by lazy { magnitude.compareTo(BigDecimal.ZERO) == 0}
 
     fun rescale(other: T): Measure<T> {
-        val conversion = prefix.rescale(other)
+        val conversion = prefix.scale(other)
         return Measure(magnitude * conversion, other, unit)
     }
 
@@ -46,7 +47,7 @@ class Measure<T> private constructor(
         const val BASE = "BASE"
 
         fun <T> create(magnitude: Double, prefix: T, unit: String): Measure<T>
-                where T : Enum<T>, T : Prefix {
+                where T : System<T>, T : Prefix {
             return Measure(magnitude, prefix, unit)
         }
     }
