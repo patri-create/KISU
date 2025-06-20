@@ -2,18 +2,21 @@ package org.kisu.units
 
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
+import java.math.BigDecimal
 import java.text.DecimalFormat
 
 class Measure<T> private constructor(
-    private val magnitude: Double,
+    private val magnitude: BigDecimal,
     private val prefix: T,
     private val unit: String,
 ) where T : Enum<T>, T : Prefix {
 
+    constructor(magnitude: Double, prefix: T, unit: String): this(BigDecimal.valueOf(magnitude), prefix, unit)
+
     private val optimal by lazy {
         (Prefix.allEntries(prefix::class)
             .map { unit -> prefix.rescale(unit) * magnitude to unit }
-            .lastOrNull { (magnitude, _) -> magnitude >= 1 } ?: (0.0 to prefix.base))
+            .lastOrNull { (magnitude, _) -> magnitude >= BigDecimal.ONE } ?: (0.0 to prefix.base))
             .let { (magnitude, prefix) ->
                 if (prefix.toString() != BASE) "$magnitude ${prefix.toString().lowercase()}$unit" else "$magnitude $unit"
             }
@@ -29,7 +32,7 @@ class Measure<T> private constructor(
         "$baseMagnitude $unit"
     }
 
-    val isZero: Boolean by lazy { magnitude == 0.0 }
+    val isZero: Boolean by lazy { magnitude.compareTo(BigDecimal.ZERO) == 0}
 
     fun rescale(other: T): Measure<T> {
         val conversion = prefix.rescale(other)

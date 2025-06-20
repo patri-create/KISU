@@ -1,7 +1,9 @@
 package org.kisu.prefixes
 
+import java.math.BigDecimal
+
 enum class Metric(
-    override val base: Double,
+    override val base: BigDecimal,
     override val power: Int,
     override val symbol: String
 ) : Prefix {
@@ -32,4 +34,4 @@ enum class Metric(
     QUETTA(METRIC_BASE, 30, "Q");
 }
 
-private const val METRIC_BASE = 10.0
+private val METRIC_BASE = BigDecimal.valueOf(10.0)

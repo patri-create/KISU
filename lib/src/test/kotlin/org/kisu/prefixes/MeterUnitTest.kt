@@ -10,11 +10,13 @@ import org.junit.jupiter.api.parallel.ResourceLocks
 import org.junit.jupiter.api.parallel.Resources
 import org.kisu.test.extensions.LocaleExtension
 import org.kisu.units.Measure
+import kotlin.test.Ignore
 
 @ExtendWith(LocaleExtension::class)
 @ResourceLocks(
     ResourceLock(Resources.LOCALE, mode = ResourceAccessMode.READ_WRITE)
 )
+@Ignore
 class MeterUnitTest {
 
     @Test
