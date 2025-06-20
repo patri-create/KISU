@@ -13,6 +13,13 @@ $dokka.location:org.kisu.prefixes.primitives/InBase.Decimal///PointingToDeclarat
 $dokka.location:org.kisu.prefixes.primitives/InBase.Decimal/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-in-base/-decimal/base.html
 $dokka.location:org.kisu.prefixes.primitives/InBase///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-in-base/index.html
 $dokka.location:org.kisu.prefixes.primitives/InBase/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-in-base/base.html
+$dokka.location:org.kisu.prefixes.primitives/Representation///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/index.html
+$dokka.location:org.kisu.prefixes.primitives/Representation/Representation/#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/-representation.html
+$dokka.location:org.kisu.prefixes.primitives/Representation/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/symbol.html
+$dokka.location:org.kisu.prefixes.primitives/Representation/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/to-string.html
+$dokka.location:org.kisu.prefixes.primitives/Symbol///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-symbol/index.html
+$dokka.location:org.kisu.prefixes.primitives/Symbol/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-symbol/symbol.html
+$dokka.location:org.kisu.prefixes.primitives/Symbol/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-symbol/to-string.html
 $dokka.location:org.kisu.prefixes////PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/index.html
 $dokka.location:org.kisu.prefixes/Binary.BASE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-b-a-s-e/index.html
 $dokka.location:org.kisu.prefixes/Binary.EXBI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-e-x-b-i/index.html
