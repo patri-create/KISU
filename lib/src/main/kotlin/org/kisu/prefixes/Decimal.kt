@@ -1,7 +1,9 @@
 package org.kisu.prefixes
 
+import java.math.BigDecimal
+
 enum class Decimal(
-    override val base: Double,
+    override val base: BigDecimal,
     override val power: Int,
     override val symbol: String
 ) : Prefix {
@@ -18,4 +20,4 @@ enum class Decimal(
     QUETTA(DECIMAL_BASE, 10, "Q");
 }
 
-private const val DECIMAL_BASE = 1000.0
+private val DECIMAL_BASE = BigDecimal.valueOf(1000.0)

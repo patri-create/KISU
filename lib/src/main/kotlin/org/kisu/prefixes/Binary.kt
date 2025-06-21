@@ -1,7 +1,9 @@
 package org.kisu.prefixes
 
+import java.math.BigDecimal
+
 enum class Binary(
-    override val base: Double,
+    override val base: BigDecimal,
     override val power: Int,
     override val symbol: String
 ) : Prefix {
@@ -21,4 +23,4 @@ enum class Binary(
     QUEBI(BINARY_BASE, 100, "Qi");
 }
 
-private const val BINARY_BASE = 2.0
+private val BINARY_BASE = BigDecimal.valueOf(2.0)
