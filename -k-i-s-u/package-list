@@ -17,9 +17,20 @@ $dokka.location:org.kisu.prefixes.primitives/Representation///PointingToDeclarat
 $dokka.location:org.kisu.prefixes.primitives/Representation/Representation/#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/-representation.html
 $dokka.location:org.kisu.prefixes.primitives/Representation/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/symbol.html
 $dokka.location:org.kisu.prefixes.primitives/Representation/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/to-string.html
+$dokka.location:org.kisu.prefixes.primitives/StandardSystem///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-standard-system/index.html
+$dokka.location:org.kisu.prefixes.primitives/StandardSystem/StandardSystem/#kotlin.reflect.KClass[TypeParam(bounds=[org.kisu.prefixes.Prefix])]/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-standard-system/-standard-system.html
+$dokka.location:org.kisu.prefixes.primitives/StandardSystem/all/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-standard-system/all.html
+$dokka.location:org.kisu.prefixes.primitives/StandardSystem/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-standard-system/canonical.html
+$dokka.location:org.kisu.prefixes.primitives/StandardSystem/largest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-standard-system/largest.html
+$dokka.location:org.kisu.prefixes.primitives/StandardSystem/smallest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-standard-system/smallest.html
 $dokka.location:org.kisu.prefixes.primitives/Symbol///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-symbol/index.html
 $dokka.location:org.kisu.prefixes.primitives/Symbol/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-symbol/symbol.html
 $dokka.location:org.kisu.prefixes.primitives/Symbol/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-symbol/to-string.html
+$dokka.location:org.kisu.prefixes.primitives/System///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/index.html
+$dokka.location:org.kisu.prefixes.primitives/System/all/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/all.html
+$dokka.location:org.kisu.prefixes.primitives/System/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/canonical.html
+$dokka.location:org.kisu.prefixes.primitives/System/largest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/largest.html
+$dokka.location:org.kisu.prefixes.primitives/System/smallest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/smallest.html
 $dokka.location:org.kisu.prefixes////PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/index.html
 $dokka.location:org.kisu.prefixes/Binary.BASE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-b-a-s-e/index.html
 $dokka.location:org.kisu.prefixes/Binary.EXBI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-e-x-b-i/index.html
@@ -108,6 +119,7 @@ $dokka.location:org.kisu.units/Measure.Companion/BASE/#/PointingToDeclaration/-
 $dokka.location:org.kisu.units/Measure.Companion/DECIMAL_FORMAT/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/-d-e-c-i-m-a-l_-f-o-r-m-a-t.html
 $dokka.location:org.kisu.units/Measure.Companion/create/#kotlin.Double#TypeParam(bounds=[kotlin.Enum[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/create.html
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
+$dokka.location:org.kisu.units/Measure/Measure/#kotlin.Double#TypeParam(bounds=[kotlin.Enum[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-measure.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
 $dokka.location:org.kisu.units/Measure/isZero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/is-zero.html
 $dokka.location:org.kisu.units/Measure/literal/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/literal.html
