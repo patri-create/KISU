@@ -1,3 +1,3 @@
 package org.kisu.units.distance
 
-internal val Meter = "meter"
+internal const val METER = "meter"
