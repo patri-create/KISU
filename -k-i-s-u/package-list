@@ -99,18 +99,20 @@ $dokka.location:org.kisu.prefixes/Prefix/compareTo/#org.kisu.prefixes.Prefix/Poi
 $dokka.location:org.kisu.prefixes/Prefix/power/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/power.html
 $dokka.location:org.kisu.prefixes/Prefix/scale/#org.kisu.prefixes.Prefix/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/scale.html
 $dokka.location:org.kisu.units////PointingToDeclaration/-k-i-s-u/org.kisu.units/index.html
-$dokka.location:org.kisu.units/Measure.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/index.html
-$dokka.location:org.kisu.units/Measure.Companion/BASE/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/-b-a-s-e.html
-$dokka.location:org.kisu.units/Measure.Companion/DECIMAL_FORMAT/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/-d-e-c-i-m-a-l_-f-o-r-m-a-t.html
-$dokka.location:org.kisu.units/Measure.Companion/create/#kotlin.Double#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/create.html
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
 $dokka.location:org.kisu.units/Measure/Measure/#java.math.BigDecimal#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-measure.html
 $dokka.location:org.kisu.units/Measure/Measure/#kotlin.Double#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-measure.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
-$dokka.location:org.kisu.units/Measure/isZero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/is-zero.html
-$dokka.location:org.kisu.units/Measure/literal/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/literal.html
-$dokka.location:org.kisu.units/Measure/rescale/#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/rescale.html
+$dokka.location:org.kisu.units/Measure/equals/#kotlin.Any?/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/equals.html
+$dokka.location:org.kisu.units/Measure/hashCode/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/hash-code.html
+$dokka.location:org.kisu.units/Measure/optimal/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/optimal.html
+$dokka.location:org.kisu.units/Measure/representation/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/representation.html
+$dokka.location:org.kisu.units/Measure/to/#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/to.html
 $dokka.location:org.kisu.units/Measure/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/to-string.html
+$dokka.location:org.kisu////PointingToDeclaration/-k-i-s-u/org.kisu/index.html
+$dokka.location:org.kisu//orElse/TypeParam(bounds=[kotlin.Any?])?#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-k-i-s-u/org.kisu/or-else.html
+$dokka.location:org.kisu//zero/java.math.BigDecimal#/PointingToDeclaration/-k-i-s-u/org.kisu/zero.html
+org.kisu
 org.kisu.prefixes
 org.kisu.prefixes.primitives
 org.kisu.units
