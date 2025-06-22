@@ -11,7 +11,7 @@ object System {
     val systems: Arbitrary<StandardSystem<*>> = Arbitraries.of(
         StandardSystem(Metric::class),
         StandardSystem(Binary::class),
-        StandardSystem(Decimal::class),
+        StandardSystem(Decimal::class)
     )
 
     fun sample() = systems.sample()

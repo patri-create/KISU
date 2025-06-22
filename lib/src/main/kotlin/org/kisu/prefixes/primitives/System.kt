@@ -21,7 +21,7 @@ import org.kisu.prefixes.Prefix
  *
  * @param T the enum type representing the prefixes in this system, which must implement [Prefix]
  */
-interface System<T: Prefix> {
+interface System<T : Prefix> {
     /**
      * The canonical unit for the system.
      *

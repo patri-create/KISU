@@ -34,7 +34,7 @@ import org.kisu.prefixes.primitives.System
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Binary(
     override val power: Int,
-    symbol: String,
+    symbol: String
 ) : Prefix, InBase by InBase.Binary, System<Binary> by StandardSystem(Binary::class), Symbol by Representation(symbol) {
     /**
      * 2^0 = 1
@@ -78,5 +78,5 @@ enum class Binary(
     ROBI(90, "Ri"),
 
     /** Symbol: "Qi" — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
-    QUEBI(100, "Qi"),
+    QUEBI(100, "Qi")
 }

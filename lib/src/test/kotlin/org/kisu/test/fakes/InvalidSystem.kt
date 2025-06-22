@@ -10,11 +10,11 @@ import org.kisu.prefixes.primitives.System
 
 enum class InvalidSystem(
     override val power: Int,
-    symbol: String,
+    symbol: String
 ) : Prefix,
     InBase by InBase.Decimal,
     System<Decimal> by StandardSystem(Decimal::class),
     Symbol by Representation(symbol) {
 
-    ERROR(10, ""),
+    ERROR(10, "")
 }

@@ -21,7 +21,7 @@ import kotlin.reflect.KClass
  *
  * @param klass The Kotlin class reference of the enum implementing [Prefix].
  */
-class StandardSystem<T: Prefix>(klass: KClass<T>) : System<T> {
+class StandardSystem<T : Prefix>(klass: KClass<T>) : System<T> {
 
     /**
      * The base prefix in the system, identified by power == 0.
