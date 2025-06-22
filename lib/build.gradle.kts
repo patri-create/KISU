@@ -16,6 +16,7 @@ repositories {
 
 detekt {
     buildUponDefaultConfig = true
+    config.setFrom(file("config/detekt/detekt.yml"))
 }
 
 tasks.withType<Detekt>().configureEach {
