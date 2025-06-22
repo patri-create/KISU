@@ -108,43 +108,24 @@
   <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.prefixes</a><span class="delimiter">/</span><span class="current">Prefix</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Prefix</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">Prefix</a></div><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-binary/index.html">Binary</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-decimal/index.html">Decimal</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-metric/index.html">Metric</a></div></span></div><div></div></div></div></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">Prefix</a> : <a href="../../org.kisu.prefixes.primitives/-in-base/index.html">InBase</a>, <a href="../../org.kisu.prefixes.primitives/-symbol/index.html">Symbol</a>, <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator">&gt; </span></div><p class="paragraph">A Prefix is a specifier or mnemonic which is added to a unit of measurement to specify multiples or fractions of the units.</p><p class="paragraph">The prefixes are standarized by the <a href="https://www.bipm.org/en/">International Bureau of Weights and Measures</a> for the Metric system.</p><p class="paragraph">Units of information (namely bits, bytes and such) are not covered by the Bureau, and instead are handled by the <a href="https://iec.ch/">International Electrotechnical Commision</a>.</p><p class="paragraph">All prefixes are comprised of three parts, a base, a power to which that base is multiplied and a symbol that annotates the unit of measure.</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">| Name  | Symbol | Base | Power | Multiplier |<br>|-------|--------|------|-------|------------|<br>| centi | c      | 10   | -2    | 0.01       |<br>| kilo  | k      | 10   | 3     | 1_000      |<br>| mega  | M      | 10   | 6     | 1_000_000  |</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-binary/index.html">Binary</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-decimal/index.html">Decimal</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-metric/index.html">Metric</a></div></span></div><div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <div data-togglable="TYPE">
-        <h2 class="">Types</h2>
-        <div class="table"><a data-name="-207422378%2FClasslikes%2F-1895836109" anchor-label="Companion" id="-207422378%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-207422378%2FClasslikes%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
-        <div class="table"><a data-name="-1428953222%2FProperties%2F-1895836109" anchor-label="base" id="-1428953222%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+        <div class="table"><a data-name="-1356286868%2FProperties%2F-1895836109" anchor-label="base" id="-1356286868%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="base.html"><span><span>base</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1428953222%2FProperties%2F-1895836109"></span>
+                  <div><a href="../../org.kisu.prefixes.primitives/-in-base/base.html"><span><span>base</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1356286868%2FProperties%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="base.html">base</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="../../org.kisu.prefixes.primitives/-in-base/base.html">base</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">The numeric base used for exponentiation in prefix calculations.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -159,22 +140,22 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="power.html">power</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="power.html">power</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The exponent to which the <span data-unresolved-link="org.kisu.prefixes/Prefix/base/#/PointingToDeclaration/">base</span> is raised to calculate the multiplier for this prefix.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1476775149%2FProperties%2F-1895836109" anchor-label="symbol" id="-1476775149%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="-107082873%2FProperties%2F-1895836109" anchor-label="symbol" id="-107082873%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="symbol.html"><span><span>symbol</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1476775149%2FProperties%2F-1895836109"></span>
+                  <div><a href="../../org.kisu.prefixes.primitives/-symbol/symbol.html"><span><span>symbol</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-107082873%2FProperties%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="symbol.html">symbol</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="../../org.kisu.prefixes.primitives/-symbol/symbol.html">symbol</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The textual symbol representing this prefix.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -183,62 +164,32 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-2138168272%2FFunctions%2F-1895836109" anchor-label="format" id="-2138168272%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+        <div class="table"><a data-name="174348947%2FFunctions%2F-1895836109" anchor-label="compareTo" id="174348947%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="format.html"><span><span>format</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2138168272%2FFunctions%2F-1895836109"></span>
+                  <div><a href="compare-to.html"><span>compare</span><wbr></wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="174348947%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="format.html"><span class="token function">format</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">meters<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="compare-to.html"><span class="token function">compareTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Compares this <a href="index.html">Prefix</a> with the specified <a href="index.html">other</a> for order.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1117940367%2FFunctions%2F-1895836109" anchor-label="inBase" id="1117940367%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="476432841%2FFunctions%2F-1895836109" anchor-label="scale" id="476432841%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="in-base.html"><span>in</span><wbr></wbr><span><span>Base</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1117940367%2FFunctions%2F-1895836109"></span>
+                  <div><a href="scale.html"><span><span>scale</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="476432841%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="in-base.html"><span class="token function">inBase</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">number<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="2049946876%2FFunctions%2F-1895836109" anchor-label="rescale" id="2049946876%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="rescale.html"><span><span>rescale</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2049946876%2FFunctions%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="rescale.html"><span class="token function">rescale</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">number<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="rescale.html"><span class="token function">rescale</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="752802814%2FFunctions%2F-1895836109" anchor-label="toString" id="752802814%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="../../org.kisu.common/to-string.html"><span>to</span><wbr></wbr><span><span>String</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="752802814%2FFunctions%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">Prefix</a><span class="token punctuation">.</span><a href="../../org.kisu.common/to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="scale.html"><span class="token function">scale</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">Returns the factor by which a value expressed in this prefix must be multiplied to convert it to the scale of the <a href="scale.html">other</a> prefix.</p></div></div></div>
                 </div>
               </div>
             </div>

@@ -1,9 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:org.kisu.common////PointingToDeclaration/-k-i-s-u/org.kisu.common/index.html
-$dokka.location:org.kisu.common//isSingleUnit/kotlin.Double#/PointingToDeclaration/-k-i-s-u/org.kisu.common/is-single-unit.html
-$dokka.location:org.kisu.common//toString/kotlin.Double#kotlin.Int/PointingToDeclaration/-k-i-s-u/org.kisu.common/to-string.html
-$dokka.location:org.kisu.common//toString/org.kisu.prefixes.Prefix#/PointingToDeclaration/-k-i-s-u/org.kisu.common/to-string.html
 $dokka.location:org.kisu.prefixes.primitives////PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/index.html
 $dokka.location:org.kisu.prefixes.primitives/InBase.Binary///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-in-base/-binary/index.html
 $dokka.location:org.kisu.prefixes.primitives/InBase.Binary/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-in-base/-binary/base.html
@@ -32,6 +28,7 @@ $dokka.location:org.kisu.prefixes.primitives/System/canonical/#/PointingToDeclar
 $dokka.location:org.kisu.prefixes.primitives/System/largest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/largest.html
 $dokka.location:org.kisu.prefixes.primitives/System/smallest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-system/smallest.html
 $dokka.location:org.kisu.prefixes////PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/index.html
+$dokka.location:org.kisu.prefixes//sortWith/TypeParam(bounds=[org.kisu.prefixes.Prefix, kotlin.Comparable[org.kisu.prefixes.Prefix]])#TypeParam(bounds=[org.kisu.prefixes.Prefix, kotlin.Comparable[org.kisu.prefixes.Prefix]])/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/sort-with.html
 $dokka.location:org.kisu.prefixes/Binary.BASE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-b-a-s-e/index.html
 $dokka.location:org.kisu.prefixes/Binary.EXBI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-e-x-b-i/index.html
 $dokka.location:org.kisu.prefixes/Binary.GIBI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-g-i-b-i/index.html
@@ -47,10 +44,8 @@ $dokka.location:org.kisu.prefixes/Binary.TEBI///PointingToDeclaration/{"org.jetb
 $dokka.location:org.kisu.prefixes/Binary.YOBI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-y-o-b-i/index.html
 $dokka.location:org.kisu.prefixes/Binary.ZEBI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-binary/-z-e-b-i/index.html
 $dokka.location:org.kisu.prefixes/Binary///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/index.html
-$dokka.location:org.kisu.prefixes/Binary/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/base.html
 $dokka.location:org.kisu.prefixes/Binary/entries/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/entries.html
 $dokka.location:org.kisu.prefixes/Binary/power/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/power.html
-$dokka.location:org.kisu.prefixes/Binary/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/symbol.html
 $dokka.location:org.kisu.prefixes/Binary/valueOf/#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/value-of.html
 $dokka.location:org.kisu.prefixes/Binary/values/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-binary/values.html
 $dokka.location:org.kisu.prefixes/Decimal.BASE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-decimal/-b-a-s-e/index.html
@@ -65,10 +60,8 @@ $dokka.location:org.kisu.prefixes/Decimal.TERA///PointingToDeclaration/{"org.jet
 $dokka.location:org.kisu.prefixes/Decimal.YOTTA///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-decimal/-y-o-t-t-a/index.html
 $dokka.location:org.kisu.prefixes/Decimal.ZETTA///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-decimal/-z-e-t-t-a/index.html
 $dokka.location:org.kisu.prefixes/Decimal///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/index.html
-$dokka.location:org.kisu.prefixes/Decimal/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/base.html
 $dokka.location:org.kisu.prefixes/Decimal/entries/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/entries.html
 $dokka.location:org.kisu.prefixes/Decimal/power/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/power.html
-$dokka.location:org.kisu.prefixes/Decimal/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/symbol.html
 $dokka.location:org.kisu.prefixes/Decimal/valueOf/#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/value-of.html
 $dokka.location:org.kisu.prefixes/Decimal/values/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-decimal/values.html
 $dokka.location:org.kisu.prefixes/Metric.ATTO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-metric/-a-t-t-o/index.html
@@ -97,35 +90,27 @@ $dokka.location:org.kisu.prefixes/Metric.YOTTA///PointingToDeclaration/{"org.jet
 $dokka.location:org.kisu.prefixes/Metric.ZEPTO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-metric/-z-e-p-t-o/index.html
 $dokka.location:org.kisu.prefixes/Metric.ZETTA///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-k-i-s-u/org.kisu.prefixes/-metric/-z-e-t-t-a/index.html
 $dokka.location:org.kisu.prefixes/Metric///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/index.html
-$dokka.location:org.kisu.prefixes/Metric/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/base.html
 $dokka.location:org.kisu.prefixes/Metric/entries/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/entries.html
 $dokka.location:org.kisu.prefixes/Metric/power/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/power.html
-$dokka.location:org.kisu.prefixes/Metric/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/symbol.html
 $dokka.location:org.kisu.prefixes/Metric/valueOf/#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/value-of.html
 $dokka.location:org.kisu.prefixes/Metric/values/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-metric/values.html
-$dokka.location:org.kisu.prefixes/Prefix.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/-companion/index.html
-$dokka.location:org.kisu.prefixes/Prefix.Companion/allEntries/#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Enum[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/-companion/all-entries.html
 $dokka.location:org.kisu.prefixes/Prefix///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/index.html
-$dokka.location:org.kisu.prefixes/Prefix/base/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/base.html
-$dokka.location:org.kisu.prefixes/Prefix/format/#kotlin.Double/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/format.html
-$dokka.location:org.kisu.prefixes/Prefix/inBase/#kotlin.Double/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/in-base.html
+$dokka.location:org.kisu.prefixes/Prefix/compareTo/#org.kisu.prefixes.Prefix/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/compare-to.html
 $dokka.location:org.kisu.prefixes/Prefix/power/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/power.html
-$dokka.location:org.kisu.prefixes/Prefix/rescale/#kotlin.Double/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/rescale.html
-$dokka.location:org.kisu.prefixes/Prefix/rescale/#org.kisu.prefixes.Prefix/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/rescale.html
-$dokka.location:org.kisu.prefixes/Prefix/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/symbol.html
+$dokka.location:org.kisu.prefixes/Prefix/scale/#org.kisu.prefixes.Prefix/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes/-prefix/scale.html
 $dokka.location:org.kisu.units////PointingToDeclaration/-k-i-s-u/org.kisu.units/index.html
 $dokka.location:org.kisu.units/Measure.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/index.html
 $dokka.location:org.kisu.units/Measure.Companion/BASE/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/-b-a-s-e.html
 $dokka.location:org.kisu.units/Measure.Companion/DECIMAL_FORMAT/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/-d-e-c-i-m-a-l_-f-o-r-m-a-t.html
-$dokka.location:org.kisu.units/Measure.Companion/create/#kotlin.Double#TypeParam(bounds=[kotlin.Enum[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/create.html
+$dokka.location:org.kisu.units/Measure.Companion/create/#kotlin.Double#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-companion/create.html
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
-$dokka.location:org.kisu.units/Measure/Measure/#kotlin.Double#TypeParam(bounds=[kotlin.Enum[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-measure.html
+$dokka.location:org.kisu.units/Measure/Measure/#java.math.BigDecimal#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-measure.html
+$dokka.location:org.kisu.units/Measure/Measure/#kotlin.Double#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/-measure.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
 $dokka.location:org.kisu.units/Measure/isZero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/is-zero.html
 $dokka.location:org.kisu.units/Measure/literal/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/literal.html
-$dokka.location:org.kisu.units/Measure/rescale/#TypeParam(bounds=[kotlin.Enum[^], org.kisu.prefixes.Prefix])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/rescale.html
+$dokka.location:org.kisu.units/Measure/rescale/#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/rescale.html
 $dokka.location:org.kisu.units/Measure/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/to-string.html
-org.kisu.common
 org.kisu.prefixes
 org.kisu.prefixes.primitives
 org.kisu.units
