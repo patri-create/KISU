@@ -20,7 +20,7 @@ import java.math.BigDecimal
 class Measure<T>(
     private val magnitude: BigDecimal,
     private val prefix: T,
-    private val unit: String,
+    private val unit: String
 ) where T : System<T>, T : Prefix {
 
     constructor(magnitude: Double, prefix: T, unit: String) : this(BigDecimal.valueOf(magnitude), prefix, unit)

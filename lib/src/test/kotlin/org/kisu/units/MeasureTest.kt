@@ -3,7 +3,12 @@ package org.kisu.units
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
-import net.jqwik.api.*
+import net.jqwik.api.Arbitraries
+import net.jqwik.api.Arbitrary
+import net.jqwik.api.Combinators
+import net.jqwik.api.ForAll
+import net.jqwik.api.Property
+import net.jqwik.api.Provide
 import org.kisu.prefixes.Metric
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.utils.optimalPrefixFrom
@@ -14,27 +19,33 @@ import java.math.MathContext
 class MeasureTest {
 
     @Property
-    fun `rescales correctly`(@ForAll("measures") measure: Measure<Metric>, @ForAll("prefixes") newPrefix: Metric) {
+    fun `rescales correctly`(
+        @ForAll("measures") measure: Measure<Metric>,
+        @ForAll("prefixes") newPrefix: Metric
+    ) {
         measure.to(newPrefix)
     }
 
     @Property
     fun `renders literal when the magnitude is not zero`(
         @ForAll("nonZeroMagnitudes") magnitude: BigDecimal,
-        @ForAll("prefixes") prefix: Metric,
+        @ForAll("prefixes") prefix: Metric
     ) {
         TestUnit(magnitude, prefix).representation shouldBe "$magnitude $prefix${TestUnit.SYMBOL}"
     }
 
     @Property
     fun `renders literal when the magnitude is zero`(
-        @ForAll("prefixes") prefix: Metric,
+        @ForAll("prefixes") prefix: Metric
     ) {
         TestUnit(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.SYMBOL}"
     }
 
     @Property
-    fun `renders canonical`(@ForAll("magnitudes") magnitude: BigDecimal, @ForAll("prefixes") prefix: Metric) {
+    fun `renders canonical`(
+        @ForAll("magnitudes") magnitude: BigDecimal,
+        @ForAll("prefixes") prefix: Metric
+    ) {
         TestUnit(magnitude, prefix).canonical.representation shouldBe TestUnit(
             magnitude,
             prefix
@@ -50,7 +61,7 @@ class MeasureTest {
 
     @Property
     fun `renders optimal correctly when magnitude is beyond the largest prefix`(
-        @ForAll("greaterThanZero") magnitude: BigDecimal,
+        @ForAll("greaterThanZero") magnitude: BigDecimal
     ) {
         val measure = TestUnit(magnitude, Metric.QUETTA)
 
@@ -59,7 +70,7 @@ class MeasureTest {
 
     @Property
     fun `renders optimal correctly when magnitude is beyond the smallest prefix`(
-        @ForAll("lesserThanOne") magnitude: BigDecimal,
+        @ForAll("lesserThanOne") magnitude: BigDecimal
     ) {
         val measure = TestUnit(magnitude, Metric.QUECTO)
 
@@ -94,7 +105,11 @@ class MeasureTest {
     }
 
     @Property
-    fun `equality is transitive`(@ForAll("measures") x: Measure<Metric>, @ForAll("prefixes") first: Metric, @ForAll("prefixes") second: Metric) {
+    fun `equality is transitive`(
+        @ForAll("measures") x: Measure<Metric>,
+        @ForAll("prefixes") first: Metric,
+        @ForAll("prefixes") second: Metric
+    ) {
         val y = x.to(first)
         val z = x.to(second)
 
@@ -103,6 +118,7 @@ class MeasureTest {
         (x == z).shouldBeTrue()
     }
 
+    @Suppress("EqualsNullCall")
     @Property
     fun `equality is non-null`(@ForAll("measures") x: Measure<Metric>) {
         (x.equals(null)).shouldBeFalse()
@@ -125,7 +141,7 @@ class MeasureTest {
     @Provide
     fun greaterThanZero() = Arbitraries.oneOf(
         Arbitraries.bigDecimals().greaterOrEqual(BigDecimal.ONE),
-        Arbitraries.bigDecimals().lessOrEqual(BigDecimal.ONE.negate()),
+        Arbitraries.bigDecimals().lessOrEqual(BigDecimal.ONE.negate())
     )
 
     @Provide

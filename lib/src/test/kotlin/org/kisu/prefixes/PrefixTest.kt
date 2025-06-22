@@ -2,7 +2,10 @@ package org.kisu.prefixes
 
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.shouldBe
-import net.jqwik.api.*
+import net.jqwik.api.Arbitrary
+import net.jqwik.api.ForAll
+import net.jqwik.api.Property
+import net.jqwik.api.Provide
 import org.kisu.test.generators.Prefixes
 import java.math.BigDecimal
 

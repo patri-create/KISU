@@ -1,7 +1,11 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.*
+import org.kisu.prefixes.primitives.InBase
 import org.kisu.prefixes.primitives.InBase.Binary
+import org.kisu.prefixes.primitives.Representation
+import org.kisu.prefixes.primitives.StandardSystem
+import org.kisu.prefixes.primitives.Symbol
+import org.kisu.prefixes.primitives.System
 
 /**
  * The `Decimal` prefix system defines unit prefixes based on powers of 1000 (10³).
@@ -28,7 +32,7 @@ import org.kisu.prefixes.primitives.InBase.Binary
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Decimal(
     override val power: Int,
-    symbol: String,
+    symbol: String
 ) : Prefix,
     InBase by InBase.Decimal,
     System<Decimal> by StandardSystem(Decimal::class),
@@ -65,5 +69,5 @@ enum class Decimal(
     RONNA(9, "R"),
 
     /** Symbol: "Q" — 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(10, "Q"),
+    QUETTA(10, "Q")
 }
