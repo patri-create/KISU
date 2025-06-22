@@ -38,7 +38,7 @@ class StandardSystem<T: Prefix>(klass: KClass<T>) : System<T> {
      *
      * To maintain an order, this list is sorted by power, smallest to largest.
      */
-    override val all: List<T> by lazy { klass.java.enumConstants?.toList().orEmpty().sortedBy { it.power } }
+    override val all: List<T> by lazy { klass.java.enumConstants?.toList().orEmpty().sorted() }
 
     /**
      * The smallest prefix in this system (e.g., [QUECTO] in Metric).

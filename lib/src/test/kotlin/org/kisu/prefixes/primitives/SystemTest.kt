@@ -4,6 +4,7 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.ints.shouldBeZero
+import io.kotest.matchers.shouldBe
 import net.jqwik.api.ForAll
 import net.jqwik.api.Property
 import net.jqwik.api.Provide
@@ -31,6 +32,16 @@ class SystemTest {
     @Property
     fun `all prefixes from a system is sorted by power`(@ForAll("systems") system: StandardSystem<*>) {
         system.all.map { prefix -> prefix.power }.shouldBeSorted()
+    }
+
+    @Property
+    fun `retrieves the smallest prefix`(@ForAll("systems") system: StandardSystem<*>) {
+        system.smallest shouldBe system.all.first()
+    }
+
+    @Property
+    fun `retrieves the largest prefix`(@ForAll("systems") system: StandardSystem<*>) {
+        system.largest shouldBe system.all.last()
     }
 
     @Provide
