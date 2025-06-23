@@ -1,12 +1,14 @@
 package org.kisu.test.generators
 
-import net.jqwik.api.Arbitraries
-import net.jqwik.api.Arbitrary
+import io.kotest.property.Arb
+import io.kotest.property.RandomSource
+import io.kotest.property.arbitrary.of
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.primitives.StandardSystem
 
 object Binary {
-    val system: Arbitrary<Binary> = Arbitraries.of(StandardSystem(Binary::class).all)
+    val system = Arb.of(StandardSystem(Binary::class).all)
 
-    fun sample(): Binary = system.sample()
+    val sample: Binary
+        get() = system.sample(RandomSource.default()).value
 }
