@@ -54,7 +54,7 @@ dokka {
             outputDirectory.set(layout.buildDirectory.dir("docs"))
         }
     }
-    pluginsConfiguration{
+    pluginsConfiguration {
         html {
             footerMessage.set("(c) Sefford & Patri-create 2025")
         }
