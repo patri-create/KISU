@@ -34,13 +34,10 @@ dependencies {
     // Test Dependencies
     testImplementation(kotlin("test"))
 
-    // JUnit 5
-    testRuntimeOnly(libs.junit.jupiter.engine)
-    testImplementation(libs.junit.jupiter.api)
-    testImplementation(libs.junit.jupiter.params)
-    testImplementation(libs.jqwik)
-
-    testImplementation(libs.kotest.assertions.core)
+    // Kotest
+    testImplementation(libs.kotest)
+    testImplementation(libs.kotest.assertions)
+    testImplementation(libs.kotest.property)
 }
 
 kotlin {
