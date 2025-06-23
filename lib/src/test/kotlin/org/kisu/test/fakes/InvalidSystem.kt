@@ -8,6 +8,7 @@ import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 
+@Suppress("DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class InvalidSystem(
     override val power: Int,
     symbol: String
