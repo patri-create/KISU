@@ -8,12 +8,12 @@ import io.kotest.matchers.ints.shouldBeZero
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
 import org.kisu.test.fakes.InvalidSystem
-import org.kisu.test.generators.System
+import org.kisu.test.generators.Systems
 
 class SystemTest : StringSpec({
 
     "retrieves base unit" {
-        checkAll(System.systems) { system ->
+        checkAll(Systems.generator) { system ->
             system.canonical.power.shouldBeZero()
         }
     }
@@ -25,25 +25,25 @@ class SystemTest : StringSpec({
     }
 
     "retrieves all prefixes for a system" {
-        checkAll(System.systems) { system ->
+        checkAll(Systems.generator) { system ->
             system.all.shouldNotBeEmpty()
         }
     }
 
     "all prefixes from a system are sorted by power" {
-        checkAll(System.systems) { system ->
+        checkAll(Systems.generator) { system ->
             system.all.map { it.power }.shouldBeSorted()
         }
     }
 
     "retrieves the smallest prefix" {
-        checkAll(System.systems) { system ->
+        checkAll(Systems.generator) { system ->
             system.smallest shouldBe system.all.first()
         }
     }
 
     "retrieves the largest prefix" {
-        checkAll(System.systems) { system ->
+        checkAll(Systems.generator) { system ->
             system.largest shouldBe system.all.last()
         }
     }
