@@ -2,8 +2,6 @@
 detekt = "1.23.8"
 dokka = "2.0.0"
 jacoco = "0.8.13"
-jqwik = "1.8.2"
-junit = "5.10.1"
 klint = "11.6.1"
 kotest = "5.9.1"
 
@@ -12,15 +10,11 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
 dokka = { id = "org.jetbrains.dokka",  version.ref = "dokka" }
 klint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "klint" }
 
-
 [libraries]
 # Linter
 detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt"}
 # Testing
-# JUnit 5
-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
-junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
-
-jqwik = { module = "net.jqwik:jqwik", version.ref = "jqwik" }
-kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core-jvm", version.ref = "kotest" }
+#Kotest
+kotest-assertions = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotest = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }

@@ -1,49 +1,50 @@
 package org.kisu.prefixes.primitives
 
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.ints.shouldBeZero
 import io.kotest.matchers.shouldBe
-import net.jqwik.api.ForAll
-import net.jqwik.api.Property
-import net.jqwik.api.Provide
+import io.kotest.property.checkAll
 import org.kisu.test.fakes.InvalidSystem
 import org.kisu.test.generators.System
 
-@Suppress("UnusedParameter")
-class SystemTest {
+class SystemTest : StringSpec({
 
-    @Property
-    fun `retrieves base unit`(@ForAll("systems") system: StandardSystem<*>) {
-        system.canonical.power.shouldBeZero()
+    "retrieves base unit" {
+        checkAll(System.systems) { system ->
+            system.canonical.power.shouldBeZero()
+        }
     }
 
-    @Property
-    fun `crashes if there is an invalid system with no base`(@ForAll("systems") system: StandardSystem<*>) {
-        shouldThrow<IllegalStateException> { StandardSystem(InvalidSystem::class).canonical }
+    "crashes if there is an invalid system with no base" {
+        shouldThrow<IllegalStateException> {
+            StandardSystem(InvalidSystem::class).canonical
+        }
     }
 
-    @Property
-    fun `retrieves all prefixes for a system`(@ForAll("systems") system: StandardSystem<*>) {
-        system.all.shouldNotBeEmpty()
+    "retrieves all prefixes for a system" {
+        checkAll(System.systems) { system ->
+            system.all.shouldNotBeEmpty()
+        }
     }
 
-    @Property
-    fun `all prefixes from a system is sorted by power`(@ForAll("systems") system: StandardSystem<*>) {
-        system.all.map { prefix -> prefix.power }.shouldBeSorted()
+    "all prefixes from a system are sorted by power" {
+        checkAll(System.systems) { system ->
+            system.all.map { it.power }.shouldBeSorted()
+        }
     }
 
-    @Property
-    fun `retrieves the smallest prefix`(@ForAll("systems") system: StandardSystem<*>) {
-        system.smallest shouldBe system.all.first()
+    "retrieves the smallest prefix" {
+        checkAll(System.systems) { system ->
+            system.smallest shouldBe system.all.first()
+        }
     }
 
-    @Property
-    fun `retrieves the largest prefix`(@ForAll("systems") system: StandardSystem<*>) {
-        system.largest shouldBe system.all.last()
+    "retrieves the largest prefix" {
+        checkAll(System.systems) { system ->
+            system.largest shouldBe system.all.last()
+        }
     }
-
-    @Provide
-    private fun systems() = System.systems
-}
+})

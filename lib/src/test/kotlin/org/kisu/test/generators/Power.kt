@@ -1,8 +1,8 @@
 package org.kisu.test.generators
 
-import net.jqwik.api.Arbitraries
-import net.jqwik.api.Arbitrary
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.int
 
 object Power {
-    val powers: Arbitrary<Int> = Arbitraries.integers().between(-30, 30)
+    val powers: Arb<Int> = Arb.int(-30..30)
 }

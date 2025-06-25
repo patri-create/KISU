@@ -1,159 +1,45 @@
 package org.kisu.units
 
+import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
-import net.jqwik.api.Arbitraries
-import net.jqwik.api.Arbitrary
-import net.jqwik.api.Combinators
-import net.jqwik.api.ForAll
-import net.jqwik.api.Property
-import net.jqwik.api.Provide
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.bigDecimal
+import io.kotest.property.arbitrary.bind
+import io.kotest.property.arbitrary.choice
+import io.kotest.property.arbitrary.filter
+import io.kotest.property.arbitrary.int
+import io.kotest.property.arbitrary.map
+import io.kotest.property.checkAll
 import org.kisu.prefixes.Metric
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.utils.optimalPrefixFrom
-import org.kisu.zero
 import java.math.BigDecimal
 import java.math.MathContext
+import org.kisu.test.generators.Metric as MetricGenerator
 
-class MeasureTest {
+class MeasureTest : StringSpec({
 
-    @Property
-    fun `rescales correctly`(
-        @ForAll("measures") measure: Measure<Metric>,
-        @ForAll("prefixes") newPrefix: Metric
-    ) {
-        measure.to(newPrefix)
+    val magnitudes = Arb.bigDecimal()
+    val nonZeroMagnitudes = magnitudes.filter { it.compareTo(BigDecimal.ZERO) != 0 }
+    val prefixes = MetricGenerator.system
+    val measures = Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
+        TestUnit(magnitude, prefix)
     }
-
-    @Property
-    fun `renders literal when the magnitude is not zero`(
-        @ForAll("nonZeroMagnitudes") magnitude: BigDecimal,
-        @ForAll("prefixes") prefix: Metric
-    ) {
-        TestUnit(magnitude, prefix).representation shouldBe "$magnitude $prefix${TestUnit.SYMBOL}"
-    }
-
-    @Property
-    fun `renders literal when the magnitude is zero`(
-        @ForAll("prefixes") prefix: Metric
-    ) {
-        TestUnit(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.SYMBOL}"
-    }
-
-    @Property
-    fun `renders canonical`(
-        @ForAll("magnitudes") magnitude: BigDecimal,
-        @ForAll("prefixes") prefix: Metric
-    ) {
-        TestUnit(magnitude, prefix).canonical.representation shouldBe TestUnit(
-            magnitude,
-            prefix
-        ).to(prefix.canonical).representation
-    }
-
-    @Property
-    fun `renders optimal correctly when magnitude is 0`(@ForAll("prefixes") prefix: Metric) {
-        val measure = TestUnit(BigDecimal.ZERO, prefix)
-
-        measure.optimal shouldBe measure.canonical
-    }
-
-    @Property
-    fun `renders optimal correctly when magnitude is beyond the largest prefix`(
-        @ForAll("greaterThanZero") magnitude: BigDecimal
-    ) {
-        val measure = TestUnit(magnitude, Metric.QUETTA)
-
-        measure.optimal.representation shouldBe measure.representation
-    }
-
-    @Property
-    fun `renders optimal correctly when magnitude is beyond the smallest prefix`(
-        @ForAll("lesserThanOne") magnitude: BigDecimal
-    ) {
-        val measure = TestUnit(magnitude, Metric.QUECTO)
-
-        measure.optimal.representation shouldBe measure.representation
-    }
-
-    @Property
-    fun `renders optimal correctly when magnitude is in range`(@ForAll("inRange") magnitude: BigDecimal) {
-        val measure = TestUnit(magnitude, Metric.BASE)
-        val optimalPrefix = magnitude.optimalPrefixFrom(Metric.BASE)
-        val correctedMagnitude = magnitude * (Metric.BASE.scale(optimalPrefix))
-        val compact = TestUnit(correctedMagnitude, optimalPrefix)
-
-        measure.optimal.representation shouldBe compact.representation
-    }
-
-    @Property
-    fun `representation is the optimal representation`(@ForAll("measures") measure: Measure<Metric>) {
-        measure.optimal.representation shouldBe measure.toString()
-    }
-
-    @Property
-    fun `equality is reflexive`(@ForAll("measures") x: Measure<Metric>) {
-        x.equals(x).shouldBeTrue()
-    }
-
-    @Property
-    fun `equality is symmetric`(@ForAll("measures") x: Measure<Metric>, @ForAll("prefixes") prefix: Metric) {
-        val y = x.to(prefix)
-
-        (x == y) shouldBe (y == x)
-    }
-
-    @Property
-    fun `equality is transitive`(
-        @ForAll("measures") x: Measure<Metric>,
-        @ForAll("prefixes") first: Metric,
-        @ForAll("prefixes") second: Metric
-    ) {
-        val y = x.to(first)
-        val z = x.to(second)
-
-        (x == y).shouldBeTrue()
-        (y == z).shouldBeTrue()
-        (x == z).shouldBeTrue()
-    }
-
-    @Suppress("EqualsNullCall")
-    @Property
-    fun `equality is non-null`(@ForAll("measures") x: Measure<Metric>) {
-        (x.equals(null)).shouldBeFalse()
-    }
-
-    @Provide
-    fun magnitudes() = Arbitraries.bigDecimals()
-
-    @Provide
-    fun nonZeroMagnitudes() = magnitudes().filter { magnitude -> !magnitude.zero }
-
-    @Provide
-    fun measures(): Arbitrary<Measure<Metric>> =
-        Combinators.combine<BigDecimal, Metric>(magnitudes(), prefixes())
-            .`as` { magnitude, prefix -> TestUnit(magnitude, prefix) }
-
-    @Provide
-    fun prefixes() = org.kisu.test.generators.Metric.system
-
-    @Provide
-    fun greaterThanZero() = Arbitraries.oneOf(
-        Arbitraries.bigDecimals().greaterOrEqual(BigDecimal.ONE),
-        Arbitraries.bigDecimals().lessOrEqual(BigDecimal.ONE.negate())
+    val greaterThanZero: Arb<BigDecimal> = Arb.choice(
+        Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
+        Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)).map { it.negate() }
     )
+    val lesserThanOne = Arb.bigDecimal(
+        min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
+        max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10))
+    ).filter {
+        it.compareTo(BigDecimal.ZERO) != 0
+    }
 
-    @Provide
-    fun lesserThanOne() = Arbitraries.bigDecimals()
-        .greaterThan(BigDecimal.ONE.negate())
-        .lessThan(BigDecimal.ONE)
-        .filter { it.compareTo(BigDecimal.ZERO) == 0 }
-
-    @Provide
-    fun inRange() = Arbitraries.integers()
-        .between(-30, 30)
-        .filter { it != 0 } // Optional: skip 0 if desired
+    val inRange = Arb.int(-30..30)
+        .filter { it != 0 }
         .map { power ->
             if (power > 0) {
                 BigDecimal.TEN.pow(power)
@@ -161,4 +47,98 @@ class MeasureTest {
                 BigDecimal.ONE.divide(BigDecimal.TEN.pow(-power), MathContext.DECIMAL128)
             }
         }
-}
+
+    "rescales correctly" {
+        checkAll(measures, prefixes) { measure, newPrefix ->
+            measure.to(newPrefix)
+        }
+    }
+
+    "renders literal when the magnitude is not zero" {
+        checkAll(nonZeroMagnitudes, prefixes) { magnitude, prefix ->
+            TestUnit(magnitude, prefix).representation shouldBe "$magnitude $prefix${TestUnit.SYMBOL}"
+        }
+    }
+
+    "renders literal when the magnitude is zero" {
+        checkAll(prefixes) { prefix ->
+            TestUnit(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.SYMBOL}"
+        }
+    }
+
+    "renders canonical" {
+        checkAll(magnitudes, prefixes) { magnitude, prefix ->
+            TestUnit(magnitude, prefix).canonical.representation shouldBe
+                TestUnit(magnitude, prefix).to(prefix.canonical).representation
+        }
+    }
+
+    "renders optimal correctly when magnitude is 0" {
+        checkAll(prefixes) { prefix ->
+            val measure = TestUnit(BigDecimal.ZERO, prefix)
+            measure.optimal shouldBe measure.canonical
+        }
+    }
+
+    "renders optimal correctly when magnitude is beyond the largest prefix" {
+        checkAll(greaterThanZero) { magnitude ->
+            val measure = TestUnit(magnitude, Metric.QUETTA)
+            measure.optimal.representation shouldBe measure.representation
+        }
+    }
+
+    "renders optimal correctly when magnitude is beyond the smallest prefix" {
+        checkAll(lesserThanOne) { magnitude ->
+            val measure = TestUnit(magnitude, Metric.QUECTO)
+            measure.optimal.representation shouldBe measure.representation
+        }
+    }
+
+    "renders optimal correctly when magnitude is in range" {
+        checkAll(inRange) { magnitude ->
+            val measure = TestUnit(magnitude, Metric.BASE)
+            val optimalPrefix = magnitude.optimalPrefixFrom(Metric.BASE)
+            val correctedMagnitude = magnitude * Metric.BASE.scale(optimalPrefix)
+            val compact = TestUnit(correctedMagnitude, optimalPrefix)
+
+            measure.optimal.representation shouldBe compact.representation
+        }
+    }
+
+    "representation is the optimal representation" {
+        checkAll(measures) { measure ->
+            measure.optimal.representation shouldBe measure.toString()
+        }
+    }
+
+    "equality is reflexive" {
+        checkAll(measures) { x ->
+            x.equals(x).shouldBeTrue()
+        }
+    }
+
+    "equality is symmetric" {
+        checkAll(measures, prefixes) { x, prefix ->
+            val y = x.to(prefix)
+            (x == y) shouldBe (y == x)
+        }
+    }
+
+    "equality is transitive" {
+        checkAll(measures, prefixes, prefixes) { x, first, second ->
+            val y = x.to(first)
+            val z = x.to(second)
+
+            (x == y).shouldBeTrue()
+            (y == z).shouldBeTrue()
+            (x == z).shouldBeTrue()
+        }
+    }
+
+    @Suppress("EqualsNullCall")
+    "equality is non-null" {
+        checkAll(measures) { x ->
+            (x.equals(null)).shouldBeFalse()
+        }
+    }
+})

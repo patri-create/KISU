@@ -1,12 +1,14 @@
 package org.kisu.test.generators
 
-import net.jqwik.api.Arbitraries
-import net.jqwik.api.Arbitrary
+import io.kotest.property.Arb
+import io.kotest.property.RandomSource
+import io.kotest.property.arbitrary.of
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.primitives.StandardSystem
 
 object Metric {
-    val system: Arbitrary<Metric> = Arbitraries.of(StandardSystem(Metric::class).all)
+    val system: Arb<Metric> = Arb.of(StandardSystem(Metric::class).all)
 
-    fun sample(): Metric = system.sample()
+    val sample: Metric
+        get() = system.sample(RandomSource.default()).value
 }
