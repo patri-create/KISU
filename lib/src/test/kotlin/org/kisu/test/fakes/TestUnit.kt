@@ -1,19 +1,20 @@
 package org.kisu.test.fakes
 
 import org.kisu.prefixes.Metric
+import org.kisu.test.fakes.TestUnit.Companion.SYMBOL
 import org.kisu.units.Measure
 import java.math.BigDecimal
 
-object TestUnit {
-    const val SYMBOL = "ts"
+class TestUnit(magnitude: BigDecimal, prefix: Metric) : Measure<Metric, TestUnit>(magnitude, prefix, SYMBOL) {
 
-    operator fun invoke(
-        magnitude: Double,
-        prefix: Metric,
-    ): Measure<Metric> = Measure(magnitude, prefix, SYMBOL)
+    constructor(magnitude: Double, prefix: Metric): this(BigDecimal.valueOf(magnitude), prefix)
 
-    operator fun invoke(
+    override fun create(
         magnitude: BigDecimal,
         prefix: Metric,
-    ): Measure<Metric> = Measure(magnitude, prefix, SYMBOL)
+    ): Measure<Metric, TestUnit> = TestUnit(magnitude, prefix)
+
+    companion object {
+        const val SYMBOL = "ts"
+    }
 }

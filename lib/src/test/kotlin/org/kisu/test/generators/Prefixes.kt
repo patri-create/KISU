@@ -5,6 +5,6 @@ import io.kotest.property.arbitrary.map
 import org.kisu.prefixes.Prefix
 import org.kisu.test.fakes.TestPrefix
 
-object Prefixes {
-    val random: Arb<Prefix> = Power.powers.map { power -> TestPrefix(power) }
+object Prefixes : Generator<Prefix> {
+    override val generator: Arb<Prefix> = Powers.generator.map { power -> TestPrefix(power) }
 }
