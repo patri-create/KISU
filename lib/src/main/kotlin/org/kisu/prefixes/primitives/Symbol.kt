@@ -13,7 +13,6 @@ package org.kisu.prefixes.primitives
  * or serialization.
  */
 interface Symbol {
-
     /**
      * The textual symbol representing this prefix.
      *

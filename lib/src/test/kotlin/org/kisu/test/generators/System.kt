@@ -9,11 +9,12 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.primitives.StandardSystem
 
 object System {
-    val systems: Arb<StandardSystem<*>> = Arb.of(
-        StandardSystem(Metric::class),
-        StandardSystem(Binary::class),
-        StandardSystem(Decimal::class)
-    )
+    val systems: Arb<StandardSystem<*>> =
+        Arb.of(
+            StandardSystem(Metric::class),
+            StandardSystem(Binary::class),
+            StandardSystem(Decimal::class),
+        )
 
     val sample = systems.sample(RandomSource.default())
 }

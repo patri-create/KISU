@@ -88,5 +88,4 @@ interface Prefix : InBase, Symbol, Comparable<Prefix> {
  * @param other the other [Prefix] to sort with.
  * @return a [List] containing the two [Prefix] instances, sorted in ascending order.
  */
-fun <T> T.sortWith(other: T): List<T> where T : Prefix, T : Comparable<Prefix> =
-    listOf(this, other).sorted()
+fun <T> T.sortWith(other: T): List<T> where T : Prefix, T : Comparable<Prefix> = listOf(this, other).sorted()

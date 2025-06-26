@@ -9,7 +9,6 @@ package org.kisu.prefixes.primitives
  * @property symbol The string symbol representing the prefix.
  */
 class Representation(override val symbol: String) : Symbol {
-
     /**
      * Returns the symbol string.
      *

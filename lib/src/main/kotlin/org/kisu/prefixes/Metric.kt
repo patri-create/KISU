@@ -39,7 +39,7 @@ import org.kisu.prefixes.primitives.System
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Metric(
     override val power: Int,
-    symbol: String
+    symbol: String,
 ) : Prefix,
     InBase by InBase.Decadic,
     System<Metric> by StandardSystem(Metric::class),
@@ -117,5 +117,5 @@ enum class Metric(
     RONNA(27, "R"),
 
     /** Symbol: "Q" — 10³⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(30, "Q")
+    QUETTA(30, "Q"),
 }
