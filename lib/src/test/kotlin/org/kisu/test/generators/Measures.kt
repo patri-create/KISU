@@ -10,9 +10,10 @@ import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Measures.generator
 
 object Measures : Generator<TestUnit> {
-    override val generator: Arb<TestUnit> = Arb.bind(Arb.bigDecimal().map { it }, Metrics.generator) { magnitude, prefix ->
-        TestUnit(magnitude, prefix)
-    }
+    override val generator: Arb<TestUnit> =
+        Arb.bind(Arb.bigDecimal().map { it }, Metrics.generator) { magnitude, prefix ->
+            TestUnit(magnitude, prefix)
+        }
 }
 
 val Arb<TestUnit>.nonZero: Arb<TestUnit>
