@@ -1,9 +1,9 @@
 package org.kisu.prefixes
 
+import org.kisu.KisuConfig
 import org.kisu.prefixes.primitives.InBase
 import org.kisu.prefixes.primitives.Symbol
 import java.math.BigDecimal
-import java.math.MathContext
 
 /**
  * A Prefix is a specifier or mnemonic which is added to a unit of measurement to specify multiples or fractions of the
@@ -61,7 +61,7 @@ interface Prefix : InBase, Symbol, Comparable<Prefix> {
         return when {
             exponent == 0 -> BigDecimal.ONE
             exponent > 0 -> base.pow(exponent)
-            else -> BigDecimal.ONE.divide(base.pow(-exponent), MathContext.DECIMAL128)
+            else -> BigDecimal.ONE.divide(base.pow(-exponent), KisuConfig.precision)
         }
     }
 
@@ -88,4 +88,4 @@ interface Prefix : InBase, Symbol, Comparable<Prefix> {
  * @param other the other [Prefix] to sort with.
  * @return a [List] containing the two [Prefix] instances, sorted in ascending order.
  */
-fun <T> T.sortWith(other: T): List<T> where T : Prefix, T : Comparable<Prefix> = listOf(this, other).sorted()
+infix fun <T> T.sortWith(other: T): List<T> where T : Prefix, T : Comparable<Prefix> = listOf(this, other).sorted()

@@ -9,13 +9,13 @@ import java.math.BigDecimal
 
 class PrefixTest : StringSpec({
     "rescales to a different power" {
-        checkAll(Prefixes.random, Prefixes.random) { left, right ->
+        checkAll(Prefixes.generator, Prefixes.generator) { left, right ->
             (left.scale(right) * right.scale(left)).compareTo(BigDecimal.ONE) shouldBe 0
         }
     }
 
     "order is maintained" {
-        checkAll(Prefixes.random, Prefixes.random) { left, right ->
+        checkAll(Prefixes.generator, Prefixes.generator) { left, right ->
             left.sortWith(right).shouldBeSorted()
             right.sortWith(left).shouldBeSorted()
         }

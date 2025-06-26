@@ -1,28 +1,50 @@
 package org.kisu.units
 
+import org.kisu.KisuConfig
+import org.kisu.bigDecimal
 import org.kisu.orElse
-import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
+import org.kisu.prefixes.sortWith
 import org.kisu.zero
 import java.math.BigDecimal
 
 /**
  * Represents a physical quantity composed of a [magnitude], a [prefix], and a [unit].
  *
- * This generic class is designed to work with unit prefixes (such as SI prefixes like kilo, milli),
- * supporting automatic rescaling to optimal representations based on magnitude.
+ * This generic class models measurements in a unit system with metric-style prefixes,
+ * such as meters, grams, or seconds.
  *
- * @param T The type of prefix, which must be one of the ones speecified in [org.kisu.prefixes].
- * @property magnitude The numerical value of the measurement.
- * @property prefix The prefix applied to the unit (e.g., `kilo`, `milli`).
- * @property unit The name of the unit (e.g., `"m"`, `"g"`).
+ * It is designed to support operations like addition, subtraction, scaling, and conversion
+ * between compatible units with automatic prefix normalization (e.g., converting 1000 millimeters to 1 meter).
+ *
+ * @param Prefix The type representing the system of prefixes (e.g., [Metric]).
+ *        It must implement both [System] (to provide ordering and base relations)
+ *        and [org.kisu.prefixes.Prefix] (to support scaling operations).
+ *
+ * @param Self The concrete subclass type used for safe covariant returns.
+ *        This is a common pattern to support fluent APIs in hierarchies.
+ *
+ * @property magnitude The numerical value of the measurement in the specified [prefix].
+ * @property prefix The metric prefix applied to the unit (e.g., `kilo`, `milli`).
+ *        This determines the scale of the [magnitude] relative to the base unit.
+ * @property unit A string representing the unit symbol (e.g., `"m"` for meters, `"g"` for grams).
+ *
+ * @constructor Protected to enforce instantiation via factory methods or subclasses.
+ *
+ * @see System for prefix ordering and canonical base relationships.
+ * @see org.kisu.prefixes.Prefix for scaling behavior.
  */
-class Measure<T>(
+@Suppress("TooManyFunctions")
+abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected constructor(
     private val magnitude: BigDecimal,
-    private val prefix: T,
+    private val prefix: Prefix,
     private val unit: String,
-) where T : System<T>, T : Prefix {
-    constructor(magnitude: Double, prefix: T, unit: String) : this(BigDecimal.valueOf(magnitude), prefix, unit)
+) : Comparable<Self> where Prefix : System<Prefix>, Prefix : org.kisu.prefixes.Prefix {
+    protected constructor(magnitude: Double, prefix: Prefix, unit: String) : this(
+        BigDecimal.valueOf(magnitude),
+        prefix,
+        unit,
+    )
 
     /**
      * Returns the most human-readable form of the measurement by automatically choosing the
@@ -43,11 +65,11 @@ class Measure<T>(
      * distance.optimal // "1.5km"
      * ```
      */
-    val optimal: Measure<T> by lazy {
+    val optimal: Self by lazy {
         when {
             magnitude.zero -> canonical
-            prefix == prefix.smallest && magnitude.abs() < BigDecimal.ONE -> this
-            prefix == prefix.largest && magnitude.abs() > BigDecimal.ONE -> this
+            prefix == prefix.smallest && magnitude.abs() < BigDecimal.ONE -> self
+            prefix == prefix.largest && magnitude.abs() > BigDecimal.ONE -> self
             else ->
                 prefix.all
                     .asSequence()
@@ -67,11 +89,11 @@ class Measure<T>(
      * distance.canonical // "1500m"
      * ```
      */
-    val canonical: Measure<T> by lazy {
+    val canonical: Self by lazy {
         if (!magnitude.zero) {
             to(prefix.canonical)
         } else {
-            Measure(magnitude, prefix.canonical, unit)
+            invoke(magnitude, prefix.canonical)
         }
     }
 
@@ -98,6 +120,11 @@ class Measure<T>(
         }
     }
 
+    val zero: Boolean by lazy { magnitude.zero }
+
+    @Suppress("UNCHECKED_CAST")
+    private val self: Self = this as Self
+
     /**
      * Rescales the current measurement to a different [prefix], adjusting the [magnitude] accordingly.
      *
@@ -110,10 +137,120 @@ class Measure<T>(
      * @param other The target prefix to convert to.
      * @return A new [Measure] instance using the new [prefix] and the converted [magnitude].
      */
-    fun to(other: T): Measure<T> {
+    fun to(other: Prefix): Self {
         val conversion = prefix.scale(other)
-        return Measure(magnitude * conversion, other, unit)
+        return invoke(magnitude * conversion, other)
     }
+
+    /**
+     * Adds two measures of the same type.
+     *
+     * Both measures are converted to the smallest of their prefixes for addition,
+     * and the result is returned in the larger prefix for better readability.
+     *
+     * @param other The measure to add.
+     * @return A new measure representing the sum.
+     */
+    operator fun plus(other: Self): Self {
+        val (smallest, largest) = prefix.sortWith(other.prefix)
+        return invoke(this.to(smallest).magnitude + other.to(smallest).magnitude, smallest).to(largest)
+    }
+
+    /**
+     * Subtracts one measure from another of the same type.
+     *
+     * Both measures are converted to the smallest of their prefixes for subtraction,
+     * and the result is returned in the larger prefix for better readability.
+     *
+     * @param other The measure to subtract.
+     * @return A new measure representing the difference.
+     */
+    operator fun minus(other: Self): Self {
+        val (smallest, largest) = prefix.sortWith(other.prefix)
+        return invoke(this.to(smallest).magnitude - other.to(smallest).magnitude, smallest).to(largest)
+    }
+
+    /**
+     * Multiplies this measure by a [Number] scalar.
+     *
+     * Internally converts the number to [BigDecimal].
+     *
+     * @param number The scalar to multiply by.
+     * @return A new measure scaled by the given factor.
+     */
+    operator fun times(number: Number): Self = times(number.bigDecimal)
+
+    /**
+     * Multiplies this measure by a [BigDecimal] scalar.
+     *
+     * @param number The scalar to multiply by.
+     * @return A new measure scaled by the given factor.
+     */
+    operator fun times(number: BigDecimal): Self = invoke(magnitude.times(number), prefix)
+
+    /**
+     * Divides this measure by a [BigDecimal] scalar.
+     *
+     * @param number The scalar to divide by.
+     * @return A new measure scaled by the given factor.
+     */
+    operator fun div(number: BigDecimal): Self = invoke(magnitude.divide(number, KisuConfig.precision), prefix)
+
+    /**
+     * Divides this measure by a [Number] scalar.
+     *
+     * Internally converts the number to [BigDecimal].
+     *
+     * @param number The scalar to divide by.
+     * @return A new measure scaled by the given factor.
+     */
+    operator fun div(number: Number): Self = div(number.bigDecimal)
+
+    /**
+     * Compares this measure to [other] for ordering.
+     *
+     * The comparison is done using their canonical (base unit) magnitudes.
+     *
+     * @param other The measure to compare against.
+     * @return A negative integer, zero, or a positive integer as this measure is less than,
+     *         equal to, or greater than the specified measure.
+     */
+    override fun compareTo(other: Self): Int = canonical.magnitude.compareTo(other.canonical.magnitude)
+
+    /**
+     * Sorts this [Measure] and the [other] measure in ascending order based on their canonical magnitude.
+     *
+     * @param other The other [Measure] to compare with.
+     * @return A [Pair] where the first element is the smaller (or equal) measure and the second is the larger.
+     *
+     * This uses the [Comparable] implementation of [Measure], which compares based on canonical magnitude.
+     * It is useful when performing arithmetic operations that require a common unit or a predictable ordering.
+     *
+     * Example:
+     * ```
+     * val a = Measure(5, Metric.KILO)
+     * val b = Measure(3000, Metric.UNIT)
+     * val (smaller, larger) = a.sortWith(b)
+     * ```
+     */
+    infix fun sortWith(other: Self): Pair<Self, Self> =
+        listOf(self, other)
+            .sorted()
+            .let { (left, right) -> left to right }
+
+    /**
+     * Factory method to create a new measure of the same type with a given magnitude and prefix.
+     *
+     * Subclasses must implement this to support operations that return new instances.
+     *
+     * @param magnitude The numeric value of the new measure.
+     * @param prefix The prefix/unit for the new measure.
+     * @return A new instance of [Measure] with the specified properties.
+     */
+    protected abstract operator fun invoke(
+        magnitude: BigDecimal,
+        prefix: Prefix,
+    ): Self
 
     /**
      * Returns the [optimal] string representation of this measurement for inspection purposes.
@@ -158,15 +295,13 @@ class Measure<T>(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Measure<*>
+        other as Measure<*, *>
 
         if (unit != other.unit) return false
 
         val left = canonical
         val right = other.canonical
-        if (left.magnitude.compareTo(right.magnitude) != 0) return false
-
-        return true
+        return left.magnitude.compareTo(right.magnitude) == 0
     }
 
     /**
