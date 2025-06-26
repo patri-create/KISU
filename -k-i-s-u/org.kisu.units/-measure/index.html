@@ -108,30 +108,11 @@
   <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units</a><span class="delimiter">/</span><span class="current">Measure</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Measure</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator"> : </span><a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span>, <a href="../../org.kisu.prefixes/-prefix/index.html">Prefix</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">prefix<span class="token operator">: </span><a href="index.html">T</a><span class="token punctuation">, </span></span><span class="parameter ">unit<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">Represents a physical quantity composed of a <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span>, a <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, and a <span data-unresolved-link="org.kisu.units/Measure/unit/#/PointingToDeclaration/">unit</span>.</p><p class="paragraph">This generic class is designed to work with unit prefixes (such as SI prefixes like kilo, milli), supporting automatic rescaling to optimal representations based on magnitude.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>T</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The type of prefix, which must be one of the ones speecified in <a href="../../org.kisu.prefixes/index.html">org.kisu.prefixes</a>.</p></div></div></div></div></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator"> : </span><a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator">&gt;</span>, <a href="../../org.kisu.prefixes/-prefix/index.html">Prefix</a><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator"> : </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><a href="index.html">Self</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents a physical quantity composed of a <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span>, a <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, and a <span data-unresolved-link="org.kisu.units/Measure/unit/#/PointingToDeclaration/">unit</span>.</p><p class="paragraph">This generic class models measurements in a unit system with metric-style prefixes, such as meters, grams, or seconds.</p><p class="paragraph">It is designed to support operations like addition, subtraction, scaling, and conversion between compatible units with automatic prefix normalization (e.g., converting 1000 millimeters to 1 meter).</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>Prefix</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The type representing the system of prefixes (e.g., Metric).     It must implement both <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a> (to provide ordering and base relations)     and <a href="../../org.kisu.prefixes/-prefix/index.html">org.kisu.prefixes.Prefix</a> (to support scaling operations).</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>Self</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The concrete subclass type used for safe covariant returns.     This is a common pattern to support fluent APIs in hierarchies.</p></div></div></div></div></div><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../org.kisu.prefixes.primitives/-system/index.html"><span><span>System</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for prefix ordering and canonical base relationships.</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../org.kisu.prefixes/-prefix/index.html"><span><span>Prefix</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for scaling behavior.</p></div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <div data-togglable="CONSTRUCTOR">
-        <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="-1228427707%2FConstructors%2F-1895836109" anchor-label="Measure" id="-1228427707%2FConstructors%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-measure.html"><span><span>Measure</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1228427707%2FConstructors%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter ">prefix<span class="token operator">: </span><a href="index.html">T</a><span class="token punctuation">, </span></span><span class="parameter ">unit<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">prefix<span class="token operator">: </span><a href="index.html">T</a><span class="token punctuation">, </span></span><span class="parameter ">unit<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
         <div class="table"><a data-name="-2114987330%2FProperties%2F-1895836109" anchor-label="canonical" id="-2114987330%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
@@ -144,7 +125,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="canonical.html">canonical</a><span class="token operator">: </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the canonical form of the measurement by converting it to the base prefix.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="canonical.html">canonical</a><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Returns the canonical form of the measurement by converting it to the base prefix.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -159,7 +140,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="optimal.html">optimal</a><span class="token operator">: </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the most human-readable form of the measurement by automatically choosing the most appropriate <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span> such that the magnitude is near or above 1.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="optimal.html">optimal</a><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Returns the most human-readable form of the measurement by automatically choosing the most appropriate <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span> such that the magnitude is near or above 1.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -179,11 +160,56 @@
               </div>
             </div>
           </div>
+<a data-name="-575210624%2FProperties%2F-1895836109" anchor-label="zero" id="-575210624%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="zero.html"><span><span>zero</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-575210624%2FProperties%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="zero.html">zero</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="847022297%2FFunctions%2F-1895836109" anchor-label="equals" id="847022297%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+        <div class="table"><a data-name="-313017730%2FFunctions%2F-1895836109" anchor-label="compareTo" id="-313017730%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="compare-to.html"><span>compare</span><wbr></wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-313017730%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="compare-to.html"><span class="token function">compareTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Self</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Compares this measure to <a href="compare-to.html">other</a> for ordering.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="528463573%2FFunctions%2F-1895836109" anchor-label="div" id="528463573%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="div.html"><span><span>div</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="528463573%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="div.html"><span class="token function">div</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">number<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Divides this measure by a <a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a> scalar.</p></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="div.html"><span class="token function">div</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">number<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-number/index.html">Number</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Divides this measure by a <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-number/index.html">Number</a> scalar.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="847022297%2FFunctions%2F-1895836109" anchor-label="equals" id="847022297%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -213,6 +239,66 @@
               </div>
             </div>
           </div>
+<a data-name="1270761006%2FFunctions%2F-1895836109" anchor-label="minus" id="1270761006%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="minus.html"><span><span>minus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1270761006%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="minus.html"><span class="token function">minus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Self</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Subtracts one measure from another of the same type.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="267437858%2FFunctions%2F-1895836109" anchor-label="plus" id="267437858%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="plus.html"><span><span>plus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="267437858%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="plus.html"><span class="token function">plus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Self</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Adds two measures of the same type.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1985630324%2FFunctions%2F-1895836109" anchor-label="sortWith" id="-1985630324%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sort-with.html"><span>sort</span><wbr></wbr><span><span>With</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1985630324%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">infix </span><span class="token keyword">fun </span><a href="sort-with.html"><span class="token function">sortWith</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Self</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="index.html">Self</a><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Sorts this <a href="index.html">Measure</a> and the <a href="sort-with.html">other</a> measure in ascending order based on their canonical magnitude.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2034452789%2FFunctions%2F-1895836109" anchor-label="times" id="2034452789%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="times.html"><span><span>times</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2034452789%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="times.html"><span class="token function">times</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">number<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Multiplies this measure by a <a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a> scalar.</p></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="times.html"><span class="token function">times</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">number<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-number/index.html">Number</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Multiplies this measure by a <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-number/index.html">Number</a> scalar.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="468899126%2FFunctions%2F-1895836109" anchor-label="to" id="468899126%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
@@ -223,7 +309,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="to.html"><span class="token function">to</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Rescales the current measurement to a different <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, adjusting the <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span> accordingly.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="to.html"><span class="token function">to</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><div class="brief "><p class="paragraph">Rescales the current measurement to a different <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, adjusting the <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span> accordingly.</p></div></div></div>
                 </div>
               </div>
             </div>

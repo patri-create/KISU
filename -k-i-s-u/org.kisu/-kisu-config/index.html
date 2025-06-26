@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>to</title>
+    <title>KisuConfig</title>
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "../../../";</script>
     <script>document.documentElement.classList.replace("no-js","js");</script>
@@ -104,12 +104,36 @@
                 </div>
             </div>
             <div id="main">
-<div class="main-content" data-page-type="member" id="content" pageIds="KISU::org.kisu.units/Measure/to/#TypeParam(bounds=[org.kisu.prefixes.primitives.System[^], org.kisu.prefixes.Prefix])/PointingToDeclaration//-1895836109">
-  <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units</a><span class="delimiter">/</span><a href="index.html">Measure</a><span class="delimiter">/</span><span class="current">to</span></div>
+<div class="main-content" data-page-type="classlike" id="content" pageIds="KISU::org.kisu/KisuConfig///PointingToDeclaration//-1895836109">
+  <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu</a><span class="delimiter">/</span><span class="current">KisuConfig</span></div>
   <div class="cover ">
-    <h1 class="cover"><span><span>to</span></span></h1>
+    <h1 class="cover"><span>Kisu</span><wbr></wbr><span><span>Config</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">KisuConfig</a></div><p class="paragraph">Configuration object for global settings related to numeric precision.</p></div></div>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="to.html"><span class="token function">to</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Self</a></div><p class="paragraph">Rescales the current measurement to a different <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, adjusting the <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span> accordingly.</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val distance = Measure(1500.0, METER, &quot;m&quot;)<br>val inKilometers = distance.to(KILO)<br>println(inKilometers.literal) // &quot;1.5 km&quot;</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">A new <a href="index.html">Measure</a> instance using the new <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span> and the converted <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span>.</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>other</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The target prefix to convert to.</p></div></div></div></div></div></div></div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1707851225%2FProperties%2F-1895836109" anchor-label="precision" id="-1707851225%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="precision.html"><span><span>precision</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1707851225%2FProperties%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="precision.html">precision</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/MathContext.html">MathContext</a></div><div class="brief "><p class="paragraph">The global <a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/MathContext.html">MathContext</a> used to control precision and rounding for BigDecimal operations across the library.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
