@@ -6,16 +6,15 @@ import java.math.BigDecimal
 
 class TestUnit(
     magnitude: BigDecimal,
-    prefix: Metric = Metric.BASE
+    prefix: Metric = Metric.BASE,
 ) : Measure<Metric, TestUnit>(magnitude, prefix, SYMBOL) {
-
     constructor(magnitude: Double, prefix: Metric = Metric.BASE) : this(BigDecimal.valueOf(magnitude), prefix)
 
     val magnitude: BigDecimal = magnitude
 
     override fun invoke(
         magnitude: BigDecimal,
-        prefix: Metric
+        prefix: Metric,
     ): TestUnit = TestUnit(magnitude, prefix)
 
     companion object {

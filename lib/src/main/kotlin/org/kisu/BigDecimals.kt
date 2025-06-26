@@ -29,9 +29,10 @@ val BigDecimal.zero: Boolean
  * ```
  */
 val Number.bigDecimal: BigDecimal
-    get() = when (this) {
-        is BigDecimal -> this
-        is Long, is Int, is Short -> BigDecimal.valueOf(this.toLong())
-        is Double, is Float -> BigDecimal(this.toString())
-        else -> BigDecimal(this.toString())
-    }
+    get() =
+        when (this) {
+            is BigDecimal -> this
+            is Long, is Int, is Short -> BigDecimal.valueOf(this.toLong())
+            is Double, is Float -> BigDecimal(this.toString())
+            else -> BigDecimal(this.toString())
+        }

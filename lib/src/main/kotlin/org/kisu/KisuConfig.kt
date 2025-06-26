@@ -6,7 +6,6 @@ import java.math.MathContext
  * Configuration object for global settings related to numeric precision.
  */
 object KisuConfig {
-
     /**
      * The global [MathContext] used to control precision and rounding for
      * [BigDecimal] operations across the library.
@@ -18,8 +17,8 @@ object KisuConfig {
      *
      * Example:
      * ```
-     * KisuConfig.PRECISION = MathContext(20, RoundingMode.HALF_UP)
+     * KisuConfig.precision = MathContext(20, RoundingMode.HALF_UP)
      * ```
      */
-    var PRECISION: MathContext = MathContext.DECIMAL128
+    var precision: MathContext = MathContext.DECIMAL128
 }

@@ -32,30 +32,35 @@ class MeasureTest : StringSpec({
     val magnitudes = Arb.bigDecimal()
     val nonZeroMagnitudes = magnitudes.filter { it.compareTo(BigDecimal.ZERO) != 0 }
     val prefixes = MetricGenerator.generator
-    val measures = Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
-        TestUnit(magnitude, prefix)
-    }
-    val greaterThanZero: Arb<BigDecimal> = Arb.choice(
-        Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
-        Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)).map { it.negate() }
-    )
-    val lesserThanOne = Arb.bigDecimal(
-        min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
-        max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10))
-    ).filter { !it.zero }
-    val scalars = Arb.double().filter { it != 0.0 && !it.isNaN() && !it.isInfinite() }
-    val divisionScalars = Arb.bigDecimal()
-        .filter { it != BigDecimal.ZERO }
-        .filter { it in BigDecimal("1E-6")..BigDecimal("1E10") }
-    val inRange = Arb.int(-30..30)
-        .filter { it != 0 }
-        .map { power ->
-            if (power > 0) {
-                BigDecimal.TEN.pow(power)
-            } else {
-                BigDecimal.ONE.divide(BigDecimal.TEN.pow(-power), MathContext.DECIMAL128)
-            }
+    val measures =
+        Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
+            TestUnit(magnitude, prefix)
         }
+    val greaterThanZero: Arb<BigDecimal> =
+        Arb.choice(
+            Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
+            Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)).map { it.negate() },
+        )
+    val lesserThanOne =
+        Arb.bigDecimal(
+            min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
+            max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10)),
+        ).filter { !it.zero }
+    val scalars = Arb.double().filter { it != 0.0 && !it.isNaN() && !it.isInfinite() }
+    val divisionScalars =
+        Arb.bigDecimal()
+            .filter { it != BigDecimal.ZERO }
+            .filter { it in BigDecimal("1E-6")..BigDecimal("1E10") }
+    val inRange =
+        Arb.int(-30..30)
+            .filter { it != 0 }
+            .map { power ->
+                if (power > 0) {
+                    BigDecimal.TEN.pow(power)
+                } else {
+                    BigDecimal.ONE.divide(BigDecimal.TEN.pow(-power), MathContext.DECIMAL128)
+                }
+            }
 
     "rescales correctly" {
         checkAll(measures, prefixes) { measure, newPrefix ->
@@ -78,7 +83,7 @@ class MeasureTest : StringSpec({
     "renders canonical" {
         checkAll(magnitudes, prefixes) { magnitude, prefix ->
             TestUnit(magnitude, prefix).canonical.representation shouldBe
-                    TestUnit(magnitude, prefix).to(prefix.canonical).representation
+                TestUnit(magnitude, prefix).to(prefix.canonical).representation
         }
     }
 
@@ -164,7 +169,7 @@ class MeasureTest : StringSpec({
         checkAll(
             Measures.generator.flatMap { a ->
                 Measures.generator.filter { b -> a != b }.map { b -> a to b }
-            }
+            },
         ) { (a, b) ->
             (a - b) shouldNotBe (b - a)
         }
@@ -174,7 +179,7 @@ class MeasureTest : StringSpec({
         checkAll(
             Measures.generator.nonZero,
             Measures.generator.nonZero,
-            Measures.generator.nonZero
+            Measures.generator.nonZero,
         ) { a, b, c ->
             ((a - b) - c) shouldNotBe (a - (b - c))
         }

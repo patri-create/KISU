@@ -8,9 +8,10 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.primitives.StandardSystem
 
 object Systems : Generator<StandardSystem<*>> {
-    override val generator: Arb<StandardSystem<*>> = Arb.of(
-        StandardSystem(Metric::class),
-        StandardSystem(Binary::class),
-        StandardSystem(Decimal::class)
-    )
+    override val generator: Arb<StandardSystem<*>> =
+        Arb.of(
+            StandardSystem(Metric::class),
+            StandardSystem(Binary::class),
+            StandardSystem(Decimal::class),
+        )
 }

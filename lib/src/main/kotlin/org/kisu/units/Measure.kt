@@ -38,13 +38,12 @@ import java.math.BigDecimal
 abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected constructor(
     private val magnitude: BigDecimal,
     private val prefix: Prefix,
-    private val unit: String
+    private val unit: String,
 ) : Comparable<Self> where Prefix : System<Prefix>, Prefix : org.kisu.prefixes.Prefix {
-
     protected constructor(magnitude: Double, prefix: Prefix, unit: String) : this(
         BigDecimal.valueOf(magnitude),
         prefix,
-        unit
+        unit,
     )
 
     /**
@@ -187,8 +186,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param number The scalar to multiply by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun times(number: BigDecimal): Self =
-        invoke(magnitude.times(number), prefix)
+    operator fun times(number: BigDecimal): Self = invoke(magnitude.times(number), prefix)
 
     /**
      * Divides this measure by a [BigDecimal] scalar.
@@ -196,8 +194,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param number The scalar to divide by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun div(number: BigDecimal): Self =
-        invoke(magnitude.divide(number, KisuConfig.PRECISION), prefix)
+    operator fun div(number: BigDecimal): Self = invoke(magnitude.divide(number, KisuConfig.precision), prefix)
 
     /**
      * Divides this measure by a [Number] scalar.
@@ -218,8 +215,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @return A negative integer, zero, or a positive integer as this measure is less than,
      *         equal to, or greater than the specified measure.
      */
-    override fun compareTo(other: Self): Int =
-        canonical.magnitude.compareTo(other.canonical.magnitude)
+    override fun compareTo(other: Self): Int = canonical.magnitude.compareTo(other.canonical.magnitude)
 
     /**
      * Sorts this [Measure] and the [other] measure in ascending order based on their canonical magnitude.
@@ -238,7 +234,9 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * ```
      */
     infix fun sortWith(other: Self): Pair<Self, Self> =
-        listOf(self, other).sorted().let { (left, right) -> left to right }
+        listOf(self, other)
+            .sorted()
+            .let { (left, right) -> left to right }
 
     /**
      * Factory method to create a new measure of the same type with a given magnitude and prefix.
@@ -249,7 +247,10 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param prefix The prefix/unit for the new measure.
      * @return A new instance of [Measure] with the specified properties.
      */
-    protected abstract operator fun invoke(magnitude: BigDecimal, prefix: Prefix): Self
+    protected abstract operator fun invoke(
+        magnitude: BigDecimal,
+        prefix: Prefix,
+    ): Self
 
     /**
      * Returns the [optimal] string representation of this measurement for inspection purposes.

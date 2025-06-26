@@ -10,6 +10,6 @@ infix fun BigDecimal.plusOrMinus(tolerance: BigDecimal) =
         MatcherResult(
             difference <= tolerance,
             { "Expected $actual to be within ±$tolerance of $this, but difference was $difference" },
-            { "Expected $actual to not be within ±$tolerance of $this" }
+            { "Expected $actual to not be within ±$tolerance of $this" },
         )
     }
