@@ -32,12 +32,11 @@ import org.kisu.prefixes.primitives.System
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Decimal(
     override val power: Int,
-    symbol: String
+    symbol: String,
 ) : Prefix,
     InBase by InBase.Decimal,
     System<Decimal> by StandardSystem(Decimal::class),
     Symbol by Representation(symbol) {
-
     /** Base unit */
     BASE(0, ""),
 
@@ -69,5 +68,5 @@ enum class Decimal(
     RONNA(9, "R"),
 
     /** Symbol: "Q" — 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(10, "Q")
+    QUETTA(10, "Q"),
 }

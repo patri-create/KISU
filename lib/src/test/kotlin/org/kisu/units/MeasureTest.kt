@@ -24,29 +24,33 @@ class MeasureTest : StringSpec({
     val magnitudes = Arb.bigDecimal()
     val nonZeroMagnitudes = magnitudes.filter { it.compareTo(BigDecimal.ZERO) != 0 }
     val prefixes = MetricGenerator.system
-    val measures = Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
-        TestUnit(magnitude, prefix)
-    }
-    val greaterThanZero: Arb<BigDecimal> = Arb.choice(
-        Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
-        Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)).map { it.negate() }
-    )
-    val lesserThanOne = Arb.bigDecimal(
-        min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
-        max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10))
-    ).filter {
-        it.compareTo(BigDecimal.ZERO) != 0
-    }
-
-    val inRange = Arb.int(-30..30)
-        .filter { it != 0 }
-        .map { power ->
-            if (power > 0) {
-                BigDecimal.TEN.pow(power)
-            } else {
-                BigDecimal.ONE.divide(BigDecimal.TEN.pow(-power), MathContext.DECIMAL128)
-            }
+    val measures =
+        Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
+            TestUnit(magnitude, prefix)
         }
+    val greaterThanZero: Arb<BigDecimal> =
+        Arb.choice(
+            Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
+            Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)).map { it.negate() },
+        )
+    val lesserThanOne =
+        Arb.bigDecimal(
+            min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
+            max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10)),
+        ).filter {
+            it.compareTo(BigDecimal.ZERO) != 0
+        }
+
+    val inRange =
+        Arb.int(-30..30)
+            .filter { it != 0 }
+            .map { power ->
+                if (power > 0) {
+                    BigDecimal.TEN.pow(power)
+                } else {
+                    BigDecimal.ONE.divide(BigDecimal.TEN.pow(-power), MathContext.DECIMAL128)
+                }
+            }
 
     "rescales correctly" {
         checkAll(measures, prefixes) { measure, newPrefix ->
