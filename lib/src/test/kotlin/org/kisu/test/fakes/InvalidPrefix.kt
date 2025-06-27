@@ -1,20 +1,18 @@
 package org.kisu.test.fakes
 
-import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.Prefix
-import org.kisu.prefixes.primitives.InBase
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
+import java.math.BigDecimal
 
 @Suppress("DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
-enum class InvalidSystem(
-    override val power: Int,
+enum class InvalidPrefix(
+    override val factor: BigDecimal,
     symbol: String,
-) : Prefix,
-    InBase by InBase.Decimal,
-    System<Decimal> by StandardSystem(Decimal::class),
+) : Prefix<InvalidPrefix>,
+    System<InvalidPrefix> by StandardSystem(InvalidPrefix::class),
     Symbol by Representation(symbol) {
-    ERROR(10, ""),
+    ERROR(BigDecimal("1000"), ""),
 }

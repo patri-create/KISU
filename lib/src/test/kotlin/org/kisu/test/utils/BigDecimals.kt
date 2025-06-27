@@ -4,7 +4,9 @@ import org.kisu.prefixes.Metric
 import java.math.BigDecimal
 
 fun BigDecimal.optimalPrefixFrom(original: Metric = Metric.BASE): Metric {
-    return original.all.findLast { prefix -> prefix.power <= original.power + magnitude }!!
+    return  original.all
+        .filter { it.factor <= this }
+        .maxByOrNull { it.factor }!!
 }
 
 val BigDecimal.magnitude: Int
