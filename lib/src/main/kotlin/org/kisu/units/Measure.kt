@@ -89,7 +89,9 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * ```
      */
     val canonical: Self by lazy {
-        if (!magnitude.zero) {
+        if (prefix == prefix.canonical) {
+            self
+        } else if (!magnitude.zero) {
             to(prefix.canonical)
         } else {
             invoke(magnitude, prefix.canonical)
