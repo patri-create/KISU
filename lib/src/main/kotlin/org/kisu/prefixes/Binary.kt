@@ -1,82 +1,62 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.InBase
 import org.kisu.prefixes.primitives.Representation
-import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
-import org.kisu.prefixes.primitives.System
+import java.math.BigDecimal
 
 /**
- * The `Binary` prefix system defines unit prefixes based on powers of 2 (2ⁿ).
+ * Represents the standardized **binary prefixes** based on powers of 2, as defined by the
+ * [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage).
  *
- * This system includes the standardized prefixes defined by the
- * [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage), such as kibi (Ki), mebi (Mi),
- * gibi (Gi), and their corresponding powers of 2, as well as the
- * [Joint Electron Device Engineering Council (JEDEC)](https://www.jedec.org/) prefixes like kilo (K), mega (M),
- * and giga (G), which are often used in industry but sometimes ambiguously.
+ * These prefixes are used primarily in computing and digital storage to denote multiples of bytes and bits
+ * based on powers of 2 rather than powers of 10.
  *
- * Binary prefixes were introduced to provide unambiguous names for multiples of units in computing, where quantities
- * are based on powers of 2 rather than powers of 10.
+ * Each prefix corresponds to an exact power of 2, for example:
+ * - Kibi (Ki) = 2¹⁰ = 1,024
+ * - Mebi (Mi) = 2²⁰ = 1,048,576
+ * - Gibi (Gi) = 2³⁰ = 1,073,741,824
+ * and so forth.
  *
- * This addresses the confusion between decimal prefixes (like kilo, mega) and binary-based quantities, especially in
- * contexts such as computer memory and data storage.
+ * This enum uses explicit [factor] values as [BigDecimal] to avoid ambiguity and rounding errors.
  *
- * Each binary prefix corresponds to a power of 2 that is a multiple of 10: for example, kibi (Ki) represents
- * 2^10 (1024), mebi (Mi) 2^20 (1,048,576), gibi (Gi) 2^30, and so on.
- *
- * The **IEC** standardized these binary prefixes in 1998 to clearly distinguish binary multiples from decimal ones.
- *
- * The binary prefix system helps to reduce ambiguity when specifying sizes of digital information, ensuring clarity
- * whether a value refers to, for instance, 1000 bytes (kilobyte) or 1024 bytes (kibibyte).
- *
- * This enum models the set of recognized binary prefixes, providing their symbolic representation and exponent.
+ * @property factor The exact multiplication factor relative to the base unit (2⁰ = 1).
+ * @property symbol The standard symbol representing the prefix.
  */
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Binary(
-    override val power: Int,
+    override val factor: BigDecimal,
     symbol: String,
-) : Prefix, InBase by InBase.Binary, System<Binary> by StandardSystem(Binary::class), Symbol by Representation(symbol) {
-    /**
-     * 2^0 = 1
-     */
-    BASE(0, ""),
+) : Prefix<Binary>, Symbol by Representation(symbol) {
+    /** Base unit with factor 1 (2^0). */
+    BASE(BigDecimal.ONE, ""),
 
-    /** Symbol: "Ki" — 2¹⁰ = 1,024 */
-    KIBI(10, "Ki"),
+    /** Kibi — 2¹⁰ = 1,024 */
+    KIBI(BigDecimal("1024"), "Ki"),
 
-    /** Symbol: "K" — 2¹⁰ = 1,024 */
-    KILO(10, "K"),
+    /** Mebi — 2²⁰ = 1,048,576 */
+    MEBI(BigDecimal("1048576"), "Mi"),
 
-    /** Symbol: "Mi" — 2²⁰ = 1,048,576 */
-    MEBI(20, "Mi"),
+    /** Gibi — 2³⁰ = 1,073,741,824 */
+    GIBI(BigDecimal("1073741824"), "Gi"),
 
-    /** Symbol: "M" — 2²⁰ = 1,048,576 */
-    MEGA(20, "M"),
+    /** Tebi — 2⁴⁰ = 1,099,511,627,776 */
+    TEBI(BigDecimal("1099511627776"), "Ti"),
 
-    /** Symbol: "Gi" — 2³⁰ = 1,073,741,824 */
-    GIBI(30, "Gi"),
+    /** Pebi — 2⁵⁰ = 1,125,899,906,842,624 */
+    PEBI(BigDecimal("1125899906842624"), "Pi"),
 
-    /** Symbol: "G" — 2³⁰ = 1,073,741,824 */
-    GIGA(30, "G"),
+    /** Exbi — 2⁶⁰ = 1,152,921,504,606,846,976 */
+    EXBI(BigDecimal("1152921504606846976"), "Ei"),
 
-    /** Symbol: "Ti" — 2⁴⁰ = 1,099,511,627,776 */
-    TEBI(40, "Ti"),
+    /** Zebi — 2⁷⁰ = 1,180,591,620,717,411,303,424 */
+    ZEBI(BigDecimal("1180591620717411303424"), "Zi"),
 
-    /** Symbol: "Pi" — 2⁵⁰ = 1,125,899,906,842,624 */
-    PEBI(50, "Pi"),
+    /** Yobi — 2⁸⁰ = 1,208,925,819,614,629,174,706,176 */
+    YOBI(BigDecimal("1208925819614629174706176"), "Yi"),
 
-    /** Symbol: "Ei" — 2⁶⁰ = 1,152,921,504,606,846,976 */
-    EXBI(60, "Ei"),
+    /** Robi — 2⁹⁰ = 1,237,940,039,285,380,274,899,124,224 */
+    ROBI(BigDecimal("1237940039285380274899124224"), "Ri"),
 
-    /** Symbol: "Zi" — 2⁷⁰ = 1,180,591,620,717,411,303,424 */
-    ZEBI(70, "Zi"),
-
-    /** Symbol: "Yi" — 2⁸⁰ = 1,208,925,819,614,629,174,706,176 */
-    YOBI(80, "Yi"),
-
-    /** Symbol: "Ri" — 2⁹⁰ = 1,237,940,039,285,380,274,899,124,224 */
-    ROBI(90, "Ri"),
-
-    /** Symbol: "Qi" — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
-    QUEBI(100, "Qi"),
+    /** Quebi — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
+    QUEBI(BigDecimal("1267650600228229401496703205376"), "Qi"),
 }

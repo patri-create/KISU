@@ -1,6 +1,5 @@
 package org.kisu.prefixes.primitives
 
-import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
@@ -21,7 +20,7 @@ import org.kisu.prefixes.Prefix
  *
  * @param T the enum type representing the prefixes in this system, which must implement [Prefix]
  */
-interface System<T : Prefix> {
+interface System<T : Prefix<T>> {
     /**
      * The canonical unit for the system.
      *

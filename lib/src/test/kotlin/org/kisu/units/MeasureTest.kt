@@ -112,7 +112,7 @@ class MeasureTest : StringSpec({
         checkAll(inRange) { magnitude ->
             val measure = TestUnit(magnitude, Metric.BASE)
             val optimalPrefix = magnitude.optimalPrefixFrom(Metric.BASE)
-            val correctedMagnitude = magnitude * Metric.BASE.scale(optimalPrefix)
+            val correctedMagnitude = magnitude * Metric.BASE.to(optimalPrefix)
             val compact = TestUnit(correctedMagnitude, optimalPrefix)
 
             measure.optimal.representation shouldBe compact.representation
