@@ -1,7 +1,8 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package org.kisu.prefixes
 
 import org.kisu.KisuConfig
-import org.kisu.prefixes.primitives.InBase
 import org.kisu.prefixes.primitives.Symbol
 import java.math.BigDecimal
 
@@ -26,7 +27,7 @@ import java.math.BigDecimal
  * | mega  | M      | 10   | 6     | 1_000_000  |
  * ```
  */
-interface Prefix : InBase, Symbol, Comparable<Prefix> {
+interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
     /**
      * The exponent to which the [base] is raised to calculate the multiplier for this prefix.
      *
@@ -34,7 +35,7 @@ interface Prefix : InBase, Symbol, Comparable<Prefix> {
      * - For "centi" (c), the power is -2 → 10⁻² = 0.01
      * - For "kilo" (k), the power is 3 → 10³ = 1,000
      */
-    val power: Int
+    val factor: BigDecimal
 
     /**
      * Returns the factor by which a value expressed in this prefix must be multiplied
@@ -56,14 +57,23 @@ interface Prefix : InBase, Symbol, Comparable<Prefix> {
      * @param other the target prefix to which the value should be converted
      * @return the scaling factor to convert a value from this prefix to [other]
      */
-    fun scale(other: Prefix): BigDecimal {
-        val exponent = power - other.power
-        return when {
-            exponent == 0 -> BigDecimal.ONE
-            exponent > 0 -> base.pow(exponent)
-            else -> BigDecimal.ONE.divide(base.pow(-exponent), KisuConfig.precision)
-        }
-    }
+    fun to(other: Self): BigDecimal = factor.divide(other.factor, KisuConfig.precision)
+
+    /**
+     * Returns a list containing this [Prefix] and [other], sorted in ascending order.
+     *
+     * This function is an extension on any type [T] that is both a [Prefix] and implements
+     * [Comparable] with respect to [Prefix]. It uses the natural ordering defined by [compareTo].
+     *
+     * @param other the other [Prefix] to sort with.
+     * @return a [List] containing the two [Prefix] instances, sorted in ascending order.
+     */
+    @Suppress("UNCHECKED_CAST")
+    infix fun sortWith(other: Self): Pair<Self, Self> =
+        listOf(this as Self, other)
+            .sorted()
+            .let { (left, right) -> left to right }
+
 
     /**
      * Compares this [Prefix] with the specified [other] [Prefix] for order.
@@ -76,16 +86,6 @@ interface Prefix : InBase, Symbol, Comparable<Prefix> {
      * @return a negative integer, zero, or a positive integer as this [Prefix] is less than, equal to,
      * or greater than the specified [other] [Prefix].
      */
-    override fun compareTo(other: Prefix): Int = power.compareTo(other.power)
+    override operator fun compareTo(other: Prefix<Self>): Int =
+        factor.compareTo(other.factor)
 }
-
-/**
- * Returns a list containing this [Prefix] and [other], sorted in ascending order.
- *
- * This function is an extension on any type [T] that is both a [Prefix] and implements
- * [Comparable] with respect to [Prefix]. It uses the natural ordering defined by [compareTo].
- *
- * @param other the other [Prefix] to sort with.
- * @return a [List] containing the two [Prefix] instances, sorted in ascending order.
- */
-infix fun <T> T.sortWith(other: T): List<T> where T : Prefix, T : Comparable<Prefix> = listOf(this, other).sorted()

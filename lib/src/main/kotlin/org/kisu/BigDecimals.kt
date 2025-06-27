@@ -12,6 +12,15 @@ val BigDecimal.zero: Boolean
     get() = compareTo(BigDecimal.ZERO) == 0
 
 /**
+ * Returns `true` if this [BigDecimal] is exactly one.
+ *
+ * This is determined using [compareTo] to ensure scale differences
+ * (e.g., `1.0` vs `1.000`) do not affect the comparison.
+ */
+val BigDecimal.one: Boolean
+    get() = compareTo(BigDecimal.ONE) == 0
+
+/**
  * Converts this [Number] to a [BigDecimal] instance.
  *
  * Handles common numeric types efficiently:
