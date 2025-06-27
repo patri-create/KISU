@@ -1,5 +1,6 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.one
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
 import org.kisu.prefixes.Prefix
@@ -21,14 +22,14 @@ import kotlin.reflect.KClass
  *
  * @param klass The Kotlin class reference of the enum implementing [Prefix].
  */
-class StandardSystem<T : Prefix>(klass: KClass<T>) : System<T> {
+class StandardSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
     /**
      * The base prefix in the system, identified by power == 0.
      *
      * @throws [IllegalStateException] if no base prefix is found.
      */
     override val canonical: T by lazy {
-        all.find { prefix -> prefix.power == 0 }
+        all.find { prefix -> prefix.factor.one }
             ?: error("${this::class.simpleName} is a system with no base")
     }
 

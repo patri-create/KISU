@@ -1,28 +1,26 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.InBase
-import org.kisu.prefixes.primitives.InBase.Binary
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
+import java.math.BigDecimal
+import java.math.BigInteger
 
 /**
  * The `Decimal` prefix system defines unit prefixes based on powers of 1000 (10³).
  *
  * ### Use in Information Technology
  * In information technology, decimal (SI) prefixes are commonly used to describe data transfer rates, storage device
- * capacities, and other measurementswhere consistency with the metric system is expected:
+ * capacities, and other measurements where consistency with the metric system is expected:
  *
  * - **Storage devices**: A "500 GB" hard drive typically refers to 500 × 10⁹ bytes (500,000,000,000 bytes).
  * - **Network bandwidth**: "100 Mbps" usually means 100 × 10⁶ bits per second.
  *
- * This usage differs from [Binary], which are based on powers of 2 and are more appropriate for memory sizes and
- * precise data representation in computing systems.
- *
  * ### Discrepancy Between Decimal and [Binary] Prefixes
  * When SI prefixes like "kilo" or "mega" are interpreted as binary (e.g., 2¹⁰ instead of 10³), the difference in value
  * increases with the size of the prefix:
+ *
  * - For `kilo` (10³) vs. `kibi` (2¹⁰), the relative difference is approximately **2.4%**.
  * - For `quetta` (10³⁰) vs. `quebi` (2¹⁰⁰), the discrepancy grows to nearly **27%**.
  *
@@ -31,42 +29,42 @@ import org.kisu.prefixes.primitives.System
  */
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Decimal(
-    override val power: Int,
+    override val factor: BigDecimal,
     symbol: String,
-) : Prefix,
-    InBase by InBase.Decimal,
+) : Prefix<Decimal>,
     System<Decimal> by StandardSystem(Decimal::class),
     Symbol by Representation(symbol) {
-    /** Base unit */
-    BASE(0, ""),
 
-    /** Symbol: "k" — 1000¹ = 1,000 */
-    KILO(1, "k"),
+    /** 1000⁰ = 1 */
+    BASE(BigDecimal.ONE, ""),
 
-    /** Symbol: "M" — 1000² = 1,000,000 */
-    MEGA(2, "M"),
+    /** 1000¹ = 1,000 */
+    KILO(BigDecimal(BigInteger("1000")), "k"),
 
-    /** Symbol: "G" — 1000³ = 1,000,000,000 */
-    GIGA(3, "G"),
+    /** 1000² = 1,000,000 */
+    MEGA(BigDecimal(BigInteger("1000000")), "M"),
 
-    /** Symbol: "T" — 1000⁴ = 1,000,000,000,000 */
-    TERA(4, "T"),
+    /** 1000³ = 1,000,000,000 */
+    GIGA(BigDecimal(BigInteger("1000000000")), "G"),
 
-    /** Symbol: "P" — 1000⁵ = 1,000,000,000,000,000 */
-    PETA(5, "P"),
+    /** 1000⁴ = 1,000,000,000,000 */
+    TERA(BigDecimal(BigInteger("1000000000000")), "T"),
 
-    /** Symbol: "E" — 1000⁶ = 1,000,000,000,000,000,000 */
-    EXA(6, "E"),
+    /** 1000⁵ = 1,000,000,000,000,000 */
+    PETA(BigDecimal(BigInteger("1000000000000000")), "P"),
 
-    /** Symbol: "Z" — 1000⁷ = 1,000,000,000,000,000,000,000 */
-    ZETTA(7, "Z"),
+    /** 1000⁶ = 1,000,000,000,000,000,000 */
+    EXA(BigDecimal(BigInteger("1000000000000000000")), "E"),
 
-    /** Symbol: "Y" — 1000⁸ = 1,000,000,000,000,000,000,000,000 */
-    YOTTA(8, "Y"),
+    /** 1000⁷ = 1,000,000,000,000,000,000,000 */
+    ZETTA(BigDecimal(BigInteger("1000000000000000000000")), "Z"),
 
-    /** Symbol: "R" — 1000⁹ = 1,000,000,000,000,000,000,000,000,000 */
-    RONNA(9, "R"),
+    /** 1000⁸ = 1,000,000,000,000,000,000,000,000 */
+    YOTTA(BigDecimal(BigInteger("1000000000000000000000000")), "Y"),
 
-    /** Symbol: "Q" — 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(10, "Q"),
+    /** 1000⁹ = 1,000,000,000,000,000,000,000,000,000 */
+    RONNA(BigDecimal(BigInteger("1000000000000000000000000000")), "R"),
+
+    /** 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
+    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q");
 }
