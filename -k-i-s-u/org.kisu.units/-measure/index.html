@@ -108,7 +108,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units</a><span class="delimiter">/</span><span class="current">Measure</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Measure</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator"> : </span><a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator">&gt;</span>, <a href="../../org.kisu.prefixes/-prefix/index.html">Prefix</a><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator"> : </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><a href="index.html">Self</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents a physical quantity composed of a <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span>, a <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, and a <span data-unresolved-link="org.kisu.units/Measure/unit/#/PointingToDeclaration/">unit</span>.</p><p class="paragraph">This generic class models measurements in a unit system with metric-style prefixes, such as meters, grams, or seconds.</p><p class="paragraph">It is designed to support operations like addition, subtraction, scaling, and conversion between compatible units with automatic prefix normalization (e.g., converting 1000 millimeters to 1 meter).</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>Prefix</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The type representing the system of prefixes (e.g., Metric).     It must implement both <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a> (to provide ordering and base relations)     and <a href="../../org.kisu.prefixes/-prefix/index.html">org.kisu.prefixes.Prefix</a> (to support scaling operations).</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>Self</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The concrete subclass type used for safe covariant returns.     This is a common pattern to support fluent APIs in hierarchies.</p></div></div></div></div></div><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../org.kisu.prefixes.primitives/-system/index.html"><span><span>System</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for prefix ordering and canonical base relationships.</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../org.kisu.prefixes/-prefix/index.html"><span><span>Prefix</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for scaling behavior.</p></div></div></div></div></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator"> : </span><a href="../../org.kisu.prefixes/-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator">&gt;</span>, <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator"> : </span><a href="index.html">Measure</a><span class="token operator">&lt;</span><a href="index.html">Prefix</a><span class="token punctuation">, </span><a href="index.html">Self</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><a href="index.html">Self</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents a physical quantity composed of a <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span>, a <span data-unresolved-link="org.kisu.units/Measure/prefix/#/PointingToDeclaration/">prefix</span>, and a <span data-unresolved-link="org.kisu.units/Measure/unit/#/PointingToDeclaration/">unit</span>.</p><p class="paragraph">This generic class models measurements in a unit system with metric-style prefixes, such as meters, grams, or seconds.</p><p class="paragraph">It is designed to support operations like addition, subtraction, scaling, and conversion between compatible units with automatic prefix normalization (e.g., converting 1000 millimeters to 1 meter).</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>Prefix</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The type representing the system of prefixes (e.g., Metric).     It must implement both <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a> (to provide ordering and base relations)     and <a href="../../org.kisu.prefixes/-prefix/index.html">org.kisu.prefixes.Prefix</a> (to support scaling operations).</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>Self</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The concrete subclass type used for safe covariant returns.     This is a common pattern to support fluent APIs in hierarchies.</p></div></div></div></div></div><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../org.kisu.prefixes.primitives/-system/index.html"><span><span>System</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for prefix ordering and canonical base relationships.</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../org.kisu.prefixes/-prefix/index.html"><span><span>Prefix</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for scaling behavior.</p></div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -179,12 +179,12 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-313017730%2FFunctions%2F-1895836109" anchor-label="compareTo" id="-313017730%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+        <div class="table"><a data-name="1736144444%2FFunctions%2F-1895836109" anchor-label="compareTo" id="1736144444%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="compare-to.html"><span>compare</span><wbr></wbr><span><span>To</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-313017730%2FFunctions%2F-1895836109"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1736144444%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -239,12 +239,12 @@
               </div>
             </div>
           </div>
-<a data-name="1270761006%2FFunctions%2F-1895836109" anchor-label="minus" id="1270761006%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="-749426196%2FFunctions%2F-1895836109" anchor-label="minus" id="-749426196%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="minus.html"><span><span>minus</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1270761006%2FFunctions%2F-1895836109"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-749426196%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -254,12 +254,12 @@
               </div>
             </div>
           </div>
-<a data-name="267437858%2FFunctions%2F-1895836109" anchor-label="plus" id="267437858%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="1203081440%2FFunctions%2F-1895836109" anchor-label="plus" id="1203081440%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="plus.html"><span><span>plus</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="267437858%2FFunctions%2F-1895836109"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1203081440%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -269,12 +269,12 @@
               </div>
             </div>
           </div>
-<a data-name="-1985630324%2FFunctions%2F-1895836109" anchor-label="sortWith" id="-1985630324%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="-1836305334%2FFunctions%2F-1895836109" anchor-label="sortWith" id="-1836305334%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="sort-with.html"><span>sort</span><wbr></wbr><span><span>With</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1985630324%2FFunctions%2F-1895836109"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1836305334%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -299,12 +299,12 @@
               </div>
             </div>
           </div>
-<a data-name="468899126%2FFunctions%2F-1895836109" anchor-label="to" id="468899126%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="-1903271636%2FFunctions%2F-1895836109" anchor-label="to" id="-1903271636%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="to.html"><span><span>to</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="468899126%2FFunctions%2F-1895836109"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1903271636%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>

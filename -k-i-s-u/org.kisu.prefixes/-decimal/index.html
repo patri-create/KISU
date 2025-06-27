@@ -108,7 +108,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.prefixes</a><span class="delimiter">/</span><span class="current">Decimal</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Decimal</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">Decimal</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt; </span>, <a href="../-prefix/index.html">Prefix</a>, <a href="../../org.kisu.prefixes.primitives/-in-base/index.html">InBase</a>, <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt; </span>, <a href="../../org.kisu.prefixes.primitives/-symbol/index.html">Symbol</a></div><p class="paragraph">The <code class="lang-kotlin">Decimal</code> prefix system defines unit prefixes based on powers of 1000 (10³).</p><h3 class="">Use in Information Technology</h3><p class="paragraph">In information technology, decimal (SI) prefixes are commonly used to describe data transfer rates, storage device capacities, and other measurementswhere consistency with the metric system is expected:</p><ul><li><p class="paragraph"><strong>Storage devices</strong>: A &quot;500 GB&quot; hard drive typically refers to 500 × 10⁹ bytes (500,000,000,000 bytes).</p></li><li><p class="paragraph"><strong>Network bandwidth</strong>: &quot;100 Mbps&quot; usually means 100 × 10⁶ bits per second.</p></li></ul><p class="paragraph">This usage differs from <a href="../../org.kisu.prefixes.primitives/-in-base/-binary/index.html">Binary</a>, which are based on powers of 2 and are more appropriate for memory sizes and precise data representation in computing systems.</p><h3 class="">Discrepancy Between Decimal and <a href="../../org.kisu.prefixes.primitives/-in-base/-binary/index.html">Binary</a> Prefixes</h3><p class="paragraph">When SI prefixes like &quot;kilo&quot; or &quot;mega&quot; are interpreted as binary (e.g., 2¹⁰ instead of 10³), the difference in value increases with the size of the prefix:</p><ul><li><p class="paragraph">For <code class="lang-kotlin">kilo</code> (10³) vs. <code class="lang-kotlin">kibi</code> (2¹⁰), the relative difference is approximately <strong>2.4%</strong>.</p></li><li><p class="paragraph">For <code class="lang-kotlin">quetta</code> (10³⁰) vs. <code class="lang-kotlin">quebi</code> (2¹⁰⁰), the discrepancy grows to nearly <strong>27%</strong>.</p></li></ul><p class="paragraph">This growing gap reinforces the need to use the correct system—<strong>decimal for standard measurements</strong>, and <strong>binary for addressing and memory</strong>—to avoid confusion.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">Decimal</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt; </span>, <a href="../-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt; </span>, <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt; </span>, <a href="../../org.kisu.prefixes.primitives/-symbol/index.html">Symbol</a></div><p class="paragraph">The <code class="lang-kotlin">Decimal</code> prefix system defines unit prefixes based on powers of 1000 (10³).</p><h3 class="">Use in Information Technology</h3><p class="paragraph">In information technology, decimal (SI) prefixes are commonly used to describe data transfer rates, storage device capacities, and other measurements where consistency with the metric system is expected:</p><ul><li><p class="paragraph"><strong>Storage devices</strong>: A &quot;500 GB&quot; hard drive typically refers to 500 × 10⁹ bytes (500,000,000,000 bytes).</p></li><li><p class="paragraph"><strong>Network bandwidth</strong>: &quot;100 Mbps&quot; usually means 100 × 10⁶ bits per second.</p></li></ul><h3 class="">Discrepancy Between Decimal and <a href="../-binary/index.html">Binary</a> Prefixes</h3><p class="paragraph">When SI prefixes like &quot;kilo&quot; or &quot;mega&quot; are interpreted as binary (e.g., 2¹⁰ instead of 10³), the difference in value increases with the size of the prefix:</p><ul><li><p class="paragraph">For <code class="lang-kotlin">kilo</code> (10³) vs. <code class="lang-kotlin">kibi</code> (2¹⁰), the relative difference is approximately <strong>2.4%</strong>.</p></li><li><p class="paragraph">For <code class="lang-kotlin">quetta</code> (10³⁰) vs. <code class="lang-kotlin">quebi</code> (2¹⁰⁰), the discrepancy grows to nearly <strong>27%</strong>.</p></li></ul><p class="paragraph">This growing gap reinforces the need to use the correct system—<strong>decimal for standard measurements</strong>, and <strong>binary for addressing and memory</strong>—to avoid confusion.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
@@ -125,7 +125,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-b-a-s-e/index.html">BASE</a></div></div><div class="brief "><p class="paragraph">Base unit</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-b-a-s-e/index.html">BASE</a></div></div><div class="brief "><p class="paragraph">1000⁰ = 1</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -140,7 +140,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-k-i-l-o/index.html">KILO</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;k&quot; — 1000¹ = 1,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-k-i-l-o/index.html">KILO</a></div></div><div class="brief "><p class="paragraph">1000¹ = 1,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-m-e-g-a/index.html">MEGA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;M&quot; — 1000² = 1,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-m-e-g-a/index.html">MEGA</a></div></div><div class="brief "><p class="paragraph">1000² = 1,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -170,7 +170,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-g-i-g-a/index.html">GIGA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;G&quot; — 1000³ = 1,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-g-i-g-a/index.html">GIGA</a></div></div><div class="brief "><p class="paragraph">1000³ = 1,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-t-e-r-a/index.html">TERA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;T&quot; — 1000⁴ = 1,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-t-e-r-a/index.html">TERA</a></div></div><div class="brief "><p class="paragraph">1000⁴ = 1,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-p-e-t-a/index.html">PETA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;P&quot; — 1000⁵ = 1,000,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-p-e-t-a/index.html">PETA</a></div></div><div class="brief "><p class="paragraph">1000⁵ = 1,000,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -215,7 +215,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-e-x-a/index.html">EXA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;E&quot; — 1000⁶ = 1,000,000,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-e-x-a/index.html">EXA</a></div></div><div class="brief "><p class="paragraph">1000⁶ = 1,000,000,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -230,7 +230,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-z-e-t-t-a/index.html">ZETTA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;Z&quot; — 1000⁷ = 1,000,000,000,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-z-e-t-t-a/index.html">ZETTA</a></div></div><div class="brief "><p class="paragraph">1000⁷ = 1,000,000,000,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -245,7 +245,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-y-o-t-t-a/index.html">YOTTA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;Y&quot; — 1000⁸ = 1,000,000,000,000,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-y-o-t-t-a/index.html">YOTTA</a></div></div><div class="brief "><p class="paragraph">1000⁸ = 1,000,000,000,000,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-r-o-n-n-a/index.html">RONNA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;R&quot; — 1000⁹ = 1,000,000,000,000,000,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-r-o-n-n-a/index.html">RONNA</a></div></div><div class="brief "><p class="paragraph">1000⁹ = 1,000,000,000,000,000,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -275,7 +275,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-q-u-e-t-t-a/index.html">QUETTA</a></div></div><div class="brief "><p class="paragraph">Symbol: &quot;Q&quot; — 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><div class="block"><a href="-q-u-e-t-t-a/index.html">QUETTA</a></div></div><div class="brief "><p class="paragraph">1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -295,21 +295,6 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../../org.kisu.prefixes.primitives/-system/all.html">all</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">All prefixes defined in this system.</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1356286868%2FProperties%2F-1895836109" anchor-label="base" id="-1356286868%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="../../org.kisu.prefixes.primitives/-in-base/base.html"><span><span>base</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1356286868%2FProperties%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../../org.kisu.prefixes.primitives/-in-base/base.html">base</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">The numeric base used for exponentiation in prefix calculations.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -340,6 +325,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1813447301%2FProperties%2F-1895836109" anchor-label="factor" id="1813447301%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="factor.html"><span><span>factor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1813447301%2FProperties%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="factor.html">factor</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">The factor by which a unit is scaled when this prefix is applied.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -389,21 +389,6 @@
               </div>
             </div>
           </div>
-<a data-name="-871840191%2FProperties%2F-1895836109" anchor-label="power" id="-871840191%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="power.html"><span><span>power</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-871840191%2FProperties%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="power.html">power</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The exponent to which the <span data-unresolved-link="org.kisu.prefixes/Decimal/base/#/PointingToDeclaration/">base</span> is raised to calculate the multiplier for this prefix.</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
 <a data-name="-711984585%2FProperties%2F-1895836109" anchor-label="smallest" id="-711984585%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
@@ -438,32 +423,47 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="174348947%2FFunctions%2F-1895836109" anchor-label="compareTo" id="174348947%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+        <div class="table"><a data-name="-1326692930%2FFunctions%2F-1895836109" anchor-label="compareTo" id="-1326692930%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../-prefix/compare-to.html"><span>compare</span><wbr></wbr><span><span>To</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="174348947%2FFunctions%2F-1895836109"></span>
+                  <div><a href="-q-u-e-t-t-a/index.html#-1326692930%2FFunctions%2F-1895836109"><span>compare</span><wbr></wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1326692930%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="../-prefix/compare-to.html"><span class="token function">compareTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="../-prefix/index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Compares this <a href="../-prefix/index.html">Prefix</a> with the specified <a href="../-prefix/index.html">other</a> for order.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="-q-u-e-t-t-a/index.html#-1326692930%2FFunctions%2F-1895836109"><span class="token function">compareTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="../-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Compares this <a href="../-prefix/index.html">Prefix</a> to another based on their <a href="../-prefix/factor.html">factor</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="476432841%2FFunctions%2F-1895836109" anchor-label="scale" id="476432841%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="-1053531276%2FFunctions%2F-1895836109" anchor-label="sortWith" id="-1053531276%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../-prefix/scale.html"><span><span>scale</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="476432841%2FFunctions%2F-1895836109"></span>
+                  <div><a href="-q-u-e-t-t-a/index.html#-1053531276%2FFunctions%2F-1895836109"><span>sort</span><wbr></wbr><span><span>With</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1053531276%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-prefix/scale.html"><span class="token function">scale</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="../-prefix/index.html">Prefix</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">Returns the factor by which a value expressed in this prefix must be multiplied to convert it to the scale of the <a href="../-prefix/scale.html">other</a> prefix.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">infix </span><span class="token keyword">fun </span><a href="-q-u-e-t-t-a/index.html#-1053531276%2FFunctions%2F-1895836109"><span class="token function">sortWith</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Decimal</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="index.html">Decimal</a><span class="token punctuation">, </span><a href="index.html">Decimal</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns this prefix and <a href="-q-u-e-t-t-a/index.html#-1053531276%2FFunctions%2F-1895836109">other</a>, sorted in ascending order of their <a href="../-prefix/factor.html">factor</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-334860245%2FFunctions%2F-1895836109" anchor-label="to" id="-334860245%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-q-u-e-t-t-a/index.html#-334860245%2FFunctions%2F-1895836109"><span><span>to</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-334860245%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="-q-u-e-t-t-a/index.html#-334860245%2FFunctions%2F-1895836109"><span class="token function">to</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Decimal</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">Returns the factor needed to convert a value expressed with this prefix into one expressed in <a href="-q-u-e-t-t-a/index.html#-334860245%2FFunctions%2F-1895836109">other</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
