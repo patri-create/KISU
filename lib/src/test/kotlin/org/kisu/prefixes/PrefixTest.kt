@@ -12,7 +12,7 @@ class PrefixTest : StringSpec({
     "rescales to a different power" {
         checkAll(Prefixes.generator, Prefixes.generator) { left, right ->
             val decimal = left.to(right) * right.to(left)
-            decimal shouldBe (BigDecimal.ONE  plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
+            decimal shouldBe (BigDecimal.ONE plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
         }
     }
 

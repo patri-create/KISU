@@ -27,7 +27,6 @@ enum class Binary(
     override val factor: BigDecimal,
     symbol: String,
 ) : Prefix<Binary>, Symbol by Representation(symbol) {
-
     /** Base unit with factor 1 (2^0). */
     BASE(BigDecimal.ONE, ""),
 
@@ -59,5 +58,5 @@ enum class Binary(
     ROBI(BigDecimal("1237940039285380274899124224"), "Ri"),
 
     /** Quebi — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
-    QUEBI(BigDecimal("1267650600228229401496703205376"), "Qi");
+    QUEBI(BigDecimal("1267650600228229401496703205376"), "Qi"),
 }

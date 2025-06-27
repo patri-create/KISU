@@ -44,7 +44,6 @@ enum class Metric(
 ) : Prefix<Metric>,
     System<Metric> by StandardSystem(Metric::class),
     Symbol by Representation(symbol) {
-
     /** 10⁻³⁰ = 0.000000000000000000000000000001 */
     QUECTO(BigDecimal(BigInteger("1"), 30), "q"),
 
@@ -118,5 +117,5 @@ enum class Metric(
     RONNA(BigDecimal(BigInteger("1000000000000000000000000000")), "R"),
 
     /** 10³⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q");
+    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q"),
 }

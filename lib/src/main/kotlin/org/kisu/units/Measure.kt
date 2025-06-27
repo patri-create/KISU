@@ -39,7 +39,6 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
     private val prefix: Prefix,
     private val unit: String,
 ) : Comparable<Self> where Prefix : org.kisu.prefixes.Prefix<Prefix>, Prefix : System<Prefix> {
-
     protected constructor(magnitude: Double, prefix: Prefix, unit: String) : this(
         BigDecimal.valueOf(magnitude),
         prefix,

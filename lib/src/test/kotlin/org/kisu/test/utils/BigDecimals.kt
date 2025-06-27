@@ -4,7 +4,7 @@ import org.kisu.prefixes.Metric
 import java.math.BigDecimal
 
 fun BigDecimal.optimalPrefixFrom(original: Metric = Metric.BASE): Metric {
-    return  original.all
+    return original.all
         .filter { it.factor <= this }
         .maxByOrNull { it.factor }!!
 }

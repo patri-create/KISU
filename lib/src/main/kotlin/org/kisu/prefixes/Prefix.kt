@@ -74,7 +74,6 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
             .sorted()
             .let { (left, right) -> left to right }
 
-
     /**
      * Compares this [Prefix] with the specified [other] [Prefix] for order.
      *
@@ -86,6 +85,5 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
      * @return a negative integer, zero, or a positive integer as this [Prefix] is less than, equal to,
      * or greater than the specified [other] [Prefix].
      */
-    override operator fun compareTo(other: Prefix<Self>): Int =
-        factor.compareTo(other.factor)
+    override operator fun compareTo(other: Prefix<Self>): Int = factor.compareTo(other.factor)
 }

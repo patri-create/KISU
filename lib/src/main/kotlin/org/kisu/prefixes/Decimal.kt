@@ -34,7 +34,6 @@ enum class Decimal(
 ) : Prefix<Decimal>,
     System<Decimal> by StandardSystem(Decimal::class),
     Symbol by Representation(symbol) {
-
     /** 1000⁰ = 1 */
     BASE(BigDecimal.ONE, ""),
 
@@ -66,5 +65,5 @@ enum class Decimal(
     RONNA(BigDecimal(BigInteger("1000000000000000000000000000")), "R"),
 
     /** 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q");
+    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q"),
 }
