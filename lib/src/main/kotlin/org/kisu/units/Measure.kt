@@ -4,7 +4,6 @@ import org.kisu.KisuConfig
 import org.kisu.bigDecimal
 import org.kisu.orElse
 import org.kisu.prefixes.primitives.System
-import org.kisu.prefixes.sortWith
 import org.kisu.zero
 import java.math.BigDecimal
 
@@ -39,7 +38,8 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
     private val magnitude: BigDecimal,
     private val prefix: Prefix,
     private val unit: String,
-) : Comparable<Self> where Prefix : System<Prefix>, Prefix : org.kisu.prefixes.Prefix {
+) : Comparable<Self> where Prefix : org.kisu.prefixes.Prefix<Prefix>, Prefix : System<Prefix> {
+
     protected constructor(magnitude: Double, prefix: Prefix, unit: String) : this(
         BigDecimal.valueOf(magnitude),
         prefix,
@@ -138,7 +138,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @return A new [Measure] instance using the new [prefix] and the converted [magnitude].
      */
     fun to(other: Prefix): Self {
-        val conversion = prefix.scale(other)
+        val conversion = prefix.to(other)
         return invoke(magnitude * conversion, other)
     }
 
