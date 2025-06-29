@@ -1,7 +1,9 @@
 package org.kisu.prefixes
 
 import org.kisu.prefixes.primitives.Representation
+import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
+import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
 
 /**
@@ -26,37 +28,40 @@ import java.math.BigDecimal
 enum class Binary(
     override val factor: BigDecimal,
     symbol: String,
-) : Prefix<Binary>, Symbol by Representation(symbol) {
+) : Prefix<Binary>, System<Binary> by StandardSystem(Binary::class), Symbol by Representation(symbol) {
     /** Base unit with factor 1 (2^0). */
     BASE(BigDecimal.ONE, ""),
 
     /** Kibi — 2¹⁰ = 1,024 */
-    KIBI(BigDecimal("1024"), "Ki"),
+    KIBI(10, "Ki"),
 
     /** Mebi — 2²⁰ = 1,048,576 */
-    MEBI(BigDecimal("1048576"), "Mi"),
+    MEBI(20, "Mi"),
 
     /** Gibi — 2³⁰ = 1,073,741,824 */
-    GIBI(BigDecimal("1073741824"), "Gi"),
+    GIBI(30, "Gi"),
 
     /** Tebi — 2⁴⁰ = 1,099,511,627,776 */
-    TEBI(BigDecimal("1099511627776"), "Ti"),
+    TEBI(40, "Ti"),
 
     /** Pebi — 2⁵⁰ = 1,125,899,906,842,624 */
-    PEBI(BigDecimal("1125899906842624"), "Pi"),
+    PEBI(50, "Pi"),
 
     /** Exbi — 2⁶⁰ = 1,152,921,504,606,846,976 */
-    EXBI(BigDecimal("1152921504606846976"), "Ei"),
+    EXBI(60, "Ei"),
 
     /** Zebi — 2⁷⁰ = 1,180,591,620,717,411,303,424 */
-    ZEBI(BigDecimal("1180591620717411303424"), "Zi"),
+    ZEBI(70, "Zi"),
 
     /** Yobi — 2⁸⁰ = 1,208,925,819,614,629,174,706,176 */
-    YOBI(BigDecimal("1208925819614629174706176"), "Yi"),
+    YOBI(80, "Yi"),
 
     /** Robi — 2⁹⁰ = 1,237,940,039,285,380,274,899,124,224 */
-    ROBI(BigDecimal("1237940039285380274899124224"), "Ri"),
+    ROBI(90, "Ri"),
 
     /** Quebi — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
-    QUEBI(BigDecimal("1267650600228229401496703205376"), "Qi"),
+    QUEBI(100, "Qi"),
+    ;
+
+    constructor(power: Int, symbol: String) : this(factor = BigDecimal.TWO.pow(power), symbol)
 }

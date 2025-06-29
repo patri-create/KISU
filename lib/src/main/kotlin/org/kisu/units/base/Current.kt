@@ -1,0 +1,35 @@
+package org.kisu.units.base
+
+import org.kisu.prefixes.Metric
+import org.kisu.units.Measure
+import java.math.BigDecimal
+
+/**
+ * Represents the physical quantity of **electric current**, measured in amperes (A).
+ *
+ * Electric current quantifies the flow of electric charge over time.
+ * One ampere corresponds to one coulomb of charge passing through a point in a circuit per second.
+ *
+ * This quantity is one of the seven SI base units and is typically used to describe the intensity of electrical flow
+ * in conductors, circuits, and electromagnetic systems.
+ *
+ * This class expresses current as a combination of a [magnitude] and a [prefix], supporting values such as
+ * milliamperes (mA), microamperes (µA), or kiloamperes (kA).
+ *
+ * Instances of this class are immutable and use [BigDecimal] for precision.
+ */
+class Current private constructor(magnitude: BigDecimal, prefix: Metric) :
+    Measure<Metric, Current>(magnitude, prefix, SYMBOL) {
+    /**
+     * Creates a new [Current] with the given [magnitude] and [prefix].
+     */
+    override fun invoke(
+        magnitude: BigDecimal,
+        prefix: Metric,
+    ): Current = Current(magnitude, prefix)
+
+    companion object {
+        /** The SI symbol for electric current: "A" (ampere). */
+        private const val SYMBOL = "A"
+    }
+}

@@ -29,8 +29,6 @@ tasks.withType<Detekt>().configureEach {
 }
 
 dependencies {
-    detektPlugins(libs.detekt.cli)
-
     // Test Dependencies
     testImplementation(kotlin("test"))
 

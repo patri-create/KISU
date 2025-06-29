@@ -2,6 +2,7 @@ package org.kisu.prefixes
 
 import org.kisu.KisuConfig
 import org.kisu.prefixes.primitives.Symbol
+import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
 
 /**
@@ -79,3 +80,15 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
      */
     override fun compareTo(other: Prefix<Self>): Int = factor.compareTo(other.factor)
 }
+
+/**
+ * Returns `true` if this [Prefix] is the **canonical** or base unit prefix for its system.
+ *
+ * In most systems, this typically corresponds to the unit with a factor of 1 (e.g., no prefix in metric,
+ * or `BASE` in binary). It compares the current prefix with the system-defined
+ * [org.kisu.prefixes.primitives.System.canonical] prefix.
+ *
+ * @return `true` if this prefix is the canonical base unit, `false` otherwise.
+ */
+val <P> P.isCanonical: Boolean where P : Prefix<P>, P : System<P>
+    get() = this == canonical

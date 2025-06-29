@@ -5,7 +5,6 @@ import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
-import java.math.BigInteger
 
 /**
  * The `Decimal` prefix system defines unit prefixes based on powers of 1000 (10³).
@@ -38,32 +37,35 @@ enum class Decimal(
     BASE(BigDecimal.ONE, ""),
 
     /** 1000¹ = 1,000 */
-    KILO(BigDecimal(BigInteger("1000")), "k"),
+    KILO(3, "k"),
 
     /** 1000² = 1,000,000 */
-    MEGA(BigDecimal(BigInteger("1000000")), "M"),
+    MEGA(6, "M"),
 
     /** 1000³ = 1,000,000,000 */
-    GIGA(BigDecimal(BigInteger("1000000000")), "G"),
+    GIGA(9, "G"),
 
     /** 1000⁴ = 1,000,000,000,000 */
-    TERA(BigDecimal(BigInteger("1000000000000")), "T"),
+    TERA(12, "T"),
 
     /** 1000⁵ = 1,000,000,000,000,000 */
-    PETA(BigDecimal(BigInteger("1000000000000000")), "P"),
+    PETA(15, "P"),
 
     /** 1000⁶ = 1,000,000,000,000,000,000 */
-    EXA(BigDecimal(BigInteger("1000000000000000000")), "E"),
+    EXA(18, "E"),
 
     /** 1000⁷ = 1,000,000,000,000,000,000,000 */
-    ZETTA(BigDecimal(BigInteger("1000000000000000000000")), "Z"),
+    ZETTA(21, "Z"),
 
     /** 1000⁸ = 1,000,000,000,000,000,000,000,000 */
-    YOTTA(BigDecimal(BigInteger("1000000000000000000000000")), "Y"),
+    YOTTA(24, "Y"),
 
     /** 1000⁹ = 1,000,000,000,000,000,000,000,000,000 */
-    RONNA(BigDecimal(BigInteger("1000000000000000000000000000")), "R"),
+    RONNA(27, "R"),
 
     /** 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q"),
+    QUETTA(30, "Q"),
+    ;
+
+    constructor(power: Int, symbol: String) : this(factor = BigDecimal.TEN.pow(power), symbol)
 }

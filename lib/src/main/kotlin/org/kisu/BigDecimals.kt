@@ -21,6 +21,25 @@ val BigDecimal.one: Boolean
     get() = compareTo(BigDecimal.ONE) == 0
 
 /**
+ * Returns `true` if this [BigDecimal] is strictly less than zero.
+ *
+ * Uses [BigDecimal.signum] to determine the sign of the number.
+ */
+val BigDecimal.negative: Boolean
+    get() = signum() == -1
+
+/**
+ * Returns `true` if this [BigDecimal] has a non-zero fractional part.
+ *
+ * Trailing zeros are stripped before checking the [java.math.BigDecimal.scale], so values like `5.0` or `2.000` are
+ * treated as integers.
+ *
+ * A positive scale after stripping indicates digits exist after the decimal point.
+ */
+val BigDecimal.hasFraction: Boolean
+    get() = stripTrailingZeros().scale() > 0
+
+/**
  * Converts this [Number] to a [BigDecimal] instance.
  *
  * Handles common numeric types efficiently:
