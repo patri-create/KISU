@@ -29,43 +29,44 @@ import java.math.BigDecimal
  * Instances are immutable and safely validated at construction.
  */
 class Information private constructor(magnitude: BigDecimal, prefix: Binary) :
-    Measure<Binary, Information>(magnitude, prefix, SYMBOL) {
-    /**
-     * Creates a new [Information] quantity with the given [magnitude] and [prefix].
-     *
-     * Constraints:
-     * - The [magnitude] must be strictly positive; negative information is physically meaningless.
-     * - If the [prefix] is canonical (i.e., no prefix, representing raw bits), the [magnitude] must not include
-     * fractional parts.
-     *   Fractional bits are not representable as atomic units of digital information.
-     *
-     * If these constraints are violated:
-     * - A [NegativeInformation] exception is thrown for negative values.
-     * - A [SubBitInformation] exception is thrown for fractional bit values in canonical form.
-     *
-     * @param magnitude The magnitude of the information quantity.
-     * @param prefix The binary prefix to apply (e.g., Ki, Mi, Gi, etc.).
-     * @return A new [Information] instance with the specified magnitude and prefix.
-     * @throws NegativeInformation if the value is negative.
-     * @throws SubBitInformation if a non-integer bit value is used with the base unit.
-     */
-    override fun invoke(
-        magnitude: BigDecimal,
-        prefix: Binary,
-    ): Information {
-        if (magnitude.negative) {
-            throw NegativeInformation(magnitude, prefix, SYMBOL)
-        }
-        if (prefix.isCanonical && magnitude.hasFraction) {
-            throw SubBitInformation(magnitude, SYMBOL)
-        }
-        val information = Information(magnitude, prefix)
-        information.canonical // Forces evaluation for potential validation during construction
-        return information
-    }
+    Measure<Binary, Information>(magnitude, prefix, SYMBOL, ::invoke) {
 
     companion object {
         /** The unit symbol for digital information: "bit". */
         private const val SYMBOL = "bit"
+
+        /**
+         * Creates a new [Information] quantity with the given [magnitude] and [prefix].
+         *
+         * Constraints:
+         * - The [magnitude] must be strictly positive; negative information is physically meaningless.
+         * - If the [prefix] is canonical (i.e., no prefix, representing raw bits), the [magnitude] must not include
+         * fractional parts.
+         *   Fractional bits are not representable as atomic units of digital information.
+         *
+         * If these constraints are violated:
+         * - A [NegativeInformation] exception is thrown for negative values.
+         * - A [SubBitInformation] exception is thrown for fractional bit values in canonical form.
+         *
+         * @param magnitude The magnitude of the information quantity.
+         * @param prefix The binary prefix to apply (e.g., Ki, Mi, Gi, etc.).
+         * @return A new [Information] instance with the specified magnitude and prefix.
+         * @throws NegativeInformation if the value is negative.
+         * @throws SubBitInformation if a non-integer bit value is used with the base unit.
+         */
+        operator fun invoke(
+            magnitude: BigDecimal,
+            prefix: Binary,
+        ): Information {
+            if (magnitude.negative) {
+                throw NegativeInformation(magnitude, prefix, SYMBOL)
+            }
+            if (prefix.isCanonical && magnitude.hasFraction) {
+                throw SubBitInformation(magnitude, SYMBOL)
+            }
+            val information = Information(magnitude, prefix)
+            information.canonical // Forces evaluation for potential validation during construction
+            return information
+        }
     }
 }

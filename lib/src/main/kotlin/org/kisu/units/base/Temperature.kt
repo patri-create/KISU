@@ -24,31 +24,32 @@ import java.math.BigDecimal
  * respect physical constraints and are immutable once created.
  */
 class Temperature private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Temperature>(magnitude, prefix, SYMBOL) {
-    /**
-     * Creates a new [Temperature] quantity with the given [magnitude] and [prefix].
-     *
-     * The [magnitude] must be zero or positive. Negative temperatures are not permitted in kelvin,
-     * as they would represent values below absolute zero — a condition that is physically impossible
-     * in classical thermodynamics.
-     *
-     * @param magnitude The numeric value of the temperature.
-     * @param prefix The metric prefix to apply (e.g., m, k).
-     * @return A validated [Temperature] instance.
-     * @throws NegativeTemperature if the magnitude is less than zero.
-     */
-    override fun invoke(
-        magnitude: BigDecimal,
-        prefix: Metric,
-    ): Temperature {
-        if (magnitude.negative) {
-            throw NegativeTemperature(magnitude, prefix, SYMBOL)
-        }
-        return Temperature(magnitude, prefix)
-    }
+    Measure<Metric, Temperature>(magnitude, prefix, SYMBOL, ::invoke) {
 
     companion object {
         /** The SI symbol for temperature: "K" (kelvin). */
         private const val SYMBOL = "K"
+        /**
+         * Creates a new [Temperature] quantity with the given [magnitude] and [prefix].
+         *
+         * The [magnitude] must be zero or positive. Negative temperatures are not permitted in kelvin,
+         * as they would represent values below absolute zero — a condition that is physically impossible
+         * in classical thermodynamics.
+         *
+         * @param magnitude The numeric value of the temperature.
+         * @param prefix The metric prefix to apply (e.g., m, k).
+         * @return A validated [Temperature] instance.
+         * @throws NegativeTemperature if the magnitude is less than zero.
+         */
+        operator fun invoke(
+            magnitude: BigDecimal,
+            prefix: Metric,
+        ): Temperature {
+            if (magnitude.negative) {
+                throw NegativeTemperature(magnitude, prefix, SYMBOL)
+            }
+            return Temperature(magnitude, prefix)
+        }
+
     }
 }

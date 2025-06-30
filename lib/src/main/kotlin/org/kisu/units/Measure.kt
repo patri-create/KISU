@@ -38,11 +38,13 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
     private val magnitude: BigDecimal,
     private val prefix: Prefix,
     private val unit: String,
+    private val create: (BigDecimal, Prefix) -> Self
 ) : Comparable<Self> where Prefix : org.kisu.prefixes.Prefix<Prefix>, Prefix : System<Prefix> {
-    protected constructor(magnitude: Double, prefix: Prefix, unit: String) : this(
+    protected constructor(magnitude: Double, prefix: Prefix, unit: String, create: (BigDecimal, Prefix) -> Self) : this(
         BigDecimal.valueOf(magnitude),
         prefix,
         unit,
+        create
     )
 
     /**
@@ -94,7 +96,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
         } else if (!magnitude.zero) {
             to(prefix.canonical)
         } else {
-            invoke(magnitude, prefix.canonical)
+            create(magnitude, prefix.canonical)
         }
     }
 
@@ -143,7 +145,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
             return self
         }
         val conversion = prefix.to(other)
-        return invoke(magnitude * conversion, other)
+        return create(magnitude * conversion, other)
     }
 
     /**
@@ -157,7 +159,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      */
     operator fun plus(other: Self): Self {
         val (smallest, largest) = prefix.sortWith(other.prefix)
-        return invoke(this.to(smallest).magnitude + other.to(smallest).magnitude, smallest).to(largest)
+        return create(this.to(smallest).magnitude + other.to(smallest).magnitude, smallest).to(largest)
     }
 
     /**
@@ -171,7 +173,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      */
     operator fun minus(other: Self): Self {
         val (smallest, largest) = prefix.sortWith(other.prefix)
-        return invoke(this.to(smallest).magnitude - other.to(smallest).magnitude, smallest).to(largest)
+        return create(this.to(smallest).magnitude - other.to(smallest).magnitude, smallest).to(largest)
     }
 
     /**
@@ -190,7 +192,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param number The scalar to multiply by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun times(number: BigDecimal): Self = invoke(magnitude.times(number), prefix)
+    operator fun times(number: BigDecimal): Self = create(magnitude.times(number), prefix)
 
     /**
      * Divides this measure by a [BigDecimal] scalar.
@@ -198,7 +200,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param number The scalar to divide by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun div(number: BigDecimal): Self = invoke(magnitude.divide(number, KisuConfig.precision), prefix)
+    operator fun div(number: BigDecimal): Self = create(magnitude.divide(number, KisuConfig.precision), prefix)
 
     /**
      * Divides this measure by a [Number] scalar.
@@ -241,20 +243,6 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
         listOf(self, other)
             .sorted()
             .let { (left, right) -> left to right }
-
-    /**
-     * Factory method to create a new measure of the same type with a given magnitude and prefix.
-     *
-     * Subclasses must implement this to support operations that return new instances.
-     *
-     * @param magnitude The numeric value of the new measure.
-     * @param prefix The prefix/unit for the new measure.
-     * @return A new instance of [Measure] with the specified properties.
-     */
-    protected abstract operator fun invoke(
-        magnitude: BigDecimal,
-        prefix: Prefix,
-    ): Self
 
     /**
      * Returns the [optimal] string representation of this measurement for inspection purposes.
