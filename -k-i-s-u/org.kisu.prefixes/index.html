@@ -110,7 +110,7 @@
     <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
     <div class="tabs-section-body">
       <div data-togglable="TYPE">
         <h2 class="">Types</h2>
@@ -124,7 +124,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-binary/index.html">Binary</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-binary/index.html">Binary</a><span class="token operator">&gt; </span>, <a href="-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="-binary/index.html">Binary</a><span class="token operator">&gt; </span>, <a href="../org.kisu.prefixes.primitives/-symbol/index.html">Symbol</a></div><div class="brief "><p class="paragraph">Represents the standardized <strong>binary prefixes</strong> based on powers of 2, as defined by the <a href="https://www.iec.ch/homepage">International Electrotechnical Commission (IEC)</a>.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-binary/index.html">Binary</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-binary/index.html">Binary</a><span class="token operator">&gt; </span>, <a href="-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="-binary/index.html">Binary</a><span class="token operator">&gt; </span>, <a href="../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="-binary/index.html">Binary</a><span class="token operator">&gt; </span>, <a href="../org.kisu.prefixes.primitives/-symbol/index.html">Symbol</a></div><div class="brief "><p class="paragraph">Represents the standardized <strong>binary prefixes</strong> based on powers of 2, as defined by the <a href="https://www.iec.ch/homepage">International Electrotechnical Commission (IEC)</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -170,6 +170,25 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="-prefix/index.html">Self</a><span class="token operator"> : </span><a href="-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="-prefix/index.html">Self</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span> : <a href="../org.kisu.prefixes.primitives/-symbol/index.html">Symbol</a>, <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><a href="-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="-prefix/index.html">Self</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">A <code class="lang-kotlin">Prefix</code> is a mnemonic added to a unit of measurement to indicate multiplication by a specific factor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="2115926382%2FProperties%2F-1895836109" anchor-label="isCanonical" id="2115926382%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-canonical.html"><span>is</span><wbr></wbr><span><span>Canonical</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2115926382%2FProperties%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><span class="token operator">&lt;</span><a href="is-canonical.html">P</a><span class="token operator"> : </span><a href="-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="is-canonical.html">P</a><span class="token operator">&gt;</span>, <a href="../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="is-canonical.html">P</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><a href="is-canonical.html">P</a><span class="token punctuation">.</span><a href="is-canonical.html">isCanonical</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">true</code> if this <a href="-prefix/index.html">Prefix</a> is the <strong>canonical</strong> or base unit prefix for its system.</p></div></div></div>
                 </div>
               </div>
             </div>
