@@ -84,38 +84,41 @@ enum class Metric(
     BASE(BigDecimal.ONE, ""),
 
     /** 10¹ = 10 */
-    DECA(BigDecimal(BigInteger("10")), "da"),
+    DECA(1, "da"),
 
     /** 10² = 100 */
-    HECTO(BigDecimal(BigInteger("100")), "h"),
+    HECTO(2, "h"),
 
     /** 10³ = 1,000 */
-    KILO(BigDecimal(BigInteger("1000")), "k"),
+    KILO(3, "k"),
 
     /** 10⁶ = 1,000,000 */
-    MEGA(BigDecimal(BigInteger("1000000")), "M"),
+    MEGA(6, "M"),
 
     /** 10⁹ = 1,000,000,000 */
-    GIGA(BigDecimal(BigInteger("1000000000")), "G"),
+    GIGA(9, "G"),
 
     /** 10¹² = 1,000,000,000,000 */
-    TERA(BigDecimal(BigInteger("1000000000000")), "T"),
+    TERA(12, "T"),
 
     /** 10¹⁵ = 1,000,000,000,000,000 */
-    PETA(BigDecimal(BigInteger("1000000000000000")), "P"),
+    PETA(15, "P"),
 
     /** 10¹⁸ = 1,000,000,000,000,000,000 */
-    EXA(BigDecimal(BigInteger("1000000000000000000")), "E"),
+    EXA(18, "E"),
 
     /** 10²¹ = 1,000,000,000,000,000,000,000 */
-    ZETTA(BigDecimal(BigInteger("1000000000000000000000")), "Z"),
+    ZETTA(21, "Z"),
 
     /** 10²⁴ = 1,000,000,000,000,000,000,000,000 */
-    YOTTA(BigDecimal(BigInteger("1000000000000000000000000")), "Y"),
+    YOTTA(24, "Y"),
 
     /** 10²⁷ = 1,000,000,000,000,000,000,000,000,000 */
-    RONNA(BigDecimal(BigInteger("1000000000000000000000000000")), "R"),
+    RONNA(27, "R"),
 
     /** 10³⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
-    QUETTA(BigDecimal(BigInteger("1000000000000000000000000000000")), "Q"),
+    QUETTA(30, "Q"),
+    ;
+
+    constructor(power: Int, symbol: String) : this(factor = BigDecimal.TEN.pow(power), symbol)
 }

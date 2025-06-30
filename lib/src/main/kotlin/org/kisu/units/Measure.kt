@@ -89,7 +89,9 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * ```
      */
     val canonical: Self by lazy {
-        if (!magnitude.zero) {
+        if (prefix == prefix.canonical) {
+            self
+        } else if (!magnitude.zero) {
             to(prefix.canonical)
         } else {
             invoke(magnitude, prefix.canonical)
@@ -137,6 +139,9 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @return A new [Measure] instance using the new [prefix] and the converted [magnitude].
      */
     fun to(other: Prefix): Self {
+        if (prefix == other) {
+            return self
+        }
         val conversion = prefix.to(other)
         return invoke(magnitude * conversion, other)
     }

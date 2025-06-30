@@ -2,7 +2,6 @@ import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     kotlin("jvm")
-    alias(libs.plugins.klint)
     alias(libs.plugins.dokka)
     alias(libs.plugins.detekt)
 }
