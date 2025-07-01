@@ -73,3 +73,33 @@ val Number.ronna get() = RonnaBuilder(bigDecimal)
 
 /** Creates a builder with the 'quetta' (10³⁰) metric prefix. */
 val Number.quetta get() = QuettaBuilder(bigDecimal)
+
+/** Creates a builder with the 'kibi' (2¹⁰) binary prefix. */
+val Number.kibi get() = KibiBuilder(bigDecimal)
+
+/** Creates a builder with the 'mebi' (2²⁰) binary prefix. */
+val Number.mebi get() = MebiBuilder(bigDecimal)
+
+/** Creates a builder with the 'gibi' (2³⁰) binary prefix. */
+val Number.gibi get() = GibiBuilder(bigDecimal)
+
+/** Creates a builder with the 'tebi' (2⁴⁰) binary prefix. */
+val Number.tebi get() = TebiBuilder(bigDecimal)
+
+/** Creates a builder with the 'pebi' (2⁵⁰) binary prefix. */
+val Number.pebi get() = PebiBuilder(bigDecimal)
+
+/** Creates a builder with the 'exbi' (2⁶⁰) binary prefix. */
+val Number.exbi get() = ExbiBuilder(bigDecimal)
+
+/** Creates a builder with the 'zebi' (2⁷⁰) binary prefix. */
+val Number.zebi get() = ZebiBuilder(bigDecimal)
+
+/** Creates a builder with the 'yobi' (2⁸⁰) binary prefix. */
+val Number.yobi get() = YobiBuilder(bigDecimal)
+
+/** Creates a builder with the 'robi' (2⁹⁰) binary prefix. */
+val Number.robi get() = RobiBuilder(bigDecimal)
+
+/** Creates a builder with the 'quebi' (2¹⁰⁰) binary prefix. */
+val Number.quebi get() = QuebiBuilder(bigDecimal)

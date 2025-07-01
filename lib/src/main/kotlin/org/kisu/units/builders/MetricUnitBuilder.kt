@@ -33,8 +33,7 @@ sealed interface MetricUnitBuilder {
  * val length = 25.kilo.meters // 25 * 10^3 meters
  * ```
  */
-val MetricUnitBuilder.meters: Length
-    get() = Length(magnitude, metric)
+val MetricUnitBuilder.meters: Length get() = Length(magnitude, metric)
 
 /**
  * Creates an [Amount] measure by applying the metric prefix scale to the magnitude.
@@ -44,8 +43,7 @@ val MetricUnitBuilder.meters: Length
  * val amount = 3.milli.moles // 3 * 10^-3 moles
  * ```
  */
-val MetricUnitBuilder.moles: Amount
-    get() = Amount(magnitude, metric)
+val MetricUnitBuilder.moles: Amount get() = Amount(magnitude, metric)
 
 /**
  * Creates a [Current] measure by applying the metric prefix scale to the magnitude.
@@ -55,8 +53,7 @@ val MetricUnitBuilder.moles: Amount
  * val current = 1.micro.amperes // 1 * 10^-6 amperes
  * ```
  */
-val MetricUnitBuilder.amperes: Current
-    get() = Current(magnitude, metric)
+val MetricUnitBuilder.amperes: Current get() = Current(magnitude, metric)
 
 /**
  * Creates a [LuminousIntensity] measure by applying the metric prefix scale to the magnitude.
@@ -66,8 +63,7 @@ val MetricUnitBuilder.amperes: Current
  * val intensity = 10.hecto.candelas // 10 * 10^2 candelas
  * ```
  */
-val MetricUnitBuilder.candelas: LuminousIntensity
-    get() = LuminousIntensity(magnitude, metric)
+val MetricUnitBuilder.candelas: LuminousIntensity get() = LuminousIntensity(magnitude, metric)
 
 /**
  * Creates a [Mass] measure by applying the metric prefix scale to the magnitude.
@@ -79,8 +75,7 @@ val MetricUnitBuilder.candelas: LuminousIntensity
  * val mass = 500.milli.grams // 500 * 10^-3 grams
  * ```
  */
-val MetricUnitBuilder.grams: Mass
-    get() = Mass(magnitude, metric)
+val MetricUnitBuilder.grams: Mass get() = Mass(magnitude, metric)
 
 /**
  * Creates a [Temperature] measure by applying the metric prefix scale to the magnitude.
@@ -90,8 +85,7 @@ val MetricUnitBuilder.grams: Mass
  * val temp = 2.kilo.kelvins // 2 * 10^3 kelvins
  * ```
  */
-val MetricUnitBuilder.kelvins: Temperature
-    get() = Temperature(magnitude, metric)
+val MetricUnitBuilder.kelvins: Temperature get() = Temperature(magnitude, metric)
 
 /**
  * Creates a [Time] measure by applying the metric prefix scale to the magnitude.
@@ -101,5 +95,4 @@ val MetricUnitBuilder.kelvins: Temperature
  * val duration = 4.centi.seconds // 4 * 10^-2 seconds
  * ```
  */
-val MetricUnitBuilder.seconds: Time
-    get() = Time(magnitude, metric)
+val MetricUnitBuilder.seconds: Time get() = Time(magnitude, metric)
