@@ -2,7 +2,6 @@ package org.kisu.units.base
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldStartWith
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.negativeLong
@@ -23,7 +22,8 @@ class AmountTest : StringSpec({
 
     "a positive amount constructs successfully" {
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().moles.representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+            magnitude.builder().moles
+                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
         }
     }
 })

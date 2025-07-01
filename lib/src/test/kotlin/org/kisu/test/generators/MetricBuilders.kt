@@ -55,6 +55,4 @@ object MetricBuilders : Generator<Number.() -> MetricUnitBuilder> {
         Number::ronna,
         Number::quetta,
     )
-
-
 }

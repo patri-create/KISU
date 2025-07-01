@@ -51,6 +51,5 @@ class Temperature private constructor(magnitude: BigDecimal, prefix: Metric) :
             }
             return Temperature(magnitude, prefix)
         }
-
     }
 }

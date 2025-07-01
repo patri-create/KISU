@@ -21,7 +21,8 @@ class TimeTest : StringSpec({
 
     "a positive time constructs successfully" {
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().seconds.representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+            magnitude.builder().seconds
+                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
         }
     }
 })

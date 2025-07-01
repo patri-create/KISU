@@ -35,7 +35,8 @@ class InformationTest : StringSpec({
 
     "a positive and integer information constructs successfully" {
         checkAll(Arb.positiveLong(), BinaryBuilders.generator) { magnitude, builder ->
-            magnitude.builder().bits.representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().binary}"
+            magnitude.builder().bits
+                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().binary}"
         }
     }
 })
