@@ -56,7 +56,7 @@ class Information private constructor(magnitude: BigDecimal, prefix: Binary) :
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            prefix: Binary,
+            prefix: Binary = Binary.BASE,
         ): Information {
             if (magnitude.negative) {
                 throw NegativeInformation(magnitude, prefix, SYMBOL)

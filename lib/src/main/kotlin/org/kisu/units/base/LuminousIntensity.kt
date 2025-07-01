@@ -41,7 +41,7 @@ class LuminousIntensity private constructor(magnitude: BigDecimal, prefix: Metri
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            prefix: Metric,
+            prefix: Metric = Metric.BASE,
         ): LuminousIntensity {
             if (magnitude.negative) {
                 throw NegativeLuminousIntensity(magnitude, prefix, SYMBOL)

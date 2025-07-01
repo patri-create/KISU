@@ -26,7 +26,7 @@ class Length private constructor(magnitude: BigDecimal, prefix: Metric) :
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            prefix: Metric,
+            prefix: Metric = Metric.BASE,
         ): Length = Length(magnitude, prefix)
     }
 }

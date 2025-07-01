@@ -28,6 +28,7 @@ class Mass private constructor(magnitude: BigDecimal, prefix: Metric) :
     companion object {
         /** The symbol for mass: "g" (gram). */
         private const val SYMBOL = "g"
+
         /**
          * Creates a new [Mass] quantity with the given [magnitude] and [prefix].
          *
@@ -41,7 +42,7 @@ class Mass private constructor(magnitude: BigDecimal, prefix: Metric) :
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            prefix: Metric,
+            prefix: Metric = Metric.BASE,
         ): Mass {
             if (magnitude.negative) {
                 throw NegativeMass(magnitude, prefix, SYMBOL)

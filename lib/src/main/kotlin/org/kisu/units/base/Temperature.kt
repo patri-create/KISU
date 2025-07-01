@@ -29,6 +29,7 @@ class Temperature private constructor(magnitude: BigDecimal, prefix: Metric) :
     companion object {
         /** The SI symbol for temperature: "K" (kelvin). */
         private const val SYMBOL = "K"
+
         /**
          * Creates a new [Temperature] quantity with the given [magnitude] and [prefix].
          *
@@ -43,7 +44,7 @@ class Temperature private constructor(magnitude: BigDecimal, prefix: Metric) :
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            prefix: Metric,
+            prefix: Metric = Metric.BASE,
         ): Temperature {
             if (magnitude.negative) {
                 throw NegativeTemperature(magnitude, prefix, SYMBOL)

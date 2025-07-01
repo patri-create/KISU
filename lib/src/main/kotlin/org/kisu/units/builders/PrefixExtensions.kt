@@ -1,6 +1,62 @@
 package org.kisu.units.builders
 
 import org.kisu.bigDecimal
+import org.kisu.units.base.Amount
+import org.kisu.units.base.Current
+import org.kisu.units.base.Information
+import org.kisu.units.base.Length
+import org.kisu.units.base.LuminousIntensity
+import org.kisu.units.base.Mass
+import org.kisu.units.base.Temperature
+import org.kisu.units.base.Time
+
+/**
+ * Creates an [Amount] from this [Number] representing a number of moles (mol),
+ * the SI unit for amount of substance.
+ */
+val Number.moles get() = Amount(bigDecimal)
+
+/**
+ * Creates a [Current] from this [Number] representing an electric current in amperes (A),
+ * the SI unit for electric current.
+ */
+val Number.amperes get() = Current(bigDecimal)
+
+/**
+ * Creates an [Information] value from this [Number] representing a quantity of bits.
+ * This assumes 1 bit = base unit of information.
+ */
+val Number.bits get() = Information(bigDecimal)
+
+/**
+ * Creates a [Length] from this [Number] representing a distance in meters (m),
+ * the SI unit for length.
+ */
+val Number.meters get() = Length(bigDecimal)
+
+/**
+ * Creates a [LuminousIntensity] from this [Number] representing luminous intensity in candelas (cd),
+ * the SI unit for luminous intensity.
+ */
+val Number.candelas get() = LuminousIntensity(bigDecimal)
+
+/**
+ * Creates a [Mass] from this [Number] representing a mass in grams (g).
+ * Note: This assumes the base unit is the gram, not the kilogram.
+ */
+val Number.grams get() = Mass(bigDecimal)
+
+/**
+ * Creates a [Temperature] from this [Number] representing a temperature in kelvins (K),
+ * the SI unit for thermodynamic temperature.
+ */
+val Number.kelvins get() = Temperature(bigDecimal)
+
+/**
+ * Creates a [Time] from this [Number] representing a duration in seconds (s),
+ * the SI unit for time.
+ */
+val Number.seconds get() = Time(bigDecimal)
 
 /** Creates a builder with the 'quecto' (10⁻³⁰) metric prefix. */
 val Number.quecto get() = QuectoBuilder(bigDecimal)
