@@ -15,17 +15,18 @@ import java.math.BigDecimal
  * large-scale measurements using [BigDecimal] for accuracy.
  */
 class Length private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Length>(magnitude, prefix, SYMBOL) {
-    /**
-     * Creates a new [Length] quantity with the given [magnitude] and [prefix].
-     */
-    override fun invoke(
-        magnitude: BigDecimal,
-        prefix: Metric,
-    ): Length = Length(magnitude, prefix)
+    Measure<Metric, Length>(magnitude, prefix, SYMBOL, ::invoke) {
 
     companion object {
         /** The SI symbol for length: "m" (metre). */
         private const val SYMBOL = "m"
+
+        /**
+         * Creates a new [Length] quantity with the given [magnitude] and [prefix].
+         */
+        operator fun invoke(
+            magnitude: BigDecimal,
+            prefix: Metric = Metric.BASE,
+        ): Length = Length(magnitude, prefix)
     }
 }

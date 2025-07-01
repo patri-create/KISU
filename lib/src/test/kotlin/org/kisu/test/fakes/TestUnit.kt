@@ -7,15 +7,11 @@ import java.math.BigDecimal
 class TestUnit(
     magnitude: BigDecimal,
     prefix: Metric = Metric.BASE,
-) : Measure<Metric, TestUnit>(magnitude, prefix, SYMBOL) {
+) : Measure<Metric, TestUnit>(magnitude, prefix, SYMBOL, ::TestUnit) {
+
     constructor(magnitude: Double, prefix: Metric = Metric.BASE) : this(BigDecimal.valueOf(magnitude), prefix)
 
     val magnitude: BigDecimal = magnitude
-
-    override fun invoke(
-        magnitude: BigDecimal,
-        prefix: Metric,
-    ): TestUnit = TestUnit(magnitude, prefix)
 
     companion object {
         const val SYMBOL = "ts"

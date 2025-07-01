@@ -23,30 +23,31 @@ import java.math.BigDecimal
  * Instances of this class are immutable and validated at construction.
  */
 class Mass private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Mass>(magnitude, prefix, SYMBOL) {
-    /**
-     * Creates a new [Mass] quantity with the given [magnitude] and [prefix].
-     *
-     * The [magnitude] must be zero or positive. Negative mass is not permitted, as it represents a physically
-     * invalid state — mass can be absent (zero), but never less than zero.
-     *
-     * @param magnitude The numeric value of the mass.
-     * @param prefix The metric prefix to apply (e.g., m, k, M).
-     * @return A validated [Mass] instance.
-     * @throws NegativeMass if the magnitude is less than zero.
-     */
-    override fun invoke(
-        magnitude: BigDecimal,
-        prefix: Metric,
-    ): Mass {
-        if (magnitude.negative) {
-            throw NegativeMass(magnitude, prefix, SYMBOL)
-        }
-        return Mass(magnitude, prefix)
-    }
+    Measure<Metric, Mass>(magnitude, prefix, SYMBOL, ::invoke) {
 
     companion object {
         /** The symbol for mass: "g" (gram). */
         private const val SYMBOL = "g"
+
+        /**
+         * Creates a new [Mass] quantity with the given [magnitude] and [prefix].
+         *
+         * The [magnitude] must be zero or positive. Negative mass is not permitted, as it represents a physically
+         * invalid state — mass can be absent (zero), but never less than zero.
+         *
+         * @param magnitude The numeric value of the mass.
+         * @param prefix The metric prefix to apply (e.g., m, k, M).
+         * @return A validated [Mass] instance.
+         * @throws NegativeMass if the magnitude is less than zero.
+         */
+        operator fun invoke(
+            magnitude: BigDecimal,
+            prefix: Metric = Metric.BASE,
+        ): Mass {
+            if (magnitude.negative) {
+                throw NegativeMass(magnitude, prefix, SYMBOL)
+            }
+            return Mass(magnitude, prefix)
+        }
     }
 }

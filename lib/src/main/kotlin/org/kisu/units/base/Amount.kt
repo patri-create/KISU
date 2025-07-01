@@ -23,24 +23,7 @@ import java.math.BigDecimal
  * Instances of this class are immutable and preserve their precision using [BigDecimal].
  */
 class Amount private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Amount>(magnitude, prefix, SYMBOL) {
-    /**
-     * Creates a new [Amount] with the given [magnitude] and [prefix].
-     *
-     * The magnitude must be zero or positive. A negative amount of substance is not allowed,
-     * as it would represent a negative count of entities, which is physically meaningless.
-     *
-     * @throws NegativeAmountOfSubstance if the magnitude is less than zero.
-     */
-    override fun invoke(
-        magnitude: BigDecimal,
-        prefix: Metric,
-    ): Amount {
-        if (magnitude < BigDecimal.ZERO) {
-            throw NegativeAmountOfSubstance(magnitude, prefix, SYMBOL)
-        }
-        return Amount(magnitude, prefix)
-    }
+    Measure<Metric, Amount>(magnitude, prefix, SYMBOL, ::invoke) {
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */
@@ -53,5 +36,23 @@ class Amount private constructor(magnitude: BigDecimal, prefix: Metric) :
          * This is a fundamental physical constant.
          */
         val AVOGADROS_NUMBER: BigDecimal = BigDecimal("6.02214076e23")
+
+        /**
+         * Creates a new [Amount] with the given [magnitude] and [prefix].
+         *
+         * The magnitude must be zero or positive. A negative amount of substance is not allowed,
+         * as it would represent a negative count of entities, which is physically meaningless.
+         *
+         * @throws NegativeAmountOfSubstance if the magnitude is less than zero.
+         */
+        operator fun invoke(
+            magnitude: BigDecimal,
+            prefix: Metric = Metric.BASE,
+        ): Amount {
+            if (magnitude < BigDecimal.ZERO) {
+                throw NegativeAmountOfSubstance(magnitude, prefix, SYMBOL)
+            }
+            return Amount(magnitude, prefix)
+        }
     }
 }
