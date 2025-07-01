@@ -1,5 +1,6 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
