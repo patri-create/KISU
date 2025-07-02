@@ -1,0 +1,25 @@
+package org.kisu.units.derived
+
+import org.kisu.prefixes.Metric
+import org.kisu.units.Measure
+import java.math.BigDecimal
+
+/**
+ * Represents the physical quantity of **area**, measured in square metres (m²).
+ *
+ * One square metre is the area of a square with sides of one metre in length.
+ * This is a coherent derived SI unit with the base unit m².
+ *
+ * This class expresses area as a combination of a [magnitude] and a [prefix], supporting values such as
+ * square millimetres (mm²), square centimetres (cm²), or square kilometres (km²).
+ *
+ * Instances of this class are immutable and use [BigDecimal] for precision.
+ */
+class Area internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    Measure<Metric, Area>(magnitude, prefix, SYMBOL, ::Area) {
+
+    companion object {
+        /** The SI symbol for area: "m²" (square metre). */
+        private const val SYMBOL = "m²"
+    }
+}
