@@ -11,7 +11,7 @@ import org.kisu.test.generators.MetricBuilders
 import org.kisu.units.builders.meters
 
 class LengthTest : StringSpec({
-    "length creates successfully" {
+    "creates Length" {
         checkAll(Arb.long().filter { it != 0L }, MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().meters
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"

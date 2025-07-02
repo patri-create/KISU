@@ -18,19 +18,11 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Current private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Current>(magnitude, prefix, SYMBOL, ::invoke) {
+class Current internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    Measure<Metric, Current>(magnitude, prefix, SYMBOL, ::Current) {
 
     companion object {
         /** The SI symbol for electric current: "A" (ampere). */
         private const val SYMBOL = "A"
-
-        /**
-         * Creates a new [Current] with the given [magnitude] and [prefix].
-         */
-        operator fun invoke(
-            magnitude: BigDecimal,
-            prefix: Metric = Metric.BASE,
-        ): Current = Current(magnitude, prefix)
     }
 }
