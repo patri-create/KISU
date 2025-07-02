@@ -14,19 +14,11 @@ import java.math.BigDecimal
  * The quantity is expressed with a [magnitude] and a [prefix], enabling precise representation of both small- and
  * large-scale measurements using [BigDecimal] for accuracy.
  */
-class Length private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Length>(magnitude, prefix, SYMBOL, ::invoke) {
+class Length internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    Measure<Metric, Length>(magnitude, prefix, SYMBOL, ::Length) {
 
     companion object {
         /** The SI symbol for length: "m" (metre). */
         private const val SYMBOL = "m"
-
-        /**
-         * Creates a new [Length] quantity with the given [magnitude] and [prefix].
-         */
-        operator fun invoke(
-            magnitude: BigDecimal,
-            prefix: Metric = Metric.BASE,
-        ): Length = Length(magnitude, prefix)
     }
 }

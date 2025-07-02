@@ -1,7 +1,6 @@
 package org.kisu.units.base
 
 import org.kisu.hasFraction
-import org.kisu.negative
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.isCanonical
 import org.kisu.units.Measure
@@ -28,7 +27,7 @@ import java.math.BigDecimal
  *
  * Instances are immutable and safely validated at construction.
  */
-class Information private constructor(magnitude: BigDecimal, prefix: Binary) :
+class Information private constructor(magnitude: BigDecimal, prefix: Binary = Binary.BASE) :
     Measure<Binary, Information>(magnitude, prefix, SYMBOL, ::invoke) {
 
     companion object {
@@ -58,9 +57,6 @@ class Information private constructor(magnitude: BigDecimal, prefix: Binary) :
             magnitude: BigDecimal,
             prefix: Binary = Binary.BASE,
         ): Information {
-            if (magnitude.negative) {
-                throw NegativeInformation(magnitude, prefix, SYMBOL)
-            }
             if (prefix.isCanonical && magnitude.hasFraction) {
                 throw SubBitInformation(magnitude, SYMBOL)
             }

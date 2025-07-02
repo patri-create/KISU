@@ -3,7 +3,6 @@ package org.kisu.units.base
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
-import org.kisu.units.exceptions.NegativeAmountOfSubstance
 import java.math.BigDecimal
 
 /**
@@ -22,8 +21,8 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and preserve their precision using [BigDecimal].
  */
-class Amount private constructor(magnitude: BigDecimal, prefix: Metric) :
-    Measure<Metric, Amount>(magnitude, prefix, SYMBOL, ::invoke) {
+class Amount internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    Measure<Metric, Amount>(magnitude, prefix, SYMBOL, ::Amount) {
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */
@@ -36,23 +35,5 @@ class Amount private constructor(magnitude: BigDecimal, prefix: Metric) :
          * This is a fundamental physical constant.
          */
         val AVOGADROS_NUMBER: BigDecimal = BigDecimal("6.02214076e23")
-
-        /**
-         * Creates a new [Amount] with the given [magnitude] and [prefix].
-         *
-         * The magnitude must be zero or positive. A negative amount of substance is not allowed,
-         * as it would represent a negative count of entities, which is physically meaningless.
-         *
-         * @throws NegativeAmountOfSubstance if the magnitude is less than zero.
-         */
-        operator fun invoke(
-            magnitude: BigDecimal,
-            prefix: Metric = Metric.BASE,
-        ): Amount {
-            if (magnitude < BigDecimal.ZERO) {
-                throw NegativeAmountOfSubstance(magnitude, prefix, SYMBOL)
-            }
-            return Amount(magnitude, prefix)
-        }
     }
 }
