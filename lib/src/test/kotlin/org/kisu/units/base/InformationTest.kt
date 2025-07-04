@@ -31,4 +31,10 @@ class InformationTest : StringSpec({
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().binary}"
         }
     }
+
+    "creates a base Information" {
+        checkAll(Arb.positiveLong()) { magnitude ->
+            magnitude.bits.representation shouldStartWith "${magnitude.bigDecimal}"
+        }
+    }
 })

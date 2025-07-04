@@ -7,6 +7,7 @@ import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.candelas
 
 class LuminousIntensityTest : StringSpec({
@@ -14,6 +15,12 @@ class LuminousIntensityTest : StringSpec({
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().candelas
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+        }
+    }
+
+    "creates a base LuminousIntensity" {
+        checkAll(Arb.bigDecimal()) { magnitude ->
+            magnitude.candelas.representation shouldStartWith "${magnitude.bigDecimal}"
         }
     }
 })

@@ -9,12 +9,31 @@ import org.kisu.units.base.LuminousIntensity
 import org.kisu.units.base.Mass
 import org.kisu.units.base.Temperature
 import org.kisu.units.base.Time
-
-/**
- * Creates an [Amount] from this [Number] representing a number of moles (mol),
- * the SI unit for amount of substance.
- */
-val Number.moles get() = Amount(bigDecimal)
+import org.kisu.units.derived.AbsorbedDose
+import org.kisu.units.derived.Area
+import org.kisu.units.derived.Byte
+import org.kisu.units.derived.Capacitance
+import org.kisu.units.derived.CatalyticActivity
+import org.kisu.units.derived.Celsius
+import org.kisu.units.derived.Conductance
+import org.kisu.units.derived.DoseEquivalent
+import org.kisu.units.derived.ElectricCharge
+import org.kisu.units.derived.ElectricPotential
+import org.kisu.units.derived.Energy
+import org.kisu.units.derived.Force
+import org.kisu.units.derived.Frequency
+import org.kisu.units.derived.Illuminance
+import org.kisu.units.derived.Inductance
+import org.kisu.units.derived.LuminousFlux
+import org.kisu.units.derived.MagneticFlux
+import org.kisu.units.derived.MagneticFluxDensity
+import org.kisu.units.derived.PlaneAngle
+import org.kisu.units.derived.Power
+import org.kisu.units.derived.Pressure
+import org.kisu.units.derived.Radioactivity
+import org.kisu.units.derived.Resistance
+import org.kisu.units.derived.SolidAngle
+import org.kisu.units.derived.Volume
 
 /**
  * Creates a [Current] from this [Number] representing an electric current in amperes (A),
@@ -23,16 +42,22 @@ val Number.moles get() = Amount(bigDecimal)
 val Number.amperes get() = Current(bigDecimal)
 
 /**
+ * Creates a [Radioactivity] from this [Number] representing a radioactivity in becquerels (Bq),
+ * the SI unit for activity referred to a radionuclide.
+ */
+val Number.becquerels get() = Radioactivity(bigDecimal)
+
+/**
  * Creates an [Information] value from this [Number] representing a quantity of bits.
  * This assumes 1 bit = base unit of information.
  */
 val Number.bits get() = Information(bigDecimal)
 
 /**
- * Creates a [Length] from this [Number] representing a distance in meters (m),
- * the SI unit for length.
+ * Creates a [Byte] from this [Number] representing digital information in bytes (B),
+ * where one byte equals 8 bits.
  */
-val Number.meters get() = Length(bigDecimal)
+val Number.bytes get() = Byte(bigDecimal)
 
 /**
  * Creates a [LuminousIntensity] from this [Number] representing luminous intensity in candelas (cd),
@@ -41,10 +66,64 @@ val Number.meters get() = Length(bigDecimal)
 val Number.candelas get() = LuminousIntensity(bigDecimal)
 
 /**
+ * Creates a [Celsius] from this [Number] representing a temperature in degrees Celsius (°C),
+ * which corresponds to Kelvin with an offset of 273.15.
+ */
+val Number.celsius get() = Celsius(bigDecimal)
+
+/**
+ * Creates an [ElectricCharge] from this [Number] representing an electric charge in coulombs (C),
+ * the SI unit for electric charge.
+ */
+val Number.coulombs get() = ElectricCharge(bigDecimal)
+
+/**
+ * Creates a [Volume] from this [Number] representing a volume in cubic metres (m³),
+ * the SI derived unit for volume.
+ */
+val Number.cubicMeters get() = Volume(bigDecimal)
+
+/**
+ * Creates a [Capacitance] from this [Number] representing a capacitance in farads (F),
+ * the SI unit for capacitance.
+ */
+val Number.farads get() = Capacitance(bigDecimal)
+
+/**
  * Creates a [Mass] from this [Number] representing a mass in grams (g).
  * Note: This assumes the base unit is the gram, not the kilogram.
  */
 val Number.grams get() = Mass(bigDecimal)
+
+/**
+ * Creates an [AbsorbedDose] from this [Number] representing an absorbed dose in grays (Gy),
+ * the SI unit for absorbed dose and kerma.
+ */
+val Number.grays get() = AbsorbedDose(bigDecimal)
+
+/**
+ * Creates an [Energy] from this [Number] representing an amount of energy in joules (J),
+ * the SI unit for energy, work, or heat.
+ */
+val Number.joules get() = Energy(bigDecimal)
+
+/**
+ * Creates an [Inductance] from this [Number] representing an inductance in henries (H),
+ * the SI unit for inductance.
+ */
+val Number.henries get() = Inductance(bigDecimal)
+
+/**
+ * Creates a [Frequency] from this [Number] representing a frequency in hertz (Hz),
+ * the SI unit for frequency.
+ */
+val Number.hertz get() = Frequency(bigDecimal)
+
+/**
+ * Creates a [CatalyticActivity] from this [Number] representing a catalytic activity in katals (kat),
+ * the SI unit for catalytic activity.
+ */
+val Number.katals get() = CatalyticActivity(bigDecimal)
 
 /**
  * Creates a [Temperature] from this [Number] representing a temperature in kelvins (K),
@@ -53,10 +132,106 @@ val Number.grams get() = Mass(bigDecimal)
 val Number.kelvins get() = Temperature(bigDecimal)
 
 /**
+ * Creates a [LuminousFlux] from this [Number] representing a luminous flux in lumens (lm),
+ * the SI unit for luminous flux.
+ */
+val Number.lumens get() = LuminousFlux(bigDecimal)
+
+/**
+ * Creates an [Illuminance] from this [Number] representing an illuminance in lux (lx),
+ * the SI unit for illuminance.
+ */
+val Number.lux get() = Illuminance(bigDecimal)
+
+/**
+ * Creates a [Length] from this [Number] representing a distance in meters (m),
+ * the SI unit for length.
+ */
+val Number.meters get() = Length(bigDecimal)
+
+/**
+ * Creates an [Amount] from this [Number] representing a number of moles (mol),
+ * the SI unit for amount of substance.
+ */
+val Number.moles get() = Amount(bigDecimal)
+
+/**
+ * Creates a [Force] from this [Number] representing a force in newtons (N),
+ * the SI unit for force.
+ */
+val Number.newtons get() = Force(bigDecimal)
+
+/**
+ * Creates a [Resistance] from this [Number] representing an electrical resistance in ohms (Ω),
+ * the SI unit for electrical resistance.
+ */
+val Number.ohms get() = Resistance(bigDecimal)
+
+/**
+ * Creates a [Pressure] from this [Number] representing a pressure in pascals (Pa),
+ * the SI unit for pressure and stress.
+ */
+val Number.pascals get() = Pressure(bigDecimal)
+
+/**
+ * Creates a [PlaneAngle] from this [Number] representing an angle in radians (rad),
+ * the SI unit for plane angle.
+ */
+val Number.radians get() = PlaneAngle(bigDecimal)
+
+/**
  * Creates a [Time] from this [Number] representing a duration in seconds (s),
  * the SI unit for time.
  */
 val Number.seconds get() = Time(bigDecimal)
+
+/**
+ * Creates a [Conductance] from this [Number] representing an electrical conductance in siemens (S),
+ * the SI unit for conductance.
+ */
+val Number.siemens get() = Conductance(bigDecimal)
+
+/**
+ * Creates a [DoseEquivalent] from this [Number] representing a dose equivalent in sieverts (Sv),
+ * the SI unit for dose equivalent.
+ */
+val Number.sieverts get() = DoseEquivalent(bigDecimal)
+
+/**
+ * Creates an [Area] from this [Number] representing an area in square metres (m²),
+ * the SI derived unit for area.
+ */
+val Number.squareMeters get() = Area(bigDecimal)
+
+/**
+ * Creates a [SolidAngle] from this [Number] representing a solid angle in steradians (sr),
+ * the SI unit for solid angle.
+ */
+val Number.steradians get() = SolidAngle(bigDecimal)
+
+/**
+ * Creates a [MagneticFluxDensity] from this [Number] representing a magnetic flux density in teslas (T),
+ * the SI unit for magnetic flux density.
+ */
+val Number.teslas get() = MagneticFluxDensity(bigDecimal)
+
+/**
+ * Creates an [ElectricPotential] from this [Number] representing an electric potential in volts (V),
+ * the SI unit for electric potential difference.
+ */
+val Number.volts get() = ElectricPotential(bigDecimal)
+
+/**
+ * Creates a [Power] from this [Number] representing a power in watts (W),
+ * the SI unit for power and radiant flux.
+ */
+val Number.watts get() = Power(bigDecimal)
+
+/**
+ * Creates a [MagneticFlux] from this [Number] representing a magnetic flux in webers (Wb),
+ * the SI unit for magnetic flux.
+ */
+val Number.webers get() = MagneticFlux(bigDecimal)
 
 /** Creates a builder with the 'quecto' (10⁻³⁰) metric prefix. */
 val Number.quecto get() = QuectoBuilder(bigDecimal)

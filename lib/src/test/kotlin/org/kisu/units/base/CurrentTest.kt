@@ -16,4 +16,10 @@ class CurrentTest : StringSpec({
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
         }
     }
+
+    "creates a base Current" {
+        checkAll(Arb.bigDecimal()) { magnitude ->
+            magnitude.amperes.representation shouldStartWith "${magnitude.bigDecimal}"
+        }
+    }
 })

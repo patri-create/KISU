@@ -16,4 +16,10 @@ class MassTest : StringSpec({
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
         }
     }
+
+    "creates a base Mass" {
+        checkAll(Arb.bigDecimal()) { magnitude ->
+            magnitude.grams.representation shouldStartWith "${magnitude.bigDecimal}"
+        }
+    }
 })

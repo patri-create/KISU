@@ -1,26 +1,24 @@
-package org.kisu.units.base
+package org.kisu.units.derived
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.string.shouldStartWith
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.bigDecimal
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.moles
+import org.kisu.units.builders.farads
 
-class AmountTest : StringSpec({
-
-    "creates an Amount" {
+class CapacitanceTest : StringSpec({
+    "creates a Capacitance" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().moles
-                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+            magnitude.builder().farads
+                .representation shouldStartWith "$magnitude ${magnitude.builder().metric}"
         }
     }
 
-    "creates a base Amount" {
+    "creates a base Capacitance" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.moles.representation shouldStartWith "${magnitude.bigDecimal}"
+            magnitude.farads.representation shouldStartWith "$magnitude"
         }
     }
 })
