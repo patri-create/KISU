@@ -1,4 +1,4 @@
-package org.kisu.units.base
+package org.kisu.units.derived
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.string.shouldStartWith
@@ -7,20 +7,19 @@ import io.kotest.property.checkAll
 import org.kisu.bigDecimal
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.moles
+import org.kisu.units.builders.steradians
 
-class AmountTest : StringSpec({
-
-    "creates an Amount" {
+class SolidAngleTest : StringSpec({
+    "creates a SolidAngle" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().moles
-                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+            magnitude.builder().steradians
+                .representation shouldStartWith "$magnitude ${magnitude.builder().metric}"
         }
     }
 
-    "creates a base Amount" {
+    "creates a base SolidAngle" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.moles.representation shouldStartWith "${magnitude.bigDecimal}"
+            magnitude.steradians.representation shouldStartWith "$magnitude"
         }
     }
 })

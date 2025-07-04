@@ -16,4 +16,10 @@ class TemperatureTest : StringSpec({
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
         }
     }
+
+    "creates a base Temperature" {
+        checkAll(Arb.bigDecimal()) { magnitude ->
+            magnitude.kelvins.representation shouldStartWith "${magnitude.bigDecimal}"
+        }
+    }
 })

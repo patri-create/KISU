@@ -8,6 +8,7 @@ import io.kotest.property.arbitrary.long
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.meters
 
 class LengthTest : StringSpec({
@@ -15,6 +16,12 @@ class LengthTest : StringSpec({
         checkAll(Arb.long().filter { it != 0L }, MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().meters
                 .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+        }
+    }
+
+    "creates a base Length" {
+        checkAll(Arb.bigDecimal()) { magnitude ->
+            magnitude.meters.representation shouldStartWith "${magnitude.bigDecimal}"
         }
     }
 })
