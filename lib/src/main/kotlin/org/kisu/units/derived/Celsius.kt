@@ -2,7 +2,6 @@ package org.kisu.units.derived
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
-import org.kisu.units.base.Temperature
 import java.math.BigDecimal
 
 /**
@@ -17,7 +16,7 @@ import java.math.BigDecimal
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
 class Celsius internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Celsius>(magnitude, prefix, SYMBOL, ::Celsius)  {
+    Measure<Metric, Celsius>(magnitude, prefix, SYMBOL, ::Celsius) {
 
     companion object {
         /** The SI symbol for Celsius temperature: "°C". */

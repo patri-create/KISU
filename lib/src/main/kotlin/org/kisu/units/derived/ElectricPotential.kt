@@ -7,10 +7,11 @@ import java.math.BigDecimal
 /**
  * Represents the physical quantity of **electric potential difference**, measured in volts (V).
  *
- * One volt is defined as the potential difference across a conductor when a current of one ampere dissipates one watt of power.
- * In SI base units, it is kg·m²·s⁻³·A⁻¹.
+ * One volt is defined as the potential difference across a conductor when a current of one ampere dissipates one watt
+ * of power. In SI base units, it is kg·m²·s⁻³·A⁻¹.
  *
- * Volts are used extensively in electrical circuits to describe voltage, electromotive force, and potential energy per charge.
+ * Volts are used extensively in electrical circuits to describe voltage, electromotive force, and potential energy
+ * per charge.
  *
  * This class expresses electric potential as a combination of a [magnitude] and a [prefix], supporting values such as
  * millivolts (mV), microvolts (µV), or kilovolts (kV).

@@ -35,7 +35,6 @@ import org.kisu.units.derived.Resistance
 import org.kisu.units.derived.SolidAngle
 import org.kisu.units.derived.Volume
 
-
 /**
  * Creates a [Current] from this [Number] representing an electric current in amperes (A),
  * the SI unit for electric current.

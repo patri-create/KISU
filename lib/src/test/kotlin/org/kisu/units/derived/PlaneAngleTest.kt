@@ -13,7 +13,7 @@ class PlaneAngleTest : StringSpec({
     "creates a PlaneAngle" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().radians
-                .representation shouldStartWith "${magnitude} ${magnitude.builder().metric}"
+                .representation shouldStartWith "$magnitude ${magnitude.builder().metric}"
         }
     }
 

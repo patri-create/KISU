@@ -7,8 +7,8 @@ import java.math.BigDecimal
 /**
  * Represents the physical quantity of **capacitance**, measured in farads (F).
  *
- * One farad is the capacitance of a capacitor in which a charge of one coulomb causes a potential difference of one volt.
- * In base SI units, it is kg⁻¹·m⁻²·s⁴·A².
+ * One farad is the capacitance of a capacitor in which a charge of one coulomb causes a potential difference of one
+ * volt. In base SI units, it is kg⁻¹·m⁻²·s⁴·A².
  *
  * Farads are commonly used in electronics to describe how much electric charge a component can store.
  *

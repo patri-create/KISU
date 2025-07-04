@@ -5,11 +5,13 @@ import org.kisu.units.Measure
 import java.math.BigDecimal
 
 /**
- * Represents the physical quantity of **radioactivity**, specifically the activity of a radionuclide, measured in becquerels (Bq).
+ * Represents the physical quantity of **radioactivity**, specifically the activity of a radionuclide, measured in
+ * becquerels (Bq).
  *
  * One becquerel corresponds to one nuclear decay per second. In SI base units, it is defined as s⁻¹.
  *
- * Becquerels are used in nuclear physics, radiology, and environmental monitoring to measure the rate of radioactive decay.
+ * Becquerels are used in nuclear physics, radiology, and environmental monitoring to measure the rate of radioactive
+ * decay.
  *
  * This class expresses activity as a combination of a [magnitude] and a [prefix], supporting values such as
  * kilobecquerels (kBq), megabecquerels (MBq), or gigabecquerels (GBq).
