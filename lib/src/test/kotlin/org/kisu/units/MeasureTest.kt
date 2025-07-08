@@ -3,6 +3,9 @@ package org.kisu.units
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
+import io.kotest.matchers.collections.shouldContainAll
+import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.property.Arb
@@ -15,15 +18,19 @@ import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.int
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
+import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
 import org.kisu.test.fakes.TestUnit
+import org.kisu.test.generators.Magnitudes.composition
 import org.kisu.test.generators.Measures
 import org.kisu.test.generators.distinct
 import org.kisu.test.generators.nonZero
 import org.kisu.test.matchers.plusOrMinus
+import org.kisu.test.utils.magnitude
 import org.kisu.test.utils.optimalPrefixFrom
 import org.kisu.zero
 import java.math.BigDecimal
+import java.math.BigInteger
 import java.math.MathContext
 import org.kisu.test.generators.Metrics as MetricGenerator
 
@@ -70,7 +77,10 @@ class MeasureTest : StringSpec({
 
     "renders literal when the magnitude is not zero" {
         checkAll(nonZeroMagnitudes, prefixes) { magnitude, prefix ->
-            TestUnit(magnitude, prefix).representation shouldBe "$magnitude $prefix${TestUnit.SYMBOL}"
+            TestUnit(
+                magnitude,
+                prefix
+            ).representation shouldBe "${magnitude.stripTrailingZeros()} $prefix${TestUnit.SYMBOL}"
         }
     }
 
@@ -276,6 +286,41 @@ class MeasureTest : StringSpec({
             val range = left..<right
             (left in range).shouldBeTrue()
             (right in range).shouldBeFalse()
+        }
+    }
+
+    "a decompositon of zero is a zero-base prefix" {
+        checkAll(
+            MetricGenerator.generator
+        ) { prefix ->
+            TestUnit(BigDecimal.ZERO, prefix).decomposition shouldContainExactly
+                listOf(TestUnit(BigDecimal.ZERO, prefix))
+        }
+    }
+
+    "decomposes a metric into its prefix components" {
+        checkAll(
+            Metric.BASE.composition,
+            MetricGenerator.generator
+        ) { composition: List<Pair<BigInteger, Metric>>, prefix ->
+            val testUnit = TestUnit(composition.magnitude.divide(prefix.factor, MathContext.UNLIMITED), prefix)
+            val decomposition: List<TestUnit> = testUnit.decomposition
+            decomposition shouldContainAll composition.map { (magnitude, prefix) ->
+                TestUnit(
+                    magnitude.bigDecimal,
+                    prefix
+                )
+            }
+        }
+    }
+
+    "decomposes unit into magnitude, prefix and symbol" {
+        checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
+            TestUnit(magnitude, prefix).should { (number, unitPrefix, symbol) ->
+                number shouldBe magnitude
+                unitPrefix shouldBe unitPrefix
+                symbol shouldBe TestUnit.SYMBOL
+            }
         }
     }
 

@@ -7,6 +7,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.primitives.System
 import org.kisu.zero
 import java.math.BigDecimal
+import java.math.RoundingMode
 
 /**
  * Represents a physical quantity composed of a [magnitude], a [prefix], and a [unit].
@@ -120,11 +121,57 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
         if (magnitude.zero) {
             "0 ${prefix.canonical}$unit"
         } else {
-            "$magnitude $prefix$unit"
+            "${magnitude.stripTrailingZeros()} $prefix$unit"
         }
     }
 
+    /**
+     * Indicates whether the magnitude of this measure is zero.
+     *
+     * Lazily evaluated for performance.
+     */
     val zero: Boolean by lazy { magnitude.zero }
+
+    /**
+     * Decomposes this measure into a list of (count, prefix) pairs, representing how
+     * the magnitude can be expressed as a sum of scaled canonical prefixes.
+     *
+     * For example:
+     * ```
+     * val length = Length(BigDecimal("1.234,55"), Metric.KILO) // 1,23455 km
+     * val parts = length.decomposition
+     * // parts:
+     * // listOf(
+     * //     1 to Metric.KILO,
+     * //     2.toBigInteger() to Metric.HECTO,
+     * //     3.toBigInteger() to Metric.DECA,
+     * //     4.toBigInteger() to Metric.BASE,
+     * //     5.
+     * // )
+     * ```
+     *
+     * - If the magnitude is zero, returns a single pair with 0 and the canonical prefix.
+     * - If the current prefix is not canonical, delegates to the canonical version’s decomposition.
+     * - Otherwise, attempts to break down the magnitude using available descending prefixes.
+     *
+     * Lazily evaluated for performance.
+     */
+    val decomposition: List<Self> by lazy {
+        if (zero) {
+            return@lazy listOf(create(BigDecimal.ZERO, prefix.canonical))
+        }
+        if (prefix != prefix.canonical) {
+            canonical.decomposition
+        } else {
+            var remainder = magnitude.stripTrailingZeros().abs()
+            prefix.all.sortedDescending().fold(listOf<Self>()) { acc, prefix ->
+                remainder.divide(prefix.factor, 0, RoundingMode.DOWN).let { quotient ->
+                    acc + create(quotient, prefix)
+                        .also { remainder -= prefix.factor.multiply(quotient) }
+                }
+            }.filter { measure -> !measure.zero }
+        }
+    }
 
     @Suppress("UNCHECKED_CAST")
     private val self: Self = this as Self
@@ -212,6 +259,36 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @return A new measure scaled by the given factor.
      */
     operator fun div(number: Number): Self = div(number.bigDecimal)
+
+    /**
+     * Returns the magnitude component of this measure.
+     *
+     * Enables destructuring declarations like:
+     * ```
+     * val (magnitude, _, _) = measure
+     * ```
+     */
+    operator fun component1(): BigDecimal = magnitude
+
+    /**
+     * Returns the prefix component of this measure.
+     *
+     * Enables destructuring declarations like:
+     * ```
+     * val (_, prefix, _) = measure
+     * ```
+     */
+    operator fun component2(): Prefix = prefix
+
+    /**
+     * Returns the unit name of this measure.
+     *
+     * Enables destructuring declarations like:
+     * ```
+     * val (_, _, unit) = measure
+     * ```
+     */
+    operator fun component3(): String = unit
 
     /**
      * Compares this measure to [other] for ordering.

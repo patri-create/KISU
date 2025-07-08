@@ -1,10 +1,11 @@
 package org.kisu.units.base
 
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.string.shouldStartWith
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.bigDecimal
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.amperes
@@ -12,14 +13,21 @@ import org.kisu.units.builders.amperes
 class CurrentTest : StringSpec({
     "creates a Current" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().amperes
-                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().metric}"
+            magnitude.builder().amperes.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe magnitude.builder().metric
+                symbol shouldBe Current.SYMBOL
+            }
         }
     }
 
     "creates a base Current" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.amperes.representation shouldStartWith "${magnitude.bigDecimal}"
+            magnitude.amperes.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe Metric.BASE
+                symbol shouldBe Current.SYMBOL
+            }
         }
     }
 })

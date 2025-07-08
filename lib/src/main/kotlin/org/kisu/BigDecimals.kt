@@ -1,6 +1,7 @@
 package org.kisu
 
 import java.math.BigDecimal
+import java.math.BigInteger
 
 /**
  * Returns `true` if this [BigDecimal] is exactly zero.
@@ -60,6 +61,7 @@ val Number.bigDecimal: BigDecimal
     get() =
         when (this) {
             is BigDecimal -> this
+            is BigInteger -> toBigDecimal()
             is Long, is Int, is Short -> BigDecimal.valueOf(this.toLong())
             is Double, is Float -> BigDecimal(this.toString())
             else -> BigDecimal(this.toString())

@@ -22,6 +22,6 @@ class LuminousFlux internal constructor(magnitude: BigDecimal, prefix: Metric = 
 
     companion object {
         /** The SI symbol for luminous flux: "lm" (lumen). */
-        private const val SYMBOL = "lm"
+        internal const val SYMBOL = "lm"
     }
 }

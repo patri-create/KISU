@@ -22,6 +22,6 @@ class PlaneAngle internal constructor(magnitude: BigDecimal, prefix: Metric = Me
 
     companion object {
         /** The SI symbol for plane angle: "rad" (radian). */
-        private const val SYMBOL = "rad"
+        internal const val SYMBOL = "rad"
     }
 }

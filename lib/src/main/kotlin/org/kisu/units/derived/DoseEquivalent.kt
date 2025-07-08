@@ -22,6 +22,6 @@ class DoseEquivalent internal constructor(magnitude: BigDecimal, prefix: Metric 
 
     companion object {
         /** The SI symbol for dose equivalent: "Sv" (sievert). */
-        private const val SYMBOL = "Sv"
+        internal const val SYMBOL = "Sv"
     }
 }

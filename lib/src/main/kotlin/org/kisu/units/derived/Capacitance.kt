@@ -22,6 +22,6 @@ class Capacitance internal constructor(magnitude: BigDecimal, prefix: Metric = M
 
     companion object {
         /** The SI symbol for capacitance: "F" (farad). */
-        private const val SYMBOL = "F"
+        internal const val SYMBOL = "F"
     }
 }

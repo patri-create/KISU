@@ -23,6 +23,6 @@ class ElectricPotential internal constructor(magnitude: BigDecimal, prefix: Metr
 
     companion object {
         /** The SI symbol for electric potential: "V" (volt). */
-        private const val SYMBOL = "V"
+        internal const val SYMBOL = "V"
     }
 }

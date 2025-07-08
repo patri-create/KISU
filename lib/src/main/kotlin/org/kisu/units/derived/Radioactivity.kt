@@ -23,6 +23,6 @@ class Radioactivity internal constructor(magnitude: BigDecimal, prefix: Metric =
 
     companion object {
         /** The SI symbol for activity: "Bq" (becquerel). */
-        private const val SYMBOL = "Bq"
+        internal const val SYMBOL = "Bq"
     }
 }

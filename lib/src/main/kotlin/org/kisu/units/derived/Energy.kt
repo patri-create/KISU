@@ -22,6 +22,6 @@ class Energy internal constructor(magnitude: BigDecimal, prefix: Metric = Metric
 
     companion object {
         /** The SI symbol for energy: "J" (joule). */
-        private const val SYMBOL = "J"
+        internal const val SYMBOL = "J"
     }
 }

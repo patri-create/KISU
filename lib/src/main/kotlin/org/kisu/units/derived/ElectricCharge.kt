@@ -22,6 +22,6 @@ class ElectricCharge internal constructor(magnitude: BigDecimal, prefix: Metric 
 
     companion object {
         /** The SI symbol for electric charge: "C" (coulomb). */
-        private const val SYMBOL = "C"
+        internal const val SYMBOL = "C"
     }
 }

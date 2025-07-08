@@ -26,6 +26,6 @@ class Temperature internal constructor(magnitude: BigDecimal, prefix: Metric = M
 
     companion object {
         /** The SI symbol for temperature: "K" (kelvin). */
-        private const val SYMBOL = "K"
+        internal const val SYMBOL = "K"
     }
 }

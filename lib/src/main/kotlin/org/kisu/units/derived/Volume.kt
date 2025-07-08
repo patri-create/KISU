@@ -20,6 +20,6 @@ class Volume internal constructor(magnitude: BigDecimal, prefix: Metric = Metric
 
     companion object {
         /** The SI symbol for volume: "m³" (cubic metre). */
-        private const val SYMBOL = "m³"
+        internal const val SYMBOL = "m³"
     }
 }

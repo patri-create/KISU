@@ -22,6 +22,6 @@ class CatalyticActivity internal constructor(magnitude: BigDecimal, prefix: Metr
 
     companion object {
         /** The SI symbol for catalytic activity: "kat" (katal). */
-        private const val SYMBOL = "kat"
+        internal const val SYMBOL = "kat"
     }
 }

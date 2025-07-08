@@ -20,7 +20,7 @@ class Byte private constructor(magnitude: BigDecimal, prefix: Metric = Metric.BA
 
     companion object {
         /** The symbol for byte: "B". */
-        private const val SYMBOL = "B"
+        internal const val SYMBOL = "B"
 
         operator fun invoke(magnitude: BigDecimal, prefix: Metric = Metric.BASE): Byte {
             return Byte(magnitude, prefix)

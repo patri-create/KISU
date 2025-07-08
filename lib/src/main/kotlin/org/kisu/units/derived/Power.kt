@@ -22,6 +22,6 @@ class Power internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.
 
     companion object {
         /** The SI symbol for power: "W" (watt). */
-        private const val SYMBOL = "W"
+        internal const val SYMBOL = "W"
     }
 }

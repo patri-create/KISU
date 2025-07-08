@@ -23,6 +23,6 @@ class Resistance internal constructor(magnitude: BigDecimal, prefix: Metric = Me
 
     companion object {
         /** The SI symbol for electrical resistance: "Ω" (ohm). */
-        private const val SYMBOL = "Ω"
+        internal const val SYMBOL = "Ω"
     }
 }

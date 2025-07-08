@@ -32,7 +32,7 @@ class Information private constructor(magnitude: BigDecimal, prefix: Binary = Bi
 
     companion object {
         /** The unit symbol for digital information: "bit". */
-        private const val SYMBOL = "bit"
+        internal const val SYMBOL = "bit"
 
         /**
          * Creates a new [Information] quantity with the given [magnitude] and [prefix].

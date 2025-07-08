@@ -1,7 +1,10 @@
 package org.kisu.test.utils
 
+import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.Prefix
 import java.math.BigDecimal
+import java.math.BigInteger
 
 fun BigDecimal.optimalPrefixFrom(original: Metric = Metric.BASE): Metric {
     return original.all
@@ -29,4 +32,9 @@ val BigDecimal.magnitude: Int
             // Integer without decimal point
             str.length - 1
         }
+    }
+
+val <T> List<Pair<BigInteger, T>>.magnitude: BigDecimal where T : Prefix<T>
+    get() = fold(BigDecimal.ZERO) { magnitude, (number, prefix) ->
+        magnitude + (number.bigDecimal * prefix.factor).bigDecimal
     }

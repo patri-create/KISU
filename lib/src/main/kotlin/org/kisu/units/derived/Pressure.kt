@@ -20,6 +20,6 @@ class Pressure internal constructor(magnitude: BigDecimal, prefix: Metric = Metr
 
     companion object {
         /** The SI symbol for pressure or stress: "Pa" (pascal). */
-        private const val SYMBOL = "Pa"
+        internal const val SYMBOL = "Pa"
     }
 }

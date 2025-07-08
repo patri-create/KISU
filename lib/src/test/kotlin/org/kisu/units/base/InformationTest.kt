@@ -2,12 +2,14 @@ package org.kisu.units.base
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.string.shouldStartWith
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
+import org.kisu.prefixes.Binary
 import org.kisu.test.generators.BinaryBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.bits
@@ -27,14 +29,21 @@ class InformationTest : StringSpec({
 
     "creates Information" {
         checkAll(Arb.positiveLong(), BinaryBuilders.generator) { magnitude, builder ->
-            magnitude.builder().bits
-                .representation shouldStartWith "${magnitude.bigDecimal} ${magnitude.builder().binary}"
+            magnitude.builder().bits.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude.bigDecimal
+                prefix shouldBe magnitude.builder().binary
+                symbol shouldBe Information.SYMBOL
+            }
         }
     }
 
     "creates a base Information" {
         checkAll(Arb.positiveLong()) { magnitude ->
-            magnitude.bits.representation shouldStartWith "${magnitude.bigDecimal}"
+            magnitude.bits.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude.bigDecimal
+                prefix shouldBe Binary.BASE
+                symbol shouldBe Information.SYMBOL
+            }
         }
     }
 })

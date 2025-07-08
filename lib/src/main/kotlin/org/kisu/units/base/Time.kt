@@ -23,6 +23,6 @@ class Time internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.B
 
     companion object {
         /** The SI symbol for time: "s" (second). */
-        private const val SYMBOL = "s"
+        internal const val SYMBOL = "s"
     }
 }

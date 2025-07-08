@@ -23,6 +23,6 @@ class Current internal constructor(magnitude: BigDecimal, prefix: Metric = Metri
 
     companion object {
         /** The SI symbol for electric current: "A" (ampere). */
-        private const val SYMBOL = "A"
+        internal const val SYMBOL = "A"
     }
 }

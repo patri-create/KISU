@@ -25,6 +25,6 @@ class Mass internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.B
 
     companion object {
         /** The symbol for mass: "g" (gram). */
-        private const val SYMBOL = "g"
+        internal const val SYMBOL = "g"
     }
 }
