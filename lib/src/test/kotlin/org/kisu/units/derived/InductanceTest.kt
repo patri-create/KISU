@@ -1,9 +1,11 @@
 package org.kisu.units.derived
 
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.string.shouldStartWith
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.henries
@@ -11,14 +13,21 @@ import org.kisu.units.builders.henries
 class InductanceTest : StringSpec({
     "creates an Inductance" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().henries
-                .representation shouldStartWith "$magnitude ${magnitude.builder().metric}"
+            magnitude.builder().henries.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe magnitude.builder().metric
+                symbol shouldBe Inductance.SYMBOL
+            }
         }
     }
 
     "creates a base Inductance" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.henries.representation shouldStartWith "$magnitude"
+            magnitude.henries.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe Metric.BASE
+                symbol shouldBe Inductance.SYMBOL
+            }
         }
     }
 })

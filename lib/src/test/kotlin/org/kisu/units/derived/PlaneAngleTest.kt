@@ -1,9 +1,11 @@
 package org.kisu.units.derived
 
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.string.shouldStartWith
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.radians
@@ -12,14 +14,21 @@ class PlaneAngleTest : StringSpec({
 
     "creates a PlaneAngle" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().radians
-                .representation shouldStartWith "$magnitude ${magnitude.builder().metric}"
+            magnitude.builder().radians.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe magnitude.builder().metric
+                symbol shouldBe PlaneAngle.SYMBOL
+            }
         }
     }
 
     "creates a base PlaneAngle" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.radians.representation shouldStartWith "$magnitude"
+            magnitude.radians.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe Metric.BASE
+                symbol shouldBe PlaneAngle.SYMBOL
+            }
         }
     }
 })

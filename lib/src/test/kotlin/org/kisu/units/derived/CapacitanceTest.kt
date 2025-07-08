@@ -1,9 +1,11 @@
 package org.kisu.units.derived
 
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.string.shouldStartWith
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.farads
@@ -11,14 +13,21 @@ import org.kisu.units.builders.farads
 class CapacitanceTest : StringSpec({
     "creates a Capacitance" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().farads
-                .representation shouldStartWith "$magnitude ${magnitude.builder().metric}"
+            magnitude.builder().farads.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe magnitude.builder().metric
+                symbol shouldBe Capacitance.SYMBOL
+            }
         }
     }
 
     "creates a base Capacitance" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.farads.representation shouldStartWith "$magnitude"
+            magnitude.farads.should { (amount, prefix, symbol) ->
+                amount shouldBe magnitude
+                prefix shouldBe Metric.BASE
+                symbol shouldBe Capacitance.SYMBOL
+            }
         }
     }
 })
