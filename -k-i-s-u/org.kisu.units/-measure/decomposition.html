@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>zero</title>
+    <title>decomposition</title>
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "../../../";</script>
     <script>document.documentElement.classList.replace("no-js","js");</script>
@@ -104,12 +104,12 @@
                 </div>
             </div>
             <div id="main">
-<div class="main-content" data-page-type="member" id="content" pageIds="KISU::org.kisu.units/Measure/zero/#/PointingToDeclaration//-1895836109">
-  <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units</a><span class="delimiter">/</span><a href="index.html">Measure</a><span class="delimiter">/</span><span class="current">zero</span></div>
+<div class="main-content" data-page-type="member" id="content" pageIds="KISU::org.kisu.units/Measure/decomposition/#/PointingToDeclaration//-1895836109">
+  <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units</a><span class="delimiter">/</span><a href="index.html">Measure</a><span class="delimiter">/</span><span class="current">decomposition</span></div>
   <div class="cover ">
-    <h1 class="cover"><span><span>zero</span></span></h1>
+    <h1 class="cover"><span><span>decomposition</span></span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="zero.html">zero</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><p class="paragraph">Indicates whether the magnitude of this measure is zero.</p><p class="paragraph">Lazily evaluated for performance.</p></div></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="decomposition.html">decomposition</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="index.html">Self</a><span class="token operator">&gt;</span></div><p class="paragraph">Decomposes this measure into a list of (count, prefix) pairs, representing how the magnitude can be expressed as a sum of scaled canonical prefixes.</p><p class="paragraph">For example:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val length = Length(BigDecimal(&quot;1.234,55&quot;), Metric.KILO) // 1,23455 km<br>val parts = length.decomposition<br>// parts:<br>// listOf(<br>//     1 to Metric.KILO,<br>//     2.toBigInteger() to Metric.HECTO,<br>//     3.toBigInteger() to Metric.DECA,<br>//     4.toBigInteger() to Metric.BASE,<br>//     5.<br>// )</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><ul><li><p class="paragraph">If the magnitude is zero, returns a single pair with 0 and the canonical prefix.</p></li><li><p class="paragraph">If the current prefix is not canonical, delegates to the canonical version’s decomposition.</p></li><li><p class="paragraph">Otherwise, attempts to break down the magnitude using available descending prefixes.</p></li></ul><p class="paragraph">Lazily evaluated for performance.</p></div></div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>

@@ -422,6 +422,10 @@ $dokka.location:org.kisu.units////PointingToDeclaration/-k-i-s-u/org.kisu.units
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
 $dokka.location:org.kisu.units/Measure/compareTo/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/compare-to.html
+$dokka.location:org.kisu.units/Measure/component1/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/component1.html
+$dokka.location:org.kisu.units/Measure/component2/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/component2.html
+$dokka.location:org.kisu.units/Measure/component3/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/component3.html
+$dokka.location:org.kisu.units/Measure/decomposition/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/decomposition.html
 $dokka.location:org.kisu.units/Measure/div/#java.math.BigDecimal/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/div.html
 $dokka.location:org.kisu.units/Measure/div/#kotlin.Number/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/div.html
 $dokka.location:org.kisu.units/Measure/equals/#kotlin.Any?/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/equals.html
@@ -444,6 +448,7 @@ $dokka.location:org.kisu//negative/java.math.BigDecimal#/PointingToDeclaration/
 $dokka.location:org.kisu//one/java.math.BigDecimal#/PointingToDeclaration/-k-i-s-u/org.kisu/one.html
 $dokka.location:org.kisu//orElse/TypeParam(bounds=[kotlin.Any?])?#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-k-i-s-u/org.kisu/or-else.html
 $dokka.location:org.kisu//zero/java.math.BigDecimal#/PointingToDeclaration/-k-i-s-u/org.kisu/zero.html
+$dokka.location:org.kisu//zero/java.math.BigInteger#/PointingToDeclaration/-k-i-s-u/org.kisu/zero.html
 $dokka.location:org.kisu/KisuConfig///PointingToDeclaration/-k-i-s-u/org.kisu/-kisu-config/index.html
 $dokka.location:org.kisu/KisuConfig/precision/#/PointingToDeclaration/-k-i-s-u/org.kisu/-kisu-config/precision.html
 org.kisu
