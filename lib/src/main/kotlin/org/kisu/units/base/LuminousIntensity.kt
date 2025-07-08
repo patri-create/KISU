@@ -24,6 +24,6 @@ class LuminousIntensity internal constructor(magnitude: BigDecimal, prefix: Metr
 
     companion object {
         /** The SI symbol for luminous intensity: "cd" (candela). */
-        private const val SYMBOL = "cd"
+        internal const val SYMBOL = "cd"
     }
 }

@@ -26,7 +26,7 @@ class Amount internal constructor(magnitude: BigDecimal, prefix: Metric = Metric
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */
-        private const val SYMBOL = "mol"
+        internal const val SYMBOL = "mol"
 
         /**
          * Avogadro's number — the number of entities in one mole:

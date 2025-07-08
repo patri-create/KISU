@@ -22,6 +22,6 @@ class Force internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.
 
     companion object {
         /** The SI symbol for force: "N" (newton). */
-        private const val SYMBOL = "N"
+        internal const val SYMBOL = "N"
     }
 }

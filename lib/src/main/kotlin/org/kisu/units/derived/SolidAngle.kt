@@ -22,6 +22,6 @@ class SolidAngle internal constructor(magnitude: BigDecimal, prefix: Metric = Me
 
     companion object {
         /** The SI symbol for solid angle: "sr" (steradian). */
-        private const val SYMBOL = "sr"
+        internal const val SYMBOL = "sr"
     }
 }

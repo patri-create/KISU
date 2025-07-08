@@ -22,6 +22,6 @@ class MagneticFluxDensity internal constructor(magnitude: BigDecimal, prefix: Me
 
     companion object {
         /** The SI symbol for magnetic flux density: "T" (tesla). */
-        private const val SYMBOL = "T"
+        internal const val SYMBOL = "T"
     }
 }

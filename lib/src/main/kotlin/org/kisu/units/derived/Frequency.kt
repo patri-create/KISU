@@ -22,6 +22,6 @@ class Frequency internal constructor(magnitude: BigDecimal, prefix: Metric = Met
 
     companion object {
         /** The SI symbol for frequency: "Hz" (hertz). */
-        private const val SYMBOL = "Hz"
+        internal const val SYMBOL = "Hz"
     }
 }

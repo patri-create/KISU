@@ -22,6 +22,6 @@ class Illuminance internal constructor(magnitude: BigDecimal, prefix: Metric = M
 
     companion object {
         /** The SI symbol for illuminance: "lx" (lux). */
-        private const val SYMBOL = "lx"
+        internal const val SYMBOL = "lx"
     }
 }

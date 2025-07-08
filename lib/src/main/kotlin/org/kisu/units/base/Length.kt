@@ -19,6 +19,6 @@ class Length internal constructor(magnitude: BigDecimal, prefix: Metric = Metric
 
     companion object {
         /** The SI symbol for length: "m" (metre). */
-        private const val SYMBOL = "m"
+        internal const val SYMBOL = "m"
     }
 }

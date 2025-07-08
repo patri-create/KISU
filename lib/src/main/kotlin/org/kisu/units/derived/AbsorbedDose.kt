@@ -22,6 +22,6 @@ class AbsorbedDose internal constructor(magnitude: BigDecimal, prefix: Metric = 
 
     companion object {
         /** The SI symbol for absorbed dose: "Gy" (gray). */
-        private const val SYMBOL = "Gy"
+        internal const val SYMBOL = "Gy"
     }
 }

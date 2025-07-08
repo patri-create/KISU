@@ -20,6 +20,6 @@ class Area internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.B
 
     companion object {
         /** The SI symbol for area: "m²" (square metre). */
-        private const val SYMBOL = "m²"
+        internal const val SYMBOL = "m²"
     }
 }

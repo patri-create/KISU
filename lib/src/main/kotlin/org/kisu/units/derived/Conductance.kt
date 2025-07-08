@@ -22,6 +22,6 @@ class Conductance internal constructor(magnitude: BigDecimal, prefix: Metric = M
 
     companion object {
         /** The SI symbol for electrical conductance: "S" (siemens). */
-        private const val SYMBOL = "S"
+        internal const val SYMBOL = "S"
     }
 }

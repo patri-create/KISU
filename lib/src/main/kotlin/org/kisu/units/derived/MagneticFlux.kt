@@ -22,6 +22,6 @@ class MagneticFlux internal constructor(magnitude: BigDecimal, prefix: Metric = 
 
     companion object {
         /** The SI symbol for magnetic flux: "Wb" (weber). */
-        private const val SYMBOL = "Wb"
+        internal const val SYMBOL = "Wb"
     }
 }

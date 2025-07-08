@@ -22,6 +22,6 @@ class Inductance internal constructor(magnitude: BigDecimal, prefix: Metric = Me
 
     companion object {
         /** The SI symbol for inductance: "H" (henry). */
-        private const val SYMBOL = "H"
+        internal const val SYMBOL = "H"
     }
 }
