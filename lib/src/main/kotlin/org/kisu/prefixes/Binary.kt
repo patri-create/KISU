@@ -1,7 +1,7 @@
 package org.kisu.prefixes
 
+import org.kisu.prefixes.primitives.EnumSystem
 import org.kisu.prefixes.primitives.Representation
-import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
@@ -28,7 +28,7 @@ import java.math.BigDecimal
 enum class Binary(
     override val factor: BigDecimal,
     symbol: String,
-) : Prefix<Binary>, System<Binary> by StandardSystem(Binary::class), Symbol by Representation(symbol) {
+) : Prefix<Binary>, System<Binary> by EnumSystem(Binary::class), Symbol by Representation(symbol) {
     /** Base unit with factor 1 (2^0). */
     BASE(BigDecimal.ONE, ""),
 

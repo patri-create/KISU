@@ -1,7 +1,7 @@
 package org.kisu.prefixes
 
+import org.kisu.prefixes.primitives.EnumSystem
 import org.kisu.prefixes.primitives.Representation
-import org.kisu.prefixes.primitives.StandardSystem
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
@@ -42,7 +42,7 @@ enum class Metric(
     override val factor: BigDecimal,
     symbol: String,
 ) : Prefix<Metric>,
-    System<Metric> by StandardSystem(Metric::class),
+    System<Metric> by EnumSystem(Metric::class),
     Symbol by Representation(symbol) {
     /** 10⁻³⁰ = 0.000000000000000000000000000001 */
     QUECTO(BigDecimal(BigInteger("1"), 30), "q"),

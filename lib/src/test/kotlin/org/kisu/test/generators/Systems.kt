@@ -5,13 +5,13 @@ import io.kotest.property.arbitrary.of
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.Metric
-import org.kisu.prefixes.primitives.StandardSystem
+import org.kisu.prefixes.primitives.EnumSystem
 
-object Systems : Generator<StandardSystem<*>> {
-    override val generator: Arb<StandardSystem<*>> =
+object Systems : Generator<EnumSystem<*>> {
+    override val generator: Arb<EnumSystem<*>> =
         Arb.of(
-            StandardSystem(Metric::class),
-            StandardSystem(Binary::class),
-            StandardSystem(Decimal::class),
+            EnumSystem(Metric::class),
+            EnumSystem(Binary::class),
+            EnumSystem(Decimal::class),
         )
 }

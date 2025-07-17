@@ -7,7 +7,7 @@ import org.kisu.prefixes.Prefix
 import kotlin.reflect.KClass
 
 /**
- * A standard implementation of [System] that works with an enum class representing prefixes.
+ * A scalar implementation of [System] that works with an enum class representing prefixes.
  *
  * This class uses reflection on the provided enum class to:
  * - Retrieve all prefix values,
@@ -22,7 +22,7 @@ import kotlin.reflect.KClass
  *
  * @param klass The Kotlin class reference of the enum implementing [Prefix].
  */
-class StandardSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
+class EnumSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
     /**
      * The base prefix in the system, identified by power == 0.
      *

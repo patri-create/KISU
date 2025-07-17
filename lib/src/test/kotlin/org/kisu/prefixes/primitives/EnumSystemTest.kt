@@ -11,7 +11,7 @@ import org.kisu.one
 import org.kisu.test.fakes.InvalidPrefix
 import org.kisu.test.generators.Systems
 
-class SystemTest : StringSpec({
+class EnumSystemTest : StringSpec({
 
     "retrieves base unit" {
         checkAll(Systems.generator) { system ->
@@ -21,7 +21,7 @@ class SystemTest : StringSpec({
 
     "crashes if there is an invalid system with no base" {
         shouldThrow<IllegalStateException> {
-            StandardSystem(InvalidPrefix::class).canonical
+            EnumSystem(InvalidPrefix::class).canonical
         }
     }
 
