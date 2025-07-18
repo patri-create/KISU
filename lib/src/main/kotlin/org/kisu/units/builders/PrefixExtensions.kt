@@ -1,6 +1,7 @@
 package org.kisu.units.builders
 
 import org.kisu.bigDecimal
+import org.kisu.prefixes.Binary
 import org.kisu.units.base.Amount
 import org.kisu.units.base.Current
 import org.kisu.units.base.Information
@@ -51,7 +52,7 @@ val Number.becquerels get() = Radioactivity(bigDecimal)
  * Creates an [Information] value from this [Number] representing a quantity of bits.
  * This assumes 1 bit = base unit of information.
  */
-val Number.bits get() = Information(bigDecimal)
+val Number.bits get() = Information(bigDecimal, Binary.BASE)
 
 /**
  * Creates a [Byte] from this [Number] representing digital information in bytes (B),
