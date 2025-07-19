@@ -108,6 +108,7 @@ $dokka.location:org.kisu.units.base/Current.Companion///PointingToDeclaration/-
 $dokka.location:org.kisu.units.base/Current///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-current/index.html
 $dokka.location:org.kisu.units.base/Information.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/index.html
 $dokka.location:org.kisu.units.base/Information.Companion/invoke/#java.math.BigDecimal#org.kisu.prefixes.Binary/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/invoke.html
+$dokka.location:org.kisu.units.base/Information.Companion/invoke/#java.math.BigDecimal#org.kisu.units.Scalar[org.kisu.prefixes.Binary]/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/invoke.html
 $dokka.location:org.kisu.units.base/Information///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/index.html
 $dokka.location:org.kisu.units.base/Length.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-length/-companion/index.html
 $dokka.location:org.kisu.units.base/Length///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-length/index.html
@@ -437,7 +438,7 @@ $dokka.location:org.kisu.units/Expression/hashCode/#/PointingToDeclaration/-k-i
 $dokka.location:org.kisu.units/Expression/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-expression/to-string.html
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
-$dokka.location:org.kisu.units/Measure/compareTo/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/compare-to.html
+$dokka.location:org.kisu.units/Measure/compareTo/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.units.Expression[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/compare-to.html
 $dokka.location:org.kisu.units/Measure/component1/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/component1.html
 $dokka.location:org.kisu.units/Measure/component2/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/component2.html
 $dokka.location:org.kisu.units/Measure/component3/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/component3.html
@@ -446,14 +447,14 @@ $dokka.location:org.kisu.units/Measure/div/#java.math.BigDecimal/PointingToDecla
 $dokka.location:org.kisu.units/Measure/div/#kotlin.Number/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/div.html
 $dokka.location:org.kisu.units/Measure/equals/#kotlin.Any?/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/equals.html
 $dokka.location:org.kisu.units/Measure/hashCode/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/hash-code.html
-$dokka.location:org.kisu.units/Measure/minus/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/minus.html
+$dokka.location:org.kisu.units/Measure/minus/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.units.Expression[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/minus.html
 $dokka.location:org.kisu.units/Measure/optimal/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/optimal.html
-$dokka.location:org.kisu.units/Measure/plus/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/plus.html
+$dokka.location:org.kisu.units/Measure/plus/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.units.Expression[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/plus.html
 $dokka.location:org.kisu.units/Measure/representation/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/representation.html
-$dokka.location:org.kisu.units/Measure/sortWith/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/sort-with.html
+$dokka.location:org.kisu.units/Measure/sortWith/#TypeParam(bounds=[org.kisu.units.Measure[TypeParam(bounds=[org.kisu.units.Expression[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/sort-with.html
 $dokka.location:org.kisu.units/Measure/times/#java.math.BigDecimal/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/times.html
 $dokka.location:org.kisu.units/Measure/times/#kotlin.Number/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/times.html
-$dokka.location:org.kisu.units/Measure/to/#TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/to.html
+$dokka.location:org.kisu.units/Measure/to/#TypeParam(bounds=[org.kisu.units.Expression[^], org.kisu.prefixes.primitives.System[^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/to.html
 $dokka.location:org.kisu.units/Measure/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/to-string.html
 $dokka.location:org.kisu.units/Measure/zero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/zero.html
 $dokka.location:org.kisu.units/Product///PointingToDeclaration/-k-i-s-u/org.kisu.units/-product/index.html
