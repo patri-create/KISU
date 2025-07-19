@@ -10,7 +10,7 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 /**
- * Represents a physical quantity composed of a [magnitude], a [prefix], and a [unit].
+ * Represents a physical quantity composed of a [magnitude], a [expression], and a [unit].
  *
  * This generic class models measurements in a unit system with metric-style prefixes,
  * such as meters, grams, or seconds.
@@ -18,15 +18,15 @@ import java.math.RoundingMode
  * It is designed to support operations like addition, subtraction, scaling, and conversion
  * between compatible units with automatic prefix normalization (e.g., converting 1000 millimeters to 1 meter).
  *
- * @param Prefix The type representing the system of prefixes (e.g., [Metric]).
+ * @param Expression The type representing the system of prefixes (e.g., [Metric]).
  *        It must implement both [System] (to provide ordering and base relations)
  *        and [org.kisu.prefixes.Prefix] (to support scaling operations).
  *
  * @param Self The concrete subclass type used for safe covariant returns.
  *        This is a common pattern to support fluent APIs in hierarchies.
  *
- * @property magnitude The numerical value of the measurement in the specified [prefix].
- * @property prefix The metric prefix applied to the unit (e.g., `kilo`, `milli`).
+ * @property magnitude The numerical value of the measurement in the specified [expression].
+ * @property expression The metric prefix applied to the unit (e.g., `kilo`, `milli`).
  *        This determines the scale of the [magnitude] relative to the base unit.
  * @property unit A string representing the unit symbol (e.g., `"m"` for meters, `"g"` for grams).
  *
@@ -36,25 +36,18 @@ import java.math.RoundingMode
  * @see org.kisu.prefixes.Prefix for scaling behavior.
  */
 @Suppress("TooManyFunctions")
-abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected constructor(
+abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
     private val magnitude: BigDecimal,
-    private val prefix: Prefix,
-    private val unit: String,
-    private val create: (BigDecimal, Prefix) -> Self
-) : Comparable<Self> where Prefix : org.kisu.prefixes.Prefix<Prefix>, Prefix : System<Prefix> {
-    protected constructor(magnitude: Double, prefix: Prefix, unit: String, create: (BigDecimal, Prefix) -> Self) : this(
-        BigDecimal.valueOf(magnitude),
-        prefix,
-        unit,
-        create
-    )
+    private val expression: A,
+    private val create: (BigDecimal, A) -> Self
+) : Comparable<Self> where A : Expression<A>, A : System<A> {
 
     /**
      * Returns the most human-readable form of the measurement by automatically choosing the
-     * most appropriate [prefix] such that the magnitude is near or above 1.
+     * most appropriate [expression] such that the magnitude is near or above 1.
      *
      * If the magnitude is zero, this falls back to the [canonical] representation.
-     * If the current [prefix] is already the smallest and the magnitude is less than 1,
+     * If the current [expression] is already the smallest and the magnitude is less than 1,
      * or if it is the largest and the magnitude is greater than 1, the [representation] form is returned.
      *
      * Otherwise, it selects the largest rescaled prefix such that the resulting magnitude is ≥ 1.
@@ -71,14 +64,14 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
     val optimal: Self by lazy {
         when {
             magnitude.zero -> canonical
-            prefix == prefix.smallest && magnitude.abs() < BigDecimal.ONE -> self
-            prefix == prefix.largest && magnitude.abs() > BigDecimal.ONE -> self
+            expression == expression.smallest && magnitude.abs() < BigDecimal.ONE -> self
+            expression == expression.largest && magnitude.abs() > BigDecimal.ONE -> self
             else ->
-                prefix.all
+                expression.all
                     .asSequence()
                     .map(this::to)
                     .lastOrNull { measure -> measure.magnitude.abs() >= BigDecimal.ONE }
-                    .orElse { to(prefix.largest) }
+                    .orElse { to(expression.largest) }
         }
     }
 
@@ -93,12 +86,12 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * ```
      */
     val canonical: Self by lazy {
-        if (prefix == prefix.canonical) {
+        if (expression == expression.canonical) {
             self
         } else if (!magnitude.zero) {
-            to(prefix.canonical)
+            to(expression.canonical)
         } else {
-            create(magnitude, prefix.canonical)
+            create(magnitude, expression.canonical)
         }
     }
 
@@ -119,9 +112,9 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      */
     val representation: String by lazy {
         if (magnitude.zero) {
-            "0 ${prefix.canonical}$unit"
+            "0 ${expression.canonical.symbol}"
         } else {
-            "${magnitude.stripTrailingZeros()} $prefix$unit"
+            "${magnitude.stripTrailingZeros()} ${expression.symbol}"
         }
     }
 
@@ -158,13 +151,13 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      */
     val decomposition: List<Self> by lazy {
         if (zero) {
-            return@lazy listOf(create(BigDecimal.ZERO, prefix.canonical))
+            return@lazy listOf(create(BigDecimal.ZERO, expression.canonical))
         }
-        if (prefix != prefix.canonical) {
+        if (expression != expression.canonical) {
             canonical.decomposition
         } else {
             var remainder = magnitude.stripTrailingZeros().abs()
-            prefix.all.sortedDescending().fold(listOf<Self>()) { acc, prefix ->
+            expression.all.sortedDescending().fold(listOf<Self>()) { acc, prefix ->
                 remainder.divide(prefix.factor, 0, RoundingMode.DOWN).let { quotient ->
                     acc + create(quotient, prefix)
                         .also { remainder -= prefix.factor.multiply(quotient) }
@@ -177,7 +170,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
     private val self: Self = this as Self
 
     /**
-     * Rescales the current measurement to a different [prefix], adjusting the [magnitude] accordingly.
+     * Rescales the current measurement to a different [expression], adjusting the [magnitude] accordingly.
      *
      * ```
      * val distance = Measure(1500.0, METER, "m")
@@ -186,13 +179,13 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * ```
      *
      * @param other The target prefix to convert to.
-     * @return A new [Measure] instance using the new [prefix] and the converted [magnitude].
+     * @return A new [Measure] instance using the new [expression] and the converted [magnitude].
      */
-    fun to(other: Prefix): Self {
-        if (prefix == other) {
+    fun to(other: A): Self {
+        if (expression == other) {
             return self
         }
-        val conversion = prefix.to(other)
+        val conversion = expression.to(other)
         return create(magnitude * conversion, other)
     }
 
@@ -206,7 +199,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @return A new measure representing the sum.
      */
     operator fun plus(other: Self): Self {
-        val (smallest, largest) = prefix.sortWith(other.prefix)
+        val (smallest, largest) = expression.sortWith(other.expression)
         return create(this.to(smallest).magnitude + other.to(smallest).magnitude, smallest).to(largest)
     }
 
@@ -220,7 +213,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @return A new measure representing the difference.
      */
     operator fun minus(other: Self): Self {
-        val (smallest, largest) = prefix.sortWith(other.prefix)
+        val (smallest, largest) = expression.sortWith(other.expression)
         return create(this.to(smallest).magnitude - other.to(smallest).magnitude, smallest).to(largest)
     }
 
@@ -240,7 +233,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param number The scalar to multiply by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun times(number: BigDecimal): Self = create(magnitude.times(number), prefix)
+    operator fun times(number: BigDecimal): Self = create(magnitude.times(number), expression)
 
     /**
      * Divides this measure by a [BigDecimal] scalar.
@@ -248,7 +241,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * @param number The scalar to divide by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun div(number: BigDecimal): Self = create(magnitude.divide(number, KisuConfig.precision), prefix)
+    operator fun div(number: BigDecimal): Self = create(magnitude.divide(number, KisuConfig.precision), expression)
 
     /**
      * Divides this measure by a [Number] scalar.
@@ -271,14 +264,14 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
     operator fun component1(): BigDecimal = magnitude
 
     /**
-     * Returns the prefix component of this measure.
+     * Returns the expression component of this measure.
      *
      * Enables destructuring declarations like:
      * ```
-     * val (_, prefix, _) = measure
+     * val (_, expression, _) = measure
      * ```
      */
-    operator fun component2(): Prefix = prefix
+    operator fun component2(): String = expression.symbol
 
     /**
      * Returns the unit name of this measure.
@@ -288,7 +281,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * val (_, _, unit) = measure
      * ```
      */
-    operator fun component3(): String = unit
+    operator fun component3(): String = expression.canonical.symbol
 
     /**
      * Compares this measure to [other] for ordering.
@@ -341,7 +334,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * - Their [unit] is equal,
      * - Their canonical [magnitude] values are equal.
      *
-     * The [prefix] is intentionally ignored in the comparison,
+     * The [expression] is intentionally ignored in the comparison,
      * as equality is determined by the canonical (normalized) value.
      *
      * ```
@@ -367,7 +360,7 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
 
         other as Measure<*, *>
 
-        if (unit != other.unit) return false
+        if (expression.canonical != other.expression.canonical) return false
 
         val left = canonical
         val right = other.canonical
@@ -378,14 +371,14 @@ abstract class Measure<Prefix, Self : Measure<Prefix, Self>> protected construct
      * Returns a hash code value for the [Measure] object.
      *
      * The hash code is based on the canonical [magnitude] and [unit] only,
-     * since [prefix] is ignored in the [equals] comparison as all units are compared to their canonical unit.
+     * since [expression] is ignored in the [equals] comparison as all units are compared to their canonical unit.
      *
      * @return The hash code value.
      */
     override fun hashCode(): Int {
         val canonical = canonical
         var result = canonical.magnitude.hashCode()
-        result = 31 * result + canonical.unit.hashCode()
+        result = 31 * result + canonical.expression.hashCode()
         return result
     }
 }

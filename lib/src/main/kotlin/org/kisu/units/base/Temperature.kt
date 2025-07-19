@@ -2,6 +2,7 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -21,8 +22,11 @@ import java.math.BigDecimal
  * The magnitude is stored using [BigDecimal] for accuracy. All instances are validated to ensure they
  * respect physical constraints and are immutable once created.
  */
-class Temperature internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Temperature>(magnitude, prefix, SYMBOL, ::Temperature) {
+class Temperature internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, Temperature>(magnitude, expression, ::Temperature) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for temperature: "K" (kelvin). */

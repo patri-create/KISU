@@ -93,7 +93,7 @@ class MeasureTest : StringSpec({
     "renders canonical" {
         checkAll(magnitudes, prefixes) { magnitude, prefix ->
             TestUnit(magnitude, prefix).canonical.representation shouldBe
-                TestUnit(magnitude, prefix).to(prefix.canonical).representation
+                TestUnit(magnitude, prefix).to(Scalar(prefix.canonical, TestUnit.SYMBOL)).representation
         }
     }
 
@@ -316,10 +316,10 @@ class MeasureTest : StringSpec({
 
     "decomposes unit into magnitude, prefix and symbol" {
         checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
-            TestUnit(magnitude, prefix).should { (number, unitPrefix, symbol) ->
+            TestUnit(magnitude, prefix).should { (number, expression, unit) ->
                 number shouldBe magnitude
-                unitPrefix shouldBe unitPrefix
-                symbol shouldBe TestUnit.SYMBOL
+                expression shouldBe "$prefix${TestUnit.SYMBOL}"
+                unit shouldBe TestUnit.SYMBOL
             }
         }
     }
@@ -339,8 +339,8 @@ class MeasureTest : StringSpec({
 
     "equality is transitive" {
         checkAll(measures, prefixes, prefixes) { x, first, second ->
-            val y = x.to(first)
-            val z = x.to(second)
+            val y = x.to(Scalar(first, TestUnit.SYMBOL))
+            val z = x.to(Scalar(second, TestUnit.SYMBOL))
 
             (x == y).shouldBeTrue()
             (y == z).shouldBeTrue()

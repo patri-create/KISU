@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.sieverts
@@ -13,9 +12,9 @@ import org.kisu.units.builders.sieverts
 class DoseEquivalentTest : StringSpec({
     "creates a DoseEquivalent" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().sieverts.should { (amount, prefix, symbol) ->
+            magnitude.builder().sieverts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${DoseEquivalent.SYMBOL}"
                 symbol shouldBe DoseEquivalent.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class DoseEquivalentTest : StringSpec({
 
     "creates a base DoseEquivalent" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.sieverts.should { (amount, prefix, symbol) ->
+            magnitude.sieverts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe DoseEquivalent.SYMBOL
                 symbol shouldBe DoseEquivalent.SYMBOL
             }
         }

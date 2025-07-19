@@ -2,6 +2,7 @@ package org.kisu.units.derived
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -18,8 +19,11 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class ElectricPotential internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, ElectricPotential>(magnitude, prefix, SYMBOL, ::ElectricPotential) {
+class ElectricPotential internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, ElectricPotential>(magnitude, expression, ::ElectricPotential) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for electric potential: "V" (volt). */

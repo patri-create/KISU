@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.webers
@@ -13,9 +12,9 @@ import org.kisu.units.builders.webers
 class MagneticFluxTest : StringSpec({
     "creates a MagneticFlux" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().webers.should { (amount, prefix, symbol) ->
+            magnitude.builder().webers.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${MagneticFlux.SYMBOL}"
                 symbol shouldBe MagneticFlux.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class MagneticFluxTest : StringSpec({
 
     "creates a base MagneticFlux" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.webers.should { (amount, prefix, symbol) ->
+            magnitude.webers.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe MagneticFlux.SYMBOL
                 symbol shouldBe MagneticFlux.SYMBOL
             }
         }

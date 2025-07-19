@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.pascals
@@ -13,9 +12,9 @@ import org.kisu.units.builders.pascals
 class PressureTest : StringSpec({
     "creates a Pressure" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().pascals.should { (amount, prefix, symbol) ->
+            magnitude.builder().pascals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Pressure.SYMBOL}"
                 symbol shouldBe Pressure.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class PressureTest : StringSpec({
 
     "creates a base Pressure" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.pascals.should { (amount, prefix, symbol) ->
+            magnitude.pascals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Pressure.SYMBOL
                 symbol shouldBe Pressure.SYMBOL
             }
         }

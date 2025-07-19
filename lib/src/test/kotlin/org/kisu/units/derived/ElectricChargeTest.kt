@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.coulombs
@@ -13,9 +12,9 @@ import org.kisu.units.builders.coulombs
 class ElectricChargeTest : StringSpec({
     "creates an ElectricCharge" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().coulombs.should { (amount, prefix, symbol) ->
+            magnitude.builder().coulombs.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${ElectricCharge.SYMBOL}"
                 symbol shouldBe ElectricCharge.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class ElectricChargeTest : StringSpec({
 
     "creates a base ElectricCharge" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.coulombs.should { (amount, prefix, symbol) ->
+            magnitude.coulombs.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe ElectricCharge.SYMBOL
                 symbol shouldBe ElectricCharge.SYMBOL
             }
         }

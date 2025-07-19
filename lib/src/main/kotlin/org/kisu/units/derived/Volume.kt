@@ -2,6 +2,7 @@ package org.kisu.units.derived
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -15,8 +16,11 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Volume internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Volume>(magnitude, prefix, SYMBOL, ::Volume) {
+class Volume internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, Volume>(magnitude, expression, ::Volume) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for volume: "m³" (cubic metre). */

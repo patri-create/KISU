@@ -8,7 +8,6 @@ import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.long
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.meters
@@ -16,9 +15,9 @@ import org.kisu.units.builders.meters
 class LengthTest : StringSpec({
     "creates Length" {
         checkAll(Arb.long().filter { it != 0L }, MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().meters.should { (amount, prefix, symbol) ->
+            magnitude.builder().meters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Length.SYMBOL}"
                 symbol shouldBe Length.SYMBOL
             }
         }
@@ -26,9 +25,9 @@ class LengthTest : StringSpec({
 
     "creates a base Length" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.meters.should { (amount, prefix, symbol) ->
+            magnitude.meters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                prefix shouldBe Metric.BASE
+                expression shouldBe Length.SYMBOL
                 symbol shouldBe Length.SYMBOL
             }
         }

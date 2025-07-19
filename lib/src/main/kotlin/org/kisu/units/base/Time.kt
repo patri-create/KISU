@@ -2,6 +2,7 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -18,8 +19,11 @@ import java.math.BigDecimal
  * The magnitude is stored using [BigDecimal] to ensure high precision. Instances of this class are immutable
  * and validated to reflect physical reality.
  */
-class Time internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Time>(magnitude, prefix, SYMBOL, ::Time) {
+class Time internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, Time>(magnitude, expression, ::Time) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for time: "s" (second). */

@@ -2,6 +2,7 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
 import java.math.BigDecimal
 
@@ -11,7 +12,7 @@ import java.math.BigDecimal
  * This class models the SI base unit for counting discrete entities like atoms, molecules, or particles in a substance.
  * One mole corresponds to [AVOGADROS_NUMBER] elementary entities, typically used in chemistry and physics.
  *
- * The amount is composed of a [magnitude] and an optional metric [prefix], allowing expressions such as millimoles
+ * The amount is composed of a [magnitude] and an optional metric [expression], allowing expressions such as millimoles
  * (mmol), micromoles (µmol), or kilomoles (kmol).
  *
  * The value must not be negative, as a physical quantity representing a count of real entities cannot be less than
@@ -21,8 +22,11 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and preserve their precision using [BigDecimal].
  */
-class Amount internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Amount>(magnitude, prefix, SYMBOL, ::Amount) {
+class Amount internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, Amount>(magnitude, expression, ::Amount) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */
