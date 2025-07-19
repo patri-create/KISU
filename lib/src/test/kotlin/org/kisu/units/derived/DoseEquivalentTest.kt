@@ -5,8 +5,10 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
+import org.kisu.units.Scalar
 import org.kisu.units.builders.sieverts
 
 class DoseEquivalentTest : StringSpec({
@@ -14,7 +16,7 @@ class DoseEquivalentTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().sieverts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe "${magnitude.builder().metric.symbol}${DoseEquivalent.SYMBOL}"
+                expression shouldBe Scalar(magnitude.builder().metric, DoseEquivalent.SYMBOL)
                 symbol shouldBe DoseEquivalent.SYMBOL
             }
         }
@@ -24,7 +26,7 @@ class DoseEquivalentTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.sieverts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe DoseEquivalent.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, DoseEquivalent.SYMBOL)
                 symbol shouldBe DoseEquivalent.SYMBOL
             }
         }

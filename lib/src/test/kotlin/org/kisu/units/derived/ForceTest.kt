@@ -5,8 +5,10 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
+import org.kisu.units.Scalar
 import org.kisu.units.builders.newtons
 
 class ForceTest : StringSpec({
@@ -14,7 +16,7 @@ class ForceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().newtons.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe "${magnitude.builder().metric.symbol}${Force.SYMBOL}"
+                expression shouldBe Scalar(magnitude.builder().metric, Force.SYMBOL)
                 symbol shouldBe Force.SYMBOL
             }
         }
@@ -24,7 +26,7 @@ class ForceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.newtons.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Force.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Force.SYMBOL)
                 symbol shouldBe Force.SYMBOL
             }
         }

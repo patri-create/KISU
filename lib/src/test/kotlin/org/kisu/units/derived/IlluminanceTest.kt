@@ -5,8 +5,10 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
+import org.kisu.units.Scalar
 import org.kisu.units.builders.lux
 
 class IlluminanceTest : StringSpec({
@@ -14,7 +16,7 @@ class IlluminanceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().lux.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe "${magnitude.builder().metric.symbol}${Illuminance.SYMBOL}"
+                expression shouldBe Scalar(magnitude.builder().metric, Illuminance.SYMBOL)
                 symbol shouldBe Illuminance.SYMBOL
             }
         }
@@ -24,7 +26,7 @@ class IlluminanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.lux.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Illuminance.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Illuminance.SYMBOL)
                 symbol shouldBe Illuminance.SYMBOL
             }
         }
