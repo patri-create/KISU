@@ -5,8 +5,10 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
+import org.kisu.units.Scalar
 import org.kisu.units.builders.ohms
 
 class ResistanceTest : StringSpec({
@@ -14,7 +16,7 @@ class ResistanceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().ohms.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe "${magnitude.builder().metric.symbol}${Resistance.SYMBOL}"
+                expression shouldBe Scalar(magnitude.builder().metric, Resistance.SYMBOL)
                 symbol shouldBe Resistance.SYMBOL
             }
         }
@@ -24,7 +26,7 @@ class ResistanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.ohms.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Resistance.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Resistance.SYMBOL)
                 symbol shouldBe Resistance.SYMBOL
             }
         }

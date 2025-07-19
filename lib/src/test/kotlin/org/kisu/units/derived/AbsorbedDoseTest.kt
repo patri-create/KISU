@@ -5,8 +5,10 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
+import org.kisu.units.Scalar
 import org.kisu.units.builders.grays
 
 class AbsorbedDoseTest : StringSpec({
@@ -15,7 +17,7 @@ class AbsorbedDoseTest : StringSpec({
             magnitude.builder().grays
                 .should { (amount, expression, symbol) ->
                     amount shouldBe magnitude
-                    expression shouldBe "${magnitude.builder().metric.symbol}${AbsorbedDose.SYMBOL}"
+                    expression shouldBe Scalar(magnitude.builder().metric, AbsorbedDose.SYMBOL)
                     symbol shouldBe AbsorbedDose.SYMBOL
                 }
         }
@@ -25,7 +27,7 @@ class AbsorbedDoseTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.grays.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe AbsorbedDose.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, AbsorbedDose.SYMBOL)
                 symbol shouldBe AbsorbedDose.SYMBOL
             }
         }

@@ -271,7 +271,7 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
      * val (_, expression, _) = measure
      * ```
      */
-    operator fun component2(): String = expression.symbol
+    operator fun component2(): A = expression
 
     /**
      * Returns the unit name of this measure.

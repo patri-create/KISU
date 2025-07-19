@@ -318,7 +318,7 @@ class MeasureTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
             TestUnit(magnitude, prefix).should { (number, expression, unit) ->
                 number shouldBe magnitude
-                expression shouldBe "$prefix${TestUnit.SYMBOL}"
+                expression shouldBe Scalar(prefix, TestUnit.SYMBOL)
                 unit shouldBe TestUnit.SYMBOL
             }
         }
