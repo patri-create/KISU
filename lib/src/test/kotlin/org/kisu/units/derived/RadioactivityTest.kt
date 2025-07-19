@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.becquerels
@@ -13,9 +12,9 @@ import org.kisu.units.builders.becquerels
 class RadioactivityTest : StringSpec({
     "creates a Radioactivity" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().becquerels.should { (amount, prefix, symbol) ->
+            magnitude.builder().becquerels.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Radioactivity.SYMBOL}"
                 symbol shouldBe Radioactivity.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class RadioactivityTest : StringSpec({
 
     "creates a base Radioactivity" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.becquerels.should { (amount, prefix, symbol) ->
+            magnitude.becquerels.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Radioactivity.SYMBOL
                 symbol shouldBe Radioactivity.SYMBOL
             }
         }

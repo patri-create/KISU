@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.watts
@@ -13,9 +12,9 @@ import org.kisu.units.builders.watts
 class PowerTest : StringSpec({
     "creates a Power" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().watts.should { (amount, prefix, symbol) ->
+            magnitude.builder().watts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Power.SYMBOL}"
                 symbol shouldBe Power.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class PowerTest : StringSpec({
 
     "creates a base Power" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.watts.should { (amount, prefix, symbol) ->
+            magnitude.watts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Power.SYMBOL
                 symbol shouldBe Power.SYMBOL
             }
         }

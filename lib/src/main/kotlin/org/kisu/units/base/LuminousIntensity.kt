@@ -2,6 +2,7 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -19,8 +20,11 @@ import java.math.BigDecimal
  *
  * All values are stored with high precision using [BigDecimal], and instances are immutable.
  */
-class LuminousIntensity internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, LuminousIntensity>(magnitude, prefix, SYMBOL, ::LuminousIntensity) {
+class LuminousIntensity internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, LuminousIntensity>(magnitude, expression, ::LuminousIntensity) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for luminous intensity: "cd" (candela). */

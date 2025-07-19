@@ -2,6 +2,7 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -14,8 +15,11 @@ import java.math.BigDecimal
  * The quantity is expressed with a [magnitude] and a [prefix], enabling precise representation of both small- and
  * large-scale measurements using [BigDecimal] for accuracy.
  */
-class Length internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Length>(magnitude, prefix, SYMBOL, ::Length) {
+class Length internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, Length>(magnitude, expression, ::Length) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The SI symbol for length: "m" (metre). */

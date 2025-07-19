@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.cubicMeters
@@ -13,9 +12,9 @@ import org.kisu.units.builders.cubicMeters
 class VolumeTest : StringSpec({
     "creates a Volume" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().cubicMeters.should { (amount, prefix, symbol) ->
+            magnitude.builder().cubicMeters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Volume.SYMBOL}"
                 symbol shouldBe Volume.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class VolumeTest : StringSpec({
 
     "creates a base Volume" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.cubicMeters.should { (amount, prefix, symbol) ->
+            magnitude.cubicMeters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Volume.SYMBOL
                 symbol shouldBe Volume.SYMBOL
             }
         }

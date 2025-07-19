@@ -4,6 +4,7 @@ import org.kisu.hasFraction
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.isCanonical
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import org.kisu.units.exceptions.NegativeInformation
 import org.kisu.units.exceptions.SubBitInformation
 import java.math.BigDecimal
@@ -27,12 +28,43 @@ import java.math.BigDecimal
  *
  * Instances are immutable and safely validated at construction.
  */
-class Information private constructor(magnitude: BigDecimal, prefix: Binary = Binary.BASE) :
-    Measure<Binary, Information>(magnitude, prefix, SYMBOL, ::invoke) {
+class Information private constructor(magnitude: BigDecimal, expression: Scalar<Binary>) :
+    Measure<Scalar<Binary>, Information>(magnitude, expression, Companion::invoke) {
 
     companion object {
         /** The unit symbol for digital information: "bit". */
         internal const val SYMBOL = "bit"
+
+        /**
+         * Creates a new [Information] quantity with the given [magnitude] and [expression].
+         *
+         * Constraints:
+         * - The [magnitude] must be strictly positive; negative information is physically meaningless.
+         * - If the [expression] is canonical (i.e., no prefix, representing raw bits), the [magnitude] must not include
+         * fractional parts.
+         *   Fractional bits are not representable as atomic units of digital information.
+         *
+         * If these constraints are violated:
+         * - A [NegativeInformation] exception is thrown for negative values.
+         * - A [SubBitInformation] exception is thrown for fractional bit values in canonical form.
+         *
+         * @param magnitude The magnitude of the information quantity.
+         * @param expression The binary prefix to apply (e.g., Ki, Mi, Gi, etc.).
+         * @return A new [Information] instance with the specified magnitude and prefix.
+         * @throws NegativeInformation if the value is negative.
+         * @throws SubBitInformation if a non-integer bit value is used with the base unit.
+         */
+        operator fun invoke(
+            magnitude: BigDecimal,
+            expression: Scalar<Binary> = Scalar(Binary.BASE, SYMBOL),
+        ): Information {
+            if (expression.isCanonical && magnitude.hasFraction) {
+                throw SubBitInformation(magnitude, SYMBOL)
+            }
+            val information = Information(magnitude, expression)
+            information.canonical // Forces evaluation for potential validation during construction
+            return information
+        }
 
         /**
          * Creates a new [Information] quantity with the given [magnitude] and [prefix].
@@ -56,13 +88,6 @@ class Information private constructor(magnitude: BigDecimal, prefix: Binary = Bi
         operator fun invoke(
             magnitude: BigDecimal,
             prefix: Binary = Binary.BASE,
-        ): Information {
-            if (prefix.isCanonical && magnitude.hasFraction) {
-                throw SubBitInformation(magnitude, SYMBOL)
-            }
-            val information = Information(magnitude, prefix)
-            information.canonical // Forces evaluation for potential validation during construction
-            return information
-        }
+        ) = invoke(magnitude, Scalar(prefix, SYMBOL))
     }
 }

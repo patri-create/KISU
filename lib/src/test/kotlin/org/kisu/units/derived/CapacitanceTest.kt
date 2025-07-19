@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.farads
@@ -13,9 +12,9 @@ import org.kisu.units.builders.farads
 class CapacitanceTest : StringSpec({
     "creates a Capacitance" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().farads.should { (amount, prefix, symbol) ->
+            magnitude.builder().farads.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Capacitance.SYMBOL}"
                 symbol shouldBe Capacitance.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class CapacitanceTest : StringSpec({
 
     "creates a base Capacitance" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.farads.should { (amount, prefix, symbol) ->
+            magnitude.farads.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Capacitance.SYMBOL
                 symbol shouldBe Capacitance.SYMBOL
             }
         }

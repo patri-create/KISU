@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.grams
@@ -13,9 +12,9 @@ import org.kisu.units.builders.grams
 class MassTest : StringSpec({
     "creates mass" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().grams.should { (amount, prefix, symbol) ->
+            magnitude.builder().grams.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Mass.SYMBOL}"
                 symbol shouldBe Mass.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class MassTest : StringSpec({
 
     "creates a base Mass" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.grams.should { (amount, prefix, symbol) ->
+            magnitude.grams.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Mass.SYMBOL
                 symbol shouldBe Mass.SYMBOL
             }
         }

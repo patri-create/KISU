@@ -5,7 +5,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.kelvins
@@ -13,9 +12,9 @@ import org.kisu.units.builders.kelvins
 class TemperatureTest : StringSpec({
     "creates Temperature" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().kelvins.should { (amount, prefix, symbol) ->
+            magnitude.builder().kelvins.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe magnitude.builder().metric
+                expression shouldBe "${magnitude.builder().metric.symbol}${Temperature.SYMBOL}"
                 symbol shouldBe Temperature.SYMBOL
             }
         }
@@ -23,9 +22,9 @@ class TemperatureTest : StringSpec({
 
     "creates a base Temperature" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.kelvins.should { (amount, prefix, symbol) ->
+            magnitude.kelvins.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                prefix shouldBe Metric.BASE
+                expression shouldBe Temperature.SYMBOL
                 symbol shouldBe Temperature.SYMBOL
             }
         }

@@ -2,6 +2,7 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.Scalar
 import java.math.BigDecimal
 
 /**
@@ -20,8 +21,11 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and validated at construction.
  */
-class Mass internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-    Measure<Metric, Mass>(magnitude, prefix, SYMBOL, ::Mass) {
+class Mass internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
+    Measure<Scalar<Metric>, Mass>(magnitude, expression, ::Mass) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Scalar(prefix, SYMBOL))
 
     companion object {
         /** The symbol for mass: "g" (gram). */

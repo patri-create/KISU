@@ -9,7 +9,6 @@ import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
-import org.kisu.prefixes.Binary
 import org.kisu.test.generators.BinaryBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.bits
@@ -29,9 +28,9 @@ class InformationTest : StringSpec({
 
     "creates Information" {
         checkAll(Arb.positiveLong(), BinaryBuilders.generator) { magnitude, builder ->
-            magnitude.builder().bits.should { (amount, prefix, symbol) ->
+            magnitude.builder().bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                prefix shouldBe magnitude.builder().binary
+                expression shouldBe "${magnitude.builder().binary.symbol}${Information.SYMBOL}"
                 symbol shouldBe Information.SYMBOL
             }
         }
@@ -39,9 +38,9 @@ class InformationTest : StringSpec({
 
     "creates a base Information" {
         checkAll(Arb.positiveLong()) { magnitude ->
-            magnitude.bits.should { (amount, prefix, symbol) ->
+            magnitude.bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                prefix shouldBe Binary.BASE
+                expression shouldBe Information.SYMBOL
                 symbol shouldBe Information.SYMBOL
             }
         }
