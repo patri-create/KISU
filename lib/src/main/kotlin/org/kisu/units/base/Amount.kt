@@ -27,7 +27,7 @@ class Amount internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
     Measure<Scalar<Metric>, Amount>(magnitude, expression, ::Amount) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */

@@ -23,7 +23,7 @@ class ElectricCharge internal constructor(magnitude: BigDecimal, expression: Sca
     Measure<Scalar<Metric>, ElectricCharge>(magnitude, expression, ::ElectricCharge) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for electric charge: "C" (coulomb). */

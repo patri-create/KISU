@@ -17,7 +17,7 @@ class PlaneAngleTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().radians.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, PlaneAngle.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = PlaneAngle.UNIT)
                 symbol shouldBe PlaneAngle.UNIT.toString()
             }
         }
@@ -27,7 +27,7 @@ class PlaneAngleTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.radians.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, PlaneAngle.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = PlaneAngle.UNIT)
                 symbol shouldBe PlaneAngle.UNIT.toString()
             }
         }

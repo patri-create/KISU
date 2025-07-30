@@ -21,7 +21,7 @@ class Byte private constructor(magnitude: BigDecimal, expression: Scalar<Metric>
     Measure<Scalar<Metric>, Byte>(magnitude, expression, ::Byte) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The symbol for byte: "B". */

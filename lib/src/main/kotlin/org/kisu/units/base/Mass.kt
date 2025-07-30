@@ -26,7 +26,7 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Scalar<Metric
     Measure<Scalar<Metric>, Mass>(magnitude, expression, ::Mass) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The symbol for mass: "g" (gram). */

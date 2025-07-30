@@ -25,7 +25,7 @@ class LuminousIntensity internal constructor(magnitude: BigDecimal, expression: 
     Measure<Scalar<Metric>, LuminousIntensity>(magnitude, expression, ::LuminousIntensity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for luminous intensity: "cd" (candela). */

@@ -16,7 +16,7 @@ class SolidAngleTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().steradians.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, SolidAngle.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = SolidAngle.UNIT)
                 symbol shouldBe SolidAngle.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class SolidAngleTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.steradians.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, SolidAngle.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = SolidAngle.UNIT)
                 symbol shouldBe SolidAngle.UNIT.toString()
             }
         }

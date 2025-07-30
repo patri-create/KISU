@@ -23,7 +23,7 @@ class SolidAngle internal constructor(magnitude: BigDecimal, expression: Scalar<
     Measure<Scalar<Metric>, SolidAngle>(magnitude, expression, ::SolidAngle) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for solid angle: "sr" (steradian). */

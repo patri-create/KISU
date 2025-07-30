@@ -23,7 +23,7 @@ class Illuminance internal constructor(magnitude: BigDecimal, expression: Scalar
     Measure<Scalar<Metric>, Illuminance>(magnitude, expression, ::Illuminance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for illuminance: "lx" (lux). */

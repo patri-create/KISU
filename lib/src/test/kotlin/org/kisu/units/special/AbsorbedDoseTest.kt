@@ -17,7 +17,7 @@ class AbsorbedDoseTest : StringSpec({
             magnitude.builder().grays
                 .should { (amount, expression, symbol) ->
                     amount shouldBe magnitude
-                    expression shouldBe Scalar(magnitude.builder().metric, AbsorbedDose.UNIT)
+                    expression shouldBe Scalar(magnitude.builder().metric, unit = AbsorbedDose.UNIT)
                     symbol shouldBe AbsorbedDose.UNIT.toString()
                 }
         }
@@ -27,7 +27,7 @@ class AbsorbedDoseTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.grays.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, AbsorbedDose.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = AbsorbedDose.UNIT)
                 symbol shouldBe AbsorbedDose.UNIT.toString()
             }
         }

@@ -16,7 +16,7 @@ class RadioactivityTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().becquerels.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Radioactivity.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Radioactivity.UNIT)
                 symbol shouldBe Radioactivity.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class RadioactivityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.becquerels.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Radioactivity.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Radioactivity.UNIT)
                 symbol shouldBe Radioactivity.UNIT.toString()
             }
         }

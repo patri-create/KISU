@@ -16,7 +16,7 @@ class ConductanceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().siemens.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Conductance.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Conductance.UNIT)
                 symbol shouldBe Conductance.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class ConductanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.siemens.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Conductance.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Conductance.UNIT)
                 symbol shouldBe Conductance.UNIT.toString()
             }
         }

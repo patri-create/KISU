@@ -24,7 +24,7 @@ class Time internal constructor(magnitude: BigDecimal, expression: Scalar<Metric
     Measure<Scalar<Metric>, Time>(magnitude, expression, ::Time) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for time: "s" (second). */

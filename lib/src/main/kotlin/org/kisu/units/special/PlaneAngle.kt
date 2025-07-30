@@ -23,7 +23,7 @@ class PlaneAngle internal constructor(magnitude: BigDecimal, expression: Scalar<
     Measure<Scalar<Metric>, PlaneAngle>(magnitude, expression, ::PlaneAngle) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for plane angle: "rad" (radian). */

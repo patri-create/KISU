@@ -21,7 +21,7 @@ class Celsius internal constructor(magnitude: BigDecimal, expression: Scalar<Met
     Measure<Scalar<Metric>, Celsius>(magnitude, expression, ::Celsius) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for Celsius temperature: "°C". */

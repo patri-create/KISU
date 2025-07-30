@@ -23,7 +23,7 @@ class Force internal constructor(magnitude: BigDecimal, expression: Scalar<Metri
     Measure<Scalar<Metric>, Force>(magnitude, expression, ::Force) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for force: "N" (newton). */
