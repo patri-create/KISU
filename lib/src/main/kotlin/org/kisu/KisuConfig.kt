@@ -21,4 +21,8 @@ object KisuConfig {
      * ```
      */
     var precision: MathContext = MathContext.DECIMAL128
+
+    fun default() {
+        precision = MathContext.DECIMAL128
+    }
 }

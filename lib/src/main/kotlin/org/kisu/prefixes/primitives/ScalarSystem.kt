@@ -25,16 +25,16 @@ import org.kisu.units.representation.Unit
 class ScalarSystem<A>(private val prefix: A, private val unit: Unit) :
     System<Scalar<A>> where A : Prefix<A>, A : System<A> {
     override val canonical: Scalar<A> by lazy {
-        Scalar(prefix.canonical, unit)
+        Scalar(prefix.canonical, unit = unit)
     }
     override val all: List<Scalar<A>> by lazy {
-        prefix.all.map { prefix -> Scalar(prefix, unit) }
+        prefix.all.map { prefix -> Scalar(prefix, unit = unit) }
     }
 
     override val smallest: Scalar<A> by lazy {
-        Scalar(prefix.smallest, unit)
+        Scalar(prefix.smallest, unit = unit)
     }
     override val largest: Scalar<A> by lazy {
-        Scalar(prefix.largest, unit)
+        Scalar(prefix.largest, unit = unit)
     }
 }
