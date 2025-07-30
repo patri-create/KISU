@@ -13,6 +13,25 @@ import kotlin.math.absoluteValue
  */
 data class Exponent(private val exponent: Int) {
 
+
+    /**
+     * Indicates whether the exponent is positive.
+     *
+     * Returns `true` if the exponent is greater than zero and `false` otherwise.
+     */
+    val positive: Boolean by lazy {
+        exponent > 0
+    }
+
+    /**
+     * Indicates whether the exponent is zero.
+     *
+     * Returns `true` if the exponent is zero and `false` otherwise.
+     */
+    val zero: Boolean by lazy {
+        exponent == 0
+    }
+
     /**
      * A lazily computed string representation of the exponent using Unicode superscript characters.
      *
@@ -33,6 +52,14 @@ data class Exponent(private val exponent: Int) {
             ""
         }
     }
+
+    /**
+     * Returns the inverse of this exponent.
+     *
+     * This is equivalent to multiplying the exponent by -1.
+     * For example, an exponent of 3 becomes -3, and -2 becomes 2.
+     */
+    val inverted: Exponent by lazy { Exponent(-exponent) }
 
     /**
      * Adds two [Exponent] instances.

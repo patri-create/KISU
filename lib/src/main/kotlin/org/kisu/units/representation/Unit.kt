@@ -55,6 +55,43 @@ class Unit(
      */
     constructor(unit: String, exponent: Int = 1) : this(unit, Exponent(exponent))
 
+
+    /**
+     * Indicates whether this unit has a zero exponent.
+     *
+     * For example, in an expression like m⁰, this would return `true`,
+     * while for m it would return `false`.
+     */
+    val zero: Boolean by lazy {
+        exponent.zero
+    }
+
+    /**
+     * Indicates whether this unit has a positive exponent.
+     *
+     * For example, in an expression like m², this would return `true`,
+     * while for m⁻² it would return `false`.
+     */
+    val positive: Boolean by lazy {
+        exponent.positive
+    }
+
+    /**
+     * Lazily computed string representation of the unit and its exponent, e.g., `"m²"`.
+     */
+    private val representation: String by lazy {
+        "$symbol$exponent"
+    }
+
+
+    /**
+     * Returns a new [Unit] with the same symbol but an inverted exponent.
+     *
+     * For example, if this unit is m², the result will be m⁻²;
+     * if it's s⁻¹, the result will be s¹.
+     */
+    val inverted: Unit by lazy { Unit(symbol, exponent.inverted) }
+
     /**
      * Multiplies two [Unit]s of the same unit type.
      *
@@ -91,13 +128,6 @@ class Unit(
         }
 
         return Unit(symbol, exponent - other.exponent)
-    }
-
-    /**
-     * Lazily computed string representation of the unit and its exponent, e.g., `"m²"`.
-     */
-    private val representation: String by lazy {
-        "$symbol$exponent"
     }
 
     /**
@@ -146,7 +176,7 @@ class Unit(
     override fun toString(): String = representation
 }
 
-internal val CANONICAL_ORDER = listOf(
+internal val CANONICAL_ORDER: List<Unit> = listOf(
     Force.UNIT,
     Pressure.UNIT,
     Energy.UNIT,
