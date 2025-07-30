@@ -8,30 +8,30 @@ import org.kisu.units.base.LuminousIntensity
 import org.kisu.units.base.Mass
 import org.kisu.units.base.Temperature
 import org.kisu.units.base.Time
-import org.kisu.units.derived.AbsorbedDose
-import org.kisu.units.derived.Area
-import org.kisu.units.derived.Capacitance
-import org.kisu.units.derived.CatalyticActivity
-import org.kisu.units.derived.Celsius
-import org.kisu.units.derived.Conductance
-import org.kisu.units.derived.DoseEquivalent
-import org.kisu.units.derived.ElectricCharge
-import org.kisu.units.derived.ElectricPotential
-import org.kisu.units.derived.Energy
-import org.kisu.units.derived.Force
-import org.kisu.units.derived.Frequency
-import org.kisu.units.derived.Illuminance
-import org.kisu.units.derived.Inductance
-import org.kisu.units.derived.LuminousFlux
-import org.kisu.units.derived.MagneticFlux
-import org.kisu.units.derived.MagneticFluxDensity
-import org.kisu.units.derived.PlaneAngle
-import org.kisu.units.derived.Power
-import org.kisu.units.derived.Pressure
-import org.kisu.units.derived.Radioactivity
-import org.kisu.units.derived.Resistance
-import org.kisu.units.derived.SolidAngle
-import org.kisu.units.derived.Volume
+import org.kisu.units.special.AbsorbedDose
+import org.kisu.units.special.Area
+import org.kisu.units.special.Capacitance
+import org.kisu.units.special.CatalyticActivity
+import org.kisu.units.special.Celsius
+import org.kisu.units.special.Conductance
+import org.kisu.units.special.DoseEquivalent
+import org.kisu.units.special.ElectricCharge
+import org.kisu.units.special.ElectricPotential
+import org.kisu.units.special.Energy
+import org.kisu.units.special.Force
+import org.kisu.units.special.Frequency
+import org.kisu.units.special.Illuminance
+import org.kisu.units.special.Inductance
+import org.kisu.units.special.LuminousFlux
+import org.kisu.units.special.MagneticFlux
+import org.kisu.units.special.MagneticFluxDensity
+import org.kisu.units.special.PlaneAngle
+import org.kisu.units.special.Power
+import org.kisu.units.special.Pressure
+import org.kisu.units.special.Radioactivity
+import org.kisu.units.special.Resistance
+import org.kisu.units.special.SolidAngle
+import org.kisu.units.special.Volume
 import java.math.BigDecimal
 
 /**
@@ -77,7 +77,7 @@ val MetricUnitBuilder.becquerels: Radioactivity get() = Radioactivity(magnitude,
  * val size = 10.mega.bytes // 10 * 10^6 bytes
  * ```
  */
-val MetricUnitBuilder.bytes: org.kisu.units.derived.Byte get() = org.kisu.units.derived.Byte(magnitude, metric)
+val MetricUnitBuilder.bytes: org.kisu.units.special.Byte get() = org.kisu.units.special.Byte(magnitude, metric)
 
 /**
  * Creates a [LuminousIntensity] measure by applying the metric prefix scale to the magnitude.
