@@ -23,7 +23,7 @@ class MagneticFluxDensity internal constructor(magnitude: BigDecimal, expression
     Measure<Scalar<Metric>, MagneticFluxDensity>(magnitude, expression, ::MagneticFluxDensity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for magnetic flux density: "T" (tesla). */

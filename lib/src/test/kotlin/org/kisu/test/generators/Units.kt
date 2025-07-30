@@ -1,18 +1,22 @@
 package org.kisu.test.generators
 
 import io.kotest.property.Arb
-import io.kotest.property.arbitrary.char
-import io.kotest.property.arbitrary.filter
-import io.kotest.property.arbitrary.flatMap
+import io.kotest.property.arbitrary.arbitrary
+import io.kotest.property.arbitrary.element
 import io.kotest.property.arbitrary.map
+import io.kotest.property.arbitrary.take
+import org.kisu.units.representation.CANONICAL_ORDER
 import org.kisu.units.representation.Unit
 
 object Units : Generator<Unit> {
-    val symbols = Arb.char('a'..'z').map { it.toString() }
+    override val generator: Arb<Unit> = Arb.element(CANONICAL_ORDER)
 
-    override val generator: Arb<Unit> = symbols.map { symbol -> Unit(symbol, 1) }
+    val symbols = generator.map { unit -> unit.toString() }
 
-    val distinct: Arb<Pair<Unit, Unit>> = generator.flatMap { left ->
-        generator.filter { right -> right != left }.map { right -> left to right }
+    fun distinct(number: Int): Arb<List<Unit>> {
+        require(number <= CANONICAL_ORDER.size) {
+            "Cannot ask for more than ${CANONICAL_ORDER.size} distinct units"
+        }
+        return arbitrary { CANONICAL_ORDER.shuffled(it.random).take(number) }
     }
 }

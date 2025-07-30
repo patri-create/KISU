@@ -23,7 +23,7 @@ class MagneticFlux internal constructor(magnitude: BigDecimal, expression: Scala
     Measure<Scalar<Metric>, MagneticFlux>(magnitude, expression, ::MagneticFlux) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for magnetic flux: "Wb" (weber). */

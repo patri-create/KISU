@@ -23,7 +23,7 @@ class Frequency internal constructor(magnitude: BigDecimal, expression: Scalar<M
     Measure<Scalar<Metric>, Frequency>(magnitude, expression, ::Frequency) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for frequency: "Hz" (hertz). */

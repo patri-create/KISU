@@ -24,7 +24,7 @@ class ElectricPotential internal constructor(magnitude: BigDecimal, expression: 
     Measure<Scalar<Metric>, ElectricPotential>(magnitude, expression, ::ElectricPotential) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for electric potential: "V" (volt). */

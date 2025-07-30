@@ -16,7 +16,7 @@ class PowerTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().watts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Power.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Power.UNIT)
                 symbol shouldBe Power.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class PowerTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.watts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Power.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Power.UNIT)
                 symbol shouldBe Power.UNIT.toString()
             }
         }

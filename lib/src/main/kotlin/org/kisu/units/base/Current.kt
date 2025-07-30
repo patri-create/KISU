@@ -24,7 +24,7 @@ class Current internal constructor(magnitude: BigDecimal, expression: Scalar<Met
     Measure<Scalar<Metric>, Current>(magnitude, expression, ::Current) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for electric current: "A" (ampere). */

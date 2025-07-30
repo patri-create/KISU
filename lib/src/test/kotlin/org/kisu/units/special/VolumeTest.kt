@@ -16,7 +16,7 @@ class VolumeTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().cubicMeters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Volume.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Volume.UNIT)
                 symbol shouldBe Volume.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class VolumeTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.cubicMeters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Volume.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Volume.UNIT)
                 symbol shouldBe Volume.UNIT.toString()
             }
         }

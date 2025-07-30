@@ -16,7 +16,7 @@ class InductanceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().henries.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Inductance.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Inductance.UNIT)
                 symbol shouldBe Inductance.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class InductanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.henries.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Inductance.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Inductance.UNIT)
                 symbol shouldBe Inductance.UNIT.toString()
             }
         }

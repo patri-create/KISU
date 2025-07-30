@@ -1,8 +1,10 @@
 package org.kisu.units.representation
 
 import org.kisu.prefixes.Prefix
+import org.kisu.prefixes.div
 import org.kisu.prefixes.primitives.ScalarSystem
 import org.kisu.prefixes.primitives.System
+import org.kisu.prefixes.times
 import java.math.BigDecimal
 
 /**
@@ -23,15 +25,98 @@ import java.math.BigDecimal
  */
 class Scalar<A>(
     private val prefix: A,
-    private val unit: Unit
+    private val overflow: BigDecimal = BigDecimal.ONE,
+    internal val unit: Unit
 ) : Expression<Scalar<A>>(), System<Scalar<A>> by ScalarSystem(prefix, unit)
     where A : Prefix<A>, A : System<A> {
 
+    private constructor(pair: Pair<A, BigDecimal>, unit: Unit) : this(
+        pair.component1(),
+        pair.component2(),
+        unit
+    )
+
+    /**
+     * Returns the multiplicative inverse of this scalar.
+     *
+     * This creates a new [Scalar] with the same [prefix] and [overflow], but with the [unit] inverted.
+     * For example, if the current scalar represents "m", the inverted scalar represents "1/m".
+     *
+     * The result is computed lazily and cached for future access.
+     */
+    val inverted: Scalar<A> by lazy { Scalar(prefix, overflow, unit.inverted) }
+
+    /**
+     * Indicates whether this scalar's [unit] has a positive exponent.
+     *
+     * Returns `true` if the [unit] represents a positive power (e.g., m²),
+     * and `false` if it is inverted or has a negative exponent (e.g., m⁻¹).
+     *
+     * The result is computed lazily and cached.
+     */
+    val positive: Boolean by lazy {
+        unit.positive
+    }
+
+    /**
+     * Indicates whether this scalar's [unit] has a zero exponent.
+     *
+     * Returns `true` if the [unit] represents a positive power (e.g., m⁰), and `false` otherwise.
+     *
+     * The result is computed lazily and cached.
+     */
+    val zero: Boolean by lazy {
+        unit.zero
+    }
+
     /** The scaling factor of this scalar unit, delegated from the prefix. */
-    override val factor: BigDecimal = prefix.factor
+    override val factor: BigDecimal by lazy { prefix.factor * overflow }
 
     /** The combined symbol of the prefix and unit (e.g., "km", "μs"). */
-    override val symbol: String by lazy { prefix.symbol + unit }
+    override val symbol: String by lazy {
+        if (unit.zero) {
+            ""
+        } else {
+            prefix.symbol + unit
+        }
+    }
+
+    /**
+     * The only factor of a scalar is itself.
+     *
+     * This defines the scalar as an atomic unit in dimensional expressions—irreducible
+     * and self-contained. It is used when building composite expressions from basic scalars.
+     */
+    override val factors: Set<Scalar<*>> = sortedSetOf(this)
+
+    /**
+     * Combines this scalar with another by multiplying their prefixes and units.
+     *
+     * This operation corresponds to the multiplication of two quantities with the same dimension system.
+     * The result preserves the same type parameter [A], assuming compatible systems.
+     *
+     * Example: `1.kilo.meters + 100.meters` results in `1.1.kilo.meters` (assuming proper normalization).
+     *
+     * @param other The scalar to combine with this one.
+     * @return A new [Scalar] representing the combined magnitude and unit.
+     */
+    operator fun plus(other: Scalar<A>): Scalar<A> =
+        Scalar(prefix * other.prefix, unit * other.unit)
+
+    /**
+     * Reduces this scalar by dividing its prefix and unit by those of [other].
+     *
+     * This operation is used to reverse a previous composition or normalize
+     * a scalar relative to another. The result maintains the same type parameter [A].
+     *
+     * Example: `1.kilo.meters - 500.meters` results in `0.5.kilo.meters`
+     * (assuming appropriate normalization of prefixes and units).
+     *
+     * @param other The scalar to divide out of this one.
+     * @return A new [Scalar] representing the relative magnitude and unit.
+     */
+    operator fun minus(other: Scalar<A>): Scalar<A> =
+        Scalar(prefix / other.prefix, unit / other.unit)
 
     /**
      * Multiplies this scalar unit with another scalar unit, returning a [Product] expression.

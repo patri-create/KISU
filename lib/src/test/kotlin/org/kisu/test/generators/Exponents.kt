@@ -8,5 +8,7 @@ import org.kisu.units.representation.Exponent
 object Exponents : Generator<Exponent> {
     override val generator: Arb<Exponent> = Arb.int().map(::Exponent)
 
+    fun range(min: Int = Int.MIN_VALUE, max: Int = Int.MAX_VALUE) = range(min..max)
+
     fun range(range: IntRange) = Arb.int(range).map(::Exponent)
 }

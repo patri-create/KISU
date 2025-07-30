@@ -27,7 +27,7 @@ class Temperature internal constructor(magnitude: BigDecimal, expression: Scalar
     Measure<Scalar<Metric>, Temperature>(magnitude, expression, ::Temperature) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for temperature: "K" (kelvin). */

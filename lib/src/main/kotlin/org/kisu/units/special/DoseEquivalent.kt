@@ -23,7 +23,7 @@ class DoseEquivalent internal constructor(magnitude: BigDecimal, expression: Sca
     Measure<Scalar<Metric>, DoseEquivalent>(magnitude, expression, ::DoseEquivalent) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for dose equivalent: "Sv" (sievert). */

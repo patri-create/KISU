@@ -23,7 +23,7 @@ class Conductance internal constructor(magnitude: BigDecimal, expression: Scalar
     Measure<Scalar<Metric>, Conductance>(magnitude, expression, ::Conductance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for electrical conductance: "S" (siemens). */

@@ -2,17 +2,50 @@ package org.kisu.units.representation
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.booleans.shouldBeFalse
+import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.arbitrary
+import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.int
 import io.kotest.property.checkAll
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Units
 
 class UnitTest : StringSpec({
+    "unit is recognized as positive" {
+        checkAll(Units.symbols, Exponents.range(1, Int.MAX_VALUE)) { symbol, exponent ->
+            Unit(symbol, exponent).positive.shouldBeTrue()
+        }
+    }
+
+    "unit is recognized as negative" {
+        checkAll(Units.symbols, Exponents.range(Int.MIN_VALUE, 0)) { symbol, exponent ->
+            Unit(symbol, exponent).positive.shouldBeFalse()
+        }
+    }
+
+    "unit is recognized as zero" {
+        checkAll(Units.symbols) { symbol ->
+            Unit(symbol, Exponent(0)).zero.shouldBeTrue()
+        }
+    }
+
+    "unit is not recognized as zero" {
+        checkAll(Units.symbols, Exponents.range().filter { !it.zero }) { symbol, exponent ->
+            Unit(symbol, exponent).zero.shouldBeFalse()
+        }
+    }
+
+    "inverts the exponent" {
+        checkAll(Units.symbols, Exponents.generator) { symbol, exponent ->
+            Unit(symbol, exponent).inverted shouldBe Unit(symbol, exponent.inverted)
+        }
+    }
+
     "multiplying UnitRepresentations with same unit adds exponents" {
         checkAll(Units.symbols, Arb.int(), Arb.int()) { unit, a, b ->
             val u1 = Unit(unit, a)
@@ -24,7 +57,7 @@ class UnitTest : StringSpec({
     }
 
     "cannot multiply two different units" {
-        checkAll(Units.distinct) { (left, right) ->
+        checkAll(Units.distinct(2)) { (left, right) ->
             shouldThrow<IllegalArgumentException> {
                 left * right
             }
@@ -42,7 +75,7 @@ class UnitTest : StringSpec({
     }
 
     "cannot divide two different units" {
-        checkAll(Units.distinct) { (left, right) ->
+        checkAll(Units.distinct(2)) { (left, right) ->
             shouldThrow<IllegalArgumentException> {
                 left / right
             }

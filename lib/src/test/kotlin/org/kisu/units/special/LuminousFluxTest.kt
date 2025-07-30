@@ -16,7 +16,7 @@ class LuminousFluxTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().lumens.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, LuminousFlux.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = LuminousFlux.UNIT)
                 symbol shouldBe LuminousFlux.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class LuminousFluxTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.lumens.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, LuminousFlux.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = LuminousFlux.UNIT)
                 symbol shouldBe LuminousFlux.UNIT.toString()
             }
         }

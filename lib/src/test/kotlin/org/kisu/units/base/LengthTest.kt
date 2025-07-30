@@ -19,7 +19,7 @@ class LengthTest : StringSpec({
         checkAll(Arb.long().filter { it != 0L }, MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().meters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().metric, Length.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Length.UNIT)
                 symbol shouldBe Length.UNIT.toString()
             }
         }
@@ -29,7 +29,7 @@ class LengthTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.meters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Metric.BASE, Length.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Length.UNIT)
                 symbol shouldBe Length.UNIT.toString()
             }
         }

@@ -23,7 +23,7 @@ class Energy internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
     Measure<Scalar<Metric>, Energy>(magnitude, expression, ::Energy) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for energy: "J" (joule). */

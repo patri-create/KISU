@@ -20,7 +20,7 @@ class Length internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
     Measure<Scalar<Metric>, Length>(magnitude, expression, ::Length) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for length: "m" (metre). */

@@ -18,7 +18,7 @@ class LuminousIntensityTest : StringSpec({
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().candelas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().metric, LuminousIntensity.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = LuminousIntensity.UNIT)
                 symbol shouldBe LuminousIntensity.UNIT.toString()
             }
         }
@@ -28,7 +28,7 @@ class LuminousIntensityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.candelas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Metric.BASE, LuminousIntensity.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = LuminousIntensity.UNIT)
                 symbol shouldBe LuminousIntensity.UNIT.toString()
             }
         }

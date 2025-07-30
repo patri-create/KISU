@@ -92,3 +92,54 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
  */
 val <P> P.isCanonical: Boolean where P : Prefix<P>, P : System<P>
     get() = this == canonical
+
+/**
+ * Multiplies this prefix by another prefix of the same system.
+ *
+ * This combines the scaling factors of both prefixes using multiplication, and returns
+ * a pair consisting of:
+ * - The closest matching prefix in the system for the resulting factor.
+ * - A remainder that captures the excess factor not represented by the prefix itself.
+ *
+ * For example:
+ * ```
+ * Metric.KILO * Metric.KILO // (Metric.MEGA, 1)
+ * ```
+ * ```
+ * Metric.QUETTA * Metric.KILO // (Metric.QUETTA, 1000)
+ * ```
+ *
+ * @param other The prefix to multiply with.
+ * @return A pair of (prefix, remainder) for the resulting factor.
+ */
+operator fun <P> P.times(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P : System<P> {
+    val newFactor = factor * other.factor
+    val newPrefix = find(newFactor)
+    val remainder = newFactor / newPrefix.factor
+    return newPrefix to remainder
+}
+
+/**
+ * Divides this prefix by another prefix of the same system.
+ *
+ * This combines the scaling factors of both prefixes using division, and returns
+ * a pair consisting of:
+ * - The closest matching prefix in the system for the resulting factor.
+ * - A remainder that captures the fractional difference not represented by the prefix.
+ *
+ * For example:
+ * ```
+ * Metric.MEGA / Metric.KILO // (Metric.KILO, 1000)`
+ * ```
+ * ```
+ * Metric.QUECTO / Metric.HECTO = (Metric.QUECTO, 1e-2)`
+ * ```
+ * @param other The prefix to divide by.
+ * @return A pair of (prefix, remainder) for the resulting factor.
+ */
+operator fun <P> P.div(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P : System<P> {
+    val newFactor = factor.divide(other.factor, KisuConfig.precision)
+    val newPrefix = find(newFactor)
+    val remainder = newFactor.divide(newPrefix.factor, KisuConfig.precision)
+    return newPrefix to remainder
+}

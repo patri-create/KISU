@@ -16,7 +16,7 @@ class ForceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().newtons.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Force.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Force.UNIT)
                 symbol shouldBe Force.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class ForceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.newtons.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Force.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Force.UNIT)
                 symbol shouldBe Force.UNIT.toString()
             }
         }

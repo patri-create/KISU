@@ -1,6 +1,8 @@
 package org.kisu.units.representation
 
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.booleans.shouldBeFalse
+import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.Arb
@@ -17,6 +19,34 @@ class ExponentTest : StringSpec({
     "represents correctly an exponent" {
         checkAll(Arb.int().filter { it.absoluteValue > 1 }) { n ->
             Exponent(n).toString() shouldBe n.superscript
+        }
+    }
+
+    "exponent is recognized as positive" {
+        checkAll(Arb.int(1, Int.MAX_VALUE)) { exponent ->
+            Exponent(exponent).positive.shouldBeTrue()
+        }
+    }
+
+    "exponent is recognized as negative" {
+        checkAll(Arb.int(Int.MIN_VALUE, 0)) { exponent ->
+            Exponent(exponent).positive.shouldBeFalse()
+        }
+    }
+
+    "exponent is recognized as zero" {
+        Exponent(0).zero.shouldBeTrue()
+    }
+
+    "exponent is not recognized as zero" {
+        checkAll(Arb.int().filter { it != 0 }) { exponent ->
+            Exponent(exponent).zero.shouldBeFalse()
+        }
+    }
+
+    "inverts the exponent" {
+        checkAll(Arb.int()) { exponent ->
+            Exponent(exponent).inverted shouldBe Exponent(-exponent)
         }
     }
 

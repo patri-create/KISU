@@ -16,7 +16,7 @@ class CatalyticActivityTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().katals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, CatalyticActivity.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = CatalyticActivity.UNIT)
                 symbol shouldBe CatalyticActivity.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class CatalyticActivityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.katals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, CatalyticActivity.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = CatalyticActivity.UNIT)
                 symbol shouldBe CatalyticActivity.UNIT.toString()
             }
         }

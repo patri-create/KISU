@@ -1,10 +1,14 @@
 package org.kisu.units.representation
 
 import org.kisu.KisuConfig
-import org.kisu.compositeRepresentation
+import org.kisu.Matcher
+import org.kisu.Merger
+import org.kisu.intersect
+import org.kisu.orElse
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.CompositeSystem
 import org.kisu.prefixes.primitives.System
+import org.kisu.productSymbol
 import java.math.BigDecimal
 
 /**
@@ -34,7 +38,7 @@ class Quotient<A, B>(
     private val denominator: B
 ) : Expression<Quotient<A, B>>(),
     System<Quotient<A, B>> by CompositeSystem(numerator, denominator, ::Quotient)
-    where A : Expression<A>, A : System<A>, B : Expression<B>, B : System<B> {
+        where A : Expression<A>, A : System<A>, B : Expression<B>, B : System<B> {
 
     /**
      * The numeric factor of the quotient, computed as numerator divided by denominator.
@@ -47,15 +51,62 @@ class Quotient<A, B>(
     }
 
     /**
-     * The symbol for this quotient expression, rendered as `"numerator/denominator"`.
+     * A symbolic string representation of the quotient expression.
      *
-     * If the denominator is a composite expression (e.g., a [Product] or nested [Quotient]),
-     * it is wrapped in parentheses to preserve grouping — for example:
-     * - `"J/mol·K"` → `J/(mol·K)`
-     * - `"kg·m/s²"` → `(kg·m)/(s²)`
+     * This symbol is computed by partitioning the [factors] into numerators and denominators
+     * based on their sign (positive or negative). It then constructs a textual representation
+     * in the form:
+     *
+     * - `"1/denominator"` if there are no numerator factors.
+     * - `"numerator"` if there are no denominator factors.
+     * - `"numerator/denominator"` otherwise.
+     *
+     * When multiple denominator terms exist, they are grouped in parentheses to preserve
+     * correct order of operations (e.g., `"m/(kg·s²)"`).
+     *
+     * This representation is useful for displaying compound units such as acceleration
+     * (`m/s²`) or pressure (`kg/(m·s²)`).
      */
     override val symbol: String by lazy {
-        "$numerator/${denominator.compositeRepresentation}"
+        val (numerators, denominators) = factors.partition { it.positive }
+        val numerator = numerators.productSymbol
+        val denominator = denominators.productSymbol.let { if (denominators.size > 1) "($it)" else it }
+
+        when {
+            numerators.isEmpty() && denominators.isEmpty() -> ""
+            numerators.isEmpty() -> "1/$denominator"
+            denominators.isEmpty() -> numerator
+            else -> "$numerator/$denominator"
+        }
+    }
+
+    /**
+     * The reduced set of scalar factors that define this quotient expression.
+     *
+     * This combines the [factors] of the [numerator] and [denominator] expressions by:
+     * - Finding scalars with matching units and merging them using subtraction (`this - other`).
+     * - Retaining scalars that are only in the numerator.
+     * - Inverting and including scalars that are only in the denominator.
+     *
+     * Scalars with a zero exponent (i.e., dimensionless or neutral) are excluded from the final result.
+     *
+     * The result is a normalized set that simplifies expressions like `m / m` (cancelled) or `m / s²`
+     * (resulting in `m·s⁻²`).
+     */
+    @Suppress("UNCHECKED_CAST")
+    override val factors: Set<Scalar<*>> by lazy {
+        val numerators = numerator.factors
+        val denominators = denominator.factors
+
+        val matcher: Matcher<Scalar<*>> = { other -> this.unit == other.unit }
+        val merger: Merger<Scalar<*>> = { other -> (this as Scalar<Any>) - (other as Scalar<Any>) }
+
+        val intersected = numerators.intersect(denominators, matcher, merger)
+
+        val onlyInLeft = numerators.filterNot { l -> denominators.any { r -> matcher(l, r) } }
+        val onlyInRight = denominators.filterNot { r -> numerators.any { l -> matcher(r, l) } }
+
+        (intersected + onlyInLeft + onlyInRight.map { it.inverted }).filter { !it.zero }.toSet()
     }
 
     /**
@@ -80,7 +131,7 @@ class Quotient<A, B>(
      * Represents joule times micro in numerator per mole kelvin in denominator.
      */
     operator fun <C> times(other: Scalar<C>): Quotient<Product<A, Scalar<C>>, B>
-        where C : Prefix<C>, C : System<C> =
+            where C : Prefix<C>, C : System<C> =
         Quotient(Product(numerator, other), denominator)
 
     /**
@@ -95,7 +146,7 @@ class Quotient<A, B>(
      * Represents meter times kilogram times second, divided by second.
      */
     operator fun <C, D> times(other: Product<C, D>): Quotient<Product<A, Product<C, D>>, B>
-        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(Product(numerator, other), denominator)
 
     /**
@@ -110,7 +161,7 @@ class Quotient<A, B>(
      * Represents joule volt per mole kelvin ampere.
      */
     operator fun <C, D> times(other: Quotient<C, D>): Quotient<Product<A, C>, Product<B, D>>
-        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(
             Product(numerator, other.numerator),
             Product(denominator, other.denominator)
@@ -128,7 +179,7 @@ class Quotient<A, B>(
      * Represents joule per mole kelvin micro.
      */
     operator fun <C> div(other: Scalar<C>): Quotient<A, Product<B, Scalar<C>>>
-        where C : Prefix<C>, C : System<C> =
+            where C : Prefix<C>, C : System<C> =
         Quotient(numerator, Product(denominator, other))
 
     /**
@@ -143,7 +194,7 @@ class Quotient<A, B>(
      * Represents kilogram meter over second squared mole kelvin.
      */
     operator fun <C, D> div(other: Product<C, D>): Quotient<A, Product<B, Product<C, D>>>
-        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(numerator, Product(denominator, other))
 
     /**
@@ -158,6 +209,6 @@ class Quotient<A, B>(
      * For example, `(J / mol·K) / (V / A) = (J · A) / (mol · K · V)`
      */
     operator fun <C, D> div(other: Quotient<C, D>)
-    where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(Product(numerator, other.denominator), Product(denominator, other.numerator))
 }

@@ -23,7 +23,7 @@ class AbsorbedDose internal constructor(magnitude: BigDecimal, expression: Scala
     Measure<Scalar<Metric>, AbsorbedDose>(magnitude, expression, ::AbsorbedDose) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for absorbed dose: "Gy" (gray). */

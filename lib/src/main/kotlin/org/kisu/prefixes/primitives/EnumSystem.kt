@@ -4,6 +4,7 @@ import org.kisu.one
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
 import org.kisu.prefixes.Prefix
+import java.math.BigDecimal
 import kotlin.reflect.KClass
 
 /**
@@ -61,4 +62,9 @@ class EnumSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
      * ```
      */
     override val largest: T by lazy { all.last() }
+
+    override fun find(factor: BigDecimal): T {
+        return all.lastOrNull { it.factor <= factor }
+            ?: all.first() // factor is smaller than the smallest known prefix
+    }
 }

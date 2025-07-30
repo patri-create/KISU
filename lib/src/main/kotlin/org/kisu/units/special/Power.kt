@@ -23,7 +23,7 @@ class Power internal constructor(magnitude: BigDecimal, expression: Scalar<Metri
     Measure<Scalar<Metric>, Power>(magnitude, expression, ::Power) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for power: "W" (watt). */

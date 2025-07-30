@@ -23,7 +23,7 @@ class CatalyticActivity internal constructor(magnitude: BigDecimal, expression: 
     Measure<Scalar<Metric>, CatalyticActivity>(magnitude, expression, ::CatalyticActivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for catalytic activity: "kat" (katal). */
