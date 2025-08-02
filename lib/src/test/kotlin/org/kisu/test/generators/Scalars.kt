@@ -7,5 +7,5 @@ import org.kisu.units.Scalar
 
 object Scalars : Generator<Scalar<Metric>> {
     override val generator: Arb<Scalar<Metric>> =
-        Arb.bind(Metrics.generator, Units.generator) { prefix, unit -> Scalar(prefix, unit) }
+        Arb.bind(Metrics.generator, Units.symbols) { prefix, unit -> Scalar(prefix, unit) }
 }
