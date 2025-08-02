@@ -378,6 +378,21 @@ $dokka.location:org.kisu.units.exceptions/NegativeTime///PointingToDeclaration/
 $dokka.location:org.kisu.units.exceptions/NegativeTime/NegativeTime/#java.math.BigDecimal#org.kisu.prefixes.Metric#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-negative-time/-negative-time.html
 $dokka.location:org.kisu.units.exceptions/SubBitInformation///PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-sub-bit-information/index.html
 $dokka.location:org.kisu.units.exceptions/SubBitInformation/SubBitInformation/#java.math.BigDecimal#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-sub-bit-information/-sub-bit-information.html
+$dokka.location:org.kisu.units.representation////PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/index.html
+$dokka.location:org.kisu.units.representation/Exponent///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/index.html
+$dokka.location:org.kisu.units.representation/Exponent/Exponent/#kotlin.Int/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/-exponent.html
+$dokka.location:org.kisu.units.representation/Exponent/minus/#org.kisu.units.representation.Exponent/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/minus.html
+$dokka.location:org.kisu.units.representation/Exponent/plus/#org.kisu.units.representation.Exponent/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/plus.html
+$dokka.location:org.kisu.units.representation/Exponent/representation/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/representation.html
+$dokka.location:org.kisu.units.representation/Exponent/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/to-string.html
+$dokka.location:org.kisu.units.representation/Unit///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/index.html
+$dokka.location:org.kisu.units.representation/Unit/Unit/#kotlin.String#kotlin.Int/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/-unit.html
+$dokka.location:org.kisu.units.representation/Unit/Unit/#kotlin.String#org.kisu.units.representation.Exponent/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/-unit.html
+$dokka.location:org.kisu.units.representation/Unit/div/#org.kisu.units.representation.Unit/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/div.html
+$dokka.location:org.kisu.units.representation/Unit/equals/#kotlin.Any?/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/equals.html
+$dokka.location:org.kisu.units.representation/Unit/hashCode/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/hash-code.html
+$dokka.location:org.kisu.units.representation/Unit/times/#org.kisu.units.representation.Unit/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/times.html
+$dokka.location:org.kisu.units.representation/Unit/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/to-string.html
 $dokka.location:org.kisu.units.special////PointingToDeclaration/-k-i-s-u/org.kisu.units.special/index.html
 $dokka.location:org.kisu.units.special/AbsorbedDose.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-absorbed-dose/-companion/index.html
 $dokka.location:org.kisu.units.special/AbsorbedDose///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-absorbed-dose/index.html
@@ -510,4 +525,5 @@ org.kisu.units
 org.kisu.units.base
 org.kisu.units.builders
 org.kisu.units.exceptions
+org.kisu.units.representation
 org.kisu.units.special
