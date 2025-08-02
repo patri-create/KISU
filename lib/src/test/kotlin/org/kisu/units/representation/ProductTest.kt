@@ -12,8 +12,8 @@ class ProductTest : StringSpec({
     "factor is the product of both prefixes" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             val expression = Product(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
             )
 
             expression.factor shouldBe metric.factor * binary.factor
@@ -23,17 +23,17 @@ class ProductTest : StringSpec({
     "represents its symbol" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             Product(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
-            ).symbol shouldBe "${metric.symbol}${TestUnit.SYMBOL}·${binary.symbol}${TestUnit.SYMBOL}"
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
+            ).symbol shouldBe "${metric.symbol}${TestUnit.UNIT}·${binary.symbol}${TestUnit.UNIT}"
         }
     }
 
     "the string representation is the symbol" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             val expression = Product(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
             )
             expression.symbol shouldBe expression.toString()
         }

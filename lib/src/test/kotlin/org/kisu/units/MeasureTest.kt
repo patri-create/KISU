@@ -81,20 +81,20 @@ class MeasureTest : StringSpec({
             TestUnit(
                 magnitude,
                 prefix
-            ).representation shouldBe "${magnitude.stripTrailingZeros()} $prefix${TestUnit.SYMBOL}"
+            ).representation shouldBe "${magnitude.stripTrailingZeros()} $prefix${TestUnit.UNIT}"
         }
     }
 
     "renders literal when the magnitude is zero" {
         checkAll(prefixes) { prefix ->
-            TestUnit(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.SYMBOL}"
+            TestUnit(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.UNIT}"
         }
     }
 
     "renders canonical" {
         checkAll(magnitudes, prefixes) { magnitude, prefix ->
             TestUnit(magnitude, prefix).canonical.representation shouldBe
-                TestUnit(magnitude, prefix).to(Scalar(prefix.canonical, TestUnit.SYMBOL)).representation
+                TestUnit(magnitude, prefix).to(Scalar(prefix.canonical, TestUnit.UNIT)).representation
         }
     }
 
@@ -319,8 +319,8 @@ class MeasureTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
             TestUnit(magnitude, prefix).should { (number, expression, unit) ->
                 number shouldBe magnitude
-                expression shouldBe Scalar(prefix, TestUnit.SYMBOL)
-                unit shouldBe TestUnit.SYMBOL
+                expression shouldBe Scalar(prefix, TestUnit.UNIT)
+                unit shouldBe TestUnit.UNIT.toString()
             }
         }
     }
@@ -340,8 +340,8 @@ class MeasureTest : StringSpec({
 
     "equality is transitive" {
         checkAll(measures, prefixes, prefixes) { x, first, second ->
-            val y = x.to(Scalar(first, TestUnit.SYMBOL))
-            val z = x.to(Scalar(second, TestUnit.SYMBOL))
+            val y = x.to(Scalar(first, TestUnit.UNIT))
+            val z = x.to(Scalar(second, TestUnit.UNIT))
 
             (x == y).shouldBeTrue()
             (y == z).shouldBeTrue()

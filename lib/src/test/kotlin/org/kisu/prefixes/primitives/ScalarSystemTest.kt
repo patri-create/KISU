@@ -15,13 +15,13 @@ class ScalarSystemTest : StringSpec({
 
     "retrieves base unit" {
         checkAll(Metrics.generator) { prefix ->
-            Scalar(prefix, TestUnit.SYMBOL).canonical.factor.one.shouldBeTrue()
+            Scalar(prefix, TestUnit.UNIT).canonical.factor.one.shouldBeTrue()
         }
     }
 
     "retrieves all prefixes for a system" {
         checkAll(Metrics.generator) { prefix ->
-            Scalar(prefix, TestUnit.SYMBOL).all
+            Scalar(prefix, TestUnit.UNIT).all
                 .map { scalar -> scalar.factor }
                 .shouldContainInOrder(prefix.all.map { prefix -> prefix.factor })
         }
@@ -29,20 +29,20 @@ class ScalarSystemTest : StringSpec({
 
     "all prefixes from a system are sorted by power" {
         checkAll(Metrics.generator) { prefix ->
-            Scalar(prefix, TestUnit.SYMBOL).all.shouldBeSorted()
+            Scalar(prefix, TestUnit.UNIT).all.shouldBeSorted()
         }
     }
 
     "retrieves the smallest prefix" {
         checkAll(Metrics.generator) { prefix ->
-            val scalar = Scalar(prefix, TestUnit.SYMBOL)
+            val scalar = Scalar(prefix, TestUnit.UNIT)
             scalar.smallest shouldBe scalar.all.first()
         }
     }
 
     "retrieves the largest prefix" {
         checkAll(Metrics.generator) { prefix ->
-            val scalar = Scalar(prefix, TestUnit.SYMBOL)
+            val scalar = Scalar(prefix, TestUnit.UNIT)
             scalar.largest shouldBe scalar.all.last()
         }
     }

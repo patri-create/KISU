@@ -23,7 +23,7 @@ import java.math.BigDecimal
  */
 class Scalar<A>(
     private val prefix: A,
-    private val unit: String
+    private val unit: Unit
 ) : Expression<Scalar<A>>(), System<Scalar<A>> by ScalarSystem(prefix, unit)
     where A : Prefix<A>, A : System<A> {
 
