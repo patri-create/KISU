@@ -1,7 +1,7 @@
 package org.kisu.prefixes.primitives
 
 import org.kisu.prefixes.Prefix
-import org.kisu.units.Scalar
+import org.kisu.units.representation.Scalar
 
 /**
  * Represents a system of [Scalar] units derived from a given prefix system and unit symbol.

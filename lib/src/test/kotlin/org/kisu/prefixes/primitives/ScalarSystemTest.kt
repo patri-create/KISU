@@ -9,7 +9,7 @@ import io.kotest.property.checkAll
 import org.kisu.one
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Metrics
-import org.kisu.units.Scalar
+import org.kisu.units.representation.Scalar
 
 class ScalarSystemTest : StringSpec({
 

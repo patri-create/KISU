@@ -1,13 +1,13 @@
 package org.kisu.prefixes.primitives
 
 import org.kisu.prefixes.Prefix
-import org.kisu.units.Product
-import org.kisu.units.Quotient
+import org.kisu.units.representation.Product
+import org.kisu.units.representation.Quotient
 
 /**
  * Represents a composite [System] formed by combining two underlying prefix systems.
  *
- * This class models systems for composite expressions like [org.kisu.units.Product] and [org.kisu.units.Quotient],
+ * This class models systems for composite expressions like [Product] and [Quotient],
  * where each side (left and right) has its own prefix and system. It allows generating a full system of composite
  * expressions by applying each prefix from the left-hand side to the right-hand component.
  *
