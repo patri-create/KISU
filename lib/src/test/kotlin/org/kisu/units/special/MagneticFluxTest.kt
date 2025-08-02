@@ -16,8 +16,8 @@ class MagneticFluxTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().webers.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, MagneticFlux.SYMBOL)
-                symbol shouldBe MagneticFlux.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, MagneticFlux.UNIT)
+                symbol shouldBe MagneticFlux.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class MagneticFluxTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.webers.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, MagneticFlux.SYMBOL)
-                symbol shouldBe MagneticFlux.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, MagneticFlux.UNIT)
+                symbol shouldBe MagneticFlux.UNIT.toString()
             }
         }
     }

@@ -16,8 +16,8 @@ class ElectricChargeTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().coulombs.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, ElectricCharge.SYMBOL)
-                symbol shouldBe ElectricCharge.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, ElectricCharge.UNIT)
+                symbol shouldBe ElectricCharge.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class ElectricChargeTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.coulombs.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, ElectricCharge.SYMBOL)
-                symbol shouldBe ElectricCharge.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, ElectricCharge.UNIT)
+                symbol shouldBe ElectricCharge.UNIT.toString()
             }
         }
     }

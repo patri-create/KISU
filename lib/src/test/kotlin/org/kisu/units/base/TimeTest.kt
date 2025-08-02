@@ -18,8 +18,8 @@ class TimeTest : StringSpec({
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().seconds.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().metric, Time.SYMBOL)
-                symbol shouldBe Time.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Time.UNIT)
+                symbol shouldBe Time.UNIT.toString()
             }
         }
     }
@@ -28,8 +28,8 @@ class TimeTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.seconds.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Metric.BASE, Time.SYMBOL)
-                symbol shouldBe Time.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Time.UNIT)
+                symbol shouldBe Time.UNIT.toString()
             }
         }
     }

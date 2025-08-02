@@ -16,8 +16,8 @@ class ElectricPotentialTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().volts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, ElectricPotential.SYMBOL)
-                symbol shouldBe ElectricPotential.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, ElectricPotential.UNIT)
+                symbol shouldBe ElectricPotential.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class ElectricPotentialTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.volts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, ElectricPotential.SYMBOL)
-                symbol shouldBe ElectricPotential.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, ElectricPotential.UNIT)
+                symbol shouldBe ElectricPotential.UNIT.toString()
             }
         }
     }

@@ -3,6 +3,7 @@ package org.kisu.units.base
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -25,10 +26,10 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Scalar<Metric
     Measure<Scalar<Metric>, Mass>(magnitude, expression, ::Mass) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The symbol for mass: "g" (gram). */
-        internal const val SYMBOL = "g"
+        internal val UNIT = Unit("g", 1)
     }
 }

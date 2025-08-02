@@ -3,6 +3,7 @@ package org.kisu.units.base
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -23,10 +24,10 @@ class Time internal constructor(magnitude: BigDecimal, expression: Scalar<Metric
     Measure<Scalar<Metric>, Time>(magnitude, expression, ::Time) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for time: "s" (second). */
-        internal const val SYMBOL = "s"
+        internal val UNIT = Unit("s", 1)
     }
 }

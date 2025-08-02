@@ -32,8 +32,8 @@ class InformationTest : StringSpec({
         checkAll(Arb.positiveLong(), BinaryBuilders.generator) { magnitude, builder ->
             magnitude.builder().bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().binary, Information.SYMBOL)
-                symbol shouldBe Information.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().binary, Information.UNIT)
+                symbol shouldBe Information.UNIT.toString()
             }
         }
     }
@@ -42,8 +42,8 @@ class InformationTest : StringSpec({
         checkAll(Arb.positiveLong()) { magnitude ->
             magnitude.bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Binary.BASE, Information.SYMBOL)
-                symbol shouldBe Information.SYMBOL
+                expression shouldBe Scalar(Binary.BASE, Information.UNIT)
+                symbol shouldBe Information.UNIT.toString()
             }
         }
     }

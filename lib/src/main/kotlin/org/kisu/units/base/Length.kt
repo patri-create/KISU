@@ -3,6 +3,7 @@ package org.kisu.units.base
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -19,10 +20,10 @@ class Length internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
     Measure<Scalar<Metric>, Length>(magnitude, expression, ::Length) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for length: "m" (metre). */
-        internal const val SYMBOL = "m"
+        internal val UNIT = Unit("m", 1)
     }
 }

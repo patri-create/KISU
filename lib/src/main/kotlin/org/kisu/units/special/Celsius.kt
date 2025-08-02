@@ -3,6 +3,7 @@ package org.kisu.units.special
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -20,10 +21,10 @@ class Celsius internal constructor(magnitude: BigDecimal, expression: Scalar<Met
     Measure<Scalar<Metric>, Celsius>(magnitude, expression, ::Celsius) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for Celsius temperature: "°C". */
-        const val SYMBOL = "°C"
+        internal val UNIT = Unit("°C", 1)
     }
 }

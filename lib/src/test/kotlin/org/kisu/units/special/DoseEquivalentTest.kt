@@ -16,8 +16,8 @@ class DoseEquivalentTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().sieverts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, DoseEquivalent.SYMBOL)
-                symbol shouldBe DoseEquivalent.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, DoseEquivalent.UNIT)
+                symbol shouldBe DoseEquivalent.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class DoseEquivalentTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.sieverts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, DoseEquivalent.SYMBOL)
-                symbol shouldBe DoseEquivalent.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, DoseEquivalent.UNIT)
+                symbol shouldBe DoseEquivalent.UNIT.toString()
             }
         }
     }

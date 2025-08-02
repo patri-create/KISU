@@ -3,6 +3,7 @@ package org.kisu.units.special
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -22,10 +23,10 @@ class CatalyticActivity internal constructor(magnitude: BigDecimal, expression: 
     Measure<Scalar<Metric>, CatalyticActivity>(magnitude, expression, ::CatalyticActivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for catalytic activity: "kat" (katal). */
-        internal const val SYMBOL = "kat"
+        internal val UNIT = Unit("kat", 1)
     }
 }

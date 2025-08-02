@@ -16,8 +16,8 @@ class MagneticFluxDensityTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().teslas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, MagneticFluxDensity.SYMBOL)
-                symbol shouldBe MagneticFluxDensity.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, MagneticFluxDensity.UNIT)
+                symbol shouldBe MagneticFluxDensity.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class MagneticFluxDensityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.teslas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, MagneticFluxDensity.SYMBOL)
-                symbol shouldBe MagneticFluxDensity.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, MagneticFluxDensity.UNIT)
+                symbol shouldBe MagneticFluxDensity.UNIT.toString()
             }
         }
     }

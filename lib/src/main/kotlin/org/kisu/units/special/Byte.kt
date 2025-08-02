@@ -3,6 +3,7 @@ package org.kisu.units.special
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -20,14 +21,13 @@ class Byte private constructor(magnitude: BigDecimal, expression: Scalar<Metric>
     Measure<Scalar<Metric>, Byte>(magnitude, expression, ::Byte) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The symbol for byte: "B". */
-        internal const val SYMBOL = "B"
+        internal val UNIT = Unit("B", 1)
 
-        operator fun invoke(magnitude: BigDecimal, prefix: Metric = Metric.BASE): Byte {
-            return Byte(magnitude, prefix)
-        }
+        operator fun invoke(magnitude: BigDecimal, prefix: Metric = Metric.BASE): Byte =
+            Byte(magnitude, prefix)
     }
 }

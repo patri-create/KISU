@@ -16,8 +16,8 @@ class FrequencyTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().hertz.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Frequency.SYMBOL)
-                symbol shouldBe Frequency.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Frequency.UNIT)
+                symbol shouldBe Frequency.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class FrequencyTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.hertz.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Frequency.SYMBOL)
-                symbol shouldBe Frequency.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Frequency.UNIT)
+                symbol shouldBe Frequency.UNIT.toString()
             }
         }
     }

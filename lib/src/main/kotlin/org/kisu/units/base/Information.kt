@@ -7,6 +7,7 @@ import org.kisu.units.Measure
 import org.kisu.units.exceptions.NegativeInformation
 import org.kisu.units.exceptions.SubBitInformation
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -33,7 +34,7 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
 
     companion object {
         /** The unit symbol for digital information: "bit". */
-        internal const val SYMBOL = "bit"
+        internal val UNIT = Unit("bit", 1)
 
         /**
          * Creates a new [Information] quantity with the given [magnitude] and [expression].
@@ -56,10 +57,10 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            expression: Scalar<Binary> = Scalar(Binary.BASE, SYMBOL),
+            expression: Scalar<Binary> = Scalar(Binary.BASE, UNIT),
         ): Information {
             if (expression.isCanonical && magnitude.hasFraction) {
-                throw SubBitInformation(magnitude, SYMBOL)
+                throw SubBitInformation(magnitude, UNIT.toString())
             }
             val information = Information(magnitude, expression)
             information.canonical // Forces evaluation for potential validation during construction
@@ -88,6 +89,6 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
         operator fun invoke(
             magnitude: BigDecimal,
             prefix: Binary = Binary.BASE,
-        ) = invoke(magnitude, Scalar(prefix, SYMBOL))
+        ) = invoke(magnitude, Scalar(prefix, UNIT))
     }
 }

@@ -16,8 +16,8 @@ class ByteTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().bytes.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Byte.SYMBOL)
-                symbol shouldBe Byte.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Byte.UNIT)
+                symbol shouldBe Byte.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class ByteTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.bytes.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Byte.SYMBOL)
-                symbol shouldBe Byte.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Byte.UNIT)
+                symbol shouldBe Byte.UNIT.toString()
             }
         }
     }

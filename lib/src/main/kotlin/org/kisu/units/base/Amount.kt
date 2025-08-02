@@ -4,6 +4,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -26,11 +27,11 @@ class Amount internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
     Measure<Scalar<Metric>, Amount>(magnitude, expression, ::Amount) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */
-        internal const val SYMBOL = "mol"
+        internal val UNIT = Unit("mol", 1)
 
         /**
          * Avogadro's number — the number of entities in one mole:

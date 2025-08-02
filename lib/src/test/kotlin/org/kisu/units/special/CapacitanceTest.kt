@@ -16,8 +16,8 @@ class CapacitanceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().farads.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Capacitance.SYMBOL)
-                symbol shouldBe Capacitance.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Capacitance.UNIT)
+                symbol shouldBe Capacitance.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class CapacitanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.farads.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Capacitance.SYMBOL)
-                symbol shouldBe Capacitance.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Capacitance.UNIT)
+                symbol shouldBe Capacitance.UNIT.toString()
             }
         }
     }
