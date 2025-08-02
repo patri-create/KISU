@@ -108,7 +108,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units.representation</a><span class="delimiter">/</span><span class="current">Unit</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Unit</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Unit</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">symbol<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">exponent<span class="token operator">: </span><a href="../-exponent/index.html">Exponent</a><span class="token operator"> = </span>Exponent(1)</span></span><span class="token punctuation">)</span></div><p class="paragraph">Represents a physical unit (such as &quot;m&quot;, &quot;s&quot;, &quot;kg&quot;) with an optional exponent.</p><p class="paragraph">This class is used to model unit symbols and their powers, and supports basic arithmetic operations (multiplication and division) with units of the same type.</p><p class="paragraph">Equality and hash code are based <strong>only</strong> on the <span data-unresolved-link="org.kisu.units.representation/Unit/symbol/#/PointingToDeclaration/">symbol</span> name, not on the exponent. This is useful when you want to treat units like &quot;m²&quot; and &quot;m³&quot; as the same base unit for lookup or comparison purposes.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Unit</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">symbol<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">exponent<span class="token operator">: </span><a href="../-exponent/index.html">Exponent</a><span class="token operator"> = </span>Exponent(1)</span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-comparable/index.html">Comparable</a><span class="token operator">&lt;</span><a href="index.html">Unit</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents a physical unit (such as &quot;m&quot;, &quot;s&quot;, &quot;kg&quot;) with an optional exponent.</p><p class="paragraph">This class is used to model unit symbols and their powers, and supports basic arithmetic operations (multiplication and division) with units of the same type.</p><p class="paragraph">Equality and hash code are based <strong>only</strong> on the <span data-unresolved-link="org.kisu.units.representation/Unit/symbol/#/PointingToDeclaration/">symbol</span> name, not on the exponent. This is useful when you want to treat units like &quot;m²&quot; and &quot;m³&quot; as the same base unit for lookup or comparison purposes.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -134,7 +134,22 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-361546538%2FFunctions%2F-1895836109" anchor-label="div" id="-361546538%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+        <div class="table"><a data-name="-1659847481%2FFunctions%2F-1895836109" anchor-label="compareTo" id="-1659847481%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="compare-to.html"><span>compare</span><wbr></wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1659847481%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="compare-to.html"><span class="token function">compareTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Compares this <a href="index.html">Unit</a> with another <a href="index.html">Unit</a> for ordering.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-361546538%2FFunctions%2F-1895836109" anchor-label="div" id="-361546538%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
