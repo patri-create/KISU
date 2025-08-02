@@ -3,6 +3,7 @@ package org.kisu.units.base
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -26,10 +27,10 @@ class Temperature internal constructor(magnitude: BigDecimal, expression: Scalar
     Measure<Scalar<Metric>, Temperature>(magnitude, expression, ::Temperature) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for temperature: "K" (kelvin). */
-        internal const val SYMBOL = "K"
+        internal val UNIT = Unit("K", 1)
     }
 }

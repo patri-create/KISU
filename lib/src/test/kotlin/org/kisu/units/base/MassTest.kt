@@ -16,8 +16,8 @@ class MassTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().grams.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Mass.SYMBOL)
-                symbol shouldBe Mass.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Mass.UNIT)
+                symbol shouldBe Mass.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class MassTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.grams.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Mass.SYMBOL)
-                symbol shouldBe Mass.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Mass.UNIT)
+                symbol shouldBe Mass.UNIT.toString()
             }
         }
     }

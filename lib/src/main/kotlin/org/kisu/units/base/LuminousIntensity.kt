@@ -3,6 +3,7 @@ package org.kisu.units.base
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -24,10 +25,10 @@ class LuminousIntensity internal constructor(magnitude: BigDecimal, expression: 
     Measure<Scalar<Metric>, LuminousIntensity>(magnitude, expression, ::LuminousIntensity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for luminous intensity: "cd" (candela). */
-        internal const val SYMBOL = "cd"
+        internal val UNIT = Unit("cd", 1)
     }
 }

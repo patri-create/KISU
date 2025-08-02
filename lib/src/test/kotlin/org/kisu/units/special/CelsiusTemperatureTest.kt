@@ -16,8 +16,8 @@ class CelsiusTemperatureTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().celsius.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Celsius.SYMBOL)
-                symbol shouldBe Celsius.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Celsius.UNIT)
+                symbol shouldBe Celsius.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class CelsiusTemperatureTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.celsius.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Celsius.SYMBOL)
-                symbol shouldBe Celsius.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Celsius.UNIT)
+                symbol shouldBe Celsius.UNIT.toString()
             }
         }
     }

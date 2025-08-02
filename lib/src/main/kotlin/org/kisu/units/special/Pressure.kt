@@ -3,6 +3,7 @@ package org.kisu.units.special
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -20,10 +21,10 @@ class Pressure internal constructor(magnitude: BigDecimal, expression: Scalar<Me
     Measure<Scalar<Metric>, Pressure>(magnitude, expression, ::Pressure) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for pressure or stress: "Pa" (pascal). */
-        internal const val SYMBOL = "Pa"
+        internal val UNIT = Unit("Pa", 1)
     }
 }

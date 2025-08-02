@@ -16,8 +16,8 @@ class EnergyTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().joules.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Energy.SYMBOL)
-                symbol shouldBe Energy.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Energy.UNIT)
+                symbol shouldBe Energy.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class EnergyTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.joules.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Energy.SYMBOL)
-                symbol shouldBe Energy.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Energy.UNIT)
+                symbol shouldBe Energy.UNIT.toString()
             }
         }
     }

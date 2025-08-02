@@ -13,8 +13,8 @@ class QuotientTest : StringSpec({
     "factor is the quotient of both prefixes" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             val expression = Quotient(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
             )
 
             expression.factor shouldBe metric.factor.divide(binary.factor, KisuConfig.precision)
@@ -24,17 +24,17 @@ class QuotientTest : StringSpec({
     "represents its symbol" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             Quotient(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
-            ).symbol shouldBe "${metric.symbol}${TestUnit.SYMBOL}/${binary.symbol}${TestUnit.SYMBOL}"
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
+            ).symbol shouldBe "${metric.symbol}${TestUnit.UNIT}/${binary.symbol}${TestUnit.UNIT}"
         }
     }
 
     "the string representation is the symbol" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             val expression = Quotient(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
             )
             expression.symbol shouldBe expression.toString()
         }

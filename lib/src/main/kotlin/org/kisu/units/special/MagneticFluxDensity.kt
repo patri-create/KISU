@@ -3,6 +3,7 @@ package org.kisu.units.special
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -22,10 +23,10 @@ class MagneticFluxDensity internal constructor(magnitude: BigDecimal, expression
     Measure<Scalar<Metric>, MagneticFluxDensity>(magnitude, expression, ::MagneticFluxDensity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for magnetic flux density: "T" (tesla). */
-        internal const val SYMBOL = "T"
+        internal val UNIT = Unit("T", 1)
     }
 }

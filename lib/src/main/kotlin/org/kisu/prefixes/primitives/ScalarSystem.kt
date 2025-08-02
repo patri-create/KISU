@@ -2,6 +2,7 @@ package org.kisu.prefixes.primitives
 
 import org.kisu.prefixes.Prefix
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 
 /**
  * Represents a system of [Scalar] units derived from a given prefix system and unit symbol.
@@ -21,7 +22,7 @@ import org.kisu.units.representation.Scalar
  * @property prefix the base prefix instance (typically representing the current scalar).
  * @property unit the unit symbol to which all prefixes are applied (e.g., "m", "B", "J").
  */
-class ScalarSystem<A>(private val prefix: A, private val unit: String) :
+class ScalarSystem<A>(private val prefix: A, private val unit: Unit) :
     System<Scalar<A>> where A : Prefix<A>, A : System<A> {
     override val canonical: Scalar<A> by lazy {
         Scalar(prefix.canonical, unit)

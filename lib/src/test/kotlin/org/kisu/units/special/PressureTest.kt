@@ -16,8 +16,8 @@ class PressureTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().pascals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Pressure.SYMBOL)
-                symbol shouldBe Pressure.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Pressure.UNIT)
+                symbol shouldBe Pressure.UNIT.toString()
             }
         }
     }
@@ -26,8 +26,8 @@ class PressureTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.pascals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Pressure.SYMBOL)
-                symbol shouldBe Pressure.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Pressure.UNIT)
+                symbol shouldBe Pressure.UNIT.toString()
             }
         }
     }

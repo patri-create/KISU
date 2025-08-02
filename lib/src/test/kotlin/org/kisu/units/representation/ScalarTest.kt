@@ -10,19 +10,19 @@ import org.kisu.test.generators.Scalars
 class ScalarTest : StringSpec({
     "delegates factor to the prefix" {
         checkAll(Metrics.generator) { metric ->
-            Scalar(metric, TestUnit.SYMBOL).factor shouldBe metric.factor
+            Scalar(metric, TestUnit.UNIT).factor shouldBe metric.factor
         }
     }
 
     "symbol is the combination of the prefix and the unit" {
         checkAll(Metrics.generator) { metric ->
-            Scalar(metric, TestUnit.SYMBOL).symbol shouldBe "${metric.symbol}${TestUnit.SYMBOL}"
+            Scalar(metric, TestUnit.UNIT).symbol shouldBe "${metric.symbol}${TestUnit.UNIT}"
         }
     }
 
     "the string representation is the symbol" {
         checkAll(Metrics.generator) { metric ->
-            val expression = Scalar(metric, TestUnit.SYMBOL)
+            val expression = Scalar(metric, TestUnit.UNIT)
             expression.symbol shouldBe expression.toString()
         }
     }

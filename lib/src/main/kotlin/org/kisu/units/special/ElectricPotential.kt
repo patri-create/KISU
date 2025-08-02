@@ -3,6 +3,7 @@ package org.kisu.units.special
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import java.math.BigDecimal
 
 /**
@@ -23,10 +24,10 @@ class ElectricPotential internal constructor(magnitude: BigDecimal, expression: 
     Measure<Scalar<Metric>, ElectricPotential>(magnitude, expression, ::ElectricPotential) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, SYMBOL))
+        this(magnitude, Scalar(prefix, UNIT))
 
     companion object {
         /** The SI symbol for electric potential: "V" (volt). */
-        internal const val SYMBOL = "V"
+        internal val UNIT = Unit("V", 1)
     }
 }

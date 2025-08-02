@@ -17,8 +17,8 @@ class AmountTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().moles.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Amount.SYMBOL)
-                symbol shouldBe Amount.SYMBOL
+                expression shouldBe Scalar(magnitude.builder().metric, Amount.UNIT)
+                symbol shouldBe Amount.UNIT.toString()
             }
         }
     }
@@ -27,8 +27,8 @@ class AmountTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.moles.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Amount.SYMBOL)
-                symbol shouldBe Amount.SYMBOL
+                expression shouldBe Scalar(Metric.BASE, Amount.UNIT)
+                symbol shouldBe Amount.UNIT.toString()
             }
         }
     }

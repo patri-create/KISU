@@ -13,8 +13,8 @@ class ExpressionTest : StringSpec({
     "the string representation is the symbol" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             val expression = Quotient(
-                Scalar(metric, TestUnit.SYMBOL),
-                Scalar(binary, TestUnit.SYMBOL)
+                Scalar(metric, TestUnit.UNIT),
+                Scalar(binary, TestUnit.UNIT)
             )
             expression.symbol shouldBe expression.toString()
         }
@@ -22,7 +22,7 @@ class ExpressionTest : StringSpec({
 
     "equality is reflexive" {
         checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, TestUnit.SYMBOL)
+            val x = Scalar(metric, TestUnit.UNIT)
 
             (x == x).shouldBeTrue()
         }
@@ -30,8 +30,8 @@ class ExpressionTest : StringSpec({
 
     "equality is symmetric" {
         checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, TestUnit.SYMBOL)
-            val y = Scalar(metric, TestUnit.SYMBOL)
+            val x = Scalar(metric, TestUnit.UNIT)
+            val y = Scalar(metric, TestUnit.UNIT)
 
             (x == y) shouldBe (y == x)
         }
@@ -39,9 +39,9 @@ class ExpressionTest : StringSpec({
 
     "equality is transitive" {
         checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, TestUnit.SYMBOL)
-            val y = Scalar(metric, TestUnit.SYMBOL)
-            val z = Scalar(metric, TestUnit.SYMBOL)
+            val x = Scalar(metric, TestUnit.UNIT)
+            val y = Scalar(metric, TestUnit.UNIT)
+            val z = Scalar(metric, TestUnit.UNIT)
 
             (x == y).shouldBeTrue()
             (y == z).shouldBeTrue()
@@ -52,7 +52,7 @@ class ExpressionTest : StringSpec({
     @Suppress("EqualsNullCall")
     "equality is non-null" {
         checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, TestUnit.SYMBOL)
+            val x = Scalar(metric, TestUnit.UNIT)
 
             (x.equals(null)).shouldBeFalse()
         }
