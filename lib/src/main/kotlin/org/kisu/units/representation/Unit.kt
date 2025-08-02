@@ -1,5 +1,33 @@
 package org.kisu.units.representation
 
+import org.kisu.units.base.Amount
+import org.kisu.units.base.Current
+import org.kisu.units.base.Length
+import org.kisu.units.base.LuminousIntensity
+import org.kisu.units.base.Mass
+import org.kisu.units.base.Temperature
+import org.kisu.units.base.Time
+import org.kisu.units.special.AbsorbedDose
+import org.kisu.units.special.Capacitance
+import org.kisu.units.special.CatalyticActivity
+import org.kisu.units.special.Conductance
+import org.kisu.units.special.DoseEquivalent
+import org.kisu.units.special.ElectricCharge
+import org.kisu.units.special.ElectricPotential
+import org.kisu.units.special.Energy
+import org.kisu.units.special.Force
+import org.kisu.units.special.Illuminance
+import org.kisu.units.special.Inductance
+import org.kisu.units.special.LuminousFlux
+import org.kisu.units.special.MagneticFlux
+import org.kisu.units.special.MagneticFluxDensity
+import org.kisu.units.special.PlaneAngle
+import org.kisu.units.special.Power
+import org.kisu.units.special.Pressure
+import org.kisu.units.special.Radioactivity
+import org.kisu.units.special.Resistance
+import org.kisu.units.special.SolidAngle
+
 /**
  * Represents a physical unit (such as "m", "s", "kg") with an optional exponent.
  *
@@ -17,7 +45,7 @@ package org.kisu.units.representation
 class Unit(
     private val symbol: String,
     private val exponent: Exponent = Exponent(1)
-) {
+) : Comparable<Unit> {
 
     /**
      * Secondary constructor to allow creating an instance from an [Int] exponent directly.
@@ -88,6 +116,25 @@ class Unit(
     }
 
     /**
+     * Compares this [Unit] with another [Unit] for ordering.
+     *
+     * The comparison is based on the canonical order of unit symbols defined
+     * in [CANONICAL_ORDER]. Units whose symbols appear earlier in the list
+     * are considered "less" than those appearing later.
+     *
+     * Units whose symbols are not found in [CANONICAL_ORDER] are considered
+     * greater than all known units and sorted at the end.
+     *
+     * Note that this comparison **does not** consider the exponent.
+     *
+     * @param other The [Unit] to compare against.
+     * @return A negative integer, zero, or a positive integer as this unit is less than,
+     *         equal to, or greater than the specified unit.
+     */
+    override fun compareTo(other: Unit): Int =
+        CANONICAL_ORDER.indexOf(this).compareTo(CANONICAL_ORDER.indexOf(other))
+
+    /**
      * Computes hash code based on the [symbol] only, ignoring the exponent.
      */
     override fun hashCode(): Int = symbol.hashCode()
@@ -98,3 +145,33 @@ class Unit(
      */
     override fun toString(): String = representation
 }
+
+internal val CANONICAL_ORDER = listOf(
+    Force.UNIT,
+    Pressure.UNIT,
+    Energy.UNIT,
+    Power.UNIT,
+    ElectricCharge.UNIT,
+    ElectricPotential.UNIT,
+    Capacitance.UNIT,
+    Resistance.UNIT,
+    Conductance.UNIT,
+    MagneticFlux.UNIT,
+    MagneticFluxDensity.UNIT,
+    Inductance.UNIT,
+    LuminousFlux.UNIT,
+    Illuminance.UNIT,
+    Radioactivity.UNIT,
+    AbsorbedDose.UNIT,
+    DoseEquivalent.UNIT,
+    CatalyticActivity.UNIT,
+    Length.UNIT,
+    Mass.UNIT,
+    Time.UNIT,
+    Current.UNIT,
+    Temperature.UNIT,
+    Amount.UNIT,
+    LuminousIntensity.UNIT,
+    PlaneAngle.UNIT,
+    SolidAngle.UNIT
+)

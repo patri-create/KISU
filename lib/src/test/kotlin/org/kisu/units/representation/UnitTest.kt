@@ -2,9 +2,11 @@ package org.kisu.units.representation
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.property.Arb
+import io.kotest.property.arbitrary.arbitrary
 import io.kotest.property.arbitrary.int
 import io.kotest.property.checkAll
 import org.kisu.test.generators.Exponents
@@ -100,6 +102,12 @@ class UnitTest : StringSpec({
             val representation = Unit("s", exponent).toString()
             val expected = "s" + Exponent(exponent).toString()
             representation shouldBe expected
+        }
+    }
+
+    "Units respect the canonical order" {
+        checkAll(arbitrary { CANONICAL_ORDER.shuffled() }) { list ->
+            list.sorted() shouldContainInOrder CANONICAL_ORDER
         }
     }
 })
