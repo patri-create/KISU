@@ -12,9 +12,9 @@ import org.kisu.bigDecimal
 import org.kisu.prefixes.Binary
 import org.kisu.test.generators.BinaryBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.Scalar
 import org.kisu.units.builders.bits
 import org.kisu.units.exceptions.SubBitInformation
+import org.kisu.units.representation.Scalar
 import java.math.MathContext
 
 class InformationTest : StringSpec({

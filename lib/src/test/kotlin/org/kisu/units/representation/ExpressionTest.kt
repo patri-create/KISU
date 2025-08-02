@@ -1,4 +1,4 @@
-package org.kisu.units
+package org.kisu.units.representation
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.booleans.shouldBeFalse

@@ -1,4 +1,4 @@
-package org.kisu.units
+package org.kisu.units.representation
 
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System

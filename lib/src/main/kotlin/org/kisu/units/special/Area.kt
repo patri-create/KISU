@@ -2,7 +2,7 @@ package org.kisu.units.special
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
-import org.kisu.units.Scalar
+import org.kisu.units.representation.Scalar
 import java.math.BigDecimal
 
 /**

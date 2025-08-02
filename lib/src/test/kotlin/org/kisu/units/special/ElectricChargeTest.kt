@@ -8,8 +8,8 @@ import io.kotest.property.checkAll
 import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.Scalar
 import org.kisu.units.builders.coulombs
+import org.kisu.units.representation.Scalar
 
 class ElectricChargeTest : StringSpec({
     "creates an ElectricCharge" {

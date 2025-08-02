@@ -10,8 +10,8 @@ import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.Scalar
 import org.kisu.units.builders.candelas
+import org.kisu.units.representation.Scalar
 
 class LuminousIntensityTest : StringSpec({
     "creates LuminousIntensity" {

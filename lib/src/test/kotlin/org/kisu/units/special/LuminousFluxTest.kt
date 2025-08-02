@@ -8,8 +8,8 @@ import io.kotest.property.checkAll
 import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.Scalar
 import org.kisu.units.builders.lumens
+import org.kisu.units.representation.Scalar
 
 class LuminousFluxTest : StringSpec({
     "creates a LuminousFlux" {

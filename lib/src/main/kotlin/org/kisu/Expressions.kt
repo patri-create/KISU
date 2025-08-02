@@ -1,10 +1,10 @@
 package org.kisu
 
 import org.kisu.prefixes.Prefix
-import org.kisu.units.Expression
-import org.kisu.units.Product
-import org.kisu.units.Quotient
-import org.kisu.units.Scalar
+import org.kisu.units.representation.Expression
+import org.kisu.units.representation.Product
+import org.kisu.units.representation.Quotient
+import org.kisu.units.representation.Scalar
 
 /**
  * Returns a formatted representation of the expression's symbol, wrapping it in parentheses

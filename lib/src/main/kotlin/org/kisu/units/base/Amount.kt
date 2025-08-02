@@ -2,8 +2,8 @@ package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
-import org.kisu.units.Scalar
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
+import org.kisu.units.representation.Scalar
 import java.math.BigDecimal
 
 /**

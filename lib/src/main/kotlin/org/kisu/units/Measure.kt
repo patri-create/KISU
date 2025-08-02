@@ -5,6 +5,7 @@ import org.kisu.bigDecimal
 import org.kisu.orElse
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.primitives.System
+import org.kisu.units.representation.Expression
 import org.kisu.zero
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -18,7 +19,7 @@ import java.math.RoundingMode
  * It is designed to support operations like addition, subtraction, scaling, and conversion
  * between compatible units with automatic prefix normalization (e.g., converting 1000 millimeters to 1 meter).
  *
- * @param Expression The type representing the system of prefixes (e.g., [Metric]).
+ * @param org.kisu.units.representation.Expression The type representing the system of prefixes (e.g., [Metric]).
  *        It must implement both [System] (to provide ordering and base relations)
  *        and [org.kisu.prefixes.Prefix] (to support scaling operations).
  *

@@ -4,9 +4,9 @@ import org.kisu.hasFraction
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.isCanonical
 import org.kisu.units.Measure
-import org.kisu.units.Scalar
 import org.kisu.units.exceptions.NegativeInformation
 import org.kisu.units.exceptions.SubBitInformation
+import org.kisu.units.representation.Scalar
 import java.math.BigDecimal
 
 /**
