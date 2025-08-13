@@ -1,10 +1,12 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.orElse
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
 import org.kisu.prefixes.Prefix
+import java.math.BigDecimal
 
 /**
  * Represents a complete system of unit prefixes.
@@ -63,4 +65,22 @@ interface System<T : Prefix<T>> {
      * ```
      */
     val largest: T
+
+    /**
+     * Finds the closest defined unit in the system that does not exceed the given [factor].
+     *
+     * This function searches through all available units ([all]) and returns the last one
+     * whose [factor] is less than or equal to the provided [factor]. If no such unit exists,
+     * it returns the [smallest] unit. If the given [factor] is greater than all available units,
+     * it returns the [largest] unit.
+     *
+     * This is typically used for prefix or unit resolution when mapping a numeric factor
+     * back to a known representation (e.g., resolving `1500` to `kilo`).
+     *
+     * @param factor The numerical factor to match against known units.
+     * @return The closest unit not greater than the provided [factor], or [smallest] if it's below the range,
+     * or [largest] if it exceeds all defined units.
+     */
+    fun find(factor: BigDecimal): T =
+        all.lastOrNull { it.factor <= factor }.orElse { smallest }
 }

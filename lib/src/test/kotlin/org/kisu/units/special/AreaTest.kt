@@ -16,7 +16,7 @@ class AreaTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().squareMeters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Area.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Area.UNIT)
                 symbol shouldBe Area.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class AreaTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.squareMeters.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Area.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Area.UNIT)
                 symbol shouldBe Area.UNIT.toString()
             }
         }

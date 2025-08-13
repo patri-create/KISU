@@ -21,7 +21,7 @@ class Area internal constructor(magnitude: BigDecimal, expression: Scalar<Metric
     Measure<Scalar<Metric>, Area>(magnitude, expression, ::Area) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for area: "m²" (square metre). */

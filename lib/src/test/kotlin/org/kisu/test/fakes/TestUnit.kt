@@ -12,7 +12,7 @@ class TestUnit(
 ) : Measure<Scalar<Metric>, TestUnit>(magnitude, expression, ::TestUnit) {
 
     constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     val magnitude: BigDecimal = magnitude
 

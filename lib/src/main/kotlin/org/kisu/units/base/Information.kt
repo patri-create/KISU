@@ -57,7 +57,7 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            expression: Scalar<Binary> = Scalar(Binary.BASE, UNIT),
+            expression: Scalar<Binary> = Scalar(Binary.BASE, unit = UNIT),
         ): Information {
             if (expression.isCanonical && magnitude.hasFraction) {
                 throw SubBitInformation(magnitude, UNIT.toString())
@@ -89,6 +89,6 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
         operator fun invoke(
             magnitude: BigDecimal,
             prefix: Binary = Binary.BASE,
-        ) = invoke(magnitude, Scalar(prefix, UNIT))
+        ) = invoke(magnitude, Scalar(prefix, unit = UNIT))
     }
 }

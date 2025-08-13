@@ -16,7 +16,7 @@ class ResistanceTest : StringSpec({
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().ohms.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, Resistance.UNIT)
+                expression shouldBe Scalar(magnitude.builder().metric, unit = Resistance.UNIT)
                 symbol shouldBe Resistance.UNIT.toString()
             }
         }
@@ -26,7 +26,7 @@ class ResistanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.ohms.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, Resistance.UNIT)
+                expression shouldBe Scalar(Metric.BASE, unit = Resistance.UNIT)
                 symbol shouldBe Resistance.UNIT.toString()
             }
         }

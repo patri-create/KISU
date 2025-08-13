@@ -21,7 +21,7 @@ class Volume internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
     Measure<Scalar<Metric>, Volume>(magnitude, expression, ::Volume) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for volume: "m³" (cubic metre). */

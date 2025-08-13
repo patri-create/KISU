@@ -21,7 +21,7 @@ class Pressure internal constructor(magnitude: BigDecimal, expression: Scalar<Me
     Measure<Scalar<Metric>, Pressure>(magnitude, expression, ::Pressure) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, UNIT))
+        this(magnitude, Scalar(prefix, unit = UNIT))
 
     companion object {
         /** The SI symbol for pressure or stress: "Pa" (pascal). */
