@@ -15,7 +15,7 @@ import java.math.BigDecimal
  * Becquerels are used in nuclear physics, radiology, and environmental monitoring to measure the rate of radioactive
  * decay.
  *
- * This class expresses activity as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses activity as a combination of a [magnitude] and an [expression], supporting values such as
  * kilobecquerels (kBq), megabecquerels (MBq), or gigabecquerels (GBq).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

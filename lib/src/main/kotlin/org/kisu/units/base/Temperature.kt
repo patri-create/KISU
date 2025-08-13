@@ -17,7 +17,7 @@ import java.math.BigDecimal
  * Because the kelvin scale is absolute, **negative values are not physically meaningful** — no system
  * can exist below absolute zero. A temperature of zero kelvin represents a complete absence of thermal energy.
  *
- * This class models temperature as a combination of a [magnitude] and an optional metric [prefix],
+ * This class models temperature as a combination of a [magnitude] and an optional metric [expression],
  * enabling precise representation of values such as millikelvin (mK) or kilokelvin (kK).
  *
  * The magnitude is stored using [BigDecimal] for accuracy. All instances are validated to ensure they

@@ -14,8 +14,8 @@ import java.math.BigDecimal
  *
  * Katals are used in biochemistry and enzymology to quantify the rate of enzymatic reactions.
  *
- * This class expresses catalytic activity as a combination of a [magnitude] and a [prefix], supporting values such as
- * millikatals (mkat), microkatals (µkat), or kilokatals (kkat).
+ * This class expresses catalytic activity as a combination of a [magnitude] and an [expression], supporting values
+ * such as millikatals (mkat), microkatals (µkat), or kilokatals (kkat).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */

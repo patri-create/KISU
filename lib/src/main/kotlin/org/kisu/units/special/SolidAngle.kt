@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Like radians, the steradian is a **dimensionless** derived SI unit.
  *
- * This class expresses solid angle as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses solid angle as a combination of a [magnitude] and an [expression], supporting values such as
  * millisteradians (msr) or kilosteradians (ksr).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

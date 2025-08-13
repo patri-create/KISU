@@ -13,7 +13,7 @@ import java.math.BigDecimal
  * as defined by the SI system, using the metre as the base unit and supporting metric prefixes such as millimetre (mm),
  * centimetre (cm), and kilometre (km).
  *
- * The quantity is expressed with a [magnitude] and a [prefix], enabling precise representation of both small- and
+ * The quantity is expressed with a [magnitude] and an [expression], enabling precise representation of both small- and
  * large-scale measurements using [BigDecimal] for accuracy.
  */
 class Length internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :

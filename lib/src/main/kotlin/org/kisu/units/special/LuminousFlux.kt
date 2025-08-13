@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Lumens are widely used in lighting to describe the total perceived power of light emitted.
  *
- * This class expresses luminous flux as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses luminous flux as a combination of a [magnitude] and an [expression], supporting values such as
  * millilumens (mlm), kilolumens (klm), or megalumens (Mlm).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

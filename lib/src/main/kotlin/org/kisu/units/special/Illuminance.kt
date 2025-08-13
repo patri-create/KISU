@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Lux are commonly used to quantify lighting conditions in indoor and outdoor environments.
  *
- * This class expresses illuminance as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses illuminance as a combination of a [magnitude] and an [expression], supporting values such as
  * millilux (mlx), kilolux (klx), or megalux (Mlx).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

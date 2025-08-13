@@ -12,7 +12,7 @@ import java.math.BigDecimal
  * One square metre is the area of a square with sides of one metre in length.
  * This is a coherent derived SI unit with the base unit m².
  *
- * This class expresses area as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses area as a combination of a [magnitude] and an [expression], supporting values such as
  * square millimetres (mm²), square centimetres (cm²), or square kilometres (km²).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Grays are used in radiology, radiation therapy, and radiation protection.
  *
- * This class expresses dose as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses dose as a combination of a [magnitude] and an [expression], supporting values such as
  * milligrays (mGy), centigrays (cGy), or kilograys (kGy).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

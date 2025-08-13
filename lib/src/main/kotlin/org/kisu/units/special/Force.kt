@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Newtons are commonly used in mechanics, physics, and engineering to describe force interactions.
  *
- * This class expresses force as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses force as a combination of a [magnitude] and an [expression], supporting values such as
  * kilonewtons (kN), millinewtons (mN), or micronewtons (µN).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

@@ -1,6 +1,8 @@
 package org.kisu
 
+import java.math.BigDecimal
 import java.math.MathContext
+import java.math.RoundingMode
 
 /**
  * Configuration object for global settings related to numeric precision.

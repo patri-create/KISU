@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Commonly used in electrical and mechanical contexts, as well as in radiometry and thermodynamics.
  *
- * This class expresses power as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses power as a combination of a [magnitude] and an [expression], supporting values such as
  * kilowatts (kW), megawatts (MW), or milliwatts (mW).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

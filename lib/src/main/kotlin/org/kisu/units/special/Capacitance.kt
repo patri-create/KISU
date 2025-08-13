@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Farads are commonly used in electronics to describe how much electric charge a component can store.
  *
- * This class expresses capacitance as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses capacitance as a combination of a [magnitude] and an [expression], supporting values such as
  * millifarads (mF), microfarads (µF), nanofarads (nF), or picofarads (pF).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

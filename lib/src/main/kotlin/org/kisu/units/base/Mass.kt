@@ -16,8 +16,8 @@ import java.math.BigDecimal
  * “negative matter,” which is not observed in any real-world context. A mass of zero may be used to represent the
  * absence of matter, but any valid amount of substance must have a non-negative mass.
  *
- * This class models mass as a combination of a [magnitude] and a [prefix], allowing precise values such as milligrams
- * (mg), kilograms (kg), or megagrams (Mg). All values are represented using [BigDecimal] for high-precision
+ * This class models mass as a combination of a [magnitude] and an [expression], allowing precise values such as
+ * milligrams (mg), kilograms (kg), or megagrams (Mg). All values are represented using [BigDecimal] for high-precision
  * calculations.
  *
  * Instances of this class are immutable and validated at construction.

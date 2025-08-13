@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Sieverts are used in radiation protection to quantify health risk.
  *
- * This class expresses dose equivalent as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses dose equivalent as a combination of a [magnitude] and an [expression], supporting values such as
  * millisieverts (mSv), microsieverts (µSv), or sieverts (Sv).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

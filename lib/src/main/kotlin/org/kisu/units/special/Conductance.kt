@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Siemens are used to describe the conductance of materials and components in electrical systems.
  *
- * This class expresses conductance as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses conductance as a combination of a [magnitude] and an [expression], supporting values such as
  * millisiemens (mS), microsiemens (µS), or kilosiemens (kS).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

@@ -8,7 +8,7 @@ import org.kisu.units.representation.Scalar
  *
  * This is used to produce a consistent ordering of scalars for formatting,
  * comparison, or canonicalization purposes. The sorting is based on the
- * natural ordering of the [unit] property of each scalar.
+ * natural ordering of the [Scalar.unit] property of each scalar.
  *
  * @receiver An iterable collection of [Scalar]s to be sorted.
  * @return A list of [Scalar]s ordered by unit.

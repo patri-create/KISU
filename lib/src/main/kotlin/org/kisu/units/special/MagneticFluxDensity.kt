@@ -14,8 +14,8 @@ import java.math.BigDecimal
  *
  * Teslas are used in electromagnetism, especially in the context of MRI machines, magnets, and inductors.
  *
- * This class expresses magnetic flux density as a combination of a [magnitude] and a [prefix], supporting values such
- * as milliteslas (mT), microteslas (µT), or kiloteslas (kT).
+ * This class expresses magnetic flux density as a combination of a [magnitude] and an [expression], supporting values
+ * such as milliteslas (mT), microteslas (µT), or kiloteslas (kT).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
