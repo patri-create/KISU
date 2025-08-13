@@ -55,7 +55,6 @@ class Unit(
      */
     constructor(unit: String, exponent: Int = 1) : this(unit, Exponent(exponent))
 
-
     /**
      * Indicates whether this unit has a zero exponent.
      *
@@ -82,7 +81,6 @@ class Unit(
     private val representation: String by lazy {
         "$symbol$exponent"
     }
-
 
     /**
      * Returns a new [Unit] with the same symbol but an inverted exponent.
@@ -176,6 +174,20 @@ class Unit(
     override fun toString(): String = representation
 }
 
+/**
+ * Defines the canonical ordering of SI and derived units used throughout the system.
+ *
+ * This list ensures a consistent sequence when units are serialized, displayed,
+ * or compared, regardless of the order in which they were originally defined.
+ *
+ * The order starts with common derived units (e.g., force, pressure, energy)
+ * followed by base units (length, mass, time, etc.), and finally angular units.
+ *
+ * This ordering can be useful for:
+ * - Formatting compound units in a predictable way
+ * - Generating human-readable symbols
+ * - Maintaining stable sorting in tests and output
+ */
 internal val CANONICAL_ORDER: List<Unit> = listOf(
     Force.UNIT,
     Pressure.UNIT,

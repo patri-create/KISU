@@ -38,7 +38,8 @@ sealed class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
      * and structure of the expression.
      *
      * @param other The object to compare with this instance.
-     * @return `true` if the other object is an [Expression] of the same class with an equal [symbol], `false` otherwise.
+     * @return `true` if the other object is an [Expression] of the same class with an equal [symbol], `false`
+     * otherwise.
      */
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

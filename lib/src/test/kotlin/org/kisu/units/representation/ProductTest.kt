@@ -89,7 +89,6 @@ class ProductTest : StringSpec({
         }
     }
 
-
     "the string representation is the symbol" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             val expression = Product(
@@ -127,7 +126,7 @@ class ProductTest : StringSpec({
     "dividing a Product by a Product makes a Quotient" {
         checkAll(Scalars.distinct(4)) { (a, b, c, d) ->
             ((a * b) / (c * d)).symbol shouldBe
-                    "${listOf(a, b).productSymbol}/(${listOf(c, d).productSymbol})"
+                "${listOf(a, b).productSymbol}/(${listOf(c, d).productSymbol})"
         }
     }
 

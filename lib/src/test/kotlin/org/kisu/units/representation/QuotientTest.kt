@@ -2,13 +2,11 @@ package org.kisu.units.representation
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeEmpty
-import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.checkAll
 import org.kisu.KisuConfig
-import org.kisu.prefixes.Metric
 import org.kisu.productSymbol
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Binaries

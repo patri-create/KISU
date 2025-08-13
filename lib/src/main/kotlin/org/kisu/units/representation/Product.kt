@@ -4,7 +4,6 @@ import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.CompositeSystem
 import org.kisu.prefixes.primitives.System
 import org.kisu.productSymbol
-import org.kisu.sortByUnit
 import java.math.BigDecimal
 
 /**
@@ -32,8 +31,7 @@ class Product<A, B>(
     private val left: A,
     private val right: B
 ) : Expression<Product<A, B>>(), System<Product<A, B>> by CompositeSystem(left, right, ::Product)
-        where A : Expression<A>, A : System<A>, B : Expression<B>, B : System<B> {
-
+    where A : Expression<A>, A : System<A>, B : Expression<B>, B : System<B> {
     /**
      * The numerical factor of this unit product, computed as the product of the factors
      * of the left and right components.
@@ -91,7 +89,7 @@ class Product<A, B>(
      * Represents newton·mole·second.
      */
     operator fun <C> times(other: Scalar<C>): Product<Product<A, B>, Scalar<C>>
-            where C : Prefix<C>, C : System<C> = Product(this, other)
+        where C : Prefix<C>, C : System<C> = Product(this, other)
 
     /**
      * Multiplies this product expression by another product, yielding a nested [Product].
@@ -103,7 +101,7 @@ class Product<A, B>(
      * Represents newton·mole·second·kelvin.
      */
     operator fun <C, D> times(other: Product<C, D>): Product<Product<A, B>, Product<C, D>>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Product(this, other)
 
     /**
@@ -116,7 +114,7 @@ class Product<A, B>(
      * Represents newton·mole·second per ampere.
      */
     operator fun <C, D> times(other: Quotient<C, D>): Quotient<Product<Product<A, B>, C>, D>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(Product(this, other.component1()), other.component2())
 
     /**
@@ -129,7 +127,7 @@ class Product<A, B>(
      * Represents newton·mole per second.
      */
     operator fun <C> div(other: Scalar<C>): Quotient<Product<A, B>, Scalar<C>>
-            where C : Prefix<C>, C : System<C> = Quotient(this, other)
+        where C : Prefix<C>, C : System<C> = Quotient(this, other)
 
     /**
      * Divides this product expression by another product expression, forming a [Quotient].
@@ -141,7 +139,7 @@ class Product<A, B>(
      * Represents newton·mole per (second·kelvin).
      */
     operator fun <C, D> div(other: Product<C, D>): Quotient<Product<A, B>, Product<C, D>>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(this, other)
 
     /**
@@ -154,6 +152,6 @@ class Product<A, B>(
      * Represents newton·mole·ampere per second.
      */
     operator fun <C, D> div(other: Quotient<C, D>): Quotient<Product<Product<A, B>, D>, C>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(Product(this, other.component2()), other.component1())
 }

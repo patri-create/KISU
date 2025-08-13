@@ -4,7 +4,6 @@ import org.kisu.KisuConfig
 import org.kisu.Matcher
 import org.kisu.Merger
 import org.kisu.intersect
-import org.kisu.orElse
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.CompositeSystem
 import org.kisu.prefixes.primitives.System
@@ -38,7 +37,7 @@ class Quotient<A, B>(
     private val denominator: B
 ) : Expression<Quotient<A, B>>(),
     System<Quotient<A, B>> by CompositeSystem(numerator, denominator, ::Quotient)
-        where A : Expression<A>, A : System<A>, B : Expression<B>, B : System<B> {
+    where A : Expression<A>, A : System<A>, B : Expression<B>, B : System<B> {
 
     /**
      * The numeric factor of the quotient, computed as numerator divided by denominator.
@@ -131,7 +130,7 @@ class Quotient<A, B>(
      * Represents joule times micro in numerator per mole kelvin in denominator.
      */
     operator fun <C> times(other: Scalar<C>): Quotient<Product<A, Scalar<C>>, B>
-            where C : Prefix<C>, C : System<C> =
+        where C : Prefix<C>, C : System<C> =
         Quotient(Product(numerator, other), denominator)
 
     /**
@@ -146,7 +145,7 @@ class Quotient<A, B>(
      * Represents meter times kilogram times second, divided by second.
      */
     operator fun <C, D> times(other: Product<C, D>): Quotient<Product<A, Product<C, D>>, B>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(Product(numerator, other), denominator)
 
     /**
@@ -161,7 +160,7 @@ class Quotient<A, B>(
      * Represents joule volt per mole kelvin ampere.
      */
     operator fun <C, D> times(other: Quotient<C, D>): Quotient<Product<A, C>, Product<B, D>>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(
             Product(numerator, other.numerator),
             Product(denominator, other.denominator)
@@ -179,7 +178,7 @@ class Quotient<A, B>(
      * Represents joule per mole kelvin micro.
      */
     operator fun <C> div(other: Scalar<C>): Quotient<A, Product<B, Scalar<C>>>
-            where C : Prefix<C>, C : System<C> =
+        where C : Prefix<C>, C : System<C> =
         Quotient(numerator, Product(denominator, other))
 
     /**
@@ -194,7 +193,7 @@ class Quotient<A, B>(
      * Represents kilogram meter over second squared mole kelvin.
      */
     operator fun <C, D> div(other: Product<C, D>): Quotient<A, Product<B, Product<C, D>>>
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+        where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(numerator, Product(denominator, other))
 
     /**
@@ -209,6 +208,6 @@ class Quotient<A, B>(
      * For example, `(J / mol·K) / (V / A) = (J · A) / (mol · K · V)`
      */
     operator fun <C, D> div(other: Quotient<C, D>)
-            where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
+    where C : Expression<C>, C : System<C>, D : Expression<D>, D : System<D> =
         Quotient(Product(numerator, other.denominator), Product(denominator, other.numerator))
 }

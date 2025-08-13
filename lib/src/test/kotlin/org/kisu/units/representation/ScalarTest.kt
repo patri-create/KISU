@@ -47,7 +47,7 @@ class ScalarTest : StringSpec({
 
     "symbol is the combination of the prefix and the unit" {
         checkAll(Metrics.generator, Units.generator) { prefix, unit ->
-            Scalar(prefix, unit = unit).symbol shouldBe "${prefix.symbol}${unit}"
+            Scalar(prefix, unit = unit).symbol shouldBe "${prefix.symbol}$unit"
         }
     }
 

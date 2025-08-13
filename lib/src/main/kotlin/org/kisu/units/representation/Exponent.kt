@@ -12,8 +12,6 @@ import kotlin.math.absoluteValue
  * @property exponent The integer value of the exponent.
  */
 data class Exponent(private val exponent: Int) {
-
-
     /**
      * Indicates whether the exponent is positive.
      *
