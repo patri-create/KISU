@@ -111,7 +111,7 @@
     <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Quotient</a><span class="token operator">&lt;</span><a href="index.html">A</a><span class="token operator"> : </span><a href="../-expression/index.html">Expression</a><span class="token operator">&lt;</span><a href="index.html">A</a><span class="token operator">&gt;</span>, <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><a href="index.html">B</a><span class="token operator"> : </span><a href="../-expression/index.html">Expression</a><span class="token operator">&lt;</span><a href="index.html">B</a><span class="token operator">&gt;</span>, <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">B</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numerator<span class="token operator">: </span><a href="index.html">A</a><span class="token punctuation">, </span></span><span class="parameter ">denominator<span class="token operator">: </span><a href="index.html">B</a></span></span><span class="token punctuation">)</span> : <a href="../-expression/index.html">Expression</a><span class="token operator">&lt;</span><a href="index.html">Quotient</a><span class="token operator">&lt;</span><a href="index.html">A</a><span class="token punctuation">, </span><a href="index.html">B</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span>, <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a><span class="token operator">&lt;</span><a href="index.html">Quotient</a><span class="token operator">&lt;</span><a href="index.html">A</a><span class="token punctuation">, </span><a href="index.html">B</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span></div><p class="paragraph">Represents the quotient of two unit expressions in the physical unit system.</p><p class="paragraph">This class is part of the expression system used to model complex <strong>divisive physical units</strong>, such as:</p><ul><li><p class="paragraph"><code class="lang-kotlin">m/s</code> (meter per second)</p></li><li><p class="paragraph"><code class="lang-kotlin">J/(mol·K)</code> (joule per mole-kelvin)</p></li><li><p class="paragraph"><code class="lang-kotlin">(kg·m)/(s²)</code> (newton)</p></li></ul><p class="paragraph">A <a href="index.html">Quotient</a> is formed by dividing a <span data-unresolved-link="org.kisu.units.representation/Quotient/numerator/#/PointingToDeclaration/">numerator</span> expression by a <span data-unresolved-link="org.kisu.units.representation/Quotient/denominator/#/PointingToDeclaration/">denominator</span> expression, both of which are themselves required to be <a href="../-expression/index.html">Expression</a>s and <a href="../../org.kisu.prefixes.primitives/-system/index.html">System</a>s.</p><p class="paragraph">It preserves mathematical and symbolic correctness by:</p><ul><li><p class="paragraph">Delegating system behavior to a <a href="../../org.kisu.prefixes.primitives/-composite-system/index.html">CompositeSystem</a></p></li><li><p class="paragraph">Automatically wrapping composite expressions in parentheses in the unit symbol</p></li><li><p class="paragraph">Computing the resulting factor as the division of numerator and denominator factors</p></li></ul><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>A</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the type of the numerator expression (e.g., <code class="lang-kotlin">Joule</code>, <code class="lang-kotlin">Meter</code>, or a <a href="../-product/index.html">Product</a>)</p></div></div></div></div><div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>B</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the type of the denominator expression (e.g., <code class="lang-kotlin">Second</code>, <code class="lang-kotlin">mol·K</code>, or another <a href="../-product/index.html">Product</a>)</p></div></div></div></div></div></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
@@ -164,21 +164,6 @@
               </div>
             </div>
           </div>
-<a data-name="-7950199%2FProperties%2F-1895836109" anchor-label="compositeRepresentation" id="-7950199%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="../../org.kisu/composite-representation.html"><span>composite</span><wbr></wbr><span><span>Representation</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-7950199%2FProperties%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">val </span><span class="token operator">&lt;</span><a href="../../org.kisu/composite-representation.html">A</a><span class="token operator"> : </span><a href="../../org.kisu.prefixes/-prefix/index.html">Prefix</a><span class="token operator">&lt;</span><a href="../../org.kisu/composite-representation.html">A</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span><a href="../-expression/index.html">Expression</a><span class="token operator">&lt;</span><a href="../../org.kisu/composite-representation.html">A</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="../../org.kisu/composite-representation.html">compositeRepresentation</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Returns a formatted representation of the expression's symbol, wrapping it in parentheses if the expression is a composite (<a href="../-product/index.html">Product</a> or <a href="index.html">Quotient</a>).</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
 <a data-name="-1445821079%2FProperties%2F-1895836109" anchor-label="factor" id="-1445821079%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
@@ -190,6 +175,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="factor.html">factor</a><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></div><div class="brief "><p class="paragraph">The numeric factor of the quotient, computed as numerator divided by denominator.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-304525698%2FProperties%2F-1895836109" anchor-label="factors" id="-304525698%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="factors.html"><span><span>factors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-304525698%2FProperties%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="factors.html">factors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../-scalar/index.html">Scalar</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The reduced set of scalar factors that define this quotient expression.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="symbol.html">symbol</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The symbol for this quotient expression, rendered as <code class="lang-kotlin">&quot;numerator/denominator&quot;</code>.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="symbol.html">symbol</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">A symbolic string representation of the quotient expression.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -313,7 +313,22 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="../-expression/equals.html"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="../-expression/equals.html"><span class="token function">equals</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks structural equality based on the <span data-unresolved-link="org.kisu.units.representation/Expression/symbol/#/PointingToDeclaration/">symbol</span> property.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="231636434%2FFunctions%2F-1895836109" anchor-label="find" id="231636434%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.kisu.prefixes.primitives/-system/find.html"><span><span>find</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="231636434%2FFunctions%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../org.kisu.prefixes.primitives/-system/find.html"><span class="token function">find</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">factor<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Quotient</a><span class="token operator">&lt;</span><a href="index.html">A</a><span class="token punctuation">, </span><a href="index.html">B</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Finds the closest defined unit in the system that does not exceed the given <span data-unresolved-link="org.kisu.units.representation/Quotient/find/#java.math.BigDecimal/PointingToCallableParameters(0)/">factor</span>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -328,7 +343,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-expression/hash-code.html"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-expression/hash-code.html"><span class="token function">hashCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Returns a hash code derived from the <span data-unresolved-link="org.kisu.units.representation/Expression/symbol/#/PointingToDeclaration/">symbol</span>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -388,7 +403,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-expression/to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Returns the string representation of the symbol.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-expression/to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Returns a string representation of this expression.</p></div></div></div>
                 </div>
               </div>
             </div>
