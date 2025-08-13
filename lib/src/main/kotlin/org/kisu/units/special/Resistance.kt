@@ -15,7 +15,7 @@ import java.math.BigDecimal
  *
  * Ohms are used in electrical and electronic systems to describe resistance and impedance.
  *
- * This class expresses resistance as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses resistance as a combination of a [magnitude] and an [expression], supporting values such as
  * milliohms (mΩ), kiloohms (kΩ), or megaohms (MΩ).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

@@ -12,7 +12,7 @@ import java.math.BigDecimal
  * One cubic metre is the volume of a cube with edges one metre in length.
  * This is a coherent derived SI unit with the base unit m³.
  *
- * This class expresses volume as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses volume as a combination of a [magnitude] and an [expression], supporting values such as
  * cubic millimetres (mm³), cubic centimetres (cm³), or cubic kilometres (km³).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

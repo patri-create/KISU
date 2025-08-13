@@ -12,7 +12,7 @@ import java.math.BigDecimal
  * One pascal equals one newton per square meter (N/m²), which is kg·m⁻¹·s⁻² in SI base units.
  * It is used to quantify internal pressure, stress, Young's modulus, and tensile strength.
  *
- * This class expresses pressure as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses pressure as a combination of a [magnitude] and an [expression], supporting values such as
  * kilopascals (kPa), megapascals (MPa), or hectopascals (hPa).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

@@ -12,9 +12,6 @@ import java.math.BigDecimal
  * Celsius temperature is defined as the temperature in kelvins minus 273.15.
  * While the unit interval is the same as for kelvin (1 °C = 1 K), the zero point differs.
  *
- * Internally, this class may store temperature in kelvin for consistency.
- * Use [toKelvin] and [fromKelvin] to convert between units.
- *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
 class Celsius internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :

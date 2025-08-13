@@ -12,7 +12,7 @@ import java.math.BigDecimal
  * One byte consists of 8 bits. This class helps express storage or transmission size
  * in units such as kilobytes (kB), megabytes (MB), etc., using metric prefixes.
  *
- * This class expresses information as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses information as a combination of a [magnitude] and an [expression], supporting values such as
  * kilobytes (kB), megabytes (MB), or gigabytes (GB).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

@@ -15,8 +15,8 @@ import java.math.BigDecimal
  * Volts are used extensively in electrical circuits to describe voltage, electromotive force, and potential energy
  * per charge.
  *
- * This class expresses electric potential as a combination of a [magnitude] and a [prefix], supporting values such as
- * millivolts (mV), microvolts (µV), or kilovolts (kV).
+ * This class expresses electric potential as a combination of a [magnitude] and an [expression], supporting values
+ * such as millivolts (mV), microvolts (µV), or kilovolts (kV).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */

@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Webers are used in electromagnetism to quantify magnetic flux through a surface.
  *
- * This class expresses magnetic flux as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses magnetic flux as a combination of a [magnitude] and an [expression], supporting values such as
  * milliwwebers (mWb), microwebers (µWb), or kilowebers (kWb).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

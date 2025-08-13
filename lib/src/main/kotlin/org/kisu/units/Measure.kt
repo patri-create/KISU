@@ -11,7 +11,7 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 /**
- * Represents a physical quantity composed of a [magnitude], a [expression], and a [unit].
+ * Represents a physical quantity composed of a [magnitude] and an [expression].
  *
  * This generic class models measurements in a unit system with metric-style prefixes,
  * such as meters, grams, or seconds.
@@ -29,7 +29,6 @@ import java.math.RoundingMode
  * @property magnitude The numerical value of the measurement in the specified [expression].
  * @property expression The metric prefix applied to the unit (e.g., `kilo`, `milli`).
  *        This determines the scale of the [magnitude] relative to the base unit.
- * @property unit A string representing the unit symbol (e.g., `"m"` for meters, `"g"` for grams).
  *
  * @constructor Protected to enforce instantiation via factory methods or subclasses.
  *
@@ -332,7 +331,7 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
      * Two [Measure] instances are considered equal if:
      * - They are the same instance, or
      * - They have the same runtime class,
-     * - Their [unit] is equal,
+     * - Their [expression] is equal,
      * - Their canonical [magnitude] values are equal.
      *
      * The [expression] is intentionally ignored in the comparison,
@@ -371,7 +370,7 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
     /**
      * Returns a hash code value for the [Measure] object.
      *
-     * The hash code is based on the canonical [magnitude] and [unit] only,
+     * The hash code is based on the canonical [magnitude] and [expression] only,
      * since [expression] is ignored in the [equals] comparison as all units are compared to their canonical unit.
      *
      * @return The hash code value.

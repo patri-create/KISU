@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * This unit is commonly used in physics, engineering, and signal processing to describe waveforms and oscillations.
  *
- * This class expresses frequency as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses frequency as a combination of a [magnitude] and an [expression], supporting values such as
  * kilohertz (kHz), megahertz (MHz), or millihertz (mHz).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

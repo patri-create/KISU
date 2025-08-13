@@ -1,5 +1,7 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.prefixes.Binary
+import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit

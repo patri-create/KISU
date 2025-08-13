@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Coulombs are used in physics and electrical engineering to quantify electric charge and electrochemical processes.
  *
- * This class expresses charge as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses charge as a combination of a [magnitude] and an [expression], supporting values such as
  * millicoulombs (mC), microcoulombs (µC), or kilocoulombs (kC).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

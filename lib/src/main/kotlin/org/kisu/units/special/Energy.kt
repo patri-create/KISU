@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * Joules are widely used in physics and engineering to quantify energy, heat, and work.
  *
- * This class expresses energy as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses energy as a combination of a [magnitude] and an [expression], supporting values such as
  * kilojoules (kJ), megajoules (MJ), or millijoules (mJ).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

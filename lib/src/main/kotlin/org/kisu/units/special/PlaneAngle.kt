@@ -14,7 +14,7 @@ import java.math.BigDecimal
  *
  * The radian is a **dimensionless** derived unit in the SI, meaning it has no units in terms of base SI dimensions.
  *
- * This class expresses angle as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses angle as a combination of a [magnitude] and an [expression], supporting values such as
  * milliradians (mrad) or kiloradians (krad).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

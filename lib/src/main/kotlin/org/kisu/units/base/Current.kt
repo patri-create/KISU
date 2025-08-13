@@ -15,7 +15,7 @@ import java.math.BigDecimal
  * This quantity is one of the seven SI base units and is typically used to describe the intensity of electrical flow
  * in conductors, circuits, and electromagnetic systems.
  *
- * This class expresses current as a combination of a [magnitude] and a [prefix], supporting values such as
+ * This class expresses current as a combination of a [magnitude] and an [expression], supporting values such as
  * milliamperes (mA), microamperes (µA), or kiloamperes (kA).
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.

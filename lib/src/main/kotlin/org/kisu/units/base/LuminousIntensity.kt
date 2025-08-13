@@ -16,7 +16,7 @@ import java.math.BigDecimal
  * describes an emission — light cannot be “less than none.” A value of zero represents no light output, and
  * any non-zero value indicates the intensity of light emitted.
  *
- * This class models the quantity as a combination of a [magnitude] and a [prefix], enabling precise values
+ * This class models the quantity as a combination of a [magnitude] and an [expression], enabling precise values
  * such as milllicandelas (mcd) or kilocandelas (kcd).
  *
  * All values are stored with high precision using [BigDecimal], and instances are immutable.
