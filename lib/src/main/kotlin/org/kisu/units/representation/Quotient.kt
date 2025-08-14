@@ -69,7 +69,8 @@ class Quotient<A, B>(
     override val symbol: String by lazy {
         val (numerators, denominators) = factors.partition { it.positive }
         val numerator = numerators.productSymbol
-        val denominator = denominators.productSymbol.let { if (denominators.size > 1) "($it)" else it }
+        val denominator = denominators.map { it.inverted }.productSymbol
+            .let { if (denominators.size > 1) "($it)" else it }
 
         when {
             numerators.isEmpty() && denominators.isEmpty() -> ""
