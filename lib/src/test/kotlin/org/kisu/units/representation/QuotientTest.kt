@@ -37,6 +37,17 @@ class QuotientTest : StringSpec({
         }
     }
 
+    "factors should merge equal units" {
+        checkAll(Scalars.distinct(2)) { (a, b) ->
+            val numerator = a * a
+            val denominator = b * b
+
+            val quotient = numerator / denominator
+
+            quotient.symbol shouldBe "${numerator.symbol}/${denominator.symbol}"
+        }
+    }
+
     "represents its symbol" {
         checkAll(
             Metrics.generator,
