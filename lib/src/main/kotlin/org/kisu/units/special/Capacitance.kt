@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Capacitance internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Capacitance>(magnitude, expression, ::Capacitance) {
+class Capacitance internal constructor(magnitude: BigDecimal, expression: Farad) :
+    Measure<Farad, Capacitance>(magnitude, expression, ::Capacitance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Farad(prefix))
+}
+
+/**
+ * Represents the SI derived unit of capacitance: **farad** (F).
+ *
+ * One farad is equal to one coulomb per volt.
+ *
+ * SI definition: `F = m⁻²·kg⁻¹·s⁴·A²`.
+ */
+class Farad private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Farad>(prefix, overflow, unit, ::Farad) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for capacitance: "F" (farad). */
+        /** The canonical symbol for farad: "F". */
         internal val UNIT = Unit("F", 1)
     }
 }
+

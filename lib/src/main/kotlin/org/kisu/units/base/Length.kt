@@ -16,14 +16,28 @@ import java.math.BigDecimal
  * The quantity is expressed with a [magnitude] and an [expression], enabling precise representation of both small- and
  * large-scale measurements using [BigDecimal] for accuracy.
  */
-class Length internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Length>(magnitude, expression, ::Length) {
+class Length internal constructor(magnitude: BigDecimal, expression: Metre) :
+    Measure<Metre, Length>(magnitude, expression, ::Length) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Metre(prefix))
+}
+
+/**
+ * Represents the SI base unit of **length**.
+ *
+ * The metre (m) is the standard unit for measuring distance.
+ */
+class Metre private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Metre>(prefix, overflow, unit, ::Metre) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for length: "m" (metre). */
+        /** The canonical SI symbol for length: "m". */
         internal val UNIT = Unit("m", 1)
     }
 }

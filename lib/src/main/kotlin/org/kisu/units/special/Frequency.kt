@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Frequency internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Frequency>(magnitude, expression, ::Frequency) {
+class Frequency internal constructor(magnitude: BigDecimal, expression: Hertz) :
+    Measure<Hertz, Frequency>(magnitude, expression, ::Frequency) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Hertz(prefix))
+}
+
+/**
+ * Represents the SI derived unit of frequency: **hertz** (Hz).
+ *
+ * One hertz is one event or cycle per second.
+ *
+ * SI definition: `Hz = s⁻¹`.
+ */
+class Hertz private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Hertz>(prefix, overflow, unit, ::Hertz) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for frequency: "Hz" (hertz). */
+        /** The canonical symbol for hertz: "Hz". */
         internal val UNIT = Unit("Hz", 1)
     }
 }

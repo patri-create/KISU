@@ -7,19 +7,17 @@ import io.kotest.property.Arb
 import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.seconds
-import org.kisu.units.representation.Scalar
 
 class TimeTest : StringSpec({
     "creates Time" {
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().seconds.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().metric, unit = Time.UNIT)
-                symbol shouldBe Time.UNIT.toString()
+                expression shouldBe Second(magnitude.builder().metric)
+                symbol shouldBe Second.UNIT.toString()
             }
         }
     }
@@ -28,8 +26,8 @@ class TimeTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.seconds.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Metric.BASE, unit = Time.UNIT)
-                symbol shouldBe Time.UNIT.toString()
+                expression shouldBe Second()
+                symbol shouldBe Second.UNIT.toString()
             }
         }
     }

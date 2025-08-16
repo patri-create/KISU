@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Inductance internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Inductance>(magnitude, expression, ::Inductance) {
+class Inductance internal constructor(magnitude: BigDecimal, expression: Henry) :
+    Measure<Henry, Inductance>(magnitude, expression, ::Inductance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Henry(prefix))
+}
+
+/**
+ * Represents the SI derived unit of inductance: **henry** (H).
+ *
+ * One henry is the inductance of a closed circuit in which an electromotive force
+ * of one volt is produced when the electric current changes uniformly at one ampere per second.
+ *
+ * SI definition: `H = m²·kg·s⁻²·A⁻²`.
+ */
+class Henry private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Henry>(prefix, overflow, unit, ::Henry) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for inductance: "H" (henry). */
+        /** The canonical symbol for henry: "H". */
         internal val UNIT = Unit("H", 1)
     }
 }

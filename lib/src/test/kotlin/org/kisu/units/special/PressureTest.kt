@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.pascals
-import org.kisu.units.representation.Scalar
 
 class PressureTest : StringSpec({
     "creates a Pressure" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().pascals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = Pressure.UNIT)
-                symbol shouldBe Pressure.UNIT.toString()
+                expression shouldBe Pascal(magnitude.builder().metric)
+                symbol shouldBe Pascal.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class PressureTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.pascals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = Pressure.UNIT)
-                symbol shouldBe Pressure.UNIT.toString()
+                expression shouldBe Pascal()
+                symbol shouldBe Pascal.UNIT.toString()
             }
         }
     }

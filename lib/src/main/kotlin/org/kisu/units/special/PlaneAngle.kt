@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class PlaneAngle internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, PlaneAngle>(magnitude, expression, ::PlaneAngle) {
+class PlaneAngle internal constructor(magnitude: BigDecimal, expression: Radian) :
+    Measure<Radian, PlaneAngle>(magnitude, expression, ::PlaneAngle) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Radian(prefix))
+}
+
+/**
+ * Represents the SI derived unit of plane angle: **radian** (rad).
+ *
+ * One radian is the angle with an arc length equal to the radius of the circle.
+ *
+ * SI definition: dimensionless (m/m).
+ */
+class Radian private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Radian>(prefix, overflow, unit, ::Radian) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for plane angle: "rad" (radian). */
+        /** The canonical symbol for radian: "rad". */
         internal val UNIT = Unit("rad", 1)
     }
 }

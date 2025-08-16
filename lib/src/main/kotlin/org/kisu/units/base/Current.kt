@@ -20,14 +20,28 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Current internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Current>(magnitude, expression, ::Current) {
+class Current internal constructor(magnitude: BigDecimal, expression: Ampere) :
+    Measure<Ampere, Current>(magnitude, expression, ::Current) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude,Ampere(prefix))
+}
+
+/**
+ * Represents the SI base unit of **electric current**.
+ *
+ * The ampere (A) is the standard unit for measuring electric current.
+ */
+class Ampere private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Ampere>(prefix, overflow, unit, ::Ampere) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for electric current: "A" (ampere). */
+        /** The canonical SI symbol for electric current: "A". */
         internal val UNIT = Unit("A", 1)
     }
 }

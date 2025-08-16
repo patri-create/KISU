@@ -17,17 +17,36 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Byte private constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Byte>(magnitude, expression, ::Byte) {
+class Bytes private constructor(magnitude: BigDecimal, expression: Byte) :
+    Measure<Byte, Bytes>(magnitude, expression, ::Bytes) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Byte(prefix))
 
     companion object {
         /** The symbol for byte: "B". */
         internal val UNIT = Unit("B", 1)
 
-        operator fun invoke(magnitude: BigDecimal, prefix: Metric = Metric.BASE): Byte =
-            Byte(magnitude, prefix)
+        operator fun invoke(magnitude: BigDecimal, prefix: Metric = Metric.BASE): Bytes =
+            Bytes(magnitude, prefix)
+    }
+}
+
+/**
+ * Represents the unit of information: **byte** (B).
+ *
+ * One byte is equal to 8 bits.
+ */
+class Byte private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Byte>(prefix, overflow, unit, ::Byte) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+
+    companion object {
+        /** The canonical symbol for byte: "B". */
+        internal val UNIT = Unit("B", 1)
     }
 }

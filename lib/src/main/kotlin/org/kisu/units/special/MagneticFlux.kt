@@ -19,14 +19,32 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class MagneticFlux internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, MagneticFlux>(magnitude, expression, ::MagneticFlux) {
+class MagneticFlux internal constructor(magnitude: BigDecimal, expression: Weber) :
+    Measure<Weber, MagneticFlux>(magnitude, expression, ::MagneticFlux) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Weber(prefix))
+}
+
+/**
+ * Represents the SI derived unit of magnetic flux: **weber** (Wb).
+ *
+ * One weber is the magnetic flux that, linking a circuit of one turn,
+ * produces an electromotive force of one volt if it is reduced to zero
+ * at a uniform rate in one second.
+ *
+ * SI definition: `Wb = m²·kg·s⁻²·A⁻¹`.
+ */
+class Weber private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Weber>(prefix, overflow, unit, ::Weber) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for magnetic flux: "Wb" (weber). */
+        /** The canonical symbol for weber: "Wb". */
         internal val UNIT = Unit("Wb", 1)
     }
 }

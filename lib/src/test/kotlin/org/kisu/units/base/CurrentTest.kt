@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.amperes
-import org.kisu.units.representation.Scalar
 
 class CurrentTest : StringSpec({
     "creates a Current" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().amperes.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = Current.UNIT)
-                symbol shouldBe Current.UNIT.toString()
+                expression shouldBe Ampere(magnitude.builder().metric)
+                symbol shouldBe Ampere.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class CurrentTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.amperes.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = Current.UNIT)
-                symbol shouldBe Current.UNIT.toString()
+                expression shouldBe Ampere()
+                symbol shouldBe Ampere.UNIT.toString()
             }
         }
     }

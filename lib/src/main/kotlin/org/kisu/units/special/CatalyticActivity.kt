@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class CatalyticActivity internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, CatalyticActivity>(magnitude, expression, ::CatalyticActivity) {
+class CatalyticActivity internal constructor(magnitude: BigDecimal, expression: Katal) :
+    Measure<Katal, CatalyticActivity>(magnitude, expression, ::CatalyticActivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Katal(prefix))
+}
+
+/**
+ * Represents the SI derived unit of catalytic activity: **katal** (kat).
+ *
+ * One katal is equal to one mole per second.
+ *
+ * SI definition: `kat = mol·s⁻¹`.
+ */
+class Katal private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Katal>(prefix, overflow, unit, ::Katal) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for catalytic activity: "kat" (katal). */
+        /** The canonical symbol for katal: "kat". */
         internal val UNIT = Unit("kat", 1)
     }
 }

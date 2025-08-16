@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class ElectricCharge internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, ElectricCharge>(magnitude, expression, ::ElectricCharge) {
+class ElectricCharge internal constructor(magnitude: BigDecimal, expression: Coulomb) :
+    Measure<Coulomb, ElectricCharge>(magnitude, expression, ::ElectricCharge) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Coulomb(prefix))
+}
+
+/**
+ * Represents the SI derived unit of electric charge: **coulomb** (C).
+ *
+ * One coulomb is equal to one ampere second.
+ *
+ * SI definition: `C = s·A`.
+ */
+class Coulomb private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Coulomb>(prefix, overflow, unit, ::Coulomb) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for electric charge: "C" (coulomb). */
+        /** The canonical symbol for coulomb: "C". */
         internal val UNIT = Unit("C", 1)
     }
 }

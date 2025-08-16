@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Illuminance internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Illuminance>(magnitude, expression, ::Illuminance) {
+class Illuminance internal constructor(magnitude: BigDecimal, expression: Lux) :
+    Measure<Lux, Illuminance>(magnitude, expression, ::Illuminance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Lux(prefix))
+}
+
+
+/**
+ * Represents the SI derived unit of illuminance: **lux** (lx).
+ *
+ * One lux is equal to one lumen per square metre.
+ *
+ * SI definition: `lx = m⁻²·cd·sr`.
+ */
+class Lux private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Lux>(prefix, overflow, unit, ::Lux) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for illuminance: "lx" (lux). */
+        /** The canonical symbol for lux: "lx". */
         internal val UNIT = Unit("lx", 1)
     }
 }

@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class SolidAngle internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, SolidAngle>(magnitude, expression, ::SolidAngle) {
+class SolidAngle internal constructor(magnitude: BigDecimal, expression: Steradian) :
+    Measure<Steradian, SolidAngle>(magnitude, expression, ::SolidAngle) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Steradian(prefix))
+}
+
+/**
+ * Represents the SI derived unit of solid angle: **steradian** (sr).
+ *
+ * One steradian is the solid angle with an area equal to the square of the radius
+ * on the surface of a sphere.
+ *
+ * SI definition: dimensionless (m²/m²).
+ */
+class Steradian private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Steradian>(prefix, overflow, unit, ::Steradian) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for solid angle: "sr" (steradian). */
+        /** The canonical symbol for steradian: "sr". */
         internal val UNIT = Unit("sr", 1)
     }
 }

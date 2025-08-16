@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class AbsorbedDose internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, AbsorbedDose>(magnitude, expression, ::AbsorbedDose) {
+class AbsorbedDose internal constructor(magnitude: BigDecimal, expression: Gray) :
+    Measure<Gray, AbsorbedDose>(magnitude, expression, ::AbsorbedDose) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Gray(prefix))
+}
+
+/**
+ * Represents the SI derived unit of absorbed dose: **gray** (Gy).
+ *
+ * One gray is the absorption of one joule of radiation energy per kilogram of matter.
+ *
+ * SI definition: `Gy = m²·s⁻²`.
+ */
+class Gray private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Gray>(prefix, overflow, unit, ::Gray) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for absorbed dose: "Gy" (gray). */
+        /** The canonical symbol for gray: "Gy". */
         internal val UNIT = Unit("Gy", 1)
     }
 }

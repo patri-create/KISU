@@ -17,14 +17,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Volume internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Volume>(magnitude, expression, ::Volume) {
+class Volume internal constructor(magnitude: BigDecimal, expression: CubicMetre) :
+    Measure<CubicMetre, Volume>(magnitude, expression, ::Volume) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, CubicMetre(prefix))
+}
+
+
+/**
+ * Represents the SI derived unit of volume: **cubic metre** (m³).
+ *
+ * One cubic metre is the volume of a cube with edges one metre long.
+ *
+ * SI definition: `m³`.
+ */
+class CubicMetre private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, CubicMetre>(prefix, overflow, unit, ::CubicMetre) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for volume: "m³" (cubic metre). */
+        /** The canonical symbol for cubic metre: "m³". */
         internal val UNIT = Unit("m³", 1)
     }
 }

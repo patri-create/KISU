@@ -14,14 +14,28 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Celsius internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Celsius>(magnitude, expression, ::Celsius) {
+class CelsiusTemperature internal constructor(magnitude: BigDecimal, expression: Celsius) :
+    Measure<Celsius, CelsiusTemperature>(magnitude, expression, ::CelsiusTemperature) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Celsius(prefix))
+}
+
+/**
+ * Represents the Celsius temperature scale: **degree Celsius** (°C).
+ *
+ * Defined as kelvin offset by 273.15.
+ */
+class Celsius private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Celsius>(prefix, overflow, unit, ::Celsius) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for Celsius temperature: "°C". */
+        /** The canonical symbol for degree Celsius: "°C". */
         internal val UNIT = Unit("°C", 1)
     }
 }

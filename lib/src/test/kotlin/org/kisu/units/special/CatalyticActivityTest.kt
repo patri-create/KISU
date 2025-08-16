@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.katals
-import org.kisu.units.representation.Scalar
 
 class CatalyticActivityTest : StringSpec({
     "creates a CatalyticActivity" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().katals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = CatalyticActivity.UNIT)
-                symbol shouldBe CatalyticActivity.UNIT.toString()
+                expression shouldBe Katal(magnitude.builder().metric)
+                symbol shouldBe Katal.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class CatalyticActivityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.katals.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = CatalyticActivity.UNIT)
-                symbol shouldBe CatalyticActivity.UNIT.toString()
+                expression shouldBe Katal()
+                symbol shouldBe Katal.UNIT.toString()
             }
         }
     }

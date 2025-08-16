@@ -20,14 +20,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Radioactivity internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Radioactivity>(magnitude, expression, ::Radioactivity) {
+class Radioactivity internal constructor(magnitude: BigDecimal, expression: Becquerel) :
+    Measure<Becquerel, Radioactivity>(magnitude, expression, ::Radioactivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Becquerel(prefix))
+}
+
+/**
+ * Represents the SI derived unit of radioactivity: **becquerel** (Bq).
+ *
+ * One becquerel is one radioactive decay per second.
+ *
+ * SI definition: `Bq = s⁻¹`.
+ */
+class Becquerel private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Becquerel>(prefix, overflow, unit, ::Becquerel) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for activity: "Bq" (becquerel). */
+        /** The canonical symbol for becquerel: "Bq". */
         internal val UNIT = Unit("Bq", 1)
     }
 }

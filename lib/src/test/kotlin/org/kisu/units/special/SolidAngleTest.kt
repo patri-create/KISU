@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.steradians
-import org.kisu.units.representation.Scalar
 
 class SolidAngleTest : StringSpec({
     "creates a SolidAngle" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().steradians.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = SolidAngle.UNIT)
-                symbol shouldBe SolidAngle.UNIT.toString()
+                expression shouldBe Steradian(magnitude.builder().metric)
+                symbol shouldBe Steradian.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class SolidAngleTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.steradians.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = SolidAngle.UNIT)
-                symbol shouldBe SolidAngle.UNIT.toString()
+                expression shouldBe Steradian()
+                symbol shouldBe Steradian.UNIT.toString()
             }
         }
     }

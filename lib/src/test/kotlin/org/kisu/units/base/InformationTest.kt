@@ -9,12 +9,10 @@ import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
-import org.kisu.prefixes.Binary
 import org.kisu.test.generators.BinaryBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.bits
 import org.kisu.units.exceptions.SubBitInformation
-import org.kisu.units.representation.Scalar
 import java.math.MathContext
 
 class InformationTest : StringSpec({
@@ -32,7 +30,7 @@ class InformationTest : StringSpec({
         checkAll(Arb.positiveLong(), BinaryBuilders.generator) { magnitude, builder ->
             magnitude.builder().bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().binary, unit = Information.UNIT)
+                expression shouldBe Bit(magnitude.builder().binary)
                 symbol shouldBe Information.UNIT.toString()
             }
         }
@@ -42,7 +40,7 @@ class InformationTest : StringSpec({
         checkAll(Arb.positiveLong()) { magnitude ->
             magnitude.bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Binary.BASE, unit = Information.UNIT)
+                expression shouldBe Bit()
                 symbol shouldBe Information.UNIT.toString()
             }
         }

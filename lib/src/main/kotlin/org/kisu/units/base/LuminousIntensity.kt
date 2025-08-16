@@ -21,14 +21,28 @@ import java.math.BigDecimal
  *
  * All values are stored with high precision using [BigDecimal], and instances are immutable.
  */
-class LuminousIntensity internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, LuminousIntensity>(magnitude, expression, ::LuminousIntensity) {
+class LuminousIntensity internal constructor(magnitude: BigDecimal, expression: Candela) :
+    Measure<Candela, LuminousIntensity>(magnitude, expression, ::LuminousIntensity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Candela(prefix))
+}
+
+/**
+ * Represents the SI base unit of **luminous intensity**.
+ *
+ * The candela (cd) is the standard unit for measuring luminous intensity.
+ */
+class Candela private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Candela>(prefix, overflow, unit, ::Candela) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for luminous intensity: "cd" (candela). */
+        /** The canonical SI symbol for luminous intensity: "cd". */
         internal val UNIT = Unit("cd", 1)
     }
 }
