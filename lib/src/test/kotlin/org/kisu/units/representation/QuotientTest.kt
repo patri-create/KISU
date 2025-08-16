@@ -8,9 +8,6 @@ import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.checkAll
 import org.kisu.KisuConfig
 import org.kisu.productSymbol
-import org.kisu.test.fakes.TestMeasure
-import org.kisu.test.generators.Binaries
-import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Units
 
 class QuotientTest : StringSpec({

@@ -99,7 +99,9 @@ class Quotient<A, B>(
         val denominators = denominator.factors
 
         val matcher: Matcher<Scalar<*, *>> = { other -> this.unit == other.unit }
-        val merger: Merger<Scalar<*, *>> = { other -> ((this as Scalar<Any, Any>) - (other as Scalar<Any, Any>)) as Scalar<Any, Any> }
+        val merger: Merger<Scalar<*, *>> = { other ->
+            ((this as Scalar<Any, Any>) - (other as Scalar<Any, Any>)) as Scalar<Any, Any>
+        }
 
         val intersected = numerators.intersect(denominators, matcher, merger)
 
@@ -131,7 +133,7 @@ class Quotient<A, B>(
      * Represents joule times micro in numerator per mole kelvin in denominator.
      */
     operator fun <C, SelfC> times(other: Scalar<C, SelfC>): Quotient<Product<A, SelfC>, B>
-        where C : Prefix<C>, C : System<C>, SelfC: Scalar<C, SelfC> =
+        where C : Prefix<C>, C : System<C>, SelfC : Scalar<C, SelfC> =
         Quotient(Product(numerator, other.self), denominator)
 
     /**
@@ -179,7 +181,7 @@ class Quotient<A, B>(
      * Represents joule per mole kelvin micro.
      */
     operator fun <C, SelfC> div(other: Scalar<C, SelfC>): Quotient<A, Product<B, SelfC>>
-        where C : Prefix<C>, C : System<C>, SelfC: Scalar<C, SelfC> =
+        where C : Prefix<C>, C : System<C>, SelfC : Scalar<C, SelfC> =
         Quotient(numerator, Product(denominator, other.self))
 
     /**

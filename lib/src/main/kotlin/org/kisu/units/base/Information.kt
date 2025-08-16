@@ -55,7 +55,7 @@ class Information private constructor(magnitude: BigDecimal, expression: Bit) :
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            expression:Bit = Bit(Binary.BASE),
+            expression: Bit = Bit(Binary.BASE),
         ): Information {
             if (expression.isCanonical && magnitude.hasFraction) {
                 throw SubBitInformation(magnitude, UNIT.toString())

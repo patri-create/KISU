@@ -46,4 +46,3 @@ class Farad private constructor(
         internal val UNIT = Unit("F", 1)
     }
 }
-

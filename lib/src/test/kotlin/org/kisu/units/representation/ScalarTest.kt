@@ -8,7 +8,6 @@ import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
 import org.kisu.productSymbol
-import org.kisu.test.fakes.TestMeasure
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Metrics

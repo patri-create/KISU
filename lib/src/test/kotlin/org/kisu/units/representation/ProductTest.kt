@@ -99,7 +99,7 @@ class ProductTest : StringSpec({
     "dividing a Product by a Product makes a Quotient" {
         checkAll(Units.distinct(4)) { (a, b, c, d) ->
             ((a * b) / (c * d)).symbol shouldBe
-                    "${listOf(a, b).productSymbol}/(${listOf(c, d).productSymbol})"
+                "${listOf(a, b).productSymbol}/(${listOf(c, d).productSymbol})"
         }
     }
 

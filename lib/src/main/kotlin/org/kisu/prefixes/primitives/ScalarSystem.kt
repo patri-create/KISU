@@ -25,7 +25,7 @@ import org.kisu.units.representation.Unit
  * @property unit the unit symbol to which all prefixes are applied (e.g., "m", "B", "J").
  */
 class ScalarSystem<A, Self>(private val prefix: A, private val unit: Unit, private val create: (A, Unit) -> Self) :
-    System<Self> where A : Prefix<A>, A : System<A>, Self: Scalar<A, Self> {
+    System<Self> where A : Prefix<A>, A : System<A>, Self : Scalar<A, Self> {
     override val canonical: Self by lazy {
         create(prefix.canonical, unit)
     }

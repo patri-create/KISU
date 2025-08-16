@@ -42,7 +42,7 @@ object Units : Generator<Scalar<Metric, *>> {
     val symbols = generator.map { unit -> unit.toString() }
 
     fun binaries(prefixMode: Mode = Mode.BASE): Arb<Scalar<Binary, *>> {
-        return when(prefixMode) {
+        return when (prefixMode) {
             Mode.BASE -> arbitrary { Bit(Binary.BASE) }
             Mode.RANDOM -> Binaries.generator.map { Bit(it) }
         }

@@ -26,7 +26,7 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
     Measure<Kilogram, Mass>(magnitude, expression, ::Mass) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude,Kilogram(prefix))
+        this(magnitude, Kilogram(prefix))
 }
 
 /**

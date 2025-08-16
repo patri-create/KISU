@@ -26,7 +26,6 @@ class Illuminance internal constructor(magnitude: BigDecimal, expression: Lux) :
         this(magnitude, Lux(prefix))
 }
 
-
 /**
  * Represents the SI derived unit of illuminance: **lux** (lx).
  *

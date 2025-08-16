@@ -29,7 +29,6 @@ import org.kisu.test.generators.nonZero
 import org.kisu.test.matchers.plusOrMinus
 import org.kisu.test.utils.magnitude
 import org.kisu.test.utils.optimalPrefixFrom
-import org.kisu.units.representation.Scalar
 import org.kisu.zero
 import java.math.BigDecimal
 import java.math.BigInteger

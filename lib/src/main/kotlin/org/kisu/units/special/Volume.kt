@@ -24,7 +24,6 @@ class Volume internal constructor(magnitude: BigDecimal, expression: CubicMetre)
         this(magnitude, CubicMetre(prefix))
 }
 
-
 /**
  * Represents the SI derived unit of volume: **cubic metre** (m³).
  *

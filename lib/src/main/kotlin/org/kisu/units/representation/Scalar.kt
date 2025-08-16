@@ -30,7 +30,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     private val create: (A, BigDecimal, Unit) -> Self,
 ) : Expression<Self>(),
     System<Self> by ScalarSystem(prefix, unit, { prefix, unit -> create(prefix, overflow, unit) })
-        where A : Prefix<A>, A : System<A> {
+    where A : Prefix<A>, A : System<A> {
 
     /**
      * Returns the multiplicative inverse of this scalar.
@@ -130,7 +130,8 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      *
      * Example: `km · ms` → a scalar product representing kilometre·millisecond.
      */
-    operator fun <B, SelfB> times(other: Scalar<B, SelfB>): Product<Self, SelfB> where B : Prefix<B>, B : System<B>, SelfB : Scalar<B, SelfB> =
+    operator fun <B, SelfB> times(other: Scalar<B, SelfB>): Product<Self, SelfB>
+        where B : Prefix<B>, B : System<B>, SelfB : Scalar<B, SelfB> =
         Product(self, other.self)
 
     /**
@@ -141,7 +142,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * Example: `km · (ms · Mg)` → kilometre·millisecond·megagram (nested structure preserved).
      */
     operator fun <B, C> times(other: Product<B, C>): Product<Self, Product<B, C>>
-            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
         Product(self, other)
 
     /**
@@ -152,7 +153,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * Example: `km · (ms / ng)` → (kilometre·millisecond) / nanogram
      */
     operator fun <B, C> times(other: Quotient<B, C>): Quotient<Product<Self, B>, C>
-            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
         Quotient(Product(self, other.component1()), other.component2())
 
     /**
@@ -162,7 +163,8 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      *
      * Example: `km / ms` → kilometre / millisecond
      */
-    operator fun <B, SelfB> div(other: Scalar<B, SelfB>): Quotient<Self, SelfB> where B : Prefix<B>, B : System<B>, SelfB : Scalar<B, SelfB> =
+    operator fun <B, SelfB> div(other: Scalar<B, SelfB>): Quotient<Self, SelfB>
+        where B : Prefix<B>, B : System<B>, SelfB : Scalar<B, SelfB> =
         Quotient(self, other.self)
 
     /**
@@ -173,7 +175,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * Example: `km / (ms · Mg)` → kilometre / (millisecond·megagram)
      */
     operator fun <B, C> div(other: Product<B, C>): Quotient<Self, Product<B, C>>
-            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
         Quotient(self, other)
 
     /**
@@ -185,6 +187,6 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * Example: `km / (ms / ng)` → (kilometre·nanogram) / millisecond
      */
     operator fun <B, C> div(other: Quotient<B, C>): Quotient<Product<Self, C>, B>
-            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
         Quotient(Product(self, other.component2()), other.component1())
 }

@@ -5,8 +5,6 @@ import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
-import org.kisu.test.fakes.TestMeasure
-import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Units
 
 class ExpressionTest : StringSpec({
@@ -35,7 +33,6 @@ class ExpressionTest : StringSpec({
             val a = unit
             val b = unit
             val c = unit
-
 
             (a == b).shouldBeTrue()
             (b == c).shouldBeTrue()

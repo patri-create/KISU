@@ -4,7 +4,6 @@ import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.CompositeSystem
 import org.kisu.prefixes.primitives.System
 import org.kisu.productSymbol
-import org.kisu.units.representation.Scalar
 import java.math.BigDecimal
 
 /**
@@ -90,7 +89,7 @@ class Product<A, B>(
      * Represents newton·mole·second.
      */
     operator fun <C, SelfC> times(other: Scalar<C, SelfC>): Product<Product<A, B>, SelfC>
-        where C : Prefix<C>, C : System<C>, SelfC: Scalar<C, SelfC> = Product(this, other.self)
+        where C : Prefix<C>, C : System<C>, SelfC : Scalar<C, SelfC> = Product(this, other.self)
 
     /**
      * Multiplies this product expression by another product, yielding a nested [Product].
@@ -128,7 +127,7 @@ class Product<A, B>(
      * Represents newton·mole per second.
      */
     operator fun <C, SelfC> div(other: Scalar<C, SelfC>): Quotient<Product<A, B>, SelfC>
-        where C : Prefix<C>, C : System<C>, SelfC: Scalar<C, SelfC> = Quotient(this, other.self)
+        where C : Prefix<C>, C : System<C>, SelfC : Scalar<C, SelfC> = Quotient(this, other.self)
 
     /**
      * Divides this product expression by another product expression, forming a [Quotient].

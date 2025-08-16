@@ -24,7 +24,7 @@ class Current internal constructor(magnitude: BigDecimal, expression: Ampere) :
     Measure<Ampere, Current>(magnitude, expression, ::Current) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude,Ampere(prefix))
+        this(magnitude, Ampere(prefix))
 }
 
 /**
