@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class LuminousFlux internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, LuminousFlux>(magnitude, expression, ::LuminousFlux) {
+class LuminousFlux internal constructor(magnitude: BigDecimal, expression: Lumen) :
+    Measure<Lumen, LuminousFlux>(magnitude, expression, ::LuminousFlux) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Lumen(prefix))
+}
+
+/**
+ * Represents the SI derived unit of luminous flux: **lumen** (lm).
+ *
+ * One lumen is the luminous flux emitted within a unit solid angle (one steradian)
+ * by a point source having a uniform intensity of one candela.
+ *
+ * SI definition: `lm = cd·sr`.
+ */
+class Lumen private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Lumen>(prefix, overflow, unit, ::Lumen) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for luminous flux: "lm" (lumen). */
+        /** The canonical symbol for lumen: "lm". */
         internal val UNIT = Unit("lm", 1)
     }
 }

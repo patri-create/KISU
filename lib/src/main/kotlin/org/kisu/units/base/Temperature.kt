@@ -23,14 +23,23 @@ import java.math.BigDecimal
  * The magnitude is stored using [BigDecimal] for accuracy. All instances are validated to ensure they
  * respect physical constraints and are immutable once created.
  */
-class Temperature internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Temperature>(magnitude, expression, ::Temperature) {
+class Temperature internal constructor(magnitude: BigDecimal, expression: Kelvin) :
+    Measure<Kelvin, Temperature>(magnitude, expression, ::Temperature) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Kelvin(prefix))
+}
+
+class Kelvin private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Kelvin>(prefix, overflow, unit, ::Kelvin) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for temperature: "K" (kelvin). */
+        /** The SI symbol for temperature: "K". */
         internal val UNIT = Unit("K", 1)
     }
 }

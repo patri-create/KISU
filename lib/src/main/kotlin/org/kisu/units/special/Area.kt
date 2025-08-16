@@ -17,14 +17,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Area internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Area>(magnitude, expression, ::Area) {
+class Area internal constructor(magnitude: BigDecimal, expression: SquareMetre) :
+    Measure<SquareMetre, Area>(magnitude, expression, ::Area) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, SquareMetre(prefix))
+}
+
+/**
+ * Represents the SI derived unit of area: **square metre** (m²).
+ *
+ * One square metre is the area of a square with sides one metre in length.
+ *
+ * SI definition: `m²`.
+ */
+class SquareMetre private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, SquareMetre>(prefix, overflow, unit, ::SquareMetre) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for area: "m²" (square metre). */
+        /** The canonical symbol for square metre: "m²". */
         internal val UNIT = Unit("m²", 1)
     }
 }

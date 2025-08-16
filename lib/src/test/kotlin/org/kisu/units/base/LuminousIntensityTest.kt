@@ -7,19 +7,17 @@ import io.kotest.property.Arb
 import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.candelas
-import org.kisu.units.representation.Scalar
 
 class LuminousIntensityTest : StringSpec({
     "creates LuminousIntensity" {
         checkAll(Arb.positiveLong(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().candelas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(magnitude.builder().metric, unit = LuminousIntensity.UNIT)
-                symbol shouldBe LuminousIntensity.UNIT.toString()
+                expression shouldBe Candela(magnitude.builder().metric)
+                symbol shouldBe Candela.UNIT.toString()
             }
         }
     }
@@ -28,8 +26,8 @@ class LuminousIntensityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.candelas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
-                expression shouldBe Scalar(Metric.BASE, unit = LuminousIntensity.UNIT)
-                symbol shouldBe LuminousIntensity.UNIT.toString()
+                expression shouldBe Candela()
+                symbol shouldBe Candela.UNIT.toString()
             }
         }
     }

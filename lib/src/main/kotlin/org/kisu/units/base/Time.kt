@@ -20,14 +20,28 @@ import java.math.BigDecimal
  * The magnitude is stored using [BigDecimal] to ensure high precision. Instances of this class are immutable
  * and validated to reflect physical reality.
  */
-class Time internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Time>(magnitude, expression, ::Time) {
+class Time internal constructor(magnitude: BigDecimal, expression: Second) :
+    Measure<Second, Time>(magnitude, expression, ::Time) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Second(prefix))
+}
+
+/**
+ * Represents the SI base unit of **time**.
+ *
+ * The second (s) is the standard unit for measuring duration.
+ */
+class Second private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Second>(prefix, overflow, unit, ::Second) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for time: "s" (second). */
+        /** The canonical SI symbol for time: "s". */
         internal val UNIT = Unit("s", 1)
     }
 }

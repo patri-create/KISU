@@ -20,14 +20,32 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class ElectricPotential internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, ElectricPotential>(magnitude, expression, ::ElectricPotential) {
+class ElectricPotential internal constructor(magnitude: BigDecimal, expression: Volt) :
+    Measure<Volt, ElectricPotential>(magnitude, expression, ::ElectricPotential) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Volt(prefix))
+}
+
+/**
+ * Represents the SI derived unit of electric potential: **volt** (V).
+ *
+ * One volt is the potential difference between two points of a conductor
+ * carrying a constant current of one ampere, when the power dissipated between
+ * these points is one watt.
+ *
+ * SI definition: `V = m²·kg·s⁻³·A⁻¹`.
+ */
+class Volt private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Volt>(prefix, overflow, unit, ::Volt) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for electric potential: "V" (volt). */
+        /** The canonical symbol for volt: "V". */
         internal val UNIT = Unit("V", 1)
     }
 }

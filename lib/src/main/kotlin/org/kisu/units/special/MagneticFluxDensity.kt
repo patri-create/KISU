@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class MagneticFluxDensity internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, MagneticFluxDensity>(magnitude, expression, ::MagneticFluxDensity) {
+class MagneticFluxDensity internal constructor(magnitude: BigDecimal, expression: Tesla) :
+    Measure<Tesla, MagneticFluxDensity>(magnitude, expression, ::MagneticFluxDensity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Tesla(prefix))
+}
+
+/**
+ * Represents the SI derived unit of magnetic flux density: **tesla** (T).
+ *
+ * One tesla is equal to one weber per square metre.
+ *
+ * SI definition: `T = m⁻²·kg·s⁻²·A⁻¹`.
+ */
+class Tesla private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Tesla>(prefix, overflow, unit, ::Tesla) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for magnetic flux density: "T" (tesla). */
+        /** The canonical symbol for tesla: "T". */
         internal val UNIT = Unit("T", 1)
     }
 }

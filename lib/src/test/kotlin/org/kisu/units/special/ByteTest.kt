@@ -5,18 +5,16 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.bytes
-import org.kisu.units.representation.Scalar
 
 class ByteTest : StringSpec({
     "creates a Byte" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().bytes.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = Byte.UNIT)
+                expression shouldBe Byte(magnitude.builder().metric)
                 symbol shouldBe Byte.UNIT.toString()
             }
         }
@@ -26,7 +24,7 @@ class ByteTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.bytes.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = Byte.UNIT)
+                expression shouldBe Byte()
                 symbol shouldBe Byte.UNIT.toString()
             }
         }

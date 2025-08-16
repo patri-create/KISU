@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.newtons
-import org.kisu.units.representation.Scalar
 
 class ForceTest : StringSpec({
     "creates a Force" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().newtons.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = Force.UNIT)
-                symbol shouldBe Force.UNIT.toString()
+                expression shouldBe Newton(magnitude.builder().metric)
+                symbol shouldBe Newton.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class ForceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.newtons.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = Force.UNIT)
-                symbol shouldBe Force.UNIT.toString()
+                expression shouldBe Newton()
+                symbol shouldBe Newton.UNIT.toString()
             }
         }
     }

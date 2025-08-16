@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Force internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Force>(magnitude, expression, ::Force) {
+class Force internal constructor(magnitude: BigDecimal, expression: Newton) :
+    Measure<Newton, Force>(magnitude, expression, ::Force) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Newton(prefix))
+}
+
+/**
+ * Represents the SI derived unit of force: **newton** (N).
+ *
+ * One newton is the force required to accelerate a mass of one kilogram
+ * at a rate of one metre per second squared.
+ *
+ * SI definition: `N = m·kg·s⁻²`.
+ */
+class Newton private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Newton>(prefix, overflow, unit, ::Newton) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for force: "N" (newton). */
+        /** The canonical symbol for newton: "N". */
         internal val UNIT = Unit("N", 1)
     }
 }

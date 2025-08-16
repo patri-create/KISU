@@ -24,19 +24,19 @@ import org.kisu.units.representation.Unit
  * @property prefix the base prefix instance (typically representing the current scalar).
  * @property unit the unit symbol to which all prefixes are applied (e.g., "m", "B", "J").
  */
-class ScalarSystem<A>(private val prefix: A, private val unit: Unit) :
-    System<Scalar<A>> where A : Prefix<A>, A : System<A> {
-    override val canonical: Scalar<A> by lazy {
-        Scalar(prefix.canonical, unit = unit)
+class ScalarSystem<A, Self>(private val prefix: A, private val unit: Unit, private val create: (A, Unit) -> Self) :
+    System<Self> where A : Prefix<A>, A : System<A>, Self : Scalar<A, Self> {
+    override val canonical: Self by lazy {
+        create(prefix.canonical, unit)
     }
-    override val all: List<Scalar<A>> by lazy {
-        prefix.all.map { prefix -> Scalar(prefix, unit = unit) }
+    override val all: List<Self> by lazy {
+        prefix.all.map { prefix -> create(prefix, unit) }
     }
 
-    override val smallest: Scalar<A> by lazy {
-        Scalar(prefix.smallest, unit = unit)
+    override val smallest: Self by lazy {
+        create(prefix.smallest, unit)
     }
-    override val largest: Scalar<A> by lazy {
-        Scalar(prefix.largest, unit = unit)
+    override val largest: Self by lazy {
+        create(prefix.largest, unit)
     }
 }

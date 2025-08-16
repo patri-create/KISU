@@ -12,10 +12,10 @@ import org.kisu.units.base.Temperature
 import org.kisu.units.base.Time
 import org.kisu.units.special.AbsorbedDose
 import org.kisu.units.special.Area
-import org.kisu.units.special.Byte
+import org.kisu.units.special.Bytes
 import org.kisu.units.special.Capacitance
 import org.kisu.units.special.CatalyticActivity
-import org.kisu.units.special.Celsius
+import org.kisu.units.special.CelsiusTemperature
 import org.kisu.units.special.Conductance
 import org.kisu.units.special.DoseEquivalent
 import org.kisu.units.special.ElectricCharge
@@ -55,10 +55,10 @@ val Number.becquerels get() = Radioactivity(bigDecimal)
 val Number.bits get() = Information(bigDecimal, Binary.BASE)
 
 /**
- * Creates a [Byte] from this [Number] representing digital information in bytes (B),
+ * Creates a [Bytes] from this [Number] representing digital information in bytes (B),
  * where one byte equals 8 bits.
  */
-val Number.bytes get() = Byte(bigDecimal)
+val Number.bytes get() = Bytes(bigDecimal)
 
 /**
  * Creates a [LuminousIntensity] from this [Number] representing luminous intensity in candelas (cd),
@@ -67,10 +67,10 @@ val Number.bytes get() = Byte(bigDecimal)
 val Number.candelas get() = LuminousIntensity(bigDecimal)
 
 /**
- * Creates a [Celsius] from this [Number] representing a temperature in degrees Celsius (°C),
+ * Creates a [CelsiusTemperature] from this [Number] representing a temperature in degrees Celsius (°C),
  * which corresponds to Kelvin with an offset of 273.15.
  */
-val Number.celsius get() = Celsius(bigDecimal)
+val Number.celsius get() = CelsiusTemperature(bigDecimal)
 
 /**
  * Creates an [ElectricCharge] from this [Number] representing an electric charge in coulombs (C),

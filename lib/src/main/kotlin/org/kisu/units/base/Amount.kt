@@ -23,16 +23,13 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and preserve their precision using [BigDecimal].
  */
-class Amount internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Amount>(magnitude, expression, ::Amount) {
+class Amount internal constructor(magnitude: BigDecimal, expression: Mol) :
+    Measure<Mol, Amount>(magnitude, expression, ::Amount) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Mol(prefix))
 
     companion object {
-        /** The SI symbol for amount of substance: "mol". */
-        internal val UNIT = Unit("mol", 1)
-
         /**
          * Avogadro's number — the number of entities in one mole:
          * 6.02214076 × 10²³ entities per mole.
@@ -40,5 +37,19 @@ class Amount internal constructor(magnitude: BigDecimal, expression: Scalar<Metr
          * This is a fundamental physical constant.
          */
         val AVOGADROS_NUMBER: BigDecimal = BigDecimal("6.02214076e23")
+    }
+}
+
+class Mol private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit,
+) : Scalar<Metric, Mol>(prefix, overflow, unit, ::Mol) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+
+    companion object {
+        /** The SI symbol for amount of substance: "mol". */
+        internal val UNIT = Unit("mol", 1)
     }
 }

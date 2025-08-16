@@ -9,19 +9,18 @@ import io.kotest.property.checkAll
 import org.kisu.one
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Metrics
-import org.kisu.units.representation.Scalar
 
 class ScalarSystemTest : StringSpec({
 
     "retrieves base unit" {
         checkAll(Metrics.generator) { prefix ->
-            Scalar(prefix, unit = TestUnit.UNIT).canonical.factor.one.shouldBeTrue()
+            TestUnit(prefix).canonical.factor.one.shouldBeTrue()
         }
     }
 
     "retrieves all prefixes for a system" {
         checkAll(Metrics.generator) { prefix ->
-            Scalar(prefix, unit = TestUnit.UNIT).all
+            TestUnit(prefix).all
                 .map { scalar -> scalar.factor }
                 .shouldContainInOrder(prefix.all.map { prefix -> prefix.factor })
         }
@@ -29,20 +28,20 @@ class ScalarSystemTest : StringSpec({
 
     "all prefixes from a system are sorted by power" {
         checkAll(Metrics.generator) { prefix ->
-            Scalar(prefix, unit = TestUnit.UNIT).all.shouldBeSorted()
+            TestUnit(prefix).all.shouldBeSorted()
         }
     }
 
     "retrieves the smallest prefix" {
         checkAll(Metrics.generator) { prefix ->
-            val scalar = Scalar(prefix, unit = TestUnit.UNIT)
+            val scalar = TestUnit(prefix)
             scalar.smallest shouldBe scalar.all.first()
         }
     }
 
     "retrieves the largest prefix" {
         checkAll(Metrics.generator) { prefix ->
-            val scalar = Scalar(prefix, unit = TestUnit.UNIT)
+            val scalar = TestUnit(prefix)
             scalar.largest shouldBe scalar.all.last()
         }
     }

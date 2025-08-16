@@ -65,15 +65,15 @@ class Product<A, B>(
      *
      * The computation is cached after the first access using [lazy].
      */
-    override val factors: Set<Scalar<*>> by lazy {
+    override val factors: Set<Scalar<*, *>> by lazy {
         left.factors.toList()
             .plus(right.factors)
             .filter { !it.zero }
             .groupBy { factor -> factor.symbol }
             .map { (_, group) ->
                 @Suppress("UNCHECKED_CAST")
-                val castedGroup = group as List<Scalar<Any>>
-                castedGroup.reduce { a, b -> a + b }
+                val castedGroup = group as List<Scalar<Any, Any>>
+                castedGroup.reduce { a, b -> (a + b) as Scalar<Any, Any> }
             }
             .filter { !it.zero }
             .toSet()
@@ -88,8 +88,8 @@ class Product<A, B>(
      * `(N · mol) · s = N · mol · s`
      * Represents newton·mole·second.
      */
-    operator fun <C> times(other: Scalar<C>): Product<Product<A, B>, Scalar<C>>
-        where C : Prefix<C>, C : System<C> = Product(this, other)
+    operator fun <C, SelfC> times(other: Scalar<C, SelfC>): Product<Product<A, B>, SelfC>
+        where C : Prefix<C>, C : System<C>, SelfC : Scalar<C, SelfC> = Product(this, other.self)
 
     /**
      * Multiplies this product expression by another product, yielding a nested [Product].
@@ -126,8 +126,8 @@ class Product<A, B>(
      * `(N · mol) / s = N · mol / s`
      * Represents newton·mole per second.
      */
-    operator fun <C> div(other: Scalar<C>): Quotient<Product<A, B>, Scalar<C>>
-        where C : Prefix<C>, C : System<C> = Quotient(this, other)
+    operator fun <C, SelfC> div(other: Scalar<C, SelfC>): Quotient<Product<A, B>, SelfC>
+        where C : Prefix<C>, C : System<C>, SelfC : Scalar<C, SelfC> = Quotient(this, other.self)
 
     /**
      * Divides this product expression by another product expression, forming a [Quotient].

@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.farads
-import org.kisu.units.representation.Scalar
 
 class CapacitanceTest : StringSpec({
     "creates a Capacitance" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().farads.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = Capacitance.UNIT)
-                symbol shouldBe Capacitance.UNIT.toString()
+                expression shouldBe Farad(magnitude.builder().metric)
+                symbol shouldBe Farad.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class CapacitanceTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.farads.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = Capacitance.UNIT)
-                symbol shouldBe Capacitance.UNIT.toString()
+                expression shouldBe Farad()
+                symbol shouldBe Farad.UNIT.toString()
             }
         }
     }

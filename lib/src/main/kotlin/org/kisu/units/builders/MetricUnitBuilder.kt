@@ -12,7 +12,7 @@ import org.kisu.units.special.AbsorbedDose
 import org.kisu.units.special.Area
 import org.kisu.units.special.Capacitance
 import org.kisu.units.special.CatalyticActivity
-import org.kisu.units.special.Celsius
+import org.kisu.units.special.CelsiusTemperature
 import org.kisu.units.special.Conductance
 import org.kisu.units.special.DoseEquivalent
 import org.kisu.units.special.ElectricCharge
@@ -77,7 +77,7 @@ val MetricUnitBuilder.becquerels: Radioactivity get() = Radioactivity(magnitude,
  * val size = 10.mega.bytes // 10 * 10^6 bytes
  * ```
  */
-val MetricUnitBuilder.bytes: org.kisu.units.special.Byte get() = org.kisu.units.special.Byte(magnitude, metric)
+val MetricUnitBuilder.bytes: org.kisu.units.special.Bytes get() = org.kisu.units.special.Bytes(magnitude, metric)
 
 /**
  * Creates a [LuminousIntensity] measure by applying the metric prefix scale to the magnitude.
@@ -90,14 +90,14 @@ val MetricUnitBuilder.bytes: org.kisu.units.special.Byte get() = org.kisu.units.
 val MetricUnitBuilder.candelas: LuminousIntensity get() = LuminousIntensity(magnitude, metric)
 
 /**
- * Creates a [Celsius] measure with the given magnitude in degrees Celsius.
+ * Creates a [CelsiusTemperature] measure with the given magnitude in degrees Celsius.
  *
  * Example usage:
  * ```
  * val temp = 37.degreesCelsius // 37 °C
  * ```
  */
-val MetricUnitBuilder.celsius: Celsius get() = Celsius(magnitude, metric)
+val MetricUnitBuilder.celsius: CelsiusTemperature get() = CelsiusTemperature(magnitude, metric)
 
 /**
  * Creates an [ElectricCharge] measure by applying the metric prefix scale to the magnitude.

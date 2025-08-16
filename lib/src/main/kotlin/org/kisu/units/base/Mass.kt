@@ -22,14 +22,28 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and validated at construction.
  */
-class Mass internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Mass>(magnitude, expression, ::Mass) {
+class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
+    Measure<Kilogram, Mass>(magnitude, expression, ::Mass) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Kilogram(prefix))
+}
+
+/**
+ * Represents the SI base unit of **mass**.
+ *
+ * The kilogram (kg) is the standard unit for measuring mass.
+ */
+class Kilogram private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Kilogram>(prefix, overflow, unit, ::Kilogram) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The symbol for mass: "g" (gram). */
-        internal val UNIT = Unit("g", 1)
+        /** The canonical SI symbol for mass: "kg". */
+        internal val UNIT = Unit("kg", 1)
     }
 }

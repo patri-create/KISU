@@ -20,14 +20,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Resistance internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Resistance>(magnitude, expression, ::Resistance) {
+class Resistance internal constructor(magnitude: BigDecimal, expression: Ohm) :
+    Measure<Ohm, Resistance>(magnitude, expression, ::Resistance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Ohm(prefix))
+}
+
+/**
+ * Represents the SI derived unit of electrical resistance: **ohm** (Ω).
+ *
+ * One ohm is equal to one volt per ampere.
+ *
+ * SI definition: `Ω = m²·kg·s⁻³·A⁻²`.
+ */
+class Ohm private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Ohm>(prefix, overflow, unit, ::Ohm) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for electrical resistance: "Ω" (ohm). */
+        /** The canonical symbol for ohm: "Ω". */
         internal val UNIT = Unit("Ω", 1)
     }
 }

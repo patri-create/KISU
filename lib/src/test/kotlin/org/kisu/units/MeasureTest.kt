@@ -20,6 +20,7 @@ import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
+import org.kisu.test.fakes.TestMeasure
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Magnitudes.composition
 import org.kisu.test.generators.Measures
@@ -28,7 +29,6 @@ import org.kisu.test.generators.nonZero
 import org.kisu.test.matchers.plusOrMinus
 import org.kisu.test.utils.magnitude
 import org.kisu.test.utils.optimalPrefixFrom
-import org.kisu.units.representation.Scalar
 import org.kisu.zero
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -42,7 +42,7 @@ class MeasureTest : StringSpec({
     val prefixes = MetricGenerator.generator
     val measures =
         Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
-            TestUnit(magnitude, prefix)
+            TestMeasure(magnitude, prefix)
         }
     val greaterThanZero: Arb<BigDecimal> =
         Arb.choice(
@@ -78,7 +78,7 @@ class MeasureTest : StringSpec({
 
     "renders literal when the magnitude is not zero" {
         checkAll(nonZeroMagnitudes, prefixes) { magnitude, prefix ->
-            TestUnit(
+            TestMeasure(
                 magnitude,
                 prefix
             ).representation shouldBe "${magnitude.stripTrailingZeros()} $prefix${TestUnit.UNIT}"
@@ -87,44 +87,44 @@ class MeasureTest : StringSpec({
 
     "renders literal when the magnitude is zero" {
         checkAll(prefixes) { prefix ->
-            TestUnit(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.UNIT}"
+            TestMeasure(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.UNIT}"
         }
     }
 
     "renders canonical" {
         checkAll(magnitudes, prefixes) { magnitude, prefix ->
-            TestUnit(magnitude, prefix).canonical.representation shouldBe
-                TestUnit(magnitude, prefix).to(Scalar(prefix.canonical, unit = TestUnit.UNIT)).representation
+            TestMeasure(magnitude, prefix).canonical.representation shouldBe
+                TestMeasure(magnitude, prefix).to(TestUnit(prefix.canonical)).representation
         }
     }
 
     "renders optimal correctly when magnitude is 0" {
         checkAll(prefixes) { prefix ->
-            val measure = TestUnit(BigDecimal.ZERO, prefix)
+            val measure = TestMeasure(BigDecimal.ZERO, prefix)
             measure.optimal shouldBe measure.canonical
         }
     }
 
     "renders optimal correctly when magnitude is beyond the largest prefix" {
         checkAll(greaterThanZero) { magnitude ->
-            val measure = TestUnit(magnitude, Metric.QUETTA)
+            val measure = TestMeasure(magnitude, Metric.QUETTA)
             measure.optimal.representation shouldBe measure.representation
         }
     }
 
     "renders optimal correctly when magnitude is beyond the smallest prefix" {
         checkAll(lesserThanOne) { magnitude ->
-            val measure = TestUnit(magnitude, Metric.QUECTO)
+            val measure = TestMeasure(magnitude, Metric.QUECTO)
             measure.optimal.representation shouldBe measure.representation
         }
     }
 
     "renders optimal correctly when magnitude is in range" {
         checkAll(inRange) { magnitude ->
-            val measure = TestUnit(magnitude, Metric.BASE)
+            val measure = TestMeasure(magnitude, Metric.BASE)
             val optimalPrefix = magnitude.optimalPrefixFrom(Metric.BASE)
             val correctedMagnitude = magnitude * Metric.BASE.to(optimalPrefix)
-            val compact = TestUnit(correctedMagnitude, optimalPrefix)
+            val compact = TestMeasure(correctedMagnitude, optimalPrefix)
 
             measure.optimal.representation shouldBe compact.representation
         }
@@ -138,9 +138,9 @@ class MeasureTest : StringSpec({
 
     "adds two of the same unit" {
         checkAll(Arb.bigDecimal(), Arb.bigDecimal()) { a, b ->
-            val left = TestUnit(a)
-            val right = TestUnit(b)
-            (left + right) shouldBe TestUnit(a + b)
+            val left = TestMeasure(a)
+            val right = TestMeasure(b)
+            (left + right) shouldBe TestMeasure(a + b)
         }
     }
 
@@ -158,7 +158,7 @@ class MeasureTest : StringSpec({
 
     "addition has zero identity" {
         checkAll(Measures.generator) { a ->
-            val zero = TestUnit(BigDecimal.ZERO)
+            val zero = TestMeasure(BigDecimal.ZERO)
 
             (a + zero) shouldBe a
         }
@@ -172,7 +172,7 @@ class MeasureTest : StringSpec({
 
     "subtraction of self is zero" {
         checkAll(Measures.generator) { a ->
-            (a - a) shouldBe TestUnit(BigDecimal.ZERO)
+            (a - a) shouldBe TestMeasure(BigDecimal.ZERO)
         }
     }
 
@@ -213,7 +213,7 @@ class MeasureTest : StringSpec({
 
     "multiplying by zero gives zero" {
         checkAll(Measures.generator) { a ->
-            (a * 0) shouldBe TestUnit(BigDecimal.ZERO)
+            (a * 0) shouldBe TestMeasure(BigDecimal.ZERO)
         }
     }
 
@@ -294,8 +294,8 @@ class MeasureTest : StringSpec({
         checkAll(
             MetricGenerator.generator
         ) { prefix ->
-            TestUnit(BigDecimal.ZERO, prefix).decomposition shouldContainExactly
-                listOf(TestUnit(BigDecimal.ZERO, prefix))
+            TestMeasure(BigDecimal.ZERO, prefix).decomposition shouldContainExactly
+                listOf(TestMeasure(BigDecimal.ZERO, prefix))
         }
     }
 
@@ -304,10 +304,10 @@ class MeasureTest : StringSpec({
             Metric.BASE.composition,
             MetricGenerator.generator
         ) { composition: List<Pair<BigInteger, Metric>>, prefix ->
-            val testUnit = TestUnit(composition.magnitude.divide(prefix.factor, MathContext.UNLIMITED), prefix)
-            val decomposition: List<TestUnit> = testUnit.decomposition
+            val testUnit = TestMeasure(composition.magnitude.divide(prefix.factor, MathContext.UNLIMITED), prefix)
+            val decomposition: List<TestMeasure> = testUnit.decomposition
             decomposition shouldContainAll composition.map { (magnitude, prefix) ->
-                TestUnit(
+                TestMeasure(
                     magnitude.bigDecimal,
                     prefix
                 )
@@ -317,9 +317,9 @@ class MeasureTest : StringSpec({
 
     "decomposes unit into magnitude, prefix and symbol" {
         checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
-            TestUnit(magnitude, prefix).should { (number, expression, unit) ->
+            TestMeasure(magnitude, prefix).should { (number, expression, unit) ->
                 number shouldBe magnitude
-                expression shouldBe Scalar(prefix, unit = TestUnit.UNIT)
+                expression shouldBe TestUnit(prefix)
                 unit shouldBe TestUnit.UNIT.toString()
             }
         }
@@ -340,8 +340,8 @@ class MeasureTest : StringSpec({
 
     "equality is transitive" {
         checkAll(measures, prefixes, prefixes) { x, first, second ->
-            val y = x.to(Scalar(first, unit = TestUnit.UNIT))
-            val z = x.to(Scalar(second, unit = TestUnit.UNIT))
+            val y = x.to(TestUnit(first))
+            val z = x.to(TestUnit(second))
 
             (x == y).shouldBeTrue()
             (y == z).shouldBeTrue()

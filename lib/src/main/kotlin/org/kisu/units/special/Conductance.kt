@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Conductance internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Conductance>(magnitude, expression, ::Conductance) {
+class Conductance internal constructor(magnitude: BigDecimal, expression: Siemens) :
+    Measure<Siemens, Conductance>(magnitude, expression, ::Conductance) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Siemens(prefix))
+}
+
+/**
+ * Represents the SI derived unit of electrical conductance: **siemens** (S).
+ *
+ * One siemens is equal to the reciprocal of one ohm.
+ *
+ * SI definition: `S = m⁻²·kg⁻¹·s³·A²`.
+ */
+class Siemens private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Siemens>(prefix, overflow, unit, ::Siemens) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for electrical conductance: "S" (siemens). */
+        /** The canonical symbol for siemens: "S". */
         internal val UNIT = Unit("S", 1)
     }
 }

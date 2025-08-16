@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.teslas
-import org.kisu.units.representation.Scalar
 
 class MagneticFluxDensityTest : StringSpec({
     "creates a MagneticFluxDensity" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().teslas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = MagneticFluxDensity.UNIT)
-                symbol shouldBe MagneticFluxDensity.UNIT.toString()
+                expression shouldBe Tesla(magnitude.builder().metric)
+                symbol shouldBe Tesla.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class MagneticFluxDensityTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.teslas.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = MagneticFluxDensity.UNIT)
-                symbol shouldBe MagneticFluxDensity.UNIT.toString()
+                expression shouldBe Tesla()
+                symbol shouldBe Tesla.UNIT.toString()
             }
         }
     }

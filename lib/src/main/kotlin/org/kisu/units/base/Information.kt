@@ -4,6 +4,7 @@ import org.kisu.hasFraction
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.isCanonical
 import org.kisu.units.Measure
+import org.kisu.units.base.Bit.Companion.UNIT
 import org.kisu.units.exceptions.NegativeInformation
 import org.kisu.units.exceptions.SubBitInformation
 import org.kisu.units.representation.Scalar
@@ -29,13 +30,10 @@ import java.math.BigDecimal
  *
  * Instances are immutable and safely validated at construction.
  */
-class Information private constructor(magnitude: BigDecimal, expression: Scalar<Binary>) :
-    Measure<Scalar<Binary>, Information>(magnitude, expression, Companion::invoke) {
+class Information private constructor(magnitude: BigDecimal, expression: Bit) :
+    Measure<Bit, Information>(magnitude, expression, Companion::invoke) {
 
     companion object {
-        /** The unit symbol for digital information: "bit". */
-        internal val UNIT = Unit("bit", 1)
-
         /**
          * Creates a new [Information] quantity with the given [magnitude] and [expression].
          *
@@ -57,7 +55,7 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
          */
         operator fun invoke(
             magnitude: BigDecimal,
-            expression: Scalar<Binary> = Scalar(Binary.BASE, unit = UNIT),
+            expression: Bit = Bit(Binary.BASE),
         ): Information {
             if (expression.isCanonical && magnitude.hasFraction) {
                 throw SubBitInformation(magnitude, UNIT.toString())
@@ -89,6 +87,33 @@ class Information private constructor(magnitude: BigDecimal, expression: Scalar<
         operator fun invoke(
             magnitude: BigDecimal,
             prefix: Binary = Binary.BASE,
-        ) = invoke(magnitude, Scalar(prefix, unit = UNIT))
+        ) = invoke(magnitude, Bit(prefix))
+    }
+}
+
+/**
+ * Represents the SI/IEC base unit of **information**.
+ *
+ * One bit (b) represents a single binary unit of information.
+ * Use [Bit.UNIT] for the canonical unit.
+ *
+ * You can also apply metric prefixes to represent kilobits (kb), megabits (Mb), etc.
+ */
+class Bit private constructor(
+    prefix: Binary,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Binary, Bit>(prefix, overflow, unit, ::Bit) {
+
+    /**
+     * Secondary constructor for convenience.
+     *
+     * @param prefix Metric prefix to apply (default: no prefix)
+     */
+    constructor(prefix: Binary = Binary.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+
+    companion object {
+        /** The unit symbol for digital information: "bit". */
+        internal val UNIT = Unit("bit", 1)
     }
 }

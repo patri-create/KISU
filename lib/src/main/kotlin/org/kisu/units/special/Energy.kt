@@ -19,14 +19,31 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Energy internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Energy>(magnitude, expression, ::Energy) {
+class Energy internal constructor(magnitude: BigDecimal, expression: Joule) :
+    Measure<Joule, Energy>(magnitude, expression, ::Energy) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Joule(prefix))
+}
+
+/**
+ * Represents the SI derived unit of energy: **joule** (J).
+ *
+ * One joule is the energy transferred when a force of one newton
+ * acts over a displacement of one metre.
+ *
+ * SI definition: `J = m²·kg·s⁻²`.
+ */
+class Joule private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Joule>(prefix, overflow, unit, ::Joule) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for energy: "J" (joule). */
+        /** The canonical symbol for joule: "J". */
         internal val UNIT = Unit("J", 1)
     }
 }

@@ -19,14 +19,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class DoseEquivalent internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, DoseEquivalent>(magnitude, expression, ::DoseEquivalent) {
+class DoseEquivalent internal constructor(magnitude: BigDecimal, expression: Sievert) :
+    Measure<Sievert, DoseEquivalent>(magnitude, expression, ::DoseEquivalent) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Sievert(prefix))
+}
+
+/**
+ * Represents the SI derived unit of dose equivalent: **sievert** (Sv).
+ *
+ * One sievert is equal to one joule per kilogram.
+ *
+ * SI definition: `Sv = m²·s⁻²`.
+ */
+class Sievert private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Sievert>(prefix, overflow, unit, ::Sievert) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for dose equivalent: "Sv" (sievert). */
+        /** The canonical symbol for sievert: "Sv". */
         internal val UNIT = Unit("Sv", 1)
     }
 }

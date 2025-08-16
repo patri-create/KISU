@@ -5,19 +5,17 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.webers
-import org.kisu.units.representation.Scalar
 
 class MagneticFluxTest : StringSpec({
     "creates a MagneticFlux" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().webers.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(magnitude.builder().metric, unit = MagneticFlux.UNIT)
-                symbol shouldBe MagneticFlux.UNIT.toString()
+                expression shouldBe Weber(magnitude.builder().metric)
+                symbol shouldBe Weber.UNIT.toString()
             }
         }
     }
@@ -26,8 +24,8 @@ class MagneticFluxTest : StringSpec({
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.webers.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
-                expression shouldBe Scalar(Metric.BASE, unit = MagneticFlux.UNIT)
-                symbol shouldBe MagneticFlux.UNIT.toString()
+                expression shouldBe Weber()
+                symbol shouldBe Weber.UNIT.toString()
             }
         }
     }

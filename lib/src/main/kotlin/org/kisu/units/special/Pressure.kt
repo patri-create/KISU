@@ -17,14 +17,30 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and use [BigDecimal] for precision.
  */
-class Pressure internal constructor(magnitude: BigDecimal, expression: Scalar<Metric>) :
-    Measure<Scalar<Metric>, Pressure>(magnitude, expression, ::Pressure) {
+class Pressure internal constructor(magnitude: BigDecimal, expression: Pascal) :
+    Measure<Pascal, Pressure>(magnitude, expression, ::Pressure) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Scalar(prefix, unit = UNIT))
+        this(magnitude, Pascal(prefix))
+}
+
+/**
+ * Represents the SI derived unit of pressure: **pascal** (Pa).
+ *
+ * One pascal is equal to one newton per square metre.
+ *
+ * SI definition: `Pa = m⁻¹·kg·s⁻²`.
+ */
+class Pascal private constructor(
+    prefix: Metric,
+    overflow: BigDecimal = BigDecimal.ONE,
+    unit: Unit
+) : Scalar<Metric, Pascal>(prefix, overflow, unit, ::Pascal) {
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
     companion object {
-        /** The SI symbol for pressure or stress: "Pa" (pascal). */
+        /** The canonical symbol for pascal: "Pa". */
         internal val UNIT = Unit("Pa", 1)
     }
 }
