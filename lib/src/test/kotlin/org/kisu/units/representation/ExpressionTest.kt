@@ -5,56 +5,48 @@ import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
-import org.kisu.test.fakes.TestUnit
-import org.kisu.test.generators.Binaries
+import org.kisu.test.fakes.TestMeasure
 import org.kisu.test.generators.Metrics
+import org.kisu.test.generators.Units
 
 class ExpressionTest : StringSpec({
     "the string representation is the symbol" {
-        checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
-            val expression = Quotient(
-                Scalar(metric, unit = TestUnit.UNIT),
-                Scalar(binary, unit = TestUnit.UNIT)
-            )
+        checkAll(Units.distinct(2)) { (a, b) ->
+            val expression = Quotient(a.self, b.self)
+
             expression.symbol shouldBe expression.toString()
         }
     }
 
     "equality is reflexive" {
-        checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, unit = TestUnit.UNIT)
-
-            (x == x).shouldBeTrue()
+        checkAll(Units.generator) { unit ->
+            (unit == unit).shouldBeTrue()
         }
     }
 
     "equality is symmetric" {
-        checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, unit = TestUnit.UNIT)
-            val y = Scalar(metric, unit = TestUnit.UNIT)
-
-            (x == y) shouldBe (y == x)
+        checkAll(Units.distinct(2)) { (a, b) ->
+            (a == b) shouldBe (b == a)
         }
     }
 
     "equality is transitive" {
-        checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, unit = TestUnit.UNIT)
-            val y = Scalar(metric, unit = TestUnit.UNIT)
-            val z = Scalar(metric, unit = TestUnit.UNIT)
+        checkAll(Units.generator) { unit ->
+            val a = unit
+            val b = unit
+            val c = unit
 
-            (x == y).shouldBeTrue()
-            (y == z).shouldBeTrue()
-            (x == z).shouldBeTrue()
+
+            (a == b).shouldBeTrue()
+            (b == c).shouldBeTrue()
+            (a == c).shouldBeTrue()
         }
     }
 
     @Suppress("EqualsNullCall")
     "equality is non-null" {
-        checkAll(Metrics.generator) { metric ->
-            val x = Scalar(metric, unit = TestUnit.UNIT)
-
-            (x.equals(null)).shouldBeFalse()
+        checkAll(Units.generator) { unit ->
+            (unit.equals(null)).shouldBeFalse()
         }
     }
 })

@@ -6,18 +6,18 @@ import io.kotest.property.arbitrary.bind
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.map
-import org.kisu.test.fakes.TestUnit
+import org.kisu.test.fakes.TestMeasure
 import org.kisu.test.generators.Measures.generator
 
-object Measures : Generator<TestUnit> {
-    override val generator: Arb<TestUnit> =
+object Measures : Generator<TestMeasure> {
+    override val generator: Arb<TestMeasure> =
         Arb.bind(Arb.bigDecimal().map { it }, Metrics.generator) { magnitude, prefix ->
-            TestUnit(magnitude, prefix)
+            TestMeasure(magnitude, prefix)
         }
 }
 
-val Arb<TestUnit>.nonZero: Arb<TestUnit>
+val Arb<TestMeasure>.nonZero: Arb<TestMeasure>
     get() = filter { measure -> !measure.zero }
 
-val Arb<TestUnit>.distinct: Arb<Pair<TestUnit, TestUnit>>
+val Arb<TestMeasure>.distinct: Arb<Pair<TestMeasure, TestMeasure>>
     get() = flatMap { a -> generator.filter { b -> !b.zero && b != a }.map { b -> a to b } }

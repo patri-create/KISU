@@ -59,7 +59,7 @@ class UnitTest : StringSpec({
     "cannot multiply two different units" {
         checkAll(Units.distinct(2)) { (left, right) ->
             shouldThrow<IllegalArgumentException> {
-                left * right
+                left.unit * right.unit
             }
         }
     }
@@ -77,7 +77,7 @@ class UnitTest : StringSpec({
     "cannot divide two different units" {
         checkAll(Units.distinct(2)) { (left, right) ->
             shouldThrow<IllegalArgumentException> {
-                left / right
+                left.unit / right.unit
             }
         }
     }

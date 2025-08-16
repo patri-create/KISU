@@ -31,7 +31,7 @@ class InformationTest : StringSpec({
             magnitude.builder().bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
                 expression shouldBe Bit(magnitude.builder().binary)
-                symbol shouldBe Information.UNIT.toString()
+                symbol shouldBe Bit.UNIT.toString()
             }
         }
     }
@@ -41,7 +41,7 @@ class InformationTest : StringSpec({
             magnitude.bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
                 expression shouldBe Bit()
-                symbol shouldBe Information.UNIT.toString()
+                symbol shouldBe Bit.UNIT.toString()
             }
         }
     }
