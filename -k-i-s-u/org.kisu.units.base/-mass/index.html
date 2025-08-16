@@ -108,30 +108,11 @@
   <div class="breadcrumbs"><a href="../../../index.html">KISU</a><span class="delimiter">/</span><a href="../index.html">org.kisu.units.base</a><span class="delimiter">/</span><span class="current">Mass</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Mass</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Mass</a> : <a href="../../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="../../org.kisu.units.representation/-scalar/index.html">Scalar</a><span class="token operator">&lt;</span><a href="../../org.kisu.prefixes/-metric/index.html">Metric</a><span class="token operator">&gt;</span><span class="token punctuation">, </span><a href="index.html">Mass</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents the physical quantity of <strong>mass</strong>, measured in grams (g).</p><p class="paragraph">Mass quantifies the amount of matter contained in a physical object. It is one of the most fundamental physical properties and a key SI base quantity.</p><p class="paragraph">Mass values must not be negative. A negative mass is not physically meaningful — it would imply the existence of “negative matter,” which is not observed in any real-world context. A mass of zero may be used to represent the absence of matter, but any valid amount of substance must have a non-negative mass.</p><p class="paragraph">This class models mass as a combination of a <span data-unresolved-link="org.kisu.units.base/Mass/magnitude/#/PointingToDeclaration/">magnitude</span> and an <span data-unresolved-link="org.kisu.units.base/Mass/expression/#/PointingToDeclaration/">expression</span>, allowing precise values such as milligrams (mg), kilograms (kg), or megagrams (Mg). All values are represented using <a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a> for high-precision calculations.</p><p class="paragraph">Instances of this class are immutable and validated at construction.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Mass</a> : <a href="../../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="../-kilogram/index.html">Kilogram</a><span class="token punctuation">, </span><a href="index.html">Mass</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents the physical quantity of <strong>mass</strong>, measured in grams (g).</p><p class="paragraph">Mass quantifies the amount of matter contained in a physical object. It is one of the most fundamental physical properties and a key SI base quantity.</p><p class="paragraph">Mass values must not be negative. A negative mass is not physically meaningful — it would imply the existence of “negative matter,” which is not observed in any real-world context. A mass of zero may be used to represent the absence of matter, but any valid amount of substance must have a non-negative mass.</p><p class="paragraph">This class models mass as a combination of a <span data-unresolved-link="org.kisu.units.base/Mass/magnitude/#/PointingToDeclaration/">magnitude</span> and an <span data-unresolved-link="org.kisu.units.base/Mass/expression/#/PointingToDeclaration/">expression</span>, allowing precise values such as milligrams (mg), kilograms (kg), or megagrams (Mg). All values are represented using <a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a> for high-precision calculations.</p><p class="paragraph">Instances of this class are immutable and validated at construction.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <div data-togglable="TYPE">
-        <h2 class="">Types</h2>
-        <div class="table"><a data-name="-1706606556%2FClasslikes%2F-1895836109" anchor-label="Companion" id="-1706606556%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
-          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1706606556%2FClasslikes%2F-1895836109"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
         <div class="table"><a data-name="-2114987330%2FProperties%2F-1895836109" anchor-label="canonical" id="-2114987330%2FProperties%2F-1895836109" data-filterable-set=":lib/main"></a>
@@ -253,7 +234,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="../../org.kisu.units/-measure/component2.html"><span class="token function">component2</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../org.kisu.units.representation/-scalar/index.html">Scalar</a><span class="token operator">&lt;</span><a href="../../org.kisu.prefixes/-metric/index.html">Metric</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the expression component of this measure.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><a href="../../org.kisu.units/-measure/component2.html"><span class="token function">component2</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-kilogram/index.html">Kilogram</a></div><div class="brief "><p class="paragraph">Returns the expression component of this measure.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -378,17 +359,17 @@
               </div>
             </div>
           </div>
-<a data-name="-1822981861%2FFunctions%2F-1895836109" anchor-label="to" id="-1822981861%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
+<a data-name="514574043%2FFunctions%2F-1895836109" anchor-label="to" id="514574043%2FFunctions%2F-1895836109" data-filterable-set=":lib/main"></a>
           <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="../../org.kisu.units.special/-volume/index.html#-1822981861%2FFunctions%2F-1895836109"><span><span>to</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1822981861%2FFunctions%2F-1895836109"></span>
+                  <div><a href="index.html#514574043%2FFunctions%2F-1895836109"><span><span>to</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="514574043%2FFunctions%2F-1895836109"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../org.kisu.units.special/-volume/index.html#-1822981861%2FFunctions%2F-1895836109"><span class="token function">to</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="../../org.kisu.units.representation/-scalar/index.html">Scalar</a><span class="token operator">&lt;</span><a href="../../org.kisu.prefixes/-metric/index.html">Metric</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Mass</a></div><div class="brief "><p class="paragraph">Rescales the current measurement to a different <span data-unresolved-link="org.kisu.units/Measure/expression/#/PointingToDeclaration/">expression</span>, adjusting the <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span> accordingly.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html#514574043%2FFunctions%2F-1895836109"><span class="token function">to</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><a href="../-kilogram/index.html">Kilogram</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Mass</a></div><div class="brief "><p class="paragraph">Rescales the current measurement to a different <span data-unresolved-link="org.kisu.units/Measure/expression/#/PointingToDeclaration/">expression</span>, adjusting the <span data-unresolved-link="org.kisu.units/Measure/magnitude/#/PointingToDeclaration/">magnitude</span> accordingly.</p></div></div></div>
                 </div>
               </div>
             </div>

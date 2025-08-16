@@ -19,7 +19,7 @@ $dokka.location:org.kisu.prefixes.primitives/Representation/Representation/#kotl
 $dokka.location:org.kisu.prefixes.primitives/Representation/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/symbol.html
 $dokka.location:org.kisu.prefixes.primitives/Representation/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-representation/to-string.html
 $dokka.location:org.kisu.prefixes.primitives/ScalarSystem///PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-scalar-system/index.html
-$dokka.location:org.kisu.prefixes.primitives/ScalarSystem/ScalarSystem/#TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])#org.kisu.units.representation.Unit/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-scalar-system/-scalar-system.html
+$dokka.location:org.kisu.prefixes.primitives/ScalarSystem/ScalarSystem/#TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])#org.kisu.units.representation.Unit#kotlin.Function2[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),org.kisu.units.representation.Unit,TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-scalar-system/-scalar-system.html
 $dokka.location:org.kisu.prefixes.primitives/ScalarSystem/all/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-scalar-system/all.html
 $dokka.location:org.kisu.prefixes.primitives/ScalarSystem/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-scalar-system/canonical.html
 $dokka.location:org.kisu.prefixes.primitives/ScalarSystem/largest/#/PointingToDeclaration/-k-i-s-u/org.kisu.prefixes.primitives/-scalar-system/largest.html
@@ -108,21 +108,39 @@ $dokka.location:org.kisu.units.base////PointingToDeclaration/-k-i-s-u/org.kisu.
 $dokka.location:org.kisu.units.base/Amount.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-amount/-companion/index.html
 $dokka.location:org.kisu.units.base/Amount.Companion/AVOGADROS_NUMBER/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-amount/-companion/-a-v-o-g-a-d-r-o-s_-n-u-m-b-e-r.html
 $dokka.location:org.kisu.units.base/Amount///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-amount/index.html
-$dokka.location:org.kisu.units.base/Current.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-current/-companion/index.html
+$dokka.location:org.kisu.units.base/Ampere.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-ampere/-companion/index.html
+$dokka.location:org.kisu.units.base/Ampere///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-ampere/index.html
+$dokka.location:org.kisu.units.base/Ampere/Ampere/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-ampere/-ampere.html
+$dokka.location:org.kisu.units.base/Bit.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-bit/-companion/index.html
+$dokka.location:org.kisu.units.base/Bit///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-bit/index.html
+$dokka.location:org.kisu.units.base/Bit/Bit/#org.kisu.prefixes.Binary/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-bit/-bit.html
+$dokka.location:org.kisu.units.base/Candela.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-candela/-companion/index.html
+$dokka.location:org.kisu.units.base/Candela///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-candela/index.html
+$dokka.location:org.kisu.units.base/Candela/Candela/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-candela/-candela.html
 $dokka.location:org.kisu.units.base/Current///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-current/index.html
 $dokka.location:org.kisu.units.base/Information.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/index.html
 $dokka.location:org.kisu.units.base/Information.Companion/invoke/#java.math.BigDecimal#org.kisu.prefixes.Binary/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/invoke.html
-$dokka.location:org.kisu.units.base/Information.Companion/invoke/#java.math.BigDecimal#org.kisu.units.representation.Scalar[org.kisu.prefixes.Binary]/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/invoke.html
+$dokka.location:org.kisu.units.base/Information.Companion/invoke/#java.math.BigDecimal#org.kisu.units.base.Bit/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/-companion/invoke.html
 $dokka.location:org.kisu.units.base/Information///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-information/index.html
-$dokka.location:org.kisu.units.base/Length.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-length/-companion/index.html
+$dokka.location:org.kisu.units.base/Kelvin.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kelvin/-companion/index.html
+$dokka.location:org.kisu.units.base/Kelvin///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kelvin/index.html
+$dokka.location:org.kisu.units.base/Kelvin/Kelvin/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kelvin/-kelvin.html
+$dokka.location:org.kisu.units.base/Kilogram.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-companion/index.html
+$dokka.location:org.kisu.units.base/Kilogram///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/index.html
+$dokka.location:org.kisu.units.base/Kilogram/Kilogram/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-kilogram.html
 $dokka.location:org.kisu.units.base/Length///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-length/index.html
-$dokka.location:org.kisu.units.base/LuminousIntensity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-luminous-intensity/-companion/index.html
 $dokka.location:org.kisu.units.base/LuminousIntensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-luminous-intensity/index.html
-$dokka.location:org.kisu.units.base/Mass.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-mass/-companion/index.html
 $dokka.location:org.kisu.units.base/Mass///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-mass/index.html
-$dokka.location:org.kisu.units.base/Temperature.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-temperature/-companion/index.html
+$dokka.location:org.kisu.units.base/Metre.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-metre/-companion/index.html
+$dokka.location:org.kisu.units.base/Metre///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-metre/index.html
+$dokka.location:org.kisu.units.base/Metre/Metre/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-metre/-metre.html
+$dokka.location:org.kisu.units.base/Mol.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-mol/-companion/index.html
+$dokka.location:org.kisu.units.base/Mol///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-mol/index.html
+$dokka.location:org.kisu.units.base/Mol/Mol/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-mol/-mol.html
+$dokka.location:org.kisu.units.base/Second.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second/-companion/index.html
+$dokka.location:org.kisu.units.base/Second///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second/index.html
+$dokka.location:org.kisu.units.base/Second/Second/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second/-second.html
 $dokka.location:org.kisu.units.base/Temperature///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-temperature/index.html
-$dokka.location:org.kisu.units.base/Time.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-time/-companion/index.html
 $dokka.location:org.kisu.units.base/Time///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-time/index.html
 $dokka.location:org.kisu.units.builders////PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/index.html
 $dokka.location:org.kisu.units.builders//amperes/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes.html
@@ -393,6 +411,7 @@ $dokka.location:org.kisu.units.representation/Exponent/representation/#/Pointing
 $dokka.location:org.kisu.units.representation/Exponent/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/to-string.html
 $dokka.location:org.kisu.units.representation/Exponent/zero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/zero.html
 $dokka.location:org.kisu.units.representation/Expression///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-expression/index.html
+$dokka.location:org.kisu.units.representation/Expression/Expression/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-expression/-expression.html
 $dokka.location:org.kisu.units.representation/Expression/equals/#kotlin.Any?/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-expression/equals.html
 $dokka.location:org.kisu.units.representation/Expression/factors/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-expression/factors.html
 $dokka.location:org.kisu.units.representation/Expression/hashCode/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-expression/hash-code.html
@@ -401,41 +420,41 @@ $dokka.location:org.kisu.units.representation/Product///PointingToDeclaration/-
 $dokka.location:org.kisu.units.representation/Product/Product/#TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])#TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/-product.html
 $dokka.location:org.kisu.units.representation/Product/div/#org.kisu.units.representation.Product[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/div.html
 $dokka.location:org.kisu.units.representation/Product/div/#org.kisu.units.representation.Quotient[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/div.html
-$dokka.location:org.kisu.units.representation/Product/div/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/div.html
+$dokka.location:org.kisu.units.representation/Product/div/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/div.html
 $dokka.location:org.kisu.units.representation/Product/factor/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/factor.html
 $dokka.location:org.kisu.units.representation/Product/factors/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/factors.html
 $dokka.location:org.kisu.units.representation/Product/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/symbol.html
 $dokka.location:org.kisu.units.representation/Product/times/#org.kisu.units.representation.Product[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/times.html
 $dokka.location:org.kisu.units.representation/Product/times/#org.kisu.units.representation.Quotient[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/times.html
-$dokka.location:org.kisu.units.representation/Product/times/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/times.html
+$dokka.location:org.kisu.units.representation/Product/times/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-product/times.html
 $dokka.location:org.kisu.units.representation/Quotient///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/index.html
 $dokka.location:org.kisu.units.representation/Quotient/Quotient/#TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])#TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/-quotient.html
 $dokka.location:org.kisu.units.representation/Quotient/component1/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/component1.html
 $dokka.location:org.kisu.units.representation/Quotient/component2/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/component2.html
 $dokka.location:org.kisu.units.representation/Quotient/div/#org.kisu.units.representation.Product[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/div.html
 $dokka.location:org.kisu.units.representation/Quotient/div/#org.kisu.units.representation.Quotient[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/div.html
-$dokka.location:org.kisu.units.representation/Quotient/div/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/div.html
+$dokka.location:org.kisu.units.representation/Quotient/div/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/div.html
 $dokka.location:org.kisu.units.representation/Quotient/factor/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/factor.html
 $dokka.location:org.kisu.units.representation/Quotient/factors/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/factors.html
 $dokka.location:org.kisu.units.representation/Quotient/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/symbol.html
 $dokka.location:org.kisu.units.representation/Quotient/times/#org.kisu.units.representation.Product[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/times.html
 $dokka.location:org.kisu.units.representation/Quotient/times/#org.kisu.units.representation.Quotient[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/times.html
-$dokka.location:org.kisu.units.representation/Quotient/times/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/times.html
+$dokka.location:org.kisu.units.representation/Quotient/times/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-quotient/times.html
 $dokka.location:org.kisu.units.representation/Scalar///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/index.html
-$dokka.location:org.kisu.units.representation/Scalar/Scalar/#TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])#java.math.BigDecimal#org.kisu.units.representation.Unit/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/-scalar.html
+$dokka.location:org.kisu.units.representation/Scalar/Scalar/#TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])#java.math.BigDecimal#org.kisu.units.representation.Unit#kotlin.Function3[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),java.math.BigDecimal,org.kisu.units.representation.Unit,TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/-scalar.html
 $dokka.location:org.kisu.units.representation/Scalar/div/#org.kisu.units.representation.Product[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/div.html
 $dokka.location:org.kisu.units.representation/Scalar/div/#org.kisu.units.representation.Quotient[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/div.html
-$dokka.location:org.kisu.units.representation/Scalar/div/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/div.html
+$dokka.location:org.kisu.units.representation/Scalar/div/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/div.html
 $dokka.location:org.kisu.units.representation/Scalar/factor/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/factor.html
 $dokka.location:org.kisu.units.representation/Scalar/factors/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/factors.html
 $dokka.location:org.kisu.units.representation/Scalar/inverted/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/inverted.html
-$dokka.location:org.kisu.units.representation/Scalar/minus/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/minus.html
-$dokka.location:org.kisu.units.representation/Scalar/plus/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/plus.html
+$dokka.location:org.kisu.units.representation/Scalar/minus/#TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/minus.html
+$dokka.location:org.kisu.units.representation/Scalar/plus/#TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/plus.html
 $dokka.location:org.kisu.units.representation/Scalar/positive/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/positive.html
 $dokka.location:org.kisu.units.representation/Scalar/symbol/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/symbol.html
 $dokka.location:org.kisu.units.representation/Scalar/times/#org.kisu.units.representation.Product[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/times.html
 $dokka.location:org.kisu.units.representation/Scalar/times/#org.kisu.units.representation.Quotient[TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Expression[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/times.html
-$dokka.location:org.kisu.units.representation/Scalar/times/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/times.html
+$dokka.location:org.kisu.units.representation/Scalar/times/#org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^], org.kisu.prefixes.primitives.System[^]]),TypeParam(bounds=[org.kisu.units.representation.Scalar[TypeParam(bounds=[org.kisu.prefixes.Prefix[^^], org.kisu.prefixes.primitives.System[^^]]),^]])]/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/times.html
 $dokka.location:org.kisu.units.representation/Scalar/zero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-scalar/zero.html
 $dokka.location:org.kisu.units.representation/Unit///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/index.html
 $dokka.location:org.kisu.units.representation/Unit/Unit/#kotlin.String#kotlin.Int/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/-unit.html
@@ -450,57 +469,108 @@ $dokka.location:org.kisu.units.representation/Unit/times/#org.kisu.units.represe
 $dokka.location:org.kisu.units.representation/Unit/toString/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/to-string.html
 $dokka.location:org.kisu.units.representation/Unit/zero/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-unit/zero.html
 $dokka.location:org.kisu.units.special////PointingToDeclaration/-k-i-s-u/org.kisu.units.special/index.html
-$dokka.location:org.kisu.units.special/AbsorbedDose.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-absorbed-dose/-companion/index.html
 $dokka.location:org.kisu.units.special/AbsorbedDose///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-absorbed-dose/index.html
-$dokka.location:org.kisu.units.special/Area.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-area/-companion/index.html
 $dokka.location:org.kisu.units.special/Area///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-area/index.html
+$dokka.location:org.kisu.units.special/Becquerel.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-becquerel/-companion/index.html
+$dokka.location:org.kisu.units.special/Becquerel///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-becquerel/index.html
+$dokka.location:org.kisu.units.special/Becquerel/Becquerel/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-becquerel/-becquerel.html
 $dokka.location:org.kisu.units.special/Byte.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-byte/-companion/index.html
-$dokka.location:org.kisu.units.special/Byte.Companion/invoke/#java.math.BigDecimal#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-byte/-companion/invoke.html
 $dokka.location:org.kisu.units.special/Byte///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-byte/index.html
-$dokka.location:org.kisu.units.special/Capacitance.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-capacitance/-companion/index.html
+$dokka.location:org.kisu.units.special/Byte/Byte/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-byte/-byte.html
+$dokka.location:org.kisu.units.special/Bytes.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-bytes/-companion/index.html
+$dokka.location:org.kisu.units.special/Bytes.Companion/invoke/#java.math.BigDecimal#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-bytes/-companion/invoke.html
+$dokka.location:org.kisu.units.special/Bytes///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-bytes/index.html
 $dokka.location:org.kisu.units.special/Capacitance///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-capacitance/index.html
-$dokka.location:org.kisu.units.special/CatalyticActivity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-catalytic-activity/-companion/index.html
 $dokka.location:org.kisu.units.special/CatalyticActivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-catalytic-activity/index.html
 $dokka.location:org.kisu.units.special/Celsius.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-celsius/-companion/index.html
 $dokka.location:org.kisu.units.special/Celsius///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-celsius/index.html
-$dokka.location:org.kisu.units.special/Conductance.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-conductance/-companion/index.html
+$dokka.location:org.kisu.units.special/Celsius/Celsius/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-celsius/-celsius.html
+$dokka.location:org.kisu.units.special/CelsiusTemperature///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-celsius-temperature/index.html
 $dokka.location:org.kisu.units.special/Conductance///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-conductance/index.html
-$dokka.location:org.kisu.units.special/DoseEquivalent.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-dose-equivalent/-companion/index.html
+$dokka.location:org.kisu.units.special/Coulomb.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-coulomb/-companion/index.html
+$dokka.location:org.kisu.units.special/Coulomb///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-coulomb/index.html
+$dokka.location:org.kisu.units.special/Coulomb/Coulomb/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-coulomb/-coulomb.html
+$dokka.location:org.kisu.units.special/CubicMetre.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-cubic-metre/-companion/index.html
+$dokka.location:org.kisu.units.special/CubicMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-cubic-metre/index.html
+$dokka.location:org.kisu.units.special/CubicMetre/CubicMetre/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-cubic-metre/-cubic-metre.html
 $dokka.location:org.kisu.units.special/DoseEquivalent///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-dose-equivalent/index.html
-$dokka.location:org.kisu.units.special/ElectricCharge.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-electric-charge/-companion/index.html
 $dokka.location:org.kisu.units.special/ElectricCharge///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-electric-charge/index.html
-$dokka.location:org.kisu.units.special/ElectricPotential.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-electric-potential/-companion/index.html
 $dokka.location:org.kisu.units.special/ElectricPotential///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-electric-potential/index.html
-$dokka.location:org.kisu.units.special/Energy.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-energy/-companion/index.html
 $dokka.location:org.kisu.units.special/Energy///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-energy/index.html
-$dokka.location:org.kisu.units.special/Force.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-force/-companion/index.html
+$dokka.location:org.kisu.units.special/Farad.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-farad/-companion/index.html
+$dokka.location:org.kisu.units.special/Farad///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-farad/index.html
+$dokka.location:org.kisu.units.special/Farad/Farad/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-farad/-farad.html
 $dokka.location:org.kisu.units.special/Force///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-force/index.html
-$dokka.location:org.kisu.units.special/Frequency.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-frequency/-companion/index.html
 $dokka.location:org.kisu.units.special/Frequency///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-frequency/index.html
-$dokka.location:org.kisu.units.special/Illuminance.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-illuminance/-companion/index.html
+$dokka.location:org.kisu.units.special/Gray.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-gray/-companion/index.html
+$dokka.location:org.kisu.units.special/Gray///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-gray/index.html
+$dokka.location:org.kisu.units.special/Gray/Gray/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-gray/-gray.html
+$dokka.location:org.kisu.units.special/Henry.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-henry/-companion/index.html
+$dokka.location:org.kisu.units.special/Henry///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-henry/index.html
+$dokka.location:org.kisu.units.special/Henry/Henry/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-henry/-henry.html
+$dokka.location:org.kisu.units.special/Hertz.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-hertz/-companion/index.html
+$dokka.location:org.kisu.units.special/Hertz///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-hertz/index.html
+$dokka.location:org.kisu.units.special/Hertz/Hertz/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-hertz/-hertz.html
 $dokka.location:org.kisu.units.special/Illuminance///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-illuminance/index.html
-$dokka.location:org.kisu.units.special/Inductance.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-inductance/-companion/index.html
 $dokka.location:org.kisu.units.special/Inductance///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-inductance/index.html
-$dokka.location:org.kisu.units.special/LuminousFlux.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-luminous-flux/-companion/index.html
+$dokka.location:org.kisu.units.special/Joule.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-joule/-companion/index.html
+$dokka.location:org.kisu.units.special/Joule///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-joule/index.html
+$dokka.location:org.kisu.units.special/Joule/Joule/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-joule/-joule.html
+$dokka.location:org.kisu.units.special/Katal.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-katal/-companion/index.html
+$dokka.location:org.kisu.units.special/Katal///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-katal/index.html
+$dokka.location:org.kisu.units.special/Katal/Katal/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-katal/-katal.html
+$dokka.location:org.kisu.units.special/Lumen.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-lumen/-companion/index.html
+$dokka.location:org.kisu.units.special/Lumen///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-lumen/index.html
+$dokka.location:org.kisu.units.special/Lumen/Lumen/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-lumen/-lumen.html
 $dokka.location:org.kisu.units.special/LuminousFlux///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-luminous-flux/index.html
-$dokka.location:org.kisu.units.special/MagneticFlux.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-magnetic-flux/-companion/index.html
+$dokka.location:org.kisu.units.special/Lux.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-lux/-companion/index.html
+$dokka.location:org.kisu.units.special/Lux///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-lux/index.html
+$dokka.location:org.kisu.units.special/Lux/Lux/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-lux/-lux.html
 $dokka.location:org.kisu.units.special/MagneticFlux///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-magnetic-flux/index.html
-$dokka.location:org.kisu.units.special/MagneticFluxDensity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-magnetic-flux-density/-companion/index.html
 $dokka.location:org.kisu.units.special/MagneticFluxDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-magnetic-flux-density/index.html
-$dokka.location:org.kisu.units.special/PlaneAngle.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-plane-angle/-companion/index.html
+$dokka.location:org.kisu.units.special/Newton.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-newton/-companion/index.html
+$dokka.location:org.kisu.units.special/Newton///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-newton/index.html
+$dokka.location:org.kisu.units.special/Newton/Newton/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-newton/-newton.html
+$dokka.location:org.kisu.units.special/Ohm.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-ohm/-companion/index.html
+$dokka.location:org.kisu.units.special/Ohm///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-ohm/index.html
+$dokka.location:org.kisu.units.special/Ohm/Ohm/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-ohm/-ohm.html
+$dokka.location:org.kisu.units.special/Pascal.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-pascal/-companion/index.html
+$dokka.location:org.kisu.units.special/Pascal///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-pascal/index.html
+$dokka.location:org.kisu.units.special/Pascal/Pascal/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-pascal/-pascal.html
 $dokka.location:org.kisu.units.special/PlaneAngle///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-plane-angle/index.html
-$dokka.location:org.kisu.units.special/Power.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-power/-companion/index.html
 $dokka.location:org.kisu.units.special/Power///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-power/index.html
-$dokka.location:org.kisu.units.special/Pressure.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-pressure/-companion/index.html
 $dokka.location:org.kisu.units.special/Pressure///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-pressure/index.html
-$dokka.location:org.kisu.units.special/Radioactivity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-radioactivity/-companion/index.html
+$dokka.location:org.kisu.units.special/Radian.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-radian/-companion/index.html
+$dokka.location:org.kisu.units.special/Radian///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-radian/index.html
+$dokka.location:org.kisu.units.special/Radian/Radian/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-radian/-radian.html
 $dokka.location:org.kisu.units.special/Radioactivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-radioactivity/index.html
-$dokka.location:org.kisu.units.special/Resistance.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-resistance/-companion/index.html
 $dokka.location:org.kisu.units.special/Resistance///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-resistance/index.html
-$dokka.location:org.kisu.units.special/SolidAngle.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-solid-angle/-companion/index.html
+$dokka.location:org.kisu.units.special/Siemens.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-siemens/-companion/index.html
+$dokka.location:org.kisu.units.special/Siemens///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-siemens/index.html
+$dokka.location:org.kisu.units.special/Siemens/Siemens/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-siemens/-siemens.html
+$dokka.location:org.kisu.units.special/Sievert.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-sievert/-companion/index.html
+$dokka.location:org.kisu.units.special/Sievert///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-sievert/index.html
+$dokka.location:org.kisu.units.special/Sievert/Sievert/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-sievert/-sievert.html
 $dokka.location:org.kisu.units.special/SolidAngle///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-solid-angle/index.html
-$dokka.location:org.kisu.units.special/Volume.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-volume/-companion/index.html
+$dokka.location:org.kisu.units.special/SquareMetre.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-square-metre/-companion/index.html
+$dokka.location:org.kisu.units.special/SquareMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-square-metre/index.html
+$dokka.location:org.kisu.units.special/SquareMetre/SquareMetre/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-square-metre/-square-metre.html
+$dokka.location:org.kisu.units.special/Steradian.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-steradian/-companion/index.html
+$dokka.location:org.kisu.units.special/Steradian///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-steradian/index.html
+$dokka.location:org.kisu.units.special/Steradian/Steradian/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-steradian/-steradian.html
+$dokka.location:org.kisu.units.special/Tesla.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-tesla/-companion/index.html
+$dokka.location:org.kisu.units.special/Tesla///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-tesla/index.html
+$dokka.location:org.kisu.units.special/Tesla/Tesla/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-tesla/-tesla.html
+$dokka.location:org.kisu.units.special/Volt.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-volt/-companion/index.html
+$dokka.location:org.kisu.units.special/Volt///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-volt/index.html
+$dokka.location:org.kisu.units.special/Volt/Volt/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-volt/-volt.html
 $dokka.location:org.kisu.units.special/Volume///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-volume/index.html
+$dokka.location:org.kisu.units.special/Watt.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-watt/-companion/index.html
+$dokka.location:org.kisu.units.special/Watt///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-watt/index.html
+$dokka.location:org.kisu.units.special/Watt/Watt/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-watt/-watt.html
+$dokka.location:org.kisu.units.special/Weber.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-weber/-companion/index.html
+$dokka.location:org.kisu.units.special/Weber///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-weber/index.html
+$dokka.location:org.kisu.units.special/Weber/Weber/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-weber/-weber.html
 $dokka.location:org.kisu.units////PointingToDeclaration/-k-i-s-u/org.kisu.units/index.html
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
@@ -533,8 +603,8 @@ $dokka.location:org.kisu//mergeRight/#TypeParam(bounds=[kotlin.Any?])#TypeParam(
 $dokka.location:org.kisu//negative/java.math.BigDecimal#/PointingToDeclaration/-k-i-s-u/org.kisu/negative.html
 $dokka.location:org.kisu//one/java.math.BigDecimal#/PointingToDeclaration/-k-i-s-u/org.kisu/one.html
 $dokka.location:org.kisu//orElse/TypeParam(bounds=[kotlin.Any?])?#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-k-i-s-u/org.kisu/or-else.html
-$dokka.location:org.kisu//productSymbol/kotlin.collections.Iterable[org.kisu.units.representation.Scalar[*]]#/PointingToDeclaration/-k-i-s-u/org.kisu/product-symbol.html
-$dokka.location:org.kisu//sortByUnit/kotlin.collections.Iterable[org.kisu.units.representation.Scalar[*]]#/PointingToDeclaration/-k-i-s-u/org.kisu/sort-by-unit.html
+$dokka.location:org.kisu//productSymbol/kotlin.collections.Iterable[org.kisu.units.representation.Scalar[*,*]]#/PointingToDeclaration/-k-i-s-u/org.kisu/product-symbol.html
+$dokka.location:org.kisu//sortByUnit/kotlin.collections.Iterable[org.kisu.units.representation.Scalar[*,*]]#/PointingToDeclaration/-k-i-s-u/org.kisu/sort-by-unit.html
 $dokka.location:org.kisu//zero/java.math.BigDecimal#/PointingToDeclaration/-k-i-s-u/org.kisu/zero.html
 $dokka.location:org.kisu//zero/java.math.BigInteger#/PointingToDeclaration/-k-i-s-u/org.kisu/zero.html
 $dokka.location:org.kisu/KisuConfig///PointingToDeclaration/-k-i-s-u/org.kisu/-kisu-config/index.html
