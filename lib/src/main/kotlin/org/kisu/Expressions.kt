@@ -13,7 +13,7 @@ import org.kisu.units.representation.Scalar
  * @receiver An iterable collection of [Scalar]s to be sorted.
  * @return A list of [Scalar]s ordered by unit.
  */
-val Iterable<Scalar<*>>.sortByUnit: List<Scalar<*>>
+val Iterable<Scalar<*, *>>.sortByUnit: List<Scalar<*, *>>
     get() = sortedBy { it.unit }
 
 /**
@@ -30,5 +30,5 @@ val Iterable<Scalar<*>>.sortByUnit: List<Scalar<*>>
  * @receiver An iterable collection of [Scalar]s to represent symbolically.
  * @return A dot-separated string representing the product of scalars.
  */
-val Iterable<Scalar<*>>.productSymbol
+val Iterable<Scalar<*, *>>.productSymbol
     get() = sortByUnit.joinToString("·", transform = Expression<*>::toString)

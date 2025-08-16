@@ -94,12 +94,12 @@ class Quotient<A, B>(
      * (resulting in `m·s⁻²`).
      */
     @Suppress("UNCHECKED_CAST")
-    override val factors: Set<Scalar<*>> by lazy {
+    override val factors: Set<Scalar<*, *>> by lazy {
         val numerators = numerator.factors
         val denominators = denominator.factors
 
-        val matcher: Matcher<Scalar<*>> = { other -> this.unit == other.unit }
-        val merger: Merger<Scalar<*>> = { other -> (this as Scalar<Any>) - (other as Scalar<Any>) }
+        val matcher: Matcher<Scalar<*, *>> = { other -> this.unit == other.unit }
+        val merger: Merger<Scalar<*, *>> = { other -> ((this as Scalar<Any, Any>) - (other as Scalar<Any, Any>)) as Scalar<Any, Any> }
 
         val intersected = numerators.intersect(denominators, matcher, merger)
 
@@ -130,9 +130,9 @@ class Quotient<A, B>(
      * `(J / mol·K) * μ = (J·μ) / (mol·K)`
      * Represents joule times micro in numerator per mole kelvin in denominator.
      */
-    operator fun <C> times(other: Scalar<C>): Quotient<Product<A, Scalar<C>>, B>
-        where C : Prefix<C>, C : System<C> =
-        Quotient(Product(numerator, other), denominator)
+    operator fun <C, SelfC> times(other: Scalar<C, SelfC>): Quotient<Product<A, SelfC>, B>
+        where C : Prefix<C>, C : System<C>, SelfC: Scalar<C, SelfC> =
+        Quotient(Product(numerator, other.self), denominator)
 
     /**
      * Multiplies this quotient by a product of two unit expressions.
@@ -178,9 +178,9 @@ class Quotient<A, B>(
      * `(J / mol·K) / μ = J / (mol · K · μ)`
      * Represents joule per mole kelvin micro.
      */
-    operator fun <C> div(other: Scalar<C>): Quotient<A, Product<B, Scalar<C>>>
-        where C : Prefix<C>, C : System<C> =
-        Quotient(numerator, Product(denominator, other))
+    operator fun <C, SelfC> div(other: Scalar<C, SelfC>): Quotient<A, Product<B, SelfC>>
+        where C : Prefix<C>, C : System<C>, SelfC: Scalar<C, SelfC> =
+        Quotient(numerator, Product(denominator, other.self))
 
     /**
      * Divides this quotient by a product of two unit expressions.

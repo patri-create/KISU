@@ -16,7 +16,7 @@ import org.kisu.prefixes.primitives.System
  *
  * @param A the type of prefix used in this expression.
  */
-sealed class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
+abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
     /**
      * The set of scalar components that make up this expression.
      *
@@ -28,7 +28,7 @@ sealed class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
      * The set is guaranteed to be non-redundant (i.e., no duplicate or equivalent scalars),
      * and its contents define the meaning of the expression in terms of base units.
      */
-    abstract val factors: Set<Scalar<*>>
+    abstract val factors: Set<Scalar<*, *>>
 
     /**
      * Checks structural equality based on the [symbol] property.

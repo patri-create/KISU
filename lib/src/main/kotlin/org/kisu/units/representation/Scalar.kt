@@ -23,18 +23,14 @@ import java.math.BigDecimal
  * @property prefix the prefix applied to the unit (e.g., kilo, micro).
  * @property unit the base unit symbol (e.g., "m" for meter, "s" for second).
  */
-class Scalar<A>(
+abstract class Scalar<A, Self : Scalar<A, Self>>(
     private val prefix: A,
     private val overflow: BigDecimal = BigDecimal.ONE,
-    internal val unit: Unit
-) : Expression<Scalar<A>>(), System<Scalar<A>> by ScalarSystem(prefix, unit)
-    where A : Prefix<A>, A : System<A> {
-
-    private constructor(pair: Pair<A, BigDecimal>, unit: Unit) : this(
-        pair.component1(),
-        pair.component2(),
-        unit
-    )
+    internal val unit: Unit,
+    private val create: (A, BigDecimal, Unit) -> Self,
+) : Expression<Self>(),
+    System<Self> by ScalarSystem(prefix, unit, { prefix, unit -> create(prefix, overflow, unit) })
+        where A : Prefix<A>, A : System<A> {
 
     /**
      * Returns the multiplicative inverse of this scalar.
@@ -44,7 +40,7 @@ class Scalar<A>(
      *
      * The result is computed lazily and cached for future access.
      */
-    val inverted: Scalar<A> by lazy { Scalar(prefix, overflow, unit.inverted) }
+    val inverted: Self by lazy { create(prefix, overflow, unit.inverted) }
 
     /**
      * Indicates whether this scalar's [unit] has a positive exponent.
@@ -69,6 +65,11 @@ class Scalar<A>(
         unit.zero
     }
 
+    internal val self: Self by lazy {
+        @Suppress("UNCHECKED_CAST")
+        this as Self
+    }
+
     /** The scaling factor of this scalar unit, delegated from the prefix. */
     override val factor: BigDecimal by lazy { prefix.factor * overflow }
 
@@ -87,7 +88,7 @@ class Scalar<A>(
      * This defines the scalar as an atomic unit in dimensional expressions—irreducible
      * and self-contained. It is used when building composite expressions from basic scalars.
      */
-    override val factors: Set<Scalar<*>> = sortedSetOf(this)
+    override val factors: Set<Scalar<*, *>> = sortedSetOf(this)
 
     /**
      * Combines this scalar with another by multiplying their prefixes and units.
@@ -100,8 +101,10 @@ class Scalar<A>(
      * @param other The scalar to combine with this one.
      * @return A new [Scalar] representing the combined magnitude and unit.
      */
-    operator fun plus(other: Scalar<A>): Scalar<A> =
-        Scalar(prefix * other.prefix, unit * other.unit)
+    operator fun plus(other: Self): Self {
+        val (prefix, overflow) = prefix * other.prefix
+        return create(prefix, this.overflow * overflow, unit * other.unit)
+    }
 
     /**
      * Reduces this scalar by dividing its prefix and unit by those of [other].
@@ -115,8 +118,10 @@ class Scalar<A>(
      * @param other The scalar to divide out of this one.
      * @return A new [Scalar] representing the relative magnitude and unit.
      */
-    operator fun minus(other: Scalar<A>): Scalar<A> =
-        Scalar(prefix / other.prefix, unit / other.unit)
+    operator fun minus(other: Self): Self {
+        val (prefix, overflow) = prefix / other.prefix
+        return create(prefix, this.overflow * overflow, unit / other.unit)
+    }
 
     /**
      * Multiplies this scalar unit with another scalar unit, returning a [Product] expression.
@@ -125,8 +130,8 @@ class Scalar<A>(
      *
      * Example: `km · ms` → a scalar product representing kilometre·millisecond.
      */
-    operator fun <B> times(other: Scalar<B>): Product<Scalar<A>, Scalar<B>> where B : Prefix<B>, B : System<B> =
-        Product(this, other)
+    operator fun <B, SelfB> times(other: Scalar<B, SelfB>): Product<Self, SelfB> where B : Prefix<B>, B : System<B>, SelfB : Scalar<B, SelfB> =
+        Product(self, other.self)
 
     /**
      * Multiplies this scalar unit with an existing [Product], producing a nested [Product] expression.
@@ -135,9 +140,9 @@ class Scalar<A>(
      *
      * Example: `km · (ms · Mg)` → kilometre·millisecond·megagram (nested structure preserved).
      */
-    operator fun <B, C> times(other: Product<B, C>): Product<Scalar<A>, Product<B, C>>
-        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
-        Product(this, other)
+    operator fun <B, C> times(other: Product<B, C>): Product<Self, Product<B, C>>
+            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        Product(self, other)
 
     /**
      * Multiplies this scalar unit with a [Quotient], producing a [Quotient] where the numerator is a [Product].
@@ -146,9 +151,9 @@ class Scalar<A>(
      *
      * Example: `km · (ms / ng)` → (kilometre·millisecond) / nanogram
      */
-    operator fun <B, C> times(other: Quotient<B, C>): Quotient<Product<Scalar<A>, B>, C>
-        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
-        Quotient(Product(this, other.component1()), other.component2())
+    operator fun <B, C> times(other: Quotient<B, C>): Quotient<Product<Self, B>, C>
+            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        Quotient(Product(self, other.component1()), other.component2())
 
     /**
      * Divides this scalar unit by another scalar unit, producing a [Quotient] expression.
@@ -157,8 +162,8 @@ class Scalar<A>(
      *
      * Example: `km / ms` → kilometre / millisecond
      */
-    operator fun <B> div(other: Scalar<B>): Quotient<Scalar<A>, Scalar<B>> where B : Prefix<B>, B : System<B> =
-        Quotient(this, other)
+    operator fun <B, SelfB> div(other: Scalar<B, SelfB>): Quotient<Self, SelfB> where B : Prefix<B>, B : System<B>, SelfB : Scalar<B, SelfB> =
+        Quotient(self, other.self)
 
     /**
      * Divides this scalar unit by a [Product], producing a [Quotient] with a product in the denominator.
@@ -167,9 +172,9 @@ class Scalar<A>(
      *
      * Example: `km / (ms · Mg)` → kilometre / (millisecond·megagram)
      */
-    operator fun <B, C> div(other: Product<B, C>): Quotient<Scalar<A>, Product<B, C>>
-        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
-        Quotient(this, other)
+    operator fun <B, C> div(other: Product<B, C>): Quotient<Self, Product<B, C>>
+            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        Quotient(self, other)
 
     /**
      * Divides this scalar unit by a [Quotient], producing a [Quotient] where the original denominator becomes the
@@ -179,7 +184,7 @@ class Scalar<A>(
      *
      * Example: `km / (ms / ng)` → (kilometre·nanogram) / millisecond
      */
-    operator fun <B, C> div(other: Quotient<B, C>): Quotient<Product<Scalar<A>, C>, B>
-        where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
-        Quotient(Product(this, other.component2()), other.component1())
+    operator fun <B, C> div(other: Quotient<B, C>): Quotient<Product<Self, C>, B>
+            where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
+        Quotient(Product(self, other.component2()), other.component1())
 }
