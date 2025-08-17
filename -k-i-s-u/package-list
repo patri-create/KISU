@@ -140,6 +140,21 @@ $dokka.location:org.kisu.units.base/Mol/Mol/#org.kisu.prefixes.Metric/PointingTo
 $dokka.location:org.kisu.units.base/Second.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second/-companion/index.html
 $dokka.location:org.kisu.units.base/Second///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second/index.html
 $dokka.location:org.kisu.units.base/Second/Second/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second/-second.html
+$dokka.location:org.kisu.units.base/SecondCubed.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-cubed/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondCubed///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-cubed/index.html
+$dokka.location:org.kisu.units.base/SecondCubed/SecondCubed/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-cubed/-second-cubed.html
+$dokka.location:org.kisu.units.base/SecondQuartic.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quartic/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondQuartic///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quartic/index.html
+$dokka.location:org.kisu.units.base/SecondQuartic/SecondQuartic/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quartic/-second-quartic.html
+$dokka.location:org.kisu.units.base/SecondQuintic.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quintic/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondQuintic///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quintic/index.html
+$dokka.location:org.kisu.units.base/SecondQuintic/SecondQuintic/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quintic/-second-quintic.html
+$dokka.location:org.kisu.units.base/SecondSextic.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sextic/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondSextic///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sextic/index.html
+$dokka.location:org.kisu.units.base/SecondSextic/SecondSextic/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sextic/-second-sextic.html
+$dokka.location:org.kisu.units.base/SecondSquared.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-squared/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondSquared///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-squared/index.html
+$dokka.location:org.kisu.units.base/SecondSquared/SecondSquared/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-squared/-second-squared.html
 $dokka.location:org.kisu.units.base/Temperature///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-temperature/index.html
 $dokka.location:org.kisu.units.base/Time///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-time/index.html
 $dokka.location:org.kisu.units.builders////PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/index.html
@@ -400,6 +415,48 @@ $dokka.location:org.kisu.units.exceptions/NegativeTime///PointingToDeclaration/
 $dokka.location:org.kisu.units.exceptions/NegativeTime/NegativeTime/#java.math.BigDecimal#org.kisu.prefixes.Metric#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-negative-time/-negative-time.html
 $dokka.location:org.kisu.units.exceptions/SubBitInformation///PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-sub-bit-information/index.html
 $dokka.location:org.kisu.units.exceptions/SubBitInformation/SubBitInformation/#java.math.BigDecimal#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-sub-bit-information/-sub-bit-information.html
+$dokka.location:org.kisu.units.kinematics.angular////PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Acceleration///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-acceleration/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Acceleration/Acceleration/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Radian,org.kisu.units.base.SecondSquared]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-acceleration/-acceleration.html
+$dokka.location:org.kisu.units.kinematics.angular/Crackle///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-crackle/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Jerk///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-jerk/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Jerk/Jerk/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Radian,org.kisu.units.base.SecondCubed]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-jerk/-jerk.html
+$dokka.location:org.kisu.units.kinematics.angular/Pop///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-pop/index.html
+$dokka.location:org.kisu.units.kinematics.angular/RadianPerSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-radian-per-second/index.html
+$dokka.location:org.kisu.units.kinematics.angular/RadianPerSecondCubed///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-radian-per-second-cubed/index.html
+$dokka.location:org.kisu.units.kinematics.angular/RadianPerSecondFifth///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-radian-per-second-fifth/index.html
+$dokka.location:org.kisu.units.kinematics.angular/RadianPerSecondFourth///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-radian-per-second-fourth/index.html
+$dokka.location:org.kisu.units.kinematics.angular/RadianPerSecondSixth///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-radian-per-second-sixth/index.html
+$dokka.location:org.kisu.units.kinematics.angular/RadianPerSecondSquared///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-radian-per-second-squared/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Snap///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-snap/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Snap/Snap/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Radian,org.kisu.units.base.SecondQuartic]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-snap/-snap.html
+$dokka.location:org.kisu.units.kinematics.angular/Velocity///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-velocity/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Velocity/Velocity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Radian,org.kisu.units.base.Second]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-velocity/-velocity.html
+$dokka.location:org.kisu.units.kinematics.linear////PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Acceleration///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-acceleration/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Acceleration/Acceleration/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Metre,org.kisu.units.base.SecondSquared]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-acceleration/-acceleration.html
+$dokka.location:org.kisu.units.kinematics.linear/Crackle///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-crackle/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Jerk///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-jerk/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Jerk/Jerk/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Metre,org.kisu.units.base.SecondCubed]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-jerk/-jerk.html
+$dokka.location:org.kisu.units.kinematics.linear/MetrePerSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-metre-per-second/index.html
+$dokka.location:org.kisu.units.kinematics.linear/MetrePerSecondCubed///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-metre-per-second-cubed/index.html
+$dokka.location:org.kisu.units.kinematics.linear/MetrePerSecondFifth///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-metre-per-second-fifth/index.html
+$dokka.location:org.kisu.units.kinematics.linear/MetrePerSecondFourth///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-metre-per-second-fourth/index.html
+$dokka.location:org.kisu.units.kinematics.linear/MetrePerSecondSixth///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-metre-per-second-sixth/index.html
+$dokka.location:org.kisu.units.kinematics.linear/MetrePerSecondSquared///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-metre-per-second-squared/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Pop///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-pop/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Snap///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-snap/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Snap/Snap/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Metre,org.kisu.units.base.SecondQuartic]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-snap/-snap.html
+$dokka.location:org.kisu.units.kinematics.linear/Speed///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-speed/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Speed/Speed/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Metre,org.kisu.units.base.Second]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-speed/-speed.html
+$dokka.location:org.kisu.units.kinematics////PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/index.html
+$dokka.location:org.kisu.units.kinematics/CubicMetrePerSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-cubic-metre-per-second/index.html
+$dokka.location:org.kisu.units.kinematics/FrequencyDrift///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-frequency-drift/index.html
+$dokka.location:org.kisu.units.kinematics/HertzPerSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-hertz-per-second/index.html
+$dokka.location:org.kisu.units.kinematics/KilogramMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-kilogram-metre/index.html
+$dokka.location:org.kisu.units.kinematics/KilogramMetreSecondThird///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-kilogram-metre-second-third/index.html
+$dokka.location:org.kisu.units.kinematics/VolumetricFlow///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-volumetric-flow/index.html
+$dokka.location:org.kisu.units.kinematics/Yank///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-yank/index.html
 $dokka.location:org.kisu.units.representation////PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/index.html
 $dokka.location:org.kisu.units.representation/Exponent///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/index.html
 $dokka.location:org.kisu.units.representation/Exponent/Exponent/#kotlin.Int/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/-exponent.html
@@ -619,5 +676,8 @@ org.kisu.units
 org.kisu.units.base
 org.kisu.units.builders
 org.kisu.units.exceptions
+org.kisu.units.kinematics
+org.kisu.units.kinematics.angular
+org.kisu.units.kinematics.linear
 org.kisu.units.representation
 org.kisu.units.special
