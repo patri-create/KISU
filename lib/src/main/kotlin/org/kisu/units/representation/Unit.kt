@@ -129,21 +129,6 @@ class Unit(
     }
 
     /**
-     * Checks equality based **only** on the [symbol] name, ignoring the exponent.
-     *
-     * This is intentional so units like "m²" and "m³" can be grouped or compared
-     * as the same base unit symbol.
-     */
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as Unit
-
-        return symbol == other.symbol
-    }
-
-    /**
      * Compares this [Unit] with another [Unit] for ordering.
      *
      * The comparison is based on the canonical order of unit symbols defined
@@ -163,15 +148,46 @@ class Unit(
         CANONICAL_ORDER.indexOf(this).compareTo(CANONICAL_ORDER.indexOf(other))
 
     /**
-     * Computes hash code based on the [symbol] only, ignoring the exponent.
-     */
-    override fun hashCode(): Int = symbol.hashCode()
-
-    /**
      * Returns the string representation of the unit, including superscript exponent
      * if applicable (e.g., `"m²"`).
      */
     override fun toString(): String = representation
+
+    /**
+     * Compares this [Unit] to another object for structural equality.
+     *
+     * Two [Unit] instances are considered equal if and only if:
+     * - They are of the same runtime type, and
+     * - Their [symbol] and [exponent] properties are equal.
+     *
+     * @param other the object to compare with.
+     * @return `true` if [other] is a [Unit] with the same [symbol] and [exponent], `false` otherwise.
+     */
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Unit
+
+        if (symbol != other.symbol) return false
+        if (exponent != other.exponent) return false
+
+        return true
+    }
+
+    /**
+     * Returns a hash code value for this [Unit].
+     *
+     * The hash code is computed from the [symbol] and [exponent] properties,
+     * ensuring consistency with [equals].
+     *
+     * @return an integer hash code for this [Unit].
+     */
+    override fun hashCode(): Int {
+        var result = symbol.hashCode()
+        result = 31 * result + exponent.hashCode()
+        return result
+    }
 }
 
 /**

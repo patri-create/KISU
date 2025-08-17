@@ -1,6 +1,7 @@
 package org.kisu.units.representation
 
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.common.DelicateKotest
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
@@ -9,12 +10,14 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.arbitrary
+import io.kotest.property.arbitrary.bind
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.int
 import io.kotest.property.checkAll
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Units
 
+@OptIn(DelicateKotest::class)
 class UnitTest : StringSpec({
     "unit is recognized as positive" {
         checkAll(Units.symbols, Exponents.range(1, Int.MAX_VALUE)) { symbol, exponent ->
@@ -82,20 +85,22 @@ class UnitTest : StringSpec({
         }
     }
 
-    "equality only depends on unit name, not exponent" {
-        checkAll(Units.symbols, Arb.int(), Arb.int()) { unit, a, b ->
-            val u1 = Unit(unit, a)
-            val u2 = Unit(unit, b)
-
-            u1 shouldBe u2
-            u1.hashCode() shouldBe u2.hashCode()
-        }
-    }
-
-    "inequality when units differ" {
+    "is unequal when units differ" {
         checkAll(Arb.int()) { exponent ->
             val u1 = Unit("kg", exponent)
             val u2 = Unit("g", exponent)
+
+            u1 shouldNotBe u2
+        }
+    }
+
+    "is unequal when exponents differ" {
+        checkAll(
+            Arb.bind(Arb.int(), Arb.int()) { a, b -> a to b }
+                .filter { (a, b) -> a != b }
+        ) { (a, b) ->
+            val u1 = Unit("g", a)
+            val u2 = Unit("g", b)
 
             u1 shouldNotBe u2
         }
