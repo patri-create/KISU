@@ -457,6 +457,19 @@ $dokka.location:org.kisu.units.kinematics/KilogramMetre///PointingToDeclaration/
 $dokka.location:org.kisu.units.kinematics/KilogramMetreSecondThird///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-kilogram-metre-second-third/index.html
 $dokka.location:org.kisu.units.kinematics/VolumetricFlow///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-volumetric-flow/index.html
 $dokka.location:org.kisu.units.kinematics/Yank///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-yank/index.html
+$dokka.location:org.kisu.units.photometric////PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/index.html
+$dokka.location:org.kisu.units.photometric/CandelaPerSquareMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-candela-per-square-metre/index.html
+$dokka.location:org.kisu.units.photometric/Efficacy///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-efficacy/index.html
+$dokka.location:org.kisu.units.photometric/Efficacy/Efficacy/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Lumen,org.kisu.units.special.Watt]/PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-efficacy/-efficacy.html
+$dokka.location:org.kisu.units.photometric/Exposure///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-exposure/index.html
+$dokka.location:org.kisu.units.photometric/Exposure/Exposure/#java.math.BigDecimal#org.kisu.units.representation.Product[org.kisu.units.special.Lux,org.kisu.units.base.Second]/PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-exposure/-exposure.html
+$dokka.location:org.kisu.units.photometric/LumenPerWatt///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-lumen-per-watt/index.html
+$dokka.location:org.kisu.units.photometric/LumenSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-lumen-second/index.html
+$dokka.location:org.kisu.units.photometric/Luminance///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-luminance/index.html
+$dokka.location:org.kisu.units.photometric/Luminance/Luminance/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Candela,org.kisu.units.special.SquareMetre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-luminance/-luminance.html
+$dokka.location:org.kisu.units.photometric/LuminousEnergy///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-luminous-energy/index.html
+$dokka.location:org.kisu.units.photometric/LuminousEnergy/LuminousEnergy/#java.math.BigDecimal#org.kisu.units.representation.Product[org.kisu.units.special.Lumen,org.kisu.units.base.Second]/PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-luminous-energy/-luminous-energy.html
+$dokka.location:org.kisu.units.photometric/LuxSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.photometric/-lux-second/index.html
 $dokka.location:org.kisu.units.representation////PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/index.html
 $dokka.location:org.kisu.units.representation/Exponent///PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/index.html
 $dokka.location:org.kisu.units.representation/Exponent/Exponent/#kotlin.Int/PointingToDeclaration/-k-i-s-u/org.kisu.units.representation/-exponent/-exponent.html
@@ -679,5 +692,6 @@ org.kisu.units.exceptions
 org.kisu.units.kinematics
 org.kisu.units.kinematics.angular
 org.kisu.units.kinematics.linear
+org.kisu.units.photometric
 org.kisu.units.representation
 org.kisu.units.special
