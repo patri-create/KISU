@@ -641,6 +641,27 @@ $dokka.location:org.kisu.units.special/Watt/Watt/#org.kisu.prefixes.Metric/Point
 $dokka.location:org.kisu.units.special/Weber.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-weber/-companion/index.html
 $dokka.location:org.kisu.units.special/Weber///PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-weber/index.html
 $dokka.location:org.kisu.units.special/Weber/Weber/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.special/-weber/-weber.html
+$dokka.location:org.kisu.units.thermodynamics////PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/index.html
+$dokka.location:org.kisu.units.thermodynamics/HeatCapacity///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-heat-capacity/index.html
+$dokka.location:org.kisu.units.thermodynamics/HeatCapacity/HeatCapacity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Joule,org.kisu.units.base.Kelvin]/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-heat-capacity/-heat-capacity.html
+$dokka.location:org.kisu.units.thermodynamics/JoulePerKelvin///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-joule-per-kelvin/index.html
+$dokka.location:org.kisu.units.thermodynamics/JoulePerKilogramKelvin///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-joule-per-kilogram-kelvin/index.html
+$dokka.location:org.kisu.units.thermodynamics/KelvinPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-kelvin-per-metre/index.html
+$dokka.location:org.kisu.units.thermodynamics/KelvinPerWatt///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-kelvin-per-watt/index.html
+$dokka.location:org.kisu.units.thermodynamics/ReciprocalKelvin.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-reciprocal-kelvin/-companion/index.html
+$dokka.location:org.kisu.units.thermodynamics/ReciprocalKelvin///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-reciprocal-kelvin/index.html
+$dokka.location:org.kisu.units.thermodynamics/ReciprocalKelvin/ReciprocalKelvin/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-reciprocal-kelvin/-reciprocal-kelvin.html
+$dokka.location:org.kisu.units.thermodynamics/SpecificHeatCapacity///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-specific-heat-capacity/index.html
+$dokka.location:org.kisu.units.thermodynamics/SpecificHeatCapacity/SpecificHeatCapacity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Joule,org.kisu.units.representation.Product[org.kisu.units.base.Kilogram,org.kisu.units.base.Kelvin]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-specific-heat-capacity/-specific-heat-capacity.html
+$dokka.location:org.kisu.units.thermodynamics/TemperatureGradient///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-temperature-gradient/index.html
+$dokka.location:org.kisu.units.thermodynamics/TemperatureGradient/TemperatureGradient/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Kelvin,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-temperature-gradient/-temperature-gradient.html
+$dokka.location:org.kisu.units.thermodynamics/ThermalConductivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-thermal-conductivity/index.html
+$dokka.location:org.kisu.units.thermodynamics/ThermalConductivity/ThermalConductivity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Watt,org.kisu.units.representation.Product[org.kisu.units.base.Metre,org.kisu.units.base.Kelvin]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-thermal-conductivity/-thermal-conductivity.html
+$dokka.location:org.kisu.units.thermodynamics/ThermalExpansionCoefficient///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-thermal-expansion-coefficient/index.html
+$dokka.location:org.kisu.units.thermodynamics/ThermalExpansionCoefficient/ThermalExpansionCoefficient/#java.math.BigDecimal#org.kisu.units.thermodynamics.ReciprocalKelvin/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-thermal-expansion-coefficient/-thermal-expansion-coefficient.html
+$dokka.location:org.kisu.units.thermodynamics/ThermalResistance///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-thermal-resistance/index.html
+$dokka.location:org.kisu.units.thermodynamics/ThermalResistance/ThermalResistance/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Kelvin,org.kisu.units.special.Watt]/PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-thermal-resistance/-thermal-resistance.html
+$dokka.location:org.kisu.units.thermodynamics/WattPerMetreKelvin///PointingToDeclaration/-k-i-s-u/org.kisu.units.thermodynamics/-watt-per-metre-kelvin/index.html
 $dokka.location:org.kisu.units////PointingToDeclaration/-k-i-s-u/org.kisu.units/index.html
 $dokka.location:org.kisu.units/Measure///PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/index.html
 $dokka.location:org.kisu.units/Measure/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units/-measure/canonical.html
@@ -695,3 +716,4 @@ org.kisu.units.kinematics.linear
 org.kisu.units.photometric
 org.kisu.units.representation
 org.kisu.units.special
+org.kisu.units.thermodynamics
