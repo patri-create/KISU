@@ -425,6 +425,66 @@ $dokka.location:org.kisu.units.chemistry/Molarity///PointingToDeclaration/-k-i-
 $dokka.location:org.kisu.units.chemistry/Molarity/Molarity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Mol,org.kisu.units.special.CubicMetre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-molarity/-molarity.html
 $dokka.location:org.kisu.units.chemistry/MolePerCubicMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-mole-per-cubic-metre/index.html
 $dokka.location:org.kisu.units.chemistry/SiemesSquareMetrePerMole///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-siemes-square-metre-per-mole/index.html
+$dokka.location:org.kisu.units.electromagnetic////PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/index.html
+$dokka.location:org.kisu.units.electromagnetic/AmperePerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-ampere-per-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/AmperePerSquareMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-ampere-per-square-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/AmpereRadian///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-ampere-radian/index.html
+$dokka.location:org.kisu.units.electromagnetic/CoulombPerCubicMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-coulomb-per-cubic-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/CoulombPerKilogram///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-coulomb-per-kilogram/index.html
+$dokka.location:org.kisu.units.electromagnetic/CoulombPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-coulomb-per-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/CoulombPerSquareMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-coulomb-per-square-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricChargeDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-charge-density/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricChargeDensity/ElectricChargeDensity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Coulomb,org.kisu.units.special.CubicMetre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-charge-density/-electric-charge-density.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricConductivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-conductivity/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricConductivity/ElectricConductivity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Siemens,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-conductivity/-electric-conductivity.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricCurrentDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-current-density/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricCurrentDensity/ElectricCurrentDensity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Ampere,org.kisu.units.special.SquareMetre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-current-density/-electric-current-density.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricDisplacementField///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-displacement-field/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricDisplacementField/ElectricDisplacementField/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Coulomb,org.kisu.units.special.SquareMetre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-displacement-field/-electric-displacement-field.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricFieldStrength///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-field-strength/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricFieldStrength/ElectricFieldStrength/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Volt,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-field-strength/-electric-field-strength.html
+$dokka.location:org.kisu.units.electromagnetic/ElectronMobility///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electron-mobility/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectronMobility/ElectronMobility/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.SquareMetre,org.kisu.units.representation.Product[org.kisu.units.special.Volt,org.kisu.units.base.Second]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electron-mobility/-electron-mobility.html
+$dokka.location:org.kisu.units.electromagnetic/Exposure///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-exposure/index.html
+$dokka.location:org.kisu.units.electromagnetic/Exposure/Exposure/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Coulomb,org.kisu.units.base.Kilogram]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-exposure/-exposure.html
+$dokka.location:org.kisu.units.electromagnetic/FaradPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-farad-per-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/HenryPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-henry-per-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/JoulePerTesla///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-joule-per-tesla/index.html
+$dokka.location:org.kisu.units.electromagnetic/LinearChargeDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-linear-charge-density/index.html
+$dokka.location:org.kisu.units.electromagnetic/LinearChargeDensity/LinearChargeDensity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Coulomb,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-linear-charge-density/-linear-charge-density.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticDipoleMoment///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-dipole-moment/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticDipoleMoment/MagneticDipoleMoment/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Joule,org.kisu.units.special.Tesla]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-dipole-moment/-magnetic-dipole-moment.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticMoment///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-moment/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticMoment/MagneticMoment/#java.math.BigDecimal#org.kisu.units.representation.Product[org.kisu.units.special.Weber,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-moment/-magnetic-moment.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticPermittivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-permittivity/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticPermittivity/MagneticPermittivity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Henry,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-permittivity/-magnetic-permittivity.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticReluctance///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-reluctance/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticReluctance/MagneticReluctance/#java.math.BigDecimal#org.kisu.units.electromagnetic.ReciprocalHenry/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-reluctance/-magnetic-reluctance.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticRigidity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-rigidity/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticRigidity/MagneticRigidity/#java.math.BigDecimal#org.kisu.units.representation.Product[org.kisu.units.special.Tesla,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-rigidity/-magnetic-rigidity.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticSusceptibility///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-susceptibility/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticSusceptibility/MagneticSusceptibility/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Metre,org.kisu.units.special.Henry]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-susceptibility/-magnetic-susceptibility.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticVectorPotential///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-vector-potential/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticVectorPotential/MagneticVectorPotential/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Weber,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-vector-potential/-magnetic-vector-potential.html
+$dokka.location:org.kisu.units.electromagnetic/Magnetization///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetization/index.html
+$dokka.location:org.kisu.units.electromagnetic/Magnetization/Magnetization/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Ampere,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetization/-magnetization.html
+$dokka.location:org.kisu.units.electromagnetic/MagnetomotiveForce///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetomotive-force/index.html
+$dokka.location:org.kisu.units.electromagnetic/MagnetomotiveForce/MagnetomotiveForce/#java.math.BigDecimal#org.kisu.units.representation.Product[org.kisu.units.base.Ampere,org.kisu.units.special.Radian]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetomotive-force/-magnetomotive-force.html
+$dokka.location:org.kisu.units.electromagnetic/MetrePerHenry///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-metre-per-henry/index.html
+$dokka.location:org.kisu.units.electromagnetic/OhmMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-ohm-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/Permittivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-permittivity/index.html
+$dokka.location:org.kisu.units.electromagnetic/Permittivity/Permittivity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.Farad,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-permittivity/-permittivity.html
+$dokka.location:org.kisu.units.electromagnetic/ReciprocalHenry.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-reciprocal-henry/-companion/index.html
+$dokka.location:org.kisu.units.electromagnetic/ReciprocalHenry///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-reciprocal-henry/index.html
+$dokka.location:org.kisu.units.electromagnetic/ReciprocalHenry/ReciprocalHenry/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-reciprocal-henry/-reciprocal-henry.html
+$dokka.location:org.kisu.units.electromagnetic/Resistivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-resistivity/index.html
+$dokka.location:org.kisu.units.electromagnetic/Resistivity/Resistivity/#java.math.BigDecimal#org.kisu.units.representation.Product[org.kisu.units.special.Ohm,org.kisu.units.base.Metre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-resistivity/-resistivity.html
+$dokka.location:org.kisu.units.electromagnetic/SiemensPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-siemens-per-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/SquareMetrePerVoltSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-square-metre-per-volt-second/index.html
+$dokka.location:org.kisu.units.electromagnetic/TeslaMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-tesla-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/VoltPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-volt-per-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/WeberMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-weber-metre/index.html
+$dokka.location:org.kisu.units.electromagnetic/WeberPerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-weber-per-metre/index.html
 $dokka.location:org.kisu.units.exceptions////PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/index.html
 $dokka.location:org.kisu.units.exceptions/NegativeAmountOfSubstance///PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-negative-amount-of-substance/index.html
 $dokka.location:org.kisu.units.exceptions/NegativeAmountOfSubstance/NegativeAmountOfSubstance/#java.math.BigDecimal#org.kisu.prefixes.Metric#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-negative-amount-of-substance/-negative-amount-of-substance.html
@@ -735,6 +795,7 @@ org.kisu.units
 org.kisu.units.base
 org.kisu.units.builders
 org.kisu.units.chemistry
+org.kisu.units.electromagnetic
 org.kisu.units.exceptions
 org.kisu.units.kinematics
 org.kisu.units.kinematics.angular
