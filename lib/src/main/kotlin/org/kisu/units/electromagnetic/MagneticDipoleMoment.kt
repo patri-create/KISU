@@ -1,0 +1,41 @@
+package org.kisu.units.electromagnetic
+
+import org.kisu.units.Measure
+import org.kisu.units.representation.Quotient
+import org.kisu.units.special.Joule
+import org.kisu.units.special.Tesla
+import java.math.BigDecimal
+
+/**
+ * Represents the SI unit **joule per tesla (J/T)**.
+ *
+ * This unit measures **magnetic dipole moment**, i.e., the torque a magnetic
+ * source experiences in a magnetic field per unit field strength.
+ * It is defined as the [Quotient] of [Joule] (energy) and [Tesla] (magnetic flux density).
+ *
+ * Example usages include:
+ * - Quantifying the magnetic dipole moment of magnets or current loops
+ * - Modeling interactions of magnetic moments with external magnetic fields
+ *
+ * @see MagneticDipoleMoment for the physical quantity represented by this unit.
+ */
+typealias JoulePerTesla = Quotient<Joule, Tesla>
+
+/**
+ * Represents the **magnetic dipole moment** (m), a vector quantity that measures
+ * the strength and orientation of a magnetic source.
+ *
+ * - **Dimension**: energy per magnetic flux density (J/T)
+ * - **SI Unit**: joule per tesla (J/T), which is equivalent to ampere·square metre (A·m²)
+ *
+ * The magnetic dipole moment describes how strongly an object (such as a current loop,
+ * magnet, or particle with spin) interacts with an external magnetic field.
+ * It is central to the study of **magnetostatics, electromagnetism, and quantum physics**.
+ *
+ * @param magnitude numerical value of the measure
+ * @param expression unit expression in joule per tesla (J/T)
+ */
+class MagneticDipoleMoment(
+    magnitude: BigDecimal,
+    expression: JoulePerTesla
+) : Measure<JoulePerTesla, MagneticDipoleMoment>(magnitude, expression, ::MagneticDipoleMoment)
