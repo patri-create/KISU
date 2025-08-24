@@ -1,7 +1,7 @@
 package org.kisu.units.chemistry
 
 import org.kisu.units.Measure
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
@@ -11,7 +11,7 @@ import java.math.BigDecimal
  *
  * This unit measures **molarity**, i.e., the number of moles of a substance
  * present in a unit volume of solution.
- * It is defined as the [Quotient] of [Mol] (amount of substance) divided by [CubicMetre] (volume).
+ * It is defined as the [Quotient] of [Mole] (amount of substance) divided by [CubicMetre] (volume).
  *
  * Example usages include:
  * - Expressing the concentration of a solution in chemistry and chemical engineering
@@ -20,7 +20,7 @@ import java.math.BigDecimal
  *
  * @see Molarity for the physical quantity represented by this unit.
  */
-typealias MolePerCubicMetre = Quotient<Mol, CubicMetre>
+typealias MolePerCubicMetre = Quotient<Mole, CubicMetre>
 
 /**
  * Represents the **molarity** (also called **molar concentration**) of a solution.

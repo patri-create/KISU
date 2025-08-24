@@ -1,7 +1,7 @@
 package org.kisu.units.chemistry
 
 import org.kisu.units.Measure
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
@@ -11,7 +11,7 @@ import java.math.BigDecimal
  *
  * This unit measures **molar volume**, i.e., the volume occupied by one mole
  * of a substance.
- * It is defined as the [Quotient] of [CubicMetre] (volume) divided by [Mol] (amount of substance).
+ * It is defined as the [Quotient] of [CubicMetre] (volume) divided by [Mole] (amount of substance).
  *
  * Example usages include:
  * - Calculating the volume of gases using the ideal gas law
@@ -20,7 +20,7 @@ import java.math.BigDecimal
  *
  * @see MolarVolume for the physical quantity represented by this unit.
  */
-typealias CubicMetrePerMole = Quotient<CubicMetre, Mol>
+typealias CubicMetrePerMole = Quotient<CubicMetre, Mole>
 
 /**
  * Represents the physical quantity of **molar volume**.

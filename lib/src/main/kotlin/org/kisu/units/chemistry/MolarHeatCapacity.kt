@@ -2,7 +2,7 @@ package org.kisu.units.chemistry
 
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
@@ -14,7 +14,7 @@ import java.math.BigDecimal
  * This unit measures **molar heat capacity**, i.e., the amount of heat required
  * to raise the temperature of one mole of a substance by one kelvin.
  * It is defined as the [Quotient] of [Joule] (energy) divided by the [Product] of
- * [Kelvin] (temperature) and [Mol] (amount of substance).
+ * [Kelvin] (temperature) and [Mole] (amount of substance).
  *
  * Example usages include:
  * - Determining the molar heat capacity of water (~75.3 J/(K·mol))
@@ -23,7 +23,7 @@ import java.math.BigDecimal
  *
  * @see MolarHeatCapacity for the physical quantity represented by this unit.
  */
-typealias JoulePerKelvinMole = Quotient<Joule, Product<Kelvin, Mol>>
+typealias JoulePerKelvinMole = Quotient<Joule, Product<Kelvin, Mole>>
 
 /**
  * Represents the **molar heat capacity** of a substance.

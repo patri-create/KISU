@@ -12,7 +12,7 @@ import org.kisu.units.base.Candela
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Metre
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Scalar
 import org.kisu.units.special.Becquerel
@@ -89,7 +89,7 @@ private val METRIC_UNITS: List<(Metric) -> Scalar<Metric, *>> = listOf(
     ::Second,
     ::Ampere,
     ::Kelvin,
-    ::Mol,
+    ::Mole,
     ::Candela,
     ::Radian,
     ::Steradian

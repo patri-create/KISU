@@ -23,11 +23,11 @@ import java.math.BigDecimal
  *
  * Instances of this class are immutable and preserve their precision using [BigDecimal].
  */
-class Amount internal constructor(magnitude: BigDecimal, expression: Mol) :
-    Measure<Mol, Amount>(magnitude, expression, ::Amount) {
+class Amount internal constructor(magnitude: BigDecimal, expression: Mole) :
+    Measure<Mole, Amount>(magnitude, expression, ::Amount) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Mol(prefix))
+        this(magnitude, Mole(prefix))
 
     companion object {
         /**
@@ -40,11 +40,11 @@ class Amount internal constructor(magnitude: BigDecimal, expression: Mol) :
     }
 }
 
-class Mol private constructor(
+class Mole private constructor(
     prefix: Metric,
     overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit,
-) : Scalar<Metric, Mol>(prefix, overflow, unit, ::Mol) {
+) : Scalar<Metric, Mole>(prefix, overflow, unit, ::Mole) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
