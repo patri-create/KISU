@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>org.kisu.units.mechanics</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../index.html">
+                    KISU
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+0.0.1-SNAPSHOT        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active=""
+                        data-filter=":lib/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":lib/main"
+                                       data-filter=":lib/main"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    KISU
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="KISU::org.kisu.units.mechanics////PointingToDeclaration//-1895836109">
+  <div class="breadcrumbs"><a href="../../index.html">KISU</a><span class="delimiter">/</span><span class="current">org.kisu.units.mechanics</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="231469925%2FClasslikes%2F-1895836109" anchor-label="AbsorbedDoseRate" id="231469925%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-absorbed-dose-rate/index.html"><span>Absorbed</span><wbr></wbr><span>Dose</span><wbr></wbr><span><span>Rate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="231469925%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-absorbed-dose-rate/index.html">AbsorbedDoseRate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-gray-per-second/index.html">GrayPerSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-gray-per-second/index.html">GrayPerSecond</a><span class="token punctuation">, </span><a href="-absorbed-dose-rate/index.html">AbsorbedDoseRate</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of absorbed dose rate expressed in <a href="-gray-per-second/index.html">GrayPerSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="110260056%2FClasslikes%2F-1895836109" anchor-label="Action" id="110260056%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-action/index.html"><span><span>Action</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="110260056%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-action/index.html">Action</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-joule-second/index.html">JouleSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-joule-second/index.html">JouleSecond</a><span class="token punctuation">, </span><a href="-action/index.html">Action</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of action expressed in <a href="-joule-second/index.html">JouleSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1438127910%2FClasslikes%2F-1895836109" anchor-label="AngularMomentum" id="-1438127910%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-angular-momentum/index.html"><span>Angular</span><wbr></wbr><span><span>Momentum</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1438127910%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-angular-momentum/index.html">AngularMomentum</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-newton-meter-second/index.html">NewtonMeterSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-newton-meter-second/index.html">NewtonMeterSecond</a><span class="token punctuation">, </span><a href="-angular-momentum/index.html">AngularMomentum</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of angular momentum expressed in <a href="-newton-meter-second/index.html">NewtonMeterSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1342915193%2FClasslikes%2F-1895836109" anchor-label="AreaDensity" id="1342915193%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-area-density/index.html"><span>Area</span><wbr></wbr><span><span>Density</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1342915193%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-area-density/index.html">AreaDensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-kilogram-per-square-metre/index.html">KilogramPerSquareMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-kilogram-per-square-metre/index.html">KilogramPerSquareMetre</a><span class="token punctuation">, </span><a href="-area-density/index.html">AreaDensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of area density expressed in <a href="-kilogram-per-square-metre/index.html">KilogramPerSquareMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1678088356%2FClasslikes%2F-1895836109" anchor-label="Compressibility" id="1678088356%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-compressibility/index.html"><span><span>Compressibility</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1678088356%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-compressibility/index.html">Compressibility</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-reciprocal-pascal/index.html">ReciprocalPascal</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-reciprocal-pascal/index.html">ReciprocalPascal</a><span class="token punctuation">, </span><a href="-compressibility/index.html">Compressibility</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of compressibility expressed in <a href="-reciprocal-pascal/index.html">ReciprocalPascal</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="395657124%2FClasslikes%2F-1895836109" anchor-label="CubicMetrePerKilogram" id="395657124%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cubic-metre-per-kilogram/index.html"><span>Cubic</span><wbr></wbr><span>Metre</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Kilogram</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="395657124%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-cubic-metre-per-kilogram/index.html">CubicMetrePerKilogram</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-cubic-metre/index.html">CubicMetre</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-specific-volume/index.html">SpecificVolume</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-529327284%2FClasslikes%2F-1895836109" anchor-label="Density" id="-529327284%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-density/index.html"><span><span>Density</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-529327284%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-density/index.html">Density</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-kilogram-per-cubic-metre/index.html">KilogramPerCubicMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-kilogram-per-cubic-metre/index.html">KilogramPerCubicMetre</a><span class="token punctuation">, </span><a href="-density/index.html">Density</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of density expressed in <a href="-kilogram-per-cubic-metre/index.html">KilogramPerCubicMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-171348698%2FClasslikes%2F-1895836109" anchor-label="DynamicViscosity" id="-171348698%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-dynamic-viscosity/index.html"><span>Dynamic</span><wbr></wbr><span><span>Viscosity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-171348698%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-dynamic-viscosity/index.html">DynamicViscosity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-pascal-second/index.html">PascalSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-pascal-second/index.html">PascalSecond</a><span class="token punctuation">, </span><a href="-dynamic-viscosity/index.html">DynamicViscosity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of dynamic viscosity expressed in <a href="-pascal-second/index.html">PascalSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1349442636%2FClasslikes%2F-1895836109" anchor-label="EnergyDensity" id="-1349442636%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-energy-density/index.html"><span>Energy</span><wbr></wbr><span><span>Density</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1349442636%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-energy-density/index.html">EnergyDensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-joule-per-cubic-metre/index.html">JoulePerCubicMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-joule-per-cubic-metre/index.html">JoulePerCubicMetre</a><span class="token punctuation">, </span><a href="-energy-density/index.html">EnergyDensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of energy density expressed in <a href="-joule-per-cubic-metre/index.html">JoulePerCubicMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-752576451%2FClasslikes%2F-1895836109" anchor-label="EnergyFluxDensity" id="-752576451%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-energy-flux-density/index.html"><span>Energy</span><wbr></wbr><span>Flux</span><wbr></wbr><span><span>Density</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-752576451%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-energy-flux-density/index.html">EnergyFluxDensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-joule-per-square-metre-second/index.html">JoulePerSquareMetreSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-joule-per-square-metre-second/index.html">JoulePerSquareMetreSecond</a><span class="token punctuation">, </span><a href="-energy-flux-density/index.html">EnergyFluxDensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of energy flux density expressed in <a href="-joule-per-square-metre-second/index.html">JoulePerSquareMetreSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2096897041%2FClasslikes%2F-1895836109" anchor-label="FuelEfficiency" id="-2096897041%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-fuel-efficiency/index.html"><span>Fuel</span><wbr></wbr><span><span>Efficiency</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2096897041%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-fuel-efficiency/index.html">FuelEfficiency</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-metre-per-cubic-metre/index.html">MetrePerCubicMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-metre-per-cubic-metre/index.html">MetrePerCubicMetre</a><span class="token punctuation">, </span><a href="-fuel-efficiency/index.html">FuelEfficiency</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of fuel efficiency expressed in <a href="-metre-per-cubic-metre/index.html">MetrePerCubicMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-126237722%2FClasslikes%2F-1895836109" anchor-label="GrayPerSecond" id="-126237722%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-gray-per-second/index.html"><span>Gray</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-126237722%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-gray-per-second/index.html">GrayPerSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-gray/index.html">Gray</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-absorbed-dose-rate/index.html">AbsorbedDoseRate</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1965495397%2FClasslikes%2F-1895836109" anchor-label="HeatFluxDensity" id="1965495397%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-heat-flux-density/index.html"><span>Heat</span><wbr></wbr><span>Flux</span><wbr></wbr><span><span>Density</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1965495397%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-heat-flux-density/index.html">HeatFluxDensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-square-metre/index.html">WattPerSquareMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-square-metre/index.html">WattPerSquareMetre</a><span class="token punctuation">, </span><a href="-heat-flux-density/index.html">HeatFluxDensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of heat flux density expressed in <a href="-watt-per-square-metre/index.html">WattPerSquareMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2105695915%2FClasslikes%2F-1895836109" anchor-label="JoulePerCubicMetre" id="-2105695915%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-joule-per-cubic-metre/index.html"><span>Joule</span><wbr></wbr><span>Per</span><wbr></wbr><span>Cubic</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2105695915%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-joule-per-cubic-metre/index.html">JoulePerCubicMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-joule/index.html">Joule</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-cubic-metre/index.html">CubicMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-energy-density/index.html">EnergyDensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-383957598%2FClasslikes%2F-1895836109" anchor-label="JoulePerKilogram" id="-383957598%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-joule-per-kilogram/index.html"><span>Joule</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Kilogram</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-383957598%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-joule-per-kilogram/index.html">JoulePerKilogram</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-joule/index.html">Joule</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-specific-energy/index.html">SpecificEnergy</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="825516598%2FClasslikes%2F-1895836109" anchor-label="JoulePerSquareMetre" id="825516598%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-joule-per-square-metre/index.html"><span>Joule</span><wbr></wbr><span>Per</span><wbr></wbr><span>Square</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="825516598%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-joule-per-square-metre/index.html">JoulePerSquareMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-joule/index.html">Joule</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-radiant-exposure/index.html">RadiantExposure</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1361811358%2FClasslikes%2F-1895836109" anchor-label="JoulePerSquareMetreSecond" id="-1361811358%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-joule-per-square-metre-second/index.html"><span>Joule</span><wbr></wbr><span>Per</span><wbr></wbr><span>Square</span><wbr></wbr><span>Metre</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1361811358%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-joule-per-square-metre-second/index.html">JoulePerSquareMetreSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-joule/index.html">Joule</a><span class="token punctuation">, </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-energy-flux-density/index.html">EnergyFluxDensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="217129271%2FClasslikes%2F-1895836109" anchor-label="JouleSecond" id="217129271%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-joule-second/index.html"><span>Joule</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="217129271%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-joule-second/index.html">JouleSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-joule/index.html">Joule</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-action/index.html">Action</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1851119958%2FClasslikes%2F-1895836109" anchor-label="KilogramPerCubicMetre" id="-1851119958%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kilogram-per-cubic-metre/index.html"><span>Kilogram</span><wbr></wbr><span>Per</span><wbr></wbr><span>Cubic</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1851119958%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-kilogram-per-cubic-metre/index.html">KilogramPerCubicMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-cubic-metre/index.html">CubicMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-density/index.html">Density</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1380031620%2FClasslikes%2F-1895836109" anchor-label="KilogramPerMetre" id="1380031620%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kilogram-per-metre/index.html"><span>Kilogram</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1380031620%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-kilogram-per-metre/index.html">KilogramPerMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-linear-mass-density/index.html">LinearMassDensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-974301189%2FClasslikes%2F-1895836109" anchor-label="KilogramPerSecond" id="-974301189%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kilogram-per-second/index.html"><span>Kilogram</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-974301189%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-kilogram-per-second/index.html">KilogramPerSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-mass-flow-rate/index.html">MassFlowRate</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="127436673%2FClasslikes%2F-1895836109" anchor-label="KilogramPerSquareMetre" id="127436673%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kilogram-per-square-metre/index.html"><span>Kilogram</span><wbr></wbr><span>Per</span><wbr></wbr><span>Square</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="127436673%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-kilogram-per-square-metre/index.html">KilogramPerSquareMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-area-density/index.html">AreaDensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1890908762%2FClasslikes%2F-1895836109" anchor-label="KilogramSquareMetre" id="1890908762%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kilogram-square-metre/index.html"><span>Kilogram</span><wbr></wbr><span>Square</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1890908762%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-kilogram-square-metre/index.html">KilogramSquareMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-moment-of-intertia/index.html">MomentOfIntertia</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1622930388%2FClasslikes%2F-1895836109" anchor-label="KinematicViscosity" id="-1622930388%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kinematic-viscosity/index.html"><span>Kinematic</span><wbr></wbr><span><span>Viscosity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1622930388%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-kinematic-viscosity/index.html">KinematicViscosity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-square-metre-per-second/index.html">SquareMetrePerSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-square-metre-per-second/index.html">SquareMetrePerSecond</a><span class="token punctuation">, </span><a href="-kinematic-viscosity/index.html">KinematicViscosity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of kinematic viscosity expressed in <a href="-square-metre-per-second/index.html">SquareMetrePerSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="607568741%2FClasslikes%2F-1895836109" anchor-label="LinearMassDensity" id="607568741%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-linear-mass-density/index.html"><span>Linear</span><wbr></wbr><span>Mass</span><wbr></wbr><span><span>Density</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="607568741%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-linear-mass-density/index.html">LinearMassDensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-kilogram-per-metre/index.html">KilogramPerMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-kilogram-per-metre/index.html">KilogramPerMetre</a><span class="token punctuation">, </span><a href="-linear-mass-density/index.html">LinearMassDensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of linear mass density expressed in <a href="-kilogram-per-metre/index.html">KilogramPerMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-893618420%2FClasslikes%2F-1895836109" anchor-label="MassFlowRate" id="-893618420%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mass-flow-rate/index.html"><span>Mass</span><wbr></wbr><span>Flow</span><wbr></wbr><span><span>Rate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-893618420%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-mass-flow-rate/index.html">MassFlowRate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-kilogram-per-second/index.html">KilogramPerSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-kilogram-per-second/index.html">KilogramPerSecond</a><span class="token punctuation">, </span><a href="-mass-flow-rate/index.html">MassFlowRate</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of mass flow rate expressed in <a href="-kilogram-per-second/index.html">KilogramPerSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1717654683%2FClasslikes%2F-1895836109" anchor-label="MetrePerCubicMetre" id="1717654683%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-metre-per-cubic-metre/index.html"><span>Metre</span><wbr></wbr><span>Per</span><wbr></wbr><span>Cubic</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1717654683%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-metre-per-cubic-metre/index.html">MetrePerCubicMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-cubic-metre/index.html">CubicMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-fuel-efficiency/index.html">FuelEfficiency</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1651291353%2FClasslikes%2F-1895836109" anchor-label="MomentOfIntertia" id="-1651291353%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-moment-of-intertia/index.html"><span>Moment</span><wbr></wbr><span>Of</span><wbr></wbr><span><span>Intertia</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1651291353%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-moment-of-intertia/index.html">MomentOfIntertia</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-kilogram-square-metre/index.html">KilogramSquareMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-kilogram-square-metre/index.html">KilogramSquareMetre</a><span class="token punctuation">, </span><a href="-moment-of-intertia/index.html">MomentOfIntertia</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of moment of inertia expressed in <a href="-kilogram-square-metre/index.html">KilogramSquareMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1486111754%2FClasslikes%2F-1895836109" anchor-label="Momentum" id="-1486111754%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-momentum/index.html"><span><span>Momentum</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1486111754%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-momentum/index.html">Momentum</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-newton-second/index.html">NewtonSecond</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-newton-second/index.html">NewtonSecond</a><span class="token punctuation">, </span><a href="-momentum/index.html">Momentum</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of momentum expressed in <a href="-newton-second/index.html">NewtonSecond</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1570848522%2FClasslikes%2F-1895836109" anchor-label="NewtonMeterSecond" id="1570848522%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-newton-meter-second/index.html"><span>Newton</span><wbr></wbr><span>Meter</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1570848522%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-newton-meter-second/index.html">NewtonMeterSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-newton/index.html">Newton</a><span class="token punctuation">, </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-angular-momentum/index.html">AngularMomentum</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-779349495%2FClasslikes%2F-1895836109" anchor-label="NewtonMetreSecondPerKilogram" id="-779349495%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-newton-metre-second-per-kilogram/index.html"><span>Newton</span><wbr></wbr><span>Metre</span><wbr></wbr><span>Second</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Kilogram</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-779349495%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-newton-metre-second-per-kilogram/index.html">NewtonMetreSecondPerKilogram</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-newton/index.html">Newton</a><span class="token punctuation">, </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span><a href="../org.kisu.units.base/-kilogram/index.html">Kilogram</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-specific-angular-momentum/index.html">SpecificAngularMomentum</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1822980951%2FClasslikes%2F-1895836109" anchor-label="NewtonPerMetre" id="-1822980951%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-newton-per-metre/index.html"><span>Newton</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1822980951%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-newton-per-metre/index.html">NewtonPerMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-newton/index.html">Newton</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-surface-tension/index.html">SurfaceTension</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-97227033%2FClasslikes%2F-1895836109" anchor-label="NewtonSecond" id="-97227033%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-newton-second/index.html"><span>Newton</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-97227033%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-newton-second/index.html">NewtonSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-newton/index.html">Newton</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-momentum/index.html">Momentum</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1277466738%2FClasslikes%2F-1895836109" anchor-label="PascalSecond" id="-1277466738%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-pascal-second/index.html"><span>Pascal</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1277466738%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-pascal-second/index.html">PascalSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-pascal/index.html">Pascal</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-dynamic-viscosity/index.html">DynamicViscosity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="470810795%2FClasslikes%2F-1895836109" anchor-label="Radiance" id="470810795%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-radiance/index.html"><span><span>Radiance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="470810795%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-radiance/index.html">Radiance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-steradian-square-metre/index.html">WattPerSteradianSquareMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-steradian-square-metre/index.html">WattPerSteradianSquareMetre</a><span class="token punctuation">, </span><a href="-radiance/index.html">Radiance</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of radiance expressed in <a href="-watt-per-steradian-square-metre/index.html">WattPerSteradianSquareMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="133992666%2FClasslikes%2F-1895836109" anchor-label="RadiantExposure" id="133992666%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-radiant-exposure/index.html"><span>Radiant</span><wbr></wbr><span><span>Exposure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="133992666%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-radiant-exposure/index.html">RadiantExposure</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-joule-per-square-metre/index.html">JoulePerSquareMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-joule-per-square-metre/index.html">JoulePerSquareMetre</a><span class="token punctuation">, </span><a href="-radiant-exposure/index.html">RadiantExposure</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of radiant exposure expressed in <a href="-joule-per-square-metre/index.html">JoulePerSquareMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-436587122%2FClasslikes%2F-1895836109" anchor-label="RadiantIntensity" id="-436587122%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-radiant-intensity/index.html"><span>Radiant</span><wbr></wbr><span><span>Intensity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-436587122%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-radiant-intensity/index.html">RadiantIntensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-steradian/index.html">WattPerSteradian</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-steradian/index.html">WattPerSteradian</a><span class="token punctuation">, </span><a href="-radiant-intensity/index.html">RadiantIntensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of radiant intensity expressed in <a href="-watt-per-steradian/index.html">WattPerSteradian</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-380165697%2FClasslikes%2F-1895836109" anchor-label="ReciprocalMetre" id="-380165697%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reciprocal-metre/index.html"><span>Reciprocal</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-380165697%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-reciprocal-metre/index.html">ReciprocalMetre</a> : <a href="../org.kisu.units.representation/-scalar/index.html">Scalar</a><span class="token operator">&lt;</span><a href="../org.kisu.prefixes/-metric/index.html">Metric</a><span class="token punctuation">, </span><a href="-reciprocal-metre/index.html">ReciprocalMetre</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Unit of <a href="-wave-number/index.html">WaveNumber</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1090134440%2FClasslikes%2F-1895836109" anchor-label="ReciprocalPascal" id="1090134440%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reciprocal-pascal/index.html"><span>Reciprocal</span><wbr></wbr><span><span>Pascal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1090134440%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-reciprocal-pascal/index.html">ReciprocalPascal</a> : <a href="../org.kisu.units.representation/-scalar/index.html">Scalar</a><span class="token operator">&lt;</span><a href="../org.kisu.prefixes/-metric/index.html">Metric</a><span class="token punctuation">, </span><a href="-reciprocal-pascal/index.html">ReciprocalPascal</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Unit of <a href="-compressibility/index.html">Compressibility</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1957652780%2FClasslikes%2F-1895836109" anchor-label="SpecificAngularMomentum" id="1957652780%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-specific-angular-momentum/index.html"><span>Specific</span><wbr></wbr><span>Angular</span><wbr></wbr><span><span>Momentum</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1957652780%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-specific-angular-momentum/index.html">SpecificAngularMomentum</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-newton-metre-second-per-kilogram/index.html">NewtonMetreSecondPerKilogram</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-newton-metre-second-per-kilogram/index.html">NewtonMetreSecondPerKilogram</a><span class="token punctuation">, </span><a href="-specific-angular-momentum/index.html">SpecificAngularMomentum</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of specific angular momentum expressed in <a href="-newton-metre-second-per-kilogram/index.html">NewtonMetreSecondPerKilogram</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1296345420%2FClasslikes%2F-1895836109" anchor-label="SpecificEnergy" id="-1296345420%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-specific-energy/index.html"><span>Specific</span><wbr></wbr><span><span>Energy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1296345420%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-specific-energy/index.html">SpecificEnergy</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-joule-per-kilogram/index.html">JoulePerKilogram</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-joule-per-kilogram/index.html">JoulePerKilogram</a><span class="token punctuation">, </span><a href="-specific-energy/index.html">SpecificEnergy</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of specific energy expressed in <a href="-joule-per-kilogram/index.html">JoulePerKilogram</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1030457954%2FClasslikes%2F-1895836109" anchor-label="SpecificVolume" id="1030457954%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-specific-volume/index.html"><span>Specific</span><wbr></wbr><span><span>Volume</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1030457954%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-specific-volume/index.html">SpecificVolume</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-cubic-metre-per-kilogram/index.html">CubicMetrePerKilogram</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-cubic-metre-per-kilogram/index.html">CubicMetrePerKilogram</a><span class="token punctuation">, </span><a href="-specific-volume/index.html">SpecificVolume</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of specific volume expressed in <a href="-cubic-metre-per-kilogram/index.html">CubicMetrePerKilogram</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="983630942%2FClasslikes%2F-1895836109" anchor-label="SpectralIrradiance" id="983630942%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-spectral-irradiance/index.html"><span>Spectral</span><wbr></wbr><span><span>Irradiance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="983630942%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-spectral-irradiance/index.html">SpectralIrradiance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-cubic-metre/index.html">WattPerCubicMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-cubic-metre/index.html">WattPerCubicMetre</a><span class="token punctuation">, </span><a href="-spectral-irradiance/index.html">SpectralIrradiance</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of spectral irradiance expressed in <a href="-watt-per-cubic-metre/index.html">WattPerCubicMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="236974624%2FClasslikes%2F-1895836109" anchor-label="Spectralntensity" id="236974624%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-spectralntensity/index.html"><span><span>Spectralntensity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="236974624%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-spectralntensity/index.html">Spectralntensity</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-steradian-metre/index.html">WattPerSteradianMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-steradian-metre/index.html">WattPerSteradianMetre</a><span class="token punctuation">, </span><a href="-spectralntensity/index.html">Spectralntensity</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of spectral intensity expressed in <a href="-watt-per-steradian-metre/index.html">WattPerSteradianMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-713089517%2FClasslikes%2F-1895836109" anchor-label="SpectralPower" id="-713089517%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-spectral-power/index.html"><span>Spectral</span><wbr></wbr><span><span>Power</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-713089517%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-spectral-power/index.html">SpectralPower</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-metre/index.html">WattPerMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-metre/index.html">WattPerMetre</a><span class="token punctuation">, </span><a href="-spectral-power/index.html">SpectralPower</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of spectral power expressed in <a href="-watt-per-metre/index.html">WattPerMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-272303449%2FClasslikes%2F-1895836109" anchor-label="SpectralRadiance" id="-272303449%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-spectral-radiance/index.html"><span>Spectral</span><wbr></wbr><span><span>Radiance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-272303449%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-spectral-radiance/index.html">SpectralRadiance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-watt-per-steradian-cubic-metre/index.html">WattPerSteradianCubicMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-watt-per-steradian-cubic-metre/index.html">WattPerSteradianCubicMetre</a><span class="token punctuation">, </span><a href="-spectral-radiance/index.html">SpectralRadiance</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of spectral radiance expressed in <a href="-watt-per-steradian-cubic-metre/index.html">WattPerSteradianCubicMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-260070193%2FClasslikes%2F-1895836109" anchor-label="SquareMetrePerSecond" id="-260070193%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-square-metre-per-second/index.html"><span>Square</span><wbr></wbr><span>Metre</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Second</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-260070193%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-square-metre-per-second/index.html">SquareMetrePerSecond</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-second/index.html">Second</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-kinematic-viscosity/index.html">KinematicViscosity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="865340553%2FClasslikes%2F-1895836109" anchor-label="SurfaceTension" id="865340553%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-surface-tension/index.html"><span>Surface</span><wbr></wbr><span><span>Tension</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="865340553%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-surface-tension/index.html">SurfaceTension</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-newton-per-metre/index.html">NewtonPerMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-newton-per-metre/index.html">NewtonPerMetre</a><span class="token punctuation">, </span><a href="-surface-tension/index.html">SurfaceTension</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of surface tension expressed in <a href="-newton-per-metre/index.html">NewtonPerMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="954017852%2FClasslikes%2F-1895836109" anchor-label="WattPerCubicMetre" id="954017852%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-cubic-metre/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span>Cubic</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="954017852%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-cubic-metre/index.html">WattPerCubicMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-cubic-metre/index.html">CubicMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-spectral-irradiance/index.html">SpectralIrradiance</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="76834738%2FClasslikes%2F-1895836109" anchor-label="WattPerMetre" id="76834738%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-metre/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="76834738%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-metre/index.html">WattPerMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-spectral-power/index.html">SpectralPower</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1187362863%2FClasslikes%2F-1895836109" anchor-label="WattPerSquareMetre" id="1187362863%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-square-metre/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span>Square</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1187362863%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-square-metre/index.html">WattPerSquareMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-heat-flux-density/index.html">HeatFluxDensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-752596932%2FClasslikes%2F-1895836109" anchor-label="WattPerSteradian" id="-752596932%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-steradian/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span><span>Steradian</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-752596932%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-steradian/index.html">WattPerSteradian</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-steradian/index.html">Steradian</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-radiant-intensity/index.html">RadiantIntensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-816233961%2FClasslikes%2F-1895836109" anchor-label="WattPerSteradianCubicMetre" id="-816233961%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-steradian-cubic-metre/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span>Steradian</span><wbr></wbr><span>Cubic</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-816233961%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-steradian-cubic-metre/index.html">WattPerSteradianCubicMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-steradian/index.html">Steradian</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-cubic-metre/index.html">CubicMetre</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-spectral-radiance/index.html">SpectralRadiance</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1407209719%2FClasslikes%2F-1895836109" anchor-label="WattPerSteradianMetre" id="1407209719%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-steradian-metre/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span>Steradian</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1407209719%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-steradian-metre/index.html">WattPerSteradianMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-steradian/index.html">Steradian</a><span class="token punctuation">, </span><a href="../org.kisu.units.base/-metre/index.html">Metre</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-spectralntensity/index.html">Spectralntensity</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2144131508%2FClasslikes%2F-1895836109" anchor-label="WattPerSteradianSquareMetre" id="2144131508%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-watt-per-steradian-square-metre/index.html"><span>Watt</span><wbr></wbr><span>Per</span><wbr></wbr><span>Steradian</span><wbr></wbr><span>Square</span><wbr></wbr><span><span>Metre</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2144131508%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-watt-per-steradian-square-metre/index.html">WattPerSteradianSquareMetre</a><span class="token operator"> = </span><a href="../org.kisu.units.representation/-quotient/index.html">Quotient</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-watt/index.html">Watt</a><span class="token punctuation">, </span><a href="../org.kisu.units.representation/-product/index.html">Product</a><span class="token operator">&lt;</span><a href="../org.kisu.units.special/-steradian/index.html">Steradian</a><span class="token punctuation">, </span><a href="../org.kisu.units.special/-square-metre/index.html">SquareMetre</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Unit of <a href="-radiance/index.html">Radiance</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1781166868%2FClasslikes%2F-1895836109" anchor-label="WaveNumber" id="-1781166868%2FClasslikes%2F-1895836109" data-filterable-set=":lib/main"></a>
+          <div class="table-row" data-filterable-current=":lib/main" data-filterable-set=":lib/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-wave-number/index.html"><span>Wave</span><wbr></wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1781166868%2FClasslikes%2F-1895836109"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-wave-number/index.html">WaveNumber</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">magnitude<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/math/BigDecimal.html">BigDecimal</a><span class="token punctuation">, </span></span><span class="parameter ">expression<span class="token operator">: </span><a href="-reciprocal-metre/index.html">ReciprocalMetre</a></span></span><span class="token punctuation">)</span> : <a href="../org.kisu.units/-measure/index.html">Measure</a><span class="token operator">&lt;</span><a href="-reciprocal-metre/index.html">ReciprocalMetre</a><span class="token punctuation">, </span><a href="-wave-number/index.html">WaveNumber</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Measure of wave number expressed in <a href="-reciprocal-metre/index.html">ReciprocalMetre</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>(c) Sefford & Patri-create 2025</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
