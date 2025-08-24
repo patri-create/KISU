@@ -1,7 +1,7 @@
 package org.kisu.units.chemistry
 
 import org.kisu.units.Measure
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Siemens
@@ -14,7 +14,7 @@ import java.math.BigDecimal
  * This unit is used to measure **molar conductivity**, i.e., the electrical
  * conductivity of an electrolyte solution normalized by its molar concentration.
  * It is defined as the [Quotient] of the [Product] of [Siemens] (conductance) and
- * [SquareMetre] (area) divided by [Mol] (amount of substance).
+ * [SquareMetre] (area) divided by [Mole] (amount of substance).
  *
  * Example usages include:
  * - Determining ion mobility in electrolyte solutions
@@ -23,7 +23,7 @@ import java.math.BigDecimal
  *
  * @see MolarConductivity for the physical quantity represented by this unit.
  */
-typealias SiemesSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mol>
+typealias SiemesSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mole>
 
 /**
  * Represents the physical quantity of **molar conductivity**.

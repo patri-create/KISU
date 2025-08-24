@@ -5,7 +5,7 @@ import org.kisu.units.base.Candela
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Metre
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.base.Second
 import org.kisu.units.special.Becquerel
 import org.kisu.units.special.Coulomb
@@ -228,7 +228,7 @@ internal val CANONICAL_ORDER: List<Unit> = listOf(
     Second.UNIT,
     Ampere.UNIT,
     Kelvin.UNIT,
-    Mol.UNIT,
+    Mole.UNIT,
     Candela.UNIT,
     Radian.UNIT,
     Steradian.UNIT

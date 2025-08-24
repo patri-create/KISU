@@ -1,7 +1,7 @@
 package org.kisu.units.chemistry
 
 import org.kisu.units.Measure
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
 import java.math.BigDecimal
@@ -11,7 +11,7 @@ import java.math.BigDecimal
  *
  * This unit measures **molar energy**, i.e., the amount of energy associated
  * with one mole of a substance.
- * It is defined as the [Quotient] of [Joule] (energy) divided by [Mol] (amount of substance).
+ * It is defined as the [Quotient] of [Joule] (energy) divided by [Mole] (amount of substance).
  *
  * Example usages include:
  * - Enthalpy of reaction (ΔH, in J/mol)
@@ -20,7 +20,7 @@ import java.math.BigDecimal
  *
  * @see MolarEnergy for the physical quantity represented by this unit.
  */
-typealias JoulePerMole = Quotient<Joule, Mol>
+typealias JoulePerMole = Quotient<Joule, Mole>
 
 /**
  * Represents the physical quantity of **molar energy**.

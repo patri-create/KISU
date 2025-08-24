@@ -1,7 +1,7 @@
 package org.kisu.units.chemistry
 
 import org.kisu.units.Measure
-import org.kisu.units.base.Mol
+import org.kisu.units.base.Mole
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
@@ -14,7 +14,7 @@ import java.math.BigDecimal
  * This unit is used to measure **catalytic efficiency**, i.e., the volume of
  * substrate converted per mole of catalyst per second.
  * It is defined as the [Quotient] of [SquareMetre] (area) divided by the [Product]
- * of [Mol] (amount of substance) and [Second] (time).
+ * of [Mole] (amount of substance) and [Second] (time).
  *
  * Example usages include:
  * - Characterising enzyme or catalyst performance in chemical reactions
@@ -22,7 +22,7 @@ import java.math.BigDecimal
  *
  * @see CatalyticEfficiency for the physical quantity represented by this unit.
  */
-typealias CubicMetrePerMoleSecond = Quotient<SquareMetre, Product<Mol, Second>>
+typealias CubicMetrePerMoleSecond = Quotient<SquareMetre, Product<Mole, Second>>
 
 /**
  * Represents the physical quantity of **catalytic efficiency**.
