@@ -5,6 +5,8 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.special.PlaneAngle
+import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
 /**
@@ -30,7 +32,11 @@ import java.math.BigDecimal
 class ThermalExpansionCoefficient(
     magnitude: BigDecimal,
     expression: ReciprocalKelvin
-) : Measure<ReciprocalKelvin, ThermalExpansionCoefficient>(magnitude, expression, ::ThermalExpansionCoefficient)
+) : Measure<ReciprocalKelvin, ThermalExpansionCoefficient>(magnitude, expression, ::ThermalExpansionCoefficient) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, ReciprocalKelvin(prefix))
+}
 
 /**
  * Represents the **reciprocal of temperature** in the SI system.

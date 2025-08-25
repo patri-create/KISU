@@ -8,6 +8,8 @@ import org.kisu.units.base.LuminousIntensity
 import org.kisu.units.base.Mass
 import org.kisu.units.base.Temperature
 import org.kisu.units.base.Time
+import org.kisu.units.electromagnetic.MagneticReluctance
+import org.kisu.units.mechanics.Compressibility
 import org.kisu.units.special.AbsorbedDose
 import org.kisu.units.special.Area
 import org.kisu.units.special.Capacitance
@@ -32,6 +34,7 @@ import org.kisu.units.special.Radioactivity
 import org.kisu.units.special.Resistance
 import org.kisu.units.special.SolidAngle
 import org.kisu.units.special.Volume
+import org.kisu.units.thermodynamics.ThermalExpansionCoefficient
 import java.math.BigDecimal
 
 /**
@@ -114,10 +117,10 @@ val MetricUnitBuilder.coulombs: ElectricCharge get() = ElectricCharge(magnitude,
  *
  * Example usage:
  * ```
- * val v = 2.kilo.cubicMeters // 2 * 10^3 cubic metres
+ * val v = 2.kilo.cubicMetres // 2 * 10^3 cubic metres
  * ```
  */
-val MetricUnitBuilder.cubicMeters: Volume get() = Volume(magnitude, metric)
+val MetricUnitBuilder.cubicMetres: Volume get() = Volume(magnitude, metric)
 
 /**
  * Creates a [Capacitance] measure by applying the metric prefix scale to the magnitude.
@@ -226,10 +229,10 @@ val MetricUnitBuilder.lux: Illuminance get() = Illuminance(magnitude, metric)
  *
  * Example usage:
  * ```
- * val length = 25.kilo.meters // 25 * 10^3 meters
+ * val length = 25.kilo.metres // 25 * 10^3 metres
  * ```
  */
-val MetricUnitBuilder.meters: Length get() = Length(magnitude, metric)
+val MetricUnitBuilder.metres: Length get() = Length(magnitude, metric)
 
 /**
  * Creates an [Amount] measure by applying the metric prefix scale to the magnitude.
@@ -282,6 +285,39 @@ val MetricUnitBuilder.pascals: Pressure get() = Pressure(magnitude, metric)
 val MetricUnitBuilder.radians: PlaneAngle get() = PlaneAngle(magnitude, metric)
 
 /**
+ * Creates a [MagneticReluctance] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val reluctance = 5.kilo.reciprocalHenries // 5 * 10^3 H⁻¹
+ * ```
+ */
+val MetricUnitBuilder.reciprocalHenries: MagneticReluctance
+    get() = MagneticReluctance(magnitude, metric)
+
+/**
+ * Creates a [ThermalExpansionCoefficient] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val coefficient = 2.milli.reciprocalKelvins // 2 * 10^-3 K⁻¹
+ * ```
+ */
+val MetricUnitBuilder.reciprocalKelvins: ThermalExpansionCoefficient
+    get() = ThermalExpansionCoefficient(magnitude, metric)
+
+/**
+ * Creates a [Compressibility] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val compressibility = 7.micro.reciprocalPascal // 7 * 10^-6 Pa⁻¹
+ * ```
+ */
+val MetricUnitBuilder.reciprocalPascal: Compressibility
+    get() = Compressibility(magnitude, metric)
+
+/**
  * Creates a [Time] measure by applying the metric prefix scale to the magnitude.
  *
  * Example usage:
@@ -316,10 +352,10 @@ val MetricUnitBuilder.sieverts: DoseEquivalent get() = DoseEquivalent(magnitude,
  *
  * Example usage:
  * ```
- * val a = 5.centi.squareMeters // 5 * 10^-2 square metres
+ * val a = 5.centi.squareMetres // 5 * 10^-2 square metres
  * ```
  */
-val MetricUnitBuilder.squareMeters: Area get() = Area(magnitude, metric)
+val MetricUnitBuilder.squareMetres: Area get() = Area(magnitude, metric)
 
 /**
  * Creates a [SolidAngle] measure by applying the metric prefix scale to the magnitude.

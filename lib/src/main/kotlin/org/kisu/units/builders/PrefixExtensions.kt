@@ -10,6 +10,8 @@ import org.kisu.units.base.LuminousIntensity
 import org.kisu.units.base.Mass
 import org.kisu.units.base.Temperature
 import org.kisu.units.base.Time
+import org.kisu.units.electromagnetic.MagneticReluctance
+import org.kisu.units.mechanics.Compressibility
 import org.kisu.units.special.AbsorbedDose
 import org.kisu.units.special.Area
 import org.kisu.units.special.Bytes
@@ -35,6 +37,7 @@ import org.kisu.units.special.Radioactivity
 import org.kisu.units.special.Resistance
 import org.kisu.units.special.SolidAngle
 import org.kisu.units.special.Volume
+import org.kisu.units.thermodynamics.ThermalExpansionCoefficient
 
 /**
  * Creates a [Current] from this [Number] representing an electric current in amperes (A),
@@ -185,6 +188,24 @@ val Number.radians get() = PlaneAngle(bigDecimal)
  * the SI unit for time.
  */
 val Number.seconds get() = Time(bigDecimal)
+
+/**
+ * Creates a [MagneticReluctance] from this [Number] representing a value in reciprocal henries (H⁻¹),
+ * the SI unit for magnetic reluctance.
+ */
+val Number.reciprocalHenries: MagneticReluctance get() = MagneticReluctance(bigDecimal)
+
+/**
+ * Creates a [ThermalExpansionCoefficient] from this [Number] representing a value in reciprocal kelvins (K⁻¹),
+ * the SI unit for thermal expansion coefficient.
+ */
+val Number.reciprocalKelvins: ThermalExpansionCoefficient get() = ThermalExpansionCoefficient(bigDecimal)
+
+/**
+ * Creates a [Compressibility] from this [Number] representing a value in reciprocal pascals (Pa⁻¹),
+ * the SI unit for compressibility.
+ */
+val Number.reciprocalPascal: Compressibility get() = Compressibility(bigDecimal)
 
 /**
  * Creates a [Conductance] from this [Number] representing an electrical conductance in siemens (S),

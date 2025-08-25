@@ -7,12 +7,12 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.cubicMeters
+import org.kisu.units.builders.cubicMetres
 
 class VolumeTest : StringSpec({
     "creates a Volume" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().cubicMeters.should { (amount, expression, symbol) ->
+            magnitude.builder().cubicMetres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetre(magnitude.builder().metric)
                 symbol shouldBe CubicMetre.UNIT.toString()

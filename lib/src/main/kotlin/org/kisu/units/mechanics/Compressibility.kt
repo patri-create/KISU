@@ -2,6 +2,8 @@ package org.kisu.units.mechanics
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.electromagnetic.MagneticReluctance
+import org.kisu.units.electromagnetic.ReciprocalHenry
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 import org.kisu.units.special.Pascal
@@ -26,7 +28,11 @@ import java.math.BigDecimal
 class Compressibility(
     magnitude: BigDecimal,
     expression: ReciprocalPascal
-) : Measure<ReciprocalPascal, Compressibility>(magnitude, expression, ::Compressibility)
+) : Measure<ReciprocalPascal, Compressibility>(magnitude, expression, ::Compressibility) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, ReciprocalPascal(prefix))
+}
 
 /**
  * Unit of [Compressibility].
