@@ -3,7 +3,7 @@ detekt = "1.23.8"
 dokka = "2.0.0"
 jacoco = "0.8.13"
 klint = "12.3.0"
-kotest = "5.9.1"
+kotest = "6.0.0"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
