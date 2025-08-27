@@ -2,6 +2,7 @@ package org.kisu.units.builders
 
 import org.kisu.bigDecimal
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.Metric
 import org.kisu.units.base.Amount
 import org.kisu.units.base.Current
 import org.kisu.units.base.Information
@@ -85,7 +86,7 @@ val Number.coulombs get() = ElectricCharge(bigDecimal)
  * Creates a [Volume] from this [Number] representing a volume in cubic metres (m³),
  * the SI derived unit for volume.
  */
-val Number.cubicMeters get() = Volume(bigDecimal)
+val Number.cubicMetres get() = Volume(bigDecimal)
 
 /**
  * Creates a [Capacitance] from this [Number] representing a capacitance in farads (F),
@@ -97,7 +98,7 @@ val Number.farads get() = Capacitance(bigDecimal)
  * Creates a [Mass] from this [Number] representing a mass in grams (g).
  * Note: This assumes the base unit is the gram, not the kilogram.
  */
-val Number.grams get() = Mass(bigDecimal)
+val Number.grams get() = Mass(bigDecimal, Metric.BASE)
 
 /**
  * Creates an [AbsorbedDose] from this [Number] representing an absorbed dose in grays (Gy),
@@ -151,7 +152,7 @@ val Number.lux get() = Illuminance(bigDecimal)
  * Creates a [Length] from this [Number] representing a distance in meters (m),
  * the SI unit for length.
  */
-val Number.meters get() = Length(bigDecimal)
+val Number.metres get() = Length(bigDecimal)
 
 /**
  * Creates an [Amount] from this [Number] representing a number of moles (mol),
@@ -223,7 +224,7 @@ val Number.sieverts get() = DoseEquivalent(bigDecimal)
  * Creates an [Area] from this [Number] representing an area in square metres (m²),
  * the SI derived unit for area.
  */
-val Number.squareMeters get() = Area(bigDecimal)
+val Number.squareMetres get() = Area(bigDecimal)
 
 /**
  * Creates a [SolidAngle] from this [Number] representing a solid angle in steradians (sr),

@@ -5,8 +5,6 @@ import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 import org.kisu.units.special.Henry
-import org.kisu.units.special.PlaneAngle
-import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
 /**

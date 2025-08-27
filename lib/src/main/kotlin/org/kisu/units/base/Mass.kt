@@ -25,7 +25,7 @@ import java.math.BigDecimal
 class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
     Measure<Kilogram, Mass>(magnitude, expression, ::Mass) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.KILO) :
         this(magnitude, Kilogram(prefix))
 }
 
@@ -44,6 +44,6 @@ class Kilogram private constructor(
 
     companion object {
         /** The canonical SI symbol for mass: "kg". */
-        internal val UNIT = Unit("kg", 1)
+        internal val UNIT = Unit("g", 1)
     }
 }

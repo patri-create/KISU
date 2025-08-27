@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -43,4 +44,7 @@ typealias MetrePerHenry = Quotient<Metre, Henry>
 class MagneticSusceptibility(
     magnitude: BigDecimal,
     expression: MetrePerHenry
-) : Measure<MetrePerHenry, MagneticSusceptibility>(magnitude, expression, ::MagneticSusceptibility)
+) : Measure<MetrePerHenry, MagneticSusceptibility>(magnitude, expression, ::MagneticSusceptibility) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), Henry()))
+}

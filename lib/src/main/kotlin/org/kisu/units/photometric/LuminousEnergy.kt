@@ -1,5 +1,6 @@
 package org.kisu.units.photometric
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
@@ -28,4 +29,7 @@ typealias LumenSecond = Product<Lumen, Second>
 class LuminousEnergy(
     magnitude: BigDecimal,
     expression: LumenSecond
-) : Measure<LumenSecond, LuminousEnergy>(magnitude, expression, ::LuminousEnergy)
+) : Measure<LumenSecond, LuminousEnergy>(magnitude, expression, ::LuminousEnergy) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Lumen(prefix), Second()))
+}

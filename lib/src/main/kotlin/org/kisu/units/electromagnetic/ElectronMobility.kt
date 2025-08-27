@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
@@ -41,4 +42,13 @@ typealias SquareMetrePerVoltSecond = Quotient<SquareMetre, Product<Volt, Second>
 class ElectronMobility(
     magnitude: BigDecimal,
     expression: SquareMetrePerVoltSecond
-) : Measure<SquareMetrePerVoltSecond, ElectronMobility>(magnitude, expression, ::ElectronMobility)
+) : Measure<SquareMetrePerVoltSecond, ElectronMobility>(magnitude, expression, ::ElectronMobility) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                SquareMetre(prefix),
+                Product(Volt(), Second())
+            )
+        )
+}

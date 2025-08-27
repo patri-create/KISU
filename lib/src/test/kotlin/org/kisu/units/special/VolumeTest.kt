@@ -22,7 +22,7 @@ class VolumeTest : StringSpec({
 
     "creates a base Volume" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.cubicMeters.should { (amount, expression, symbol) ->
+            magnitude.cubicMetres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetre()
                 symbol shouldBe CubicMetre.UNIT.toString()

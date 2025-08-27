@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
@@ -38,4 +39,7 @@ typealias JoulePerTesla = Quotient<Joule, Tesla>
 class MagneticDipoleMoment(
     magnitude: BigDecimal,
     expression: JoulePerTesla
-) : Measure<JoulePerTesla, MagneticDipoleMoment>(magnitude, expression, ::MagneticDipoleMoment)
+) : Measure<JoulePerTesla, MagneticDipoleMoment>(magnitude, expression, ::MagneticDipoleMoment) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Joule(prefix), Tesla()))
+}

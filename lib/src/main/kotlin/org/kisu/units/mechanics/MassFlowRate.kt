@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Second
@@ -37,4 +38,7 @@ typealias KilogramPerSecond = Quotient<Kilogram, Second>
 class MassFlowRate(
     magnitude: BigDecimal,
     expression: KilogramPerSecond
-) : Measure<KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate)
+) : Measure<KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Kilogram(prefix), Second()))
+}

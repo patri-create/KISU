@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Mole
@@ -44,4 +45,8 @@ typealias MolPerKilogram = Quotient<Mole, Kilogram>
 class Molality(
     magnitude: BigDecimal,
     expression: MolPerKilogram
-) : Measure<MolPerKilogram, Molality>(magnitude, expression, ::Molality)
+) : Measure<MolPerKilogram, Molality>(magnitude, expression, ::Molality) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Mole(prefix), Kilogram()))
+}

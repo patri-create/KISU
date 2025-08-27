@@ -1,5 +1,6 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Metre
@@ -43,4 +44,7 @@ typealias KelvinPerMetre = Quotient<Kelvin, Metre>
 class TemperatureGradient(
     magnitude: BigDecimal,
     expression: KelvinPerMetre
-) : Measure<KelvinPerMetre, TemperatureGradient>(magnitude, expression, ::TemperatureGradient)
+) : Measure<KelvinPerMetre, TemperatureGradient>(magnitude, expression, ::TemperatureGradient) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Kelvin(prefix), Metre()))
+}

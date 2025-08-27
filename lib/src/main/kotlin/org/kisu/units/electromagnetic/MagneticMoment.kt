@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
@@ -43,4 +44,7 @@ typealias WeberMetre = Product<Weber, Metre>
 class MagneticMoment(
     magnitude: BigDecimal,
     expression: WeberMetre
-) : Measure<WeberMetre, MagneticMoment>(magnitude, expression, ::MagneticMoment)
+) : Measure<WeberMetre, MagneticMoment>(magnitude, expression, ::MagneticMoment) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Weber(prefix), Metre()))
+}

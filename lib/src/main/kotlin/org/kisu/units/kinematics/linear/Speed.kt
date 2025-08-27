@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.Second
@@ -24,4 +25,7 @@ typealias MetrePerSecond = Quotient<Metre, Second>
 class Speed(
     magnitude: BigDecimal,
     expression: MetrePerSecond
-) : Measure<MetrePerSecond, Speed>(magnitude, expression, ::Speed)
+) : Measure<MetrePerSecond, Speed>(magnitude, expression, ::Speed) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), Second()))
+}

@@ -1,5 +1,6 @@
 package org.kisu.units.photometric
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
@@ -28,4 +29,7 @@ typealias LuxSecond = Product<Lux, Second>
 class Exposure(
     magnitude: BigDecimal,
     expression: LuxSecond
-) : Measure<LuxSecond, Exposure>(magnitude, expression, ::Exposure)
+) : Measure<LuxSecond, Exposure>(magnitude, expression, ::Exposure) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Lux(prefix), Second()))
+}

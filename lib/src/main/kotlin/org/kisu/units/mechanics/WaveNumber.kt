@@ -26,7 +26,10 @@ import java.math.BigDecimal
 class WaveNumber(
     magnitude: BigDecimal,
     expression: ReciprocalMetre
-) : Measure<ReciprocalMetre, WaveNumber>(magnitude, expression, ::WaveNumber)
+) : Measure<ReciprocalMetre, WaveNumber>(magnitude, expression, ::WaveNumber) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, ReciprocalMetre(prefix))
+}
 
 /**
  * Unit of [WaveNumber].

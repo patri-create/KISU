@@ -1,5 +1,6 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Metre
@@ -48,4 +49,7 @@ typealias WattPerMetreKelvin = Quotient<Watt, Product<Metre, Kelvin>>
 class ThermalConductivity(
     magnitude: BigDecimal,
     expression: WattPerMetreKelvin
-) : Measure<WattPerMetreKelvin, ThermalConductivity>(magnitude, expression, ::ThermalConductivity)
+) : Measure<WattPerMetreKelvin, ThermalConductivity>(magnitude, expression, ::ThermalConductivity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Watt(prefix), Product(Metre(), Kelvin())))
+}

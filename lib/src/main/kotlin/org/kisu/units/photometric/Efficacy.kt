@@ -1,5 +1,6 @@
 package org.kisu.units.photometric
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Lumen
@@ -25,4 +26,7 @@ typealias LumenPerWatt = Quotient<Lumen, Watt>
 class Efficacy(
     magnitude: BigDecimal,
     expression: LumenPerWatt
-) : Measure<LumenPerWatt, Efficacy>(magnitude, expression, ::Efficacy)
+) : Measure<LumenPerWatt, Efficacy>(magnitude, expression, ::Efficacy) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Lumen(prefix), Watt()))
+}

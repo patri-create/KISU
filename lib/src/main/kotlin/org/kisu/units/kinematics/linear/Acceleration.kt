@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondSquared
@@ -28,4 +29,7 @@ typealias MetrePerSecondSquared = Quotient<Metre, SecondSquared>
 class Acceleration(
     magnitude: BigDecimal,
     expression: MetrePerSecondSquared
-) : Measure<MetrePerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration)
+) : Measure<MetrePerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), SecondSquared()))
+}

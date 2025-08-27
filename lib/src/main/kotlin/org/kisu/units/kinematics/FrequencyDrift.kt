@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
@@ -28,4 +29,7 @@ typealias HertzPerSecond = Quotient<Hertz, Second>
 class FrequencyDrift internal constructor(
     magnitude: BigDecimal,
     expression: HertzPerSecond
-) : Measure<HertzPerSecond, FrequencyDrift>(magnitude, expression, ::FrequencyDrift)
+) : Measure<HertzPerSecond, FrequencyDrift>(magnitude, expression, ::FrequencyDrift) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Hertz(prefix), Second()))
+}

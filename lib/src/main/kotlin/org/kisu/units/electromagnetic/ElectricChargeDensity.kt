@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
@@ -42,4 +43,7 @@ typealias CoulombPerCubicMetre = Quotient<Coulomb, CubicMetre>
 class ElectricChargeDensity(
     magnitude: BigDecimal,
     expression: CoulombPerCubicMetre
-) : Measure<CoulombPerCubicMetre, ElectricChargeDensity>(magnitude, expression, ::ElectricChargeDensity)
+) : Measure<CoulombPerCubicMetre, ElectricChargeDensity>(magnitude, expression, ::ElectricChargeDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Coulomb(prefix), CubicMetre()))
+}

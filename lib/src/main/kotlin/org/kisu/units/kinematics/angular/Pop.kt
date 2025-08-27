@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondSextic
 import org.kisu.units.representation.Quotient
@@ -28,4 +29,7 @@ typealias RadianPerSecondSixth = Quotient<Radian, SecondSextic>
 class Pop internal constructor(
     magnitude: BigDecimal,
     expression: RadianPerSecondSixth
-) : Measure<RadianPerSecondSixth, Pop>(magnitude, expression, ::Pop)
+) : Measure<RadianPerSecondSixth, Pop>(magnitude, expression, ::Pop) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Radian(prefix), SecondSextic()))
+}

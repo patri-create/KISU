@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
@@ -48,4 +49,7 @@ typealias OhmMetre = Product<Ohm, Metre>
 class Resistivity(
     magnitude: BigDecimal,
     expression: OhmMetre
-) : Measure<OhmMetre, Resistivity>(magnitude, expression, ::Resistivity)
+) : Measure<OhmMetre, Resistivity>(magnitude, expression, ::Resistivity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Ohm(prefix), Metre()))
+}

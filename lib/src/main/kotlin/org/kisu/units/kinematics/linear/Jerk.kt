@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondCubed
@@ -28,4 +29,7 @@ typealias MetrePerSecondCubed = Quotient<Metre, SecondCubed>
 class Jerk(
     magnitude: BigDecimal,
     expression: MetrePerSecondCubed
-) : Measure<MetrePerSecondCubed, Jerk>(magnitude, expression, ::Jerk)
+) : Measure<MetrePerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), SecondCubed()))
+}

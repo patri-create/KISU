@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
@@ -28,4 +29,7 @@ typealias RadianPerSecond = Quotient<Radian, Second>
 class Velocity(
     magnitude: BigDecimal,
     expression: RadianPerSecond
-) : Measure<RadianPerSecond, Velocity>(magnitude, expression, ::Velocity)
+) : Measure<RadianPerSecond, Velocity>(magnitude, expression, ::Velocity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Radian(prefix), Second()))
+}

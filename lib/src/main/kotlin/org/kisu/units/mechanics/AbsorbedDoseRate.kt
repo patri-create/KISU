@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
@@ -47,4 +48,7 @@ typealias GrayPerSecond = Quotient<Gray, Second>
 class AbsorbedDoseRate(
     magnitude: BigDecimal,
     expression: GrayPerSecond
-) : Measure<GrayPerSecond, AbsorbedDoseRate>(magnitude, expression, ::AbsorbedDoseRate)
+) : Measure<GrayPerSecond, AbsorbedDoseRate>(magnitude, expression, ::AbsorbedDoseRate) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Gray(prefix), Second()))
+}

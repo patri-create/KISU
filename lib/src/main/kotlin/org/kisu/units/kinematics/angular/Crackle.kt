@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondQuintic
 import org.kisu.units.representation.Quotient
@@ -29,4 +30,7 @@ typealias RadianPerSecondFifth = Quotient<Radian, SecondQuintic>
 class Crackle internal constructor(
     magnitude: BigDecimal,
     expression: RadianPerSecondFifth
-) : Measure<RadianPerSecondFifth, Crackle>(magnitude, expression, ::Crackle)
+) : Measure<RadianPerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Radian(prefix), SecondQuintic()))
+}

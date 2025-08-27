@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
@@ -38,4 +39,7 @@ typealias SquareMetrePerSecond = Quotient<SquareMetre, Second>
 class KinematicViscosity(
     magnitude: BigDecimal,
     expression: SquareMetrePerSecond
-) : Measure<SquareMetrePerSecond, KinematicViscosity>(magnitude, expression, ::KinematicViscosity)
+) : Measure<SquareMetrePerSecond, KinematicViscosity>(magnitude, expression, ::KinematicViscosity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(SquareMetre(prefix), Second()))
+}

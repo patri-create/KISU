@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
@@ -46,4 +47,7 @@ typealias TeslaMetre = Product<Tesla, Metre>
 class MagneticRigidity(
     magnitude: BigDecimal,
     expression: TeslaMetre
-) : Measure<TeslaMetre, MagneticRigidity>(magnitude, expression, ::MagneticRigidity)
+) : Measure<TeslaMetre, MagneticRigidity>(magnitude, expression, ::MagneticRigidity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Tesla(prefix), Metre()))
+}

@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondCubed
 import org.kisu.units.representation.Quotient
@@ -28,4 +29,7 @@ typealias RadianPerSecondCubed = Quotient<Radian, SecondCubed>
 class Jerk(
     magnitude: BigDecimal,
     expression: RadianPerSecondCubed
-) : Measure<RadianPerSecondCubed, Jerk>(magnitude, expression, ::Jerk)
+) : Measure<RadianPerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Radian(prefix), SecondCubed()))
+}

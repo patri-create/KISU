@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
@@ -38,4 +39,7 @@ typealias PascalSecond = Product<Pascal, Second>
 class DynamicViscosity(
     magnitude: BigDecimal,
     expression: PascalSecond
-) : Measure<PascalSecond, DynamicViscosity>(magnitude, expression, ::DynamicViscosity)
+) : Measure<PascalSecond, DynamicViscosity>(magnitude, expression, ::DynamicViscosity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Pascal(prefix), Second()))
+}

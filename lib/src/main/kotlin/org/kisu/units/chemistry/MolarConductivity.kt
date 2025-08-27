@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Product
@@ -50,4 +51,14 @@ typealias SiemesSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mol
 class MolarConductivity(
     magnitude: BigDecimal,
     expression: SiemesSquareMetrePerMole
-) : Measure<SiemesSquareMetrePerMole, MolarConductivity>(magnitude, expression, ::MolarConductivity)
+) : Measure<SiemesSquareMetrePerMole, MolarConductivity>(magnitude, expression, ::MolarConductivity) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                Product(Siemens(prefix), SquareMetre()),
+                Mole()
+            )
+        )
+}

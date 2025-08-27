@@ -22,7 +22,7 @@ class AreaTest : StringSpec({
 
     "creates a base Area" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.squareMeters.should { (amount, expression, symbol) ->
+            magnitude.squareMetres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetre()
                 symbol shouldBe SquareMetre.UNIT.toString()

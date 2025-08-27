@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
@@ -38,4 +39,7 @@ typealias CubicMetrePerKilogram = Quotient<CubicMetre, Kilogram>
 class SpecificVolume(
     magnitude: BigDecimal,
     expression: CubicMetrePerKilogram
-) : Measure<CubicMetrePerKilogram, SpecificVolume>(magnitude, expression, ::SpecificVolume)
+) : Measure<CubicMetrePerKilogram, SpecificVolume>(magnitude, expression, ::SpecificVolume) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(CubicMetre(prefix), Kilogram()))
+}

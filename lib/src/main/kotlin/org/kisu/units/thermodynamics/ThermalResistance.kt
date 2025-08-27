@@ -1,5 +1,6 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Quotient
@@ -45,4 +46,7 @@ typealias KelvinPerWatt = Quotient<Kelvin, Watt>
 class ThermalResistance(
     magnitude: BigDecimal,
     expression: KelvinPerWatt
-) : Measure<KelvinPerWatt, ThermalResistance>(magnitude, expression, ::ThermalResistance)
+) : Measure<KelvinPerWatt, ThermalResistance>(magnitude, expression, ::ThermalResistance) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Kelvin(prefix), Watt()))
+}

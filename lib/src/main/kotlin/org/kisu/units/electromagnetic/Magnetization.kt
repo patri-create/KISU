@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.base.Metre
@@ -45,4 +46,7 @@ typealias AmperePerMetre = Quotient<Ampere, Metre>
 class Magnetization(
     magnitude: BigDecimal,
     expression: AmperePerMetre
-) : Measure<AmperePerMetre, Magnetization>(magnitude, expression, ::Magnetization)
+) : Measure<AmperePerMetre, Magnetization>(magnitude, expression, ::Magnetization) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Ampere(prefix), Metre()))
+}

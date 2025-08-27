@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Metre
@@ -37,4 +38,7 @@ typealias KilogramPerMetre = Quotient<Kilogram, Metre>
 class LinearMassDensity(
     magnitude: BigDecimal,
     expression: KilogramPerMetre
-) : Measure<KilogramPerMetre, LinearMassDensity>(magnitude, expression, ::LinearMassDensity)
+) : Measure<KilogramPerMetre, LinearMassDensity>(magnitude, expression, ::LinearMassDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Kilogram(prefix), Metre()))
+}

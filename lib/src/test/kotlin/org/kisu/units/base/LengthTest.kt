@@ -25,7 +25,7 @@ class LengthTest : StringSpec({
 
     "creates a base Length" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.meters.should { (amount, expression, symbol) ->
+            magnitude.metres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
                 expression shouldBe Metre()
                 symbol shouldBe Metre.UNIT.toString()

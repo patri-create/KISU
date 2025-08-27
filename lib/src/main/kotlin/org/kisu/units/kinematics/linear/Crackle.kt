@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondQuintic
@@ -28,4 +29,7 @@ typealias MetrePerSecondFifth = Quotient<Metre, SecondQuintic>
 class Crackle internal constructor(
     magnitude: BigDecimal,
     expression: MetrePerSecondFifth
-) : Measure<MetrePerSecondFifth, Crackle>(magnitude, expression, ::Crackle)
+) : Measure<MetrePerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), SecondQuintic()))
+}

@@ -1,5 +1,6 @@
 package org.kisu.units.photometric
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Candela
 import org.kisu.units.representation.Quotient
@@ -30,4 +31,7 @@ typealias CandelaPerSquareMetre = Quotient<Candela, SquareMetre>
 class Luminance(
     magnitude: BigDecimal,
     expression: CandelaPerSquareMetre
-) : Measure<CandelaPerSquareMetre, Luminance>(magnitude, expression, ::Luminance)
+) : Measure<CandelaPerSquareMetre, Luminance>(magnitude, expression, ::Luminance) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Candela(prefix), SquareMetre()))
+}

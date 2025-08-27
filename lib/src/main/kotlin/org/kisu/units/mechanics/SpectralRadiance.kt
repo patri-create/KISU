@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
@@ -40,4 +41,7 @@ typealias WattPerSteradianCubicMetre = Quotient<Watt, Product<Steradian, CubicMe
 class SpectralRadiance(
     magnitude: BigDecimal,
     expression: WattPerSteradianCubicMetre
-) : Measure<WattPerSteradianCubicMetre, SpectralRadiance>(magnitude, expression, ::SpectralRadiance)
+) : Measure<WattPerSteradianCubicMetre, SpectralRadiance>(magnitude, expression, ::SpectralRadiance) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Watt(prefix), Product(Steradian(), CubicMetre())))
+}

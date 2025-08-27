@@ -2,8 +2,6 @@ package org.kisu.units.mechanics
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
-import org.kisu.units.electromagnetic.MagneticReluctance
-import org.kisu.units.electromagnetic.ReciprocalHenry
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 import org.kisu.units.special.Pascal

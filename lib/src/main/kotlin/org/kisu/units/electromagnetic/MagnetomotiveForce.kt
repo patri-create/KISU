@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.representation.Product
@@ -48,4 +49,7 @@ typealias AmpereRadian = Product<Ampere, Radian>
 class MagnetomotiveForce(
     magnitude: BigDecimal,
     expression: AmpereRadian
-) : Measure<AmpereRadian, MagnetomotiveForce>(magnitude, expression, ::MagnetomotiveForce)
+) : Measure<AmpereRadian, MagnetomotiveForce>(magnitude, expression, ::MagnetomotiveForce) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Ampere(prefix), Radian()))
+}
