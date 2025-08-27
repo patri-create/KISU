@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
@@ -38,4 +39,7 @@ typealias JoulePerSquareMetre = Quotient<Joule, SquareMetre>
 class RadiantExposure(
     magnitude: BigDecimal,
     expression: JoulePerSquareMetre
-) : Measure<JoulePerSquareMetre, RadiantExposure>(magnitude, expression, ::RadiantExposure)
+) : Measure<JoulePerSquareMetre, RadiantExposure>(magnitude, expression, ::RadiantExposure) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Joule(prefix), SquareMetre()))
+}

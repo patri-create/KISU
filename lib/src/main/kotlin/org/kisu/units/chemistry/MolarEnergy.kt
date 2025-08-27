@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
@@ -45,4 +46,8 @@ typealias JoulePerMole = Quotient<Joule, Mole>
 class MolarEnergy(
     magnitude: BigDecimal,
     expression: JoulePerMole
-) : Measure<JoulePerMole, MolarEnergy>(magnitude, expression, ::MolarEnergy)
+) : Measure<JoulePerMole, MolarEnergy>(magnitude, expression, ::MolarEnergy) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Joule(prefix), Mole()))
+}

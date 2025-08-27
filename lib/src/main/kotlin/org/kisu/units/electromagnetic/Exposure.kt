@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
@@ -39,4 +40,7 @@ typealias CoulombPerKilogram = Quotient<Coulomb, Kilogram>
 class Exposure(
     magnitude: BigDecimal,
     expression: CoulombPerKilogram
-) : Measure<CoulombPerKilogram, Exposure>(magnitude, expression, ::Exposure)
+) : Measure<CoulombPerKilogram, Exposure>(magnitude, expression, ::Exposure) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Coulomb(prefix), Kilogram()))
+}

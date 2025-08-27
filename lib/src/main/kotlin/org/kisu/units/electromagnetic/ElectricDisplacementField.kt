@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
@@ -46,4 +47,7 @@ typealias CoulombPerSquareMetre = Quotient<Coulomb, SquareMetre>
 class ElectricDisplacementField(
     magnitude: BigDecimal,
     expression: CoulombPerSquareMetre
-) : Measure<CoulombPerSquareMetre, ElectricDisplacementField>(magnitude, expression, ::ElectricDisplacementField)
+) : Measure<CoulombPerSquareMetre, ElectricDisplacementField>(magnitude, expression, ::ElectricDisplacementField) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Coulomb(prefix), SquareMetre()))
+}

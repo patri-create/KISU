@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Metre
@@ -32,4 +33,13 @@ typealias KilogramMetreSecondThird = Quotient<KilogramMetre, SecondCubed>
 class Yank internal constructor(
     magnitude: BigDecimal,
     expression: KilogramMetreSecondThird
-) : Measure<KilogramMetreSecondThird, Yank>(magnitude, expression, ::Yank)
+) : Measure<KilogramMetreSecondThird, Yank>(magnitude, expression, ::Yank) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                Product(Kilogram(prefix), Metre()),
+                SecondCubed()
+            )
+        )
+}

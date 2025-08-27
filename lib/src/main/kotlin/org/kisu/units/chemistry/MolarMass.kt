@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Mole
@@ -42,4 +43,7 @@ typealias KilogramPerMole = Quotient<Kilogram, Mole>
 class MolarMass(
     magnitude: BigDecimal,
     expression: KilogramPerMole
-) : Measure<KilogramPerMole, MolarMass>(magnitude, expression, ::MolarMass)
+) : Measure<KilogramPerMole, MolarMass>(magnitude, expression, ::MolarMass) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Kilogram(prefix), Mole()))
+}

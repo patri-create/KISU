@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -44,4 +45,7 @@ typealias SiemensPerMetre = Quotient<Siemens, Metre>
 class ElectricConductivity(
     magnitude: BigDecimal,
     expression: SiemensPerMetre
-) : Measure<SiemensPerMetre, ElectricConductivity>(magnitude, expression, ::ElectricConductivity)
+) : Measure<SiemensPerMetre, ElectricConductivity>(magnitude, expression, ::ElectricConductivity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Siemens(prefix), Metre()))
+}

@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -38,4 +39,7 @@ typealias NewtonPerMetre = Quotient<Newton, Metre>
 class SurfaceTension(
     magnitude: BigDecimal,
     expression: NewtonPerMetre
-) : Measure<NewtonPerMetre, SurfaceTension>(magnitude, expression, ::SurfaceTension)
+) : Measure<NewtonPerMetre, SurfaceTension>(magnitude, expression, ::SurfaceTension) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Newton(prefix), Metre()))
+}

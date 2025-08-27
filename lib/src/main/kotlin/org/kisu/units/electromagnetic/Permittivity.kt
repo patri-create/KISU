@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -44,4 +45,7 @@ typealias FaradPerMetre = Quotient<Farad, Metre>
 class Permittivity(
     magnitude: BigDecimal,
     expression: FaradPerMetre
-) : Measure<FaradPerMetre, Permittivity>(magnitude, expression, ::Permittivity)
+) : Measure<FaradPerMetre, Permittivity>(magnitude, expression, ::Permittivity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Farad(prefix), Metre()))
+}

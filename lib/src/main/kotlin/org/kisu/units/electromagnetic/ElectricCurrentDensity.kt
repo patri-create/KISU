@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.representation.Quotient
@@ -47,4 +48,7 @@ typealias AmperePerSquareMetre = Quotient<Ampere, SquareMetre>
 class ElectricCurrentDensity(
     magnitude: BigDecimal,
     expression: AmperePerSquareMetre
-) : Measure<AmperePerSquareMetre, ElectricCurrentDensity>(magnitude, expression, ::ElectricCurrentDensity)
+) : Measure<AmperePerSquareMetre, ElectricCurrentDensity>(magnitude, expression, ::ElectricCurrentDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Ampere(prefix), SquareMetre()))
+}

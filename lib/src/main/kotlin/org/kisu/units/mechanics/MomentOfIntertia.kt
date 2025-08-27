@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Product
@@ -38,4 +39,7 @@ typealias KilogramSquareMetre = Product<Kilogram, SquareMetre>
 class MomentOfIntertia(
     magnitude: BigDecimal,
     expression: KilogramSquareMetre
-) : Measure<KilogramSquareMetre, MomentOfIntertia>(magnitude, expression, ::MomentOfIntertia)
+) : Measure<KilogramSquareMetre, MomentOfIntertia>(magnitude, expression, ::MomentOfIntertia) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Kilogram(prefix), SquareMetre()))
+}

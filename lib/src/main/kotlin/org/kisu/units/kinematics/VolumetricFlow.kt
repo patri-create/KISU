@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
@@ -28,4 +29,7 @@ typealias CubicMetrePerSecond = Quotient<CubicMetre, Second>
 class VolumetricFlow internal constructor(
     magnitude: BigDecimal,
     expression: CubicMetrePerSecond
-) : Measure<CubicMetrePerSecond, VolumetricFlow>(magnitude, expression, ::VolumetricFlow)
+) : Measure<CubicMetrePerSecond, VolumetricFlow>(magnitude, expression, ::VolumetricFlow) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(CubicMetre(prefix), Second()))
+}

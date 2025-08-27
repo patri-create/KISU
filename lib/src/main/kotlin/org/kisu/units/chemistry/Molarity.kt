@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
@@ -42,4 +43,7 @@ typealias MolePerCubicMetre = Quotient<Mole, CubicMetre>
 class Molarity(
     magnitude: BigDecimal,
     expression: MolePerCubicMetre
-) : Measure<MolePerCubicMetre, Molarity>(magnitude, expression, ::Molarity)
+) : Measure<MolePerCubicMetre, Molarity>(magnitude, expression, ::Molarity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Mole(prefix), CubicMetre()))
+}

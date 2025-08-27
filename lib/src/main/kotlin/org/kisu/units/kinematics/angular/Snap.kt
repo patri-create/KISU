@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondQuartic
 import org.kisu.units.representation.Quotient
@@ -28,4 +29,7 @@ typealias RadianPerSecondFourth = Quotient<Radian, SecondQuartic>
 class Snap(
     magnitude: BigDecimal,
     expression: RadianPerSecondFourth
-) : Measure<RadianPerSecondFourth, Snap>(magnitude, expression, ::Snap)
+) : Measure<RadianPerSecondFourth, Snap>(magnitude, expression, ::Snap) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Radian(prefix), SecondQuartic()))
+}

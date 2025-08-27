@@ -30,7 +30,11 @@ import java.math.BigDecimal
 class ThermalExpansionCoefficient(
     magnitude: BigDecimal,
     expression: ReciprocalKelvin
-) : Measure<ReciprocalKelvin, ThermalExpansionCoefficient>(magnitude, expression, ::ThermalExpansionCoefficient)
+) : Measure<ReciprocalKelvin, ThermalExpansionCoefficient>(magnitude, expression, ::ThermalExpansionCoefficient) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, ReciprocalKelvin(prefix))
+}
 
 /**
  * Represents the **reciprocal of temperature** in the SI system.

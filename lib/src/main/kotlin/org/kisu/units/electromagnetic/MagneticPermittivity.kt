@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -45,4 +46,7 @@ typealias HenryPerMetre = Quotient<Henry, Metre>
 class MagneticPermittivity(
     magnitude: BigDecimal,
     expression: HenryPerMetre
-) : Measure<HenryPerMetre, MagneticPermittivity>(magnitude, expression, ::MagneticPermittivity)
+) : Measure<HenryPerMetre, MagneticPermittivity>(magnitude, expression, ::MagneticPermittivity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Henry(prefix), Metre()))
+}

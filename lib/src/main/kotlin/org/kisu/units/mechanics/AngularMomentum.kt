@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.Second
@@ -39,4 +40,7 @@ typealias NewtonMeterSecond = Product<Newton, Product<Metre, Second>>
 class AngularMomentum(
     magnitude: BigDecimal,
     expression: NewtonMeterSecond
-) : Measure<NewtonMeterSecond, AngularMomentum>(magnitude, expression, ::AngularMomentum)
+) : Measure<NewtonMeterSecond, AngularMomentum>(magnitude, expression, ::AngularMomentum) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Newton(prefix), Product(Metre(), Second())))
+}

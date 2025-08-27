@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
@@ -37,4 +38,7 @@ typealias WattPerSquareMetre = Quotient<Watt, SquareMetre>
 class HeatFluxDensity(
     magnitude: BigDecimal,
     expression: WattPerSquareMetre
-) : Measure<WattPerSquareMetre, HeatFluxDensity>(magnitude, expression, ::HeatFluxDensity)
+) : Measure<WattPerSquareMetre, HeatFluxDensity>(magnitude, expression, ::HeatFluxDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Watt(prefix), SquareMetre()))
+}

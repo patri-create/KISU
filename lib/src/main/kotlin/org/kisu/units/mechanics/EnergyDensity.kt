@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
@@ -37,4 +38,7 @@ typealias JoulePerCubicMetre = Quotient<Joule, CubicMetre>
 class EnergyDensity(
     magnitude: BigDecimal,
     expression: JoulePerCubicMetre
-) : Measure<JoulePerCubicMetre, EnergyDensity>(magnitude, expression, ::EnergyDensity)
+) : Measure<JoulePerCubicMetre, EnergyDensity>(magnitude, expression, ::EnergyDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Joule(prefix), CubicMetre()))
+}

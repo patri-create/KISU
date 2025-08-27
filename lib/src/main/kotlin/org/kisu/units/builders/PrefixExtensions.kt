@@ -2,6 +2,7 @@ package org.kisu.units.builders
 
 import org.kisu.bigDecimal
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.Metric
 import org.kisu.units.base.Amount
 import org.kisu.units.base.Current
 import org.kisu.units.base.Information
@@ -10,6 +11,8 @@ import org.kisu.units.base.LuminousIntensity
 import org.kisu.units.base.Mass
 import org.kisu.units.base.Temperature
 import org.kisu.units.base.Time
+import org.kisu.units.electromagnetic.MagneticReluctance
+import org.kisu.units.mechanics.Compressibility
 import org.kisu.units.special.AbsorbedDose
 import org.kisu.units.special.Area
 import org.kisu.units.special.Bytes
@@ -35,6 +38,7 @@ import org.kisu.units.special.Radioactivity
 import org.kisu.units.special.Resistance
 import org.kisu.units.special.SolidAngle
 import org.kisu.units.special.Volume
+import org.kisu.units.thermodynamics.ThermalExpansionCoefficient
 
 /**
  * Creates a [Current] from this [Number] representing an electric current in amperes (A),
@@ -82,7 +86,7 @@ val Number.coulombs get() = ElectricCharge(bigDecimal)
  * Creates a [Volume] from this [Number] representing a volume in cubic metres (m³),
  * the SI derived unit for volume.
  */
-val Number.cubicMeters get() = Volume(bigDecimal)
+val Number.cubicMetres get() = Volume(bigDecimal)
 
 /**
  * Creates a [Capacitance] from this [Number] representing a capacitance in farads (F),
@@ -94,7 +98,7 @@ val Number.farads get() = Capacitance(bigDecimal)
  * Creates a [Mass] from this [Number] representing a mass in grams (g).
  * Note: This assumes the base unit is the gram, not the kilogram.
  */
-val Number.grams get() = Mass(bigDecimal)
+val Number.grams get() = Mass(bigDecimal, Metric.BASE)
 
 /**
  * Creates an [AbsorbedDose] from this [Number] representing an absorbed dose in grays (Gy),
@@ -148,7 +152,7 @@ val Number.lux get() = Illuminance(bigDecimal)
  * Creates a [Length] from this [Number] representing a distance in meters (m),
  * the SI unit for length.
  */
-val Number.meters get() = Length(bigDecimal)
+val Number.metres get() = Length(bigDecimal)
 
 /**
  * Creates an [Amount] from this [Number] representing a number of moles (mol),
@@ -187,6 +191,24 @@ val Number.radians get() = PlaneAngle(bigDecimal)
 val Number.seconds get() = Time(bigDecimal)
 
 /**
+ * Creates a [MagneticReluctance] from this [Number] representing a value in reciprocal henries (H⁻¹),
+ * the SI unit for magnetic reluctance.
+ */
+val Number.reciprocalHenries: MagneticReluctance get() = MagneticReluctance(bigDecimal)
+
+/**
+ * Creates a [ThermalExpansionCoefficient] from this [Number] representing a value in reciprocal kelvins (K⁻¹),
+ * the SI unit for thermal expansion coefficient.
+ */
+val Number.reciprocalKelvins: ThermalExpansionCoefficient get() = ThermalExpansionCoefficient(bigDecimal)
+
+/**
+ * Creates a [Compressibility] from this [Number] representing a value in reciprocal pascals (Pa⁻¹),
+ * the SI unit for compressibility.
+ */
+val Number.reciprocalPascal: Compressibility get() = Compressibility(bigDecimal)
+
+/**
  * Creates a [Conductance] from this [Number] representing an electrical conductance in siemens (S),
  * the SI unit for conductance.
  */
@@ -202,7 +224,7 @@ val Number.sieverts get() = DoseEquivalent(bigDecimal)
  * Creates an [Area] from this [Number] representing an area in square metres (m²),
  * the SI derived unit for area.
  */
-val Number.squareMeters get() = Area(bigDecimal)
+val Number.squareMetres get() = Area(bigDecimal)
 
 /**
  * Creates a [SolidAngle] from this [Number] representing a solid angle in steradians (sr),

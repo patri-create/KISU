@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondQuartic
@@ -28,4 +29,7 @@ typealias MetrePerSecondFourth = Quotient<Metre, SecondQuartic>
 class Snap(
     magnitude: BigDecimal,
     expression: MetrePerSecondFourth
-) : Measure<MetrePerSecondFourth, Snap>(magnitude, expression, ::Snap)
+) : Measure<MetrePerSecondFourth, Snap>(magnitude, expression, ::Snap) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), SecondQuartic()))
+}

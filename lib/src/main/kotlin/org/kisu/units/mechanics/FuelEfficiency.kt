@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -38,4 +39,7 @@ typealias MetrePerCubicMetre = Quotient<Metre, CubicMetre>
 class FuelEfficiency(
     magnitude: BigDecimal,
     expression: MetrePerCubicMetre
-) : Measure<MetrePerCubicMetre, FuelEfficiency>(magnitude, expression, ::FuelEfficiency)
+) : Measure<MetrePerCubicMetre, FuelEfficiency>(magnitude, expression, ::FuelEfficiency) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), CubicMetre()))
+}

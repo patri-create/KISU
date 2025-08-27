@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
@@ -38,4 +39,7 @@ typealias JoulePerKilogram = Quotient<Joule, Kilogram>
 class SpecificEnergy(
     magnitude: BigDecimal,
     expression: JoulePerKilogram
-) : Measure<JoulePerKilogram, SpecificEnergy>(magnitude, expression, ::SpecificEnergy)
+) : Measure<JoulePerKilogram, SpecificEnergy>(magnitude, expression, ::SpecificEnergy) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Joule(prefix), Kilogram()))
+}

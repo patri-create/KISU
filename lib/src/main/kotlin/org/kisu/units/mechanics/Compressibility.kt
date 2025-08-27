@@ -26,7 +26,11 @@ import java.math.BigDecimal
 class Compressibility(
     magnitude: BigDecimal,
     expression: ReciprocalPascal
-) : Measure<ReciprocalPascal, Compressibility>(magnitude, expression, ::Compressibility)
+) : Measure<ReciprocalPascal, Compressibility>(magnitude, expression, ::Compressibility) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, ReciprocalPascal(prefix))
+}
 
 /**
  * Unit of [Compressibility].

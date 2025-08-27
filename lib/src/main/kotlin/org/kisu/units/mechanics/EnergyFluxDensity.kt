@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
@@ -39,4 +40,13 @@ typealias JoulePerSquareMetreSecond = Quotient<Joule, Product<SquareMetre, Secon
 class EnergyFluxDensity(
     magnitude: BigDecimal,
     expression: JoulePerSquareMetreSecond
-) : Measure<JoulePerSquareMetreSecond, EnergyFluxDensity>(magnitude, expression, ::EnergyFluxDensity)
+) : Measure<JoulePerSquareMetreSecond, EnergyFluxDensity>(magnitude, expression, ::EnergyFluxDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                Joule(prefix),
+                Product(SquareMetre(), Second())
+            )
+        )
+}

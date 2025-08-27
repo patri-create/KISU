@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -38,4 +39,7 @@ typealias WattPerMetre = Quotient<Watt, Metre>
 class SpectralPower(
     magnitude: BigDecimal,
     expression: WattPerMetre
-) : Measure<WattPerMetre, SpectralPower>(magnitude, expression, ::SpectralPower)
+) : Measure<WattPerMetre, SpectralPower>(magnitude, expression, ::SpectralPower) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Watt(prefix), Metre()))
+}

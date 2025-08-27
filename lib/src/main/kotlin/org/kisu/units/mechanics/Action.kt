@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
@@ -38,4 +39,7 @@ typealias JouleSecond = Product<Joule, Second>
 class Action(
     magnitude: BigDecimal,
     expression: JouleSecond
-) : Measure<JouleSecond, Action>(magnitude, expression, ::Action)
+) : Measure<JouleSecond, Action>(magnitude, expression, ::Action) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Product(Joule(prefix), Second()))
+}

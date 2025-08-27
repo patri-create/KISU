@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
@@ -37,4 +38,7 @@ typealias KilogramPerSquareMetre = Quotient<Kilogram, SquareMetre>
 class AreaDensity(
     magnitude: BigDecimal,
     expression: KilogramPerSquareMetre
-) : Measure<KilogramPerSquareMetre, AreaDensity>(magnitude, expression, ::AreaDensity)
+) : Measure<KilogramPerSquareMetre, AreaDensity>(magnitude, expression, ::AreaDensity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Kilogram(prefix), SquareMetre()))
+}

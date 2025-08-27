@@ -1,5 +1,6 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Kilogram
@@ -46,4 +47,13 @@ typealias JoulePerKilogramKelvin = Quotient<Joule, Product<Kilogram, Kelvin>>
 class SpecificHeatCapacity(
     magnitude: BigDecimal,
     expression: JoulePerKilogramKelvin
-) : Measure<JoulePerKilogramKelvin, SpecificHeatCapacity>(magnitude, expression, ::SpecificHeatCapacity)
+) : Measure<JoulePerKilogramKelvin, SpecificHeatCapacity>(magnitude, expression, ::SpecificHeatCapacity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                Joule(),
+                Product(Kilogram(prefix), Kelvin())
+            )
+        )
+}

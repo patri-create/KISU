@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondSextic
@@ -28,4 +29,7 @@ typealias MetrePerSecondSixth = Quotient<Metre, SecondSextic>
 class Pop internal constructor(
     magnitude: BigDecimal,
     expression: MetrePerSecondSixth
-) : Measure<MetrePerSecondSixth, Pop>(magnitude, expression, ::Pop)
+) : Measure<MetrePerSecondSixth, Pop>(magnitude, expression, ::Pop) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Metre(prefix), SecondSextic()))
+}

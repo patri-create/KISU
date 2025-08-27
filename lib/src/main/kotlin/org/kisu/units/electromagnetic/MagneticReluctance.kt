@@ -34,7 +34,11 @@ import java.math.BigDecimal
 class MagneticReluctance(
     magnitude: BigDecimal,
     expression: ReciprocalHenry
-) : Measure<ReciprocalHenry, MagneticReluctance>(magnitude, expression, ::MagneticReluctance)
+) : Measure<ReciprocalHenry, MagneticReluctance>(magnitude, expression, ::MagneticReluctance) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, ReciprocalHenry(prefix))
+}
 
 /**
  * Represents the **reciprocal of inductance** (1/H), a scalar quantity used

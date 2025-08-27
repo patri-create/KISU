@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.base.Second
@@ -51,4 +52,14 @@ typealias CubicMetrePerMoleSecond = Quotient<SquareMetre, Product<Mole, Second>>
 class CatalyticEfficiency(
     magnitude: BigDecimal,
     expression: CubicMetrePerMoleSecond
-) : Measure<CubicMetrePerMoleSecond, CatalyticEfficiency>(magnitude, expression, ::CatalyticEfficiency)
+) : Measure<CubicMetrePerMoleSecond, CatalyticEfficiency>(magnitude, expression, ::CatalyticEfficiency) {
+
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                SquareMetre(prefix),
+                Product(Mole(), Second())
+            )
+        )
+}

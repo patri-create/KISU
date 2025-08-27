@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
@@ -51,4 +52,7 @@ typealias VoltPerMetre = Quotient<Volt, Metre>
 class ElectricFieldStrength(
     magnitude: BigDecimal,
     expression: VoltPerMetre
-) : Measure<VoltPerMetre, ElectricFieldStrength>(magnitude, expression, ::ElectricFieldStrength)
+) : Measure<VoltPerMetre, ElectricFieldStrength>(magnitude, expression, ::ElectricFieldStrength) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(magnitude, Quotient(Volt(prefix), Metre()))
+}

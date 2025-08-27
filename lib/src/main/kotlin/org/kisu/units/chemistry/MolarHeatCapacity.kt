@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Mole
@@ -46,4 +47,13 @@ typealias JoulePerKelvinMole = Quotient<Joule, Product<Kelvin, Mole>>
 class MolarHeatCapacity(
     magnitude: BigDecimal,
     expression: JoulePerKelvinMole
-) : Measure<JoulePerKelvinMole, MolarHeatCapacity>(magnitude, expression, ::MolarHeatCapacity)
+) : Measure<JoulePerKelvinMole, MolarHeatCapacity>(magnitude, expression, ::MolarHeatCapacity) {
+    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+        this(
+            magnitude,
+            Quotient(
+                Joule(prefix),
+                Product(Kelvin(), Mole())
+            )
+        )
+}

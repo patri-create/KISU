@@ -10,12 +10,12 @@ import io.kotest.property.checkAll
 import org.kisu.bigDecimal
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.meters
+import org.kisu.units.builders.metres
 
 class LengthTest : StringSpec({
     "creates Length" {
         checkAll(Arb.long().filter { it != 0L }, MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().meters.should { (amount, expression, symbol) ->
+            magnitude.builder().metres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
                 expression shouldBe Metre(magnitude.builder().metric)
                 symbol shouldBe Metre.UNIT.toString()
@@ -25,7 +25,7 @@ class LengthTest : StringSpec({
 
     "creates a base Length" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.meters.should { (amount, expression, symbol) ->
+            magnitude.metres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.bigDecimal
                 expression shouldBe Metre()
                 symbol shouldBe Metre.UNIT.toString()
