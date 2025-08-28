@@ -41,5 +41,5 @@ class MomentOfIntertia(
     expression: KilogramSquareMetre
 ) : Measure<KilogramSquareMetre, MomentOfIntertia>(magnitude, expression, ::MomentOfIntertia) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Kilogram(prefix), SquareMetre()))
+        this(magnitude, Product(Kilogram(prefix to BigDecimal.ONE), SquareMetre()))
 }

@@ -40,5 +40,5 @@ class MassFlowRate(
     expression: KilogramPerSecond
 ) : Measure<KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix), Second()))
+        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Second()))
 }

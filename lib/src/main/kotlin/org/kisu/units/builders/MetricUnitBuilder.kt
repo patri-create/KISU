@@ -351,6 +351,83 @@ val MetricUnitBuilder.faradPerMetre: Permittivity
 val MetricUnitBuilder.farads: Capacitance get() = Capacitance(magnitude, metric)
 
 /**
+ * Creates a [Yank] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val yank = 1.kilo.gramMetre // 1 kg·m/s³
+ * ```
+ */
+val MetricUnitBuilder.gramMetre: Yank
+    get() = Yank(magnitude, metric)
+
+/**
+ * Creates a [Yank] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val yank = 1.kilo.gramMetreSecondThird // 1 kg·m/s³
+ * ```
+ */
+val MetricUnitBuilder.gramMetreSecondThird: Yank
+    get() = Yank(magnitude, metric)
+
+/**
+ * Creates a [Density] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val density = 1.kilo.gramPerCubicMetre // 1 kg/m³
+ * ```
+ */
+val MetricUnitBuilder.gramPerCubicMetre: Density
+    get() = Density(magnitude, metric)
+
+/**
+ * Creates a [LinearMassDensity] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val linearMassDensity = 1.kilo.gramPerMetre // 1 kg/m
+ * ```
+ */
+val MetricUnitBuilder.gramPerMetre: LinearMassDensity
+    get() = LinearMassDensity(magnitude, metric)
+
+/**
+ * Creates a [MolarMass] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val molarMass = 1.kilo.gramPerMole // 1 kg/mol
+ * ```
+ */
+val MetricUnitBuilder.gramPerMole: MolarMass
+    get() = MolarMass(magnitude, metric)
+
+/**
+ * Creates a [MassFlowRate] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val massFlow = 1.kilo.gramPerSecond // 1 kg/s
+ * ```
+ */
+val MetricUnitBuilder.gramPerSecond: MassFlowRate
+    get() = MassFlowRate(magnitude, metric)
+
+/**
+ * Creates an [AreaDensity] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val areaDensity = 1.kilo.gramPerSquareMetre // 1 kg/m²
+ * ```
+ */
+val MetricUnitBuilder.gramPerSquareMetre: AreaDensity
+    get() = AreaDensity(magnitude, metric)
+
+/**
  * Creates a [Mass] measure by applying the metric prefix scale to the magnitude.
  *
  * Note: The SI base unit is kilogram, but this treats grams as base unit with prefix scaling.
@@ -361,6 +438,17 @@ val MetricUnitBuilder.farads: Capacitance get() = Capacitance(magnitude, metric)
  * ```
  */
 val MetricUnitBuilder.grams: Mass get() = Mass(magnitude, metric)
+
+/**
+ * Creates a [MomentOfIntertia] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val inertia = 1.kilo.gramSquareMetre // 1 kg·m²
+ * ```
+ */
+val MetricUnitBuilder.gramSquareMetre: MomentOfIntertia
+    get() = MomentOfIntertia(magnitude, metric)
 
 /**
  * Creates an [AbsorbedDoseRate] measure by applying the metric prefix scale to the magnitude.
@@ -586,94 +674,6 @@ val MetricUnitBuilder.kelvinPerWatt: ThermalResistance
  * ```
  */
 val MetricUnitBuilder.kelvins: Temperature get() = Temperature(magnitude, metric)
-
-/**
- * Creates a [Yank] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val yank = 1.kilogramMetre // 1 kg·m/s³
- * ```
- */
-val MetricUnitBuilder.kilogramMetre: Yank
-    get() = Yank(magnitude, metric)
-
-/**
- * Creates a [Yank] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val yank = 1.kilogramMetreSecondThird // 1 kg·m/s³
- * ```
- */
-val MetricUnitBuilder.kilogramMetreSecondThird: Yank
-    get() = Yank(magnitude, metric)
-
-/**
- * Creates a [Density] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val density = 1.kilogramPerCubicMetre // 1 kg/m³
- * ```
- */
-val MetricUnitBuilder.kilogramPerCubicMetre: Density
-    get() = Density(magnitude, metric)
-
-/**
- * Creates a [LinearMassDensity] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val linearMassDensity = 1.kilogramPerMetre // 1 kg/m
- * ```
- */
-val MetricUnitBuilder.kilogramPerMetre: LinearMassDensity
-    get() = LinearMassDensity(magnitude, metric)
-
-/**
- * Creates a [MolarMass] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val molarMass = 1.kilogramPerMole // 1 kg/mol
- * ```
- */
-val MetricUnitBuilder.kilogramPerMole: MolarMass
-    get() = MolarMass(magnitude, metric)
-
-/**
- * Creates a [MassFlowRate] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val massFlow = 1.kilogramPerSecond // 1 kg/s
- * ```
- */
-val MetricUnitBuilder.kilogramPerSecond: MassFlowRate
-    get() = MassFlowRate(magnitude, metric)
-
-/**
- * Creates an [AreaDensity] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val areaDensity = 1.kilogramPerSquareMetre // 1 kg/m²
- * ```
- */
-val MetricUnitBuilder.kilogramPerSquareMetre: AreaDensity
-    get() = AreaDensity(magnitude, metric)
-
-/**
- * Creates a [MomentOfIntertia] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val inertia = 1.kilogramSquareMetre // 1 kg·m²
- * ```
- */
-val MetricUnitBuilder.kilogramSquareMetre: MomentOfIntertia
-    get() = MomentOfIntertia(magnitude, metric)
 
 /**
  * Creates an [Efficacy] measure by applying the metric prefix scale to the magnitude.

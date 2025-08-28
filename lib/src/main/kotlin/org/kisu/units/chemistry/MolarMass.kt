@@ -45,5 +45,5 @@ class MolarMass(
     expression: KilogramPerMole
 ) : Measure<KilogramPerMole, MolarMass>(magnitude, expression, ::MolarMass) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix), Mole()))
+        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Mole()))
 }

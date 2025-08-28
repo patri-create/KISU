@@ -38,7 +38,7 @@ class Yank internal constructor(
         this(
             magnitude,
             Quotient(
-                Product(Kilogram(prefix), Metre()),
+                Product(Kilogram(prefix to BigDecimal.ONE), Metre()),
                 SecondCubed()
             )
         )

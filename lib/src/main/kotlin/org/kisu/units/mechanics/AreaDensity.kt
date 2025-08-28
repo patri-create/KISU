@@ -40,5 +40,5 @@ class AreaDensity(
     expression: KilogramPerSquareMetre
 ) : Measure<KilogramPerSquareMetre, AreaDensity>(magnitude, expression, ::AreaDensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix), SquareMetre()))
+        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), SquareMetre()))
 }
