@@ -127,6 +127,7 @@ $dokka.location:org.kisu.units.base/Kelvin///PointingToDeclaration/-k-i-s-u/org
 $dokka.location:org.kisu.units.base/Kelvin/Kelvin/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kelvin/-kelvin.html
 $dokka.location:org.kisu.units.base/Kilogram.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-companion/index.html
 $dokka.location:org.kisu.units.base/Kilogram///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/index.html
+$dokka.location:org.kisu.units.base/Kilogram/Kilogram/#kotlin.Pair[org.kisu.prefixes.Metric,java.math.BigDecimal]/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-kilogram.html
 $dokka.location:org.kisu.units.base/Kilogram/Kilogram/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-kilogram.html
 $dokka.location:org.kisu.units.base/Length///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-length/index.html
 $dokka.location:org.kisu.units.base/LuminousIntensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-luminous-intensity/index.html
@@ -198,6 +199,14 @@ $dokka.location:org.kisu.units.builders//farads/org.kisu.units.builders.MetricUn
 $dokka.location:org.kisu.units.builders//femto/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/femto.html
 $dokka.location:org.kisu.units.builders//gibi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gibi.html
 $dokka.location:org.kisu.units.builders//giga/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/giga.html
+$dokka.location:org.kisu.units.builders//gramMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-metre.html
+$dokka.location:org.kisu.units.builders//gramMetreSecondThird/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-metre-second-third.html
+$dokka.location:org.kisu.units.builders//gramPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-cubic-metre.html
+$dokka.location:org.kisu.units.builders//gramPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-metre.html
+$dokka.location:org.kisu.units.builders//gramPerMole/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-mole.html
+$dokka.location:org.kisu.units.builders//gramPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-second.html
+$dokka.location:org.kisu.units.builders//gramPerSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-square-metre.html
+$dokka.location:org.kisu.units.builders//gramSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-square-metre.html
 $dokka.location:org.kisu.units.builders//grams/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams.html
 $dokka.location:org.kisu.units.builders//grams/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams.html
 $dokka.location:org.kisu.units.builders//grayPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gray-per-second.html
@@ -230,14 +239,6 @@ $dokka.location:org.kisu.units.builders//kelvins/kotlin.Number#/PointingToDeclar
 $dokka.location:org.kisu.units.builders//kelvins/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kelvins.html
 $dokka.location:org.kisu.units.builders//kibi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kibi.html
 $dokka.location:org.kisu.units.builders//kilo/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilo.html
-$dokka.location:org.kisu.units.builders//kilogramMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-metre.html
-$dokka.location:org.kisu.units.builders//kilogramMetreSecondThird/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-metre-second-third.html
-$dokka.location:org.kisu.units.builders//kilogramPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-per-cubic-metre.html
-$dokka.location:org.kisu.units.builders//kilogramPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-per-metre.html
-$dokka.location:org.kisu.units.builders//kilogramPerMole/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-per-mole.html
-$dokka.location:org.kisu.units.builders//kilogramPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-per-second.html
-$dokka.location:org.kisu.units.builders//kilogramPerSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-per-square-metre.html
-$dokka.location:org.kisu.units.builders//kilogramSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/kilogram-square-metre.html
 $dokka.location:org.kisu.units.builders//lumenPerWatt/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/lumen-per-watt.html
 $dokka.location:org.kisu.units.builders//lumenSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/lumen-second.html
 $dokka.location:org.kisu.units.builders//lumens/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/lumens.html
