@@ -40,5 +40,5 @@ class Density(
     expression: KilogramPerCubicMetre
 ) : Measure<KilogramPerCubicMetre, Density>(magnitude, expression, ::Density) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix), CubicMetre()))
+        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), CubicMetre()))
 }

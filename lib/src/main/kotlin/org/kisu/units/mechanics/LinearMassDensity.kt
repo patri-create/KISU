@@ -40,5 +40,5 @@ class LinearMassDensity(
     expression: KilogramPerMetre
 ) : Measure<KilogramPerMetre, LinearMassDensity>(magnitude, expression, ::LinearMassDensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix), Metre()))
+        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Metre()))
 }

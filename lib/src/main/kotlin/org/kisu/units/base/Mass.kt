@@ -1,6 +1,7 @@
 package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.times
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
@@ -26,13 +27,20 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
     Measure<Kilogram, Mass>(magnitude, expression, ::Mass) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.KILO) :
-        this(magnitude, Kilogram(prefix))
+        this(magnitude, Kilogram(prefix to BigDecimal.ONE))
 }
 
 /**
  * Represents the SI base unit of **mass**.
  *
- * The kilogram (kg) is the standard unit for measuring mass.
+ * The kilogram (kg) is the SI base unit for mass.
+ *
+ * Internally, this class normalizes to grams (g) so that metric
+ * prefixes work consistently:
+ * - Kilogram(Metric.BASE) = 1 kg
+ * - Kilogram(Metric.KILO) = 1 Mg
+ * - Kilogram(Metric.MILLI) = 1 g
+ * - Kilogram(Metric.MICRO) = 1 mg
  */
 class Kilogram private constructor(
     prefix: Metric,
@@ -40,10 +48,12 @@ class Kilogram private constructor(
     unit: Unit
 ) : Scalar<Metric, Kilogram>(prefix, overflow, unit, ::Kilogram) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(pair: Pair<Metric, BigDecimal>) : this(pair.first, pair.second, UNIT)
+
+    constructor(prefix: Metric = Metric.BASE) : this(prefix * Metric.KILO)
 
     companion object {
-        /** The canonical SI symbol for mass: "kg". */
+        /** The canonical unit symbol used internally: "g". */
         internal val UNIT = Unit("g", 1)
     }
 }
