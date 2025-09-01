@@ -23,6 +23,25 @@ import java.math.BigDecimal
 typealias KilogramPerMole = Quotient<Kilogram, Mole>
 
 /**
+ * Creates a measure of **kilograms per mole** (kg/mol).
+ *
+ * This derived unit is used to express mass per amount of substance,
+ * for example molar mass in chemistry.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Kilogram] (mass) with the specified [prefix]
+ *  - divided by a [Mole] (amount of substance)
+ *
+ * @param prefix Metric prefix to apply to the kilogram unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing kg/mol.
+ */
+@Suppress("FunctionNaming")
+internal fun KilogramPerMole(prefix: Metric = Metric.BASE): Quotient<Kilogram, Mole> =
+    Quotient(Kilogram(prefix), Mole())
+
+/**
  * Represents the physical quantity of **molar mass**.
  *
  * Molar mass quantifies the **mass of one mole of a substance**.
@@ -45,5 +64,5 @@ class MolarMass(
     expression: KilogramPerMole
 ) : Measure<KilogramPerMole, MolarMass>(magnitude, expression, ::MolarMass) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Mole()))
+        this(magnitude, KilogramPerMole(prefix))
 }

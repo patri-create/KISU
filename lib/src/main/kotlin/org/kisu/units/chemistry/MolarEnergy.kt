@@ -24,6 +24,25 @@ import java.math.BigDecimal
 typealias JoulePerMole = Quotient<Joule, Mole>
 
 /**
+ * Creates a measure of **joules per mole** (J/mol).
+ *
+ * This derived unit is widely used in chemistry and thermodynamics
+ * to express energy, work or enthalpy per amount of substance.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Joule] (energy) with the specified [prefix]
+ *  - divided by a [Mole] (amount of substance)
+ *
+ * @param prefix Metric prefix to apply to the joule unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing J/mol.
+ */
+@Suppress("FunctionNaming")
+internal fun JoulePerMole(prefix: Metric = Metric.BASE): Quotient<Joule, Mole> =
+    Quotient(Joule(prefix), Mole())
+
+/**
  * Represents the physical quantity of **molar energy**.
  *
  * Molar energy quantifies the **amount of energy per mole of substance**.
@@ -49,5 +68,5 @@ class MolarEnergy(
 ) : Measure<JoulePerMole, MolarEnergy>(magnitude, expression, ::MolarEnergy) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Joule(prefix), Mole()))
+        this(magnitude, JoulePerMole(prefix))
 }

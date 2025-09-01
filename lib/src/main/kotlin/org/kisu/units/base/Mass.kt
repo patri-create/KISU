@@ -52,6 +52,8 @@ class Kilogram private constructor(
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix * Metric.KILO)
 
+    override val canonical: Kilogram by lazy { Kilogram() }
+
     companion object {
         /** The canonical unit symbol used internally: "g". */
         internal val UNIT = Unit("g", 1)

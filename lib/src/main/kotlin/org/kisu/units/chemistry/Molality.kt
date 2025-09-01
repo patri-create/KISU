@@ -23,6 +23,25 @@ import java.math.BigDecimal
 typealias MolPerKilogram = Quotient<Mole, Kilogram>
 
 /**
+ * Creates a measure of **moles per kilogram** (mol/kg).
+ *
+ * This derived unit is commonly used in chemistry to express
+ * the amount of substance per unit mass of a solvent or solution.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Mole] (amount of substance) with the specified [prefix]
+ *  - divided by a [Kilogram] (mass)
+ *
+ * @param prefix Metric prefix to apply to the mole unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing mol/kg.
+ */
+@Suppress("FunctionNaming")
+internal fun MolPerKilogram(prefix: Metric = Metric.BASE): Quotient<Mole, Kilogram> =
+    Quotient(Mole(prefix), Kilogram())
+
+/**
  * Represents the physical quantity of **molality**.
  *
  * Molality quantifies the **amount of substance of solute per unit mass of solvent**.
@@ -48,5 +67,5 @@ class Molality(
 ) : Measure<MolPerKilogram, Molality>(magnitude, expression, ::Molality) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Mole(prefix), Kilogram()))
+        this(magnitude, MolPerKilogram(prefix))
 }
