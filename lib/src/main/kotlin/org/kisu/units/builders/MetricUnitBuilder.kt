@@ -384,6 +384,16 @@ val MetricUnitBuilder.gramPerCubicMetre: Density
     get() = Density(magnitude, metric)
 
 /**
+ * Creates a [MolarMass] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val temp = 2.kilo.kelvins // 2 * 10^3 kelvins
+ * ```
+ */
+val MetricUnitBuilder.gramsPerMole: MolarMass get() = MolarMass(magnitude, metric)
+
+/**
  * Creates a [LinearMassDensity] measure by applying the metric prefix scale to the magnitude.
  *
  * Example usage:
