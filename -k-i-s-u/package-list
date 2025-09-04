@@ -129,6 +129,7 @@ $dokka.location:org.kisu.units.base/Kilogram.Companion///PointingToDeclaration/
 $dokka.location:org.kisu.units.base/Kilogram///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/index.html
 $dokka.location:org.kisu.units.base/Kilogram/Kilogram/#kotlin.Pair[org.kisu.prefixes.Metric,java.math.BigDecimal]/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-kilogram.html
 $dokka.location:org.kisu.units.base/Kilogram/Kilogram/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/-kilogram.html
+$dokka.location:org.kisu.units.base/Kilogram/canonical/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-kilogram/canonical.html
 $dokka.location:org.kisu.units.base/Length///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-length/index.html
 $dokka.location:org.kisu.units.base/LuminousIntensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-luminous-intensity/index.html
 $dokka.location:org.kisu.units.base/Mass///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-mass/index.html
@@ -220,7 +221,6 @@ $dokka.location:org.kisu.units.builders//gramPerCubicMetre/kotlin.Number#/Pointi
 $dokka.location:org.kisu.units.builders//gramPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//gramPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-metre.html
 $dokka.location:org.kisu.units.builders//gramPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-metre.html
-$dokka.location:org.kisu.units.builders//gramPerMole/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-mole.html
 $dokka.location:org.kisu.units.builders//gramPerMole/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-mole.html
 $dokka.location:org.kisu.units.builders//gramPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-second.html
 $dokka.location:org.kisu.units.builders//gramPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-second.html
@@ -230,6 +230,8 @@ $dokka.location:org.kisu.units.builders//gramSquareMetre/kotlin.Number#/Pointing
 $dokka.location:org.kisu.units.builders//gramSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-square-metre.html
 $dokka.location:org.kisu.units.builders//grams/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams.html
 $dokka.location:org.kisu.units.builders//grams/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams.html
+$dokka.location:org.kisu.units.builders//gramsPerMole/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams-per-mole.html
+$dokka.location:org.kisu.units.builders//gramsPerMole/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams-per-mole.html
 $dokka.location:org.kisu.units.builders//grayPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gray-per-second.html
 $dokka.location:org.kisu.units.builders//grayPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gray-per-second.html
 $dokka.location:org.kisu.units.builders//grays/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grays.html
@@ -563,7 +565,7 @@ $dokka.location:org.kisu.units.builders/ZettaBuilder/magnitude/#/PointingToDecla
 $dokka.location:org.kisu.units.builders/ZettaBuilder/metric/#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/-zetta-builder/metric.html
 $dokka.location:org.kisu.units.chemistry////PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/index.html
 $dokka.location:org.kisu.units.chemistry/CatalyticEfficiency///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-catalytic-efficiency/index.html
-$dokka.location:org.kisu.units.chemistry/CatalyticEfficiency/CatalyticEfficiency/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.SquareMetre,org.kisu.units.representation.Product[org.kisu.units.base.Mole,org.kisu.units.base.Second]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-catalytic-efficiency/-catalytic-efficiency.html
+$dokka.location:org.kisu.units.chemistry/CatalyticEfficiency/CatalyticEfficiency/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.special.CubicMetre,org.kisu.units.representation.Product[org.kisu.units.base.Mole,org.kisu.units.base.Second]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-catalytic-efficiency/-catalytic-efficiency.html
 $dokka.location:org.kisu.units.chemistry/CubicMetrePerMole///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-cubic-metre-per-mole/index.html
 $dokka.location:org.kisu.units.chemistry/CubicMetrePerMoleSecond///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-cubic-metre-per-mole-second/index.html
 $dokka.location:org.kisu.units.chemistry/JoulePerKelvinMole///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-joule-per-kelvin-mole/index.html
@@ -585,7 +587,7 @@ $dokka.location:org.kisu.units.chemistry/MolarVolume/MolarVolume/#java.math.BigD
 $dokka.location:org.kisu.units.chemistry/Molarity///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-molarity/index.html
 $dokka.location:org.kisu.units.chemistry/Molarity/Molarity/#java.math.BigDecimal#org.kisu.units.representation.Quotient[org.kisu.units.base.Mole,org.kisu.units.special.CubicMetre]/PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-molarity/-molarity.html
 $dokka.location:org.kisu.units.chemistry/MolePerCubicMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-mole-per-cubic-metre/index.html
-$dokka.location:org.kisu.units.chemistry/SiemesSquareMetrePerMole///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-siemes-square-metre-per-mole/index.html
+$dokka.location:org.kisu.units.chemistry/SiemensSquareMetrePerMole///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-siemens-square-metre-per-mole/index.html
 $dokka.location:org.kisu.units.electromagnetic////PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/index.html
 $dokka.location:org.kisu.units.electromagnetic/AmperePerMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-ampere-per-metre/index.html
 $dokka.location:org.kisu.units.electromagnetic/AmperePerSquareMetre///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-ampere-per-square-metre/index.html
