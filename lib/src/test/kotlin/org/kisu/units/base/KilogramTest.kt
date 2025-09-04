@@ -18,4 +18,12 @@ class KilogramTest : StringSpec({
             (kilos.factor / newPrefix.factor).compareTo(overflow).shouldBeZero()
         }
     }
+
+    "kilogram outputs the correct canonical form" {
+        checkAll(Metrics.generator) { prefix ->
+            val kilos = Kilogram(prefix).canonical
+
+            kilos.canonical.toString() shouldBe "kg"
+        }
+    }
 })

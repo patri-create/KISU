@@ -24,7 +24,30 @@ import java.math.BigDecimal
  *
  * @see MolarConductivity for the physical quantity represented by this unit.
  */
-typealias SiemesSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mole>
+typealias SiemensSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mole>
+
+/**
+ * Creates a measure of **siemens square metres per mole** (S·m²/mol).
+ *
+ * This derived unit can be used in electrochemistry and related
+ * fields to express conductivity–area products per amount of substance.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Product] of [Siemens] (electrical conductance) with the specified [prefix]
+ *    and [SquareMetre] (area)
+ *  - divided by a [Mole] (amount of substance)
+ *
+ * @param prefix Metric prefix to apply to the siemens unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing S·m²/mol.
+ */
+@Suppress("FunctionNaming")
+internal fun SiemensSquareMetrePerMole(prefix: Metric = Metric.BASE): Quotient<Product<Siemens, SquareMetre>, Mole> =
+    Quotient(
+        Product(Siemens(prefix), SquareMetre()),
+        Mole()
+    )
 
 /**
  * Represents the physical quantity of **molar conductivity**.
@@ -34,7 +57,7 @@ typealias SiemesSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mol
  * It indicates how effectively ions contribute to electrical conduction on a
  * per-mole basis.
  * Its SI unit is the **siemens square metre per mole (S·m²/mol)**, represented here
- * by [SiemesSquareMetrePerMole].
+ * by [SiemensSquareMetrePerMole].
  *
  * Example usages include:
  * - Determining ion mobility in electrolyte solutions
@@ -43,22 +66,19 @@ typealias SiemesSquareMetrePerMole = Quotient<Product<Siemens, SquareMetre>, Mol
  *
  * The magnitude is stored as a [BigDecimal] to ensure high precision.
  * Instances of [MolarConductivity] are immutable, and the [expression] parameter ties
- * the measurement to its unit representation ([SiemesSquareMetrePerMole]).
+ * the measurement to its unit representation ([SiemensSquareMetrePerMole]).
  *
  * @property magnitude The numeric value of the molar conductivity.
- * @property expression The unit expression of the molar conductivity, always [SiemesSquareMetrePerMole].
+ * @property expression The unit expression of the molar conductivity, always [SiemensSquareMetrePerMole].
  */
 class MolarConductivity(
     magnitude: BigDecimal,
-    expression: SiemesSquareMetrePerMole
-) : Measure<SiemesSquareMetrePerMole, MolarConductivity>(magnitude, expression, ::MolarConductivity) {
+    expression: SiemensSquareMetrePerMole
+) : Measure<SiemensSquareMetrePerMole, MolarConductivity>(magnitude, expression, ::MolarConductivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
-            Quotient(
-                Product(Siemens(prefix), SquareMetre()),
-                Mole()
-            )
+            SiemensSquareMetrePerMole(prefix)
         )
 }

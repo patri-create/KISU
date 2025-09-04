@@ -27,6 +27,29 @@ import java.math.BigDecimal
 typealias JoulePerKelvinMole = Quotient<Joule, Product<Kelvin, Mole>>
 
 /**
+ * Creates a measure of **joules per kelvin-mole** (J/(K·mol)).
+ *
+ * This derived unit is used in thermodynamics to express energy,
+ * heat capacity or entropy per unit temperature per amount of substance.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Joule] (energy) with the specified [prefix]
+ *  - divided by a [Product] of [Kelvin] (temperature)
+ *    and [Mole] (amount of substance)
+ *
+ * @param prefix Metric prefix to apply to the joule unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing J/(K·mol).
+ */
+@Suppress("FunctionNaming")
+internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): Quotient<Joule, Product<Kelvin, Mole>> =
+    Quotient(
+        Joule(prefix),
+        Product(Kelvin(), Mole())
+    )
+
+/**
  * Represents the **molar heat capacity** of a substance.
  *
  * Molar heat capacity is the amount of heat required to raise the temperature
@@ -51,9 +74,6 @@ class MolarHeatCapacity(
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
-            Quotient(
-                Joule(prefix),
-                Product(Kelvin(), Mole())
-            )
+            JoulePerKelvinMole(prefix)
         )
 }

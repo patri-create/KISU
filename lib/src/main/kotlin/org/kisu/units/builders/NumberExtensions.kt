@@ -279,7 +279,7 @@ val Number.gramPerMetre: LinearMassDensity get() = LinearMassDensity(bigDecimal)
  * Creates a [MolarMass] from this [Number] representing a molar mass in gram per mole,
  * the SI unit for molar mass.
  */
-val Number.gramPerMole: MolarMass get() = MolarMass(bigDecimal)
+val Number.gramsPerMole: MolarMass get() = MolarMass(bigDecimal)
 
 /**
  * Creates a [MassFlowRate] from this [Number] representing a mass flow rate in gram per second,

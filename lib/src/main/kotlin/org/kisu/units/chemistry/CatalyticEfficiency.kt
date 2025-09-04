@@ -6,6 +6,7 @@ import org.kisu.units.base.Mole
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
+import org.kisu.units.special.CubicMetre
 import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
@@ -23,7 +24,30 @@ import java.math.BigDecimal
  *
  * @see CatalyticEfficiency for the physical quantity represented by this unit.
  */
-typealias CubicMetrePerMoleSecond = Quotient<SquareMetre, Product<Mole, Second>>
+typealias CubicMetrePerMoleSecond = Quotient<CubicMetre, Product<Mole, Second>>
+
+/**
+ * Creates a measure of **cubic metres per mole-second** (m³/(mol·s)).
+ *
+ * This is a derived unit commonly used in chemistry and related
+ * disciplines for expressing volumetric quantities per substance
+ * amount per unit of time.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [CubicMetre] (volume) with the specified [prefix]
+ *  - divided by a [Product] of [Mole] (amount of substance)
+ *    and [Second] (time)
+ *
+ * @param prefix Metric prefix to apply to the cubic metre unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [CubicMetrePerMoleSecond] representing m³/(mol·s).
+ */
+@Suppress("FunctionNaming")
+internal fun CubicMetrePerMoleSecond(prefix: Metric = Metric.BASE): CubicMetrePerMoleSecond = Quotient(
+    CubicMetre(prefix),
+    Product(Mole(), Second())
+)
 
 /**
  * Represents the physical quantity of **catalytic efficiency**.
@@ -57,9 +81,6 @@ class CatalyticEfficiency(
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
-            Quotient(
-                SquareMetre(prefix),
-                Product(Mole(), Second())
-            )
+            CubicMetrePerMoleSecond(prefix)
         )
 }

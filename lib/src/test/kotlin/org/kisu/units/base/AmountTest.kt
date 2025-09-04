@@ -10,7 +10,6 @@ import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.moles
 
 class AmountTest : StringSpec({
-
     "creates an Amount" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().moles.should { (amount, expression, symbol) ->

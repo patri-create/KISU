@@ -24,6 +24,25 @@ import java.math.BigDecimal
 typealias CubicMetrePerMole = Quotient<CubicMetre, Mole>
 
 /**
+ * Creates a measure of **cubic metres per mole** (m³/mol).
+ *
+ * This derived unit is used to express volume per amount of substance,
+ * for example molar volume in chemistry and physics.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [CubicMetre] (volume) with the specified [prefix]
+ *  - divided by a [Mole] (amount of substance)
+ *
+ * @param prefix Metric prefix to apply to the cubic metre unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing m³/mol.
+ */
+@Suppress("FunctionNaming")
+internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): Quotient<CubicMetre, Mole> =
+    Quotient(CubicMetre(prefix), Mole())
+
+/**
  * Represents the physical quantity of **molar volume**.
  *
  * Molar volume quantifies the **volume occupied by one mole of a substance**.
@@ -46,5 +65,5 @@ class MolarVolume(
     expression: CubicMetrePerMole
 ) : Measure<CubicMetrePerMole, MolarVolume>(magnitude, expression, ::MolarVolume) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(CubicMetre(prefix), Mole()))
+        this(magnitude, CubicMetrePerMole(prefix))
 }

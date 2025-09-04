@@ -17,7 +17,7 @@ class MassTest : StringSpec({
             magnitude.builder().grams.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Kilogram(magnitude.builder().metric to BigDecimal.ONE)
-                symbol shouldBe Kilogram.UNIT.toString()
+                symbol shouldBe Kilogram().toString()
             }
         }
     }
@@ -27,7 +27,7 @@ class MassTest : StringSpec({
             magnitude.grams.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Kilogram(Metric.BASE to BigDecimal.ONE)
-                symbol shouldBe Kilogram.UNIT.toString()
+                symbol shouldBe Kilogram().toString()
             }
         }
     }
