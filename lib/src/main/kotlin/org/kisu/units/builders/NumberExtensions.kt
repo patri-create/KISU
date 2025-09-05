@@ -165,7 +165,7 @@ val Number.bytes: Bytes get() = Bytes(bigDecimal)
  * Creates a [Luminance] from this [Number] representing a luminance in candela per square metre,
  * the SI unit for luminance.
  */
-val Number.candelaPerSquareMetre: Luminance get() = Luminance(bigDecimal)
+val Number.candelasPerSquareMetre: Luminance get() = Luminance(bigDecimal)
 
 /**
  * Creates a [LuminousIntensity] from this [Number] representing a luminous intensity in candelas,
@@ -435,7 +435,7 @@ val Number.kelvins: Temperature get() = Temperature(bigDecimal)
  * Creates a [Efficacy] from this [Number] representing an efficacy in lumen per watt,
  * the SI unit for efficacy.
  */
-val Number.lumenPerWatt: Efficacy get() = Efficacy(bigDecimal)
+val Number.lumensPerWatt: Efficacy get() = Efficacy(bigDecimal)
 
 /**
  * Creates a [LuminousFlux] from this [Number] representing a luminous flux in lumens,
@@ -447,7 +447,7 @@ val Number.lumens: LuminousFlux get() = LuminousFlux(bigDecimal)
  * Creates a [LuminousEnergy] from this [Number] representing a luminous energy in lumen second,
  * the SI unit for luminous energy.
  */
-val Number.lumenSecond: LuminousEnergy get() = LuminousEnergy(bigDecimal)
+val Number.lumensSecond: LuminousEnergy get() = LuminousEnergy(bigDecimal)
 
 /**
  * Creates a [Illuminance] from this [Number] representing an illuminance in lux,
@@ -459,7 +459,7 @@ val Number.lux: Illuminance get() = Illuminance(bigDecimal)
  * Creates a [Exposure] from this [Number] representing an exposure in lux second,
  * the SI unit for exposure.
  */
-val Number.luxSecond: Exposure get() = Exposure(bigDecimal)
+val Number.luxSecond: org.kisu.units.photometric.Exposure get() = org.kisu.units.photometric.Exposure(bigDecimal)
 
 /**
  * Creates a [FuelEfficiency] from this [Number] representing a fuel efficiency in metre per cubic metre,

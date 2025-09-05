@@ -10,6 +10,25 @@ import java.math.BigDecimal
 typealias LumenPerWatt = Quotient<Lumen, Watt>
 
 /**
+ * Creates a measure of **lumens per watt** (lm/W).
+ *
+ * This derived unit expresses luminous efficacy — how much visible
+ * light (luminous flux) is produced per unit of power.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Lumen] (luminous flux) with the specified [prefix]
+ *  - divided by a [Watt] (power)
+ *
+ * @param prefix Metric prefix to apply to the lumen unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing lm/W.
+ */
+@Suppress("FunctionNaming")
+internal fun LumenPerWatt(prefix: Metric = Metric.BASE): Quotient<Lumen, Watt> =
+    Quotient(Lumen(prefix), Watt())
+
+/**
  * Represents the **luminous efficacy** of a light source.
  *
  * Luminous efficacy is the ratio between the luminous flux (in lumens)
@@ -28,5 +47,5 @@ class Efficacy(
     expression: LumenPerWatt
 ) : Measure<LumenPerWatt, Efficacy>(magnitude, expression, ::Efficacy) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Lumen(prefix), Watt()))
+        this(magnitude, LumenPerWatt(prefix))
 }

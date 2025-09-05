@@ -10,6 +10,25 @@ import java.math.BigDecimal
 typealias LuxSecond = Product<Lux, Second>
 
 /**
+ * Creates a measure of **lux-seconds** (lx·s).
+ *
+ * This derived unit expresses luminous exposure — the total
+ * illumination received over a period of time.
+ *
+ * Internally this returns a [Product] of:
+ *  - a [Lux] (illuminance) with the specified [prefix]
+ *  - multiplied by a [Second] (time)
+ *
+ * @param prefix Metric prefix to apply to the lux unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Product] representing lx·s.
+ */
+@Suppress("FunctionNaming")
+internal fun LuxSecond(prefix: Metric = Metric.BASE): Product<Lux, Second> =
+    Product(Lux(prefix), Second())
+
+/**
  * Represents **luminous exposure**.
  *
  * Luminous exposure is the measure of the total luminous energy
@@ -31,5 +50,5 @@ class Exposure(
     expression: LuxSecond
 ) : Measure<LuxSecond, Exposure>(magnitude, expression, ::Exposure) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Lux(prefix), Second()))
+        this(magnitude, LuxSecond(prefix))
 }
