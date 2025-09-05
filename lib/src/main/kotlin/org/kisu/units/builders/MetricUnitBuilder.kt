@@ -198,7 +198,7 @@ val MetricUnitBuilder.bytes: org.kisu.units.special.Bytes get() = org.kisu.units
  * val luminance = 1.kilo.candelaPerSquareMetre // 1000 cd/m²
  * ```
  */
-val MetricUnitBuilder.candelaPerSquareMetre: Luminance
+val MetricUnitBuilder.candelasPerSquareMetre: Luminance
     get() = Luminance(magnitude, metric)
 
 /**
@@ -693,7 +693,7 @@ val MetricUnitBuilder.kelvins: Temperature get() = Temperature(magnitude, metric
  * val efficacy = 1.lumenPerWatt // 1 lm/W
  * ```
  */
-val MetricUnitBuilder.lumenPerWatt: Efficacy
+val MetricUnitBuilder.lumensPerWatt: Efficacy
     get() = Efficacy(magnitude, metric)
 
 /**
@@ -714,7 +714,7 @@ val MetricUnitBuilder.lumens: LuminousFlux get() = LuminousFlux(magnitude, metri
  * val luminousEnergy = 1.lumenSecond // 1 lm·s
  * ```
  */
-val MetricUnitBuilder.lumenSecond: LuminousEnergy
+val MetricUnitBuilder.lumensSecond: LuminousEnergy
     get() = LuminousEnergy(magnitude, metric)
 
 /**
@@ -735,8 +735,8 @@ val MetricUnitBuilder.lux: Illuminance get() = Illuminance(magnitude, metric)
  * val exposure = 1.luxSecond // 1 lx·s
  * ```
  */
-val MetricUnitBuilder.luxSecond: Exposure
-    get() = Exposure(magnitude, metric)
+val MetricUnitBuilder.luxSecond: org.kisu.units.photometric.Exposure
+    get() = org.kisu.units.photometric.Exposure(magnitude, metric)
 
 /**
  * Creates a [FuelEfficiency] measure by applying the metric prefix scale to the magnitude.

@@ -10,6 +10,25 @@ import java.math.BigDecimal
 typealias LumenSecond = Product<Lumen, Second>
 
 /**
+ * Creates a measure of **lumen-seconds** (lm·s).
+ *
+ * This derived unit expresses luminous energy — the total
+ * luminous flux emitted over a period of time.
+ *
+ * Internally this returns a [Product] of:
+ *  - a [Lumen] (luminous flux) with the specified [prefix]
+ *  - multiplied by a [Second] (time)
+ *
+ * @param prefix Metric prefix to apply to the lumen unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Product] representing lm·s.
+ */
+@Suppress("FunctionNaming")
+internal fun LumenSecond(prefix: Metric = Metric.BASE): Product<Lumen, Second> =
+    Product(Lumen(prefix), Second())
+
+/**
  * Represents **luminous energy**.
  *
  * Luminous energy (also known as *quantity of light*) is the measure of the
@@ -31,5 +50,5 @@ class LuminousEnergy(
     expression: LumenSecond
 ) : Measure<LumenSecond, LuminousEnergy>(magnitude, expression, ::LuminousEnergy) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Lumen(prefix), Second()))
+        this(magnitude, LumenSecond(prefix))
 }
