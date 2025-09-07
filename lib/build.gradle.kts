@@ -1,4 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
@@ -41,6 +42,10 @@ dependencies {
 
 kotlin {
     jvmToolchain(19)
+    compilerOptions {
+        freeCompilerArgs.add("-Xnested-type-aliases")
+        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_2)
+    }
 }
 
 dokka {
@@ -55,4 +60,9 @@ dokka {
             footerMessage.set("(c) Sefford & Patri-create 2025")
         }
     }
+}
+
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.compilerOptions {
+    freeCompilerArgs.set(listOf("-Xnested-type-aliases"))
 }
