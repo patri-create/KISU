@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.molePerCubicMetre
+import org.kisu.units.chemistry.Molarity.Companion.MolePerCubicMetre
 
 class MolarityTest : StringSpec({
     "creates a Molarity" {

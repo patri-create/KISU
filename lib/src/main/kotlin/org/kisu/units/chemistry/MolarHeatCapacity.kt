@@ -10,46 +10,6 @@ import org.kisu.units.special.Joule
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **joule per kelvin mole (J/(K·mol))**.
- *
- * This unit measures **molar heat capacity**, i.e., the amount of heat required
- * to raise the temperature of one mole of a substance by one kelvin.
- * It is defined as the [Quotient] of [Joule] (energy) divided by the [Product] of
- * [Kelvin] (temperature) and [Mole] (amount of substance).
- *
- * Example usages include:
- * - Determining the molar heat capacity of water (~75.3 J/(K·mol))
- * - Thermodynamic calculations in chemistry and materials science
- * - Analyzing energy changes per mole during temperature variations
- *
- * @see MolarHeatCapacity for the physical quantity represented by this unit.
- */
-typealias JoulePerKelvinMole = Quotient<Joule, Product<Kelvin, Mole>>
-
-/**
- * Creates a measure of **joules per kelvin-mole** (J/(K·mol)).
- *
- * This derived unit is used in thermodynamics to express energy,
- * heat capacity or entropy per unit temperature per amount of substance.
- *
- * Internally this returns a [Quotient] of:
- *  - a [Joule] (energy) with the specified [prefix]
- *  - divided by a [Product] of [Kelvin] (temperature)
- *    and [Mole] (amount of substance)
- *
- * @param prefix Metric prefix to apply to the joule unit.
- * Defaults to [Metric.BASE] (no prefix).
- *
- * @return A [Quotient] representing J/(K·mol).
- */
-@Suppress("FunctionNaming")
-internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): Quotient<Joule, Product<Kelvin, Mole>> =
-    Quotient(
-        Joule(prefix),
-        Product(Kelvin(), Mole())
-    )
-
-/**
  * Represents the **molar heat capacity** of a substance.
  *
  * Molar heat capacity is the amount of heat required to raise the temperature
@@ -70,10 +30,56 @@ internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): Quotient<Joule, P
 class MolarHeatCapacity(
     magnitude: BigDecimal,
     expression: JoulePerKelvinMole
-) : Measure<JoulePerKelvinMole, MolarHeatCapacity>(magnitude, expression, ::MolarHeatCapacity) {
+) : Measure<MolarHeatCapacity.JoulePerKelvinMole, MolarHeatCapacity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::MolarHeatCapacity
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
             JoulePerKelvinMole(prefix)
         )
+
+    /**
+     * Represents the SI unit **joule per kelvin mole (J/(K·mol))**.
+     *
+     * This unit measures **molar heat capacity**, i.e., the amount of heat required
+     * to raise the temperature of one mole of a substance by one kelvin.
+     * It is defined as the [Quotient] of [Joule] (energy) divided by the [Product] of
+     * [Kelvin] (temperature) and [Mole] (amount of substance).
+     *
+     * Example usages include:
+     * - Determining the molar heat capacity of water (~75.3 J/(K·mol))
+     * - Thermodynamic calculations in chemistry and materials science
+     * - Analyzing energy changes per mole during temperature variations
+     *
+     * @see MolarHeatCapacity for the physical quantity represented by this unit.
+     */
+    typealias JoulePerKelvinMole = Quotient<Joule, Product<Kelvin, Mole>>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per kelvin-mole** (J/(K·mol)).
+         *
+         * This derived unit is used in thermodynamics to express energy,
+         * heat capacity or entropy per unit temperature per amount of substance.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by a [Product] of [Kelvin] (temperature)
+         *    and [Mole] (amount of substance)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing J/(K·mol).
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): Quotient<Joule, Product<Kelvin, Mole>> =
+            Quotient(
+                Joule(prefix),
+                Product(Kelvin(), Mole())
+            )
+    }
 }

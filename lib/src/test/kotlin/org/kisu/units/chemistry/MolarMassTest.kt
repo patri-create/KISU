@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.gramsPerMole
+import org.kisu.units.chemistry.MolarMass.Companion.KilogramPerMole
 
 class MolarMassTest : StringSpec({
     "creates a MolarMass" {

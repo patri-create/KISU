@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.molPerKilogram
+import org.kisu.units.chemistry.Molality.Companion.MolPerKilogram
 
 class MolalityTest : StringSpec({
     "creates a Molality" {

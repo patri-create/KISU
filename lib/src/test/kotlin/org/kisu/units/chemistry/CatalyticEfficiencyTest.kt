@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.cubicMetrePerMoleSecond
+import org.kisu.units.chemistry.CatalyticEfficiency.Companion.CubicMetrePerMoleSecond
 
 class CatalyticEfficiencyTest : StringSpec({
     "creates a CatalyticEfficiency" {

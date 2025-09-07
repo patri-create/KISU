@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.joulePerMole
+import org.kisu.units.chemistry.MolarEnergy.Companion.JoulePerMole
 
 class MolarEnergyTest : StringSpec({
     "creates a MolarEnergy" {
