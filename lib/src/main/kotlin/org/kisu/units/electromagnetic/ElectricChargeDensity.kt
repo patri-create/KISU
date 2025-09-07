@@ -8,21 +8,6 @@ import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **coulomb per cubic metre (C/m³)**.
- *
- * This unit measures **electric charge density**, i.e., the amount of electric
- * charge per unit volume.
- * It is defined as the [Quotient] of [Coulomb] (electric charge) and [CubicMetre] (volume).
- *
- * Example usages include:
- * - Describing the distribution of charge in a volume
- * - Calculating electric fields from volumetric charge distributions
- *
- * @see ElectricChargeDensity for the physical quantity represented by this unit.
- */
-typealias CoulombPerCubicMetre = Quotient<Coulomb, CubicMetre>
-
-/**
  * Represents **electric charge density** in the SI system.
  *
  * Electric charge density measures the amount of electric charge distributed
@@ -43,7 +28,27 @@ typealias CoulombPerCubicMetre = Quotient<Coulomb, CubicMetre>
 class ElectricChargeDensity(
     magnitude: BigDecimal,
     expression: CoulombPerCubicMetre
-) : Measure<CoulombPerCubicMetre, ElectricChargeDensity>(magnitude, expression, ::ElectricChargeDensity) {
+) : Measure<ElectricChargeDensity.CoulombPerCubicMetre, ElectricChargeDensity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::ElectricChargeDensity
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Coulomb(prefix), CubicMetre()))
+
+    /**
+     * Represents the SI unit **coulomb per cubic metre (C/m³)**.
+     *
+     * This unit measures **electric charge density**, i.e., the amount of electric
+     * charge per unit volume.
+     * It is defined as the [Quotient] of [Coulomb] (electric charge) and [CubicMetre] (volume).
+     *
+     * Example usages include:
+     * - Describing the distribution of charge in a volume
+     * - Calculating electric fields from volumetric charge distributions
+     *
+     * @see ElectricChargeDensity for the physical quantity represented by this unit.
+     */
+    typealias CoulombPerCubicMetre = Quotient<Coulomb, CubicMetre>
 }

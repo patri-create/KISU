@@ -8,21 +8,6 @@ import org.kisu.units.special.Tesla
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **tesla metre (T·m)**.
- *
- * This unit measures **magnetic rigidity**, i.e., the resistance of a charged
- * particle to deflection by a magnetic field.
- * It is defined as the [Product] of [Tesla] (magnetic flux density) and [Metre] (length).
- *
- * Example usages include:
- * - Calculating particle trajectory bending in magnetic fields
- * - Designing magnetic spectrometers and accelerator beamlines
- *
- * @see MagneticRigidity for the physical quantity represented by this unit.
- */
-typealias TeslaMetre = Product<Tesla, Metre>
-
-/**
  * Represents **magnetic rigidity**, which quantifies the resistance of a charged
  * particle to deflection by a magnetic field.
  *
@@ -47,7 +32,23 @@ typealias TeslaMetre = Product<Tesla, Metre>
 class MagneticRigidity(
     magnitude: BigDecimal,
     expression: TeslaMetre
-) : Measure<TeslaMetre, MagneticRigidity>(magnitude, expression, ::MagneticRigidity) {
+) : Measure<MagneticRigidity.TeslaMetre, MagneticRigidity>(magnitude, expression, ::MagneticRigidity) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Tesla(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **tesla metre (T·m)**.
+     *
+     * This unit measures **magnetic rigidity**, i.e., the resistance of a charged
+     * particle to deflection by a magnetic field.
+     * It is defined as the [Product] of [Tesla] (magnetic flux density) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Calculating particle trajectory bending in magnetic fields
+     * - Designing magnetic spectrometers and accelerator beamlines
+     *
+     * @see MagneticRigidity for the physical quantity represented by this unit.
+     */
+    typealias TeslaMetre = Product<Tesla, Metre>
 }

@@ -8,21 +8,6 @@ import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **ampere per square metre (A/m²)**.
- *
- * This unit measures **electric current density**, i.e., the amount of electric
- * current flowing per unit cross-sectional area.
- * It is defined as the [Quotient] of [Ampere] (electric current) and [SquareMetre] (area).
- *
- * Example usages include:
- * - Describing current flow in conductors
- * - Modeling electromagnetics and circuit behavior
- *
- * @see ElectricCurrentDensity for the physical quantity represented by this unit.
- */
-typealias AmperePerSquareMetre = Quotient<Ampere, SquareMetre>
-
-/**
  * Represents **electric current density** in the SI system.
  *
  * Electric current density describes the amount of electric current flowing per unit
@@ -48,7 +33,27 @@ typealias AmperePerSquareMetre = Quotient<Ampere, SquareMetre>
 class ElectricCurrentDensity(
     magnitude: BigDecimal,
     expression: AmperePerSquareMetre
-) : Measure<AmperePerSquareMetre, ElectricCurrentDensity>(magnitude, expression, ::ElectricCurrentDensity) {
+) : Measure<ElectricCurrentDensity.AmperePerSquareMetre, ElectricCurrentDensity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::ElectricCurrentDensity
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Ampere(prefix), SquareMetre()))
+
+    /**
+     * Represents the SI unit **ampere per square metre (A/m²)**.
+     *
+     * This unit measures **electric current density**, i.e., the amount of electric
+     * current flowing per unit cross-sectional area.
+     * It is defined as the [Quotient] of [Ampere] (electric current) and [SquareMetre] (area).
+     *
+     * Example usages include:
+     * - Describing current flow in conductors
+     * - Modeling electromagnetics and circuit behavior
+     *
+     * @see ElectricCurrentDensity for the physical quantity represented by this unit.
+     */
+    typealias AmperePerSquareMetre = Quotient<Ampere, SquareMetre>
 }

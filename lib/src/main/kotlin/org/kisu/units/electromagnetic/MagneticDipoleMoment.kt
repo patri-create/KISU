@@ -8,21 +8,6 @@ import org.kisu.units.special.Tesla
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **joule per tesla (J/T)**.
- *
- * This unit measures **magnetic dipole moment**, i.e., the torque a magnetic
- * source experiences in a magnetic field per unit field strength.
- * It is defined as the [Quotient] of [Joule] (energy) and [Tesla] (magnetic flux density).
- *
- * Example usages include:
- * - Quantifying the magnetic dipole moment of magnets or current loops
- * - Modeling interactions of magnetic moments with external magnetic fields
- *
- * @see MagneticDipoleMoment for the physical quantity represented by this unit.
- */
-typealias JoulePerTesla = Quotient<Joule, Tesla>
-
-/**
  * Represents the **magnetic dipole moment** (m), a vector quantity that measures
  * the strength and orientation of a magnetic source.
  *
@@ -39,7 +24,27 @@ typealias JoulePerTesla = Quotient<Joule, Tesla>
 class MagneticDipoleMoment(
     magnitude: BigDecimal,
     expression: JoulePerTesla
-) : Measure<JoulePerTesla, MagneticDipoleMoment>(magnitude, expression, ::MagneticDipoleMoment) {
+) : Measure<MagneticDipoleMoment.JoulePerTesla, MagneticDipoleMoment>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::MagneticDipoleMoment
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Joule(prefix), Tesla()))
+
+    /**
+     * Represents the SI unit **joule per tesla (J/T)**.
+     *
+     * This unit measures **magnetic dipole moment**, i.e., the torque a magnetic
+     * source experiences in a magnetic field per unit field strength.
+     * It is defined as the [Quotient] of [Joule] (energy) and [Tesla] (magnetic flux density).
+     *
+     * Example usages include:
+     * - Quantifying the magnetic dipole moment of magnets or current loops
+     * - Modeling interactions of magnetic moments with external magnetic fields
+     *
+     * @see MagneticDipoleMoment for the physical quantity represented by this unit.
+     */
+    typealias JoulePerTesla = Quotient<Joule, Tesla>
 }
