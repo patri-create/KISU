@@ -1,4 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -41,7 +42,12 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(19)
+    jvmToolchain(21)
+}
+
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.compilerOptions {
+    freeCompilerArgs.set(listOf("-Xnested-type-aliases", "-Xskip-prerelease-check"))
 }
 
 dokka {
@@ -56,9 +62,4 @@ dokka {
             footerMessage.set("(c) Sefford & Patri-create 2025")
         }
     }
-}
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.compilerOptions {
-    freeCompilerArgs.set(listOf("-Xnested-type-aliases"))
 }
