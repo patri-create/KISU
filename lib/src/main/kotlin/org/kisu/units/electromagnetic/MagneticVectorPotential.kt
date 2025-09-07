@@ -8,21 +8,6 @@ import org.kisu.units.special.Weber
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **weber per metre (Wb/m)**.
- *
- * This unit measures **magnetic vector potential**, i.e., the magnetic flux
- * per unit length.
- * It is defined as the [Quotient] of [Weber] (magnetic flux) and [Metre] (length).
- *
- * Example usages include:
- * - Calculating magnetic fields from vector potentials
- * - Modeling inductors and electromagnetic devices
- *
- * @see MagneticVectorPotential for the physical quantity represented by this unit.
- */
-typealias WeberPerMetre = Quotient<Weber, Metre>
-
-/**
  * Represents the **magnetic vector potential** (A), a vector field used in
  * electromagnetism to describe the magnetic field in terms of a potential.
  *
@@ -47,7 +32,27 @@ typealias WeberPerMetre = Quotient<Weber, Metre>
 class MagneticVectorPotential(
     magnitude: BigDecimal,
     expression: WeberPerMetre
-) : Measure<WeberPerMetre, MagneticVectorPotential>(magnitude, expression, ::MagneticVectorPotential) {
+) : Measure<MagneticVectorPotential.WeberPerMetre, MagneticVectorPotential>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::MagneticVectorPotential
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Weber(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **weber per metre (Wb/m)**.
+     *
+     * This unit measures **magnetic vector potential**, i.e., the magnetic flux
+     * per unit length.
+     * It is defined as the [Quotient] of [Weber] (magnetic flux) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Calculating magnetic fields from vector potentials
+     * - Modeling inductors and electromagnetic devices
+     *
+     * @see MagneticVectorPotential for the physical quantity represented by this unit.
+     */
+    typealias WeberPerMetre = Quotient<Weber, Metre>
 }

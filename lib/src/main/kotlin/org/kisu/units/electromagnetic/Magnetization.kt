@@ -8,21 +8,6 @@ import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **ampere per metre (A/m)**.
- *
- * This unit measures **magnetization**, i.e., the magnetic moment per unit
- * length of a material.
- * It is defined as the [Quotient] of [Ampere] (electric current) and [Metre] (length).
- *
- * Example usages include:
- * - Characterizing the magnetic response of materials
- * - Designing magnetic circuits and devices
- *
- * @see Magnetization for the physical quantity represented by this unit.
- */
-typealias AmperePerMetre = Quotient<Ampere, Metre>
-
-/**
  * Represents **magnetization** (M), a measure of the magnetic moment per unit
  * volume of a material.
  *
@@ -46,7 +31,23 @@ typealias AmperePerMetre = Quotient<Ampere, Metre>
 class Magnetization(
     magnitude: BigDecimal,
     expression: AmperePerMetre
-) : Measure<AmperePerMetre, Magnetization>(magnitude, expression, ::Magnetization) {
+) : Measure<Magnetization.AmperePerMetre, Magnetization>(magnitude, expression, ::Magnetization) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Ampere(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **ampere per metre (A/m)**.
+     *
+     * This unit measures **magnetization**, i.e., the magnetic moment per unit
+     * length of a material.
+     * It is defined as the [Quotient] of [Ampere] (electric current) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Characterizing the magnetic response of materials
+     * - Designing magnetic circuits and devices
+     *
+     * @see Magnetization for the physical quantity represented by this unit.
+     */
+    typealias AmperePerMetre = Quotient<Ampere, Metre>
 }

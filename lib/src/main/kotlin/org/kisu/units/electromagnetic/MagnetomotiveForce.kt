@@ -8,21 +8,6 @@ import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **ampere-radian (A·rad)**.
- *
- * This unit measures **magnetomotive force**, i.e., the driving force that
- * produces magnetic flux in a magnetic circuit.
- * It is defined as the [Product] of [Ampere] (electric current) and [Radian] (angle).
- *
- * Example usages include:
- * - Calculating magnetomotive force in coils and solenoids
- * - Designing magnetic circuits and electromagnets
- *
- * @see MagnetomotiveForce for the physical quantity represented by this unit.
- */
-typealias AmpereRadian = Product<Ampere, Radian>
-
-/**
  * Represents **magnetomotive force** (MMF, 𝓕), which drives magnetic flux
  * through a magnetic circuit, analogous to electromotive force in electrical circuits.
  *
@@ -49,7 +34,23 @@ typealias AmpereRadian = Product<Ampere, Radian>
 class MagnetomotiveForce(
     magnitude: BigDecimal,
     expression: AmpereRadian
-) : Measure<AmpereRadian, MagnetomotiveForce>(magnitude, expression, ::MagnetomotiveForce) {
+) : Measure<MagnetomotiveForce.AmpereRadian, MagnetomotiveForce>(magnitude, expression, ::MagnetomotiveForce) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Ampere(prefix), Radian()))
+
+    /**
+     * Represents the SI unit **ampere-radian (A·rad)**.
+     *
+     * This unit measures **magnetomotive force**, i.e., the driving force that
+     * produces magnetic flux in a magnetic circuit.
+     * It is defined as the [Product] of [Ampere] (electric current) and [Radian] (angle).
+     *
+     * Example usages include:
+     * - Calculating magnetomotive force in coils and solenoids
+     * - Designing magnetic circuits and electromagnets
+     *
+     * @see MagnetomotiveForce for the physical quantity represented by this unit.
+     */
+    typealias AmpereRadian = Product<Ampere, Radian>
 }

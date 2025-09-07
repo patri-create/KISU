@@ -8,21 +8,6 @@ import org.kisu.units.special.Siemens
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **siemens per metre (S/m)**.
- *
- * This unit measures **electric conductivity**, i.e., the ability of a material
- * to conduct electric current per unit length.
- * It is defined as the [Quotient] of [Siemens] (conductance) and [Metre] (length).
- *
- * Example usages include:
- * - Characterizing the conductivity of metals, semiconductors, and electrolytes
- * - Electrical engineering and materials science calculations
- *
- * @see ElectricConductivity for the physical quantity represented by this unit.
- */
-typealias SiemensPerMetre = Quotient<Siemens, Metre>
-
-/**
  * Represents **electric conductivity** in the SI system.
  *
  * Electric conductivity quantifies a material's ability to conduct an electric current.
@@ -45,7 +30,27 @@ typealias SiemensPerMetre = Quotient<Siemens, Metre>
 class ElectricConductivity(
     magnitude: BigDecimal,
     expression: SiemensPerMetre
-) : Measure<SiemensPerMetre, ElectricConductivity>(magnitude, expression, ::ElectricConductivity) {
+) : Measure<ElectricConductivity.SiemensPerMetre, ElectricConductivity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::ElectricConductivity
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Siemens(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **siemens per metre (S/m)**.
+     *
+     * This unit measures **electric conductivity**, i.e., the ability of a material
+     * to conduct electric current per unit length.
+     * It is defined as the [Quotient] of [Siemens] (conductance) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Characterizing the conductivity of metals, semiconductors, and electrolytes
+     * - Electrical engineering and materials science calculations
+     *
+     * @see ElectricConductivity for the physical quantity represented by this unit.
+     */
+    typealias SiemensPerMetre = Quotient<Siemens, Metre>
 }

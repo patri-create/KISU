@@ -8,21 +8,6 @@ import org.kisu.units.special.Henry
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **metre per henry (m/H)**.
- *
- * This unit measures **magnetic susceptibility**, i.e., the degree to which
- * a material can be magnetized in response to an applied magnetic field.
- * It is defined as the [Quotient] of [Metre] (length) and [Henry] (inductance).
- *
- * Example usages include:
- * - Characterizing diamagnetic, paramagnetic, or ferromagnetic materials
- * - Modeling magnetic response in materials and circuits
- *
- * @see MagneticSusceptibility for the physical quantity represented by this unit.
- */
-typealias MetrePerHenry = Quotient<Metre, Henry>
-
-/**
  * Represents **magnetic susceptibility** (χ), a dimensionless quantity that
  * describes how much a material becomes magnetized in response to an applied
  * magnetic field.
@@ -44,7 +29,27 @@ typealias MetrePerHenry = Quotient<Metre, Henry>
 class MagneticSusceptibility(
     magnitude: BigDecimal,
     expression: MetrePerHenry
-) : Measure<MetrePerHenry, MagneticSusceptibility>(magnitude, expression, ::MagneticSusceptibility) {
+) : Measure<MagneticSusceptibility.MetrePerHenry, MagneticSusceptibility>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::MagneticSusceptibility
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), Henry()))
+
+    /**
+     * Represents the SI unit **metre per henry (m/H)**.
+     *
+     * This unit measures **magnetic susceptibility**, i.e., the degree to which
+     * a material can be magnetized in response to an applied magnetic field.
+     * It is defined as the [Quotient] of [Metre] (length) and [Henry] (inductance).
+     *
+     * Example usages include:
+     * - Characterizing diamagnetic, paramagnetic, or ferromagnetic materials
+     * - Modeling magnetic response in materials and circuits
+     *
+     * @see MagneticSusceptibility for the physical quantity represented by this unit.
+     */
+    typealias MetrePerHenry = Quotient<Metre, Henry>
 }

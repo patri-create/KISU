@@ -8,21 +8,6 @@ import org.kisu.units.special.Henry
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **henry per metre (H/m)**.
- *
- * This unit measures **magnetic permeability**, i.e., the ability of a material
- * to support the formation of a magnetic field.
- * It is defined as the [Quotient] of [Henry] (inductance) and [Metre] (length).
- *
- * Example usages include:
- * - Characterizing magnetic properties of materials
- * - Designing inductors, transformers, and magnetic circuits
- *
- * @see MagneticPermittivity for the physical quantity represented by this unit.
- */
-typealias HenryPerMetre = Quotient<Henry, Metre>
-
-/**
  * Represents **magnetic permeability** (μ), a measure of a material's ability
  * to support the formation of a magnetic field within itself.
  *
@@ -46,7 +31,27 @@ typealias HenryPerMetre = Quotient<Henry, Metre>
 class MagneticPermittivity(
     magnitude: BigDecimal,
     expression: HenryPerMetre
-) : Measure<HenryPerMetre, MagneticPermittivity>(magnitude, expression, ::MagneticPermittivity) {
+) : Measure<MagneticPermittivity.HenryPerMetre, MagneticPermittivity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::MagneticPermittivity
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Henry(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **henry per metre (H/m)**.
+     *
+     * This unit measures **magnetic permeability**, i.e., the ability of a material
+     * to support the formation of a magnetic field.
+     * It is defined as the [Quotient] of [Henry] (inductance) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Characterizing magnetic properties of materials
+     * - Designing inductors, transformers, and magnetic circuits
+     *
+     * @see MagneticPermittivity for the physical quantity represented by this unit.
+     */
+    typealias HenryPerMetre = Quotient<Henry, Metre>
 }

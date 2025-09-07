@@ -8,21 +8,6 @@ import org.kisu.units.special.Coulomb
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **coulomb per kilogram (C/kg)**.
- *
- * This unit measures **radiation exposure**, i.e., the amount of ionizing
- * radiation in terms of the electric charge produced per unit mass of air.
- * It is defined as the [Quotient] of [Coulomb] (electric charge) and [Kilogram] (mass).
- *
- * Example usages include:
- * - Measuring ionizing radiation in air
- * - Radiation protection and dosimetry calculations
- *
- * @see Exposure for the physical quantity represented by this unit.
- */
-typealias CoulombPerKilogram = Quotient<Coulomb, Kilogram>
-
-/**
  * Represents **radiation exposure** (X), which quantifies the amount of ionizing
  * radiation in terms of the electric charge produced per unit mass of air.
  *
@@ -40,7 +25,23 @@ typealias CoulombPerKilogram = Quotient<Coulomb, Kilogram>
 class Exposure(
     magnitude: BigDecimal,
     expression: CoulombPerKilogram
-) : Measure<CoulombPerKilogram, Exposure>(magnitude, expression, ::Exposure) {
+) : Measure<Exposure.CoulombPerKilogram, Exposure>(magnitude, expression, ::Exposure) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Coulomb(prefix), Kilogram()))
+
+    /**
+     * Represents the SI unit **coulomb per kilogram (C/kg)**.
+     *
+     * This unit measures **radiation exposure**, i.e., the amount of ionizing
+     * radiation in terms of the electric charge produced per unit mass of air.
+     * It is defined as the [Quotient] of [Coulomb] (electric charge) and [Kilogram] (mass).
+     *
+     * Example usages include:
+     * - Measuring ionizing radiation in air
+     * - Radiation protection and dosimetry calculations
+     *
+     * @see Exposure for the physical quantity represented by this unit.
+     */
+    typealias CoulombPerKilogram = Quotient<Coulomb, Kilogram>
 }
