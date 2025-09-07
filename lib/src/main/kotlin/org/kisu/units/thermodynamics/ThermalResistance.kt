@@ -24,6 +24,25 @@ import java.math.BigDecimal
 typealias KelvinPerWatt = Quotient<Kelvin, Watt>
 
 /**
+ * Creates a measure of **kelvins per watt** (K/W).
+ *
+ * This derived unit expresses thermal resistance — the temperature
+ * difference per unit of power flow.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Kelvin] (temperature difference) with the specified [prefix]
+ *  - divided by a [Watt] (power)
+ *
+ * @param prefix Metric prefix to apply to the kelvin unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing K/W.
+ */
+@Suppress("FunctionNaming")
+internal fun KelvinPerWatt(prefix: Metric = Metric.BASE): Quotient<Kelvin, Watt> =
+    Quotient(Kelvin(prefix), Watt())
+
+/**
  * Represents the physical quantity of **thermal resistance**.
  *
  * Thermal resistance quantifies a material’s or system’s **opposition to heat flow**.
@@ -48,5 +67,5 @@ class ThermalResistance(
     expression: KelvinPerWatt
 ) : Measure<KelvinPerWatt, ThermalResistance>(magnitude, expression, ::ThermalResistance) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kelvin(prefix), Watt()))
+        this(magnitude, KelvinPerWatt(prefix))
 }

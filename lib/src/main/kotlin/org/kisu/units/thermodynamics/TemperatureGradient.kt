@@ -24,6 +24,25 @@ import java.math.BigDecimal
 typealias KelvinPerMetre = Quotient<Kelvin, Metre>
 
 /**
+ * Creates a measure of **kelvins per metre** (K/m).
+ *
+ * This derived unit expresses a temperature gradient — the change
+ * in temperature per unit length.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Kelvin] (temperature difference) with the specified [prefix]
+ *  - divided by a [Metre] (length)
+ *
+ * @param prefix Metric prefix to apply to the kelvin unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing K/m.
+ */
+@Suppress("FunctionNaming")
+internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): Quotient<Kelvin, Metre> =
+    Quotient(Kelvin(prefix), Metre())
+
+/**
  * Represents the physical quantity of **temperature gradient**.
  *
  * Temperature gradient quantifies the **rate of change of temperature with respect to distance**.
@@ -46,5 +65,5 @@ class TemperatureGradient(
     expression: KelvinPerMetre
 ) : Measure<KelvinPerMetre, TemperatureGradient>(magnitude, expression, ::TemperatureGradient) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kelvin(prefix), Metre()))
+        this(magnitude, KelvinPerMetre(prefix))
 }

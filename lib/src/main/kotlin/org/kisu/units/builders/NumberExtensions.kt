@@ -351,7 +351,7 @@ val Number.joulePerCubicMetre: EnergyDensity get() = EnergyDensity(bigDecimal)
  * Creates a [HeatCapacity] from this [Number] representing a heat capacity in joule per kelvin,
  * the SI unit for heat capacity.
  */
-val Number.joulePerKelvin: HeatCapacity get() = HeatCapacity(bigDecimal)
+val Number.joulesPerKelvin: HeatCapacity get() = HeatCapacity(bigDecimal)
 
 /**
  * Creates a [MolarHeatCapacity] from this [Number] representing a molar heat capacity in joule per kelvin mole,
@@ -369,7 +369,7 @@ val Number.joulePerKilogram: SpecificEnergy get() = SpecificEnergy(bigDecimal)
  * Creates a [SpecificHeatCapacity] from this [Number] representing a specific heat capacity in joule per kilogram
  * kelvin, the SI unit for specific heat capacity.
  */
-val Number.joulePerKilogramKelvin: SpecificHeatCapacity get() = SpecificHeatCapacity(bigDecimal)
+val Number.joulesPerKilogramKelvin: SpecificHeatCapacity get() = SpecificHeatCapacity(bigDecimal)
 
 /**
  * Creates a [MolarEnergy] from this [Number] representing a molar energy in joule per mole,
@@ -417,13 +417,13 @@ val Number.katals: CatalyticActivity get() = CatalyticActivity(bigDecimal)
  * Creates a [TemperatureGradient] from this [Number] representing a temperature gradient in kelvin per metre,
  * the SI unit for temperature gradient.
  */
-val Number.kelvinPerMetre: TemperatureGradient get() = TemperatureGradient(bigDecimal)
+val Number.kelvinsPerMetre: TemperatureGradient get() = TemperatureGradient(bigDecimal)
 
 /**
  * Creates a [ThermalResistance] from this [Number] representing a thermal resistance in kelvin per watt,
  * the SI unit for thermal resistance.
  */
-val Number.kelvinPerWatt: ThermalResistance get() = ThermalResistance(bigDecimal)
+val Number.kelvinsPerWatt: ThermalResistance get() = ThermalResistance(bigDecimal)
 
 /**
  * Creates a [Temperature] from this [Number] representing a temperature in kelvins,
@@ -741,7 +741,7 @@ val Number.wattPerMetre: SpectralPower get() = SpectralPower(bigDecimal)
  * Creates a [ThermalConductivity] from this [Number] representing a thermal conductivity in watt per metre kelvin,
  * the SI unit for thermal conductivity.
  */
-val Number.wattPerMetreKelvin: ThermalConductivity get() = ThermalConductivity(bigDecimal)
+val Number.wattsPerMetreKelvin: ThermalConductivity get() = ThermalConductivity(bigDecimal)
 
 /**
  * Creates a [HeatFluxDensity] from this [Number] representing a heat flux density in watt per square metre,

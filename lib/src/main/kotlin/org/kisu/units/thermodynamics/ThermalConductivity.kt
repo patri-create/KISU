@@ -27,6 +27,26 @@ import java.math.BigDecimal
 typealias WattPerMetreKelvin = Quotient<Watt, Product<Metre, Kelvin>>
 
 /**
+ * Creates a measure of **watts per metre-kelvin** (W/(m·K)).
+ *
+ * This derived unit expresses thermal conductivity — the rate of
+ * heat transfer through a material per unit thickness and temperature
+ * difference.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Watt] (power) with the specified [prefix]
+ *  - divided by a [Product] of [Metre] (length) and [Kelvin] (temperature)
+ *
+ * @param prefix Metric prefix to apply to the watt unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing W/(m·K).
+ */
+@Suppress("FunctionNaming")
+internal fun WattPerMetreKelvin(prefix: Metric = Metric.BASE): Quotient<Watt, Product<Metre, Kelvin>> =
+    Quotient(Watt(prefix), Product(Metre(), Kelvin()))
+
+/**
  * Represents the physical quantity of **thermal conductivity**.
  *
  * Thermal conductivity quantifies a material’s **ability to conduct heat**.
@@ -51,5 +71,5 @@ class ThermalConductivity(
     expression: WattPerMetreKelvin
 ) : Measure<WattPerMetreKelvin, ThermalConductivity>(magnitude, expression, ::ThermalConductivity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Watt(prefix), Product(Metre(), Kelvin())))
+        this(magnitude, WattPerMetreKelvin(prefix))
 }

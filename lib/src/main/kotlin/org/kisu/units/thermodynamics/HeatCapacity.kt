@@ -23,6 +23,25 @@ import java.math.BigDecimal
 typealias JoulePerKelvin = Quotient<Joule, Kelvin>
 
 /**
+ * Creates a measure of **joules per kelvin** (J/K).
+ *
+ * This derived unit is used to express heat capacity or entropy
+ * per unit temperature.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Joule] (energy) with the specified [prefix]
+ *  - divided by a [Kelvin] (temperature)
+ *
+ * @param prefix Metric prefix to apply to the joule unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing J/K.
+ */
+@Suppress("FunctionNaming")
+internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Kelvin> =
+    Quotient(Joule(prefix), Kelvin())
+
+/**
  * Represents the physical quantity of **heat capacity**.
  *
  * Heat capacity quantifies the **amount of heat energy required to raise the temperature
@@ -46,5 +65,5 @@ class HeatCapacity(
     expression: JoulePerKelvin
 ) : Measure<JoulePerKelvin, HeatCapacity>(magnitude, expression, ::HeatCapacity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Joule(prefix), Kelvin()))
+        this(magnitude, JoulePerKelvin(prefix))
 }
