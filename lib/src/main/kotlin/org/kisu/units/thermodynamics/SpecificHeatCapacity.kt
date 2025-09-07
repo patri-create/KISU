@@ -26,6 +26,29 @@ import java.math.BigDecimal
 typealias JoulePerKilogramKelvin = Quotient<Joule, Product<Kilogram, Kelvin>>
 
 /**
+ * Creates a measure of **joules per kilogram-kelvin** (J/(kg·K)).
+ *
+ * This derived unit is used to express specific heat capacity or
+ * specific entropy — energy per unit mass per unit temperature.
+ *
+ * Internally this returns a [Quotient] of:
+ *  - a [Joule] (energy) with the specified [prefix]
+ *  - divided by a [Product] of [Kilogram] (mass) with the specified [prefix]
+ *    and [Kelvin] (temperature)
+ *
+ * @param prefix Metric prefix to apply to the kilogram unit.
+ * Defaults to [Metric.BASE] (no prefix).
+ *
+ * @return A [Quotient] representing J/(kg·K).
+ */
+@Suppress("FunctionNaming")
+internal fun JoulePerKilogramKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Product<Kilogram, Kelvin>> =
+    Quotient(
+        Joule(),
+        Product(Kilogram(prefix), Kelvin())
+    )
+
+/**
  * Represents the physical quantity of **specific heat capacity**.
  *
  * Specific heat capacity quantifies the **amount of heat energy required to raise the temperature
@@ -51,9 +74,6 @@ class SpecificHeatCapacity(
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
-            Quotient(
-                Joule(),
-                Product(Kilogram(prefix), Kelvin())
-            )
+            JoulePerKilogramKelvin(prefix)
         )
 }
