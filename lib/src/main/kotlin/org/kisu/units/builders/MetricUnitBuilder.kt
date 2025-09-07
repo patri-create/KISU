@@ -542,7 +542,7 @@ val MetricUnitBuilder.joulePerCubicMetre: EnergyDensity
  * val heatCapacity = 1.kilo.joulePerKelvin // 1000 J/K
  * ```
  */
-val MetricUnitBuilder.joulePerKelvin: HeatCapacity
+val MetricUnitBuilder.joulesPerKelvin: HeatCapacity
     get() = HeatCapacity(magnitude, metric)
 
 /**
@@ -575,7 +575,7 @@ val MetricUnitBuilder.joulePerKilogram: SpecificEnergy
  * val specificHeat = 1.kilo.joulePerKilogramKelvin // 1000 J/(kg·K)
  * ```
  */
-val MetricUnitBuilder.joulePerKilogramKelvin: SpecificHeatCapacity
+val MetricUnitBuilder.joulesPerKilogramKelvin: SpecificHeatCapacity
     get() = SpecificHeatCapacity(magnitude, metric)
 
 /**
@@ -661,7 +661,7 @@ val MetricUnitBuilder.katals: CatalyticActivity get() = CatalyticActivity(magnit
  * val tempGradient = 1.kelvinPerMetre // 1 K/m
  * ```
  */
-val MetricUnitBuilder.kelvinPerMetre: TemperatureGradient
+val MetricUnitBuilder.kelvinsPerMetre: TemperatureGradient
     get() = TemperatureGradient(magnitude, metric)
 
 /**
@@ -672,7 +672,7 @@ val MetricUnitBuilder.kelvinPerMetre: TemperatureGradient
  * val thermalResistance = 1.kelvinPerWatt // 1 K/W
  * ```
  */
-val MetricUnitBuilder.kelvinPerWatt: ThermalResistance
+val MetricUnitBuilder.kelvinsPerWatt: ThermalResistance
     get() = ThermalResistance(magnitude, metric)
 
 /**
@@ -1240,7 +1240,7 @@ val MetricUnitBuilder.wattPerMetre: SpectralPower
  * val thermalConductivity = 1.wattPerMetreKelvin // 1 W/(m·K)
  * ```
  */
-val MetricUnitBuilder.wattPerMetreKelvin: ThermalConductivity
+val MetricUnitBuilder.wattsPerMetreKelvin: ThermalConductivity
     get() = ThermalConductivity(magnitude, metric)
 
 /**
