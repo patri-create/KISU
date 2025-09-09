@@ -8,19 +8,6 @@ import org.kisu.units.special.Joule
 import java.math.BigDecimal
 
 /**
- * Unit of [SpecificEnergy].
- *
- * Represents the unit of **specific energy**, i.e., the physical quantity measuring
- * energy per unit mass.
- *
- * Symbol: `J/kg`
- * SI: `m²·s⁻²`
- *
- * @see SpecificEnergy
- */
-typealias JoulePerKilogram = Quotient<Joule, Kilogram>
-
-/**
  * Measure of specific energy expressed in [JoulePerKilogram].
  *
  * Specific energy quantifies the amount of energy contained or transferred per unit mass,
@@ -39,7 +26,20 @@ typealias JoulePerKilogram = Quotient<Joule, Kilogram>
 class SpecificEnergy(
     magnitude: BigDecimal,
     expression: JoulePerKilogram
-) : Measure<JoulePerKilogram, SpecificEnergy>(magnitude, expression, ::SpecificEnergy) {
+) : Measure<SpecificEnergy.JoulePerKilogram, SpecificEnergy>(magnitude, expression, ::SpecificEnergy) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Joule(prefix), Kilogram()))
+
+    /**
+     * Unit of [SpecificEnergy].
+     *
+     * Represents the unit of **specific energy**, i.e., the physical quantity measuring
+     * energy per unit mass.
+     *
+     * Symbol: `J/kg`
+     * SI: `m²·s⁻²`
+     *
+     * @see SpecificEnergy
+     */
+    typealias JoulePerKilogram = Quotient<Joule, Kilogram>
 }

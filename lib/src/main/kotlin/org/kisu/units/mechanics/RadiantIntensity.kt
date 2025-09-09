@@ -8,19 +8,6 @@ import org.kisu.units.special.Watt
 import java.math.BigDecimal
 
 /**
- * Unit of [RadiantIntensity].
- *
- * Represents the unit of **radiant intensity**, i.e., the physical quantity measuring
- * radiant power emitted per unit solid angle.
- *
- * Symbol: `W/sr`
- * SI: `kg·m²·s⁻³`
- *
- * @see RadiantIntensity
- */
-typealias WattPerSteradian = Quotient<Watt, Steradian>
-
-/**
  * Measure of radiant intensity expressed in [WattPerSteradian].
  *
  * Radiant intensity quantifies the distribution of radiated power in a particular direction.
@@ -38,7 +25,20 @@ typealias WattPerSteradian = Quotient<Watt, Steradian>
 class RadiantIntensity(
     magnitude: BigDecimal,
     expression: WattPerSteradian
-) : Measure<WattPerSteradian, RadiantIntensity>(magnitude, expression, ::RadiantIntensity) {
+) : Measure<RadiantIntensity.WattPerSteradian, RadiantIntensity>(magnitude, expression, ::RadiantIntensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Watt(prefix), Steradian()))
+
+    /**
+     * Unit of [RadiantIntensity].
+     *
+     * Represents the unit of **radiant intensity**, i.e., the physical quantity measuring
+     * radiant power emitted per unit solid angle.
+     *
+     * Symbol: `W/sr`
+     * SI: `kg·m²·s⁻³`
+     *
+     * @see RadiantIntensity
+     */
+    typealias WattPerSteradian = Quotient<Watt, Steradian>
 }

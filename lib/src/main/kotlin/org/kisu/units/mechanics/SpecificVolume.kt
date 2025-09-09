@@ -8,19 +8,6 @@ import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [SpecificVolume].
- *
- * Represents the unit of **specific volume**, i.e., the physical quantity measuring
- * volume per unit mass.
- *
- * Symbol: `m³/kg`
- * SI: `m³·kg⁻¹`
- *
- * @see SpecificVolume
- */
-typealias CubicMetrePerKilogram = Quotient<CubicMetre, Kilogram>
-
-/**
  * Measure of specific volume expressed in [CubicMetrePerKilogram].
  *
  * Specific volume quantifies the space occupied by a unit mass of a substance,
@@ -39,7 +26,20 @@ typealias CubicMetrePerKilogram = Quotient<CubicMetre, Kilogram>
 class SpecificVolume(
     magnitude: BigDecimal,
     expression: CubicMetrePerKilogram
-) : Measure<CubicMetrePerKilogram, SpecificVolume>(magnitude, expression, ::SpecificVolume) {
+) : Measure<SpecificVolume.CubicMetrePerKilogram, SpecificVolume>(magnitude, expression, ::SpecificVolume) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(CubicMetre(prefix), Kilogram()))
+
+    /**
+     * Unit of [SpecificVolume].
+     *
+     * Represents the unit of **specific volume**, i.e., the physical quantity measuring
+     * volume per unit mass.
+     *
+     * Symbol: `m³/kg`
+     * SI: `m³·kg⁻¹`
+     *
+     * @see SpecificVolume
+     */
+    typealias CubicMetrePerKilogram = Quotient<CubicMetre, Kilogram>
 }

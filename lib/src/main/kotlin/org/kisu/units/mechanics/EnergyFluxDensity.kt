@@ -10,19 +10,6 @@ import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [EnergyFluxDensity].
- *
- * Represents the unit of **energy flux density**, i.e., the physical quantity measuring
- * energy transferred per unit area per unit time.
- *
- * Symbol: `J/(m²·s)`
- * SI: `kg·s⁻³`
- *
- * @see EnergyFluxDensity
- */
-typealias JoulePerSquareMetreSecond = Quotient<Joule, Product<SquareMetre, Second>>
-
-/**
  * Measure of energy flux density expressed in [JoulePerSquareMetreSecond].
  *
  * Energy flux density quantifies the rate at which energy passes through a unit area.
@@ -40,7 +27,11 @@ typealias JoulePerSquareMetreSecond = Quotient<Joule, Product<SquareMetre, Secon
 class EnergyFluxDensity(
     magnitude: BigDecimal,
     expression: JoulePerSquareMetreSecond
-) : Measure<JoulePerSquareMetreSecond, EnergyFluxDensity>(magnitude, expression, ::EnergyFluxDensity) {
+) : Measure<EnergyFluxDensity.JoulePerSquareMetreSecond, EnergyFluxDensity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::EnergyFluxDensity
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
@@ -49,4 +40,17 @@ class EnergyFluxDensity(
                 Product(SquareMetre(), Second())
             )
         )
+
+    /**
+     * Unit of [EnergyFluxDensity].
+     *
+     * Represents the unit of **energy flux density**, i.e., the physical quantity measuring
+     * energy transferred per unit area per unit time.
+     *
+     * Symbol: `J/(m²·s)`
+     * SI: `kg·s⁻³`
+     *
+     * @see EnergyFluxDensity
+     */
+    typealias JoulePerSquareMetreSecond = Quotient<Joule, Product<SquareMetre, Second>>
 }

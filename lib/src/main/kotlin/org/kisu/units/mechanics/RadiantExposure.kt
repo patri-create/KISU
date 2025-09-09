@@ -8,19 +8,6 @@ import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [RadiantExposure].
- *
- * Represents the unit of **radiant exposure**, i.e., the physical quantity measuring
- * energy received per unit area from electromagnetic radiation.
- *
- * Symbol: `J/m²`
- * SI: `kg·s⁻²`
- *
- * @see RadiantExposure
- */
-typealias JoulePerSquareMetre = Quotient<Joule, SquareMetre>
-
-/**
  * Measure of radiant exposure expressed in [JoulePerSquareMetre].
  *
  * Radiant exposure quantifies the total energy incident on a surface per unit area,
@@ -39,7 +26,24 @@ typealias JoulePerSquareMetre = Quotient<Joule, SquareMetre>
 class RadiantExposure(
     magnitude: BigDecimal,
     expression: JoulePerSquareMetre
-) : Measure<JoulePerSquareMetre, RadiantExposure>(magnitude, expression, ::RadiantExposure) {
+) : Measure<RadiantExposure.JoulePerSquareMetre, RadiantExposure>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::RadiantExposure
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Joule(prefix), SquareMetre()))
+
+    /**
+     * Unit of [RadiantExposure].
+     *
+     * Represents the unit of **radiant exposure**, i.e., the physical quantity measuring
+     * energy received per unit area from electromagnetic radiation.
+     *
+     * Symbol: `J/m²`
+     * SI: `kg·s⁻²`
+     *
+     * @see RadiantExposure
+     */
+    typealias JoulePerSquareMetre = Quotient<Joule, SquareMetre>
 }

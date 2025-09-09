@@ -9,19 +9,6 @@ import org.kisu.units.special.Newton
 import java.math.BigDecimal
 
 /**
- * Unit of [AngularMomentum].
- *
- * Represents the unit of **angular momentum**, i.e., the physical quantity measuring
- * rotational momentum of a body.
- *
- * Symbol: `N·m·s`
- * SI: `m²·kg·s⁻¹`
- *
- * @see AngularMomentum
- */
-typealias NewtonMeterSecond = Product<Newton, Product<Metre, Second>>
-
-/**
  * Measure of angular momentum expressed in [NewtonMeterSecond].
  *
  * Angular momentum quantifies the rotational motion of a body, combining
@@ -40,7 +27,20 @@ typealias NewtonMeterSecond = Product<Newton, Product<Metre, Second>>
 class AngularMomentum(
     magnitude: BigDecimal,
     expression: NewtonMeterSecond
-) : Measure<NewtonMeterSecond, AngularMomentum>(magnitude, expression, ::AngularMomentum) {
+) : Measure<AngularMomentum.NewtonMeterSecond, AngularMomentum>(magnitude, expression, ::AngularMomentum) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Newton(prefix), Product(Metre(), Second())))
+
+    /**
+     * Unit of [AngularMomentum].
+     *
+     * Represents the unit of **angular momentum**, i.e., the physical quantity measuring
+     * rotational momentum of a body.
+     *
+     * Symbol: `N·m·s`
+     * SI: `m²·kg·s⁻¹`
+     *
+     * @see AngularMomentum
+     */
+    typealias NewtonMeterSecond = Product<Newton, Product<Metre, Second>>
 }

@@ -8,19 +8,6 @@ import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [AreaDensity].
- *
- * Represents the unit of **area density**, i.e., the physical quantity measuring
- * mass per unit area.
- *
- * Symbol: `kg/m²`
- * SI: `kg·m⁻²`
- *
- * @see AreaDensity
- */
-typealias KilogramPerSquareMetre = Quotient<Kilogram, SquareMetre>
-
-/**
  * Measure of area density expressed in [KilogramPerSquareMetre].
  *
  * Area density quantifies the amount of mass distributed over a given area.
@@ -38,7 +25,20 @@ typealias KilogramPerSquareMetre = Quotient<Kilogram, SquareMetre>
 class AreaDensity(
     magnitude: BigDecimal,
     expression: KilogramPerSquareMetre
-) : Measure<KilogramPerSquareMetre, AreaDensity>(magnitude, expression, ::AreaDensity) {
+) : Measure<AreaDensity.KilogramPerSquareMetre, AreaDensity>(magnitude, expression, ::AreaDensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), SquareMetre()))
+
+    /**
+     * Unit of [AreaDensity].
+     *
+     * Represents the unit of **area density**, i.e., the physical quantity measuring
+     * mass per unit area.
+     *
+     * Symbol: `kg/m²`
+     * SI: `kg·m⁻²`
+     *
+     * @see AreaDensity
+     */
+    typealias KilogramPerSquareMetre = Quotient<Kilogram, SquareMetre>
 }

@@ -8,19 +8,6 @@ import org.kisu.units.special.Watt
 import java.math.BigDecimal
 
 /**
- * Unit of [HeatFluxDensity].
- *
- * Represents the unit of **heat flux density**, i.e., the physical quantity measuring
- * heat transfer per unit area per unit time.
- *
- * Symbol: `W/m²`
- * SI: `kg·s⁻³`
- *
- * @see HeatFluxDensity
- */
-typealias WattPerSquareMetre = Quotient<Watt, SquareMetre>
-
-/**
  * Measure of heat flux density expressed in [WattPerSquareMetre].
  *
  * Heat flux density quantifies the rate of heat transfer across a unit area.
@@ -38,7 +25,20 @@ typealias WattPerSquareMetre = Quotient<Watt, SquareMetre>
 class HeatFluxDensity(
     magnitude: BigDecimal,
     expression: WattPerSquareMetre
-) : Measure<WattPerSquareMetre, HeatFluxDensity>(magnitude, expression, ::HeatFluxDensity) {
+) : Measure<HeatFluxDensity.WattPerSquareMetre, HeatFluxDensity>(magnitude, expression, ::HeatFluxDensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Watt(prefix), SquareMetre()))
+
+    /**
+     * Unit of [HeatFluxDensity].
+     *
+     * Represents the unit of **heat flux density**, i.e., the physical quantity measuring
+     * heat transfer per unit area per unit time.
+     *
+     * Symbol: `W/m²`
+     * SI: `kg·s⁻³`
+     *
+     * @see HeatFluxDensity
+     */
+    typealias WattPerSquareMetre = Quotient<Watt, SquareMetre>
 }

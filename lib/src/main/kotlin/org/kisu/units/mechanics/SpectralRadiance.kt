@@ -10,19 +10,6 @@ import org.kisu.units.special.Watt
 import java.math.BigDecimal
 
 /**
- * Unit of [SpectralRadiance].
- *
- * Represents the unit of **spectral radiance**, i.e., the physical quantity measuring
- * radiant power per unit volume per unit solid angle.
- *
- * Symbol: `W/(sr·m³)`
- * SI: `kg·m⁻¹·s⁻³`
- *
- * @see SpectralRadiance
- */
-typealias WattPerSteradianCubicMetre = Quotient<Watt, Product<Steradian, CubicMetre>>
-
-/**
  * Measure of spectral radiance expressed in [WattPerSteradianCubicMetre].
  *
  * Spectral radiance quantifies the directional distribution of radiant power within a
@@ -41,7 +28,24 @@ typealias WattPerSteradianCubicMetre = Quotient<Watt, Product<Steradian, CubicMe
 class SpectralRadiance(
     magnitude: BigDecimal,
     expression: WattPerSteradianCubicMetre
-) : Measure<WattPerSteradianCubicMetre, SpectralRadiance>(magnitude, expression, ::SpectralRadiance) {
+) : Measure<SpectralRadiance.WattPerSteradianCubicMetre, SpectralRadiance>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::SpectralRadiance
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Watt(prefix), Product(Steradian(), CubicMetre())))
+
+    /**
+     * Unit of [SpectralRadiance].
+     *
+     * Represents the unit of **spectral radiance**, i.e., the physical quantity measuring
+     * radiant power per unit volume per unit solid angle.
+     *
+     * Symbol: `W/(sr·m³)`
+     * SI: `kg·m⁻¹·s⁻³`
+     *
+     * @see SpectralRadiance
+     */
+    typealias WattPerSteradianCubicMetre = Quotient<Watt, Product<Steradian, CubicMetre>>
 }

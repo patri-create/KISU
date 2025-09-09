@@ -8,19 +8,6 @@ import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [KinematicViscosity].
- *
- * Represents the unit of **kinematic viscosity**, i.e., the physical quantity measuring
- * a fluid's resistance to flow relative to its density.
- *
- * Symbol: `m²/s`
- * SI: `m²·s⁻¹`
- *
- * @see KinematicViscosity
- */
-typealias SquareMetrePerSecond = Quotient<SquareMetre, Second>
-
-/**
  * Measure of kinematic viscosity expressed in [SquareMetrePerSecond].
  *
  * Kinematic viscosity quantifies the intrinsic resistance of a fluid to motion
@@ -39,7 +26,24 @@ typealias SquareMetrePerSecond = Quotient<SquareMetre, Second>
 class KinematicViscosity(
     magnitude: BigDecimal,
     expression: SquareMetrePerSecond
-) : Measure<SquareMetrePerSecond, KinematicViscosity>(magnitude, expression, ::KinematicViscosity) {
+) : Measure<KinematicViscosity.SquareMetrePerSecond, KinematicViscosity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::KinematicViscosity
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(SquareMetre(prefix), Second()))
+
+    /**
+     * Unit of [KinematicViscosity].
+     *
+     * Represents the unit of **kinematic viscosity**, i.e., the physical quantity measuring
+     * a fluid's resistance to flow relative to its density.
+     *
+     * Symbol: `m²/s`
+     * SI: `m²·s⁻¹`
+     *
+     * @see KinematicViscosity
+     */
+    typealias SquareMetrePerSecond = Quotient<SquareMetre, Second>
 }

@@ -8,19 +8,6 @@ import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
 /**
- * Unit of [MassFlowRate].
- *
- * Represents the unit of **mass flow rate**, i.e., the physical quantity measuring
- * mass transported per unit time.
- *
- * Symbol: `kg/s`
- * SI: `kg·s⁻¹`
- *
- * @see MassFlowRate
- */
-typealias KilogramPerSecond = Quotient<Kilogram, Second>
-
-/**
  * Measure of mass flow rate expressed in [KilogramPerSecond].
  *
  * Mass flow rate quantifies how much mass passes through a given surface or section per unit time.
@@ -38,7 +25,20 @@ typealias KilogramPerSecond = Quotient<Kilogram, Second>
 class MassFlowRate(
     magnitude: BigDecimal,
     expression: KilogramPerSecond
-) : Measure<KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate) {
+) : Measure<MassFlowRate.KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Second()))
+
+    /**
+     * Unit of [MassFlowRate].
+     *
+     * Represents the unit of **mass flow rate**, i.e., the physical quantity measuring
+     * mass transported per unit time.
+     *
+     * Symbol: `kg/s`
+     * SI: `kg·s⁻¹`
+     *
+     * @see MassFlowRate
+     */
+    typealias KilogramPerSecond = Quotient<Kilogram, Second>
 }

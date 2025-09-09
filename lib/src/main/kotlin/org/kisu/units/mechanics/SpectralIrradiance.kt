@@ -8,19 +8,6 @@ import org.kisu.units.special.Watt
 import java.math.BigDecimal
 
 /**
- * Unit of [SpectralIrradiance].
- *
- * Represents the unit of **spectral irradiance**, i.e., the physical quantity measuring
- * radiant power per unit volume.
- *
- * Symbol: `W/m³`
- * SI: `kg·m⁻¹·s⁻³`
- *
- * @see SpectralIrradiance
- */
-typealias WattPerCubicMetre = Quotient<Watt, CubicMetre>
-
-/**
  * Measure of spectral irradiance expressed in [WattPerCubicMetre].
  *
  * Spectral irradiance quantifies the distribution of radiant power within a given volume,
@@ -39,7 +26,24 @@ typealias WattPerCubicMetre = Quotient<Watt, CubicMetre>
 class SpectralIrradiance(
     magnitude: BigDecimal,
     expression: WattPerCubicMetre
-) : Measure<WattPerCubicMetre, SpectralIrradiance>(magnitude, expression, ::SpectralIrradiance) {
+) : Measure<SpectralIrradiance.WattPerCubicMetre, SpectralIrradiance>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::SpectralIrradiance
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Watt(prefix), CubicMetre()))
+
+    /**
+     * Unit of [SpectralIrradiance].
+     *
+     * Represents the unit of **spectral irradiance**, i.e., the physical quantity measuring
+     * radiant power per unit volume.
+     *
+     * Symbol: `W/m³`
+     * SI: `kg·m⁻¹·s⁻³`
+     *
+     * @see SpectralIrradiance
+     */
+    typealias WattPerCubicMetre = Quotient<Watt, CubicMetre>
 }
