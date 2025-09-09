@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.joulesPerKilogramKelvin
+import org.kisu.units.thermodynamics.SpecificHeatCapacity.Companion.JoulePerKilogramKelvin
 
 class SpecificHeatCapacityTest : StringSpec({
     "creates a SpecificHeatCapacity" {

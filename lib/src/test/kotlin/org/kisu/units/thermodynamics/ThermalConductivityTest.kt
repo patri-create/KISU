@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.wattsPerMetreKelvin
+import org.kisu.units.thermodynamics.ThermalConductivity.Companion.WattPerMetreKelvin
 
 class ThermalConductivityTest : StringSpec({
     "creates a ThermalConductivity" {

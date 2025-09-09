@@ -10,19 +10,6 @@ import org.kisu.units.special.Watt
 import java.math.BigDecimal
 
 /**
- * Unit of [Radiance].
- *
- * Represents the unit of **radiance**, i.e., the physical quantity measuring
- * radiant power emitted per unit area per unit solid angle.
- *
- * Symbol: `W/(sr·m²)`
- * SI: `kg·s⁻³`
- *
- * @see Radiance
- */
-typealias WattPerSteradianSquareMetre = Quotient<Watt, Product<Steradian, SquareMetre>>
-
-/**
  * Measure of radiance expressed in [WattPerSteradianSquareMetre].
  *
  * Radiance quantifies the intensity of electromagnetic radiation in a specific
@@ -41,7 +28,20 @@ typealias WattPerSteradianSquareMetre = Quotient<Watt, Product<Steradian, Square
 class Radiance(
     magnitude: BigDecimal,
     expression: WattPerSteradianSquareMetre
-) : Measure<WattPerSteradianSquareMetre, Radiance>(magnitude, expression, ::Radiance) {
+) : Measure<Radiance.WattPerSteradianSquareMetre, Radiance>(magnitude, expression, ::Radiance) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Watt(prefix), Product(Steradian(), SquareMetre())))
+
+    /**
+     * Unit of [Radiance].
+     *
+     * Represents the unit of **radiance**, i.e., the physical quantity measuring
+     * radiant power emitted per unit area per unit solid angle.
+     *
+     * Symbol: `W/(sr·m²)`
+     * SI: `kg·s⁻³`
+     *
+     * @see Radiance
+     */
+    typealias WattPerSteradianSquareMetre = Quotient<Watt, Product<Steradian, SquareMetre>>
 }

@@ -8,21 +8,6 @@ import org.kisu.units.special.Ohm
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **ohm metre (Ω·m)**.
- *
- * This unit measures **electrical resistivity**, i.e., the intrinsic property
- * of a material that opposes the flow of electric current.
- * It is defined as the [Product] of [Ohm] (electrical resistance) and [Metre] (length).
- *
- * Example usages include:
- * - Characterizing conductors and insulators
- * - Designing electrical circuits and materials
- *
- * @see Resistivity for the physical quantity represented by this unit.
- */
-typealias OhmMetre = Product<Ohm, Metre>
-
-/**
  * Represents **electrical resistivity** (ρ), a measure of how strongly a material
  * opposes the flow of electric current.
  *
@@ -49,7 +34,23 @@ typealias OhmMetre = Product<Ohm, Metre>
 class Resistivity(
     magnitude: BigDecimal,
     expression: OhmMetre
-) : Measure<OhmMetre, Resistivity>(magnitude, expression, ::Resistivity) {
+) : Measure<Resistivity.OhmMetre, Resistivity>(magnitude, expression, ::Resistivity) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Ohm(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **ohm metre (Ω·m)**.
+     *
+     * This unit measures **electrical resistivity**, i.e., the intrinsic property
+     * of a material that opposes the flow of electric current.
+     * It is defined as the [Product] of [Ohm] (electrical resistance) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Characterizing conductors and insulators
+     * - Designing electrical circuits and materials
+     *
+     * @see Resistivity for the physical quantity represented by this unit.
+     */
+    typealias OhmMetre = Product<Ohm, Metre>
 }

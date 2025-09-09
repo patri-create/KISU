@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.siemensSquareMetrePerMole
+import org.kisu.units.chemistry.MolarConductivity.Companion.SiemensSquareMetrePerMole
 
 class MolarConductivityTest : StringSpec({
     "creates a MolarConductivity" {

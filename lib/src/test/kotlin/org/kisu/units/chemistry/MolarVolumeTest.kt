@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.cubicMetrePerMole
+import org.kisu.units.chemistry.MolarVolume.Companion.CubicMetrePerMole
 
 class MolarVolumeTest : StringSpec({
     "creates a MolarEnergy" {

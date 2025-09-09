@@ -8,41 +8,6 @@ import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **cubic metre per mole (m³/mol)**.
- *
- * This unit measures **molar volume**, i.e., the volume occupied by one mole
- * of a substance.
- * It is defined as the [Quotient] of [CubicMetre] (volume) divided by [Mole] (amount of substance).
- *
- * Example usages include:
- * - Calculating the volume of gases using the ideal gas law
- * - Determining molar volumes of liquids and solids
- * - Chemical and thermodynamic calculations
- *
- * @see MolarVolume for the physical quantity represented by this unit.
- */
-typealias CubicMetrePerMole = Quotient<CubicMetre, Mole>
-
-/**
- * Creates a measure of **cubic metres per mole** (m³/mol).
- *
- * This derived unit is used to express volume per amount of substance,
- * for example molar volume in chemistry and physics.
- *
- * Internally this returns a [Quotient] of:
- *  - a [CubicMetre] (volume) with the specified [prefix]
- *  - divided by a [Mole] (amount of substance)
- *
- * @param prefix Metric prefix to apply to the cubic metre unit.
- * Defaults to [Metric.BASE] (no prefix).
- *
- * @return A [Quotient] representing m³/mol.
- */
-@Suppress("FunctionNaming")
-internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): Quotient<CubicMetre, Mole> =
-    Quotient(CubicMetre(prefix), Mole())
-
-/**
  * Represents the physical quantity of **molar volume**.
  *
  * Molar volume quantifies the **volume occupied by one mole of a substance**.
@@ -63,7 +28,45 @@ internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): Quotient<CubicMetr
 class MolarVolume(
     magnitude: BigDecimal,
     expression: CubicMetrePerMole
-) : Measure<CubicMetrePerMole, MolarVolume>(magnitude, expression, ::MolarVolume) {
+) : Measure<MolarVolume.CubicMetrePerMole, MolarVolume>(magnitude, expression, ::MolarVolume) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetrePerMole(prefix))
+
+    /**
+     * Represents the SI unit **cubic metre per mole (m³/mol)**.
+     *
+     * This unit measures **molar volume**, i.e., the volume occupied by one mole
+     * of a substance.
+     * It is defined as the [Quotient] of [CubicMetre] (volume) divided by [Mole] (amount of substance).
+     *
+     * Example usages include:
+     * - Calculating the volume of gases using the ideal gas law
+     * - Determining molar volumes of liquids and solids
+     * - Chemical and thermodynamic calculations
+     *
+     * @see MolarVolume for the physical quantity represented by this unit.
+     */
+    typealias CubicMetrePerMole = Quotient<CubicMetre, Mole>
+
+    companion object {
+        /**
+         * Creates a measure of **cubic metres per mole** (m³/mol).
+         *
+         * This derived unit is used to express volume per amount of substance,
+         * for example molar volume in chemistry and physics.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [CubicMetre] (volume) with the specified [prefix]
+         *  - divided by a [Mole] (amount of substance)
+         *
+         * @param prefix Metric prefix to apply to the cubic metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing m³/mol.
+         */
+        @Suppress("FunctionNaming")
+        internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): Quotient<CubicMetre, Mole> =
+            Quotient(CubicMetre(prefix), Mole())
+    }
 }

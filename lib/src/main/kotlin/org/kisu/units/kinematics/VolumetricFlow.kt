@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
 
-typealias CubicMetrePerSecond = Quotient<CubicMetre, Second>
-
 /**
  * Represents the physical quantity of **volumetric flow**, the rate of volume change over time.
  *
@@ -29,7 +27,23 @@ typealias CubicMetrePerSecond = Quotient<CubicMetre, Second>
 class VolumetricFlow internal constructor(
     magnitude: BigDecimal,
     expression: CubicMetrePerSecond
-) : Measure<CubicMetrePerSecond, VolumetricFlow>(magnitude, expression, ::VolumetricFlow) {
+) : Measure<VolumetricFlow.CubicMetrePerSecond, VolumetricFlow>(magnitude, expression, ::VolumetricFlow) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(CubicMetre(prefix), Second()))
+
+    /**
+     * Represents the SI unit **cubic metre per second (m³/s)**.
+     *
+     * This unit is used to measure **volumetric flow rate**,
+     * i.e., the volume of a fluid passing through a given surface per unit time.
+     * It is defined as the [Quotient] of [CubicMetre] (volume) divided by [Second] (time).
+     *
+     * Example usages include:
+     * - Measuring river discharge or water flow in hydrology
+     * - Specifying pump or ventilation system capacities
+     * - Quantifying fluid transport in engineering processes
+     *
+     * @see VolumetricFlow
+     */
+    typealias CubicMetrePerSecond = Quotient<CubicMetre, Second>
 }

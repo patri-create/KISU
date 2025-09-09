@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.lumensSecond
+import org.kisu.units.photometric.LuminousEnergy.Companion.LumenSecond
 
 class LuminousEnergyTest : StringSpec({
     "creates a LuminousEnergy" {

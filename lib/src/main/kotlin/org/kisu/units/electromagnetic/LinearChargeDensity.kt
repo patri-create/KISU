@@ -8,21 +8,6 @@ import org.kisu.units.special.Coulomb
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **coulomb per metre (C/m)**.
- *
- * This unit measures **linear charge density**, i.e., the amount of electric
- * charge distributed per unit length.
- * It is defined as the [Quotient] of [Coulomb] (electric charge) and [Metre] (length).
- *
- * Example usages include:
- * - Describing charge along wires, filaments, or rods
- * - Calculating electric fields from line charge distributions
- *
- * @see LinearChargeDensity for the physical quantity represented by this unit.
- */
-typealias CoulombPerMetre = Quotient<Coulomb, Metre>
-
-/**
  * Represents **linear charge density** (λ), which is the amount of electric charge
  * distributed per unit length of a line.
  *
@@ -40,7 +25,27 @@ typealias CoulombPerMetre = Quotient<Coulomb, Metre>
 class LinearChargeDensity(
     magnitude: BigDecimal,
     expression: CoulombPerMetre
-) : Measure<CoulombPerMetre, LinearChargeDensity>(magnitude, expression, ::LinearChargeDensity) {
+) : Measure<LinearChargeDensity.CoulombPerMetre, LinearChargeDensity>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::LinearChargeDensity
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Coulomb(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **coulomb per metre (C/m)**.
+     *
+     * This unit measures **linear charge density**, i.e., the amount of electric
+     * charge distributed per unit length.
+     * It is defined as the [Quotient] of [Coulomb] (electric charge) and [Metre] (length).
+     *
+     * Example usages include:
+     * - Describing charge along wires, filaments, or rods
+     * - Calculating electric fields from line charge distributions
+     *
+     * @see LinearChargeDensity for the physical quantity represented by this unit.
+     */
+    typealias CoulombPerMetre = Quotient<Coulomb, Metre>
 }

@@ -7,8 +7,6 @@ import org.kisu.units.base.SecondCubed
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias MetrePerSecondCubed = Quotient<Metre, SecondCubed>
-
 /**
  * Represents the physical quantity of **jerk**, the third derivative of position with respect to time.
  *
@@ -29,7 +27,24 @@ typealias MetrePerSecondCubed = Quotient<Metre, SecondCubed>
 class Jerk(
     magnitude: BigDecimal,
     expression: MetrePerSecondCubed
-) : Measure<MetrePerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
+) : Measure<Jerk.MetrePerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), SecondCubed()))
+
+    /**
+     * Represents the SI unit **metre per second cubed (m/s³)**.
+     *
+     * This unit is used to measure the **third time derivative of position**,
+     * commonly called **jerk** in linear motion,
+     * i.e., the rate of change of acceleration with respect to time.
+     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondCubed] (time³).
+     *
+     * Example usages include:
+     * - Analysing rapid changes in acceleration in vehicles or machinery
+     * - Designing smooth motion profiles in robotics or automation
+     * - Studying vibrations or dynamic response in mechanical systems
+     *
+     * @see Jerk
+     */
+    typealias MetrePerSecondCubed = Quotient<Metre, SecondCubed>
 }

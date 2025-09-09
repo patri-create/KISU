@@ -7,8 +7,6 @@ import org.kisu.units.base.SecondQuartic
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias MetrePerSecondFourth = Quotient<Metre, SecondQuartic>
-
 /**
  * Represents the physical quantity of **snap**, the fourth derivative of position with respect to time.
  *
@@ -29,7 +27,24 @@ typealias MetrePerSecondFourth = Quotient<Metre, SecondQuartic>
 class Snap(
     magnitude: BigDecimal,
     expression: MetrePerSecondFourth
-) : Measure<MetrePerSecondFourth, Snap>(magnitude, expression, ::Snap) {
+) : Measure<Snap.MetrePerSecondFourth, Snap>(magnitude, expression, ::Snap) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), SecondQuartic()))
+
+    /**
+     * Represents the SI unit **metre per second to the fourth power (m/s⁴)**.
+     *
+     * This unit is used to measure the **fourth time derivative of position**,
+     * commonly called **snap** in linear motion,
+     * i.e., the rate of change of jerk with respect to time.
+     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondQuartic] (time⁴).
+     *
+     * Example usages include:
+     * - Analysing high-order motion in robotics or mechanical systems
+     * - Designing smooth motion profiles in automation or vehicle dynamics
+     * - Modelling dynamic systems with rapidly changing acceleration
+     *
+     * @see Snap
+     */
+    typealias MetrePerSecondFourth = Quotient<Metre, SecondQuartic>
 }

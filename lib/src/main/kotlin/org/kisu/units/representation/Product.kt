@@ -73,6 +73,7 @@ class Product<A, B>(
             .map { (_, group) ->
                 @Suppress("UNCHECKED_CAST")
                 val castedGroup = group as List<Scalar<Any, Any>>
+                @Suppress("UNCHECKED_CAST")
                 castedGroup.reduce { a, b -> (a + b) as Scalar<Any, Any> }
             }
             .filter { !it.zero }

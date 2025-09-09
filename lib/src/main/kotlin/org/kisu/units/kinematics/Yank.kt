@@ -9,9 +9,6 @@ import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias KilogramMetre = Product<Kilogram, Metre>
-typealias KilogramMetreSecondThird = Quotient<KilogramMetre, SecondCubed>
-
 /**
  * Represents the physical quantity of **yank**, the rate of change of force over time.
  *
@@ -33,7 +30,7 @@ typealias KilogramMetreSecondThird = Quotient<KilogramMetre, SecondCubed>
 class Yank internal constructor(
     magnitude: BigDecimal,
     expression: KilogramMetreSecondThird
-) : Measure<KilogramMetreSecondThird, Yank>(magnitude, expression, ::Yank) {
+) : Measure<Yank.KilogramMetreSecondThird, Yank>(magnitude, expression, ::Yank) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
@@ -42,4 +39,36 @@ class Yank internal constructor(
                 SecondCubed()
             )
         )
+
+    /**
+     * Represents the SI unit **kilogram metre (kg·m)**.
+     *
+     * This composite unit combines **mass and distance**.
+     * It is defined as the [Product] of [Kilogram] (mass) and [Metre] (length).
+     *
+     * Although not an SI derived unit with a specific name, it appears in
+     * intermediate steps of physics and engineering calculations.
+     *
+     * Example usages include:
+     * - Expressing moments or torque before dividing by time or angle
+     * - Serving as an intermediate quantity in mechanics or material science
+     *
+     * @see KilogramMetreSecondThird
+     */
+    typealias KilogramMetre = Product<Kilogram, Metre>
+
+    /**
+     * Represents the SI unit **kilogram metre per second cubed (kg·m/s³)**.
+     *
+     * This unit is used to measure **mass flow rate of acceleration or power per velocity**
+     * (an uncommon but valid derived unit in mechanics and engineering).
+     * It is defined as the [Quotient] of [KilogramMetre] (mass × length) divided by [SecondCubed] (time³).
+     *
+     * Example usages include:
+     * - Appearing in intermediate formulas for dynamic systems
+     * - Describing certain transport phenomena or rate-of-change quantities in physics
+     *
+     * @see Yank
+     */
+    typealias KilogramMetreSecondThird = Quotient<KilogramMetre, SecondCubed>
 }

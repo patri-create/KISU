@@ -11,19 +11,6 @@ import org.kisu.units.special.Newton
 import java.math.BigDecimal
 
 /**
- * Unit of [SpecificAngularMomentum].
- *
- * Represents the unit of **specific angular momentum**, i.e., the physical quantity measuring
- * angular momentum per unit mass.
- *
- * Symbol: `N·m·s/kg`
- * SI: `m²·s⁻¹`
- *
- * @see SpecificAngularMomentum
- */
-typealias NewtonMetreSecondPerKilogram = Quotient<NewtonMeterSecond, Kilogram>
-
-/**
  * Measure of specific angular momentum expressed in [NewtonMetreSecondPerKilogram].
  *
  * Specific angular momentum quantifies the rotational motion of an object normalized by its mass,
@@ -42,7 +29,7 @@ typealias NewtonMetreSecondPerKilogram = Quotient<NewtonMeterSecond, Kilogram>
 class SpecificAngularMomentum(
     magnitude: BigDecimal,
     expression: NewtonMetreSecondPerKilogram
-) : Measure<NewtonMetreSecondPerKilogram, SpecificAngularMomentum>(
+) : Measure<SpecificAngularMomentum.NewtonMetreSecondPerKilogram, SpecificAngularMomentum>(
     magnitude,
     expression,
     ::SpecificAngularMomentum
@@ -55,4 +42,17 @@ class SpecificAngularMomentum(
                 Kilogram()
             )
         )
+
+    /**
+     * Unit of [SpecificAngularMomentum].
+     *
+     * Represents the unit of **specific angular momentum**, i.e., the physical quantity measuring
+     * angular momentum per unit mass.
+     *
+     * Symbol: `N·m·s/kg`
+     * SI: `m²·s⁻¹`
+     *
+     * @see SpecificAngularMomentum
+     */
+    typealias NewtonMetreSecondPerKilogram = Quotient<AngularMomentum.NewtonMeterSecond, Kilogram>
 }

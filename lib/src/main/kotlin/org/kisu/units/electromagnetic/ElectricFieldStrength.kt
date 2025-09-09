@@ -8,21 +8,6 @@ import org.kisu.units.special.Volt
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **volt per metre (V/m)**.
- *
- * This unit measures **electric field strength**, i.e., the force experienced by
- * a unit positive charge per unit distance.
- * It is defined as the [Quotient] of [Volt] (electric potential) and [Metre] (distance).
- *
- * Example usages include:
- * - Calculating the intensity of electric fields
- * - Modeling forces on charges in electrostatics
- *
- * @see ElectricFieldStrength for the physical quantity represented by this unit.
- */
-typealias VoltPerMetre = Quotient<Volt, Metre>
-
-/**
  * Represents **electric field strength** in the SI system.
  *
  * Electric field strength describes the force experienced by a unit positive charge
@@ -52,7 +37,27 @@ typealias VoltPerMetre = Quotient<Volt, Metre>
 class ElectricFieldStrength(
     magnitude: BigDecimal,
     expression: VoltPerMetre
-) : Measure<VoltPerMetre, ElectricFieldStrength>(magnitude, expression, ::ElectricFieldStrength) {
+) : Measure<ElectricFieldStrength.VoltPerMetre, ElectricFieldStrength>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::ElectricFieldStrength
+) {
+
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Volt(prefix), Metre()))
+
+    /**
+     * Represents the SI unit **volt per metre (V/m)**.
+     *
+     * This unit measures **electric field strength**, i.e., the force experienced by
+     * a unit positive charge per unit distance.
+     * It is defined as the [Quotient] of [Volt] (electric potential) and [Metre] (distance).
+     *
+     * Example usages include:
+     * - Calculating the intensity of electric fields
+     * - Modeling forces on charges in electrostatics
+     *
+     * @see ElectricFieldStrength for the physical quantity represented by this unit.
+     */
+    typealias VoltPerMetre = Quotient<Volt, Metre>
 }

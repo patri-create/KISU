@@ -8,19 +8,6 @@ import org.kisu.units.special.Watt
 import java.math.BigDecimal
 
 /**
- * Unit of [SpectralPower].
- *
- * Represents the unit of **spectral power**, i.e., the physical quantity measuring
- * radiant power per unit length.
- *
- * Symbol: `W/m`
- * SI: `kg·s⁻³`
- *
- * @see SpectralPower
- */
-typealias WattPerMetre = Quotient<Watt, Metre>
-
-/**
  * Measure of spectral power expressed in [WattPerMetre].
  *
  * Spectral power quantifies the distribution of radiant power along a specific length,
@@ -39,7 +26,20 @@ typealias WattPerMetre = Quotient<Watt, Metre>
 class SpectralPower(
     magnitude: BigDecimal,
     expression: WattPerMetre
-) : Measure<WattPerMetre, SpectralPower>(magnitude, expression, ::SpectralPower) {
+) : Measure<SpectralPower.WattPerMetre, SpectralPower>(magnitude, expression, ::SpectralPower) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Watt(prefix), Metre()))
+
+    /**
+     * Unit of [SpectralPower].
+     *
+     * Represents the unit of **spectral power**, i.e., the physical quantity measuring
+     * radiant power per unit length.
+     *
+     * Symbol: `W/m`
+     * SI: `kg·s⁻³`
+     *
+     * @see SpectralPower
+     */
+    typealias WattPerMetre = Quotient<Watt, Metre>
 }

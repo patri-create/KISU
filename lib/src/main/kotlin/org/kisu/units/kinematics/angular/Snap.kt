@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
-typealias RadianPerSecondFourth = Quotient<Radian, SecondQuartic>
-
 /**
  * Represents the physical quantity of **angular snap**, the fourth derivative of angular position with respect to time.
  *
@@ -29,7 +27,24 @@ typealias RadianPerSecondFourth = Quotient<Radian, SecondQuartic>
 class Snap(
     magnitude: BigDecimal,
     expression: RadianPerSecondFourth
-) : Measure<RadianPerSecondFourth, Snap>(magnitude, expression, ::Snap) {
+) : Measure<Snap.RadianPerSecondFourth, Snap>(magnitude, expression, ::Snap) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Radian(prefix), SecondQuartic()))
+
+    /**
+     * Represents the SI unit **radian per second to the fourth power (rad/s⁴)**.
+     *
+     * This unit is used to measure the **fourth time derivative of angular position**,
+     * sometimes called **angular snap**,
+     * i.e., the rate of change of angular jerk with respect to time.
+     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondQuartic] (time⁴).
+     *
+     * Example usages include:
+     * - Analysing high-order rotational motion in robotics or aerospace
+     * - Modelling dynamic systems where angular acceleration changes rapidly
+     * - Designing precision control systems requiring higher-order derivatives
+     *
+     * @see Snap
+     */
+    typealias RadianPerSecondFourth = Quotient<Radian, SecondQuartic>
 }

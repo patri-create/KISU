@@ -7,8 +7,6 @@ import org.kisu.units.base.SecondSextic
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias MetrePerSecondSixth = Quotient<Metre, SecondSextic>
-
 /**
  * Represents the physical quantity of **pop**, the sixth derivative of position with respect to time.
  *
@@ -29,7 +27,23 @@ typealias MetrePerSecondSixth = Quotient<Metre, SecondSextic>
 class Pop internal constructor(
     magnitude: BigDecimal,
     expression: MetrePerSecondSixth
-) : Measure<MetrePerSecondSixth, Pop>(magnitude, expression, ::Pop) {
+) : Measure<Pop.MetrePerSecondSixth, Pop>(magnitude, expression, ::Pop) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), SecondSextic()))
+
+    /**
+     * Represents the SI unit **metre per second to the sixth power (m/s⁶)**.
+     *
+     * This unit is used to measure the **sixth time derivative of position**,
+     * i.e., how rapidly the fifth derivative of displacement changes over time.
+     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondSextic] (time⁶).
+     *
+     * Example usages include:
+     * - Very high-order motion analysis in physics or engineering simulations
+     * - Advanced vibration studies or precision control systems
+     * - Modelling complex dynamic systems requiring higher-order derivatives
+     *
+     * @see Pop
+     */
+    typealias MetrePerSecondSixth = Quotient<Metre, SecondSextic>
 }

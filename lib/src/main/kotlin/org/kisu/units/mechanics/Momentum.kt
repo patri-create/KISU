@@ -8,19 +8,6 @@ import org.kisu.units.special.Newton
 import java.math.BigDecimal
 
 /**
- * Unit of [Momentum].
- *
- * Represents the unit of **momentum**, i.e., the physical quantity measuring
- * the product of mass and velocity of a body.
- *
- * Symbol: `N·s`
- * SI: `kg·m·s⁻¹`
- *
- * @see Momentum
- */
-typealias NewtonSecond = Product<Newton, Second>
-
-/**
  * Measure of momentum expressed in [NewtonSecond].
  *
  * Momentum quantifies the motion of a body, combining its mass and velocity,
@@ -39,7 +26,20 @@ typealias NewtonSecond = Product<Newton, Second>
 class Momentum(
     magnitude: BigDecimal,
     expression: NewtonSecond
-) : Measure<NewtonSecond, Momentum>(magnitude, expression, ::Momentum) {
+) : Measure<Momentum.NewtonSecond, Momentum>(magnitude, expression, ::Momentum) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Newton(prefix), Second()))
+
+    /**
+     * Unit of [Momentum].
+     *
+     * Represents the unit of **momentum**, i.e., the physical quantity measuring
+     * the product of mass and velocity of a body.
+     *
+     * Symbol: `N·s`
+     * SI: `kg·m·s⁻¹`
+     *
+     * @see Momentum
+     */
+    typealias NewtonSecond = Product<Newton, Second>
 }

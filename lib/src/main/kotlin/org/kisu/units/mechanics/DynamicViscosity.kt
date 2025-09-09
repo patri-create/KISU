@@ -8,19 +8,6 @@ import org.kisu.units.special.Pascal
 import java.math.BigDecimal
 
 /**
- * Unit of [DynamicViscosity].
- *
- * Represents the unit of **dynamic viscosity**, i.e., the physical quantity measuring
- * a fluid's resistance to flow under an applied shear stress.
- *
- * Symbol: `Pa·s`
- * SI: `kg·m⁻¹·s⁻¹`
- *
- * @see DynamicViscosity
- */
-typealias PascalSecond = Product<Pascal, Second>
-
-/**
  * Measure of dynamic viscosity expressed in [PascalSecond].
  *
  * Dynamic viscosity quantifies a fluid's internal resistance to motion
@@ -39,7 +26,20 @@ typealias PascalSecond = Product<Pascal, Second>
 class DynamicViscosity(
     magnitude: BigDecimal,
     expression: PascalSecond
-) : Measure<PascalSecond, DynamicViscosity>(magnitude, expression, ::DynamicViscosity) {
+) : Measure<DynamicViscosity.PascalSecond, DynamicViscosity>(magnitude, expression, ::DynamicViscosity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Pascal(prefix), Second()))
+
+    /**
+     * Unit of [DynamicViscosity].
+     *
+     * Represents the unit of **dynamic viscosity**, i.e., the physical quantity measuring
+     * a fluid's resistance to flow under an applied shear stress.
+     *
+     * Symbol: `Pa·s`
+     * SI: `kg·m⁻¹·s⁻¹`
+     *
+     * @see DynamicViscosity
+     */
+    typealias PascalSecond = Product<Pascal, Second>
 }

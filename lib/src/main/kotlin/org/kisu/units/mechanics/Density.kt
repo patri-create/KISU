@@ -8,19 +8,6 @@ import org.kisu.units.special.CubicMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [Density].
- *
- * Represents the unit of **density**, i.e., the physical quantity measuring
- * mass per unit volume.
- *
- * Symbol: `kg/m³`
- * SI: `kg·m⁻³`
- *
- * @see Density
- */
-typealias KilogramPerCubicMetre = Quotient<Kilogram, CubicMetre>
-
-/**
  * Measure of density expressed in [KilogramPerCubicMetre].
  *
  * Density quantifies how much mass is contained in a given volume of a substance.
@@ -38,7 +25,20 @@ typealias KilogramPerCubicMetre = Quotient<Kilogram, CubicMetre>
 class Density(
     magnitude: BigDecimal,
     expression: KilogramPerCubicMetre
-) : Measure<KilogramPerCubicMetre, Density>(magnitude, expression, ::Density) {
+) : Measure<Density.KilogramPerCubicMetre, Density>(magnitude, expression, ::Density) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), CubicMetre()))
+
+    /**
+     * Unit of [Density].
+     *
+     * Represents the unit of **density**, i.e., the physical quantity measuring
+     * mass per unit volume.
+     *
+     * Symbol: `kg/m³`
+     * SI: `kg·m⁻³`
+     *
+     * @see Density
+     */
+    typealias KilogramPerCubicMetre = Quotient<Kilogram, CubicMetre>
 }

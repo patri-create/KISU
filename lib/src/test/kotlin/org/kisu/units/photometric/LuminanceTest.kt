@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.candelasPerSquareMetre
+import org.kisu.units.photometric.Luminance.Companion.CandelaPerSquareMetre
 
 class LuminanceTest : StringSpec({
     "creates a Luminance" {

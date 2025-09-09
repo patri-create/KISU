@@ -8,19 +8,6 @@ import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
 /**
- * Unit of [MomentOfIntertia].
- *
- * Represents the unit of **moment of inertia**, i.e., the physical quantity measuring
- * an object's resistance to rotational acceleration about an axis.
- *
- * Symbol: `kg·m²`
- * SI: `kg·m²`
- *
- * @see MomentOfIntertia
- */
-typealias KilogramSquareMetre = Product<Kilogram, SquareMetre>
-
-/**
  * Measure of moment of inertia expressed in [KilogramSquareMetre].
  *
  * Moment of inertia quantifies how mass is distributed relative to a rotation axis,
@@ -39,7 +26,24 @@ typealias KilogramSquareMetre = Product<Kilogram, SquareMetre>
 class MomentOfIntertia(
     magnitude: BigDecimal,
     expression: KilogramSquareMetre
-) : Measure<KilogramSquareMetre, MomentOfIntertia>(magnitude, expression, ::MomentOfIntertia) {
+) : Measure<MomentOfIntertia.KilogramSquareMetre, MomentOfIntertia>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::MomentOfIntertia
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Kilogram(prefix to BigDecimal.ONE), SquareMetre()))
+
+    /**
+     * Unit of [MomentOfIntertia].
+     *
+     * Represents the unit of **moment of inertia**, i.e., the physical quantity measuring
+     * an object's resistance to rotational acceleration about an axis.
+     *
+     * Symbol: `kg·m²`
+     * SI: `kg·m²`
+     *
+     * @see MomentOfIntertia
+     */
+    typealias KilogramSquareMetre = Product<Kilogram, SquareMetre>
 }

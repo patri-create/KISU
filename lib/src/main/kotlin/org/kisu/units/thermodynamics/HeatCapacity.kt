@@ -8,40 +8,6 @@ import org.kisu.units.special.Joule
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **joule per kelvin (J/K)**.
- *
- * This unit measures **heat capacity**, i.e. the amount of energy required
- * to raise the temperature of a system by one kelvin.
- * It is defined as the [Quotient] of [Joule] (energy) divided by [Kelvin] (temperature).
- *
- * Example usages include:
- * - Total heat capacity of a system or object
- * - Thermodynamics and calorimetry calculations
- *
- * @see HeatCapacity for the physical quantity represented by this unit.
- */
-typealias JoulePerKelvin = Quotient<Joule, Kelvin>
-
-/**
- * Creates a measure of **joules per kelvin** (J/K).
- *
- * This derived unit is used to express heat capacity or entropy
- * per unit temperature.
- *
- * Internally this returns a [Quotient] of:
- *  - a [Joule] (energy) with the specified [prefix]
- *  - divided by a [Kelvin] (temperature)
- *
- * @param prefix Metric prefix to apply to the joule unit.
- * Defaults to [Metric.BASE] (no prefix).
- *
- * @return A [Quotient] representing J/K.
- */
-@Suppress("FunctionNaming")
-internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Kelvin> =
-    Quotient(Joule(prefix), Kelvin())
-
-/**
  * Represents the physical quantity of **heat capacity**.
  *
  * Heat capacity quantifies the **amount of heat energy required to raise the temperature
@@ -63,7 +29,43 @@ internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Kelvi
 class HeatCapacity(
     magnitude: BigDecimal,
     expression: JoulePerKelvin
-) : Measure<JoulePerKelvin, HeatCapacity>(magnitude, expression, ::HeatCapacity) {
+) : Measure<HeatCapacity.JoulePerKelvin, HeatCapacity>(magnitude, expression, ::HeatCapacity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerKelvin(prefix))
+
+    /**
+     * Represents the SI unit **joule per kelvin (J/K)**.
+     *
+     * This unit measures **heat capacity**, i.e. the amount of energy required
+     * to raise the temperature of a system by one kelvin.
+     * It is defined as the [Quotient] of [Joule] (energy) divided by [Kelvin] (temperature).
+     *
+     * Example usages include:
+     * - Total heat capacity of a system or object
+     * - Thermodynamics and calorimetry calculations
+     *
+     * @see HeatCapacity for the physical quantity represented by this unit.
+     */
+    typealias JoulePerKelvin = Quotient<Joule, Kelvin>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per kelvin** (J/K).
+         *
+         * This derived unit is used to express heat capacity or entropy
+         * per unit temperature.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by a [Kelvin] (temperature)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing J/K.
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Kelvin> =
+            Quotient(Joule(prefix), Kelvin())
+    }
 }

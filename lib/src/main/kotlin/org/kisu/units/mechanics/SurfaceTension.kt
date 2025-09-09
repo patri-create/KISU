@@ -8,19 +8,6 @@ import org.kisu.units.special.Newton
 import java.math.BigDecimal
 
 /**
- * Unit of [SurfaceTension].
- *
- * Represents the unit of **surface tension**, i.e., the physical quantity measuring
- * force per unit length along a liquid surface.
- *
- * Symbol: `N/m`
- * SI: `kg·s⁻²`
- *
- * @see SurfaceTension
- */
-typealias NewtonPerMetre = Quotient<Newton, Metre>
-
-/**
  * Measure of surface tension expressed in [NewtonPerMetre].
  *
  * Surface tension quantifies the cohesive force at the interface of a liquid,
@@ -39,7 +26,20 @@ typealias NewtonPerMetre = Quotient<Newton, Metre>
 class SurfaceTension(
     magnitude: BigDecimal,
     expression: NewtonPerMetre
-) : Measure<NewtonPerMetre, SurfaceTension>(magnitude, expression, ::SurfaceTension) {
+) : Measure<SurfaceTension.NewtonPerMetre, SurfaceTension>(magnitude, expression, ::SurfaceTension) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Newton(prefix), Metre()))
+
+    /**
+     * Unit of [SurfaceTension].
+     *
+     * Represents the unit of **surface tension**, i.e., the physical quantity measuring
+     * force per unit length along a liquid surface.
+     *
+     * Symbol: `N/m`
+     * SI: `kg·s⁻²`
+     *
+     * @see SurfaceTension
+     */
+    typealias NewtonPerMetre = Quotient<Newton, Metre>
 }

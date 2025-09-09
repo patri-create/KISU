@@ -8,19 +8,6 @@ import org.kisu.units.special.Joule
 import java.math.BigDecimal
 
 /**
- * Unit of [Action].
- *
- * Represents the unit of **action**, i.e., the physical quantity measuring
- * energy multiplied by time.
- *
- * Symbol: `J·s`
- * SI: `m²·kg·s⁻¹`
- *
- * @see Action
- */
-typealias JouleSecond = Product<Joule, Second>
-
-/**
  * Measure of action expressed in [JouleSecond].
  *
  * Action quantifies the product of energy and the time over which it is applied.
@@ -39,7 +26,20 @@ typealias JouleSecond = Product<Joule, Second>
 class Action(
     magnitude: BigDecimal,
     expression: JouleSecond
-) : Measure<JouleSecond, Action>(magnitude, expression, ::Action) {
+) : Measure<Action.JouleSecond, Action>(magnitude, expression, ::Action) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Product(Joule(prefix), Second()))
+
+    /**
+     * Unit of [Action].
+     *
+     * Represents the unit of **action**, i.e., the physical quantity measuring
+     * energy multiplied by time.
+     *
+     * Symbol: `J·s`
+     * SI: `m²·kg·s⁻¹`
+     *
+     * @see Action
+     */
+    typealias JouleSecond = Product<Joule, Second>
 }

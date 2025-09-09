@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.joulePerKelvinMole
+import org.kisu.units.chemistry.MolarHeatCapacity.Companion.JoulePerKelvinMole
 
 class MolarHeatCapacityTest : StringSpec({
     "creates a MolarHeatCapacity" {

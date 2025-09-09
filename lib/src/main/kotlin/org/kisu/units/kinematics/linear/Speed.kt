@@ -7,8 +7,6 @@ import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias MetrePerSecond = Quotient<Metre, Second>
-
 /**
  * Represents the physical quantity of **speed** (velocity magnitude).
  *
@@ -25,7 +23,23 @@ typealias MetrePerSecond = Quotient<Metre, Second>
 class Speed(
     magnitude: BigDecimal,
     expression: MetrePerSecond
-) : Measure<MetrePerSecond, Speed>(magnitude, expression, ::Speed) {
+) : Measure<Speed.MetrePerSecond, Speed>(magnitude, expression, ::Speed) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), Second()))
+
+    /**
+     * Represents the SI unit **metre per second (m/s)**.
+     *
+     * This unit is used to measure **linear velocity**,
+     * i.e., the rate of change of position with respect to time.
+     * It is defined as the [Quotient] of [Metre] (length) divided by [Second] (time).
+     *
+     * Example usages include:
+     * - Measuring the speed of vehicles, projectiles, or moving objects
+     * - Describing fluid flow rates in physics and engineering
+     * - Analysing motion in mechanics and kinematics
+     *
+     * @see Speed
+     */
+    typealias MetrePerSecond = Quotient<Metre, Second>
 }

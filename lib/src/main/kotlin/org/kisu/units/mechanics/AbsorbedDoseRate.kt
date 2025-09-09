@@ -8,22 +8,6 @@ import org.kisu.units.special.Gray
 import java.math.BigDecimal
 
 /**
- * Unit of [AbsorbedDoseRate].
- *
- * Represents the unit of **absorbed dose rate**, i.e. the rate at which
- * ionizing radiation energy is absorbed per unit of mass over time.
- *
- * Measured in **gray per second (Gy/s)**, which is defined as:
- * ```
- * 1 Gy/s = 1 J·kg⁻¹·s⁻¹ = 1 m²·s⁻³
- * ```
- * where 1 gray (Gy) = 1 joule per kilogram.
- *
- * @see AbsorbedDoseRate
- */
-typealias GrayPerSecond = Quotient<Gray, Second>
-
-/**
  * Measure of absorbed dose rate expressed in [GrayPerSecond].
  *
  * Absorbed dose rate quantifies the **intensity of ionizing radiation** in terms of
@@ -48,7 +32,23 @@ typealias GrayPerSecond = Quotient<Gray, Second>
 class AbsorbedDoseRate(
     magnitude: BigDecimal,
     expression: GrayPerSecond
-) : Measure<GrayPerSecond, AbsorbedDoseRate>(magnitude, expression, ::AbsorbedDoseRate) {
+) : Measure<AbsorbedDoseRate.GrayPerSecond, AbsorbedDoseRate>(magnitude, expression, ::AbsorbedDoseRate) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Gray(prefix), Second()))
+
+    /**
+     * Unit of [AbsorbedDoseRate].
+     *
+     * Represents the unit of **absorbed dose rate**, i.e. the rate at which
+     * ionizing radiation energy is absorbed per unit of mass over time.
+     *
+     * Measured in **gray per second (Gy/s)**, which is defined as:
+     * ```
+     * 1 Gy/s = 1 J·kg⁻¹·s⁻¹ = 1 m²·s⁻³
+     * ```
+     * where 1 gray (Gy) = 1 joule per kilogram.
+     *
+     * @see AbsorbedDoseRate
+     */
+    typealias GrayPerSecond = Quotient<Gray, Second>
 }

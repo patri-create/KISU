@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
-typealias RadianPerSecondCubed = Quotient<Radian, SecondCubed>
-
 /**
  * Represents the physical quantity of **angular jerk**, the third derivative of angular position with respect to time.
  *
@@ -29,7 +27,24 @@ typealias RadianPerSecondCubed = Quotient<Radian, SecondCubed>
 class Jerk(
     magnitude: BigDecimal,
     expression: RadianPerSecondCubed
-) : Measure<RadianPerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
+) : Measure<Jerk.RadianPerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Radian(prefix), SecondCubed()))
+
+    /**
+     * Represents the SI unit **radian per second cubed (rad/s³)**.
+     *
+     * This unit is used to measure the **third time derivative of angular position**,
+     * commonly called **angular jerk** or **angular jolt**,
+     * i.e., the rate of change of angular acceleration with respect to time.
+     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondCubed] (time³).
+     *
+     * Example usages include:
+     * - Analysing rapid changes in angular acceleration in robotics or aerospace
+     * - Modelling rotational dynamics of precision mechanisms
+     * - Designing control systems where higher-order derivatives of motion are relevant
+     *
+     * @see Jerk
+     */
+    typealias RadianPerSecondCubed = Quotient<Radian, SecondCubed>
 }

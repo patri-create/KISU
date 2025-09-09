@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Hertz
 import java.math.BigDecimal
 
-typealias HertzPerSecond = Quotient<Hertz, Second>
-
 /**
  * Represents the physical quantity of **frequency drift**, the rate of change of frequency over time.
  *
@@ -29,7 +27,23 @@ typealias HertzPerSecond = Quotient<Hertz, Second>
 class FrequencyDrift internal constructor(
     magnitude: BigDecimal,
     expression: HertzPerSecond
-) : Measure<HertzPerSecond, FrequencyDrift>(magnitude, expression, ::FrequencyDrift) {
+) : Measure<FrequencyDrift.HertzPerSecond, FrequencyDrift>(magnitude, expression, ::FrequencyDrift) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Hertz(prefix), Second()))
+
+    /**
+     * Represents the SI unit **hertz per second (Hz/s)**.
+     *
+     * This unit is used to measure **frequency change rate** or **frequency acceleration**,
+     * i.e., how quickly the frequency of an oscillation or signal changes over time.
+     * It is defined as the [Quotient] of [Hertz] (frequency) divided by [Second] (time).
+     *
+     * Example usages include:
+     * - Characterising the rate of change of frequency in mechanical or electrical oscillators
+     * - Describing chirp signals or frequency sweeps in signal processing
+     * - Measuring acceleration of rotational speed in machinery
+     *
+     * @see FrequencyDrift
+     */
+    typealias HertzPerSecond = Quotient<Hertz, Second>
 }
