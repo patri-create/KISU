@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.kelvinsPerWatt
+import org.kisu.units.thermodynamics.ThermalResistance.Companion.KelvinPerWatt
 
 class ThermalResistanceTest : StringSpec({
     "creates a ThermalResistance" {

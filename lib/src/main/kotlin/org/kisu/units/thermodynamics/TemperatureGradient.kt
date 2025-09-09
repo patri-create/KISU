@@ -8,41 +8,6 @@ import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
 /**
- * Represents the SI unit **kelvin per metre (K/m)**.
- *
- * This unit measures a **temperature gradient**, i.e., the rate of change of temperature
- * with respect to distance.
- * It is defined as the [Quotient] of [Kelvin] (temperature) divided by [Metre] (length).
- *
- * Example usages include:
- * - Heat conduction through materials (Fourier’s law)
- * - Atmospheric or oceanic temperature gradients
- * - Thermal engineering calculations
- *
- * @see TemperatureGradient for the physical quantity represented by this unit.
- */
-typealias KelvinPerMetre = Quotient<Kelvin, Metre>
-
-/**
- * Creates a measure of **kelvins per metre** (K/m).
- *
- * This derived unit expresses a temperature gradient — the change
- * in temperature per unit length.
- *
- * Internally this returns a [Quotient] of:
- *  - a [Kelvin] (temperature difference) with the specified [prefix]
- *  - divided by a [Metre] (length)
- *
- * @param prefix Metric prefix to apply to the kelvin unit.
- * Defaults to [Metric.BASE] (no prefix).
- *
- * @return A [Quotient] representing K/m.
- */
-@Suppress("FunctionNaming")
-internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): Quotient<Kelvin, Metre> =
-    Quotient(Kelvin(prefix), Metre())
-
-/**
  * Represents the physical quantity of **temperature gradient**.
  *
  * Temperature gradient quantifies the **rate of change of temperature with respect to distance**.
@@ -63,7 +28,48 @@ internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): Quotient<Kelvin, Metr
 class TemperatureGradient(
     magnitude: BigDecimal,
     expression: KelvinPerMetre
-) : Measure<KelvinPerMetre, TemperatureGradient>(magnitude, expression, ::TemperatureGradient) {
+) : Measure<TemperatureGradient.KelvinPerMetre, TemperatureGradient>(
+    magnitude = magnitude,
+    expression = expression,
+    create = ::TemperatureGradient
+) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, KelvinPerMetre(prefix))
+
+    /**
+     * Represents the SI unit **kelvin per metre (K/m)**.
+     *
+     * This unit measures a **temperature gradient**, i.e., the rate of change of temperature
+     * with respect to distance.
+     * It is defined as the [Quotient] of [Kelvin] (temperature) divided by [Metre] (length).
+     *
+     * Example usages include:
+     * - Heat conduction through materials (Fourier’s law)
+     * - Atmospheric or oceanic temperature gradients
+     * - Thermal engineering calculations
+     *
+     * @see TemperatureGradient for the physical quantity represented by this unit.
+     */
+    typealias KelvinPerMetre = Quotient<Kelvin, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **kelvins per metre** (K/m).
+         *
+         * This derived unit expresses a temperature gradient — the change
+         * in temperature per unit length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Kelvin] (temperature difference) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the kelvin unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing K/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): Quotient<Kelvin, Metre> =
+            Quotient(Kelvin(prefix), Metre())
+    }
 }
