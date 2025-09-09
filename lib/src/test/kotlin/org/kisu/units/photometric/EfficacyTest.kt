@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.lumensPerWatt
+import org.kisu.units.photometric.Efficacy.Companion.LumenPerWatt
 
 class EfficacyTest : StringSpec({
     "creates an Efficacy" {

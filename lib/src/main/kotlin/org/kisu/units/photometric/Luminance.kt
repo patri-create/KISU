@@ -7,27 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
 import java.math.BigDecimal
 
-typealias CandelaPerSquareMetre = Quotient<Candela, SquareMetre>
-
-/**
- * Creates a measure of **candelas per square metre** (cd/m²).
- *
- * This derived unit expresses luminance — the amount of luminous
- * intensity emitted or reflected per unit area.
- *
- * Internally this returns a [Quotient] of:
- *  - a [Candela] (luminous intensity) with the specified [prefix]
- *  - divided by a [SquareMetre] (area)
- *
- * @param prefix Metric prefix to apply to the candela unit.
- * Defaults to [Metric.BASE] (no prefix).
- *
- * @return A [Quotient] representing cd/m².
- */
-@Suppress("FunctionNaming")
-internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): Quotient<Candela, SquareMetre> =
-    Quotient(Candela(prefix), SquareMetre())
-
 /**
  * Represents **luminance**.
  *
@@ -50,7 +29,44 @@ internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): Quotient<Cande
 class Luminance(
     magnitude: BigDecimal,
     expression: CandelaPerSquareMetre
-) : Measure<CandelaPerSquareMetre, Luminance>(magnitude, expression, ::Luminance) {
+) : Measure<Luminance.CandelaPerSquareMetre, Luminance>(magnitude, expression, ::Luminance) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, CandelaPerSquareMetre(prefix))
+
+    /**
+     * Represents the SI unit **candela per square metre (cd/m²)**.
+     *
+     * This unit is used to measure **luminance**,
+     * i.e., the luminous intensity emitted per unit area in a given direction.
+     * It is defined as the [Quotient] of [Candela] (luminous intensity) divided by [SquareMetre] (area).
+     *
+     * Example usages include:
+     * - Specifying the brightness of screens, displays, or monitors
+     * - Measuring surface luminance in lighting design or photometry
+     * - Analysing visual comfort and visibility in architectural lighting
+     *
+     * @see Luminance
+     */
+    typealias CandelaPerSquareMetre = Quotient<Candela, SquareMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **candelas per square metre** (cd/m²).
+         *
+         * This derived unit expresses luminance — the amount of luminous
+         * intensity emitted or reflected per unit area.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Candela] (luminous intensity) with the specified [prefix]
+         *  - divided by a [SquareMetre] (area)
+         *
+         * @param prefix Metric prefix to apply to the candela unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing cd/m².
+         */
+        @Suppress("FunctionNaming")
+        internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): Quotient<Candela, SquareMetre> =
+            Quotient(Candela(prefix), SquareMetre())
+    }
 }

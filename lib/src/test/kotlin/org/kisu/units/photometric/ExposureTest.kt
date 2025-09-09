@@ -8,6 +8,7 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.luxSecond
+import org.kisu.units.photometric.Exposure.Companion.LuxSecond
 
 class ExposureTest : StringSpec({
     "creates an Exposure" {

@@ -7,27 +7,6 @@ import org.kisu.units.representation.Product
 import org.kisu.units.special.Lux
 import java.math.BigDecimal
 
-typealias LuxSecond = Product<Lux, Second>
-
-/**
- * Creates a measure of **lux-seconds** (lx·s).
- *
- * This derived unit expresses luminous exposure — the total
- * illumination received over a period of time.
- *
- * Internally this returns a [Product] of:
- *  - a [Lux] (illuminance) with the specified [prefix]
- *  - multiplied by a [Second] (time)
- *
- * @param prefix Metric prefix to apply to the lux unit.
- * Defaults to [Metric.BASE] (no prefix).
- *
- * @return A [Product] representing lx·s.
- */
-@Suppress("FunctionNaming")
-internal fun LuxSecond(prefix: Metric = Metric.BASE): Product<Lux, Second> =
-    Product(Lux(prefix), Second())
-
 /**
  * Represents **luminous exposure**.
  *
@@ -48,7 +27,44 @@ internal fun LuxSecond(prefix: Metric = Metric.BASE): Product<Lux, Second> =
 class Exposure(
     magnitude: BigDecimal,
     expression: LuxSecond
-) : Measure<LuxSecond, Exposure>(magnitude, expression, ::Exposure) {
+) : Measure<Exposure.LuxSecond, Exposure>(magnitude, expression, ::Exposure) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, LuxSecond(prefix))
+
+    /**
+     * Represents the SI unit **lux second (lx·s)**.
+     *
+     * This unit is used to measure **illuminance exposure**,
+     * i.e., the total light received over a period of time.
+     * It is defined as the [Product] of [Lux] (illuminance) and [Second] (time).
+     *
+     * Example usages include:
+     * - Quantifying light exposure for photographic or cinematographic purposes
+     * - Measuring accumulated illumination in plant growth studies
+     * - Assessing dosages in light therapy or photobiology
+     *
+     * @see Exposure
+     */
+    typealias LuxSecond = Product<Lux, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **lux-seconds** (lx·s).
+         *
+         * This derived unit expresses luminous exposure — the total
+         * illumination received over a period of time.
+         *
+         * Internally this returns a [Product] of:
+         *  - a [Lux] (illuminance) with the specified [prefix]
+         *  - multiplied by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the lux unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Product] representing lx·s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun LuxSecond(prefix: Metric = Metric.BASE): Product<Lux, Second> =
+            Product(Lux(prefix), Second())
+    }
 }
