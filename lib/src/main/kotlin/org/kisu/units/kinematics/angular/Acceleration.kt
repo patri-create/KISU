@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
-typealias RadianPerSecondSquared = Quotient<Radian, SecondSquared>
-
 /**
  * Represents the physical quantity of **angular acceleration**.
  *
@@ -29,7 +27,23 @@ typealias RadianPerSecondSquared = Quotient<Radian, SecondSquared>
 class Acceleration(
     magnitude: BigDecimal,
     expression: RadianPerSecondSquared
-) : Measure<RadianPerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
+) : Measure<Acceleration.RadianPerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Radian(prefix), SecondSquared()))
+
+    /**
+     * Represents the SI unit **radian per second squared (rad/s²)**.
+     *
+     * This unit is used to measure **angular acceleration**,
+     * i.e., the rate of change of angular velocity with respect to time.
+     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondSquared] (time²).
+     *
+     * Example usages include:
+     * - Determining the angular acceleration of rotating machinery
+     * - Analysing the dynamics of wheels, gears, or turbines
+     * - Calculating rotational kinematics in physics and engineering
+     *
+     * @see Acceleration
+     */
+    typealias RadianPerSecondSquared = Quotient<Radian, SecondSquared>
 }

@@ -7,8 +7,6 @@ import org.kisu.units.base.SecondSquared
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias MetrePerSecondSquared = Quotient<Metre, SecondSquared>
-
 /**
  * Represents the physical quantity of **acceleration**.
  *
@@ -29,7 +27,23 @@ typealias MetrePerSecondSquared = Quotient<Metre, SecondSquared>
 class Acceleration(
     magnitude: BigDecimal,
     expression: MetrePerSecondSquared
-) : Measure<MetrePerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
+) : Measure<Acceleration.MetrePerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), SecondSquared()))
+
+    /**
+     * Represents the SI unit **metre per second squared (m/s²)**.
+     *
+     * This unit is used to measure **linear acceleration**,
+     * i.e., the rate of change of velocity with respect to time.
+     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondSquared] (time²).
+     *
+     * Example usages include:
+     * - Describing the acceleration of vehicles, projectiles, or objects in free fall
+     * - Calculating forces in Newtonian mechanics using [Newton] = kg·m/s²
+     * - Analysing motion in physics and engineering contexts
+     *
+     * @see Acceleration
+     */
+    typealias MetrePerSecondSquared = Quotient<Metre, SecondSquared>
 }

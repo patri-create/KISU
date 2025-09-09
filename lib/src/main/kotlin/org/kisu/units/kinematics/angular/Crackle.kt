@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
-typealias RadianPerSecondFifth = Quotient<Radian, SecondQuintic>
-
 /**
  * Represents the physical quantity of **angular crackle**, the fifth derivative of angular position with respect to
  * time.
@@ -30,7 +28,24 @@ typealias RadianPerSecondFifth = Quotient<Radian, SecondQuintic>
 class Crackle internal constructor(
     magnitude: BigDecimal,
     expression: RadianPerSecondFifth
-) : Measure<RadianPerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
+) : Measure<Crackle.RadianPerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Radian(prefix), SecondQuintic()))
+
+    /**
+     * Represents the SI unit **radian per second to the fifth power (rad/s⁵)**.
+     *
+     * This unit is used to measure the **fifth time derivative of angular position**,
+     * sometimes called **angular crackle** or higher-order angular rate change,
+     * i.e., how rapidly angular jerk or snap itself changes over time.
+     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondQuintic] (time⁵).
+     *
+     * Example usages include:
+     * - High-order rotational motion analysis in robotics or aerospace
+     * - Modelling vibration or oscillatory systems with complex dynamics
+     * - Advanced control systems requiring precise higher-order derivatives
+     *
+     * @see Crackle
+     */
+    typealias RadianPerSecondFifth = Quotient<Radian, SecondQuintic>
 }

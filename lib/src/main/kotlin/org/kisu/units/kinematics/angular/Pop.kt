@@ -7,8 +7,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 import java.math.BigDecimal
 
-typealias RadianPerSecondSixth = Quotient<Radian, SecondSextic>
-
 /**
  * Represents the physical quantity of **angular pop**, the sixth derivative of angular position with respect to time.
  *
@@ -29,7 +27,24 @@ typealias RadianPerSecondSixth = Quotient<Radian, SecondSextic>
 class Pop internal constructor(
     magnitude: BigDecimal,
     expression: RadianPerSecondSixth
-) : Measure<RadianPerSecondSixth, Pop>(magnitude, expression, ::Pop) {
+) : Measure<Pop.RadianPerSecondSixth, Pop>(magnitude, expression, ::Pop) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Radian(prefix), SecondSextic()))
+
+    /**
+     * Represents the SI unit **radian per second to the sixth power (rad/s⁶)**.
+     *
+     * This unit is used to measure the **sixth time derivative of angular position**,
+     * sometimes referred to as **angular pop** or higher-order angular rate change,
+     * i.e., how rapidly the fifth derivative of angular position changes over time.
+     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondSextic] (time⁶).
+     *
+     * Example usages include:
+     * - Very high-order rotational motion analysis in robotics, aerospace, or vibration studies
+     * - Advanced modelling of oscillatory systems with complex dynamics
+     * - Control algorithms that incorporate higher-order derivatives for precision movement
+     *
+     * @see Pop
+     */
+    typealias RadianPerSecondSixth = Quotient<Radian, SecondSextic>
 }

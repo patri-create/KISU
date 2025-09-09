@@ -7,8 +7,6 @@ import org.kisu.units.base.SecondQuintic
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
-typealias MetrePerSecondFifth = Quotient<Metre, SecondQuintic>
-
 /**
  * Represents the physical quantity of **crackle**, the fifth derivative of position with respect to time.
  *
@@ -29,7 +27,24 @@ typealias MetrePerSecondFifth = Quotient<Metre, SecondQuintic>
 class Crackle internal constructor(
     magnitude: BigDecimal,
     expression: MetrePerSecondFifth
-) : Measure<MetrePerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
+) : Measure<Crackle.MetrePerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, Quotient(Metre(prefix), SecondQuintic()))
+
+    /**
+     * Represents the SI unit **metre per second to the fifth power (m/s⁵)**.
+     *
+     * This unit is used to measure the **fifth time derivative of position**,
+     * sometimes referred to as **fifth-order linear rate change**,
+     * i.e., how rapidly the fourth derivative of displacement changes over time.
+     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondQuintic] (time⁵).
+     *
+     * Example usages include:
+     * - Advanced dynamics simulations in physics or engineering
+     * - Modelling high-order motion derivatives in vibration analysis
+     * - Control systems requiring extremely precise motion prediction
+     *
+     * @see Crackle
+     */
+    typealias MetrePerSecondFifth = Quotient<Metre, SecondQuintic>
 }
