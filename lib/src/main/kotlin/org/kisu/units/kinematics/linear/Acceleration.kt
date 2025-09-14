@@ -29,7 +29,7 @@ class Acceleration(
     expression: MetrePerSecondSquared
 ) : Measure<Acceleration.MetrePerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Metre(prefix), SecondSquared()))
+        this(magnitude, MetrePerSecondSquared(prefix))
 
     /**
      * Represents the SI unit **metre per second squared (m/s²)**.
@@ -46,4 +46,25 @@ class Acceleration(
      * @see Acceleration
      */
     typealias MetrePerSecondSquared = Quotient<Metre, SecondSquared>
+
+    companion object {
+        /**
+         * Creates a measure of **metres per second squared** (m/s²).
+         *
+         * This derived unit expresses **acceleration** —
+         * how quickly a linear velocity (in metres per second) changes over time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Metre] (length) with the specified [prefix]
+         *  - divided by a [SecondSquared] (time²)
+         *
+         * @param prefix Metric prefix to apply to the metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing m/s².
+         */
+        @Suppress("FunctionNaming")
+        internal fun MetrePerSecondSquared(prefix: Metric = Metric.BASE): Quotient<Metre, SecondSquared> =
+            Quotient(Metre(prefix), SecondSquared())
+    }
 }

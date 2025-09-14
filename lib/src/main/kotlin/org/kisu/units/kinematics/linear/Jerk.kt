@@ -29,7 +29,7 @@ class Jerk(
     expression: MetrePerSecondCubed
 ) : Measure<Jerk.MetrePerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Metre(prefix), SecondCubed()))
+        this(magnitude, MetrePerSecondCubed(prefix))
 
     /**
      * Represents the SI unit **metre per second cubed (m/s³)**.
@@ -47,4 +47,25 @@ class Jerk(
      * @see Jerk
      */
     typealias MetrePerSecondCubed = Quotient<Metre, SecondCubed>
+
+    companion object {
+        /**
+         * Creates a measure of **metres per second cubed** (m/s³).
+         *
+         * This derived unit expresses the third-order time derivative of linear position —
+         * also known as **jerk**, i.e., the rate of change of acceleration.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Metre] (length) with the specified [prefix]
+         *  - divided by a [SecondCubed] (time³)
+         *
+         * @param prefix Metric prefix to apply to the metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing m/s³.
+         */
+        @Suppress("FunctionNaming")
+        internal fun MetrePerSecondCubed(prefix: Metric = Metric.BASE): Quotient<Metre, SecondCubed> =
+            Quotient(Metre(prefix), SecondCubed())
+    }
 }

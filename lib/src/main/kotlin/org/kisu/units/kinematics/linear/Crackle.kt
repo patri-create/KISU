@@ -3,7 +3,7 @@ package org.kisu.units.kinematics.linear
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
-import org.kisu.units.base.SecondQuintic
+import org.kisu.units.base.SecondFifth
 import org.kisu.units.representation.Quotient
 import java.math.BigDecimal
 
@@ -29,7 +29,7 @@ class Crackle internal constructor(
     expression: MetrePerSecondFifth
 ) : Measure<Crackle.MetrePerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Metre(prefix), SecondQuintic()))
+        this(magnitude, MetrePerSecondFifth(prefix))
 
     /**
      * Represents the SI unit **metre per second to the fifth power (m/s⁵)**.
@@ -37,7 +37,7 @@ class Crackle internal constructor(
      * This unit is used to measure the **fifth time derivative of position**,
      * sometimes referred to as **fifth-order linear rate change**,
      * i.e., how rapidly the fourth derivative of displacement changes over time.
-     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondQuintic] (time⁵).
+     * It is defined as the [Quotient] of [Metre] (length) divided by [SecondFifth] (time⁵).
      *
      * Example usages include:
      * - Advanced dynamics simulations in physics or engineering
@@ -46,5 +46,26 @@ class Crackle internal constructor(
      *
      * @see Crackle
      */
-    typealias MetrePerSecondFifth = Quotient<Metre, SecondQuintic>
+    typealias MetrePerSecondFifth = Quotient<Metre, SecondFifth>
+
+    companion object {
+        /**
+         * Creates a measure of **metres per second to the fifth power** (m/s⁵).
+         *
+         * This derived unit expresses the fifth-order time derivative of linear position —
+         * i.e., the rate of change of the fourth derivative of velocity.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Metre] (length) with the specified [prefix]
+         *  - divided by a [SecondFifth] (time⁵)
+         *
+         * @param prefix Metric prefix to apply to the metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing m/s⁵.
+         */
+        @Suppress("FunctionNaming")
+        internal fun MetrePerSecondFifth(prefix: Metric = Metric.BASE): Quotient<Metre, SecondFifth> =
+            Quotient(Metre(prefix), SecondFifth())
+    }
 }
