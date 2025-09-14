@@ -29,7 +29,7 @@ class VolumetricFlow internal constructor(
     expression: CubicMetrePerSecond
 ) : Measure<VolumetricFlow.CubicMetrePerSecond, VolumetricFlow>(magnitude, expression, ::VolumetricFlow) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(CubicMetre(prefix), Second()))
+        this(magnitude, CubicMetrePerSecond(prefix))
 
     /**
      * Represents the SI unit **cubic metre per second (m³/s)**.
@@ -46,4 +46,25 @@ class VolumetricFlow internal constructor(
      * @see VolumetricFlow
      */
     typealias CubicMetrePerSecond = Quotient<CubicMetre, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **cubic metres per second** (m³/s).
+         *
+         * This derived unit expresses volumetric flow rate —
+         * how much volume (in cubic metres) passes per unit of time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [CubicMetre] (volume) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the cubic metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing m³/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun CubicMetrePerSecond(prefix: Metric = Metric.BASE): Quotient<CubicMetre, Second> =
+            Quotient(CubicMetre(prefix), Second())
+    }
 }

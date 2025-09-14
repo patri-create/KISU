@@ -25,7 +25,7 @@ class Speed(
     expression: MetrePerSecond
 ) : Measure<Speed.MetrePerSecond, Speed>(magnitude, expression, ::Speed) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Metre(prefix), Second()))
+        this(magnitude, MetrePerSecond(prefix))
 
     /**
      * Represents the SI unit **metre per second (m/s)**.
@@ -42,4 +42,25 @@ class Speed(
      * @see Speed
      */
     typealias MetrePerSecond = Quotient<Metre, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **metres per second** (m/s).
+         *
+         * This derived unit expresses **linear velocity** —
+         * how quickly a position (in metres) changes over time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Metre] (length) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing m/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun MetrePerSecond(prefix: Metric = Metric.BASE): Quotient<Metre, Second> =
+            Quotient(Metre(prefix), Second())
+    }
 }

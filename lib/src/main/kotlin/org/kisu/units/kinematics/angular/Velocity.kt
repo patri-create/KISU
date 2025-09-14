@@ -29,7 +29,7 @@ class Velocity(
     expression: RadianPerSecond
 ) : Measure<Velocity.RadianPerSecond, Velocity>(magnitude, expression, ::Velocity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Radian(prefix), Second()))
+        this(magnitude, RadianPerSecond(prefix))
 
     /**
      * Represents the SI unit **radian per second (rad/s)**.
@@ -46,4 +46,25 @@ class Velocity(
      * @see Velocity
      */
     typealias RadianPerSecond = Quotient<Radian, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **radians per second** (rad/s).
+         *
+         * This derived unit expresses **angular velocity** —
+         * how quickly an angular position (in radians) changes over time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Radian] (angle) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the radian unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing rad/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun RadianPerSecond(prefix: Metric = Metric.BASE): Quotient<Radian, Second> =
+            Quotient(Radian(prefix), Second())
+    }
 }

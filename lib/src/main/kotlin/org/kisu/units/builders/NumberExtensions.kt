@@ -231,7 +231,7 @@ val Number.cubicMetrePerMoleSecond: CatalyticEfficiency get() = CatalyticEfficie
  * Creates a [VolumetricFlow] from this [Number] representing a volumetric flow in cubic metre per second,
  * the SI unit for volumetric flow.
  */
-val Number.cubicMetrePerSecond: VolumetricFlow get() = VolumetricFlow(bigDecimal)
+val Number.cubicMetresPerSecond: VolumetricFlow get() = VolumetricFlow(bigDecimal)
 
 /**
  * Creates a [Volume] from this [Number] representing a volume in cubic metres,
@@ -261,7 +261,7 @@ val Number.gramMetre: Yank get() = Yank(bigDecimal)
  * Creates a [Yank] from this [Number] representing a yank in gram metre second third,
  * the SI unit for yank.
  */
-val Number.gramMetreSecondThird: Yank get() = Yank(bigDecimal)
+val Number.gramsMetreSecondCubed: Yank get() = Yank(bigDecimal)
 
 /**
  * Creates a [Density] from this [Number] representing a density in gram per cubic metre,
@@ -477,37 +477,37 @@ val Number.metrePerHenry: MagneticSusceptibility get() = MagneticSusceptibility(
  * Creates a [Speed] from this [Number] representing a speed in metre per second,
  * the SI unit for speed.
  */
-val Number.metrePerSecond: Speed get() = Speed(bigDecimal)
+val Number.metresPerSecond: Speed get() = Speed(bigDecimal)
 
 /**
  * Creates a [Jerk] from this [Number] representing a jerk in metre per second cubed,
  * the SI unit for jerk.
  */
-val Number.metrePerSecondCubed: Jerk get() = Jerk(bigDecimal)
+val Number.metresPerSecondCubed: Jerk get() = Jerk(bigDecimal)
 
 /**
  * Creates a [Crackle] from this [Number] representing a crackle in metre per second fifth,
  * the SI unit for crackle.
  */
-val Number.metrePerSecondFifth: Crackle get() = Crackle(bigDecimal)
+val Number.metresPerSecondFifth: Crackle get() = Crackle(bigDecimal)
 
 /**
  * Creates a [Snap] from this [Number] representing a snap in metre per second fourth,
  * the SI unit for snap.
  */
-val Number.metrePerSecondFourth: Snap get() = Snap(bigDecimal)
+val Number.metresPerSecondFourth: Snap get() = Snap(bigDecimal)
 
 /**
  * Creates a [Pop] from this [Number] representing a pop in metre per second sixth,
  * the SI unit for pop.
  */
-val Number.metrePerSecondSixth: Pop get() = Pop(bigDecimal)
+val Number.metresPerSecondSixth: Pop get() = Pop(bigDecimal)
 
 /**
  * Creates a [Acceleration] from this [Number] representing an acceleration in metre per second squared,
  * the SI unit for acceleration.
  */
-val Number.metrePerSecondSquared: Acceleration get() = Acceleration(bigDecimal)
+val Number.metresPerSecondSquared: Acceleration get() = Acceleration(bigDecimal)
 
 /**
  * Creates a [Length] from this [Number] representing a length in metres,
@@ -591,37 +591,37 @@ val Number.pascalSecond: DynamicViscosity get() = DynamicViscosity(bigDecimal)
  * Creates a [Velocity] from this [Number] representing a velocity in radian per second,
  * the SI unit for velocity.
  */
-val Number.radianPerSecond: Velocity get() = Velocity(bigDecimal)
+val Number.radiansPerSecond: Velocity get() = Velocity(bigDecimal)
 
 /**
  * Creates a [AngularJerk] from this [Number] representing an angular jerk in radian per second cubed,
  * the SI unit for angular jerk.
  */
-val Number.radianPerSecondCubed: AngularJerk get() = AngularJerk(bigDecimal)
+val Number.radiansPerSecondCubed: AngularJerk get() = AngularJerk(bigDecimal)
 
 /**
  * Creates a [AngularCrackle] from this [Number] representing an angular crackle in radian per second fifth,
  * the SI unit for angular crackle.
  */
-val Number.radianPerSecondFifth: AngularCrackle get() = AngularCrackle(bigDecimal)
+val Number.radiansPerSecondFifth: AngularCrackle get() = AngularCrackle(bigDecimal)
 
 /**
  * Creates a [AngularSnap] from this [Number] representing an angular snap in radian per second fourth,
  * the SI unit for angular snap.
  */
-val Number.radianPerSecondFourth: AngularSnap get() = AngularSnap(bigDecimal)
+val Number.radiansPerSecondFourth: AngularSnap get() = AngularSnap(bigDecimal)
 
 /**
  * Creates a [AngularPop] from this [Number] representing an angular pop in radian per second sixth,
  * the SI unit for angular pop.
  */
-val Number.radianPerSecondSixth: AngularPop get() = AngularPop(bigDecimal)
+val Number.radiansPerSecondSixth: AngularPop get() = AngularPop(bigDecimal)
 
 /**
  * Creates a [AngularAcceleration] from this [Number] representing an angular acceleration in radian per second squared,
  * the SI unit for angular acceleration.
  */
-val Number.radianPerSecondSquared: AngularAcceleration get() = AngularAcceleration(bigDecimal)
+val Number.radiansPerSecondSquared: AngularAcceleration get() = AngularAcceleration(bigDecimal)
 
 /**
  * Creates a [PlaneAngle] from this [Number] representing a plane angle in radians,
