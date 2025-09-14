@@ -3,6 +3,7 @@ package org.kisu.units.kinematics
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
+import org.kisu.units.kinematics.FrequencyDrift.Companion.HertzPerSecond
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Hertz
 import java.math.BigDecimal
@@ -29,7 +30,7 @@ class FrequencyDrift internal constructor(
     expression: HertzPerSecond
 ) : Measure<FrequencyDrift.HertzPerSecond, FrequencyDrift>(magnitude, expression, ::FrequencyDrift) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Hertz(prefix), Second()))
+        this(magnitude, HertzPerSecond(prefix))
 
     /**
      * Represents the SI unit **hertz per second (Hz/s)**.
@@ -46,4 +47,25 @@ class FrequencyDrift internal constructor(
      * @see FrequencyDrift
      */
     typealias HertzPerSecond = Quotient<Hertz, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **hertz per second** (Hz/s).
+         *
+         * This derived unit expresses the rate of change of frequency —
+         * how quickly the frequency (in hertz) varies over time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Hertz] (frequency) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the hertz unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing Hz/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun HertzPerSecond(prefix: Metric = Metric.BASE): Quotient<Hertz, Second> =
+            Quotient(Hertz(prefix), Second())
+    }
 }
