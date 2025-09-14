@@ -316,7 +316,7 @@ val MetricUnitBuilder.cubicMetrePerMoleSecond: CatalyticEfficiency
  * val volumetricFlow = 1.litre.cubicMetrePerSecond // 0.001 m³/s
  * ```
  */
-val MetricUnitBuilder.cubicMetrePerSecond: VolumetricFlow
+val MetricUnitBuilder.cubicMetresPerSecond: VolumetricFlow
     get() = VolumetricFlow(magnitude, metric)
 
 /**
@@ -369,7 +369,7 @@ val MetricUnitBuilder.gramMetre: Yank
  * val yank = 1.kilo.gramMetreSecondThird // 1 kg·m/s³
  * ```
  */
-val MetricUnitBuilder.gramMetreSecondThird: Yank
+val MetricUnitBuilder.gramsMetreSecondCubed: Yank
     get() = Yank(magnitude, metric)
 
 /**
@@ -768,7 +768,7 @@ val MetricUnitBuilder.metrePerHenry: MagneticSusceptibility
  * val speed = 1.metrePerSecond // 1 m/s
  * ```
  */
-val MetricUnitBuilder.metrePerSecond: Speed
+val MetricUnitBuilder.metresPerSecond: Speed
     get() = Speed(magnitude, metric)
 
 /**
@@ -779,7 +779,7 @@ val MetricUnitBuilder.metrePerSecond: Speed
  * val jerk = 1.metrePerSecondCubed // 1 m/s³
  * ```
  */
-val MetricUnitBuilder.metrePerSecondCubed: Jerk
+val MetricUnitBuilder.metresPerSecondCubed: Jerk
     get() = Jerk(magnitude, metric)
 
 /**
@@ -790,7 +790,7 @@ val MetricUnitBuilder.metrePerSecondCubed: Jerk
  * val crackle = 1.metrePerSecondFifth // 1 m/s⁵
  * ```
  */
-val MetricUnitBuilder.metrePerSecondFifth: Crackle
+val MetricUnitBuilder.metresPerSecondFifth: Crackle
     get() = Crackle(magnitude, metric)
 
 /**
@@ -801,7 +801,7 @@ val MetricUnitBuilder.metrePerSecondFifth: Crackle
  * val snap = 1.metrePerSecondFourth // 1 m/s⁴
  * ```
  */
-val MetricUnitBuilder.metrePerSecondFourth: Snap
+val MetricUnitBuilder.metresPerSecondFourth: Snap
     get() = Snap(magnitude, metric)
 
 /**
@@ -812,7 +812,7 @@ val MetricUnitBuilder.metrePerSecondFourth: Snap
  * val pop = 1.metrePerSecondSixth // 1 m/s⁶
  * ```
  */
-val MetricUnitBuilder.metrePerSecondSixth: Pop
+val MetricUnitBuilder.metresPerSecondSixth: Pop
     get() = Pop(magnitude, metric)
 
 /**
@@ -823,7 +823,7 @@ val MetricUnitBuilder.metrePerSecondSixth: Pop
  * val acceleration = 1.metrePerSecondSquared // 1 m/s²
  * ```
  */
-val MetricUnitBuilder.metrePerSecondSquared: Acceleration
+val MetricUnitBuilder.metresPerSecondSquared: Acceleration
     get() = Acceleration(magnitude, metric)
 
 /**
@@ -972,7 +972,7 @@ val MetricUnitBuilder.pascalSecond: DynamicViscosity
  * val angularVelocity = 1.radianPerSecond // 1 rad/s
  * ```
  */
-val MetricUnitBuilder.radianPerSecond: Velocity
+val MetricUnitBuilder.radiansPerSecond: Velocity
     get() = Velocity(magnitude, metric)
 
 /**
@@ -983,7 +983,7 @@ val MetricUnitBuilder.radianPerSecond: Velocity
  * val angularJerk = 1.radianPerSecondCubed // 1 rad/s³
  * ```
  */
-val MetricUnitBuilder.radianPerSecondCubed: AngularJerk
+val MetricUnitBuilder.radiansPerSecondCubed: AngularJerk
     get() = AngularJerk(magnitude, metric)
 
 /**
@@ -994,7 +994,7 @@ val MetricUnitBuilder.radianPerSecondCubed: AngularJerk
  * val angularCrackle = 1.radianPerSecondFifth // 1 rad/s⁵
  * ```
  */
-val MetricUnitBuilder.radianPerSecondFifth: AngularCrackle
+val MetricUnitBuilder.radiansPerSecondFifth: AngularCrackle
     get() = AngularCrackle(magnitude, metric)
 
 /**
@@ -1005,7 +1005,7 @@ val MetricUnitBuilder.radianPerSecondFifth: AngularCrackle
  * val angularSnap = 1.radianPerSecondFourth // 1 rad/s⁴
  * ```
  */
-val MetricUnitBuilder.radianPerSecondFourth: AngularSnap
+val MetricUnitBuilder.radiansPerSecondFourth: AngularSnap
     get() = AngularSnap(magnitude, metric)
 
 /**
@@ -1016,7 +1016,7 @@ val MetricUnitBuilder.radianPerSecondFourth: AngularSnap
  * val angularPop = 1.radianPerSecondSixth // 1 rad/s⁶
  * ```
  */
-val MetricUnitBuilder.radianPerSecondSixth: AngularPop
+val MetricUnitBuilder.radiansPerSecondSixth: AngularPop
     get() = AngularPop(magnitude, metric)
 
 /**
@@ -1027,7 +1027,7 @@ val MetricUnitBuilder.radianPerSecondSixth: AngularPop
  * val angularAcceleration = 1.radianPerSecondSquared
  * ```
  */
-val MetricUnitBuilder.radianPerSecondSquared: AngularAcceleration
+val MetricUnitBuilder.radiansPerSecondSquared: AngularAcceleration
     get() = AngularAcceleration(magnitude, metric)
 
 /**
