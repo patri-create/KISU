@@ -51,11 +51,11 @@ class SecondCubed private constructor(
  *
  * Used in [Snap] derivatives.
  */
-class SecondQuartic private constructor(
+class SecondFourth private constructor(
     prefix: Metric,
     overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondQuartic>(prefix, overflow, unit, ::SecondQuartic) {
+) : Scalar<Metric, SecondFourth>(prefix, overflow, unit, ::SecondFourth) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
@@ -69,11 +69,11 @@ class SecondQuartic private constructor(
  *
  * Used in [Crackle] (5th derivative of position).
  */
-class SecondQuintic private constructor(
+class SecondFifth private constructor(
     prefix: Metric,
     overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondQuintic>(prefix, overflow, unit, ::SecondQuintic) {
+) : Scalar<Metric, SecondFifth>(prefix, overflow, unit, ::SecondFifth) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
@@ -87,11 +87,11 @@ class SecondQuintic private constructor(
  *
  * Used in [Pop] (6th derivative of position).
  */
-class SecondSextic private constructor(
+class SecondSixth private constructor(
     prefix: Metric,
     overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondSextic>(prefix, overflow, unit, ::SecondSextic) {
+) : Scalar<Metric, SecondSixth>(prefix, overflow, unit, ::SecondSixth) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
 
