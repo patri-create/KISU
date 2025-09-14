@@ -145,15 +145,15 @@ $dokka.location:org.kisu.units.base/Second/Second/#org.kisu.prefixes.Metric/Poin
 $dokka.location:org.kisu.units.base/SecondCubed.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-cubed/-companion/index.html
 $dokka.location:org.kisu.units.base/SecondCubed///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-cubed/index.html
 $dokka.location:org.kisu.units.base/SecondCubed/SecondCubed/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-cubed/-second-cubed.html
-$dokka.location:org.kisu.units.base/SecondQuartic.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quartic/-companion/index.html
-$dokka.location:org.kisu.units.base/SecondQuartic///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quartic/index.html
-$dokka.location:org.kisu.units.base/SecondQuartic/SecondQuartic/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quartic/-second-quartic.html
-$dokka.location:org.kisu.units.base/SecondQuintic.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quintic/-companion/index.html
-$dokka.location:org.kisu.units.base/SecondQuintic///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quintic/index.html
-$dokka.location:org.kisu.units.base/SecondQuintic/SecondQuintic/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-quintic/-second-quintic.html
-$dokka.location:org.kisu.units.base/SecondSextic.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sextic/-companion/index.html
-$dokka.location:org.kisu.units.base/SecondSextic///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sextic/index.html
-$dokka.location:org.kisu.units.base/SecondSextic/SecondSextic/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sextic/-second-sextic.html
+$dokka.location:org.kisu.units.base/SecondFifth.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-fifth/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondFifth///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-fifth/index.html
+$dokka.location:org.kisu.units.base/SecondFifth/SecondFifth/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-fifth/-second-fifth.html
+$dokka.location:org.kisu.units.base/SecondFourth.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-fourth/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondFourth///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-fourth/index.html
+$dokka.location:org.kisu.units.base/SecondFourth/SecondFourth/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-fourth/-second-fourth.html
+$dokka.location:org.kisu.units.base/SecondSixth.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sixth/-companion/index.html
+$dokka.location:org.kisu.units.base/SecondSixth///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sixth/index.html
+$dokka.location:org.kisu.units.base/SecondSixth/SecondSixth/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-sixth/-second-sixth.html
 $dokka.location:org.kisu.units.base/SecondSquared.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-squared/-companion/index.html
 $dokka.location:org.kisu.units.base/SecondSquared///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-squared/index.html
 $dokka.location:org.kisu.units.base/SecondSquared/SecondSquared/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-second-squared/-second-squared.html
@@ -198,10 +198,10 @@ $dokka.location:org.kisu.units.builders//cubicMetrePerMole/kotlin.Number#/Pointi
 $dokka.location:org.kisu.units.builders//cubicMetrePerMole/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-mole.html
 $dokka.location:org.kisu.units.builders//cubicMetrePerMoleSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-mole-second.html
 $dokka.location:org.kisu.units.builders//cubicMetrePerMoleSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-mole-second.html
-$dokka.location:org.kisu.units.builders//cubicMetrePerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-second.html
-$dokka.location:org.kisu.units.builders//cubicMetrePerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-second.html
 $dokka.location:org.kisu.units.builders//cubicMetres/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metres.html
 $dokka.location:org.kisu.units.builders//cubicMetres/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metres.html
+$dokka.location:org.kisu.units.builders//cubicMetresPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metres-per-second.html
+$dokka.location:org.kisu.units.builders//cubicMetresPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metres-per-second.html
 $dokka.location:org.kisu.units.builders//deca/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/deca.html
 $dokka.location:org.kisu.units.builders//deci/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/deci.html
 $dokka.location:org.kisu.units.builders//exa/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/exa.html
@@ -215,8 +215,6 @@ $dokka.location:org.kisu.units.builders//gibi/kotlin.Number#/PointingToDeclarati
 $dokka.location:org.kisu.units.builders//giga/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/giga.html
 $dokka.location:org.kisu.units.builders//gramMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-metre.html
 $dokka.location:org.kisu.units.builders//gramMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-metre.html
-$dokka.location:org.kisu.units.builders//gramMetreSecondThird/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-metre-second-third.html
-$dokka.location:org.kisu.units.builders//gramMetreSecondThird/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-metre-second-third.html
 $dokka.location:org.kisu.units.builders//gramPerCubicMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//gramPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//gramPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-per-metre.html
@@ -230,6 +228,8 @@ $dokka.location:org.kisu.units.builders//gramSquareMetre/kotlin.Number#/Pointing
 $dokka.location:org.kisu.units.builders//gramSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gram-square-metre.html
 $dokka.location:org.kisu.units.builders//grams/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams.html
 $dokka.location:org.kisu.units.builders//grams/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams.html
+$dokka.location:org.kisu.units.builders//gramsMetreSecondCubed/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams-metre-second-cubed.html
+$dokka.location:org.kisu.units.builders//gramsMetreSecondCubed/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams-metre-second-cubed.html
 $dokka.location:org.kisu.units.builders//gramsPerMole/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams-per-mole.html
 $dokka.location:org.kisu.units.builders//gramsPerMole/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/grams-per-mole.html
 $dokka.location:org.kisu.units.builders//grayPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gray-per-second.html
@@ -293,20 +293,20 @@ $dokka.location:org.kisu.units.builders//metrePerCubicMetre/kotlin.Number#/Point
 $dokka.location:org.kisu.units.builders//metrePerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//metrePerHenry/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-henry.html
 $dokka.location:org.kisu.units.builders//metrePerHenry/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-henry.html
-$dokka.location:org.kisu.units.builders//metrePerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second.html
-$dokka.location:org.kisu.units.builders//metrePerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second.html
-$dokka.location:org.kisu.units.builders//metrePerSecondCubed/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-cubed.html
-$dokka.location:org.kisu.units.builders//metrePerSecondCubed/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-cubed.html
-$dokka.location:org.kisu.units.builders//metrePerSecondFifth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-fifth.html
-$dokka.location:org.kisu.units.builders//metrePerSecondFifth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-fifth.html
-$dokka.location:org.kisu.units.builders//metrePerSecondFourth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-fourth.html
-$dokka.location:org.kisu.units.builders//metrePerSecondFourth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-fourth.html
-$dokka.location:org.kisu.units.builders//metrePerSecondSixth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-sixth.html
-$dokka.location:org.kisu.units.builders//metrePerSecondSixth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-sixth.html
-$dokka.location:org.kisu.units.builders//metrePerSecondSquared/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-squared.html
-$dokka.location:org.kisu.units.builders//metrePerSecondSquared/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-second-squared.html
 $dokka.location:org.kisu.units.builders//metres/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres.html
 $dokka.location:org.kisu.units.builders//metres/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres.html
+$dokka.location:org.kisu.units.builders//metresPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second.html
+$dokka.location:org.kisu.units.builders//metresPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second.html
+$dokka.location:org.kisu.units.builders//metresPerSecondCubed/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-cubed.html
+$dokka.location:org.kisu.units.builders//metresPerSecondCubed/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-cubed.html
+$dokka.location:org.kisu.units.builders//metresPerSecondFifth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-fifth.html
+$dokka.location:org.kisu.units.builders//metresPerSecondFifth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-fifth.html
+$dokka.location:org.kisu.units.builders//metresPerSecondFourth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-fourth.html
+$dokka.location:org.kisu.units.builders//metresPerSecondFourth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-fourth.html
+$dokka.location:org.kisu.units.builders//metresPerSecondSixth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-sixth.html
+$dokka.location:org.kisu.units.builders//metresPerSecondSixth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-sixth.html
+$dokka.location:org.kisu.units.builders//metresPerSecondSquared/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-squared.html
+$dokka.location:org.kisu.units.builders//metresPerSecondSquared/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-squared.html
 $dokka.location:org.kisu.units.builders//micro/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/micro.html
 $dokka.location:org.kisu.units.builders//milli/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/milli.html
 $dokka.location:org.kisu.units.builders//molPerKilogram/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/mol-per-kilogram.html
@@ -340,20 +340,20 @@ $dokka.location:org.kisu.units.builders//pico/kotlin.Number#/PointingToDeclarati
 $dokka.location:org.kisu.units.builders//quebi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/quebi.html
 $dokka.location:org.kisu.units.builders//quecto/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/quecto.html
 $dokka.location:org.kisu.units.builders//quetta/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/quetta.html
-$dokka.location:org.kisu.units.builders//radianPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second.html
-$dokka.location:org.kisu.units.builders//radianPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second.html
-$dokka.location:org.kisu.units.builders//radianPerSecondCubed/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-cubed.html
-$dokka.location:org.kisu.units.builders//radianPerSecondCubed/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-cubed.html
-$dokka.location:org.kisu.units.builders//radianPerSecondFifth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-fifth.html
-$dokka.location:org.kisu.units.builders//radianPerSecondFifth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-fifth.html
-$dokka.location:org.kisu.units.builders//radianPerSecondFourth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-fourth.html
-$dokka.location:org.kisu.units.builders//radianPerSecondFourth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-fourth.html
-$dokka.location:org.kisu.units.builders//radianPerSecondSixth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-sixth.html
-$dokka.location:org.kisu.units.builders//radianPerSecondSixth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-sixth.html
-$dokka.location:org.kisu.units.builders//radianPerSecondSquared/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-squared.html
-$dokka.location:org.kisu.units.builders//radianPerSecondSquared/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radian-per-second-squared.html
 $dokka.location:org.kisu.units.builders//radians/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians.html
 $dokka.location:org.kisu.units.builders//radians/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians.html
+$dokka.location:org.kisu.units.builders//radiansPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second.html
+$dokka.location:org.kisu.units.builders//radiansPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondCubed/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-cubed.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondCubed/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-cubed.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondFifth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-fifth.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondFifth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-fifth.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondFourth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-fourth.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondFourth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-fourth.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondSixth/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-sixth.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondSixth/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-sixth.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondSquared/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-squared.html
+$dokka.location:org.kisu.units.builders//radiansPerSecondSquared/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/radians-per-second-squared.html
 $dokka.location:org.kisu.units.builders//reciprocalHenries/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/reciprocal-henries.html
 $dokka.location:org.kisu.units.builders//reciprocalHenries/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/reciprocal-henries.html
 $dokka.location:org.kisu.units.builders//reciprocalKelvins/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/reciprocal-kelvins.html
@@ -646,30 +646,45 @@ $dokka.location:org.kisu.units.exceptions/NegativeTime/NegativeTime/#java.math.B
 $dokka.location:org.kisu.units.exceptions/SubBitInformation///PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-sub-bit-information/index.html
 $dokka.location:org.kisu.units.exceptions/SubBitInformation/SubBitInformation/#java.math.BigDecimal#kotlin.String/PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/-sub-bit-information/-sub-bit-information.html
 $dokka.location:org.kisu.units.kinematics.angular////PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Acceleration.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-acceleration/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Acceleration///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-acceleration/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Acceleration/Acceleration/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Radian>)],[Error type: Type for error type constructor (<Error class: SecondSquared>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-acceleration/-acceleration.html
+$dokka.location:org.kisu.units.kinematics.angular/Crackle.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-crackle/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Crackle///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-crackle/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Jerk.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-jerk/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Jerk///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-jerk/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Jerk/Jerk/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Radian>)],[Error type: Type for error type constructor (<Error class: SecondCubed>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-jerk/-jerk.html
+$dokka.location:org.kisu.units.kinematics.angular/Pop.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-pop/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Pop///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-pop/index.html
+$dokka.location:org.kisu.units.kinematics.angular/Snap.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-snap/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Snap///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-snap/index.html
-$dokka.location:org.kisu.units.kinematics.angular/Snap/Snap/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Radian>)],[Error type: Type for error type constructor (<Error class: SecondQuartic>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-snap/-snap.html
+$dokka.location:org.kisu.units.kinematics.angular/Snap/Snap/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Radian>)],[Error type: Type for error type constructor (<Error class: SecondFourth>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-snap/-snap.html
+$dokka.location:org.kisu.units.kinematics.angular/Velocity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-velocity/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Velocity///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-velocity/index.html
 $dokka.location:org.kisu.units.kinematics.angular/Velocity/Velocity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Radian>)],[Error type: Type for error type constructor (<Error class: Second>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.angular/-velocity/-velocity.html
 $dokka.location:org.kisu.units.kinematics.linear////PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Acceleration.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-acceleration/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Acceleration///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-acceleration/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Acceleration/Acceleration/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Metre>)],[Error type: Type for error type constructor (<Error class: SecondSquared>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-acceleration/-acceleration.html
+$dokka.location:org.kisu.units.kinematics.linear/Crackle.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-crackle/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Crackle///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-crackle/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Jerk.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-jerk/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Jerk///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-jerk/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Jerk/Jerk/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Metre>)],[Error type: Type for error type constructor (<Error class: SecondCubed>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-jerk/-jerk.html
+$dokka.location:org.kisu.units.kinematics.linear/Pop.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-pop/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Pop///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-pop/index.html
+$dokka.location:org.kisu.units.kinematics.linear/Snap.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-snap/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Snap///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-snap/index.html
-$dokka.location:org.kisu.units.kinematics.linear/Snap/Snap/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Metre>)],[Error type: Type for error type constructor (<Error class: SecondQuartic>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-snap/-snap.html
+$dokka.location:org.kisu.units.kinematics.linear/Snap/Snap/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Metre>)],[Error type: Type for error type constructor (<Error class: SecondFourth>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-snap/-snap.html
+$dokka.location:org.kisu.units.kinematics.linear/Speed.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-speed/-companion/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Speed///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-speed/index.html
 $dokka.location:org.kisu.units.kinematics.linear/Speed/Speed/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Metre>)],[Error type: Type for error type constructor (<Error class: Second>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics.linear/-speed/-speed.html
 $dokka.location:org.kisu.units.kinematics////PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/index.html
+$dokka.location:org.kisu.units.kinematics/FrequencyDrift.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-frequency-drift/-companion/index.html
 $dokka.location:org.kisu.units.kinematics/FrequencyDrift///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-frequency-drift/index.html
+$dokka.location:org.kisu.units.kinematics/VolumetricFlow.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-volumetric-flow/-companion/index.html
 $dokka.location:org.kisu.units.kinematics/VolumetricFlow///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-volumetric-flow/index.html
+$dokka.location:org.kisu.units.kinematics/Yank.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-yank/-companion/index.html
 $dokka.location:org.kisu.units.kinematics/Yank///PointingToDeclaration/-k-i-s-u/org.kisu.units.kinematics/-yank/index.html
 $dokka.location:org.kisu.units.mechanics////PointingToDeclaration/-k-i-s-u/org.kisu.units.mechanics/index.html
 $dokka.location:org.kisu.units.mechanics/AbsorbedDoseRate///PointingToDeclaration/-k-i-s-u/org.kisu.units.mechanics/-absorbed-dose-rate/index.html
