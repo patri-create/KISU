@@ -29,7 +29,7 @@ class Jerk(
     expression: RadianPerSecondCubed
 ) : Measure<Jerk.RadianPerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Radian(prefix), SecondCubed()))
+        this(magnitude, RadianPerSecondCubed(prefix))
 
     /**
      * Represents the SI unit **radian per second cubed (rad/s³)**.
@@ -47,4 +47,25 @@ class Jerk(
      * @see Jerk
      */
     typealias RadianPerSecondCubed = Quotient<Radian, SecondCubed>
+
+    companion object {
+        /**
+         * Creates a measure of **radians per second cubed** (rad/s³).
+         *
+         * This derived unit expresses the third-order time derivative of angular position —
+         * also known as **angular jerk** or **angular jolt**, i.e. the rate of change of angular acceleration.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Radian] (angle) with the specified [prefix]
+         *  - divided by a [SecondCubed] (time³)
+         *
+         * @param prefix Metric prefix to apply to the radian unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing rad/s³.
+         */
+        @Suppress("FunctionNaming")
+        internal fun RadianPerSecondCubed(prefix: Metric = Metric.BASE): Quotient<Radian, SecondCubed> =
+            Quotient(Radian(prefix), SecondCubed())
+    }
 }

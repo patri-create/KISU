@@ -2,7 +2,7 @@ package org.kisu.units.kinematics.angular
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
-import org.kisu.units.base.SecondQuartic
+import org.kisu.units.base.SecondFourth
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 import java.math.BigDecimal
@@ -29,7 +29,7 @@ class Snap(
     expression: RadianPerSecondFourth
 ) : Measure<Snap.RadianPerSecondFourth, Snap>(magnitude, expression, ::Snap) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Radian(prefix), SecondQuartic()))
+        this(magnitude, RadianPerSecondFourth(prefix))
 
     /**
      * Represents the SI unit **radian per second to the fourth power (rad/s⁴)**.
@@ -37,7 +37,7 @@ class Snap(
      * This unit is used to measure the **fourth time derivative of angular position**,
      * sometimes called **angular snap**,
      * i.e., the rate of change of angular jerk with respect to time.
-     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondQuartic] (time⁴).
+     * It is defined as the [Quotient] of [Radian] (angle) divided by [SecondFourth] (time⁴).
      *
      * Example usages include:
      * - Analysing high-order rotational motion in robotics or aerospace
@@ -46,5 +46,26 @@ class Snap(
      *
      * @see Snap
      */
-    typealias RadianPerSecondFourth = Quotient<Radian, SecondQuartic>
+    typealias RadianPerSecondFourth = Quotient<Radian, SecondFourth>
+
+    companion object {
+        /**
+         * Creates a measure of **radians per second to the fourth power** (rad/s⁴).
+         *
+         * This derived unit expresses the fourth-order time derivative of angular position —
+         * often called **angular snap** (the rate of change of angular jerk).
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Radian] (angle) with the specified [prefix]
+         *  - divided by a [SecondFourth] (time⁴)
+         *
+         * @param prefix Metric prefix to apply to the radian unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [Quotient] representing rad/s⁴.
+         */
+        @Suppress("FunctionNaming")
+        internal fun RadianPerSecondFourth(prefix: Metric = Metric.BASE): Quotient<Radian, SecondFourth> =
+            Quotient(Radian(prefix), SecondFourth())
+    }
 }
