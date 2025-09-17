@@ -38,7 +38,7 @@ class MagneticPermittivity(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Henry(prefix), Metre()))
+        this(magnitude, HenryPerMetre(prefix))
 
     /**
      * Represents the SI unit **henry per metre (H/m)**.
@@ -54,4 +54,25 @@ class MagneticPermittivity(
      * @see MagneticPermittivity for the physical quantity represented by this unit.
      */
     typealias HenryPerMetre = Quotient<Henry, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **henrys per metre** (H/m).
+         *
+         * This derived unit expresses **magnetic inductance per unit length** —
+         * how much inductance is present per metre of a conductor or coil.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Henry] (inductance) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the henry unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [HenryPerMetre] representing H/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun HenryPerMetre(prefix: Metric = Metric.BASE): HenryPerMetre =
+            Quotient(Henry(prefix), Metre())
+    }
 }

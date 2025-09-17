@@ -37,7 +37,7 @@ class Resistivity(
 ) : Measure<Resistivity.OhmMetre, Resistivity>(magnitude, expression, ::Resistivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Ohm(prefix), Metre()))
+        this(magnitude, OhmMetre(prefix))
 
     /**
      * Represents the SI unit **ohm metre (Ω·m)**.
@@ -53,4 +53,24 @@ class Resistivity(
      * @see Resistivity for the physical quantity represented by this unit.
      */
     typealias OhmMetre = Product<Ohm, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **ohm-metres** (Ω·m).
+         *
+         * This compound unit represents the product of:
+         *  - an [Ohm] (electrical resistance) with the specified [prefix]
+         *  - multiplied by a [Metre] (length)
+         *
+         * It is commonly used to express **resistivity** of materials.
+         *
+         * @param prefix Metric prefix to apply to the ohm unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return An [OhmMetre] representing Ω·m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun OhmMetre(prefix: Metric = Metric.BASE): OhmMetre =
+            Product(Ohm(prefix), Metre())
+    }
 }

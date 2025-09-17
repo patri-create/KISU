@@ -2,6 +2,7 @@ package org.kisu.units.electromagnetic
 
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.electromagnetic.ElectricChargeDensity.Companion.CoulombPerCubicMetre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
 import org.kisu.units.special.CubicMetre
@@ -35,7 +36,7 @@ class ElectricChargeDensity(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Coulomb(prefix), CubicMetre()))
+        this(magnitude, CoulombPerCubicMetre(prefix))
 
     /**
      * Represents the SI unit **coulomb per cubic metre (C/m³)**.
@@ -51,4 +52,25 @@ class ElectricChargeDensity(
      * @see ElectricChargeDensity for the physical quantity represented by this unit.
      */
     typealias CoulombPerCubicMetre = Quotient<Coulomb, CubicMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **coulombs per cubic metre** (C/m³).
+         *
+         * This derived unit expresses **volume charge density** —
+         * how much electric charge (in coulombs) is contained per unit volume.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Coulomb] (electric charge) with the specified [prefix]
+         *  - divided by a [CubicMetre] (volume)
+         *
+         * @param prefix Metric prefix to apply to the coulomb unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [CoulombPerCubicMetre] representing C/m³.
+         */
+        @Suppress("FunctionNaming")
+        internal fun CoulombPerCubicMetre(prefix: Metric = Metric.BASE): CoulombPerCubicMetre =
+            Quotient(Coulomb(prefix), CubicMetre())
+    }
 }

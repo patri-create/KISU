@@ -37,7 +37,7 @@ class MagnetomotiveForce(
 ) : Measure<MagnetomotiveForce.AmpereRadian, MagnetomotiveForce>(magnitude, expression, ::MagnetomotiveForce) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Ampere(prefix), Radian()))
+        this(magnitude, AmpereRadian(prefix))
 
     /**
      * Represents the SI unit **ampere-radian (A·rad)**.
@@ -53,4 +53,25 @@ class MagnetomotiveForce(
      * @see MagnetomotiveForce for the physical quantity represented by this unit.
      */
     typealias AmpereRadian = Product<Ampere, Radian>
+
+    companion object {
+        /**
+         * Creates a measure of **ampere-radians** (A·rad).
+         *
+         * This compound unit represents the product of:
+         *  - an [Ampere] (electric current) with the specified [prefix]
+         *  - multiplied by a [Radian] (angle)
+         *
+         * It can be used in contexts where current is associated with rotational motion,
+         * such as in electromechanical systems.
+         *
+         * @param prefix Metric prefix to apply to the ampere unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return An [AmpereRadian] representing A·rad.
+         */
+        @Suppress("FunctionNaming")
+        internal fun AmpereRadian(prefix: Metric = Metric.BASE): AmpereRadian =
+            Product(Ampere(prefix), Radian())
+    }
 }

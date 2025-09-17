@@ -119,19 +119,19 @@ import org.kisu.units.kinematics.angular.Snap as AngularSnap
  * Creates a [Magnetization] from this [Number] representing a magnetization in ampere per metre,
  * the SI unit for magnetization.
  */
-val Number.amperePerMetre: Magnetization get() = Magnetization(bigDecimal)
+val Number.amperesPerMetre: Magnetization get() = Magnetization(bigDecimal)
 
 /**
  * Creates a [ElectricCurrentDensity] from this [Number] representing an electric current density in ampere per square
  * metre, the SI unit for electric current density.
  */
-val Number.amperePerSquareMetre: ElectricCurrentDensity get() = ElectricCurrentDensity(bigDecimal)
+val Number.amperesPerSquareMetre: ElectricCurrentDensity get() = ElectricCurrentDensity(bigDecimal)
 
 /**
  * Creates a [MagnetomotiveForce] from this [Number] representing a magnetomotive force in ampere radian,
  * the SI unit for magnetomotive force.
  */
-val Number.ampereRadian: MagnetomotiveForce get() = MagnetomotiveForce(bigDecimal)
+val Number.amperesRadian: MagnetomotiveForce get() = MagnetomotiveForce(bigDecimal)
 
 /**
  * Creates a [Current] from this [Number] representing a current in amperes,
@@ -183,25 +183,25 @@ val Number.celsius: CelsiusTemperature get() = CelsiusTemperature(bigDecimal)
  * Creates a [ElectricChargeDensity] from this [Number] representing an electric charge density in coulomb per cubic
  * metre, the SI unit for electric charge density.
  */
-val Number.coulombPerCubicMetre: ElectricChargeDensity get() = ElectricChargeDensity(bigDecimal)
+val Number.coulombsPerCubicMetre: ElectricChargeDensity get() = ElectricChargeDensity(bigDecimal)
 
 /**
  * Creates a [Exposure] from this [Number] representing an exposure in coulomb per kilogram,
  * the SI unit for exposure.
  */
-val Number.coulombPerKilogram: Exposure get() = Exposure(bigDecimal)
+val Number.coulombsPerKilogram: Exposure get() = Exposure(bigDecimal)
 
 /**
  * Creates a [LinearChargeDensity] from this [Number] representing a linear charge density in coulomb per metre,
  * the SI unit for linear charge density.
  */
-val Number.coulombPerMetre: LinearChargeDensity get() = LinearChargeDensity(bigDecimal)
+val Number.coulombsPerMetre: LinearChargeDensity get() = LinearChargeDensity(bigDecimal)
 
 /**
  * Creates a [ElectricDisplacementField] from this [Number] representing an electric displacement field in coulomb per
  * square metre,the SI unit for electric displacement field.
  */
-val Number.coulombPerSquareMetre: ElectricDisplacementField get() = ElectricDisplacementField(bigDecimal)
+val Number.coulombsPerSquareMetre: ElectricDisplacementField get() = ElectricDisplacementField(bigDecimal)
 
 /**
  * Creates a [ElectricCharge] from this [Number] representing an electric charge in coulombs,
@@ -243,7 +243,7 @@ val Number.cubicMetres: Volume get() = Volume(bigDecimal)
  * Creates a [Permittivity] from this [Number] representing a permittivity in farad per metre,
  * the SI unit for permittivity.
  */
-val Number.faradPerMetre: Permittivity get() = Permittivity(bigDecimal)
+val Number.faradsPerMetre: Permittivity get() = Permittivity(bigDecimal)
 
 /**
  * Creates a [Capacitance] from this [Number] representing a capacitance in farads,
@@ -327,7 +327,7 @@ val Number.henries: Inductance get() = Inductance(bigDecimal)
  * Creates a [MagneticPermittivity] from this [Number] representing a magnetic permittivity in henry per metre,
  * the SI unit for magnetic permittivity.
  */
-val Number.henryPerMetre: MagneticPermittivity get() = MagneticPermittivity(bigDecimal)
+val Number.henriesPerMetre: MagneticPermittivity get() = MagneticPermittivity(bigDecimal)
 
 /**
  * Creates a [Frequency] from this [Number] representing a frequency in hertz,
@@ -471,7 +471,7 @@ val Number.metrePerCubicMetre: FuelEfficiency get() = FuelEfficiency(bigDecimal)
  * Creates a [MagneticSusceptibility] from this [Number] representing a magnetic susceptibility in metre per henry,
  * the SI unit for magnetic susceptibility.
  */
-val Number.metrePerHenry: MagneticSusceptibility get() = MagneticSusceptibility(bigDecimal)
+val Number.metresPerHenry: MagneticSusceptibility get() = MagneticSusceptibility(bigDecimal)
 
 /**
  * Creates a [Speed] from this [Number] representing a speed in metre per second,
@@ -567,7 +567,7 @@ val Number.newtonSecond: Momentum get() = Momentum(bigDecimal)
  * Creates a [Resistivity] from this [Number] representing a resistivity in ohm metre,
  * the SI unit for resistivity.
  */
-val Number.ohmMetre: Resistivity get() = Resistivity(bigDecimal)
+val Number.ohmsMetre: Resistivity get() = Resistivity(bigDecimal)
 
 /**
  * Creates a [Resistance] from this [Number] representing a resistance in ohms,
@@ -687,7 +687,7 @@ val Number.squareMetrePerSecond: KinematicViscosity get() = KinematicViscosity(b
  * Creates a [ElectronMobility] from this [Number] representing an electron mobility in square metre per volt second,
  * the SI unit for electron mobility.
  */
-val Number.squareMetrePerVoltSecond: ElectronMobility get() = ElectronMobility(bigDecimal)
+val Number.squareMetresPerVoltSecond: ElectronMobility get() = ElectronMobility(bigDecimal)
 
 /**
  * Creates a [Area] from this [Number] representing an area in square metres,
@@ -705,7 +705,7 @@ val Number.steradians: SolidAngle get() = SolidAngle(bigDecimal)
  * Creates a [MagneticRigidity] from this [Number] representing a magnetic rigidity in tesla metre,
  * the SI unit for magnetic rigidity.
  */
-val Number.teslaMetre: MagneticRigidity get() = MagneticRigidity(bigDecimal)
+val Number.teslasMetre: MagneticRigidity get() = MagneticRigidity(bigDecimal)
 
 /**
  * Creates a [MagneticFluxDensity] from this [Number] representing a magnetic flux density in teslas,
@@ -717,7 +717,7 @@ val Number.teslas: MagneticFluxDensity get() = MagneticFluxDensity(bigDecimal)
  * Creates a [ElectricFieldStrength] from this [Number] representing an electric field strength in volt per metre,
  * the SI unit for electric field strength.
  */
-val Number.voltPerMetre: ElectricFieldStrength get() = ElectricFieldStrength(bigDecimal)
+val Number.voltsPerMetre: ElectricFieldStrength get() = ElectricFieldStrength(bigDecimal)
 
 /**
  * Creates a [ElectricPotential] from this [Number] representing an electric potential in volts,
@@ -783,13 +783,13 @@ val Number.watts: Power get() = Power(bigDecimal)
  * Creates a [MagneticMoment] from this [Number] representing a magnetic moment in weber metre,
  * the SI unit for magnetic moment.
  */
-val Number.weberMetre: MagneticMoment get() = MagneticMoment(bigDecimal)
+val Number.webersMetre: MagneticMoment get() = MagneticMoment(bigDecimal)
 
 /**
  * Creates a [MagneticVectorPotential] from this [Number] representing a magnetic vector potential in weber per metre,
  * the SI unit for magnetic vector potential.
  */
-val Number.weberPerMetre: MagneticVectorPotential get() = MagneticVectorPotential(bigDecimal)
+val Number.webersPerMetre: MagneticVectorPotential get() = MagneticVectorPotential(bigDecimal)
 
 /**
  * Creates a [MagneticFlux] from this [Number] representing a magnetic flux in webers,

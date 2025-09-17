@@ -36,7 +36,7 @@ class MagneticSusceptibility(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Metre(prefix), Henry()))
+        this(magnitude, MetrePerHenry(prefix))
 
     /**
      * Represents the SI unit **metre per henry (m/H)**.
@@ -52,4 +52,25 @@ class MagneticSusceptibility(
      * @see MagneticSusceptibility for the physical quantity represented by this unit.
      */
     typealias MetrePerHenry = Quotient<Metre, Henry>
+
+    companion object {
+        /**
+         * Creates a measure of **metres per henry** (m/H).
+         *
+         * This derived unit expresses **inverse inductance per unit length** —
+         * how much length corresponds to a given inductance.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Metre] (length) with the specified [prefix]
+         *  - divided by a [Henry] (inductance)
+         *
+         * @param prefix Metric prefix to apply to the metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [MetrePerHenry] representing m/H.
+         */
+        @Suppress("FunctionNaming")
+        internal fun MetrePerHenry(prefix: Metric = Metric.BASE): MetrePerHenry =
+            Quotient(Metre(prefix), Henry())
+    }
 }
