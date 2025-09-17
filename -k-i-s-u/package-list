@@ -160,14 +160,14 @@ $dokka.location:org.kisu.units.base/SecondSquared/SecondSquared/#org.kisu.prefix
 $dokka.location:org.kisu.units.base/Temperature///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-temperature/index.html
 $dokka.location:org.kisu.units.base/Time///PointingToDeclaration/-k-i-s-u/org.kisu.units.base/-time/index.html
 $dokka.location:org.kisu.units.builders////PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/index.html
-$dokka.location:org.kisu.units.builders//amperePerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ampere-per-metre.html
-$dokka.location:org.kisu.units.builders//amperePerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ampere-per-metre.html
-$dokka.location:org.kisu.units.builders//amperePerSquareMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ampere-per-square-metre.html
-$dokka.location:org.kisu.units.builders//amperePerSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ampere-per-square-metre.html
-$dokka.location:org.kisu.units.builders//ampereRadian/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ampere-radian.html
-$dokka.location:org.kisu.units.builders//ampereRadian/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ampere-radian.html
 $dokka.location:org.kisu.units.builders//amperes/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes.html
 $dokka.location:org.kisu.units.builders//amperes/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes.html
+$dokka.location:org.kisu.units.builders//amperesPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes-per-metre.html
+$dokka.location:org.kisu.units.builders//amperesPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes-per-metre.html
+$dokka.location:org.kisu.units.builders//amperesPerSquareMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes-per-square-metre.html
+$dokka.location:org.kisu.units.builders//amperesPerSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes-per-square-metre.html
+$dokka.location:org.kisu.units.builders//amperesRadian/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes-radian.html
+$dokka.location:org.kisu.units.builders//amperesRadian/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/amperes-radian.html
 $dokka.location:org.kisu.units.builders//atto/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/atto.html
 $dokka.location:org.kisu.units.builders//becquerels/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/becquerels.html
 $dokka.location:org.kisu.units.builders//becquerels/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/becquerels.html
@@ -182,16 +182,16 @@ $dokka.location:org.kisu.units.builders//candelasPerSquareMetre/org.kisu.units.b
 $dokka.location:org.kisu.units.builders//celsius/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/celsius.html
 $dokka.location:org.kisu.units.builders//celsius/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/celsius.html
 $dokka.location:org.kisu.units.builders//centi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/centi.html
-$dokka.location:org.kisu.units.builders//coulombPerCubicMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-cubic-metre.html
-$dokka.location:org.kisu.units.builders//coulombPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-cubic-metre.html
-$dokka.location:org.kisu.units.builders//coulombPerKilogram/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-kilogram.html
-$dokka.location:org.kisu.units.builders//coulombPerKilogram/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-kilogram.html
-$dokka.location:org.kisu.units.builders//coulombPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-metre.html
-$dokka.location:org.kisu.units.builders//coulombPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-metre.html
-$dokka.location:org.kisu.units.builders//coulombPerSquareMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-square-metre.html
-$dokka.location:org.kisu.units.builders//coulombPerSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulomb-per-square-metre.html
 $dokka.location:org.kisu.units.builders//coulombs/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs.html
 $dokka.location:org.kisu.units.builders//coulombs/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs.html
+$dokka.location:org.kisu.units.builders//coulombsPerCubicMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-cubic-metre.html
+$dokka.location:org.kisu.units.builders//coulombsPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-cubic-metre.html
+$dokka.location:org.kisu.units.builders//coulombsPerKilogram/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-kilogram.html
+$dokka.location:org.kisu.units.builders//coulombsPerKilogram/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-kilogram.html
+$dokka.location:org.kisu.units.builders//coulombsPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-metre.html
+$dokka.location:org.kisu.units.builders//coulombsPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-metre.html
+$dokka.location:org.kisu.units.builders//coulombsPerSquareMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-square-metre.html
+$dokka.location:org.kisu.units.builders//coulombsPerSquareMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/coulombs-per-square-metre.html
 $dokka.location:org.kisu.units.builders//cubicMetrePerKilogram/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-kilogram.html
 $dokka.location:org.kisu.units.builders//cubicMetrePerKilogram/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-kilogram.html
 $dokka.location:org.kisu.units.builders//cubicMetrePerMole/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/cubic-metre-per-mole.html
@@ -206,10 +206,10 @@ $dokka.location:org.kisu.units.builders//deca/kotlin.Number#/PointingToDeclarati
 $dokka.location:org.kisu.units.builders//deci/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/deci.html
 $dokka.location:org.kisu.units.builders//exa/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/exa.html
 $dokka.location:org.kisu.units.builders//exbi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/exbi.html
-$dokka.location:org.kisu.units.builders//faradPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/farad-per-metre.html
-$dokka.location:org.kisu.units.builders//faradPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/farad-per-metre.html
 $dokka.location:org.kisu.units.builders//farads/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/farads.html
 $dokka.location:org.kisu.units.builders//farads/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/farads.html
+$dokka.location:org.kisu.units.builders//faradsPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/farads-per-metre.html
+$dokka.location:org.kisu.units.builders//faradsPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/farads-per-metre.html
 $dokka.location:org.kisu.units.builders//femto/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/femto.html
 $dokka.location:org.kisu.units.builders//gibi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/gibi.html
 $dokka.location:org.kisu.units.builders//giga/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/giga.html
@@ -239,8 +239,8 @@ $dokka.location:org.kisu.units.builders//grays/org.kisu.units.builders.MetricUni
 $dokka.location:org.kisu.units.builders//hecto/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/hecto.html
 $dokka.location:org.kisu.units.builders//henries/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/henries.html
 $dokka.location:org.kisu.units.builders//henries/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/henries.html
-$dokka.location:org.kisu.units.builders//henryPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/henry-per-metre.html
-$dokka.location:org.kisu.units.builders//henryPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/henry-per-metre.html
+$dokka.location:org.kisu.units.builders//henriesPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/henries-per-metre.html
+$dokka.location:org.kisu.units.builders//henriesPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/henries-per-metre.html
 $dokka.location:org.kisu.units.builders//hertz/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/hertz.html
 $dokka.location:org.kisu.units.builders//hertz/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/hertz.html
 $dokka.location:org.kisu.units.builders//hertzPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/hertz-per-second.html
@@ -291,10 +291,10 @@ $dokka.location:org.kisu.units.builders//mebi/kotlin.Number#/PointingToDeclarati
 $dokka.location:org.kisu.units.builders//mega/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/mega.html
 $dokka.location:org.kisu.units.builders//metrePerCubicMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//metrePerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-cubic-metre.html
-$dokka.location:org.kisu.units.builders//metrePerHenry/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-henry.html
-$dokka.location:org.kisu.units.builders//metrePerHenry/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metre-per-henry.html
 $dokka.location:org.kisu.units.builders//metres/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres.html
 $dokka.location:org.kisu.units.builders//metres/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres.html
+$dokka.location:org.kisu.units.builders//metresPerHenry/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-henry.html
+$dokka.location:org.kisu.units.builders//metresPerHenry/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-henry.html
 $dokka.location:org.kisu.units.builders//metresPerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second.html
 $dokka.location:org.kisu.units.builders//metresPerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second.html
 $dokka.location:org.kisu.units.builders//metresPerSecondCubed/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/metres-per-second-cubed.html
@@ -326,10 +326,10 @@ $dokka.location:org.kisu.units.builders//newtonSecond/kotlin.Number#/PointingToD
 $dokka.location:org.kisu.units.builders//newtonSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/newton-second.html
 $dokka.location:org.kisu.units.builders//newtons/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/newtons.html
 $dokka.location:org.kisu.units.builders//newtons/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/newtons.html
-$dokka.location:org.kisu.units.builders//ohmMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ohm-metre.html
-$dokka.location:org.kisu.units.builders//ohmMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ohm-metre.html
 $dokka.location:org.kisu.units.builders//ohms/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ohms.html
 $dokka.location:org.kisu.units.builders//ohms/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ohms.html
+$dokka.location:org.kisu.units.builders//ohmsMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ohms-metre.html
+$dokka.location:org.kisu.units.builders//ohmsMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/ohms-metre.html
 $dokka.location:org.kisu.units.builders//pascalSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/pascal-second.html
 $dokka.location:org.kisu.units.builders//pascalSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/pascal-second.html
 $dokka.location:org.kisu.units.builders//pascals/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/pascals.html
@@ -375,22 +375,22 @@ $dokka.location:org.kisu.units.builders//sieverts/kotlin.Number#/PointingToDecla
 $dokka.location:org.kisu.units.builders//sieverts/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/sieverts.html
 $dokka.location:org.kisu.units.builders//squareMetrePerSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metre-per-second.html
 $dokka.location:org.kisu.units.builders//squareMetrePerSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metre-per-second.html
-$dokka.location:org.kisu.units.builders//squareMetrePerVoltSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metre-per-volt-second.html
-$dokka.location:org.kisu.units.builders//squareMetrePerVoltSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metre-per-volt-second.html
 $dokka.location:org.kisu.units.builders//squareMetres/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metres.html
 $dokka.location:org.kisu.units.builders//squareMetres/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metres.html
+$dokka.location:org.kisu.units.builders//squareMetresPerVoltSecond/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metres-per-volt-second.html
+$dokka.location:org.kisu.units.builders//squareMetresPerVoltSecond/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/square-metres-per-volt-second.html
 $dokka.location:org.kisu.units.builders//steradians/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/steradians.html
 $dokka.location:org.kisu.units.builders//steradians/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/steradians.html
 $dokka.location:org.kisu.units.builders//tebi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/tebi.html
 $dokka.location:org.kisu.units.builders//tera/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/tera.html
-$dokka.location:org.kisu.units.builders//teslaMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/tesla-metre.html
-$dokka.location:org.kisu.units.builders//teslaMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/tesla-metre.html
 $dokka.location:org.kisu.units.builders//teslas/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/teslas.html
 $dokka.location:org.kisu.units.builders//teslas/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/teslas.html
-$dokka.location:org.kisu.units.builders//voltPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/volt-per-metre.html
-$dokka.location:org.kisu.units.builders//voltPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/volt-per-metre.html
+$dokka.location:org.kisu.units.builders//teslasMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/teslas-metre.html
+$dokka.location:org.kisu.units.builders//teslasMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/teslas-metre.html
 $dokka.location:org.kisu.units.builders//volts/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/volts.html
 $dokka.location:org.kisu.units.builders//volts/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/volts.html
+$dokka.location:org.kisu.units.builders//voltsPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/volts-per-metre.html
+$dokka.location:org.kisu.units.builders//voltsPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/volts-per-metre.html
 $dokka.location:org.kisu.units.builders//wattPerCubicMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/watt-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//wattPerCubicMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/watt-per-cubic-metre.html
 $dokka.location:org.kisu.units.builders//wattPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/watt-per-metre.html
@@ -409,12 +409,12 @@ $dokka.location:org.kisu.units.builders//watts/kotlin.Number#/PointingToDeclarat
 $dokka.location:org.kisu.units.builders//watts/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/watts.html
 $dokka.location:org.kisu.units.builders//wattsPerMetreKelvin/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/watts-per-metre-kelvin.html
 $dokka.location:org.kisu.units.builders//wattsPerMetreKelvin/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/watts-per-metre-kelvin.html
-$dokka.location:org.kisu.units.builders//weberMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/weber-metre.html
-$dokka.location:org.kisu.units.builders//weberMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/weber-metre.html
-$dokka.location:org.kisu.units.builders//weberPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/weber-per-metre.html
-$dokka.location:org.kisu.units.builders//weberPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/weber-per-metre.html
 $dokka.location:org.kisu.units.builders//webers/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/webers.html
 $dokka.location:org.kisu.units.builders//webers/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/webers.html
+$dokka.location:org.kisu.units.builders//webersMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/webers-metre.html
+$dokka.location:org.kisu.units.builders//webersMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/webers-metre.html
+$dokka.location:org.kisu.units.builders//webersPerMetre/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/webers-per-metre.html
+$dokka.location:org.kisu.units.builders//webersPerMetre/org.kisu.units.builders.MetricUnitBuilder#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/webers-per-metre.html
 $dokka.location:org.kisu.units.builders//yobi/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/yobi.html
 $dokka.location:org.kisu.units.builders//yocto/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/yocto.html
 $dokka.location:org.kisu.units.builders//yotta/kotlin.Number#/PointingToDeclaration/-k-i-s-u/org.kisu.units.builders/yotta.html
@@ -589,45 +589,63 @@ $dokka.location:org.kisu.units.chemistry/Molarity.Companion///PointingToDeclarat
 $dokka.location:org.kisu.units.chemistry/Molarity///PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-molarity/index.html
 $dokka.location:org.kisu.units.chemistry/Molarity/Molarity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Mole>)],[Error type: Type for error type constructor (<Error class: CubicMetre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.chemistry/-molarity/-molarity.html
 $dokka.location:org.kisu.units.electromagnetic////PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/index.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricChargeDensity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-charge-density/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricChargeDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-charge-density/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricChargeDensity/ElectricChargeDensity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Coulomb>)],[Error type: Type for error type constructor (<Error class: CubicMetre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-charge-density/-electric-charge-density.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricConductivity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-conductivity/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricConductivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-conductivity/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricConductivity/ElectricConductivity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Siemens>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-conductivity/-electric-conductivity.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricCurrentDensity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-current-density/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricCurrentDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-current-density/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricCurrentDensity/ElectricCurrentDensity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Ampere>)],[Error type: Type for error type constructor (<Error class: SquareMetre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-current-density/-electric-current-density.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricDisplacementField.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-displacement-field/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricDisplacementField///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-displacement-field/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricDisplacementField/ElectricDisplacementField/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Coulomb>)],[Error type: Type for error type constructor (<Error class: SquareMetre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-displacement-field/-electric-displacement-field.html
+$dokka.location:org.kisu.units.electromagnetic/ElectricFieldStrength.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-field-strength/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricFieldStrength///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-field-strength/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectricFieldStrength/ElectricFieldStrength/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Volt>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electric-field-strength/-electric-field-strength.html
+$dokka.location:org.kisu.units.electromagnetic/ElectronMobility.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electron-mobility/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectronMobility///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electron-mobility/index.html
 $dokka.location:org.kisu.units.electromagnetic/ElectronMobility/ElectronMobility/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: SquareMetre>)],[Error type: Type for error type constructor (<Error class: Product>)][[Error type: Type for error type constructor (<Error class: Volt>)],[Error type: Type for error type constructor (<Error class: Second>)]]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-electron-mobility/-electron-mobility.html
+$dokka.location:org.kisu.units.electromagnetic/Exposure.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-exposure/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/Exposure///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-exposure/index.html
 $dokka.location:org.kisu.units.electromagnetic/Exposure/Exposure/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Coulomb>)],[Error type: Type for error type constructor (<Error class: Kilogram>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-exposure/-exposure.html
+$dokka.location:org.kisu.units.electromagnetic/LinearChargeDensity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-linear-charge-density/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/LinearChargeDensity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-linear-charge-density/index.html
 $dokka.location:org.kisu.units.electromagnetic/LinearChargeDensity/LinearChargeDensity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Coulomb>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-linear-charge-density/-linear-charge-density.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticDipoleMoment.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-dipole-moment/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticDipoleMoment///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-dipole-moment/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticDipoleMoment/MagneticDipoleMoment/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Joule>)],[Error type: Type for error type constructor (<Error class: Tesla>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-dipole-moment/-magnetic-dipole-moment.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticMoment.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-moment/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticMoment///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-moment/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticMoment/MagneticMoment/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Product>)][[Error type: Type for error type constructor (<Error class: Weber>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-moment/-magnetic-moment.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticPermittivity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-permittivity/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticPermittivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-permittivity/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticPermittivity/MagneticPermittivity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Henry>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-permittivity/-magnetic-permittivity.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticReluctance///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-reluctance/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticReluctance/MagneticReluctance/#java.math.BigDecimal#org.kisu.units.electromagnetic.ReciprocalHenry/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-reluctance/-magnetic-reluctance.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticRigidity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-rigidity/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticRigidity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-rigidity/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticRigidity/MagneticRigidity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Product>)][[Error type: Type for error type constructor (<Error class: Tesla>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-rigidity/-magnetic-rigidity.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticSusceptibility.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-susceptibility/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticSusceptibility///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-susceptibility/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticSusceptibility/MagneticSusceptibility/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Metre>)],[Error type: Type for error type constructor (<Error class: Henry>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-susceptibility/-magnetic-susceptibility.html
+$dokka.location:org.kisu.units.electromagnetic/MagneticVectorPotential.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-vector-potential/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticVectorPotential///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-vector-potential/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagneticVectorPotential/MagneticVectorPotential/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Weber>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetic-vector-potential/-magnetic-vector-potential.html
+$dokka.location:org.kisu.units.electromagnetic/Magnetization.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetization/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/Magnetization///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetization/index.html
 $dokka.location:org.kisu.units.electromagnetic/Magnetization/Magnetization/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Ampere>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetization/-magnetization.html
+$dokka.location:org.kisu.units.electromagnetic/MagnetomotiveForce.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetomotive-force/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagnetomotiveForce///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetomotive-force/index.html
 $dokka.location:org.kisu.units.electromagnetic/MagnetomotiveForce/MagnetomotiveForce/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Product>)][[Error type: Type for error type constructor (<Error class: Ampere>)],[Error type: Type for error type constructor (<Error class: Radian>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-magnetomotive-force/-magnetomotive-force.html
+$dokka.location:org.kisu.units.electromagnetic/Permittivity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-permittivity/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/Permittivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-permittivity/index.html
 $dokka.location:org.kisu.units.electromagnetic/Permittivity/Permittivity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Quotient>)][[Error type: Type for error type constructor (<Error class: Farad>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-permittivity/-permittivity.html
 $dokka.location:org.kisu.units.electromagnetic/ReciprocalHenry.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-reciprocal-henry/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/ReciprocalHenry///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-reciprocal-henry/index.html
 $dokka.location:org.kisu.units.electromagnetic/ReciprocalHenry/ReciprocalHenry/#org.kisu.prefixes.Metric/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-reciprocal-henry/-reciprocal-henry.html
+$dokka.location:org.kisu.units.electromagnetic/Resistivity.Companion///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-resistivity/-companion/index.html
 $dokka.location:org.kisu.units.electromagnetic/Resistivity///PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-resistivity/index.html
 $dokka.location:org.kisu.units.electromagnetic/Resistivity/Resistivity/#[Error type: Type for error type constructor (<Error class: BigDecimal>)]#[Error type: Type for error type constructor (<Error class: Product>)][[Error type: Type for error type constructor (<Error class: Ohm>)],[Error type: Type for error type constructor (<Error class: Metre>)]]/PointingToDeclaration/-k-i-s-u/org.kisu.units.electromagnetic/-resistivity/-resistivity.html
 $dokka.location:org.kisu.units.exceptions////PointingToDeclaration/-k-i-s-u/org.kisu.units.exceptions/index.html
