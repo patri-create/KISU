@@ -32,7 +32,7 @@ class MagneticMoment(
 ) : Measure<MagneticMoment.WeberMetre, MagneticMoment>(magnitude, expression, ::MagneticMoment) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Weber(prefix), Metre()))
+        this(magnitude, WeberMetre(prefix))
 
     /**
      * Represents the SI unit **weber metre (Wb·m)**.
@@ -48,4 +48,25 @@ class MagneticMoment(
      * @see MagneticMoment for the physical quantity represented by this unit.
      */
     typealias WeberMetre = Product<Weber, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **weber-metres** (Wb·m).
+         *
+         * This compound unit represents the product of:
+         *  - a [Weber] (magnetic flux) with the specified [prefix]
+         *  - multiplied by a [Metre] (length)
+         *
+         * It’s commonly used in electromagnetism when expressing quantities like
+         * magnetic flux times a distance.
+         *
+         * @param prefix Metric prefix to apply to the weber unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WeberMetre] representing Wb·m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun WeberMetre(prefix: Metric = Metric.BASE): WeberMetre =
+            Product(Weber(prefix), Metre())
+    }
 }

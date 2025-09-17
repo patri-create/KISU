@@ -39,7 +39,7 @@ class MagneticVectorPotential(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Weber(prefix), Metre()))
+        this(magnitude, WeberPerMetre(prefix))
 
     /**
      * Represents the SI unit **weber per metre (Wb/m)**.
@@ -55,4 +55,25 @@ class MagneticVectorPotential(
      * @see MagneticVectorPotential for the physical quantity represented by this unit.
      */
     typealias WeberPerMetre = Quotient<Weber, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **webers per metre** (Wb/m).
+         *
+         * This derived unit expresses **magnetic flux per unit length** —
+         * how much magnetic flux is present along a given length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Weber] (magnetic flux) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the weber unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WeberPerMetre] representing Wb/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun WeberPerMetre(prefix: Metric = Metric.BASE): WeberPerMetre =
+            Quotient(Weber(prefix), Metre())
+    }
 }

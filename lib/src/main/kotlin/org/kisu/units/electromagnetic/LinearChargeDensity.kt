@@ -32,7 +32,7 @@ class LinearChargeDensity(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Coulomb(prefix), Metre()))
+        this(magnitude, CoulombPerMetre(prefix))
 
     /**
      * Represents the SI unit **coulomb per metre (C/m)**.
@@ -48,4 +48,25 @@ class LinearChargeDensity(
      * @see LinearChargeDensity for the physical quantity represented by this unit.
      */
     typealias CoulombPerMetre = Quotient<Coulomb, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **coulombs per metre** (C/m).
+         *
+         * This derived unit expresses **linear charge density** —
+         * how much electric charge (in coulombs) is distributed per unit length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Coulomb] (electric charge) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the coulomb unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [CoulombPerMetre] representing C/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun CoulombPerMetre(prefix: Metric = Metric.BASE): CoulombPerMetre =
+            Quotient(Coulomb(prefix), Metre())
+    }
 }

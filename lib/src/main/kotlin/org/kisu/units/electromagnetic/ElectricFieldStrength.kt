@@ -44,7 +44,7 @@ class ElectricFieldStrength(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Volt(prefix), Metre()))
+        this(magnitude, VoltPerMetre(prefix))
 
     /**
      * Represents the SI unit **volt per metre (V/m)**.
@@ -60,4 +60,25 @@ class ElectricFieldStrength(
      * @see ElectricFieldStrength for the physical quantity represented by this unit.
      */
     typealias VoltPerMetre = Quotient<Volt, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **volts per metre** (V/m).
+         *
+         * This derived unit expresses **electric field strength** —
+         * the force experienced per unit charge across a distance.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Volt] (electric potential) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the volt unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [VoltPerMetre] representing V/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun VoltPerMetre(prefix: Metric = Metric.BASE): VoltPerMetre =
+            Quotient(Volt(prefix), Metre())
+    }
 }

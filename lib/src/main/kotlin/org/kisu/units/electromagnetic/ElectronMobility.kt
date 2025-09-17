@@ -33,13 +33,7 @@ class ElectronMobility(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(
-            magnitude,
-            Quotient(
-                SquareMetre(prefix),
-                Product(Volt(), Second())
-            )
-        )
+        this(magnitude, SquareMetrePerVoltSecond(prefix))
 
     /**
      * Represents the SI unit **square metre per volt-second (m²/(V·s))**.
@@ -56,4 +50,29 @@ class ElectronMobility(
      * @see ElectronMobility for the physical quantity represented by this unit.
      */
     typealias SquareMetrePerVoltSecond = Quotient<SquareMetre, Product<Volt, Second>>
+
+    companion object {
+        /**
+         * Creates a measure of **square metres per volt-second** (m²/(V·s)).
+         *
+         * This derived unit expresses a quantity such as **electrical mobility**
+         * (area per unit electric potential and time) used in various electromagnetic
+         * and materials contexts.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [SquareMetre] (area) with the specified [prefix]
+         *  - divided by a [Product] of a [Volt] (electric potential) and a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the square metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [SquareMetrePerVoltSecond] representing m²/(V·s).
+         */
+        @Suppress("FunctionNaming")
+        internal fun SquareMetrePerVoltSecond(prefix: Metric = Metric.BASE): SquareMetrePerVoltSecond =
+            Quotient(
+                SquareMetre(prefix),
+                Product(Volt(), Second())
+            )
+    }
 }

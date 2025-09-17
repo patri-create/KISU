@@ -34,7 +34,7 @@ class Magnetization(
 ) : Measure<Magnetization.AmperePerMetre, Magnetization>(magnitude, expression, ::Magnetization) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Ampere(prefix), Metre()))
+        this(magnitude, AmperePerMetre(prefix))
 
     /**
      * Represents the SI unit **ampere per metre (A/m)**.
@@ -50,4 +50,25 @@ class Magnetization(
      * @see Magnetization for the physical quantity represented by this unit.
      */
     typealias AmperePerMetre = Quotient<Ampere, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **amperes per metre** (A/m).
+         *
+         * This derived unit expresses **magnetic field strength (H)** —
+         * how much current flows per unit length of a conductor.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - an [Ampere] (electric current) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the ampere unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return An [AmperePerMetre] representing A/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun AmperePerMetre(prefix: Metric = Metric.BASE): AmperePerMetre =
+            Quotient(Ampere(prefix), Metre())
+    }
 }

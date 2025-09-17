@@ -33,7 +33,7 @@ class Permittivity(
 ) : Measure<Permittivity.FaradPerMetre, Permittivity>(magnitude, expression, ::Permittivity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Farad(prefix), Metre()))
+        this(magnitude, FaradPerMetre(prefix))
 
     /**
      * Represents the SI unit **farad per metre (F/m)**.
@@ -49,4 +49,26 @@ class Permittivity(
      * @see Permittivity for the physical quantity represented by this unit.
      */
     typealias FaradPerMetre = Quotient<Farad, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **farads per metre** (F/m).
+         *
+         * This derived unit expresses **capacitance per unit length** —
+         * how much capacitance is present along a given length, commonly used in
+         * transmission lines and electromagnetic contexts.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Farad] (capacitance) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the farad unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [FaradPerMetre] representing F/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun FaradPerMetre(prefix: Metric = Metric.BASE): FaradPerMetre =
+            Quotient(Farad(prefix), Metre())
+    }
 }

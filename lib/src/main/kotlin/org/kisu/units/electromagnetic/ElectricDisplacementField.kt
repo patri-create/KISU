@@ -39,7 +39,7 @@ class ElectricDisplacementField(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Coulomb(prefix), SquareMetre()))
+        this(magnitude, CoulombPerSquareMetre(prefix))
 
     /**
      * Represents the SI unit **coulomb per square metre (C/m²)**.
@@ -55,4 +55,25 @@ class ElectricDisplacementField(
      * @see ElectricDisplacementField for the physical quantity represented by this unit.
      */
     typealias CoulombPerSquareMetre = Quotient<Coulomb, SquareMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **coulombs per square metre** (C/m²).
+         *
+         * This derived unit expresses **surface charge density** —
+         * how much electric charge (in coulombs) is distributed per unit area.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Coulomb] (electric charge) with the specified [prefix]
+         *  - divided by a [SquareMetre] (area)
+         *
+         * @param prefix Metric prefix to apply to the coulomb unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [CoulombPerSquareMetre] representing C/m².
+         */
+        @Suppress("FunctionNaming")
+        internal fun CoulombPerSquareMetre(prefix: Metric = Metric.BASE): CoulombPerSquareMetre =
+            Quotient(Coulomb(prefix), SquareMetre())
+    }
 }

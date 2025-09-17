@@ -31,7 +31,7 @@ class MagneticDipoleMoment(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Joule(prefix), Tesla()))
+        this(magnitude, JoulePerTesla(prefix))
 
     /**
      * Represents the SI unit **joule per tesla (J/T)**.
@@ -47,4 +47,25 @@ class MagneticDipoleMoment(
      * @see MagneticDipoleMoment for the physical quantity represented by this unit.
      */
     typealias JoulePerTesla = Quotient<Joule, Tesla>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per tesla** (J/T).
+         *
+         * This derived unit expresses **magnetic moment** —
+         * the amount of torque a magnetic object experiences per unit magnetic flux density.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by a [Tesla] (magnetic flux density)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [JoulePerTesla] representing J/T.
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerTesla(prefix: Metric = Metric.BASE): JoulePerTesla =
+            Quotient(Joule(prefix), Tesla())
+    }
 }

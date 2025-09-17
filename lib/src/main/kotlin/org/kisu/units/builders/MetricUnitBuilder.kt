@@ -135,7 +135,7 @@ sealed interface MetricUnitBuilder {
  * val magnetization = 1.amperePerMetre // 1 A/m
  * ```
  */
-val MetricUnitBuilder.amperePerMetre: Magnetization
+val MetricUnitBuilder.amperesPerMetre: Magnetization
     get() = Magnetization(magnitude, metric)
 
 /**
@@ -146,7 +146,7 @@ val MetricUnitBuilder.amperePerMetre: Magnetization
  * val currentDensity = 1.micro.amperePerSquareMetre // 1 * 10^-6 A/m²
  * ```
  */
-val MetricUnitBuilder.amperePerSquareMetre: ElectricCurrentDensity
+val MetricUnitBuilder.amperesPerSquareMetre: ElectricCurrentDensity
     get() = ElectricCurrentDensity(magnitude, metric)
 
 /**
@@ -157,7 +157,7 @@ val MetricUnitBuilder.amperePerSquareMetre: ElectricCurrentDensity
  * val mmf = 1.kilo.ampereRadian // 1000 A·rad
  * ```
  */
-val MetricUnitBuilder.ampereRadian: MagnetomotiveForce
+val MetricUnitBuilder.amperesRadian: MagnetomotiveForce
     get() = MagnetomotiveForce(magnitude, metric)
 
 /**
@@ -229,7 +229,7 @@ val MetricUnitBuilder.celsius: CelsiusTemperature get() = CelsiusTemperature(mag
  * val chargeDensity = 1.micro.coulombPerCubicMetre // 1 * 10^-6 C/m³
  * ```
  */
-val MetricUnitBuilder.coulombPerCubicMetre: ElectricChargeDensity
+val MetricUnitBuilder.coulombsPerCubicMetre: ElectricChargeDensity
     get() = ElectricChargeDensity(magnitude, metric)
 
 /**
@@ -240,7 +240,7 @@ val MetricUnitBuilder.coulombPerCubicMetre: ElectricChargeDensity
  * val exposure = 1.milli.coulombPerKilogram // 0.001 C/kg
  * ```
  */
-val MetricUnitBuilder.coulombPerKilogram: Exposure
+val MetricUnitBuilder.coulombsPerKilogram: Exposure
     get() = Exposure(magnitude, metric)
 
 /**
@@ -251,7 +251,7 @@ val MetricUnitBuilder.coulombPerKilogram: Exposure
  * val linearCharge = 1.micro.coulombPerMetre // 1 * 10^-6 C/m
  * ```
  */
-val MetricUnitBuilder.coulombPerMetre: LinearChargeDensity
+val MetricUnitBuilder.coulombsPerMetre: LinearChargeDensity
     get() = LinearChargeDensity(magnitude, metric)
 
 /**
@@ -262,7 +262,7 @@ val MetricUnitBuilder.coulombPerMetre: LinearChargeDensity
  * val displacementField = 1.kilo.coulombPerSquareMetre // 1000 C/m²
  * ```
  */
-val MetricUnitBuilder.coulombPerSquareMetre: ElectricDisplacementField
+val MetricUnitBuilder.coulombsPerSquareMetre: ElectricDisplacementField
     get() = ElectricDisplacementField(magnitude, metric)
 
 /**
@@ -337,7 +337,7 @@ val MetricUnitBuilder.cubicMetres: Volume get() = Volume(magnitude, metric)
  * val permittivity = 1.micro.faradPerMetre // 1 * 10^-6 F/m
  * ```
  */
-val MetricUnitBuilder.faradPerMetre: Permittivity
+val MetricUnitBuilder.faradsPerMetre: Permittivity
     get() = Permittivity(magnitude, metric)
 
 /**
@@ -499,7 +499,7 @@ val MetricUnitBuilder.henries: Inductance get() = Inductance(magnitude, metric)
  * val magneticPermittivity = 1.kilo.henryPerMetre // 1000 H/m
  * ```
  */
-val MetricUnitBuilder.henryPerMetre: MagneticPermittivity
+val MetricUnitBuilder.henriesPerMetre: MagneticPermittivity
     get() = MagneticPermittivity(magnitude, metric)
 
 /**
@@ -757,7 +757,7 @@ val MetricUnitBuilder.metrePerCubicMetre: FuelEfficiency
  * val magneticSusceptibility = 1.metrePerHenry // 1 m/H
  * ```
  */
-val MetricUnitBuilder.metrePerHenry: MagneticSusceptibility
+val MetricUnitBuilder.metresPerHenry: MagneticSusceptibility
     get() = MagneticSusceptibility(magnitude, metric)
 
 /**
@@ -930,7 +930,7 @@ val MetricUnitBuilder.newtonSecond: Momentum
  * val resistivity = 1.ohmMetre // 1 Ω·m
  * ```
  */
-val MetricUnitBuilder.ohmMetre: Resistivity
+val MetricUnitBuilder.ohmsMetre: Resistivity
     get() = Resistivity(magnitude, metric)
 
 /**
@@ -1145,7 +1145,7 @@ val MetricUnitBuilder.squareMetrePerSecond: KinematicViscosity
  * val mobility = 1.squareMetrePerVoltSecond // 1 m²/(V·s)
  * ```
  */
-val MetricUnitBuilder.squareMetrePerVoltSecond: ElectronMobility
+val MetricUnitBuilder.squareMetresPerVoltSecond: ElectronMobility
     get() = ElectronMobility(magnitude, metric)
 
 /**
@@ -1176,7 +1176,7 @@ val MetricUnitBuilder.steradians: SolidAngle get() = SolidAngle(magnitude, metri
  * val rigidity = 1.teslaMetre // 1 T·m
  * ```
  */
-val MetricUnitBuilder.teslaMetre: MagneticRigidity
+val MetricUnitBuilder.teslasMetre: MagneticRigidity
     get() = MagneticRigidity(magnitude, metric)
 
 /**
@@ -1197,7 +1197,7 @@ val MetricUnitBuilder.teslas: MagneticFluxDensity get() = MagneticFluxDensity(ma
  * val field = 1.voltPerMetre // 1 V/m
  * ```
  */
-val MetricUnitBuilder.voltPerMetre: ElectricFieldStrength
+val MetricUnitBuilder.voltsPerMetre: ElectricFieldStrength
     get() = ElectricFieldStrength(magnitude, metric)
 
 /**
@@ -1316,7 +1316,7 @@ val MetricUnitBuilder.watts: Power get() = Power(magnitude, metric)
  * val magneticMoment = 1.weberMetre // 1 Wb·m
  * ```
  */
-val MetricUnitBuilder.weberMetre: MagneticMoment
+val MetricUnitBuilder.webersMetre: MagneticMoment
     get() = MagneticMoment(magnitude, metric)
 
 /**
@@ -1327,7 +1327,7 @@ val MetricUnitBuilder.weberMetre: MagneticMoment
  * val magneticVectorPotential = 1.weberPerMetre // 1 Wb/m
  * ```
  */
-val MetricUnitBuilder.weberPerMetre: MagneticVectorPotential
+val MetricUnitBuilder.webersPerMetre: MagneticVectorPotential
     get() = MagneticVectorPotential(magnitude, metric)
 
 /**

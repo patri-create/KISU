@@ -40,7 +40,7 @@ class ElectricCurrentDensity(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Ampere(prefix), SquareMetre()))
+        this(magnitude, AmperePerSquareMetre(prefix))
 
     /**
      * Represents the SI unit **ampere per square metre (A/m²)**.
@@ -56,4 +56,25 @@ class ElectricCurrentDensity(
      * @see ElectricCurrentDensity for the physical quantity represented by this unit.
      */
     typealias AmperePerSquareMetre = Quotient<Ampere, SquareMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **amperes per square metre** (A/m²).
+         *
+         * This derived unit expresses **current density** —
+         * how much electric current flows through a given cross-sectional area.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - an [Ampere] (electric current) with the specified [prefix]
+         *  - divided by a [SquareMetre] (area)
+         *
+         * @param prefix Metric prefix to apply to the ampere unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return An [AmperePerSquareMetre] representing A/m².
+         */
+        @Suppress("FunctionNaming")
+        internal fun AmperePerSquareMetre(prefix: Metric = Metric.BASE): AmperePerSquareMetre =
+            Quotient(Ampere(prefix), SquareMetre())
+    }
 }

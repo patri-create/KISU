@@ -28,7 +28,7 @@ class Exposure(
 ) : Measure<Exposure.CoulombPerKilogram, Exposure>(magnitude, expression, ::Exposure) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Coulomb(prefix), Kilogram()))
+        this(magnitude, CoulombPerKilogram(prefix))
 
     /**
      * Represents the SI unit **coulomb per kilogram (C/kg)**.
@@ -44,4 +44,25 @@ class Exposure(
      * @see Exposure for the physical quantity represented by this unit.
      */
     typealias CoulombPerKilogram = Quotient<Coulomb, Kilogram>
+
+    companion object {
+        /**
+         * Creates a measure of **coulombs per kilogram** (C/kg).
+         *
+         * This derived unit expresses **specific charge** —
+         * the amount of electric charge per unit mass.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Coulomb] (electric charge) with the specified [prefix]
+         *  - divided by a [Kilogram] (mass)
+         *
+         * @param prefix Metric prefix to apply to the coulomb unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [CoulombPerKilogram] representing C/kg.
+         */
+        @Suppress("FunctionNaming")
+        internal fun CoulombPerKilogram(prefix: Metric = Metric.BASE): CoulombPerKilogram =
+            Quotient(Coulomb(prefix), Kilogram())
+    }
 }

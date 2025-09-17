@@ -35,7 +35,7 @@ class MagneticRigidity(
 ) : Measure<MagneticRigidity.TeslaMetre, MagneticRigidity>(magnitude, expression, ::MagneticRigidity) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Tesla(prefix), Metre()))
+        this(magnitude, TeslaMetre(prefix))
 
     /**
      * Represents the SI unit **tesla metre (T·m)**.
@@ -51,4 +51,25 @@ class MagneticRigidity(
      * @see MagneticRigidity for the physical quantity represented by this unit.
      */
     typealias TeslaMetre = Product<Tesla, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **tesla-metres** (T·m).
+         *
+         * This compound unit represents the product of:
+         *  - a [Tesla] (magnetic flux density) with the specified [prefix]
+         *  - multiplied by a [Metre] (length)
+         *
+         * It’s commonly used in electromagnetism when expressing quantities like
+         * magnetic flux over a distance.
+         *
+         * @param prefix Metric prefix to apply to the tesla unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [TeslaMetre] representing T·m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun TeslaMetre(prefix: Metric = Metric.BASE): TeslaMetre =
+            Product(Tesla(prefix), Metre())
+    }
 }

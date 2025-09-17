@@ -37,7 +37,7 @@ class ElectricConductivity(
 ) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Siemens(prefix), Metre()))
+        this(magnitude, SiemensPerMetre(prefix))
 
     /**
      * Represents the SI unit **siemens per metre (S/m)**.
@@ -53,4 +53,25 @@ class ElectricConductivity(
      * @see ElectricConductivity for the physical quantity represented by this unit.
      */
     typealias SiemensPerMetre = Quotient<Siemens, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **siemens per metre** (S/m).
+         *
+         * This derived unit expresses **electrical conductivity** —
+         * how easily electric current flows through a material per unit length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Siemens] (electrical conductance) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the siemens unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [SiemensPerMetre] representing S/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun SiemensPerMetre(prefix: Metric = Metric.BASE): SiemensPerMetre =
+            Quotient(Siemens(prefix), Metre())
+    }
 }
