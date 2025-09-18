@@ -27,7 +27,7 @@ class Density(
     expression: KilogramPerCubicMetre
 ) : Measure<Density.KilogramPerCubicMetre, Density>(magnitude, expression, ::Density) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), CubicMetre()))
+        this(magnitude, KilogramPerCubicMetre(prefix))
 
     /**
      * Unit of [Density].
@@ -41,4 +41,25 @@ class Density(
      * @see Density
      */
     typealias KilogramPerCubicMetre = Quotient<Kilogram, CubicMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **kilograms per cubic metre** (kg/m³).
+         *
+         * This derived unit expresses **mass density** —
+         * how much mass is contained per unit volume.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Kilogram] (mass) with the specified [prefix]
+         *  - divided by a [CubicMetre] (volume)
+         *
+         * @param prefix Metric prefix to apply to the kilogram unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [KilogramPerCubicMetre] representing kg/m³.
+         */
+        @Suppress("FunctionNaming")
+        internal fun KilogramPerCubicMetre(prefix: Metric = Metric.BASE): KilogramPerCubicMetre =
+            Quotient(Kilogram(prefix), CubicMetre())
+    }
 }

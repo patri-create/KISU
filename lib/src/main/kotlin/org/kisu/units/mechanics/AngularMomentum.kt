@@ -29,7 +29,7 @@ class AngularMomentum(
     expression: NewtonMeterSecond
 ) : Measure<AngularMomentum.NewtonMeterSecond, AngularMomentum>(magnitude, expression, ::AngularMomentum) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Newton(prefix), Product(Metre(), Second())))
+        this(magnitude, NewtonMeterSecond(prefix))
 
     /**
      * Unit of [AngularMomentum].
@@ -43,4 +43,26 @@ class AngularMomentum(
      * @see AngularMomentum
      */
     typealias NewtonMeterSecond = Product<Newton, Product<Metre, Second>>
+
+    companion object {
+        /**
+         * Creates a measure of **newton-metre-seconds** (N·m·s).
+         *
+         * This compound unit represents the product of:
+         *  - a [Newton] (force) with the specified [prefix]
+         *  - multiplied by a [Metre] (length)
+         *  - multiplied by a [Second] (time)
+         *
+         * It can be used in mechanics to express **angular impulse** or related
+         * physical quantities combining force, distance, and time.
+         *
+         * @param prefix Metric prefix to apply to the newton unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [NewtonMeterSecond] representing N·m·s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun NewtonMeterSecond(prefix: Metric = Metric.BASE): NewtonMeterSecond =
+            Product(Newton(prefix), Product(Metre(), Second()))
+    }
 }

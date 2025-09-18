@@ -28,7 +28,7 @@ class DynamicViscosity(
     expression: PascalSecond
 ) : Measure<DynamicViscosity.PascalSecond, DynamicViscosity>(magnitude, expression, ::DynamicViscosity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Pascal(prefix), Second()))
+        this(magnitude, PascalSecond(prefix))
 
     /**
      * Unit of [DynamicViscosity].
@@ -42,4 +42,24 @@ class DynamicViscosity(
      * @see DynamicViscosity
      */
     typealias PascalSecond = Product<Pascal, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **pascal-seconds** (Pa·s).
+         *
+         * This compound unit represents the product of:
+         *  - a [Pascal] (pressure or stress) with the specified [prefix]
+         *  - multiplied by a [Second] (time)
+         *
+         * It is commonly used to express **dynamic viscosity** in fluid mechanics.
+         *
+         * @param prefix Metric prefix to apply to the pascal unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [PascalSecond] representing Pa·s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun PascalSecond(prefix: Metric = Metric.BASE): PascalSecond =
+            Product(Pascal(prefix), Second())
+    }
 }

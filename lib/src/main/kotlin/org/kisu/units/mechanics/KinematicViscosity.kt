@@ -32,7 +32,7 @@ class KinematicViscosity(
     create = ::KinematicViscosity
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(SquareMetre(prefix), Second()))
+        this(magnitude, SquareMetrePerSecond(prefix))
 
     /**
      * Unit of [KinematicViscosity].
@@ -46,4 +46,26 @@ class KinematicViscosity(
      * @see KinematicViscosity
      */
     typealias SquareMetrePerSecond = Quotient<SquareMetre, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **square metres per second** (m²/s).
+         *
+         * This derived unit expresses **area flux** —
+         * how much area is covered or transported per unit time, commonly used
+         * in diffusion or fluid flow contexts.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [SquareMetre] (area) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the square metre unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [SquareMetrePerSecond] representing m²/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun SquareMetrePerSecond(prefix: Metric = Metric.BASE): SquareMetrePerSecond =
+            Quotient(SquareMetre(prefix), Second())
+    }
 }

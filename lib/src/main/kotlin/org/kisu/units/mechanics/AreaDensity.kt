@@ -27,7 +27,7 @@ class AreaDensity(
     expression: KilogramPerSquareMetre
 ) : Measure<AreaDensity.KilogramPerSquareMetre, AreaDensity>(magnitude, expression, ::AreaDensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), SquareMetre()))
+        this(magnitude, KilogramPerSquareMetre(prefix))
 
     /**
      * Unit of [AreaDensity].
@@ -41,4 +41,25 @@ class AreaDensity(
      * @see AreaDensity
      */
     typealias KilogramPerSquareMetre = Quotient<Kilogram, SquareMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **kilograms per square metre** (kg/m²).
+         *
+         * This derived unit expresses **surface mass density** —
+         * how much mass is distributed per unit area.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Kilogram] (mass) with the specified [prefix]
+         *  - divided by a [SquareMetre] (area)
+         *
+         * @param prefix Metric prefix to apply to the kilogram unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [KilogramPerSquareMetre] representing kg/m².
+         */
+        @Suppress("FunctionNaming")
+        internal fun KilogramPerSquareMetre(prefix: Metric = Metric.BASE): KilogramPerSquareMetre =
+            Quotient(Kilogram(prefix), SquareMetre())
+    }
 }

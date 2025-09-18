@@ -28,7 +28,7 @@ class SpectralPower(
     expression: WattPerMetre
 ) : Measure<SpectralPower.WattPerMetre, SpectralPower>(magnitude, expression, ::SpectralPower) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Watt(prefix), Metre()))
+        this(magnitude, WattPerMetre(prefix))
 
     /**
      * Unit of [SpectralPower].
@@ -42,4 +42,25 @@ class SpectralPower(
      * @see SpectralPower
      */
     typealias WattPerMetre = Quotient<Watt, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **watts per metre** (W/m).
+         *
+         * This derived unit expresses **linear power density** —
+         * how much power is distributed per unit length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Watt] (power) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the watt unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WattPerMetre] representing W/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun WattPerMetre(prefix: Metric = Metric.BASE): WattPerMetre =
+            Quotient(Watt(prefix), Metre())
+    }
 }

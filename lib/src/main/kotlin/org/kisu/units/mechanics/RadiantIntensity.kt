@@ -27,7 +27,7 @@ class RadiantIntensity(
     expression: WattPerSteradian
 ) : Measure<RadiantIntensity.WattPerSteradian, RadiantIntensity>(magnitude, expression, ::RadiantIntensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Watt(prefix), Steradian()))
+        this(magnitude, WattPerSteradian(prefix))
 
     /**
      * Unit of [RadiantIntensity].
@@ -41,4 +41,25 @@ class RadiantIntensity(
      * @see RadiantIntensity
      */
     typealias WattPerSteradian = Quotient<Watt, Steradian>
+
+    companion object {
+        /**
+         * Creates a measure of **watts per steradian** (W/sr).
+         *
+         * This derived unit expresses **radiant intensity** —
+         * the power emitted per unit solid angle.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Watt] (power) with the specified [prefix]
+         *  - divided by a [Steradian] (solid angle)
+         *
+         * @param prefix Metric prefix to apply to the watt unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WattPerSteradian] representing W/sr.
+         */
+        @Suppress("FunctionNaming")
+        internal fun WattPerSteradian(prefix: Metric = Metric.BASE): WattPerSteradian =
+            Quotient(Watt(prefix), Steradian())
+    }
 }

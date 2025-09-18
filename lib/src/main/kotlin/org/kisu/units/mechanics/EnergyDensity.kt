@@ -27,7 +27,7 @@ class EnergyDensity(
     expression: JoulePerCubicMetre
 ) : Measure<EnergyDensity.JoulePerCubicMetre, EnergyDensity>(magnitude, expression, ::EnergyDensity) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Joule(prefix), CubicMetre()))
+        this(magnitude, JoulePerCubicMetre(prefix))
 
     /**
      * Unit of [EnergyDensity].
@@ -41,4 +41,25 @@ class EnergyDensity(
      * @see EnergyDensity
      */
     typealias JoulePerCubicMetre = Quotient<Joule, CubicMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per cubic metre** (J/m³).
+         *
+         * This derived unit expresses **energy density** —
+         * how much energy is stored per unit volume.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by a [CubicMetre] (volume)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [JoulePerCubicMetre] representing J/m³.
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerCubicMetre(prefix: Metric = Metric.BASE): JoulePerCubicMetre =
+            Quotient(Joule(prefix), CubicMetre())
+    }
 }

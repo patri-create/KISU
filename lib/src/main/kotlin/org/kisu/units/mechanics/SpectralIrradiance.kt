@@ -32,7 +32,7 @@ class SpectralIrradiance(
     create = ::SpectralIrradiance
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Watt(prefix), CubicMetre()))
+        this(magnitude, WattPerCubicMetre(prefix))
 
     /**
      * Unit of [SpectralIrradiance].
@@ -46,4 +46,25 @@ class SpectralIrradiance(
      * @see SpectralIrradiance
      */
     typealias WattPerCubicMetre = Quotient<Watt, CubicMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **watts per cubic metre** (W/m³).
+         *
+         * This derived unit expresses **volumetric power density** —
+         * how much power is distributed per unit volume.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Watt] (power) with the specified [prefix]
+         *  - divided by a [CubicMetre] (volume)
+         *
+         * @param prefix Metric prefix to apply to the watt unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WattPerCubicMetre] representing W/m³.
+         */
+        @Suppress("FunctionNaming")
+        internal fun WattPerCubicMetre(prefix: Metric = Metric.BASE): WattPerCubicMetre =
+            Quotient(Watt(prefix), CubicMetre())
+    }
 }

@@ -32,7 +32,7 @@ class MomentOfIntertia(
     create = ::MomentOfIntertia
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Kilogram(prefix to BigDecimal.ONE), SquareMetre()))
+        this(magnitude, KilogramSquareMetre(prefix))
 
     /**
      * Unit of [MomentOfIntertia].
@@ -46,4 +46,25 @@ class MomentOfIntertia(
      * @see MomentOfIntertia
      */
     typealias KilogramSquareMetre = Product<Kilogram, SquareMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **kilogram-square metres** (kg·m²).
+         *
+         * This compound unit represents the product of:
+         *  - a [Kilogram] (mass) with the specified [prefix]
+         *  - multiplied by a [SquareMetre] (area)
+         *
+         * It is commonly used to express **moment of inertia** or similar
+         * quantities involving mass distributed over an area.
+         *
+         * @param prefix Metric prefix to apply to the kilogram unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [KilogramSquareMetre] representing kg·m².
+         */
+        @Suppress("FunctionNaming")
+        internal fun KilogramSquareMetre(prefix: Metric = Metric.BASE): KilogramSquareMetre =
+            Product(Kilogram(prefix), SquareMetre())
+    }
 }

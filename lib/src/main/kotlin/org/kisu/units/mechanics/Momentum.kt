@@ -28,7 +28,7 @@ class Momentum(
     expression: NewtonSecond
 ) : Measure<Momentum.NewtonSecond, Momentum>(magnitude, expression, ::Momentum) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Newton(prefix), Second()))
+        this(magnitude, NewtonSecond(prefix))
 
     /**
      * Unit of [Momentum].
@@ -42,4 +42,25 @@ class Momentum(
      * @see Momentum
      */
     typealias NewtonSecond = Product<Newton, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **newton-seconds** (N·s).
+         *
+         * This compound unit represents the product of:
+         *  - a [Newton] (force) with the specified [prefix]
+         *  - multiplied by a [Second] (time)
+         *
+         * It is commonly used to express **impulse** in mechanics —
+         * the change in momentum resulting from a force applied over time.
+         *
+         * @param prefix Metric prefix to apply to the newton unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [NewtonSecond] representing N·s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun NewtonSecond(prefix: Metric = Metric.BASE): NewtonSecond =
+            Product(Newton(prefix), Second())
+    }
 }
