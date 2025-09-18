@@ -67,11 +67,12 @@ import org.kisu.units.mechanics.RadiantIntensity
 import org.kisu.units.mechanics.SpecificAngularMomentum
 import org.kisu.units.mechanics.SpecificEnergy
 import org.kisu.units.mechanics.SpecificVolume
+import org.kisu.units.mechanics.SpectralIntensity
 import org.kisu.units.mechanics.SpectralIrradiance
 import org.kisu.units.mechanics.SpectralPower
 import org.kisu.units.mechanics.SpectralRadiance
-import org.kisu.units.mechanics.Spectralntensity
 import org.kisu.units.mechanics.SurfaceTension
+import org.kisu.units.mechanics.WaveNumber
 import org.kisu.units.photometric.Efficacy
 import org.kisu.units.photometric.Luminance
 import org.kisu.units.photometric.LuminousEnergy
@@ -283,7 +284,7 @@ val MetricUnitBuilder.coulombs: ElectricCharge get() = ElectricCharge(magnitude,
  * val specificVolume = 1.kilo.cubicMetrePerKilogram // 1000 m³/kg
  * ```
  */
-val MetricUnitBuilder.cubicMetrePerKilogram: SpecificVolume
+val MetricUnitBuilder.cubicMetresPerKilogram: SpecificVolume
     get() = SpecificVolume(magnitude, metric)
 
 /**
@@ -380,7 +381,7 @@ val MetricUnitBuilder.gramsMetreSecondCubed: Yank
  * val density = 1.kilo.gramPerCubicMetre // 1 kg/m³
  * ```
  */
-val MetricUnitBuilder.gramPerCubicMetre: Density
+val MetricUnitBuilder.gramsPerCubicMetre: Density
     get() = Density(magnitude, metric)
 
 /**
@@ -401,7 +402,7 @@ val MetricUnitBuilder.gramsPerMole: MolarMass get() = MolarMass(magnitude, metri
  * val linearMassDensity = 1.kilo.gramPerMetre // 1 kg/m
  * ```
  */
-val MetricUnitBuilder.gramPerMetre: LinearMassDensity
+val MetricUnitBuilder.gramsPerMetre: LinearMassDensity
     get() = LinearMassDensity(magnitude, metric)
 
 /**
@@ -423,7 +424,7 @@ val MetricUnitBuilder.gramPerMole: MolarMass
  * val massFlow = 1.kilo.gramPerSecond // 1 kg/s
  * ```
  */
-val MetricUnitBuilder.gramPerSecond: MassFlowRate
+val MetricUnitBuilder.gramsPerSecond: MassFlowRate
     get() = MassFlowRate(magnitude, metric)
 
 /**
@@ -434,7 +435,7 @@ val MetricUnitBuilder.gramPerSecond: MassFlowRate
  * val areaDensity = 1.kilo.gramPerSquareMetre // 1 kg/m²
  * ```
  */
-val MetricUnitBuilder.gramPerSquareMetre: AreaDensity
+val MetricUnitBuilder.gramsPerSquareMetre: AreaDensity
     get() = AreaDensity(magnitude, metric)
 
 /**
@@ -457,7 +458,7 @@ val MetricUnitBuilder.grams: Mass get() = Mass(magnitude, metric)
  * val inertia = 1.kilo.gramSquareMetre // 1 kg·m²
  * ```
  */
-val MetricUnitBuilder.gramSquareMetre: MomentOfIntertia
+val MetricUnitBuilder.gramsSquareMetre: MomentOfIntertia
     get() = MomentOfIntertia(magnitude, metric)
 
 /**
@@ -468,7 +469,7 @@ val MetricUnitBuilder.gramSquareMetre: MomentOfIntertia
  * val doseRate = 1.milli.grayPerSecond // 0.001 Gy/s
  * ```
  */
-val MetricUnitBuilder.grayPerSecond: AbsorbedDoseRate
+val MetricUnitBuilder.graysPerSecond: AbsorbedDoseRate
     get() = AbsorbedDoseRate(magnitude, metric)
 
 /**
@@ -531,7 +532,7 @@ val MetricUnitBuilder.hertzPerSecond: FrequencyDrift
  * val energyDensity = 1.kilo.joulePerCubicMetre // 1000 J/m³
  * ```
  */
-val MetricUnitBuilder.joulePerCubicMetre: EnergyDensity
+val MetricUnitBuilder.joulesPerCubicMetre: EnergyDensity
     get() = EnergyDensity(magnitude, metric)
 
 /**
@@ -564,7 +565,7 @@ val MetricUnitBuilder.joulePerKelvinMole: MolarHeatCapacity
  * val specificEnergy = 1.kilo.joulePerKilogram // 1000 J/kg
  * ```
  */
-val MetricUnitBuilder.joulePerKilogram: SpecificEnergy
+val MetricUnitBuilder.joulesPerKilogram: SpecificEnergy
     get() = SpecificEnergy(magnitude, metric)
 
 /**
@@ -597,7 +598,7 @@ val MetricUnitBuilder.joulePerMole: MolarEnergy
  * val radiantExposure = 1.milli.joulePerSquareMetre // 0.001 J/m²
  * ```
  */
-val MetricUnitBuilder.joulePerSquareMetre: RadiantExposure
+val MetricUnitBuilder.joulesPerSquareMetre: RadiantExposure
     get() = RadiantExposure(magnitude, metric)
 
 /**
@@ -608,7 +609,7 @@ val MetricUnitBuilder.joulePerSquareMetre: RadiantExposure
  * val energyFlux = 1.kilo.joulePerSquareMetreSecond // 1000 J/(m²·s)
  * ```
  */
-val MetricUnitBuilder.joulePerSquareMetreSecond: EnergyFluxDensity
+val MetricUnitBuilder.joulesPerSquareMetreSecond: EnergyFluxDensity
     get() = EnergyFluxDensity(magnitude, metric)
 
 /**
@@ -640,7 +641,7 @@ val MetricUnitBuilder.joules: Energy get() = Energy(magnitude, metric)
  * val action = 1.kilo.jouleSecond // 1000 J·s
  * ```
  */
-val MetricUnitBuilder.jouleSecond: Action
+val MetricUnitBuilder.joulesSecond: Action
     get() = Action(magnitude, metric)
 
 /**
@@ -746,7 +747,7 @@ val MetricUnitBuilder.luxSecond: org.kisu.units.photometric.Exposure
  * val fuelEfficiency = 1.metrePerCubicMetre // 1 m/m³
  * ```
  */
-val MetricUnitBuilder.metrePerCubicMetre: FuelEfficiency
+val MetricUnitBuilder.metresPerCubicMetre: FuelEfficiency
     get() = FuelEfficiency(magnitude, metric)
 
 /**
@@ -876,7 +877,7 @@ val MetricUnitBuilder.moles: Amount get() = Amount(magnitude, metric)
  * val angularMomentum = 1.newtonMeterSecond // 1 N·m·s
  * ```
  */
-val MetricUnitBuilder.newtonMeterSecond: AngularMomentum
+val MetricUnitBuilder.newtonsMetreSecond: AngularMomentum
     get() = AngularMomentum(magnitude, metric)
 
 /**
@@ -887,7 +888,7 @@ val MetricUnitBuilder.newtonMeterSecond: AngularMomentum
  * val specificAngularMomentum = 1.newtonMetreSecondPerKilogram // 1 N·m·s/kg
  * ```
  */
-val MetricUnitBuilder.newtonMetreSecondPerKilogram: SpecificAngularMomentum
+val MetricUnitBuilder.newtonsMetreSecondPerKilogram: SpecificAngularMomentum
     get() = SpecificAngularMomentum(magnitude, metric)
 
 /**
@@ -898,7 +899,7 @@ val MetricUnitBuilder.newtonMetreSecondPerKilogram: SpecificAngularMomentum
  * val surfaceTension = 1.newtonPerMetre // 1 N/m
  * ```
  */
-val MetricUnitBuilder.newtonPerMetre: SurfaceTension
+val MetricUnitBuilder.newtonsPerMetre: SurfaceTension
     get() = SurfaceTension(magnitude, metric)
 
 /**
@@ -919,7 +920,7 @@ val MetricUnitBuilder.newtons: Force get() = Force(magnitude, metric)
  * val momentum = 1.newtonSecond // 1 N·s
  * ```
  */
-val MetricUnitBuilder.newtonSecond: Momentum
+val MetricUnitBuilder.newtonsSecond: Momentum
     get() = Momentum(magnitude, metric)
 
 /**
@@ -961,7 +962,7 @@ val MetricUnitBuilder.pascals: Pressure get() = Pressure(magnitude, metric)
  * val viscosity = 1.pascalSecond // 1 Pa·s
  * ```
  */
-val MetricUnitBuilder.pascalSecond: DynamicViscosity
+val MetricUnitBuilder.pascalsSecond: DynamicViscosity
     get() = DynamicViscosity(magnitude, metric)
 
 /**
@@ -1063,6 +1064,17 @@ val MetricUnitBuilder.reciprocalKelvins: ThermalExpansionCoefficient
     get() = ThermalExpansionCoefficient(magnitude, metric)
 
 /**
+ * Creates a [WaveNumber] measure in reciprocal metres.
+ *
+ * Example usage:
+ * ```
+ * val coefficient = 1.reciprocalMetres
+ * ```
+ */
+val MetricUnitBuilder.reciprocalMetres: WaveNumber
+    get() = WaveNumber(magnitude, metric)
+
+/**
  * Creates a [Compressibility] measure in reciprocal pascals.
  *
  * Example usage:
@@ -1070,7 +1082,7 @@ val MetricUnitBuilder.reciprocalKelvins: ThermalExpansionCoefficient
  * val compressibility = 1.reciprocalPascal
  * ```
  */
-val MetricUnitBuilder.reciprocalPascal: Compressibility
+val MetricUnitBuilder.reciprocalPascals: Compressibility
     get() = Compressibility(magnitude, metric)
 
 /**
@@ -1134,7 +1146,7 @@ val MetricUnitBuilder.sieverts: DoseEquivalent get() = DoseEquivalent(magnitude,
  * val viscosity = 1.squareMetrePerSecond // 1 m²/s
  * ```
  */
-val MetricUnitBuilder.squareMetrePerSecond: KinematicViscosity
+val MetricUnitBuilder.squareMetresPerSecond: KinematicViscosity
     get() = KinematicViscosity(magnitude, metric)
 
 /**
@@ -1218,7 +1230,7 @@ val MetricUnitBuilder.volts: ElectricPotential get() = ElectricPotential(magnitu
  * val irradiance = 1.wattPerCubicMetre // 1 W/m³
  * ```
  */
-val MetricUnitBuilder.wattPerCubicMetre: SpectralIrradiance
+val MetricUnitBuilder.wattsPerCubicMetre: SpectralIrradiance
     get() = SpectralIrradiance(magnitude, metric)
 
 /**
@@ -1229,7 +1241,7 @@ val MetricUnitBuilder.wattPerCubicMetre: SpectralIrradiance
  * val spectralPower = 1.wattPerMetre // 1 W/m
  * ```
  */
-val MetricUnitBuilder.wattPerMetre: SpectralPower
+val MetricUnitBuilder.wattsPerMetre: SpectralPower
     get() = SpectralPower(magnitude, metric)
 
 /**
@@ -1251,7 +1263,7 @@ val MetricUnitBuilder.wattsPerMetreKelvin: ThermalConductivity
  * val heatFlux = 1.wattPerSquareMetre // 1 W/m²
  * ```
  */
-val MetricUnitBuilder.wattPerSquareMetre: HeatFluxDensity
+val MetricUnitBuilder.wattsPerSquareMetre: HeatFluxDensity
     get() = HeatFluxDensity(magnitude, metric)
 
 /**
@@ -1262,7 +1274,7 @@ val MetricUnitBuilder.wattPerSquareMetre: HeatFluxDensity
  * val radiantIntensity = 1.wattPerSteradian // 1 W/sr
  * ```
  */
-val MetricUnitBuilder.wattPerSteradian: RadiantIntensity
+val MetricUnitBuilder.wattsPerSteradian: RadiantIntensity
     get() = RadiantIntensity(magnitude, metric)
 
 /**
@@ -1273,19 +1285,19 @@ val MetricUnitBuilder.wattPerSteradian: RadiantIntensity
  * val spectralRadiance = 1.wattPerSteradianCubicMetre // 1 W/(sr·m³)
  * ```
  */
-val MetricUnitBuilder.wattPerSteradianCubicMetre: SpectralRadiance
+val MetricUnitBuilder.wattsPerSteradianCubicMetre: SpectralRadiance
     get() = SpectralRadiance(magnitude, metric)
 
 /**
- * Creates a [Spectralntensity] measure by applying the metric prefix scale to the magnitude.
+ * Creates a [SpectralIntensity] measure by applying the metric prefix scale to the magnitude.
  *
  * Example usage:
  * ```
  * val spectralIntensity = 1.wattPerSteradianMetre // 1 W/(sr·m)
  * ```
  */
-val MetricUnitBuilder.wattPerSteradianMetre: Spectralntensity
-    get() = Spectralntensity(magnitude, metric)
+val MetricUnitBuilder.wattPerSteradianMetre: SpectralIntensity
+    get() = SpectralIntensity(magnitude, metric)
 
 /**
  * Creates a [Radiance] measure by applying the metric prefix scale to the magnitude.
@@ -1295,7 +1307,7 @@ val MetricUnitBuilder.wattPerSteradianMetre: Spectralntensity
  * val radiance = 1.wattPerSteradianSquareMetre // 1 W/(sr·m²)
  * ```
  */
-val MetricUnitBuilder.wattPerSteradianSquareMetre: Radiance
+val MetricUnitBuilder.wattsPerSteradianSquareMetre: Radiance
     get() = Radiance(magnitude, metric)
 
 /**
