@@ -30,7 +30,7 @@ class Radiance(
     expression: WattPerSteradianSquareMetre
 ) : Measure<Radiance.WattPerSteradianSquareMetre, Radiance>(magnitude, expression, ::Radiance) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Watt(prefix), Product(Steradian(), SquareMetre())))
+        this(magnitude, WattPerSteradianSquareMetre(prefix))
 
     /**
      * Unit of [Radiance].
@@ -44,4 +44,25 @@ class Radiance(
      * @see Radiance
      */
     typealias WattPerSteradianSquareMetre = Quotient<Watt, Product<Steradian, SquareMetre>>
+
+    companion object {
+        /**
+         * Creates a measure of **watts per steradian per square metre** (W/(sr·m²)).
+         *
+         * This derived unit expresses **radiant intensity per unit area** —
+         * the power emitted per unit solid angle and per unit area.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Watt] (power) with the specified [prefix]
+         *  - divided by the product of a [Steradian] (solid angle) and a [SquareMetre] (area)
+         *
+         * @param prefix Metric prefix to apply to the watt unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WattPerSteradianSquareMetre] representing W/(sr·m²).
+         */
+        @Suppress("FunctionNaming")
+        internal fun WattPerSteradianSquareMetre(prefix: Metric = Metric.BASE): WattPerSteradianSquareMetre =
+            Quotient(Watt(prefix), Product(Steradian(), SquareMetre()))
+    }
 }

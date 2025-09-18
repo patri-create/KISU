@@ -25,19 +25,19 @@ import java.math.BigDecimal
  *
  * @see WattPerSteradianMetre
  */
-class Spectralntensity(
+class SpectralIntensity(
     magnitude: BigDecimal,
     expression: WattPerSteradianMetre
-) : Measure<Spectralntensity.WattPerSteradianMetre, Spectralntensity>(
+) : Measure<SpectralIntensity.WattPerSteradianMetre, SpectralIntensity>(
     magnitude = magnitude,
     expression = expression,
-    create = ::Spectralntensity
+    create = ::SpectralIntensity
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Watt(prefix), Product(Steradian(), Metre())))
+        this(magnitude, WattPerSteradianMetre(prefix))
 
     /**
-     * Unit of [Spectralntensity].
+     * Unit of [SpectralIntensity].
      *
      * Represents the unit of **spectral intensity**, i.e., the physical quantity measuring
      * radiant power per unit length per unit solid angle.
@@ -45,7 +45,28 @@ class Spectralntensity(
      * Symbol: `W/(sr·m)`
      * SI: `kg·s⁻³`
      *
-     * @see Spectralntensity
+     * @see SpectralIntensity
      */
     typealias WattPerSteradianMetre = Quotient<Watt, Product<Steradian, Metre>>
+
+    companion object {
+        /**
+         * Creates a measure of **watts per steradian per metre** (W/(sr·m)).
+         *
+         * This derived unit expresses **radiant intensity per unit length** —
+         * the power emitted per unit solid angle and per unit length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Watt] (power) with the specified [prefix]
+         *  - divided by the product of a [Steradian] (solid angle) and a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the watt unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [WattPerSteradianMetre] representing W/(sr·m).
+         */
+        @Suppress("FunctionNaming")
+        internal fun WattPerSteradianMetre(prefix: Metric = Metric.BASE): WattPerSteradianMetre =
+            Quotient(Watt(prefix), Product(Steradian(), Metre()))
+    }
 }

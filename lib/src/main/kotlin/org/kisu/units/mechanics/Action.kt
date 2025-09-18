@@ -28,7 +28,7 @@ class Action(
     expression: JouleSecond
 ) : Measure<Action.JouleSecond, Action>(magnitude, expression, ::Action) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Product(Joule(prefix), Second()))
+        this(magnitude, JouleSecond(prefix))
 
     /**
      * Unit of [Action].
@@ -42,4 +42,25 @@ class Action(
      * @see Action
      */
     typealias JouleSecond = Product<Joule, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **joule-seconds** (J·s).
+         *
+         * This compound unit represents the product of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - multiplied by a [Second] (time)
+         *
+         * It is commonly used to express **action** or **angular momentum**
+         * (for example, Planck's constant is given in J·s).
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [JouleSecond] representing J·s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun JouleSecond(prefix: Metric = Metric.BASE): JouleSecond =
+            Product(Joule(prefix), Second())
+    }
 }

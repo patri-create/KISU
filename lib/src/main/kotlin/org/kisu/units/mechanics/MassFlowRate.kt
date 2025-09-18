@@ -27,7 +27,7 @@ class MassFlowRate(
     expression: KilogramPerSecond
 ) : Measure<MassFlowRate.KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Second()))
+        this(magnitude, KilogramPerSecond(prefix))
 
     /**
      * Unit of [MassFlowRate].
@@ -41,4 +41,25 @@ class MassFlowRate(
      * @see MassFlowRate
      */
     typealias KilogramPerSecond = Quotient<Kilogram, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **kilograms per second** (kg/s).
+         *
+         * This derived unit expresses **mass flow rate** —
+         * how much mass passes through a point or system per unit time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Kilogram] (mass) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the kilogram unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [KilogramPerSecond] representing kg/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun KilogramPerSecond(prefix: Metric = Metric.BASE): KilogramPerSecond =
+            Quotient(Kilogram(prefix), Second())
+    }
 }

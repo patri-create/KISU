@@ -32,7 +32,7 @@ class RadiantExposure(
     create = ::RadiantExposure
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Joule(prefix), SquareMetre()))
+        this(magnitude, JoulePerSquareMetre(prefix))
 
     /**
      * Unit of [RadiantExposure].
@@ -46,4 +46,26 @@ class RadiantExposure(
      * @see RadiantExposure
      */
     typealias JoulePerSquareMetre = Quotient<Joule, SquareMetre>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per square metre** (J/m²).
+         *
+         * This derived unit expresses **energy density per unit area** —
+         * how much energy is distributed over a given area, commonly used
+         * in radiation and surface energy calculations.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by a [SquareMetre] (area)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [JoulePerSquareMetre] representing J/m².
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerSquareMetre(prefix: Metric = Metric.BASE): JoulePerSquareMetre =
+            Quotient(Joule(prefix), SquareMetre())
+    }
 }

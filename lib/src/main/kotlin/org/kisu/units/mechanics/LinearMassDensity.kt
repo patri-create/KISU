@@ -31,7 +31,7 @@ class LinearMassDensity(
     create = ::LinearMassDensity
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Kilogram(prefix to BigDecimal.ONE), Metre()))
+        this(magnitude, KilogramPerMetre(prefix))
 
     /**
      * Unit of [LinearMassDensity].
@@ -45,4 +45,25 @@ class LinearMassDensity(
      * @see LinearMassDensity
      */
     typealias KilogramPerMetre = Quotient<Kilogram, Metre>
+
+    companion object {
+        /**
+         * Creates a measure of **kilograms per metre** (kg/m).
+         *
+         * This derived unit expresses **linear mass density** —
+         * how much mass is distributed along a unit length.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Kilogram] (mass) with the specified [prefix]
+         *  - divided by a [Metre] (length)
+         *
+         * @param prefix Metric prefix to apply to the kilogram unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [KilogramPerMetre] representing kg/m.
+         */
+        @Suppress("FunctionNaming")
+        internal fun KilogramPerMetre(prefix: Metric = Metric.BASE): KilogramPerMetre =
+            Quotient(Kilogram(prefix), Metre())
+    }
 }

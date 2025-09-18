@@ -28,7 +28,7 @@ class SpecificEnergy(
     expression: JoulePerKilogram
 ) : Measure<SpecificEnergy.JoulePerKilogram, SpecificEnergy>(magnitude, expression, ::SpecificEnergy) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Joule(prefix), Kilogram()))
+        this(magnitude, JoulePerKilogram(prefix))
 
     /**
      * Unit of [SpecificEnergy].
@@ -42,4 +42,25 @@ class SpecificEnergy(
      * @see SpecificEnergy
      */
     typealias JoulePerKilogram = Quotient<Joule, Kilogram>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per kilogram** (J/kg).
+         *
+         * This derived unit expresses **specific energy** —
+         * how much energy is associated with a unit mass.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by a [Kilogram] (mass)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [JoulePerKilogram] representing J/kg.
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerKilogram(prefix: Metric = Metric.BASE): JoulePerKilogram =
+            Quotient(Joule(prefix), Kilogram())
+    }
 }

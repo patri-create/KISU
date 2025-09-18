@@ -28,7 +28,7 @@ class FuelEfficiency(
     expression: MetrePerCubicMetre
 ) : Measure<FuelEfficiency.MetrePerCubicMetre, FuelEfficiency>(magnitude, expression, ::FuelEfficiency) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Metre(prefix), CubicMetre()))
+        this(magnitude, MetrePerCubicMetre(prefix))
 
     /**
      * Unit of [FuelEfficiency].
@@ -42,4 +42,10 @@ class FuelEfficiency(
      * @see FuelEfficiency
      */
     typealias MetrePerCubicMetre = Quotient<Metre, CubicMetre>
+
+    companion object {
+        @Suppress("FunctionNaming")
+        internal fun MetrePerCubicMetre(prefix: Metric = Metric.BASE): MetrePerCubicMetre =
+            Quotient(Metre(prefix), CubicMetre())
+    }
 }

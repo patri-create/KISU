@@ -3,6 +3,7 @@ package org.kisu.units.mechanics
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
+import org.kisu.units.mechanics.EnergyFluxDensity.Companion.JoulePerSquareMetreSecond
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
@@ -33,13 +34,7 @@ class EnergyFluxDensity(
     create = ::EnergyFluxDensity
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(
-            magnitude,
-            Quotient(
-                Joule(prefix),
-                Product(SquareMetre(), Second())
-            )
-        )
+        this(magnitude, JoulePerSquareMetreSecond(prefix))
 
     /**
      * Unit of [EnergyFluxDensity].
@@ -53,4 +48,25 @@ class EnergyFluxDensity(
      * @see EnergyFluxDensity
      */
     typealias JoulePerSquareMetreSecond = Quotient<Joule, Product<SquareMetre, Second>>
+
+    companion object {
+        /**
+         * Creates a measure of **joules per square metre per second** (J/(m²·s)).
+         *
+         * This derived unit expresses **energy flux density** —
+         * how much energy passes through a unit area per unit time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Joule] (energy) with the specified [prefix]
+         *  - divided by the product of a [SquareMetre] (area) and a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the joule unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [JoulePerSquareMetreSecond] representing J/(m²·s).
+         */
+        @Suppress("FunctionNaming")
+        internal fun JoulePerSquareMetreSecond(prefix: Metric = Metric.BASE): JoulePerSquareMetreSecond =
+            Quotient(Joule(prefix), Product(SquareMetre(), Second()))
+    }
 }

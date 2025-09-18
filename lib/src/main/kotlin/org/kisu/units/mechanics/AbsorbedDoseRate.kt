@@ -34,7 +34,7 @@ class AbsorbedDoseRate(
     expression: GrayPerSecond
 ) : Measure<AbsorbedDoseRate.GrayPerSecond, AbsorbedDoseRate>(magnitude, expression, ::AbsorbedDoseRate) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
-        this(magnitude, Quotient(Gray(prefix), Second()))
+        this(magnitude, GrayPerSecond(prefix))
 
     /**
      * Unit of [AbsorbedDoseRate].
@@ -51,4 +51,25 @@ class AbsorbedDoseRate(
      * @see AbsorbedDoseRate
      */
     typealias GrayPerSecond = Quotient<Gray, Second>
+
+    companion object {
+        /**
+         * Creates a measure of **grays per second** (Gy/s).
+         *
+         * This derived unit expresses an **absorbed dose rate** —
+         * how much ionizing radiation energy (in grays) is absorbed per unit time.
+         *
+         * Internally this returns a [Quotient] of:
+         *  - a [Gray] (absorbed dose) with the specified [prefix]
+         *  - divided by a [Second] (time)
+         *
+         * @param prefix Metric prefix to apply to the gray unit.
+         * Defaults to [Metric.BASE] (no prefix).
+         *
+         * @return A [GrayPerSecond] representing Gy/s.
+         */
+        @Suppress("FunctionNaming")
+        internal fun GrayPerSecond(prefix: Metric = Metric.BASE): GrayPerSecond =
+            Quotient(Gray(prefix), Second())
+    }
 }

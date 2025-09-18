@@ -70,11 +70,12 @@ import org.kisu.units.mechanics.RadiantIntensity
 import org.kisu.units.mechanics.SpecificAngularMomentum
 import org.kisu.units.mechanics.SpecificEnergy
 import org.kisu.units.mechanics.SpecificVolume
+import org.kisu.units.mechanics.SpectralIntensity
 import org.kisu.units.mechanics.SpectralIrradiance
 import org.kisu.units.mechanics.SpectralPower
 import org.kisu.units.mechanics.SpectralRadiance
-import org.kisu.units.mechanics.Spectralntensity
 import org.kisu.units.mechanics.SurfaceTension
+import org.kisu.units.mechanics.WaveNumber
 import org.kisu.units.photometric.Efficacy
 import org.kisu.units.photometric.Luminance
 import org.kisu.units.photometric.LuminousEnergy
@@ -213,7 +214,7 @@ val Number.coulombs: ElectricCharge get() = ElectricCharge(bigDecimal)
  * Creates a [SpecificVolume] from this [Number] representing a specific volume in cubic metre per kilogram,
  * the SI unit for specific volume.
  */
-val Number.cubicMetrePerKilogram: SpecificVolume get() = SpecificVolume(bigDecimal)
+val Number.cubicMetresPerKilogram: SpecificVolume get() = SpecificVolume(bigDecimal)
 
 /**
  * Creates a [MolarVolume] from this [Number] representing a molar volume in cubic metre per mole,
@@ -267,13 +268,13 @@ val Number.gramsMetreSecondCubed: Yank get() = Yank(bigDecimal)
  * Creates a [Density] from this [Number] representing a density in gram per cubic metre,
  * the SI unit for density.
  */
-val Number.gramPerCubicMetre: Density get() = Density(bigDecimal)
+val Number.gramsPerCubicMetre: Density get() = Density(bigDecimal)
 
 /**
  * Creates a [LinearMassDensity] from this [Number] representing a linear mass density in gram per metre,
  * the SI unit for linear mass density.
  */
-val Number.gramPerMetre: LinearMassDensity get() = LinearMassDensity(bigDecimal)
+val Number.gramsPerMetre: LinearMassDensity get() = LinearMassDensity(bigDecimal)
 
 /**
  * Creates a [MolarMass] from this [Number] representing a molar mass in gram per mole,
@@ -285,13 +286,13 @@ val Number.gramsPerMole: MolarMass get() = MolarMass(bigDecimal)
  * Creates a [MassFlowRate] from this [Number] representing a mass flow rate in gram per second,
  * the SI unit for mass flow rate.
  */
-val Number.gramPerSecond: MassFlowRate get() = MassFlowRate(bigDecimal)
+val Number.gramsPerSecond: MassFlowRate get() = MassFlowRate(bigDecimal)
 
 /**
  * Creates a [AreaDensity] from this [Number] representing an area density in gram per square metre,
  * the SI unit for area density.
  */
-val Number.gramPerSquareMetre: AreaDensity get() = AreaDensity(bigDecimal)
+val Number.gramsPerSquareMetre: AreaDensity get() = AreaDensity(bigDecimal)
 
 /**
  * Creates a [Mass] from this [Number] representing a mass in grams,
@@ -303,13 +304,13 @@ val Number.grams: Mass get() = Mass(bigDecimal, Metric.BASE)
  * Creates a [MomentOfIntertia] from this [Number] representing a moment of intertia in gram square metre,
  * the SI unit for moment of intertia.
  */
-val Number.gramSquareMetre: MomentOfIntertia get() = MomentOfIntertia(bigDecimal)
+val Number.gramsSquareMetre: MomentOfIntertia get() = MomentOfIntertia(bigDecimal)
 
 /**
  * Creates a [AbsorbedDoseRate] from this [Number] representing an absorbed dose rate in gray per second,
  * the SI unit for absorbed dose rate.
  */
-val Number.grayPerSecond: AbsorbedDoseRate get() = AbsorbedDoseRate(bigDecimal)
+val Number.graysPerSecond: AbsorbedDoseRate get() = AbsorbedDoseRate(bigDecimal)
 
 /**
  * Creates a [AbsorbedDose] from this [Number] representing an absorbed dose in grays,
@@ -345,7 +346,7 @@ val Number.hertzPerSecond: FrequencyDrift get() = FrequencyDrift(bigDecimal)
  * Creates a [EnergyDensity] from this [Number] representing an energy density in joule per cubic metre,
  * the SI unit for energy density.
  */
-val Number.joulePerCubicMetre: EnergyDensity get() = EnergyDensity(bigDecimal)
+val Number.joulesPerCubicMetre: EnergyDensity get() = EnergyDensity(bigDecimal)
 
 /**
  * Creates a [HeatCapacity] from this [Number] representing a heat capacity in joule per kelvin,
@@ -363,7 +364,7 @@ val Number.joulePerKelvinMole: MolarHeatCapacity get() = MolarHeatCapacity(bigDe
  * Creates a [SpecificEnergy] from this [Number] representing a specific energy in joule per kilogram,
  * the SI unit for specific energy.
  */
-val Number.joulePerKilogram: SpecificEnergy get() = SpecificEnergy(bigDecimal)
+val Number.joulesPerKilogram: SpecificEnergy get() = SpecificEnergy(bigDecimal)
 
 /**
  * Creates a [SpecificHeatCapacity] from this [Number] representing a specific heat capacity in joule per kilogram
@@ -381,13 +382,13 @@ val Number.joulePerMole: MolarEnergy get() = MolarEnergy(bigDecimal)
  * Creates a [RadiantExposure] from this [Number] representing a radiant exposure in joule per square metre,
  * the SI unit for radiant exposure.
  */
-val Number.joulePerSquareMetre: RadiantExposure get() = RadiantExposure(bigDecimal)
+val Number.joulesPerSquareMetre: RadiantExposure get() = RadiantExposure(bigDecimal)
 
 /**
  * Creates a [EnergyFluxDensity] from this [Number] representing an energy flux density in joule per square metre
  * second,the SI unit for energy flux density.
  */
-val Number.joulePerSquareMetreSecond: EnergyFluxDensity get() = EnergyFluxDensity(bigDecimal)
+val Number.joulesPerSquareMetreSecond: EnergyFluxDensity get() = EnergyFluxDensity(bigDecimal)
 
 /**
  * Creates a [MagneticDipoleMoment] from this [Number] representing a magnetic dipole moment in joule per tesla,
@@ -405,7 +406,7 @@ val Number.joules: Energy get() = Energy(bigDecimal)
  * Creates a [Action] from this [Number] representing an action in joule second,
  * the SI unit for action.
  */
-val Number.jouleSecond: Action get() = Action(bigDecimal)
+val Number.joulesSecond: Action get() = Action(bigDecimal)
 
 /**
  * Creates a [CatalyticActivity] from this [Number] representing a catalytic activity in katals,
@@ -465,7 +466,7 @@ val Number.luxSecond: org.kisu.units.photometric.Exposure get() = org.kisu.units
  * Creates a [FuelEfficiency] from this [Number] representing a fuel efficiency in metre per cubic metre,
  * the SI unit for fuel efficiency.
  */
-val Number.metrePerCubicMetre: FuelEfficiency get() = FuelEfficiency(bigDecimal)
+val Number.metresPerCubicMetre: FuelEfficiency get() = FuelEfficiency(bigDecimal)
 
 /**
  * Creates a [MagneticSusceptibility] from this [Number] representing a magnetic susceptibility in metre per henry,
@@ -537,19 +538,19 @@ val Number.molPerKilogram: Molality get() = Molality(bigDecimal)
  * Creates a [AngularMomentum] from this [Number] representing an angular momentum in newton meter second,
  * the SI unit for angular momentum.
  */
-val Number.newtonMeterSecond: AngularMomentum get() = AngularMomentum(bigDecimal)
+val Number.newtonsMetreSecond: AngularMomentum get() = AngularMomentum(bigDecimal)
 
 /**
  * Creates a [SpecificAngularMomentum] from this [Number] representing a specific angular momentum in newton metre
  * second per kilogram, the SI unit for specific angular momentum.
  */
-val Number.newtonMetreSecondPerKilogram: SpecificAngularMomentum get() = SpecificAngularMomentum(bigDecimal)
+val Number.newtonsMetreSecondPerKilogram: SpecificAngularMomentum get() = SpecificAngularMomentum(bigDecimal)
 
 /**
  * Creates a [SurfaceTension] from this [Number] representing a surface tension in newton per metre,
  * the SI unit for surface tension.
  */
-val Number.newtonPerMetre: SurfaceTension get() = SurfaceTension(bigDecimal)
+val Number.newtonsPerMetre: SurfaceTension get() = SurfaceTension(bigDecimal)
 
 /**
  * Creates a [Force] from this [Number] representing a force in newtons,
@@ -561,7 +562,7 @@ val Number.newtons: Force get() = Force(bigDecimal)
  * Creates a [Momentum] from this [Number] representing a momentum in newton second,
  * the SI unit for momentum.
  */
-val Number.newtonSecond: Momentum get() = Momentum(bigDecimal)
+val Number.newtonsSecond: Momentum get() = Momentum(bigDecimal)
 
 /**
  * Creates a [Resistivity] from this [Number] representing a resistivity in ohm metre,
@@ -585,7 +586,7 @@ val Number.pascals: Pressure get() = Pressure(bigDecimal)
  * Creates a [DynamicViscosity] from this [Number] representing a dynamic viscosity in pascal second,
  * the SI unit for dynamic viscosity.
  */
-val Number.pascalSecond: DynamicViscosity get() = DynamicViscosity(bigDecimal)
+val Number.pascalsSecond: DynamicViscosity get() = DynamicViscosity(bigDecimal)
 
 /**
  * Creates a [Velocity] from this [Number] representing a velocity in radian per second,
@@ -642,10 +643,16 @@ val Number.reciprocalHenries: MagneticReluctance get() = MagneticReluctance(bigD
 val Number.reciprocalKelvins: ThermalExpansionCoefficient get() = ThermalExpansionCoefficient(bigDecimal)
 
 /**
+ * Creates a [WaveNumber] from this [Number] representing a compressibility in reciprocal metres,
+ * the SI unit for compressibility.
+ */
+val Number.reciprocalMetres: WaveNumber get() = WaveNumber(bigDecimal)
+
+/**
  * Creates a [Compressibility] from this [Number] representing a compressibility in reciprocal pascal,
  * the SI unit for compressibility.
  */
-val Number.reciprocalPascal: Compressibility get() = Compressibility(bigDecimal)
+val Number.reciprocalPascals: Compressibility get() = Compressibility(bigDecimal)
 
 /**
  * Creates a [Time] from this [Number] representing a time in seconds,
@@ -681,7 +688,7 @@ val Number.sieverts: DoseEquivalent get() = DoseEquivalent(bigDecimal)
  * Creates a [KinematicViscosity] from this [Number] representing a kinematic viscosity in square metre per second,
  * the SI unit for kinematic viscosity.
  */
-val Number.squareMetrePerSecond: KinematicViscosity get() = KinematicViscosity(bigDecimal)
+val Number.squareMetresPerSecond: KinematicViscosity get() = KinematicViscosity(bigDecimal)
 
 /**
  * Creates a [ElectronMobility] from this [Number] representing an electron mobility in square metre per volt second,
@@ -729,13 +736,13 @@ val Number.volts: ElectricPotential get() = ElectricPotential(bigDecimal)
  * Creates a [SpectralIrradiance] from this [Number] representing a spectral irradiance in watt per cubic metre,
  * the SI unit for spectral irradiance.
  */
-val Number.wattPerCubicMetre: SpectralIrradiance get() = SpectralIrradiance(bigDecimal)
+val Number.wattsPerCubicMetre: SpectralIrradiance get() = SpectralIrradiance(bigDecimal)
 
 /**
  * Creates a [SpectralPower] from this [Number] representing a spectral power in watt per metre,
  * the SI unit for spectral power.
  */
-val Number.wattPerMetre: SpectralPower get() = SpectralPower(bigDecimal)
+val Number.wattsPerMetre: SpectralPower get() = SpectralPower(bigDecimal)
 
 /**
  * Creates a [ThermalConductivity] from this [Number] representing a thermal conductivity in watt per metre kelvin,
@@ -747,31 +754,31 @@ val Number.wattsPerMetreKelvin: ThermalConductivity get() = ThermalConductivity(
  * Creates a [HeatFluxDensity] from this [Number] representing a heat flux density in watt per square metre,
  * the SI unit for heat flux density.
  */
-val Number.wattPerSquareMetre: HeatFluxDensity get() = HeatFluxDensity(bigDecimal)
+val Number.wattsPerSquareMetre: HeatFluxDensity get() = HeatFluxDensity(bigDecimal)
 
 /**
  * Creates a [RadiantIntensity] from this [Number] representing a radiant intensity in watt per steradian,
  * the SI unit for radiant intensity.
  */
-val Number.wattPerSteradian: RadiantIntensity get() = RadiantIntensity(bigDecimal)
+val Number.wattsPerSteradian: RadiantIntensity get() = RadiantIntensity(bigDecimal)
 
 /**
  * Creates a [SpectralRadiance] from this [Number] representing a spectral radiance in watt per steradian cubic metre,
  * the SI unit for spectral radiance.
  */
-val Number.wattPerSteradianCubicMetre: SpectralRadiance get() = SpectralRadiance(bigDecimal)
+val Number.wattsPerSteradianCubicMetre: SpectralRadiance get() = SpectralRadiance(bigDecimal)
 
 /**
- * Creates a [Spectralntensity] from this [Number] representing a spectralntensity in watt per steradian metre,
+ * Creates a [SpectralIntensity] from this [Number] representing a spectralntensity in watt per steradian metre,
  * the SI unit for spectralntensity.
  */
-val Number.wattPerSteradianMetre: Spectralntensity get() = Spectralntensity(bigDecimal)
+val Number.wattPerSteradianMetre: SpectralIntensity get() = SpectralIntensity(bigDecimal)
 
 /**
  * Creates a [Radiance] from this [Number] representing a radiance in watt per steradian square metre,
  * the SI unit for radiance.
  */
-val Number.wattPerSteradianSquareMetre: Radiance get() = Radiance(bigDecimal)
+val Number.wattsPerSteradianSquareMetre: Radiance get() = Radiance(bigDecimal)
 
 /**
  * Creates a [Power] from this [Number] representing a power in watts,
