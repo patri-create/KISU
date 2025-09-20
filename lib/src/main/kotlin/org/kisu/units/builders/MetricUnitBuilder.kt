@@ -295,7 +295,7 @@ val MetricUnitBuilder.cubicMetresPerKilogram: SpecificVolume
  * val molarVolume = 1.milli.cubicMetrePerMole // 0.001 m³/mol
  * ```
  */
-val MetricUnitBuilder.cubicMetrePerMole: MolarVolume
+val MetricUnitBuilder.cubicMetresPerMole: MolarVolume
     get() = MolarVolume(magnitude, metric)
 
 /**
@@ -306,7 +306,7 @@ val MetricUnitBuilder.cubicMetrePerMole: MolarVolume
  * val catalyticEfficiency = 1.micro.cubicMetrePerMoleSecond // 1 * 10^-6 m³/(mol·s)
  * ```
  */
-val MetricUnitBuilder.cubicMetrePerMoleSecond: CatalyticEfficiency
+val MetricUnitBuilder.cubicMetresPerMoleSecond: CatalyticEfficiency
     get() = CatalyticEfficiency(magnitude, metric)
 
 /**
@@ -532,7 +532,7 @@ val MetricUnitBuilder.joulesPerKelvin: HeatCapacity
  * val molarHeatCapacity = 1.joulePerKelvinMole // 1 J/(K·mol)
  * ```
  */
-val MetricUnitBuilder.joulePerKelvinMole: MolarHeatCapacity
+val MetricUnitBuilder.joulesPerKelvinMole: MolarHeatCapacity
     get() = MolarHeatCapacity(magnitude, metric)
 
 /**
@@ -565,7 +565,7 @@ val MetricUnitBuilder.joulesPerKilogramKelvin: SpecificHeatCapacity
  * val molarEnergy = 1.kilo.joulePerMole // 1000 J/mol
  * ```
  */
-val MetricUnitBuilder.joulePerMole: MolarEnergy
+val MetricUnitBuilder.joulesPerMole: MolarEnergy
     get() = MolarEnergy(magnitude, metric)
 
 /**
@@ -591,14 +591,14 @@ val MetricUnitBuilder.joulesPerSquareMetreSecond: EnergyFluxDensity
     get() = EnergyFluxDensity(magnitude, metric)
 
 /**
- * Creates a [MagneticDipoleMoment] measure by applying the metric prefix scale to the magnitude.
+ * Creates an [MagneticDipoleMoment] measure by applying the metric prefix scale to the magnitude.
  *
  * Example usage:
  * ```
- * val dipoleMoment = 1.kilo.joulePerTesla // 1000 J/T
+ * val energyFlux = 1.kilo.joulesPerTesla // 1000 J/T
  * ```
  */
-val MetricUnitBuilder.joulePerTesla: MagneticDipoleMoment
+val MetricUnitBuilder.joulesPerTesla: MagneticDipoleMoment
     get() = MagneticDipoleMoment(magnitude, metric)
 
 /**
@@ -816,6 +816,16 @@ val MetricUnitBuilder.metresPerSecondSquared: Acceleration
 val MetricUnitBuilder.metres: Length get() = Length(magnitude, metric)
 
 /**
+ * Creates an [Amount] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val amount = 3.milli.moles // 3 * 10^-3 moles
+ * ```
+ */
+val MetricUnitBuilder.moles: Amount get() = Amount(magnitude, metric)
+
+/**
  * Creates a [Molarity] measure by applying the metric prefix scale to the magnitude.
  *
  * Example usage:
@@ -823,7 +833,7 @@ val MetricUnitBuilder.metres: Length get() = Length(magnitude, metric)
  * val molarity = 1.molePerCubicMetre // 1 mol/m³
  * ```
  */
-val MetricUnitBuilder.molePerCubicMetre: Molarity
+val MetricUnitBuilder.molesPerCubicMetre: Molarity
     get() = Molarity(magnitude, metric)
 
 /**
@@ -834,18 +844,8 @@ val MetricUnitBuilder.molePerCubicMetre: Molarity
  * val molality = 1.molPerKilogram // 1 mol/kg
  * ```
  */
-val MetricUnitBuilder.molPerKilogram: Molality
+val MetricUnitBuilder.molesPerKilogram: Molality
     get() = Molality(magnitude, metric)
-
-/**
- * Creates an [Amount] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val amount = 3.milli.moles // 3 * 10^-3 moles
- * ```
- */
-val MetricUnitBuilder.moles: Amount get() = Amount(magnitude, metric)
 
 /**
  * Creates an [AngularMomentum] measure by applying the metric prefix scale to the magnitude.

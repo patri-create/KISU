@@ -7,13 +7,13 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.joulePerKelvinMole
+import org.kisu.units.builders.joulesPerKelvinMole
 import org.kisu.units.chemistry.MolarHeatCapacity.Companion.JoulePerKelvinMole
 
 class MolarHeatCapacityTest : StringSpec({
     "creates a MolarHeatCapacity" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().joulePerKelvinMole.should { (amount, expression, symbol) ->
+            magnitude.builder().joulesPerKelvinMole.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerKelvinMole(magnitude.builder().metric)
                 symbol shouldBe JoulePerKelvinMole().toString()
@@ -23,7 +23,7 @@ class MolarHeatCapacityTest : StringSpec({
 
     "creates a base MolarHeatCapacity" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.joulePerKelvinMole.should { (amount, expression, symbol) ->
+            magnitude.joulesPerKelvinMole.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerKelvinMole()
                 symbol shouldBe JoulePerKelvinMole().toString()
