@@ -772,7 +772,7 @@ val Number.wattsPerSteradianCubicMetre: SpectralRadiance get() = SpectralRadianc
  * Creates a [SpectralIntensity] from this [Number] representing a spectralntensity in watt per steradian metre,
  * the SI unit for spectralntensity.
  */
-val Number.wattPerSteradianMetre: SpectralIntensity get() = SpectralIntensity(bigDecimal)
+val Number.wattsPerSteradianMetre: SpectralIntensity get() = SpectralIntensity(bigDecimal)
 
 /**
  * Creates a [Radiance] from this [Number] representing a radiance in watt per steradian square metre,

@@ -356,17 +356,6 @@ val MetricUnitBuilder.farads: Capacitance get() = Capacitance(magnitude, metric)
  *
  * Example usage:
  * ```
- * val yank = 1.kilo.gramMetre // 1 kg·m/s³
- * ```
- */
-val MetricUnitBuilder.gramMetre: Yank
-    get() = Yank(magnitude, metric)
-
-/**
- * Creates a [Yank] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
  * val yank = 1.kilo.gramMetreSecondThird // 1 kg·m/s³
  * ```
  */
@@ -383,16 +372,6 @@ val MetricUnitBuilder.gramsMetreSecondCubed: Yank
  */
 val MetricUnitBuilder.gramsPerCubicMetre: Density
     get() = Density(magnitude, metric)
-
-/**
- * Creates a [MolarMass] measure by applying the metric prefix scale to the magnitude.
- *
- * Example usage:
- * ```
- * val temp = 2.kilo.kelvins // 2 * 10^3 kelvins
- * ```
- */
-val MetricUnitBuilder.gramsPerMole: MolarMass get() = MolarMass(magnitude, metric)
 
 /**
  * Creates a [LinearMassDensity] measure by applying the metric prefix scale to the magnitude.
@@ -413,8 +392,7 @@ val MetricUnitBuilder.gramsPerMetre: LinearMassDensity
  * val molarMass = 1.kilo.gramPerMole // 1 kg/mol
  * ```
  */
-val MetricUnitBuilder.gramPerMole: MolarMass
-    get() = MolarMass(magnitude, metric)
+val MetricUnitBuilder.gramsPerMole: MolarMass get() = MolarMass(magnitude, metric)
 
 /**
  * Creates a [MassFlowRate] measure by applying the metric prefix scale to the magnitude.
@@ -1296,7 +1274,7 @@ val MetricUnitBuilder.wattsPerSteradianCubicMetre: SpectralRadiance
  * val spectralIntensity = 1.wattPerSteradianMetre // 1 W/(sr·m)
  * ```
  */
-val MetricUnitBuilder.wattPerSteradianMetre: SpectralIntensity
+val MetricUnitBuilder.wattsPerSteradianMetre: SpectralIntensity
     get() = SpectralIntensity(magnitude, metric)
 
 /**
