@@ -89,8 +89,7 @@ class Yank internal constructor(
          * @return A [Quotient] representing kg·m/s³.
          */
         @Suppress("FunctionNaming")
-        internal fun KilogramMetrePerSecondCubed(prefix: Metric = Metric.BASE):
-            Quotient<Product<Kilogram, Metre>, SecondCubed> =
+        internal fun KilogramMetrePerSecondCubed(prefix: Metric = Metric.BASE): KilogramMetrePerSecondCubed =
             Quotient(
                 Product(Kilogram(prefix), Metre()),
                 SecondCubed()

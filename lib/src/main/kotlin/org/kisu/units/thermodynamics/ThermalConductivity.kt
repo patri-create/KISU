@@ -75,7 +75,7 @@ class ThermalConductivity(
          * @return A [Quotient] representing W/(m·K).
          */
         @Suppress("FunctionNaming")
-        internal fun WattPerMetreKelvin(prefix: Metric = Metric.BASE): Quotient<Watt, Product<Metre, Kelvin>> =
+        internal fun WattPerMetreKelvin(prefix: Metric = Metric.BASE): WattPerMetreKelvin =
             Quotient(Watt(prefix), Product(Metre(), Kelvin()))
     }
 }

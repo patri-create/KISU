@@ -65,7 +65,7 @@ class FrequencyDrift internal constructor(
          * @return A [Quotient] representing Hz/s.
          */
         @Suppress("FunctionNaming")
-        internal fun HertzPerSecond(prefix: Metric = Metric.BASE): Quotient<Hertz, Second> =
+        internal fun HertzPerSecond(prefix: Metric = Metric.BASE): HertzPerSecond =
             Quotient(Hertz(prefix), Second())
     }
 }

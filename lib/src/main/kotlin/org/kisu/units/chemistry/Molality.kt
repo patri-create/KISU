@@ -13,7 +13,7 @@ import java.math.BigDecimal
  * Molality quantifies the **amount of substance of solute per unit mass of solvent**.
  * Unlike molarity, it does not depend on volume (and therefore is unaffected by temperature
  * or pressure changes), making it particularly useful in thermodynamic calculations.
- * Its SI unit is the **mole per kilogram (mol/kg)**, represented here by [MolPerKilogram].
+ * Its SI unit is the **mole per kilogram (mol/kg)**, represented here by [MolePerKilogram].
  *
  * Example usages include:
  * - Expressing the concentration of a solute in a solution
@@ -22,15 +22,15 @@ import java.math.BigDecimal
  *
  * The magnitude is stored as a [BigDecimal] to ensure high precision.
  * Instances of [Molality] are immutable, and the [expression] parameter ties
- * the measurement to its unit representation ([MolPerKilogram]).
+ * the measurement to its unit representation ([MolePerKilogram]).
  *
  * @property magnitude The numeric value of the molality.
- * @property expression The unit expression of the molality, always [MolPerKilogram].
+ * @property expression The unit expression of the molality, always [MolePerKilogram].
  */
 class Molality(
     magnitude: BigDecimal,
-    expression: MolPerKilogram
-) : Measure<Molality.MolPerKilogram, Molality>(magnitude, expression, ::Molality) {
+    expression: MolePerKilogram
+) : Measure<Molality.MolePerKilogram, Molality>(magnitude, expression, ::Molality) {
 
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, MolPerKilogram(prefix))
@@ -48,7 +48,7 @@ class Molality(
      *
      * @see Molality for the physical quantity represented by this unit.
      */
-    typealias MolPerKilogram = Quotient<Mole, Kilogram>
+    typealias MolePerKilogram = Quotient<Mole, Kilogram>
 
     companion object {
         /**
@@ -67,7 +67,7 @@ class Molality(
          * @return A [Quotient] representing mol/kg.
          */
         @Suppress("FunctionNaming")
-        internal fun MolPerKilogram(prefix: Metric = Metric.BASE): Quotient<Mole, Kilogram> =
+        internal fun MolPerKilogram(prefix: Metric = Metric.BASE): MolePerKilogram =
             Quotient(Mole(prefix), Kilogram())
     }
 }

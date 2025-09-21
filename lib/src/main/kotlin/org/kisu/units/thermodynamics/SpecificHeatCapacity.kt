@@ -76,7 +76,7 @@ class SpecificHeatCapacity(
          * @return A [Quotient] representing J/(kg·K).
          */
         @Suppress("FunctionNaming")
-        internal fun JoulePerKilogramKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Product<Kilogram, Kelvin>> =
+        internal fun JoulePerKilogramKelvin(prefix: Metric = Metric.BASE): JoulePerKilogramKelvin =
             Quotient(
                 Joule(),
                 Product(Kilogram(prefix), Kelvin())

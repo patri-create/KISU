@@ -64,7 +64,7 @@ class LuminousEnergy(
          * @return A [Product] representing lm·s.
          */
         @Suppress("FunctionNaming")
-        internal fun LumenSecond(prefix: Metric = Metric.BASE): Product<Lumen, Second> =
+        internal fun LumenSecond(prefix: Metric = Metric.BASE): LumenSecond =
             Product(Lumen(prefix), Second())
     }
 }

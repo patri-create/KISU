@@ -66,7 +66,7 @@ class Crackle internal constructor(
          * @return A [Quotient] representing rad/s⁵.
          */
         @Suppress("FunctionNaming")
-        internal fun RadianPerSecondFifth(prefix: Metric = Metric.BASE): Quotient<Radian, SecondFifth> =
+        internal fun RadianPerSecondFifth(prefix: Metric = Metric.BASE): RadianPerSecondFifth =
             Quotient(Radian(prefix), SecondFifth())
     }
 }

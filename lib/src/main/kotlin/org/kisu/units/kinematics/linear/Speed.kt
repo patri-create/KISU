@@ -60,7 +60,7 @@ class Speed(
          * @return A [Quotient] representing m/s.
          */
         @Suppress("FunctionNaming")
-        internal fun MetrePerSecond(prefix: Metric = Metric.BASE): Quotient<Metre, Second> =
+        internal fun MetrePerSecond(prefix: Metric = Metric.BASE): MetrePerSecond =
             Quotient(Metre(prefix), Second())
     }
 }

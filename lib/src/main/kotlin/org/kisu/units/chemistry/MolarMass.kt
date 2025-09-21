@@ -65,7 +65,7 @@ class MolarMass(
          * @return A [Quotient] representing kg/mol.
          */
         @Suppress("FunctionNaming")
-        internal fun KilogramPerMole(prefix: Metric = Metric.BASE): Quotient<Kilogram, Mole> =
+        internal fun KilogramPerMole(prefix: Metric = Metric.BASE): KilogramPerMole =
             Quotient(Kilogram(prefix), Mole())
     }
 }

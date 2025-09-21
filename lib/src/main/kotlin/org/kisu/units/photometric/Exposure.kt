@@ -64,7 +64,7 @@ class Exposure(
          * @return A [Product] representing lx·s.
          */
         @Suppress("FunctionNaming")
-        internal fun LuxSecond(prefix: Metric = Metric.BASE): Product<Lux, Second> =
+        internal fun LuxSecond(prefix: Metric = Metric.BASE): LuxSecond =
             Product(Lux(prefix), Second())
     }
 }

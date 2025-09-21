@@ -68,7 +68,7 @@ class MolarEnergy(
          * @return A [Quotient] representing J/mol.
          */
         @Suppress("FunctionNaming")
-        internal fun JoulePerMole(prefix: Metric = Metric.BASE): Quotient<Joule, Mole> =
+        internal fun JoulePerMole(prefix: Metric = Metric.BASE): JoulePerMole =
             Quotient(Joule(prefix), Mole())
     }
 }

@@ -8,7 +8,6 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.wattsPerSteradianMetre
-import org.kisu.units.kinematics.Yank.Companion.KilogramMetrePerSecondCubed
 import org.kisu.units.mechanics.SpectralIntensity.Companion.WattPerSteradianMetre
 
 class SpectralIntensityTest : StringSpec({

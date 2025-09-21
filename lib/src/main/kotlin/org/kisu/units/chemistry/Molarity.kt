@@ -66,7 +66,7 @@ class Molarity(
          * @return A [Quotient] representing mol/m³.
          */
         @Suppress("FunctionNaming")
-        internal fun MolePerCubicMetre(prefix: Metric = Metric.BASE): Quotient<Mole, CubicMetre> =
+        internal fun MolePerCubicMetre(prefix: Metric = Metric.BASE): MolePerCubicMetre =
             Quotient(Mole(prefix), CubicMetre())
     }
 }

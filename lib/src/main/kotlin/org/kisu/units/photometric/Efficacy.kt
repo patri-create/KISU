@@ -61,7 +61,7 @@ class Efficacy(
          * @return A [Quotient] representing lm/W.
          */
         @Suppress("FunctionNaming")
-        internal fun LumenPerWatt(prefix: Metric = Metric.BASE): Quotient<Lumen, Watt> =
+        internal fun LumenPerWatt(prefix: Metric = Metric.BASE): LumenPerWatt =
             Quotient(Lumen(prefix), Watt())
     }
 }

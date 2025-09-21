@@ -65,7 +65,7 @@ class Snap(
          * @return A [Quotient] representing m/s⁴.
          */
         @Suppress("FunctionNaming")
-        internal fun MetrePerSecondFourth(prefix: Metric = Metric.BASE): Quotient<Metre, SecondFourth> =
+        internal fun MetrePerSecondFourth(prefix: Metric = Metric.BASE): MetrePerSecondFourth =
             Quotient(Metre(prefix), SecondFourth())
     }
 }
