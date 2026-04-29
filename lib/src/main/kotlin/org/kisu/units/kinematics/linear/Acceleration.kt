@@ -64,7 +64,7 @@ class Acceleration(
          * @return A [Quotient] representing m/s².
          */
         @Suppress("FunctionNaming")
-        internal fun MetrePerSecondSquared(prefix: Metric = Metric.BASE): Quotient<Metre, SecondSquared> =
+        internal fun MetrePerSecondSquared(prefix: Metric = Metric.BASE): MetrePerSecondSquared =
             Quotient(Metre(prefix), SecondSquared())
     }
 }

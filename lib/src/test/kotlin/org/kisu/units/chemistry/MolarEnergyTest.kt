@@ -7,13 +7,13 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.joulePerMole
+import org.kisu.units.builders.joulesPerMole
 import org.kisu.units.chemistry.MolarEnergy.Companion.JoulePerMole
 
 class MolarEnergyTest : StringSpec({
     "creates a MolarEnergy" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().joulePerMole.should { (amount, expression, symbol) ->
+            magnitude.builder().joulesPerMole.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerMole(magnitude.builder().metric)
                 symbol shouldBe JoulePerMole().toString()
@@ -23,7 +23,7 @@ class MolarEnergyTest : StringSpec({
 
     "creates a base MolarEnergy" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.joulePerMole.should { (amount, expression, symbol) ->
+            magnitude.joulesPerMole.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerMole()
                 symbol shouldBe JoulePerMole().toString()

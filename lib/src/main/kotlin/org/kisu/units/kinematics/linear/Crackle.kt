@@ -65,7 +65,7 @@ class Crackle internal constructor(
          * @return A [Quotient] representing m/s⁵.
          */
         @Suppress("FunctionNaming")
-        internal fun MetrePerSecondFifth(prefix: Metric = Metric.BASE): Quotient<Metre, SecondFifth> =
+        internal fun MetrePerSecondFifth(prefix: Metric = Metric.BASE): MetrePerSecondFifth =
             Quotient(Metre(prefix), SecondFifth())
     }
 }

@@ -211,6 +211,12 @@ val Number.coulombsPerSquareMetre: ElectricDisplacementField get() = ElectricDis
 val Number.coulombs: ElectricCharge get() = ElectricCharge(bigDecimal)
 
 /**
+ * Creates a [Volume] from this [Number] representing a volume in cubic metres,
+ * the SI unit for volume.
+ */
+val Number.cubicMetres: Volume get() = Volume(bigDecimal)
+
+/**
  * Creates a [SpecificVolume] from this [Number] representing a specific volume in cubic metre per kilogram,
  * the SI unit for specific volume.
  */
@@ -220,25 +226,19 @@ val Number.cubicMetresPerKilogram: SpecificVolume get() = SpecificVolume(bigDeci
  * Creates a [MolarVolume] from this [Number] representing a molar volume in cubic metre per mole,
  * the SI unit for molar volume.
  */
-val Number.cubicMetrePerMole: MolarVolume get() = MolarVolume(bigDecimal)
+val Number.cubicMetresPerMole: MolarVolume get() = MolarVolume(bigDecimal)
 
 /**
  * Creates a [CatalyticEfficiency] from this [Number] representing a catalytic efficiency in cubic metre per mole
  * second, the SI unit for catalytic efficiency.
  */
-val Number.cubicMetrePerMoleSecond: CatalyticEfficiency get() = CatalyticEfficiency(bigDecimal)
+val Number.cubicMetresPerMoleSecond: CatalyticEfficiency get() = CatalyticEfficiency(bigDecimal)
 
 /**
  * Creates a [VolumetricFlow] from this [Number] representing a volumetric flow in cubic metre per second,
  * the SI unit for volumetric flow.
  */
 val Number.cubicMetresPerSecond: VolumetricFlow get() = VolumetricFlow(bigDecimal)
-
-/**
- * Creates a [Volume] from this [Number] representing a volume in cubic metres,
- * the SI unit for volume.
- */
-val Number.cubicMetres: Volume get() = Volume(bigDecimal)
 
 /**
  * Creates a [Permittivity] from this [Number] representing a permittivity in farad per metre,
@@ -251,12 +251,6 @@ val Number.faradsPerMetre: Permittivity get() = Permittivity(bigDecimal)
  * the SI unit for capacitance.
  */
 val Number.farads: Capacitance get() = Capacitance(bigDecimal)
-
-/**
- * Creates a [Yank] from this [Number] representing a yank in gram metre,
- * the SI unit for yank.
- */
-val Number.gramMetre: Yank get() = Yank(bigDecimal)
 
 /**
  * Creates a [Yank] from this [Number] representing a yank in gram metre second third,
@@ -358,7 +352,7 @@ val Number.joulesPerKelvin: HeatCapacity get() = HeatCapacity(bigDecimal)
  * Creates a [MolarHeatCapacity] from this [Number] representing a molar heat capacity in joule per kelvin mole,
  * the SI unit for molar heat capacity.
  */
-val Number.joulePerKelvinMole: MolarHeatCapacity get() = MolarHeatCapacity(bigDecimal)
+val Number.joulesPerKelvinMole: MolarHeatCapacity get() = MolarHeatCapacity(bigDecimal)
 
 /**
  * Creates a [SpecificEnergy] from this [Number] representing a specific energy in joule per kilogram,
@@ -376,7 +370,7 @@ val Number.joulesPerKilogramKelvin: SpecificHeatCapacity get() = SpecificHeatCap
  * Creates a [MolarEnergy] from this [Number] representing a molar energy in joule per mole,
  * the SI unit for molar energy.
  */
-val Number.joulePerMole: MolarEnergy get() = MolarEnergy(bigDecimal)
+val Number.joulesPerMole: MolarEnergy get() = MolarEnergy(bigDecimal)
 
 /**
  * Creates a [RadiantExposure] from this [Number] representing a radiant exposure in joule per square metre,
@@ -394,7 +388,7 @@ val Number.joulesPerSquareMetreSecond: EnergyFluxDensity get() = EnergyFluxDensi
  * Creates a [MagneticDipoleMoment] from this [Number] representing a magnetic dipole moment in joule per tesla,
  * the SI unit for magnetic dipole moment.
  */
-val Number.joulePerTesla: MagneticDipoleMoment get() = MagneticDipoleMoment(bigDecimal)
+val Number.joulesPerTesla: MagneticDipoleMoment get() = MagneticDipoleMoment(bigDecimal)
 
 /**
  * Creates a [Energy] from this [Number] representing an energy in joules,
@@ -520,7 +514,7 @@ val Number.metres: Length get() = Length(bigDecimal)
  * Creates a [Molarity] from this [Number] representing a molarity in mole per cubic metre,
  * the SI unit for molarity.
  */
-val Number.molePerCubicMetre: Molarity get() = Molarity(bigDecimal)
+val Number.molesPerCubicMetre: Molarity get() = Molarity(bigDecimal)
 
 /**
  * Creates a [Amount] from this [Number] representing an amount in moles,
@@ -532,7 +526,7 @@ val Number.moles: Amount get() = Amount(bigDecimal)
  * Creates a [Molality] from this [Number] representing a molality in mol per kilogram,
  * the SI unit for molality.
  */
-val Number.molPerKilogram: Molality get() = Molality(bigDecimal)
+val Number.molesPerKilogram: Molality get() = Molality(bigDecimal)
 
 /**
  * Creates a [AngularMomentum] from this [Number] representing an angular momentum in newton meter second,
@@ -772,7 +766,7 @@ val Number.wattsPerSteradianCubicMetre: SpectralRadiance get() = SpectralRadianc
  * Creates a [SpectralIntensity] from this [Number] representing a spectralntensity in watt per steradian metre,
  * the SI unit for spectralntensity.
  */
-val Number.wattPerSteradianMetre: SpectralIntensity get() = SpectralIntensity(bigDecimal)
+val Number.wattsPerSteradianMetre: SpectralIntensity get() = SpectralIntensity(bigDecimal)
 
 /**
  * Creates a [Radiance] from this [Number] representing a radiance in watt per steradian square metre,

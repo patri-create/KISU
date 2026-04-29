@@ -66,7 +66,7 @@ class Luminance(
          * @return A [Quotient] representing cd/m².
          */
         @Suppress("FunctionNaming")
-        internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): Quotient<Candela, SquareMetre> =
+        internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): CandelaPerSquareMetre =
             Quotient(Candela(prefix), SquareMetre())
     }
 }

@@ -66,7 +66,7 @@ class MolarVolume(
          * @return A [Quotient] representing m³/mol.
          */
         @Suppress("FunctionNaming")
-        internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): Quotient<CubicMetre, Mole> =
+        internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): CubicMetrePerMole =
             Quotient(CubicMetre(prefix), Mole())
     }
 }

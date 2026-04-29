@@ -64,7 +64,7 @@ class Pop internal constructor(
          * @return A [Quotient] representing m/s⁶.
          */
         @Suppress("FunctionNaming")
-        internal fun MetrePerSecondSixth(prefix: Metric = Metric.BASE): Quotient<Metre, SecondSixth> =
+        internal fun MetrePerSecondSixth(prefix: Metric = Metric.BASE): MetrePerSecondSixth =
             Quotient(Metre(prefix), SecondSixth())
     }
 }

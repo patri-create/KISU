@@ -67,7 +67,7 @@ class ThermalResistance(
          * @return A [Quotient] representing K/W.
          */
         @Suppress("FunctionNaming")
-        internal fun KelvinPerWatt(prefix: Metric = Metric.BASE): Quotient<Kelvin, Watt> =
+        internal fun KelvinPerWatt(prefix: Metric = Metric.BASE): KelvinPerWatt =
             Quotient(Kelvin(prefix), Watt())
     }
 }

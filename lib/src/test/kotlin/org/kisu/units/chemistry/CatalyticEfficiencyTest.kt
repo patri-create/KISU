@@ -7,13 +7,13 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.cubicMetrePerMoleSecond
+import org.kisu.units.builders.cubicMetresPerMoleSecond
 import org.kisu.units.chemistry.CatalyticEfficiency.Companion.CubicMetrePerMoleSecond
 
 class CatalyticEfficiencyTest : StringSpec({
     "creates a CatalyticEfficiency" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().cubicMetrePerMoleSecond.should { (amount, expression, symbol) ->
+            magnitude.builder().cubicMetresPerMoleSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetrePerMoleSecond(magnitude.builder().metric)
                 symbol shouldBe CubicMetrePerMoleSecond().toString()
@@ -23,7 +23,7 @@ class CatalyticEfficiencyTest : StringSpec({
 
     "creates a base CatalyticEfficiency" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.cubicMetrePerMoleSecond.should { (amount, expression, symbol) ->
+            magnitude.cubicMetresPerMoleSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetrePerMoleSecond()
                 symbol shouldBe CubicMetrePerMoleSecond().toString()

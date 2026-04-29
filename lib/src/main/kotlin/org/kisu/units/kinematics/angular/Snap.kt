@@ -65,7 +65,7 @@ class Snap(
          * @return A [Quotient] representing rad/s⁴.
          */
         @Suppress("FunctionNaming")
-        internal fun RadianPerSecondFourth(prefix: Metric = Metric.BASE): Quotient<Radian, SecondFourth> =
+        internal fun RadianPerSecondFourth(prefix: Metric = Metric.BASE): RadianPerSecondFourth =
             Quotient(Radian(prefix), SecondFourth())
     }
 }

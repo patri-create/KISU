@@ -64,7 +64,7 @@ class Velocity(
          * @return A [Quotient] representing rad/s.
          */
         @Suppress("FunctionNaming")
-        internal fun RadianPerSecond(prefix: Metric = Metric.BASE): Quotient<Radian, Second> =
+        internal fun RadianPerSecond(prefix: Metric = Metric.BASE): RadianPerSecond =
             Quotient(Radian(prefix), Second())
     }
 }

@@ -69,7 +69,7 @@ class TemperatureGradient(
          * @return A [Quotient] representing K/m.
          */
         @Suppress("FunctionNaming")
-        internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): Quotient<Kelvin, Metre> =
+        internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): KelvinPerMetre =
             Quotient(Kelvin(prefix), Metre())
     }
 }

@@ -65,7 +65,7 @@ class HeatCapacity(
          * @return A [Quotient] representing J/K.
          */
         @Suppress("FunctionNaming")
-        internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): Quotient<Joule, Kelvin> =
+        internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): JoulePerKelvin =
             Quotient(Joule(prefix), Kelvin())
     }
 }

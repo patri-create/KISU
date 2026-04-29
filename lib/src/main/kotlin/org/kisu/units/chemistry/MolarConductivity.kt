@@ -84,7 +84,7 @@ class MolarConductivity(
         @Suppress("FunctionNaming")
         internal fun SiemensSquareMetrePerMole(
             prefix: Metric = Metric.BASE
-        ): Quotient<Product<Siemens, SquareMetre>, Mole> =
+        ): SiemensSquareMetrePerMole =
             Quotient(
                 Product(Siemens(prefix), SquareMetre()),
                 Mole()

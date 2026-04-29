@@ -64,7 +64,7 @@ class VolumetricFlow internal constructor(
          * @return A [Quotient] representing m³/s.
          */
         @Suppress("FunctionNaming")
-        internal fun CubicMetrePerSecond(prefix: Metric = Metric.BASE): Quotient<CubicMetre, Second> =
+        internal fun CubicMetrePerSecond(prefix: Metric = Metric.BASE): CubicMetrePerSecond =
             Quotient(CubicMetre(prefix), Second())
     }
 }

@@ -65,7 +65,7 @@ class Jerk(
          * @return A [Quotient] representing m/s³.
          */
         @Suppress("FunctionNaming")
-        internal fun MetrePerSecondCubed(prefix: Metric = Metric.BASE): Quotient<Metre, SecondCubed> =
+        internal fun MetrePerSecondCubed(prefix: Metric = Metric.BASE): MetrePerSecondCubed =
             Quotient(Metre(prefix), SecondCubed())
     }
 }

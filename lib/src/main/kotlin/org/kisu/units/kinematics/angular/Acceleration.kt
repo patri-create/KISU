@@ -64,7 +64,7 @@ class Acceleration(
          * @return A [Quotient] representing rad/s².
          */
         @Suppress("FunctionNaming")
-        internal fun RadianPerSecondSquared(prefix: Metric = Metric.BASE): Quotient<Radian, SecondSquared> =
+        internal fun RadianPerSecondSquared(prefix: Metric = Metric.BASE): RadianPerSecondSquared =
             Quotient(Radian(prefix), SecondSquared())
     }
 }

@@ -7,13 +7,13 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
-import org.kisu.units.builders.molPerKilogram
+import org.kisu.units.builders.molesPerKilogram
 import org.kisu.units.chemistry.Molality.Companion.MolPerKilogram
 
 class MolalityTest : StringSpec({
     "creates a Molality" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
-            magnitude.builder().molPerKilogram.should { (amount, expression, symbol) ->
+            magnitude.builder().molesPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe MolPerKilogram(magnitude.builder().metric)
                 symbol shouldBe MolPerKilogram().toString()
@@ -23,7 +23,7 @@ class MolalityTest : StringSpec({
 
     "creates a base Molality" {
         checkAll(Arb.bigDecimal()) { magnitude ->
-            magnitude.molPerKilogram.should { (amount, expression, symbol) ->
+            magnitude.molesPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe MolPerKilogram()
                 symbol shouldBe MolPerKilogram().toString()

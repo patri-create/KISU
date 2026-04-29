@@ -65,7 +65,7 @@ class Jerk(
          * @return A [Quotient] representing rad/s³.
          */
         @Suppress("FunctionNaming")
-        internal fun RadianPerSecondCubed(prefix: Metric = Metric.BASE): Quotient<Radian, SecondCubed> =
+        internal fun RadianPerSecondCubed(prefix: Metric = Metric.BASE): RadianPerSecondCubed =
             Quotient(Radian(prefix), SecondCubed())
     }
 }

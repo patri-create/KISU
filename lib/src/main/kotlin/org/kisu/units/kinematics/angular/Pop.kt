@@ -66,7 +66,7 @@ class Pop internal constructor(
          * @return A [Quotient] representing rad/s⁶.
          */
         @Suppress("FunctionNaming")
-        internal fun RadianPerSecondSixth(prefix: Metric = Metric.BASE): Quotient<Radian, SecondSixth> =
+        internal fun RadianPerSecondSixth(prefix: Metric = Metric.BASE): RadianPerSecondSixth =
             Quotient(Radian(prefix), SecondSixth())
     }
 }

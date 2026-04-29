@@ -76,7 +76,7 @@ class MolarHeatCapacity(
          * @return A [Quotient] representing J/(K·mol).
          */
         @Suppress("FunctionNaming")
-        internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): Quotient<Joule, Product<Kelvin, Mole>> =
+        internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): JoulePerKelvinMole =
             Quotient(
                 Joule(prefix),
                 Product(Kelvin(), Mole())
