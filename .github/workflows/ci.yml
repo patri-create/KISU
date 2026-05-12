@@ -34,13 +34,21 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build and test
-        run: ./gradlew build
+        run: ./gradlew :lib:build
 
       - name: Generate coverage report
-        run: ./gradlew jacocoTestReport
+        run: ./gradlew :lib:jacocoTestReport
+
+      - name: Verify coverage report output
+        run: |
+          test -f lib/build/reports/jacoco/test/html/index.html || {
+            echo "Expected JaCoCo HTML report at lib/build/reports/jacoco/test/html/index.html"
+            exit 1
+          }
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: feature-coverage-report
-          path: build/reports/jacoco/test/html
+          path: lib/build/reports/jacoco/test/html
+          if-no-files-found: error

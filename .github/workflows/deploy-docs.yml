@@ -22,7 +22,14 @@ jobs:
           java-version: 19
 
       - name: Generate Dokka docs
-        run: ./gradlew dokkaGenerate
+        run: ./gradlew :lib:dokkaGenerate
+
+      - name: Verify Dokka output
+        run: |
+          test -f lib/build/docs/index.html || {
+            echo "Expected Dokka HTML docs at lib/build/docs/index.html"
+            exit 1
+          }
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
