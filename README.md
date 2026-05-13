@@ -82,30 +82,40 @@ That work is tracked in the roadmap for milestone `0.3.0`.
 - `.github/workflows/`: CI, docs deployment, and dependency review
 - GitHub milestones and issues: execution roadmap and backlog
 
+## Toolchain
+
+KISU currently builds and tests against Java 25 and Kotlin 2.3.x.
+
+- CI uses Temurin JDK 25 in every workflow
+- the Gradle wrapper is the supported entrypoint for local builds
+- the Gradle toolchain configuration can provision the required JDK automatically when it is not installed locally
+
+If you do have a local JDK installed, prefer JDK 25 so local execution matches CI directly.
+
 ## Build
 
 From the repository root:
 
 ```bash
-./gradlew build
+./gradlew :lib:build
 ```
 
 Run tests:
 
 ```bash
-./gradlew test
+./gradlew :lib:test
 ```
 
 Generate API docs with Dokka:
 
 ```bash
-./gradlew dokkaGenerate
+./gradlew :lib:dokkaGenerate
 ```
 
 Static analysis:
 
 ```bash
-./gradlew detekt
+./gradlew :lib:detekt
 ```
 
 ## Installation
