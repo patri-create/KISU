@@ -93,15 +93,12 @@ class Quotient<A, B>(
      * The result is a normalized set that simplifies expressions like `m / m` (cancelled) or `m / s²`
      * (resulting in `m·s⁻²`).
      */
-    @Suppress("UNCHECKED_CAST")
     override val factors: Set<Scalar<*, *>> by lazy {
         val numerators = numerator.factors
         val denominators = denominator.factors
 
         val matcher: Matcher<Scalar<*, *>> = { other -> this.unit == other.unit }
-        val merger: Merger<Scalar<*, *>> = { other ->
-            ((this as Scalar<Any, Any>) - (other as Scalar<Any, Any>)) as Scalar<Any, Any>
-        }
+        val merger: Merger<Scalar<*, *>> = { other -> subtractErased(other) }
 
         val intersected = numerators.intersect(denominators, matcher, merger)
 

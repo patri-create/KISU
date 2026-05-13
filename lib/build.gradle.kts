@@ -1,5 +1,5 @@
 import dev.detekt.gradle.Detekt
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
     kotlin("jvm")
@@ -41,10 +41,10 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(19)
+    jvmToolchain(25)
     compilerOptions {
-        freeCompilerArgs.add("-Xnested-type-aliases")
-        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_2)
+        apiVersion.set(KotlinVersion.KOTLIN_2_3)
+        languageVersion.set(KotlinVersion.KOTLIN_2_3)
     }
 }
 
@@ -60,9 +60,4 @@ dokka {
             footerMessage.set("(c) Sefford & Patri-create 2025")
         }
     }
-}
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.compilerOptions {
-    freeCompilerArgs.set(listOf("-Xnested-type-aliases"))
 }

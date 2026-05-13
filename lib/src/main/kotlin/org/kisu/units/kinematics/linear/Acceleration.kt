@@ -36,7 +36,7 @@ class Acceleration(
      *
      * Example usages include:
      * - Describing the acceleration of vehicles, projectiles, or objects in free fall
-     * - Calculating forces in Newtonian mechanics using [Newton] = kg·m/s²
+     * - Calculating forces in Newtonian mechanics using [org.kisu.units.special.Newton] = kg·m/s²
      * - Analysing motion in physics and engineering contexts
      *
      * @see Acceleration

@@ -1,21 +1,17 @@
 package org.kisu
 
 /**
- * A function type that determines whether the receiver is considered equal to the [other] value.
+ * A function type that determines whether the receiver is considered equal to the `other` value.
  *
  * @param T the type of elements being compared
- * @receiver the current element to compare
- * @param other the element to compare against
  * @return `true` if the elements are considered equal, `false` otherwise
  */
 typealias Matcher<T> = T.(T) -> Boolean
 
 /**
- * A function type that merges the receiver with the [other] value into a single result.
+ * A function type that merges the receiver with the `other` value into a single result.
  *
  * @param T the type of elements being merged
- * @receiver the current element to merge
- * @param other the element to merge with
  * @return the merged result
  */
 typealias Merger<T> = T.(T) -> T

@@ -1,9 +1,9 @@
 [versions]
 detekt = "2.0.0-alpha.3"
-dokka = "2.0.0"
-jacoco = "0.8.13"
+dokka = "2.2.0"
+jacoco = "0.8.14"
 klint = "14.2.0"
-kotest = "6.0.2"
+kotest = "6.1.11"
 
 [plugins]
 detekt = { id = "dev.detekt", version.ref = "detekt"}
