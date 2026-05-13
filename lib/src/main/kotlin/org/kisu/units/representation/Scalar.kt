@@ -97,6 +97,18 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
         return create(prefix, this.overflow * overflow, unit * other.unit)
     }
 
+    internal fun addErased(other: Scalar<*, *>): Scalar<*, *> = self + requireSameFamily(other)
+
+    internal fun subtractErased(other: Scalar<*, *>): Scalar<*, *> = self - requireSameFamily(other)
+
+    @Suppress("UNCHECKED_CAST")
+    private fun requireSameFamily(other: Scalar<*, *>): Self {
+        require(this::class == other::class) {
+            "Cannot combine scalar families: ${this::class.qualifiedName} vs ${other::class.qualifiedName}"
+        }
+        return other as Self
+    }
+
     /**
      * Divides this scalar expression by [other] within the same scalar family.
      *

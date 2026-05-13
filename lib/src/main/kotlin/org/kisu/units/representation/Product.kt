@@ -70,12 +70,7 @@ class Product<A, B>(
             .plus(right.factors)
             .filter { !it.zero }
             .groupBy { factor -> factor.symbol }
-            .map { (_, group) ->
-                @Suppress("UNCHECKED_CAST")
-                val castedGroup = group as List<Scalar<Any, Any>>
-                @Suppress("UNCHECKED_CAST")
-                castedGroup.reduce { a, b -> (a + b) as Scalar<Any, Any> }
-            }
+            .map { (_, group) -> group.reduce(Scalar<*, *>::addErased) }
             .filter { !it.zero }
             .toSet()
     }
