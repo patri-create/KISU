@@ -1,4 +1,4 @@
-import io.gitlab.arturbosch.detekt.Detekt
+import dev.detekt.gradle.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -21,10 +21,10 @@ detekt {
 
 tasks.withType<Detekt>().configureEach {
     reports {
-        xml.required.set(true)
+        checkstyle.required.set(true)
         html.required.set(true)
         sarif.required.set(true)
-        md.required.set(true)
+        markdown.required.set(true)
     }
 }
 
