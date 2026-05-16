@@ -19,19 +19,19 @@ import java.math.BigDecimal
  *
  * The associated unit representation is [KilogramSquareMetre] (`kg·m²`).
  */
-class MomentOfIntertia(
+class MomentOfInertia(
     magnitude: BigDecimal,
     expression: KilogramSquareMetre
-) : Measure<MomentOfIntertia.KilogramSquareMetre, MomentOfIntertia>(
+) : Measure<MomentOfInertia.KilogramSquareMetre, MomentOfInertia>(
     magnitude = magnitude,
     expression = expression,
-    create = ::MomentOfIntertia
+    create = ::MomentOfInertia
 ) {
     internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramSquareMetre(prefix))
 
     /**
-     * Unit of [MomentOfIntertia].
+     * Unit of [MomentOfInertia].
      *
      * Represents the unit of **moment of inertia**, i.e., the physical quantity measuring
      * an object's resistance to rotational acceleration about an axis.
@@ -39,7 +39,7 @@ class MomentOfIntertia(
      * Symbol: `kg·m²`
      * SI: `kg·m²`
      *
-     * @see MomentOfIntertia
+     * @see MomentOfInertia
      */
     typealias KilogramSquareMetre = Product<Kilogram, SquareMetre>
 

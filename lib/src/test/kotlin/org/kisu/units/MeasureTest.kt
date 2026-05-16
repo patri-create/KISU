@@ -76,7 +76,7 @@ class MeasureTest : StringSpec({
         }
     }
 
-    "renders literal when the magnitude is not zero" {
+    "renders representation when the magnitude is not zero" {
         checkAll(nonZeroMagnitudes, prefixes) { magnitude, prefix ->
             TestMeasure(
                 magnitude,
@@ -85,7 +85,7 @@ class MeasureTest : StringSpec({
         }
     }
 
-    "renders literal when the magnitude is zero" {
+    "renders representation when the magnitude is zero" {
         checkAll(prefixes) { prefix ->
             TestMeasure(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.UNIT}"
         }
@@ -130,7 +130,7 @@ class MeasureTest : StringSpec({
         }
     }
 
-    "representation is the optimal representation" {
+    "toString is the optimal representation" {
         checkAll(measures) { measure ->
             measure.optimal.representation shouldBe measure.toString()
         }

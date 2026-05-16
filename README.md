@@ -34,7 +34,7 @@ val total = distance + shorter
 
 println(distance.representation) // 3 km
 println(distance.canonical)      // 3000 m
-println(total)                   // optimal representation
+println(total)                   // 3.25 km
 println(time.representation)     // 90 s
 ```
 
@@ -59,6 +59,16 @@ import org.kisu.units.builders.squareMetres
 val width = 12.metres
 val area = 24.squareMetres
 ```
+
+## Measure Semantics
+
+- `representation` is the stored value and stored unit, without rescaling
+- `canonical` is the same quantity normalized to the type's canonical unit
+- `optimal` is the human-friendly measure form used by `toString()`
+
+Two non-obvious cases are worth calling out:
+- `Kilogram` normalizes through `g` internally so metric prefix arithmetic stays coherent, but its public canonical form is still `kg`
+- `Information` is canonical in `bit`, so fractional prefixed values are only valid when they still resolve to a whole number of bits
 
 ## What KISU Focuses On
 

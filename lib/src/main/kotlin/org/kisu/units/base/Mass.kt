@@ -35,8 +35,8 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
  *
  * The kilogram (kg) is the SI base unit for mass.
  *
- * Internally, this class normalizes to grams (g) so that metric
- * prefixes work consistently:
+ * Internally, this scalar normalizes through grams (`g`) so metric prefixes work consistently,
+ * while the public canonical symbol remains `kg`:
  * - Kilogram(Metric.BASE) = 1 kg
  * - Kilogram(Metric.KILO) = 1 Mg
  * - Kilogram(Metric.MILLI) = 1 g
@@ -52,6 +52,7 @@ class Kilogram private constructor(
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix * Metric.KILO)
 
+    /** The public canonical mass unit is always kilogram (`kg`). */
     override val canonical: Kilogram by lazy { Kilogram() }
 
     companion object {
