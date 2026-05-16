@@ -1,0 +1,124 @@
+name: Bump Library Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version segment to increment"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      kind:
+        description: "Whether the result should be a release or snapshot version"
+        required: true
+        default: snapshot
+        type: choice
+        options:
+          - snapshot
+          - release
+      base_branch:
+        description: "Branch to open the version bump PR against"
+        required: false
+        default: "main"
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.base_branch }}
+
+      - name: Compute next version
+        id: version
+        env:
+          BUMP: ${{ inputs.bump }}
+          KIND: ${{ inputs.kind }}
+        run: |
+          current_version="$(grep '^VERSION_NAME=' gradle.properties | cut -d= -f2)"
+          base_version="${current_version%-SNAPSHOT}"
+
+          if [[ ! "$base_version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            echo "Current VERSION_NAME must match MAJOR.MINOR.PATCH or MAJOR.MINOR.PATCH-SNAPSHOT"
+            exit 1
+          fi
+
+          major="${BASH_REMATCH[1]}"
+          minor="${BASH_REMATCH[2]}"
+          patch="${BASH_REMATCH[3]}"
+
+          case "$BUMP" in
+            major)
+              major=$((major + 1))
+              minor=0
+              patch=0
+              ;;
+            minor)
+              minor=$((minor + 1))
+              patch=0
+              ;;
+            patch)
+              patch=$((patch + 1))
+              ;;
+            *)
+              echo "Unsupported bump type: $BUMP"
+              exit 1
+              ;;
+          esac
+
+          next_version="$major.$minor.$patch"
+          if [[ "$KIND" == "snapshot" ]]; then
+            next_version="$next_version-SNAPSHOT"
+          fi
+
+          echo "current_version=$current_version" >> "$GITHUB_OUTPUT"
+          echo "next_version=$next_version" >> "$GITHUB_OUTPUT"
+
+      - name: Update VERSION_NAME in gradle.properties
+        env:
+          VERSION: ${{ steps.version.outputs.next_version }}
+        run: |
+          sed -i "s/^VERSION_NAME=.*/VERSION_NAME=$VERSION/" gradle.properties
+          grep '^VERSION_NAME=' gradle.properties
+
+      - name: Create version bump pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/bump-version-${{ steps.version.outputs.next_version }}
+          base: ${{ inputs.base_branch }}
+          title: "Bump library version to ${{ steps.version.outputs.next_version }}"
+          commit-message: "Bump library version to ${{ steps.version.outputs.next_version }}"
+          body: |
+            ## 🐞 Problem to Solve
+
+            KISU needs a controlled way to move the published library version forward without editing `main` directly during release preparation.
+
+            ## 💡 Solution
+
+            - computes the next version from `${{ steps.version.outputs.current_version }}` using a `${{ inputs.bump }}` bump and a `${{ inputs.kind }}` target
+            - updates `VERSION_NAME` in `gradle.properties` to `${{ steps.version.outputs.next_version }}`
+            - keeps version changes behind a pull request instead of a direct push
+            - relies on `workflow_dispatch`, so only repository users with permission to run Actions can perform the bump
+
+            ## 🧪 Proof
+
+            - workflow parsed the current version and generated the next version before creating this PR
+
+            ---
+
+            ✅ **Checklist**
+
+            - [x] The PR includes a clear and descriptive title
+            - [x] Related issue(s) are linked in the PR body
+            - [x] The solution is explained thoroughly
+            - [x] Tests or proofs are included
