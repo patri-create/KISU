@@ -62,7 +62,7 @@ import org.kisu.units.mechanics.HeatFluxDensity
 import org.kisu.units.mechanics.KinematicViscosity
 import org.kisu.units.mechanics.LinearMassDensity
 import org.kisu.units.mechanics.MassFlowRate
-import org.kisu.units.mechanics.MomentOfIntertia
+import org.kisu.units.mechanics.MomentOfInertia
 import org.kisu.units.mechanics.Momentum
 import org.kisu.units.mechanics.Radiance
 import org.kisu.units.mechanics.RadiantExposure
@@ -295,10 +295,9 @@ val Number.gramsPerSquareMetre: AreaDensity get() = AreaDensity(bigDecimal)
 val Number.grams: Mass get() = Mass(bigDecimal, Metric.BASE)
 
 /**
- * Creates a [MomentOfIntertia] from this [Number] representing a moment of intertia in gram square metre,
- * the SI unit for moment of intertia.
+ * Creates a [MomentOfInertia] from this [Number] representing a moment of inertia in gram square metre.
  */
-val Number.gramsSquareMetre: MomentOfIntertia get() = MomentOfIntertia(bigDecimal)
+val Number.gramsSquareMetre: MomentOfInertia get() = MomentOfInertia(bigDecimal)
 
 /**
  * Creates a [AbsorbedDoseRate] from this [Number] representing an absorbed dose rate in gray per second,

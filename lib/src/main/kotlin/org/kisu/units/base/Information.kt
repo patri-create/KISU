@@ -22,6 +22,7 @@ import java.math.BigDecimal
  * - The **smallest representable unit** is a single bit.
  * - Negative values are not permitted.
  * - In canonical form, the quantity must also be whole: fractional raw bits are rejected.
+ * - Fractional prefixed values are allowed only when they still resolve to a whole number of bits.
  *
  * Precision is maintained using [BigDecimal].
  *
@@ -49,7 +50,7 @@ class Information private constructor(magnitude: BigDecimal, expression: Bit) :
                 throw SubBitInformation(magnitude, UNIT.toString())
             }
             val information = Information(magnitude, expression)
-            information.canonical // Forces evaluation for potential validation during construction
+            information.canonical // Forces validation in canonical bits so sub-bit values fail fast
             return information
         }
 

@@ -29,6 +29,20 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
     private val expression: A,
     private val create: (BigDecimal, A) -> Self
 ) : Comparable<Self> where A : Expression<A>, A : System<A> {
+    /**
+     * Returns this measure converted to its canonical expression.
+     *
+     * Example: `1.5 km` becomes `1500 m`.
+     */
+    val canonical: Self by lazy {
+        if (expression == expression.canonical) {
+            self
+        } else if (!magnitude.zero) {
+            to(expression.canonical)
+        } else {
+            create(magnitude, expression.canonical)
+        }
+    }
 
     /**
      * Returns this measure rescaled to a more readable expression.
@@ -48,21 +62,6 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
                     .map(this::to)
                     .lastOrNull { measure -> measure.magnitude.abs() >= BigDecimal.ONE }
                     .orElse { to(expression.largest) }
-        }
-    }
-
-    /**
-     * Returns this measure converted to its canonical expression.
-     *
-     * Example: `1.5 km` becomes `1500 m`.
-     */
-    val canonical: Self by lazy {
-        if (expression == expression.canonical) {
-            self
-        } else if (!magnitude.zero) {
-            to(expression.canonical)
-        } else {
-            create(magnitude, expression.canonical)
         }
     }
 

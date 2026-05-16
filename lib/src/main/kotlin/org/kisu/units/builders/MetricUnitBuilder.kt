@@ -59,7 +59,7 @@ import org.kisu.units.mechanics.HeatFluxDensity
 import org.kisu.units.mechanics.KinematicViscosity
 import org.kisu.units.mechanics.LinearMassDensity
 import org.kisu.units.mechanics.MassFlowRate
-import org.kisu.units.mechanics.MomentOfIntertia
+import org.kisu.units.mechanics.MomentOfInertia
 import org.kisu.units.mechanics.Momentum
 import org.kisu.units.mechanics.Radiance
 import org.kisu.units.mechanics.RadiantExposure
@@ -429,15 +429,15 @@ val MetricUnitBuilder.gramsPerSquareMetre: AreaDensity
 val MetricUnitBuilder.grams: Mass get() = Mass(magnitude, metric)
 
 /**
- * Creates a [MomentOfIntertia] measure by applying the metric prefix scale to the magnitude.
+ * Creates a [MomentOfInertia] measure by applying the metric prefix scale to the magnitude.
  *
  * Example usage:
  * ```
  * val inertia = 1.kilo.gramSquareMetre // 1 kg·m²
  * ```
  */
-val MetricUnitBuilder.gramsSquareMetre: MomentOfIntertia
-    get() = MomentOfIntertia(magnitude, metric)
+val MetricUnitBuilder.gramsSquareMetre: MomentOfInertia
+    get() = MomentOfInertia(magnitude, metric)
 
 /**
  * Creates an [AbsorbedDoseRate] measure by applying the metric prefix scale to the magnitude.

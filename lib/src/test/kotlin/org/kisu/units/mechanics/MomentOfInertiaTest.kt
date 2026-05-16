@@ -8,10 +8,10 @@ import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.gramsSquareMetre
-import org.kisu.units.mechanics.MomentOfIntertia.Companion.KilogramSquareMetre
+import org.kisu.units.mechanics.MomentOfInertia.Companion.KilogramSquareMetre
 
-class MomentOfIntertiaTest : StringSpec({
-    "creates a MomentOfIntertia" {
+class MomentOfInertiaTest : StringSpec({
+    "creates a MomentOfInertia" {
         checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().gramsSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
@@ -21,7 +21,7 @@ class MomentOfIntertiaTest : StringSpec({
         }
     }
 
-    "creates a base MomentOfIntertia" {
+    "creates a base MomentOfInertia" {
         checkAll(Arb.bigDecimal()) { magnitude ->
             magnitude.gramsSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
