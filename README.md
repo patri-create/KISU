@@ -134,6 +134,40 @@ There is no public package distribution configured yet.
 
 Until publishing is set up, KISU should be consumed from source or through local builds. Publishing support is planned as part of milestone `0.1.0`.
 
+## Versioning
+
+KISU keeps the library version in the repository root `gradle.properties` as `VERSION_NAME`.
+
+- Release versions use `MAJOR.MINOR.PATCH`, for example `0.1.0`
+- Snapshot versions use `MAJOR.MINOR.PATCH-SNAPSHOT`, for example `0.1.1-SNAPSHOT`
+- A release PR can set a stable version for publication, and the next manually triggered bump can move `main` forward to the next snapshot
+
+A repository workflow called `Bump Library Version` is available from the GitHub Actions tab. It is manually triggered with `workflow_dispatch`, so only collaborators with permission to run Actions in the repository can execute it. The workflow computes the next version, updates `VERSION_NAME`, and opens a pull request instead of writing directly to `main`.
+
+The workflow computes the next version automatically from the current `VERSION_NAME`:
+
+- choose `patch`, `minor`, or `major`
+- choose whether the result should be a `release` or `snapshot`
+- the workflow increments the selected segment, updates `gradle.properties`, and opens a PR
+
+Examples:
+- `0.1.7-SNAPSHOT` + `patch` + `release` -> `0.1.8`
+- `0.1.8` + `patch` + `snapshot` -> `0.1.9-SNAPSHOT`
+- `0.1.8` + `minor` + `release` -> `0.2.0`
+
+A second manual workflow, `Publish GitHub Release`, creates a GitHub Release for the current repository version:
+
+- it reads `VERSION_NAME` from `gradle.properties`
+- it fails if the version ends in `-SNAPSHOT`
+- it creates tag `vMAJOR.MINOR.PATCH`
+- it publishes a GitHub Release with generated release notes
+
+The intended flow is:
+- run `Bump Library Version` with `release` to open a PR for the next stable version
+- merge that PR into `main`
+- run `Publish GitHub Release` from `main`
+- run `Bump Library Version` again with `snapshot` to move `main` to the next development version
+
 ## Documentation
 
 Generated API docs are built with Dokka and published through the repository workflows.

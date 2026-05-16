@@ -7,8 +7,8 @@ plugins {
     alias(libs.plugins.detekt)
 }
 
-group = "org.kisu"
-version = "0.0.1-SNAPSHOT"
+group = providers.gradleProperty("GROUP").get()
+version = providers.gradleProperty("VERSION_NAME").get()
 
 repositories {
     mavenCentral()
