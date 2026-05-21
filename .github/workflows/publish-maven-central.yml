@@ -279,38 +279,22 @@ jobs:
           git push origin "$TAG"
 
       - name: Create GitHub release
-        uses: actions/github-script@v8
         env:
           TAG: ${{ steps.version.outputs.tag }}
           VERSION: ${{ steps.version.outputs.release_version }}
-        with:
-          script: |
-            const tag = process.env.TAG
-            const version = process.env.VERSION
+          GH_TOKEN: ${{ secrets.RELEASE_PUSH_TOKEN }}
+        run: |
+          if gh release view "$TAG" --repo Sefford/KISU >/dev/null 2>&1; then
+            echo "GitHub release $TAG already exists"
+            exit 0
+          fi
 
-            const existing = await github.rest.repos.listReleases({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              per_page: 100,
-            })
+          gh release create "$TAG" \
+            --repo Sefford/KISU \
+            --title "$TAG" \
+            --generate-notes
 
-            if (existing.data.some((release) => release.tag_name === tag)) {
-              core.notice(`GitHub release ${tag} already exists`)
-              return
-            }
-
-            await github.rest.repos.createRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: tag,
-              target_commitish: tag,
-              name: tag,
-              generate_release_notes: true,
-              draft: false,
-              prerelease: false,
-            })
-
-            core.notice(`Published GitHub release ${tag} for version ${version}`)
+          echo "Published GitHub release $TAG for version $VERSION"
 
       - name: Advance main to next snapshot
         env:
