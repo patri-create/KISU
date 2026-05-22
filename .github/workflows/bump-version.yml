@@ -94,6 +94,7 @@ jobs:
       - name: Create version bump pull request
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.RELEASE_PUSH_TOKEN }}
           branch: chore/bump-version-${{ steps.version.outputs.next_version }}
           base: ${{ inputs.base_branch }}
           title: "Bump library version to ${{ steps.version.outputs.next_version }}"
