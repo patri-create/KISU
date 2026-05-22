@@ -5,12 +5,26 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 plugins {
     kotlin("jvm")
     `maven-publish`
+    signing
     alias(libs.plugins.dokka)
     alias(libs.plugins.detekt)
 }
 
 group = providers.gradleProperty("LIB_GROUP").get()
 version = providers.gradleProperty("VERSION_NAME").get()
+
+val mavenCentralUsername = providers
+    .gradleProperty("mavenCentralUsername")
+    .orElse(providers.environmentVariable("MAVEN_CENTRAL_USERNAME"))
+val mavenCentralPassword = providers
+    .gradleProperty("mavenCentralPassword")
+    .orElse(providers.environmentVariable("MAVEN_CENTRAL_PASSWORD"))
+val signingKey = providers
+    .gradleProperty("signingInMemoryKey")
+    .orElse(providers.environmentVariable("SIGNING_KEY"))
+val signingPassword = providers
+    .gradleProperty("signingInMemoryKeyPassword")
+    .orElse(providers.environmentVariable("SIGNING_PASSWORD"))
 
 repositories {
     mavenCentral()
@@ -110,5 +124,23 @@ publishing {
                 }
             }
         }
+    }
+
+    repositories {
+        maven {
+            name = "sonatype"
+            url = uri("https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/")
+            credentials {
+                username = mavenCentralUsername.orNull
+                password = mavenCentralPassword.orNull
+            }
+        }
+    }
+}
+
+signing {
+    if (signingKey.isPresent && signingPassword.isPresent) {
+        useInMemoryPgpKeys(signingKey.get(), signingPassword.get())
+        sign(publishing.publications)
     }
 }
