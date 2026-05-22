@@ -34,15 +34,6 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "tag=v$version" >> "$GITHUB_OUTPUT"
 
-      - name: Ensure release tag does not already exist
-        env:
-          TAG: ${{ steps.version.outputs.tag }}
-        run: |
-          if git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG already exists"
-            exit 1
-          fi
-
       - name: Create GitHub release
         uses: actions/github-script@v8
         env:
@@ -59,8 +50,26 @@ jobs:
               per_page: 100,
             })
 
-            if (existing.data.some((release) => release.tag_name === tag)) {
-              core.setFailed(`Release ${tag} already exists`)
+            const release = existing.data.find((item) => item.tag_name === tag)
+
+            if (release && !release.draft) {
+              core.notice(`Release ${tag} already exists`)
+              return
+            }
+
+            if (release && release.draft) {
+              await github.rest.repos.updateRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                release_id: release.id,
+                tag_name: tag,
+                target_commitish: context.sha,
+                name: tag,
+                draft: false,
+                prerelease: false,
+              })
+
+              core.notice(`Published existing draft release ${tag} for version ${version}`)
               return
             }
 
