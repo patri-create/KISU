@@ -1,0 +1,2391 @@
+public final class org/kisu/BigDecimalsKt {
+	public static final fun getBigDecimal (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getHasFraction (Ljava/math/BigDecimal;)Z
+	public static final fun getNegative (Ljava/math/BigDecimal;)Z
+	public static final fun getOne (Ljava/math/BigDecimal;)Z
+	public static final fun getZero (Ljava/math/BigDecimal;)Z
+}
+
+public final class org/kisu/BigIntegersKt {
+	public static final fun getZero (Ljava/math/BigInteger;)Z
+}
+
+public final class org/kisu/CollectionsKt {
+	public static final fun intersect (Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)Ljava/util/Set;
+	public static synthetic fun intersect$default (Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/util/Set;
+	public static final fun mergeLeft (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public static final fun mergeRight (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class org/kisu/ExpressionsKt {
+	public static final fun getProductSymbol (Ljava/lang/Iterable;)Ljava/lang/String;
+	public static final fun getSortByUnit (Ljava/lang/Iterable;)Ljava/util/List;
+}
+
+public final class org/kisu/IfsKt {
+	public static final fun orElse (Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+}
+
+public final class org/kisu/KisuConfig {
+	public static final field INSTANCE Lorg/kisu/KisuConfig;
+	public final fun default ()V
+	public final fun getPrecision ()Ljava/math/MathContext;
+	public final fun setPrecision (Ljava/math/MathContext;)V
+}
+
+public final class org/kisu/PairsKt {
+	public static final fun getInverted (Lkotlin/Pair;)Lkotlin/Pair;
+}
+
+public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/Prefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
+	public static final field BASE Lorg/kisu/prefixes/Binary;
+	public static final field EXBI Lorg/kisu/prefixes/Binary;
+	public static final field GIBI Lorg/kisu/prefixes/Binary;
+	public static final field KIBI Lorg/kisu/prefixes/Binary;
+	public static final field MEBI Lorg/kisu/prefixes/Binary;
+	public static final field PEBI Lorg/kisu/prefixes/Binary;
+	public static final field QUEBI Lorg/kisu/prefixes/Binary;
+	public static final field ROBI Lorg/kisu/prefixes/Binary;
+	public static final field TEBI Lorg/kisu/prefixes/Binary;
+	public static final field YOBI Lorg/kisu/prefixes/Binary;
+	public static final field ZEBI Lorg/kisu/prefixes/Binary;
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun getAll ()Ljava/util/List;
+	public fun getCanonical ()Lorg/kisu/prefixes/Binary;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public fun getLargest ()Lorg/kisu/prefixes/Binary;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/prefixes/Binary;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSymbol ()Ljava/lang/String;
+	public fun sortWith (Lorg/kisu/prefixes/Binary;)Lkotlin/Pair;
+	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun to (Lorg/kisu/prefixes/Binary;)Ljava/math/BigDecimal;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun toString ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Binary;
+	public static fun values ()[Lorg/kisu/prefixes/Binary;
+}
+
+public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes/Prefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
+	public static final field BASE Lorg/kisu/prefixes/Decimal;
+	public static final field EXA Lorg/kisu/prefixes/Decimal;
+	public static final field GIGA Lorg/kisu/prefixes/Decimal;
+	public static final field KILO Lorg/kisu/prefixes/Decimal;
+	public static final field MEGA Lorg/kisu/prefixes/Decimal;
+	public static final field PETA Lorg/kisu/prefixes/Decimal;
+	public static final field QUETTA Lorg/kisu/prefixes/Decimal;
+	public static final field RONNA Lorg/kisu/prefixes/Decimal;
+	public static final field TERA Lorg/kisu/prefixes/Decimal;
+	public static final field YOTTA Lorg/kisu/prefixes/Decimal;
+	public static final field ZETTA Lorg/kisu/prefixes/Decimal;
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Decimal;
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun getAll ()Ljava/util/List;
+	public fun getCanonical ()Lorg/kisu/prefixes/Decimal;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public fun getLargest ()Lorg/kisu/prefixes/Decimal;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/prefixes/Decimal;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSymbol ()Ljava/lang/String;
+	public fun sortWith (Lorg/kisu/prefixes/Decimal;)Lkotlin/Pair;
+	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun to (Lorg/kisu/prefixes/Decimal;)Ljava/math/BigDecimal;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun toString ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Decimal;
+	public static fun values ()[Lorg/kisu/prefixes/Decimal;
+}
+
+public final class org/kisu/prefixes/Metric : java/lang/Enum, org/kisu/prefixes/Prefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
+	public static final field ATTO Lorg/kisu/prefixes/Metric;
+	public static final field BASE Lorg/kisu/prefixes/Metric;
+	public static final field CENTI Lorg/kisu/prefixes/Metric;
+	public static final field DECA Lorg/kisu/prefixes/Metric;
+	public static final field DECI Lorg/kisu/prefixes/Metric;
+	public static final field EXA Lorg/kisu/prefixes/Metric;
+	public static final field FEMTO Lorg/kisu/prefixes/Metric;
+	public static final field GIGA Lorg/kisu/prefixes/Metric;
+	public static final field HECTO Lorg/kisu/prefixes/Metric;
+	public static final field KILO Lorg/kisu/prefixes/Metric;
+	public static final field MEGA Lorg/kisu/prefixes/Metric;
+	public static final field MICRO Lorg/kisu/prefixes/Metric;
+	public static final field MILLI Lorg/kisu/prefixes/Metric;
+	public static final field NANO Lorg/kisu/prefixes/Metric;
+	public static final field PETA Lorg/kisu/prefixes/Metric;
+	public static final field PICO Lorg/kisu/prefixes/Metric;
+	public static final field QUECTO Lorg/kisu/prefixes/Metric;
+	public static final field QUETTA Lorg/kisu/prefixes/Metric;
+	public static final field RONNA Lorg/kisu/prefixes/Metric;
+	public static final field RONTO Lorg/kisu/prefixes/Metric;
+	public static final field TERA Lorg/kisu/prefixes/Metric;
+	public static final field YOCTO Lorg/kisu/prefixes/Metric;
+	public static final field YOTTA Lorg/kisu/prefixes/Metric;
+	public static final field ZEPTO Lorg/kisu/prefixes/Metric;
+	public static final field ZETTA Lorg/kisu/prefixes/Metric;
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun getAll ()Ljava/util/List;
+	public fun getCanonical ()Lorg/kisu/prefixes/Metric;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public fun getLargest ()Lorg/kisu/prefixes/Metric;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/prefixes/Metric;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSymbol ()Ljava/lang/String;
+	public fun sortWith (Lorg/kisu/prefixes/Metric;)Lkotlin/Pair;
+	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun to (Lorg/kisu/prefixes/Metric;)Ljava/math/BigDecimal;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun toString ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Metric;
+	public static fun values ()[Lorg/kisu/prefixes/Metric;
+}
+
+public abstract interface class org/kisu/prefixes/Prefix : java/lang/Comparable, org/kisu/prefixes/primitives/Symbol {
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public abstract fun getFactor ()Ljava/math/BigDecimal;
+	public fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/prefixes/Prefix$DefaultImpls {
+	public static fun compareTo (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)I
+	public static fun sortWith (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public static fun to (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/prefixes/PrefixKt {
+	public static final fun div (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public static final fun isCanonical (Lorg/kisu/prefixes/Prefix;)Z
+	public static final fun times (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+}
+
+public final class org/kisu/prefixes/primitives/CompositeSystem : org/kisu/prefixes/primitives/System {
+	public fun <init> (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;Lkotlin/jvm/functions/Function2;)V
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun getAll ()Ljava/util/List;
+	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+}
+
+public final class org/kisu/prefixes/primitives/EnumSystem : org/kisu/prefixes/primitives/System {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun getAll ()Ljava/util/List;
+	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+}
+
+public final class org/kisu/prefixes/primitives/Representation : org/kisu/prefixes/primitives/Symbol {
+	public fun <init> (Ljava/lang/String;)V
+	public fun getSymbol ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/kisu/prefixes/primitives/ScalarSystem : org/kisu/prefixes/primitives/System {
+	public fun <init> (Lorg/kisu/prefixes/Prefix;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Scalar;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/representation/Scalar;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/units/representation/Scalar;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/units/representation/Scalar;
+}
+
+public abstract interface class org/kisu/prefixes/primitives/Symbol {
+	public abstract fun getSymbol ()Ljava/lang/String;
+	public abstract fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class org/kisu/prefixes/primitives/System {
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public abstract fun getAll ()Ljava/util/List;
+	public abstract fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public abstract fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public abstract fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+}
+
+public final class org/kisu/prefixes/primitives/System$DefaultImpls {
+	public static fun find (Lorg/kisu/prefixes/primitives/System;Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+}
+
+public abstract class org/kisu/units/Measure : java/lang/Comparable {
+	protected fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Expression;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/units/Measure;)I
+	public final fun component1 ()Ljava/math/BigDecimal;
+	public final fun component2 ()Lorg/kisu/units/representation/Expression;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun div (Ljava/lang/Number;)Lorg/kisu/units/Measure;
+	public final fun div (Ljava/math/BigDecimal;)Lorg/kisu/units/Measure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanonical ()Lorg/kisu/units/Measure;
+	public final fun getDecomposition ()Ljava/util/List;
+	public final fun getOptimal ()Lorg/kisu/units/Measure;
+	public final fun getRepresentation ()Ljava/lang/String;
+	public final fun getZero ()Z
+	public fun hashCode ()I
+	public final fun minus (Lorg/kisu/units/Measure;)Lorg/kisu/units/Measure;
+	public final fun plus (Lorg/kisu/units/Measure;)Lorg/kisu/units/Measure;
+	public final fun sortWith (Lorg/kisu/units/Measure;)Lkotlin/Pair;
+	public final fun times (Ljava/lang/Number;)Lorg/kisu/units/Measure;
+	public final fun times (Ljava/math/BigDecimal;)Lorg/kisu/units/Measure;
+	public final fun to (Lorg/kisu/units/representation/Expression;)Lorg/kisu/units/Measure;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/kisu/units/base/Amount : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/base/Amount$Companion;
+}
+
+public final class org/kisu/units/base/Amount$Companion {
+	public final fun getAVOGADROS_NUMBER ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/base/Ampere : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Ampere$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Ampere$Companion {
+}
+
+public final class org/kisu/units/base/Bit : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Bit$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Binary;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Binary;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Binary;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Bit$Companion {
+}
+
+public final class org/kisu/units/base/Candela : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Candela$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Candela$Companion {
+}
+
+public final class org/kisu/units/base/Current : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/base/Information : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/base/Information$Companion;
+	public synthetic fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/base/Bit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Information$Companion {
+	public final fun invoke (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Binary;)Lorg/kisu/units/base/Information;
+	public final fun invoke (Ljava/math/BigDecimal;Lorg/kisu/units/base/Bit;)Lorg/kisu/units/base/Information;
+	public static synthetic fun invoke$default (Lorg/kisu/units/base/Information$Companion;Ljava/math/BigDecimal;Lorg/kisu/prefixes/Binary;ILjava/lang/Object;)Lorg/kisu/units/base/Information;
+	public static synthetic fun invoke$default (Lorg/kisu/units/base/Information$Companion;Ljava/math/BigDecimal;Lorg/kisu/units/base/Bit;ILjava/lang/Object;)Lorg/kisu/units/base/Information;
+}
+
+public final class org/kisu/units/base/Kelvin : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Kelvin$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Kelvin$Companion {
+}
+
+public final class org/kisu/units/base/Kilogram : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Kilogram$Companion;
+	public fun <init> (Lkotlin/Pair;)V
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/base/Kilogram;
+	public synthetic fun getCanonical ()Lorg/kisu/units/representation/Scalar;
+}
+
+public final class org/kisu/units/base/Kilogram$Companion {
+}
+
+public final class org/kisu/units/base/Length : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/base/LuminousIntensity : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/base/Mass : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/base/Metre : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Metre$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Metre$Companion {
+}
+
+public final class org/kisu/units/base/Mole : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Mole$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Mole$Companion {
+}
+
+public final class org/kisu/units/base/Second : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/Second$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/Second$Companion {
+}
+
+public final class org/kisu/units/base/SecondCubed : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/SecondCubed$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/SecondCubed$Companion {
+}
+
+public final class org/kisu/units/base/SecondFifth : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/SecondFifth$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/SecondFifth$Companion {
+}
+
+public final class org/kisu/units/base/SecondFourth : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/SecondFourth$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/SecondFourth$Companion {
+}
+
+public final class org/kisu/units/base/SecondSixth : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/SecondSixth$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/SecondSixth$Companion {
+}
+
+public final class org/kisu/units/base/SecondSquared : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/base/SecondSquared$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/base/SecondSquared$Companion {
+}
+
+public final class org/kisu/units/base/Temperature : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/base/Time : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/builders/AttoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/AttoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public abstract interface class org/kisu/units/builders/BinaryUnitBuilder {
+	public abstract fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public abstract fun getMagnitude ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/BinaryUnitBuilderKt {
+	public static final fun getBits (Lorg/kisu/units/builders/BinaryUnitBuilder;)Lorg/kisu/units/base/Information;
+}
+
+public final class org/kisu/units/builders/CentiBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/CentiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/DecaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/DecaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/DeciBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/DeciBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/ExaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/ExaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/ExbiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/ExbiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/FemtoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/FemtoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/GibiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/GibiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/GigaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/GigaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/HectoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/HectoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/KibiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/KibiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/KiloBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/KiloBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/MebiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/MebiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/MegaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/MegaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public abstract interface class org/kisu/units/builders/MetricUnitBuilder {
+	public abstract fun getMagnitude ()Ljava/math/BigDecimal;
+	public abstract fun getMetric ()Lorg/kisu/prefixes/Metric;
+}
+
+public final class org/kisu/units/builders/MetricUnitBuilderKt {
+	public static final fun getAmperes (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Current;
+	public static final fun getAmperesPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/Magnetization;
+	public static final fun getAmperesPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectricCurrentDensity;
+	public static final fun getAmperesRadian (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagnetomotiveForce;
+	public static final fun getBecquerels (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Radioactivity;
+	public static final fun getBytes (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Bytes;
+	public static final fun getCandelas (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/LuminousIntensity;
+	public static final fun getCandelasPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/photometric/Luminance;
+	public static final fun getCelsius (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/CelsiusTemperature;
+	public static final fun getCoulombs (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/ElectricCharge;
+	public static final fun getCoulombsPerCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectricChargeDensity;
+	public static final fun getCoulombsPerKilogram (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/Exposure;
+	public static final fun getCoulombsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/LinearChargeDensity;
+	public static final fun getCoulombsPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectricDisplacementField;
+	public static final fun getCubicMetres (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Volume;
+	public static final fun getCubicMetresPerKilogram (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpecificVolume;
+	public static final fun getCubicMetresPerMole (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/MolarVolume;
+	public static final fun getCubicMetresPerMoleSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/CatalyticEfficiency;
+	public static final fun getCubicMetresPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/VolumetricFlow;
+	public static final fun getFarads (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Capacitance;
+	public static final fun getFaradsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/Permittivity;
+	public static final fun getGrams (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Mass;
+	public static final fun getGramsMetreSecondCubed (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/Yank;
+	public static final fun getGramsPerCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/Density;
+	public static final fun getGramsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/LinearMassDensity;
+	public static final fun getGramsPerMole (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/MolarMass;
+	public static final fun getGramsPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/MassFlowRate;
+	public static final fun getGramsPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/AreaDensity;
+	public static final fun getGramsSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/MomentOfInertia;
+	public static final fun getGrays (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/AbsorbedDose;
+	public static final fun getGraysPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/AbsorbedDoseRate;
+	public static final fun getHenries (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Inductance;
+	public static final fun getHenriesPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticPermittivity;
+	public static final fun getHertz (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Frequency;
+	public static final fun getHertzPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/FrequencyDrift;
+	public static final fun getJoules (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Energy;
+	public static final fun getJoulesPerCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/EnergyDensity;
+	public static final fun getJoulesPerKelvin (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/HeatCapacity;
+	public static final fun getJoulesPerKelvinMole (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/MolarHeatCapacity;
+	public static final fun getJoulesPerKilogram (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpecificEnergy;
+	public static final fun getJoulesPerKilogramKelvin (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/SpecificHeatCapacity;
+	public static final fun getJoulesPerMole (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/MolarEnergy;
+	public static final fun getJoulesPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/RadiantExposure;
+	public static final fun getJoulesPerSquareMetreSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/EnergyFluxDensity;
+	public static final fun getJoulesPerTesla (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticDipoleMoment;
+	public static final fun getJoulesSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/Action;
+	public static final fun getKatals (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/CatalyticActivity;
+	public static final fun getKelvins (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Temperature;
+	public static final fun getKelvinsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/TemperatureGradient;
+	public static final fun getKelvinsPerWatt (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/ThermalResistance;
+	public static final fun getLumens (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/LuminousFlux;
+	public static final fun getLumensPerWatt (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/photometric/Efficacy;
+	public static final fun getLumensSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/photometric/LuminousEnergy;
+	public static final fun getLux (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Illuminance;
+	public static final fun getLuxSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/photometric/Exposure;
+	public static final fun getMetres (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Length;
+	public static final fun getMetresPerCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/FuelEfficiency;
+	public static final fun getMetresPerHenry (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticSusceptibility;
+	public static final fun getMetresPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/linear/Speed;
+	public static final fun getMetresPerSecondCubed (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/linear/Jerk;
+	public static final fun getMetresPerSecondFifth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/linear/Crackle;
+	public static final fun getMetresPerSecondFourth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/linear/Snap;
+	public static final fun getMetresPerSecondSixth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/linear/Pop;
+	public static final fun getMetresPerSecondSquared (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/linear/Acceleration;
+	public static final fun getMoles (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Amount;
+	public static final fun getMolesPerCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/Molarity;
+	public static final fun getMolesPerKilogram (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/Molality;
+	public static final fun getNewtons (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Force;
+	public static final fun getNewtonsMetreSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/AngularMomentum;
+	public static final fun getNewtonsMetreSecondPerKilogram (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpecificAngularMomentum;
+	public static final fun getNewtonsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SurfaceTension;
+	public static final fun getNewtonsSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/Momentum;
+	public static final fun getOhms (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Resistance;
+	public static final fun getOhmsMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/Resistivity;
+	public static final fun getPascals (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Pressure;
+	public static final fun getPascalsSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/DynamicViscosity;
+	public static final fun getRadians (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/PlaneAngle;
+	public static final fun getRadiansPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Velocity;
+	public static final fun getRadiansPerSecondCubed (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Jerk;
+	public static final fun getRadiansPerSecondFifth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Crackle;
+	public static final fun getRadiansPerSecondFourth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Snap;
+	public static final fun getRadiansPerSecondSixth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Pop;
+	public static final fun getRadiansPerSecondSquared (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Acceleration;
+	public static final fun getReciprocalHenries (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticReluctance;
+	public static final fun getReciprocalKelvins (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/ThermalExpansionCoefficient;
+	public static final fun getReciprocalMetres (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/WaveNumber;
+	public static final fun getReciprocalPascals (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/Compressibility;
+	public static final fun getSeconds (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Time;
+	public static final fun getSiemens (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Conductance;
+	public static final fun getSiemensPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectricConductivity;
+	public static final fun getSiemensSquareMetrePerMole (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/MolarConductivity;
+	public static final fun getSieverts (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/DoseEquivalent;
+	public static final fun getSquareMetres (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Area;
+	public static final fun getSquareMetresPerSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/KinematicViscosity;
+	public static final fun getSquareMetresPerVoltSecond (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectronMobility;
+	public static final fun getSteradians (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/SolidAngle;
+	public static final fun getTeslas (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/MagneticFluxDensity;
+	public static final fun getTeslasMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticRigidity;
+	public static final fun getVolts (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/ElectricPotential;
+	public static final fun getVoltsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectricFieldStrength;
+	public static final fun getWatts (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Power;
+	public static final fun getWattsPerCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpectralIrradiance;
+	public static final fun getWattsPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpectralPower;
+	public static final fun getWattsPerMetreKelvin (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/ThermalConductivity;
+	public static final fun getWattsPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/HeatFluxDensity;
+	public static final fun getWattsPerSteradian (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/RadiantIntensity;
+	public static final fun getWattsPerSteradianCubicMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpectralRadiance;
+	public static final fun getWattsPerSteradianMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/SpectralIntensity;
+	public static final fun getWattsPerSteradianSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/Radiance;
+	public static final fun getWebers (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/MagneticFlux;
+	public static final fun getWebersMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticMoment;
+	public static final fun getWebersPerMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticVectorPotential;
+}
+
+public final class org/kisu/units/builders/MicroBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/MicroBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/MilliBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/MilliBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/NanoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/NanoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/NumberExtensionsKt {
+	public static final fun getAmperes (Ljava/lang/Number;)Lorg/kisu/units/base/Current;
+	public static final fun getAmperesPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/Magnetization;
+	public static final fun getAmperesPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/ElectricCurrentDensity;
+	public static final fun getAmperesRadian (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagnetomotiveForce;
+	public static final fun getBecquerels (Ljava/lang/Number;)Lorg/kisu/units/special/Radioactivity;
+	public static final fun getBits (Ljava/lang/Number;)Lorg/kisu/units/base/Information;
+	public static final fun getBytes (Ljava/lang/Number;)Lorg/kisu/units/special/Bytes;
+	public static final fun getCandelas (Ljava/lang/Number;)Lorg/kisu/units/base/LuminousIntensity;
+	public static final fun getCandelasPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/photometric/Luminance;
+	public static final fun getCelsius (Ljava/lang/Number;)Lorg/kisu/units/special/CelsiusTemperature;
+	public static final fun getCoulombs (Ljava/lang/Number;)Lorg/kisu/units/special/ElectricCharge;
+	public static final fun getCoulombsPerCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/ElectricChargeDensity;
+	public static final fun getCoulombsPerKilogram (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/Exposure;
+	public static final fun getCoulombsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/LinearChargeDensity;
+	public static final fun getCoulombsPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/ElectricDisplacementField;
+	public static final fun getCubicMetres (Ljava/lang/Number;)Lorg/kisu/units/special/Volume;
+	public static final fun getCubicMetresPerKilogram (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpecificVolume;
+	public static final fun getCubicMetresPerMole (Ljava/lang/Number;)Lorg/kisu/units/chemistry/MolarVolume;
+	public static final fun getCubicMetresPerMoleSecond (Ljava/lang/Number;)Lorg/kisu/units/chemistry/CatalyticEfficiency;
+	public static final fun getCubicMetresPerSecond (Ljava/lang/Number;)Lorg/kisu/units/kinematics/VolumetricFlow;
+	public static final fun getFarads (Ljava/lang/Number;)Lorg/kisu/units/special/Capacitance;
+	public static final fun getFaradsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/Permittivity;
+	public static final fun getGrams (Ljava/lang/Number;)Lorg/kisu/units/base/Mass;
+	public static final fun getGramsMetreSecondCubed (Ljava/lang/Number;)Lorg/kisu/units/kinematics/Yank;
+	public static final fun getGramsPerCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/Density;
+	public static final fun getGramsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/LinearMassDensity;
+	public static final fun getGramsPerMole (Ljava/lang/Number;)Lorg/kisu/units/chemistry/MolarMass;
+	public static final fun getGramsPerSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/MassFlowRate;
+	public static final fun getGramsPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/AreaDensity;
+	public static final fun getGramsSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/MomentOfInertia;
+	public static final fun getGrays (Ljava/lang/Number;)Lorg/kisu/units/special/AbsorbedDose;
+	public static final fun getGraysPerSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/AbsorbedDoseRate;
+	public static final fun getHenries (Ljava/lang/Number;)Lorg/kisu/units/special/Inductance;
+	public static final fun getHenriesPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticPermittivity;
+	public static final fun getHertz (Ljava/lang/Number;)Lorg/kisu/units/special/Frequency;
+	public static final fun getHertzPerSecond (Ljava/lang/Number;)Lorg/kisu/units/kinematics/FrequencyDrift;
+	public static final fun getJoules (Ljava/lang/Number;)Lorg/kisu/units/special/Energy;
+	public static final fun getJoulesPerCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/EnergyDensity;
+	public static final fun getJoulesPerKelvin (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/HeatCapacity;
+	public static final fun getJoulesPerKelvinMole (Ljava/lang/Number;)Lorg/kisu/units/chemistry/MolarHeatCapacity;
+	public static final fun getJoulesPerKilogram (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpecificEnergy;
+	public static final fun getJoulesPerKilogramKelvin (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/SpecificHeatCapacity;
+	public static final fun getJoulesPerMole (Ljava/lang/Number;)Lorg/kisu/units/chemistry/MolarEnergy;
+	public static final fun getJoulesPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/RadiantExposure;
+	public static final fun getJoulesPerSquareMetreSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/EnergyFluxDensity;
+	public static final fun getJoulesPerTesla (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticDipoleMoment;
+	public static final fun getJoulesSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/Action;
+	public static final fun getKatals (Ljava/lang/Number;)Lorg/kisu/units/special/CatalyticActivity;
+	public static final fun getKelvins (Ljava/lang/Number;)Lorg/kisu/units/base/Temperature;
+	public static final fun getKelvinsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/TemperatureGradient;
+	public static final fun getKelvinsPerWatt (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/ThermalResistance;
+	public static final fun getLumens (Ljava/lang/Number;)Lorg/kisu/units/special/LuminousFlux;
+	public static final fun getLumensPerWatt (Ljava/lang/Number;)Lorg/kisu/units/photometric/Efficacy;
+	public static final fun getLumensSecond (Ljava/lang/Number;)Lorg/kisu/units/photometric/LuminousEnergy;
+	public static final fun getLux (Ljava/lang/Number;)Lorg/kisu/units/special/Illuminance;
+	public static final fun getLuxSecond (Ljava/lang/Number;)Lorg/kisu/units/photometric/Exposure;
+	public static final fun getMetres (Ljava/lang/Number;)Lorg/kisu/units/base/Length;
+	public static final fun getMetresPerCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/FuelEfficiency;
+	public static final fun getMetresPerHenry (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticSusceptibility;
+	public static final fun getMetresPerSecond (Ljava/lang/Number;)Lorg/kisu/units/kinematics/linear/Speed;
+	public static final fun getMetresPerSecondCubed (Ljava/lang/Number;)Lorg/kisu/units/kinematics/linear/Jerk;
+	public static final fun getMetresPerSecondFifth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/linear/Crackle;
+	public static final fun getMetresPerSecondFourth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/linear/Snap;
+	public static final fun getMetresPerSecondSixth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/linear/Pop;
+	public static final fun getMetresPerSecondSquared (Ljava/lang/Number;)Lorg/kisu/units/kinematics/linear/Acceleration;
+	public static final fun getMoles (Ljava/lang/Number;)Lorg/kisu/units/base/Amount;
+	public static final fun getMolesPerCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/chemistry/Molarity;
+	public static final fun getMolesPerKilogram (Ljava/lang/Number;)Lorg/kisu/units/chemistry/Molality;
+	public static final fun getNewtons (Ljava/lang/Number;)Lorg/kisu/units/special/Force;
+	public static final fun getNewtonsMetreSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/AngularMomentum;
+	public static final fun getNewtonsMetreSecondPerKilogram (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpecificAngularMomentum;
+	public static final fun getNewtonsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SurfaceTension;
+	public static final fun getNewtonsSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/Momentum;
+	public static final fun getOhms (Ljava/lang/Number;)Lorg/kisu/units/special/Resistance;
+	public static final fun getOhmsMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/Resistivity;
+	public static final fun getPascals (Ljava/lang/Number;)Lorg/kisu/units/special/Pressure;
+	public static final fun getPascalsSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/DynamicViscosity;
+	public static final fun getRadians (Ljava/lang/Number;)Lorg/kisu/units/special/PlaneAngle;
+	public static final fun getRadiansPerSecond (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Velocity;
+	public static final fun getRadiansPerSecondCubed (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Jerk;
+	public static final fun getRadiansPerSecondFifth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Crackle;
+	public static final fun getRadiansPerSecondFourth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Snap;
+	public static final fun getRadiansPerSecondSixth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Pop;
+	public static final fun getRadiansPerSecondSquared (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Acceleration;
+	public static final fun getReciprocalHenries (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticReluctance;
+	public static final fun getReciprocalKelvins (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/ThermalExpansionCoefficient;
+	public static final fun getReciprocalMetres (Ljava/lang/Number;)Lorg/kisu/units/mechanics/WaveNumber;
+	public static final fun getReciprocalPascals (Ljava/lang/Number;)Lorg/kisu/units/mechanics/Compressibility;
+	public static final fun getSeconds (Ljava/lang/Number;)Lorg/kisu/units/base/Time;
+	public static final fun getSiemens (Ljava/lang/Number;)Lorg/kisu/units/special/Conductance;
+	public static final fun getSiemensPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/ElectricConductivity;
+	public static final fun getSiemensSquareMetrePerMole (Ljava/lang/Number;)Lorg/kisu/units/chemistry/MolarConductivity;
+	public static final fun getSieverts (Ljava/lang/Number;)Lorg/kisu/units/special/DoseEquivalent;
+	public static final fun getSquareMetres (Ljava/lang/Number;)Lorg/kisu/units/special/Area;
+	public static final fun getSquareMetresPerSecond (Ljava/lang/Number;)Lorg/kisu/units/mechanics/KinematicViscosity;
+	public static final fun getSquareMetresPerVoltSecond (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/ElectronMobility;
+	public static final fun getSteradians (Ljava/lang/Number;)Lorg/kisu/units/special/SolidAngle;
+	public static final fun getTeslas (Ljava/lang/Number;)Lorg/kisu/units/special/MagneticFluxDensity;
+	public static final fun getTeslasMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticRigidity;
+	public static final fun getVolts (Ljava/lang/Number;)Lorg/kisu/units/special/ElectricPotential;
+	public static final fun getVoltsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/ElectricFieldStrength;
+	public static final fun getWatts (Ljava/lang/Number;)Lorg/kisu/units/special/Power;
+	public static final fun getWattsPerCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpectralIrradiance;
+	public static final fun getWattsPerMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpectralPower;
+	public static final fun getWattsPerMetreKelvin (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/ThermalConductivity;
+	public static final fun getWattsPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/HeatFluxDensity;
+	public static final fun getWattsPerSteradian (Ljava/lang/Number;)Lorg/kisu/units/mechanics/RadiantIntensity;
+	public static final fun getWattsPerSteradianCubicMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpectralRadiance;
+	public static final fun getWattsPerSteradianMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/SpectralIntensity;
+	public static final fun getWattsPerSteradianSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/mechanics/Radiance;
+	public static final fun getWebers (Ljava/lang/Number;)Lorg/kisu/units/special/MagneticFlux;
+	public static final fun getWebersMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticMoment;
+	public static final fun getWebersPerMetre (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticVectorPotential;
+}
+
+public final class org/kisu/units/builders/PebiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/PebiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/PetaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/PetaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/PicoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/PicoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/PrefixExtensionsKt {
+	public static final fun getAtto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getCenti (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getDeca (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getDeci (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getExa (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getExbi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getFemto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getGibi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getGiga (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getHecto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getKibi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getKilo (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getMebi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getMega (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getMicro (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getMilli (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getNano (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getPebi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getPeta (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getPico (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getQuebi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getQuecto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getQuetta (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getRobi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getRonna (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getRonto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getTebi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getTera (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getYobi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getYocto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getYotta (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getZebi (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getZepto (Ljava/lang/Number;)Ljava/math/BigDecimal;
+	public static final fun getZetta (Ljava/lang/Number;)Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/QuebiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/QuebiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/QuectoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/QuectoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/QuettaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/QuettaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/RobiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/RobiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/RonnaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/RonnaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/RontoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/RontoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/TebiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/TebiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/TeraBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/TeraBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/YobiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/YobiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/YoctoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/YoctoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/YottaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/YottaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/ZebiBuilder : org/kisu/units/builders/BinaryUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/ZebiBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getBinary ()Lorg/kisu/prefixes/Binary;
+	public static fun getBinary-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/ZeptoBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/ZeptoBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/builders/ZettaBuilder : org/kisu/units/builders/MetricUnitBuilder {
+	public static final synthetic fun box-impl (Ljava/math/BigDecimal;)Lorg/kisu/units/builders/ZettaBuilder;
+	public static fun constructor-impl (Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/math/BigDecimal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Z
+	public fun getMagnitude ()Ljava/math/BigDecimal;
+	public fun getMetric ()Lorg/kisu/prefixes/Metric;
+	public static fun getMetric-impl (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/math/BigDecimal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/math/BigDecimal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/chemistry/CatalyticEfficiency : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/CatalyticEfficiency$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/CatalyticEfficiency$Companion {
+}
+
+public final class org/kisu/units/chemistry/Molality : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/Molality$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/Molality$Companion {
+}
+
+public final class org/kisu/units/chemistry/MolarConductivity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/MolarConductivity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/MolarConductivity$Companion {
+}
+
+public final class org/kisu/units/chemistry/MolarEnergy : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/MolarEnergy$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/MolarEnergy$Companion {
+}
+
+public final class org/kisu/units/chemistry/MolarHeatCapacity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/MolarHeatCapacity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/MolarHeatCapacity$Companion {
+}
+
+public final class org/kisu/units/chemistry/MolarMass : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/MolarMass$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/MolarMass$Companion {
+}
+
+public final class org/kisu/units/chemistry/MolarVolume : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/MolarVolume$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/MolarVolume$Companion {
+}
+
+public final class org/kisu/units/chemistry/Molarity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/chemistry/Molarity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/chemistry/Molarity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ElectricChargeDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricChargeDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/ElectricChargeDensity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ElectricConductivity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricConductivity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/ElectricConductivity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ElectricCurrentDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricCurrentDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/ElectricCurrentDensity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ElectricDisplacementField : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricDisplacementField$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/ElectricDisplacementField$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ElectricFieldStrength : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricFieldStrength$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/ElectricFieldStrength$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ElectronMobility : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ElectronMobility$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/ElectronMobility$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/Exposure : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/Exposure$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/Exposure$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/LinearChargeDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/LinearChargeDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/LinearChargeDensity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagneticDipoleMoment : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticDipoleMoment$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticDipoleMoment$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagneticMoment : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticMoment$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticMoment$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagneticPermittivity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticPermittivity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticPermittivity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagneticReluctance : org/kisu/units/Measure {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/electromagnetic/ReciprocalHenry;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticRigidity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticRigidity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticRigidity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagneticSusceptibility : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticSusceptibility$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticSusceptibility$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagneticVectorPotential : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticVectorPotential$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagneticVectorPotential$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/Magnetization : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/Magnetization$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/Magnetization$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/MagnetomotiveForce : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/MagnetomotiveForce$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/electromagnetic/MagnetomotiveForce$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/Permittivity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/Permittivity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/electromagnetic/Permittivity$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/ReciprocalHenry : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/electromagnetic/ReciprocalHenry$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/electromagnetic/ReciprocalHenry$Companion {
+}
+
+public final class org/kisu/units/electromagnetic/Resistivity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/electromagnetic/Resistivity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/electromagnetic/Resistivity$Companion {
+}
+
+public final class org/kisu/units/exceptions/NegativeAmountOfSubstance : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/exceptions/NegativeInformation : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Binary;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/exceptions/NegativeLuminousIntensity : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/exceptions/NegativeMass : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/exceptions/NegativeTemperature : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/exceptions/NegativeTime : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/exceptions/SubBitInformation : java/lang/ArithmeticException {
+	public fun <init> (Ljava/math/BigDecimal;Ljava/lang/String;)V
+}
+
+public final class org/kisu/units/kinematics/FrequencyDrift : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/FrequencyDrift$Companion;
+}
+
+public final class org/kisu/units/kinematics/FrequencyDrift$Companion {
+}
+
+public final class org/kisu/units/kinematics/VolumetricFlow : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/VolumetricFlow$Companion;
+}
+
+public final class org/kisu/units/kinematics/VolumetricFlow$Companion {
+}
+
+public final class org/kisu/units/kinematics/Yank : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/Yank$Companion;
+}
+
+public final class org/kisu/units/kinematics/Yank$Companion {
+}
+
+public final class org/kisu/units/kinematics/angular/Acceleration : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/angular/Acceleration$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/angular/Acceleration$Companion {
+}
+
+public final class org/kisu/units/kinematics/angular/Crackle : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/angular/Crackle$Companion;
+}
+
+public final class org/kisu/units/kinematics/angular/Crackle$Companion {
+}
+
+public final class org/kisu/units/kinematics/angular/Jerk : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/angular/Jerk$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/angular/Jerk$Companion {
+}
+
+public final class org/kisu/units/kinematics/angular/Pop : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/angular/Pop$Companion;
+}
+
+public final class org/kisu/units/kinematics/angular/Pop$Companion {
+}
+
+public final class org/kisu/units/kinematics/angular/Snap : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/angular/Snap$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/angular/Snap$Companion {
+}
+
+public final class org/kisu/units/kinematics/angular/Velocity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/angular/Velocity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/angular/Velocity$Companion {
+}
+
+public final class org/kisu/units/kinematics/linear/Acceleration : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/linear/Acceleration$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/linear/Acceleration$Companion {
+}
+
+public final class org/kisu/units/kinematics/linear/Crackle : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/linear/Crackle$Companion;
+}
+
+public final class org/kisu/units/kinematics/linear/Crackle$Companion {
+}
+
+public final class org/kisu/units/kinematics/linear/Jerk : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/linear/Jerk$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/linear/Jerk$Companion {
+}
+
+public final class org/kisu/units/kinematics/linear/Pop : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/linear/Pop$Companion;
+}
+
+public final class org/kisu/units/kinematics/linear/Pop$Companion {
+}
+
+public final class org/kisu/units/kinematics/linear/Snap : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/linear/Snap$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/linear/Snap$Companion {
+}
+
+public final class org/kisu/units/kinematics/linear/Speed : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/kinematics/linear/Speed$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/kinematics/linear/Speed$Companion {
+}
+
+public final class org/kisu/units/mechanics/AbsorbedDoseRate : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/AbsorbedDoseRate$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/AbsorbedDoseRate$Companion {
+}
+
+public final class org/kisu/units/mechanics/Action : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/Action$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/mechanics/Action$Companion {
+}
+
+public final class org/kisu/units/mechanics/AngularMomentum : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/AngularMomentum$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/mechanics/AngularMomentum$Companion {
+}
+
+public final class org/kisu/units/mechanics/AreaDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/AreaDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/AreaDensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/Compressibility : org/kisu/units/Measure {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/mechanics/ReciprocalPascal;)V
+}
+
+public final class org/kisu/units/mechanics/Density : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/Density$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/Density$Companion {
+}
+
+public final class org/kisu/units/mechanics/DynamicViscosity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/DynamicViscosity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/mechanics/DynamicViscosity$Companion {
+}
+
+public final class org/kisu/units/mechanics/EnergyDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/EnergyDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/EnergyDensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/EnergyFluxDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/EnergyFluxDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/EnergyFluxDensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/FuelEfficiency : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/FuelEfficiency$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/FuelEfficiency$Companion {
+}
+
+public final class org/kisu/units/mechanics/HeatFluxDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/HeatFluxDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/HeatFluxDensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/KinematicViscosity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/KinematicViscosity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/KinematicViscosity$Companion {
+}
+
+public final class org/kisu/units/mechanics/LinearMassDensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/LinearMassDensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/LinearMassDensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/MassFlowRate : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/MassFlowRate$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/MassFlowRate$Companion {
+}
+
+public final class org/kisu/units/mechanics/MomentOfInertia : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/MomentOfInertia$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/mechanics/MomentOfInertia$Companion {
+}
+
+public final class org/kisu/units/mechanics/Momentum : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/Momentum$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/mechanics/Momentum$Companion {
+}
+
+public final class org/kisu/units/mechanics/Radiance : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/Radiance$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/Radiance$Companion {
+}
+
+public final class org/kisu/units/mechanics/RadiantExposure : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/RadiantExposure$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/RadiantExposure$Companion {
+}
+
+public final class org/kisu/units/mechanics/RadiantIntensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/RadiantIntensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/RadiantIntensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/ReciprocalMetre : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/mechanics/ReciprocalMetre$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/mechanics/ReciprocalMetre$Companion {
+}
+
+public final class org/kisu/units/mechanics/ReciprocalPascal : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/mechanics/ReciprocalPascal$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/mechanics/ReciprocalPascal$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpecificAngularMomentum : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpecificAngularMomentum$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpecificAngularMomentum$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpecificEnergy : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpecificEnergy$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpecificEnergy$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpecificVolume : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpecificVolume$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpecificVolume$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpectralIntensity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpectralIntensity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpectralIntensity$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpectralIrradiance : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpectralIrradiance$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpectralIrradiance$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpectralPower : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpectralPower$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpectralPower$Companion {
+}
+
+public final class org/kisu/units/mechanics/SpectralRadiance : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SpectralRadiance$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SpectralRadiance$Companion {
+}
+
+public final class org/kisu/units/mechanics/SurfaceTension : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/mechanics/SurfaceTension$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/mechanics/SurfaceTension$Companion {
+}
+
+public final class org/kisu/units/mechanics/WaveNumber : org/kisu/units/Measure {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/mechanics/ReciprocalMetre;)V
+}
+
+public final class org/kisu/units/photometric/Efficacy : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/photometric/Efficacy$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/photometric/Efficacy$Companion {
+}
+
+public final class org/kisu/units/photometric/Exposure : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/photometric/Exposure$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/photometric/Exposure$Companion {
+}
+
+public final class org/kisu/units/photometric/Luminance : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/photometric/Luminance$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/photometric/Luminance$Companion {
+}
+
+public final class org/kisu/units/photometric/LuminousEnergy : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/photometric/LuminousEnergy$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Product;)V
+}
+
+public final class org/kisu/units/photometric/LuminousEnergy$Companion {
+}
+
+public final class org/kisu/units/representation/Exponent {
+	public fun <init> (I)V
+	public final fun copy (I)Lorg/kisu/units/representation/Exponent;
+	public static synthetic fun copy$default (Lorg/kisu/units/representation/Exponent;IILjava/lang/Object;)Lorg/kisu/units/representation/Exponent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInverted ()Lorg/kisu/units/representation/Exponent;
+	public final fun getPositive ()Z
+	public final fun getRepresentation ()Ljava/lang/String;
+	public final fun getZero ()Z
+	public fun hashCode ()I
+	public final fun minus (Lorg/kisu/units/representation/Exponent;)Lorg/kisu/units/representation/Exponent;
+	public final fun plus (Lorg/kisu/units/representation/Exponent;)Lorg/kisu/units/representation/Exponent;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class org/kisu/units/representation/Expression : org/kisu/prefixes/Prefix, org/kisu/prefixes/primitives/System {
+	public fun <init> ()V
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun equals (Ljava/lang/Object;)Z
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public abstract fun getFactors ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/kisu/units/representation/Product : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
+	public fun <init> (Lorg/kisu/units/representation/Expression;Lorg/kisu/units/representation/Expression;)V
+	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
+	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
+	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Product;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/representation/Product;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public fun getFactors ()Ljava/util/Set;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/units/representation/Product;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/units/representation/Product;
+	public fun getSymbol ()Ljava/lang/String;
+	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Product;
+	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
+	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Product;
+}
+
+public final class org/kisu/units/representation/Quotient : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
+	public fun <init> (Lorg/kisu/units/representation/Expression;Lorg/kisu/units/representation/Expression;)V
+	public final fun component1 ()Lorg/kisu/units/representation/Expression;
+	public final fun component2 ()Lorg/kisu/units/representation/Expression;
+	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
+	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
+	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Quotient;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/representation/Quotient;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public fun getFactors ()Ljava/util/Set;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/units/representation/Quotient;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/units/representation/Quotient;
+	public fun getSymbol ()Ljava/lang/String;
+	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
+	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
+	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+}
+
+public abstract class org/kisu/units/representation/Scalar : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
+	public fun <init> (Lorg/kisu/prefixes/Prefix;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Prefix;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
+	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
+	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Scalar;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/representation/Scalar;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public fun getFactors ()Ljava/util/Set;
+	public final fun getInverted ()Lorg/kisu/units/representation/Scalar;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/units/representation/Scalar;
+	public final fun getPositive ()Z
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/units/representation/Scalar;
+	public fun getSymbol ()Ljava/lang/String;
+	public final fun getZero ()Z
+	public final fun minus (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Scalar;
+	public final fun plus (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Scalar;
+	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Product;
+	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
+	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Product;
+}
+
+public final class org/kisu/units/representation/Unit : java/lang/Comparable {
+	public fun <init> (Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Lorg/kisu/units/representation/Exponent;)V
+	public synthetic fun <init> (Ljava/lang/String;Lorg/kisu/units/representation/Exponent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/units/representation/Unit;)I
+	public final fun div (Lorg/kisu/units/representation/Unit;)Lorg/kisu/units/representation/Unit;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInverted ()Lorg/kisu/units/representation/Unit;
+	public final fun getPositive ()Z
+	public final fun getZero ()Z
+	public fun hashCode ()I
+	public final fun times (Lorg/kisu/units/representation/Unit;)Lorg/kisu/units/representation/Unit;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/kisu/units/special/AbsorbedDose : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Area : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Becquerel : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Becquerel$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Becquerel$Companion {
+}
+
+public final class org/kisu/units/special/Byte : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Byte$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Byte$Companion {
+}
+
+public final class org/kisu/units/special/Bytes : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/special/Bytes$Companion;
+	public synthetic fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/special/Byte;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Bytes$Companion {
+	public final fun invoke (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;)Lorg/kisu/units/special/Bytes;
+	public static synthetic fun invoke$default (Lorg/kisu/units/special/Bytes$Companion;Ljava/math/BigDecimal;Lorg/kisu/prefixes/Metric;ILjava/lang/Object;)Lorg/kisu/units/special/Bytes;
+}
+
+public final class org/kisu/units/special/Capacitance : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/CatalyticActivity : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Celsius : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Celsius$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Celsius$Companion {
+}
+
+public final class org/kisu/units/special/CelsiusTemperature : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Conductance : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Coulomb : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Coulomb$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Coulomb$Companion {
+}
+
+public final class org/kisu/units/special/CubicMetre : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/CubicMetre$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/CubicMetre$Companion {
+}
+
+public final class org/kisu/units/special/DoseEquivalent : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/ElectricCharge : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/ElectricPotential : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Energy : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Farad : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Farad$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Farad$Companion {
+}
+
+public final class org/kisu/units/special/Force : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Frequency : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Gray : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Gray$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Gray$Companion {
+}
+
+public final class org/kisu/units/special/Henry : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Henry$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Henry$Companion {
+}
+
+public final class org/kisu/units/special/Hertz : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Hertz$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Hertz$Companion {
+}
+
+public final class org/kisu/units/special/Illuminance : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Inductance : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Joule : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Joule$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Joule$Companion {
+}
+
+public final class org/kisu/units/special/Katal : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Katal$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Katal$Companion {
+}
+
+public final class org/kisu/units/special/Lumen : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Lumen$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Lumen$Companion {
+}
+
+public final class org/kisu/units/special/LuminousFlux : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Lux : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Lux$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Lux$Companion {
+}
+
+public final class org/kisu/units/special/MagneticFlux : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/MagneticFluxDensity : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Newton : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Newton$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Newton$Companion {
+}
+
+public final class org/kisu/units/special/Ohm : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Ohm$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Ohm$Companion {
+}
+
+public final class org/kisu/units/special/Pascal : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Pascal$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Pascal$Companion {
+}
+
+public final class org/kisu/units/special/PlaneAngle : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Power : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Pressure : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Radian : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Radian$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Radian$Companion {
+}
+
+public final class org/kisu/units/special/Radioactivity : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Resistance : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Siemens : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Siemens$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Siemens$Companion {
+}
+
+public final class org/kisu/units/special/Sievert : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Sievert$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Sievert$Companion {
+}
+
+public final class org/kisu/units/special/SolidAngle : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/SquareMetre : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/SquareMetre$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/SquareMetre$Companion {
+}
+
+public final class org/kisu/units/special/Steradian : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Steradian$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Steradian$Companion {
+}
+
+public final class org/kisu/units/special/Tesla : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Tesla$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Tesla$Companion {
+}
+
+public final class org/kisu/units/special/Volt : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Volt$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Volt$Companion {
+}
+
+public final class org/kisu/units/special/Volume : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Watt : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Watt$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Watt$Companion {
+}
+
+public final class org/kisu/units/special/Weber : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/Weber$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/Weber$Companion {
+}
+
+public final class org/kisu/units/thermodynamics/HeatCapacity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/thermodynamics/HeatCapacity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/thermodynamics/HeatCapacity$Companion {
+}
+
+public final class org/kisu/units/thermodynamics/ReciprocalKelvin : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/thermodynamics/ReciprocalKelvin$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/thermodynamics/ReciprocalKelvin$Companion {
+}
+
+public final class org/kisu/units/thermodynamics/SpecificHeatCapacity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/thermodynamics/SpecificHeatCapacity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/thermodynamics/SpecificHeatCapacity$Companion {
+}
+
+public final class org/kisu/units/thermodynamics/TemperatureGradient : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/thermodynamics/TemperatureGradient$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/thermodynamics/TemperatureGradient$Companion {
+}
+
+public final class org/kisu/units/thermodynamics/ThermalConductivity : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/thermodynamics/ThermalConductivity$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/thermodynamics/ThermalConductivity$Companion {
+}
+
+public final class org/kisu/units/thermodynamics/ThermalExpansionCoefficient : org/kisu/units/Measure {
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/thermodynamics/ReciprocalKelvin;)V
+}
+
+public final class org/kisu/units/thermodynamics/ThermalResistance : org/kisu/units/Measure {
+	public static final field Companion Lorg/kisu/units/thermodynamics/ThermalResistance$Companion;
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/representation/Quotient;)V
+}
+
+public final class org/kisu/units/thermodynamics/ThermalResistance$Companion {
+}
+
