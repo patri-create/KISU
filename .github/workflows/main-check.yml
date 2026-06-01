@@ -18,6 +18,10 @@ jobs:
           distribution: 'temurin'
           java-version: 25
 
+      - name: Validate public API
+        run: |
+          ./gradlew checkKotlinAbi
+
       - name: Build and test
         run: |
           ./gradlew :lib:build
