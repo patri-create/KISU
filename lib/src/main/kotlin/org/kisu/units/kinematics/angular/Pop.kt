@@ -43,20 +43,11 @@ class Pop internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **radians per second to the sixth power** (rad/s⁶).
+         * Creates a [RadianPerSecondSixth] expression for **radian per second sixth** (`rad/s⁶`).
          *
-         * This derived unit expresses the sixth-order time derivative of angular position —
-         * sometimes informally called a higher-order “angular snap” or “angular crackle”,
-         * i.e. the rate of change of the fifth-order derivative.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Radian] (angle) with the specified [prefix]
-         *  - divided by a [SecondSixth] (time⁶)
-         *
-         * @param prefix Metric prefix to apply to the radian unit.
+         * @param prefix Metric prefix applied to the radian unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing rad/s⁶.
+         * @return A [RadianPerSecondSixth] expression for `rad/s⁶`.
          */
         @Suppress("FunctionNaming")
         internal fun RadianPerSecondSixth(prefix: Metric = Metric.BASE): RadianPerSecondSixth =

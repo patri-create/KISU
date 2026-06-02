@@ -41,19 +41,11 @@ class Density(
 
     companion object {
         /**
-         * Creates a measure of **kilograms per cubic metre** (kg/m³).
+         * Creates a [KilogramPerCubicMetre] expression for **kilogram per cubic metre** (`kg/m³`).
          *
-         * This derived unit expresses **mass density** —
-         * how much mass is contained per unit volume.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kilogram] (mass) with the specified [prefix]
-         *  - divided by a [CubicMetre] (volume)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [KilogramPerCubicMetre] representing kg/m³.
+         * @return A [KilogramPerCubicMetre] expression for `kg/m³`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramPerCubicMetre(prefix: Metric = Metric.BASE): KilogramPerCubicMetre =

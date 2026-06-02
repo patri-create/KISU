@@ -54,20 +54,11 @@ class SpecificHeatCapacity(
 
     companion object {
         /**
-         * Creates a measure of **joules per kilogram-kelvin** (J/(kg·K)).
+         * Creates a [JoulePerKilogramKelvin] expression for **joule per kilogram kelvin** (`J/(kg·K)`).
          *
-         * This derived unit is used to express specific heat capacity or
-         * specific entropy — energy per unit mass per unit temperature.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy)
-         *  - divided by a [Product] of [Kilogram] (mass) with the specified [prefix]
-         *    and [Kelvin] (temperature)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing J/(kg·K).
+         * @return A [JoulePerKilogramKelvin] expression for `J/(kg·K)`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerKilogramKelvin(prefix: Metric = Metric.BASE): JoulePerKilogramKelvin =

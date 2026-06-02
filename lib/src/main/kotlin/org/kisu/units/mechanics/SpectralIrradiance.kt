@@ -43,19 +43,11 @@ class SpectralIrradiance(
 
     companion object {
         /**
-         * Creates a measure of **watts per cubic metre** (W/m³).
+         * Creates a [WattPerCubicMetre] expression for **watt per cubic metre** (`W/m³`).
          *
-         * This derived unit expresses **spectral irradiance density** — power per unit area per unit spectral
-         * coordinate (represented as W/m³)
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by a [CubicMetre] (volume)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WattPerCubicMetre] representing W/m³.
+         * @return A [WattPerCubicMetre] expression for `W/m³`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerCubicMetre(prefix: Metric = Metric.BASE): WattPerCubicMetre =

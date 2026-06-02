@@ -36,12 +36,11 @@ class MagneticMoment(
 
     companion object {
         /**
-         * Creates a unit expression in **weber-metres** (Wb·m).
+         * Creates a [WeberMetre] expression for **weber metre** (`Wb·m`).
          *
-         * This representation is built as a [Product] of [Weber] and [Metre].
-         *
-         * @param prefix Metric prefix to apply to the weber unit.
-         * @return A [WeberMetre] representing Wb·m.
+         * @param prefix Metric prefix applied to the weber unit component.
+         * Defaults to [Metric.BASE] (no prefix).
+         * @return A [WeberMetre] expression for `Wb·m`.
          */
         @Suppress("FunctionNaming")
         internal fun WeberMetre(prefix: Metric = Metric.BASE): WeberMetre =

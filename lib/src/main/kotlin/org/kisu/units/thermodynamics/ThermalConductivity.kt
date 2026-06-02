@@ -52,20 +52,11 @@ class ThermalConductivity(
 
     companion object {
         /**
-         * Creates a measure of **watts per metre-kelvin** (W/(m·K)).
+         * Creates a [WattPerMetreKelvin] expression for **watt per metre kelvin** (`W/(m·K)`).
          *
-         * This derived unit expresses thermal conductivity — the rate of
-         * heat transfer through a material per unit thickness and temperature
-         * difference.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by a [Product] of [Metre] (length) and [Kelvin] (temperature)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing W/(m·K).
+         * @return A [WattPerMetreKelvin] expression for `W/(m·K)`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerMetreKelvin(prefix: Metric = Metric.BASE): WattPerMetreKelvin =

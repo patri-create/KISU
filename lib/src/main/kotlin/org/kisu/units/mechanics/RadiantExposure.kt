@@ -45,20 +45,11 @@ class RadiantExposure(
 
     companion object {
         /**
-         * Creates a measure of **joules per square metre** (J/m²).
+         * Creates a [JoulePerSquareMetre] expression for **joule per square metre** (`J/m²`).
          *
-         * This derived unit expresses **energy density per unit area** —
-         * how much energy is distributed over a given area, commonly used
-         * in radiation and surface energy calculations.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by a [SquareMetre] (area)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [JoulePerSquareMetre] representing J/m².
+         * @return A [JoulePerSquareMetre] expression for `J/m²`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerSquareMetre(prefix: Metric = Metric.BASE): JoulePerSquareMetre =

@@ -44,19 +44,11 @@ class MolarMass(
 
     companion object {
         /**
-         * Creates a measure of **kilograms per mole** (kg/mol).
+         * Creates a [KilogramPerMole] expression for **kilogram per mole** (`kg/mol`).
          *
-         * This derived unit is used to express mass per amount of substance,
-         * for example molar mass in chemistry.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kilogram] (mass) with the specified [prefix]
-         *  - divided by a [Mole] (amount of substance)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing kg/mol.
+         * @return A [KilogramPerMole] expression for `kg/mol`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramPerMole(prefix: Metric = Metric.BASE): KilogramPerMole =

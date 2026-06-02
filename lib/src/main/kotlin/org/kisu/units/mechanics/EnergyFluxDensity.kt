@@ -48,19 +48,11 @@ class EnergyFluxDensity(
 
     companion object {
         /**
-         * Creates a measure of **joules per square metre per second** (J/(m²·s)).
+         * Creates a [JoulePerSquareMetreSecond] expression for **joule per square metre second** (`J/(m²·s)`).
          *
-         * This derived unit expresses **energy flux density** —
-         * how much energy passes through a unit area per unit time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by the product of a [SquareMetre] (area) and a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [JoulePerSquareMetreSecond] representing J/(m²·s).
+         * @return A [JoulePerSquareMetreSecond] expression for `J/(m²·s)`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerSquareMetreSecond(prefix: Metric = Metric.BASE): JoulePerSquareMetreSecond =

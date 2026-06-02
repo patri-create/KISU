@@ -45,19 +45,11 @@ class MolarEnergy(
 
     companion object {
         /**
-         * Creates a measure of **joules per mole** (J/mol).
+         * Creates a [JoulePerMole] expression for **joule per mole** (`J/mol`).
          *
-         * This derived unit is widely used in chemistry and thermodynamics
-         * to express energy, work or enthalpy per amount of substance.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by a [Mole] (amount of substance)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing J/mol.
+         * @return A [JoulePerMole] expression for `J/mol`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerMole(prefix: Metric = Metric.BASE): JoulePerMole =

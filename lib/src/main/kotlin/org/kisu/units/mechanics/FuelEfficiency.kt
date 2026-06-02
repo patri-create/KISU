@@ -40,6 +40,13 @@ class FuelEfficiency(
     typealias MetrePerCubicMetre = Quotient<Metre, CubicMetre>
 
     companion object {
+        /**
+         * Creates a [MetrePerCubicMetre] expression for **metre per cubic metre** (`m/m³`).
+         *
+         * @param prefix Metric prefix applied to the metre unit component.
+         * Defaults to [Metric.BASE] (no prefix).
+         * @return A [MetrePerCubicMetre] expression for `m/m³`.
+         */
         @Suppress("FunctionNaming")
         internal fun MetrePerCubicMetre(prefix: Metric = Metric.BASE): MetrePerCubicMetre =
             Quotient(Metre(prefix), CubicMetre())

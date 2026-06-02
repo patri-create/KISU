@@ -45,19 +45,11 @@ class AbsorbedDoseRate(
 
     companion object {
         /**
-         * Creates a measure of **grays per second** (Gy/s).
+         * Creates a [GrayPerSecond] expression for **gray per second** (`Gy/s`).
          *
-         * This derived unit expresses an **absorbed dose rate** —
-         * how much ionizing radiation energy (in grays) is absorbed per unit time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Gray] (absorbed dose) with the specified [prefix]
-         *  - divided by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the gray unit.
+         * @param prefix Metric prefix applied to the gray unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [GrayPerSecond] representing Gy/s.
+         * @return A [GrayPerSecond] expression for `Gy/s`.
          */
         @Suppress("FunctionNaming")
         internal fun GrayPerSecond(prefix: Metric = Metric.BASE): GrayPerSecond =

@@ -57,20 +57,11 @@ class MolarConductivity(
 
     companion object {
         /**
-         * Creates a measure of **siemens square metres per mole** (S·m²/mol).
+         * Creates a [SiemensSquareMetrePerMole] expression for **siemens square metre per mole** (`S·m²/mol`).
          *
-         * This derived unit can be used in electrochemistry and related
-         * fields to express conductivity–area products per amount of substance.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Product] of [Siemens] (electrical conductance) with the specified [prefix]
-         *    and [SquareMetre] (area)
-         *  - divided by a [Mole] (amount of substance)
-         *
-         * @param prefix Metric prefix to apply to the siemens unit.
+         * @param prefix Metric prefix applied to the siemens unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing S·m²/mol.
+         * @return A [SiemensSquareMetrePerMole] expression for `S·m²/mol`.
          */
         @Suppress("FunctionNaming")
         internal fun SiemensSquareMetrePerMole(

@@ -48,19 +48,11 @@ class SpectralRadiance(
 
     companion object {
         /**
-         * Creates a measure of **watts per steradian per cubic metre** (W/(sr·m³)).
+         * Creates a [WattPerSteradianCubicMetre] expression for **watt per steradian cubic metre** (`W/(sr·m³)`).
          *
-         * This derived unit expresses **spectral radiance density** — radiant power per unit solid angle and per unit
-         * spectral-coordinate representation (W/(sr·m³)).
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by the product of a [Steradian] (solid angle) and a [CubicMetre] (volume)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WattPerSteradianCubicMetre] representing W/(sr·m³).
+         * @return A [WattPerSteradianCubicMetre] expression for `W/(sr·m³)`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerSteradianCubicMetre(prefix: Metric = Metric.BASE): WattPerSteradianCubicMetre =

@@ -46,18 +46,11 @@ class MagneticSusceptibility(
 
     companion object {
         /**
-         * Creates a measure of **metres per henry** (m/H).
+         * Creates a [MetrePerHenry] expression for **metre per henry** (`m/H`).
          *
-         * This derived unit expresses **length per inductance** — how much length corresponds to a given inductance.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [Henry] (inductance)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [MetrePerHenry] representing m/H.
+         * @return A [MetrePerHenry] expression for `m/H`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerHenry(prefix: Metric = Metric.BASE): MetrePerHenry =

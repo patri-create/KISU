@@ -47,19 +47,11 @@ class ElectricChargeDensity(
 
     companion object {
         /**
-         * Creates a measure of **coulombs per cubic metre** (C/m³).
+         * Creates a [CoulombPerCubicMetre] expression for **coulomb per cubic metre** (`C/m³`).
          *
-         * This derived unit expresses **volume charge density** —
-         * how much electric charge (in coulombs) is contained per unit volume.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Coulomb] (electric charge) with the specified [prefix]
-         *  - divided by a [CubicMetre] (volume)
-         *
-         * @param prefix Metric prefix to apply to the coulomb unit.
+         * @param prefix Metric prefix applied to the coulomb unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [CoulombPerCubicMetre] representing C/m³.
+         * @return A [CoulombPerCubicMetre] expression for `C/m³`.
          */
         @Suppress("FunctionNaming")
         internal fun CoulombPerCubicMetre(prefix: Metric = Metric.BASE): CoulombPerCubicMetre =

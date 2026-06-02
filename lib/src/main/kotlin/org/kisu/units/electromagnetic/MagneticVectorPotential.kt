@@ -49,19 +49,11 @@ class MagneticVectorPotential(
 
     companion object {
         /**
-         * Creates a measure of **webers per metre** (Wb/m).
+         * Creates a [WeberPerMetre] expression for **weber per metre** (`Wb/m`).
          *
-         * This derived unit expresses **magnetic flux per unit length** —
-         * how much magnetic flux is present along a given length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Weber] (magnetic flux) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the weber unit.
+         * @param prefix Metric prefix applied to the weber unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WeberPerMetre] representing Wb/m.
+         * @return A [WeberPerMetre] expression for `Wb/m`.
          */
         @Suppress("FunctionNaming")
         internal fun WeberPerMetre(prefix: Metric = Metric.BASE): WeberPerMetre =

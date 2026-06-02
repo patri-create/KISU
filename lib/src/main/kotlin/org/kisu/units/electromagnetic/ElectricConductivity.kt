@@ -46,19 +46,11 @@ class ElectricConductivity(
 
     companion object {
         /**
-         * Creates a measure of **siemens per metre** (S/m).
+         * Creates a [SiemensPerMetre] expression for **siemens per metre** (`S/m`).
          *
-         * This derived unit expresses **electrical conductivity** —
-         * how easily electric current flows through a material per unit length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Siemens] (electrical conductance) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the siemens unit.
+         * @param prefix Metric prefix applied to the siemens unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [SiemensPerMetre] representing S/m.
+         * @return A [SiemensPerMetre] expression for `S/m`.
          */
         @Suppress("FunctionNaming")
         internal fun SiemensPerMetre(prefix: Metric = Metric.BASE): SiemensPerMetre =

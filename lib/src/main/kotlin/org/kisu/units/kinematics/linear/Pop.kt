@@ -41,19 +41,11 @@ class Pop internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **metres per second to the sixth power** (m/s⁶).
+         * Creates a [MetrePerSecondSixth] expression for **metre per second sixth** (`m/s⁶`).
          *
-         * This derived unit expresses the sixth-order time derivative of linear position —
-         * i.e., the rate of change of the fifth derivative of velocity.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [SecondSixth] (time⁶)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m/s⁶.
+         * @return A [MetrePerSecondSixth] expression for `m/s⁶`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerSecondSixth(prefix: Metric = Metric.BASE): MetrePerSecondSixth =

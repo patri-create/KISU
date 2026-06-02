@@ -43,19 +43,11 @@ class Crackle internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **metres per second to the fifth power** (m/s⁵).
+         * Creates a [MetrePerSecondFifth] expression for **metre per second fifth** (`m/s⁵`).
          *
-         * This derived unit expresses the fifth-order time derivative of linear position —
-         * i.e., the rate of change of the fourth derivative of velocity.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [SecondFifth] (time⁵)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m/s⁵.
+         * @return A [MetrePerSecondFifth] expression for `m/s⁵`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerSecondFifth(prefix: Metric = Metric.BASE): MetrePerSecondFifth =

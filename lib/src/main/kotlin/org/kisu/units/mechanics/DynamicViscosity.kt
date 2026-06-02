@@ -41,18 +41,11 @@ class DynamicViscosity(
 
     companion object {
         /**
-         * Creates a measure of **pascal-seconds** (Pa·s).
+         * Creates a [PascalSecond] expression for **pascal second** (`Pa·s`).
          *
-         * This compound unit represents the product of:
-         *  - a [Pascal] (pressure or stress) with the specified [prefix]
-         *  - multiplied by a [Second] (time)
-         *
-         * It is commonly used to express **dynamic viscosity** in fluid mechanics.
-         *
-         * @param prefix Metric prefix to apply to the pascal unit.
+         * @param prefix Metric prefix applied to the pascal unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [PascalSecond] representing Pa·s.
+         * @return A [PascalSecond] expression for `Pa·s`.
          */
         @Suppress("FunctionNaming")
         internal fun PascalSecond(prefix: Metric = Metric.BASE): PascalSecond =

@@ -42,19 +42,11 @@ class Acceleration(
 
     companion object {
         /**
-         * Creates a measure of **radians per second squared** (rad/s²).
+         * Creates a [RadianPerSecondSquared] expression for **radian per second squared** (`rad/s²`).
          *
-         * This derived unit expresses angular acceleration —
-         * how quickly an angular velocity (in radians per second) changes over time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Radian] (angle) with the specified [prefix]
-         *  - divided by a [SecondSquared] (time²)
-         *
-         * @param prefix Metric prefix to apply to the radian unit.
+         * @param prefix Metric prefix applied to the radian unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing rad/s².
+         * @return A [RadianPerSecondSquared] expression for `rad/s²`.
          */
         @Suppress("FunctionNaming")
         internal fun RadianPerSecondSquared(prefix: Metric = Metric.BASE): RadianPerSecondSquared =

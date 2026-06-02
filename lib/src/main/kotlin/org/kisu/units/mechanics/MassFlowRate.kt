@@ -41,19 +41,11 @@ class MassFlowRate(
 
     companion object {
         /**
-         * Creates a measure of **kilograms per second** (kg/s).
+         * Creates a [KilogramPerSecond] expression for **kilogram per second** (`kg/s`).
          *
-         * This derived unit expresses **mass flow rate** —
-         * how much mass passes through a point or system per unit time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kilogram] (mass) with the specified [prefix]
-         *  - divided by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [KilogramPerSecond] representing kg/s.
+         * @return A [KilogramPerSecond] expression for `kg/s`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramPerSecond(prefix: Metric = Metric.BASE): KilogramPerSecond =

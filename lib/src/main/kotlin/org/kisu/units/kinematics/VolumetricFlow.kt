@@ -45,19 +45,11 @@ class VolumetricFlow internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **cubic metres per second** (m³/s).
+         * Creates a [CubicMetrePerSecond] expression for **cubic metre per second** (`m³/s`).
          *
-         * This derived unit expresses volumetric flow rate —
-         * how much volume (in cubic metres) passes per unit of time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [CubicMetre] (volume) with the specified [prefix]
-         *  - divided by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the cubic metre unit.
+         * @param prefix Metric prefix applied to the cubic metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m³/s.
+         * @return A [CubicMetrePerSecond] expression for `m³/s`.
          */
         @Suppress("FunctionNaming")
         internal fun CubicMetrePerSecond(prefix: Metric = Metric.BASE): CubicMetrePerSecond =

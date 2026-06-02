@@ -45,13 +45,11 @@ class MagnetomotiveForce(
 
     companion object {
         /**
-         * Creates a unit expression in **ampere-radians** (A·rad).
+         * Creates a [AmpereRadian] expression for **ampere radian** (`A·rad`).
          *
-         * This is the representation chosen by the library for [MagnetomotiveForce].
-         * It is constructed as a [Product] of [Ampere] and [Radian].
-         *
-         * @param prefix Metric prefix to apply to the ampere unit.
-         * @return An [AmpereRadian] representing A·rad.
+         * @param prefix Metric prefix applied to the ampere unit component.
+         * Defaults to [Metric.BASE] (no prefix).
+         * @return A [AmpereRadian] expression for `A·rad`.
          */
         @Suppress("FunctionNaming")
         internal fun AmpereRadian(prefix: Metric = Metric.BASE): AmpereRadian =

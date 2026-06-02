@@ -43,19 +43,11 @@ class Crackle internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **radians per second to the fifth power** (rad/s⁵).
+         * Creates a [RadianPerSecondFifth] expression for **radian per second fifth** (`rad/s⁵`).
          *
-         * This derived unit expresses the fifth-order time derivative of angular position —
-         * how quickly the fourth derivative of angular velocity changes over time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Radian] (angle) with the specified [prefix]
-         *  - divided by a [SecondFifth] (time⁵)
-         *
-         * @param prefix Metric prefix to apply to the radian unit.
+         * @param prefix Metric prefix applied to the radian unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing rad/s⁵.
+         * @return A [RadianPerSecondFifth] expression for `rad/s⁵`.
          */
         @Suppress("FunctionNaming")
         internal fun RadianPerSecondFifth(prefix: Metric = Metric.BASE): RadianPerSecondFifth =

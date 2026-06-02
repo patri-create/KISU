@@ -45,19 +45,11 @@ class ThermalResistance(
 
     companion object {
         /**
-         * Creates a measure of **kelvins per watt** (K/W).
+         * Creates a [KelvinPerWatt] expression for **kelvin per watt** (`K/W`).
          *
-         * This derived unit expresses thermal resistance — the temperature
-         * difference per unit of power flow.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kelvin] (temperature difference) with the specified [prefix]
-         *  - divided by a [Watt] (power)
-         *
-         * @param prefix Metric prefix to apply to the kelvin unit.
+         * @param prefix Metric prefix applied to the kelvin unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing K/W.
+         * @return A [KelvinPerWatt] expression for `K/W`.
          */
         @Suppress("FunctionNaming")
         internal fun KelvinPerWatt(prefix: Metric = Metric.BASE): KelvinPerWatt =

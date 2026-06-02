@@ -43,20 +43,11 @@ class AngularMomentum(
 
     companion object {
         /**
-         * Creates a measure of **newton-metre-seconds** (N·m·s).
+         * Creates a [NewtonMeterSecond] expression for **newton metre second** (`N·m·s`).
          *
-         * This compound unit represents the product of:
-         *  - a [Newton] (force) with the specified [prefix]
-         *  - multiplied by a [Metre] (length)
-         *  - multiplied by a [Second] (time)
-         *
-         * It can be used in mechanics to express **angular impulse** or related
-         * physical quantities combining force, distance, and time.
-         *
-         * @param prefix Metric prefix to apply to the newton unit.
+         * @param prefix Metric prefix applied to the newton unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [NewtonMeterSecond] representing N·m·s.
+         * @return A [NewtonMeterSecond] expression for `N·m·s`.
          */
         @Suppress("FunctionNaming")
         internal fun NewtonMeterSecond(prefix: Metric = Metric.BASE): NewtonMeterSecond =

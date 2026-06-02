@@ -47,13 +47,11 @@ class ElectricDisplacementField(
 
     companion object {
         /**
-         * Creates a unit expression in **coulombs per square metre** (C/m²).
+         * Creates a [CoulombPerSquareMetre] expression for **coulomb per square metre** (`C/m²`).
          *
-         * This representation is used by [ElectricDisplacementField] and is
-         * constructed as a [Quotient] of [Coulomb] by [SquareMetre].
-         *
-         * @param prefix Metric prefix to apply to the coulomb unit.
-         * @return A [CoulombPerSquareMetre] representing C/m².
+         * @param prefix Metric prefix applied to the coulomb unit component.
+         * Defaults to [Metric.BASE] (no prefix).
+         * @return A [CoulombPerSquareMetre] expression for `C/m²`.
          */
         @Suppress("FunctionNaming")
         internal fun CoulombPerSquareMetre(prefix: Metric = Metric.BASE): CoulombPerSquareMetre =

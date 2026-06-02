@@ -49,19 +49,11 @@ class SpecificAngularMomentum(
 
     companion object {
         /**
-         * Creates a measure of **newton-metre-seconds per kilogram** (N·m·s/kg).
+         * Creates a [NewtonMetreSecondPerKilogram] expression for **newton metre second per kilogram** (`N·m·s/kg`).
          *
-         * This derived unit expresses a quantity combining **force, distance, and time per unit mass** —
-         * it can be used in contexts such as rotational dynamics or specific mechanical impulses.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - the product of a [Newton] (force) with the specified [prefix], a [Metre] (distance), and a [Second] (time)
-         *  - divided by a [Kilogram] (mass)
-         *
-         * @param prefix Metric prefix to apply to the newton unit.
+         * @param prefix Metric prefix applied to the newton unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [NewtonMetreSecondPerKilogram] representing N·m·s/kg.
+         * @return A [NewtonMetreSecondPerKilogram] expression for `N·m·s/kg`.
          */
         @Suppress("FunctionNaming")
         internal fun NetwonMetreSecondPerKilogram(prefix: Metric = Metric.BASE): NewtonMetreSecondPerKilogram =

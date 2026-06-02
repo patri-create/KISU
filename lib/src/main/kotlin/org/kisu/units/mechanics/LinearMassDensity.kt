@@ -46,19 +46,11 @@ class LinearMassDensity(
 
     companion object {
         /**
-         * Creates a measure of **kilograms per metre** (kg/m).
+         * Creates a [KilogramPerMetre] expression for **kilogram per metre** (`kg/m`).
          *
-         * This derived unit expresses **linear mass density** —
-         * how much mass is distributed along a unit length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kilogram] (mass) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [KilogramPerMetre] representing kg/m.
+         * @return A [KilogramPerMetre] expression for `kg/m`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramPerMetre(prefix: Metric = Metric.BASE): KilogramPerMetre =

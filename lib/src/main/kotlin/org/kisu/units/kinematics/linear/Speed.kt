@@ -43,19 +43,11 @@ class Speed(
 
     companion object {
         /**
-         * Creates a measure of **metres per second** (m/s).
+         * Creates a [MetrePerSecond] expression for **metre per second** (`m/s`).
          *
-         * This derived unit expresses **linear velocity** —
-         * how quickly a position (in metres) changes over time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m/s.
+         * @return A [MetrePerSecond] expression for `m/s`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerSecond(prefix: Metric = Metric.BASE): MetrePerSecond =

@@ -66,21 +66,11 @@ class Yank internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **kilogram-metres per second cubed** (kg·m/s³).
+         * Creates a [KilogramMetrePerSecondCubed] expression for **kilogram metre per second cubed** (`kg·m/s³`).
          *
-         * This derived unit expresses a mass–distance quantity per unit of
-         * time cubed — for example, it can appear in expressions of force rates
-         * or other dynamic quantities where mass and distance are involved and
-         * divided by time³.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Product] of [Kilogram] (mass) with the specified [prefix] and [Metre] (length)
-         *  - divided by a [SecondCubed] (time³)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing kg·m/s³.
+         * @return A [KilogramMetrePerSecondCubed] expression for `kg·m/s³`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramMetrePerSecondCubed(prefix: Metric = Metric.BASE): KilogramMetrePerSecondCubed =

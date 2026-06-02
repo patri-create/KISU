@@ -48,19 +48,11 @@ class SpectralIntensity(
 
     companion object {
         /**
-         * Creates a measure of **watts per steradian per metre** (W/(sr·m)).
+         * Creates a [WattPerSteradianMetre] expression for **watt per steradian metre** (`W/(sr·m)`).
          *
-         * This derived unit expresses **radiant intensity per unit length** —
-         * the power emitted per unit solid angle and per unit length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by the product of a [Steradian] (solid angle) and a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WattPerSteradianMetre] representing W/(sr·m).
+         * @return A [WattPerSteradianMetre] expression for `W/(sr·m)`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerSteradianMetre(prefix: Metric = Metric.BASE): WattPerSteradianMetre =

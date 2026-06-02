@@ -50,19 +50,11 @@ class ElectricFieldStrength(
 
     companion object {
         /**
-         * Creates a measure of **volts per metre** (V/m).
+         * Creates a [VoltPerMetre] expression for **volt per metre** (`V/m`).
          *
-         * This derived unit expresses **electric field strength** —
-         * the force experienced per unit charge across a distance.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Volt] (electric potential) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the volt unit.
+         * @param prefix Metric prefix applied to the volt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [VoltPerMetre] representing V/m.
+         * @return A [VoltPerMetre] expression for `V/m`.
          */
         @Suppress("FunctionNaming")
         internal fun VoltPerMetre(prefix: Metric = Metric.BASE): VoltPerMetre =
