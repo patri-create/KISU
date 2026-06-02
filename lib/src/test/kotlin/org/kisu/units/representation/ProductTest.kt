@@ -41,6 +41,12 @@ class ProductTest : StringSpec({
         }
     }
 
+    "normalization is independent of product grouping" {
+        checkAll(Units.distinct(3, Units.Mode.RANDOM)) { (a, b, c) ->
+            (a * (b * c)).factors shouldBe ((a * b) * c).factors
+        }
+    }
+
     "represents its symbol" {
         checkAll(Units.distinct(2, Units.Mode.RANDOM)) { (left, right) ->
             Product(left.self, right.self).symbol shouldBe listOf(left, right).productSymbol
@@ -61,6 +67,15 @@ class ProductTest : StringSpec({
             val product = (left / left) * right
 
             product.symbol shouldBe right.symbol
+        }
+    }
+
+    "normalization cancels a matching divisor from a product" {
+        checkAll(Units.distinct(2, Units.Mode.RANDOM)) { (left, right) ->
+            val quotient = (left * right) / right
+
+            quotient.factors shouldBe left.factors
+            quotient.symbol shouldBe left.symbol
         }
     }
 

@@ -30,6 +30,15 @@ class QuotientTest : StringSpec({
         }
     }
 
+    "normalization cancels equivalent quotient expressions" {
+        checkAll(Units.distinct(2, Units.Mode.RANDOM)) { (numerator, denominator) ->
+            val quotient = (numerator / denominator) / (numerator / denominator)
+
+            quotient.factors.shouldBeEmpty()
+            quotient.symbol.shouldBeEmpty()
+        }
+    }
+
     "factors should merge equal units" {
         checkAll(Units.distinct(2)) { (a, b) ->
             val numerator = a * a
@@ -71,6 +80,15 @@ class QuotientTest : StringSpec({
             val quotient = a / (b / b)
 
             quotient.symbol shouldBe a.symbol
+        }
+    }
+
+    "normalization cancels a denominator multiplied back into a quotient" {
+        checkAll(Units.distinct(2, Units.Mode.RANDOM)) { (numerator, denominator) ->
+            val expression = (numerator / denominator) * denominator
+
+            expression.factors shouldBe numerator.factors
+            expression.symbol shouldBe numerator.symbol
         }
     }
 
