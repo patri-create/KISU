@@ -45,19 +45,11 @@ class Acceleration(
 
     companion object {
         /**
-         * Creates a measure of **metres per second squared** (m/s²).
+         * Creates a [MetrePerSecondSquared] expression for **metre per second squared** (`m/s²`).
          *
-         * This derived unit expresses **acceleration** —
-         * how quickly a linear velocity (in metres per second) changes over time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [SecondSquared] (time²)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m/s².
+         * @return A [MetrePerSecondSquared] expression for `m/s²`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerSecondSquared(prefix: Metric = Metric.BASE): MetrePerSecondSquared =

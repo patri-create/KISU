@@ -46,19 +46,11 @@ class ElectricCurrentDensity(
 
     companion object {
         /**
-         * Creates a measure of **amperes per square metre** (A/m²).
+         * Creates an [AmperePerSquareMetre] expression for **ampere per square metre** (`A/m²`).
          *
-         * This derived unit expresses **current density** —
-         * how much electric current flows through a given cross-sectional area.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - an [Ampere] (electric current) with the specified [prefix]
-         *  - divided by a [SquareMetre] (area)
-         *
-         * @param prefix Metric prefix to apply to the ampere unit.
+         * @param prefix Metric prefix applied to the ampere unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return An [AmperePerSquareMetre] representing A/m².
+         * @return An [AmperePerSquareMetre] expression for `A/m²`.
          */
         @Suppress("FunctionNaming")
         internal fun AmperePerSquareMetre(prefix: Metric = Metric.BASE): AmperePerSquareMetre =

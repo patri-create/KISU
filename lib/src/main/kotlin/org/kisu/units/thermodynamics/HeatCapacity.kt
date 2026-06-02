@@ -44,19 +44,11 @@ class HeatCapacity(
 
     companion object {
         /**
-         * Creates a measure of **joules per kelvin** (J/K).
+         * Creates a [JoulePerKelvin] expression for **joule per kelvin** (`J/K`).
          *
-         * This derived unit is used to express heat capacity or entropy
-         * per unit temperature.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by a [Kelvin] (temperature)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing J/K.
+         * @return A [JoulePerKelvin] expression for `J/K`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): JoulePerKelvin =

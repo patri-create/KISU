@@ -44,13 +44,11 @@ class MagneticPermittivity(
 
     companion object {
         /**
-         * Creates a unit expression in **henrys per metre** (H/m).
+         * Creates a [HenryPerMetre] expression for **henry per metre** (`H/m`).
          *
-         * This representation is used for magnetic permeability and is constructed as a
-         * [Quotient] of [Henry] by [Metre].
-         *
-         * @param prefix Metric prefix to apply to the henry unit.
-         * @return A [HenryPerMetre] representing H/m.
+         * @param prefix Metric prefix applied to the henry unit component.
+         * Defaults to [Metric.BASE] (no prefix).
+         * @return A [HenryPerMetre] expression for `H/m`.
          */
         @Suppress("FunctionNaming")
         internal fun HenryPerMetre(prefix: Metric = Metric.BASE): HenryPerMetre =

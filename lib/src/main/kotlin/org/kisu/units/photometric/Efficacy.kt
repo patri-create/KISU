@@ -45,19 +45,11 @@ class Efficacy(
 
     companion object {
         /**
-         * Creates a measure of **lumens per watt** (lm/W).
+         * Creates a [LumenPerWatt] expression for **lumen per watt** (`lm/W`).
          *
-         * This derived unit expresses luminous efficacy — how much visible
-         * light (luminous flux) is produced per unit of power.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Lumen] (luminous flux) with the specified [prefix]
-         *  - divided by a [Watt] (power)
-         *
-         * @param prefix Metric prefix to apply to the lumen unit.
+         * @param prefix Metric prefix applied to the lumen unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing lm/W.
+         * @return A [LumenPerWatt] expression for `lm/W`.
          */
         @Suppress("FunctionNaming")
         internal fun LumenPerWatt(prefix: Metric = Metric.BASE): LumenPerWatt =

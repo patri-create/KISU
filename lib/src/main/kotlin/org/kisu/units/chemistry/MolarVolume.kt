@@ -46,19 +46,11 @@ class MolarVolume(
 
     companion object {
         /**
-         * Creates a measure of **cubic metres per mole** (m³/mol).
+         * Creates a [CubicMetrePerMole] expression for **cubic metre per mole** (`m³/mol`).
          *
-         * This derived unit is used to express volume per amount of substance,
-         * for example molar volume in chemistry and physics.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [CubicMetre] (volume) with the specified [prefix]
-         *  - divided by a [Mole] (amount of substance)
-         *
-         * @param prefix Metric prefix to apply to the cubic metre unit.
+         * @param prefix Metric prefix applied to the cubic metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m³/mol.
+         * @return A [CubicMetrePerMole] expression for `m³/mol`.
          */
         @Suppress("FunctionNaming")
         internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): CubicMetrePerMole =

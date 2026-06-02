@@ -45,19 +45,11 @@ class MomentOfInertia(
 
     companion object {
         /**
-         * Creates a measure of **kilogram-square metres** (kg·m²).
+         * Creates a [KilogramSquareMetre] expression for **kilogram square metre** (`kg·m²`).
          *
-         * This compound unit represents the product of:
-         *  - a [Kilogram] (mass) with the specified [prefix]
-         *  - multiplied by a [SquareMetre] (area)
-         *
-         * It is commonly used to express **moment of inertia** or similar
-         * quantities involving mass distributed over an area.
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [KilogramSquareMetre] representing kg·m².
+         * @return A [KilogramSquareMetre] expression for `kg·m²`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramSquareMetre(prefix: Metric = Metric.BASE): KilogramSquareMetre =

@@ -52,20 +52,11 @@ class ElectronMobility(
 
     companion object {
         /**
-         * Creates a measure of **square metres per volt-second** (m²/(V·s)).
+         * Creates a [SquareMetrePerVoltSecond] expression for **square metre per volt second** (`m²/(V·s)`).
          *
-         * This derived unit expresses a quantity such as **electron mobility**
-         * (area per unit electric potential and time) used in various electromagnetic
-         * and materials contexts.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [SquareMetre] (area) with the specified [prefix]
-         *  - divided by a [Product] of a [Volt] (electric potential) and a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the square metre unit.
+         * @param prefix Metric prefix applied to the square metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [SquareMetrePerVoltSecond] representing m²/(V·s).
+         * @return A [SquareMetrePerVoltSecond] expression for `m²/(V·s)`.
          */
         @Suppress("FunctionNaming")
         internal fun SquareMetrePerVoltSecond(prefix: Metric = Metric.BASE): SquareMetrePerVoltSecond =

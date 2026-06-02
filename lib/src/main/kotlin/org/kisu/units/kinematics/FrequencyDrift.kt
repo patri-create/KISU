@@ -45,19 +45,11 @@ class FrequencyDrift internal constructor(
 
     companion object {
         /**
-         * Creates a measure of **hertz per second** (Hz/s).
+         * Creates a [HertzPerSecond] expression for **hertz per second** (`Hz/s`).
          *
-         * This derived unit expresses the rate of change of frequency —
-         * how quickly the frequency (in hertz) varies over time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Hertz] (frequency) with the specified [prefix]
-         *  - divided by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the hertz unit.
+         * @param prefix Metric prefix applied to the hertz unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing Hz/s.
+         * @return A [HertzPerSecond] expression for `Hz/s`.
          */
         @Suppress("FunctionNaming")
         internal fun HertzPerSecond(prefix: Metric = Metric.BASE): HertzPerSecond =

@@ -43,19 +43,11 @@ class LuminousEnergy(
 
     companion object {
         /**
-         * Creates a measure of **lumen-seconds** (lm·s).
+         * Creates a [LumenSecond] expression for **lumen second** (`lm·s`).
          *
-         * This derived unit expresses luminous energy — the total
-         * luminous flux emitted over a period of time.
-         *
-         * Internally this returns a [Product] of:
-         *  - a [Lumen] (luminous flux) with the specified [prefix]
-         *  - multiplied by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the lumen unit.
+         * @param prefix Metric prefix applied to the lumen unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Product] representing lm·s.
+         * @return A [LumenSecond] expression for `lm·s`.
          */
         @Suppress("FunctionNaming")
         internal fun LumenSecond(prefix: Metric = Metric.BASE): LumenSecond =

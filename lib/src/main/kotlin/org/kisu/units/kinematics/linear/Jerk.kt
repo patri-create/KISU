@@ -43,19 +43,11 @@ class Jerk(
 
     companion object {
         /**
-         * Creates a measure of **metres per second cubed** (m/s³).
+         * Creates a [MetrePerSecondCubed] expression for **metre per second cubed** (`m/s³`).
          *
-         * This derived unit expresses the third-order time derivative of linear position —
-         * also known as **jerk**, i.e., the rate of change of acceleration.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [SecondCubed] (time³)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m/s³.
+         * @return A [MetrePerSecondCubed] expression for `m/s³`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerSecondCubed(prefix: Metric = Metric.BASE): MetrePerSecondCubed =

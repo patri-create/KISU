@@ -49,19 +49,11 @@ class TemperatureGradient(
 
     companion object {
         /**
-         * Creates a measure of **kelvins per metre** (K/m).
+         * Creates a [KelvinPerMetre] expression for **kelvin per metre** (`K/m`).
          *
-         * This derived unit expresses a temperature gradient — the change
-         * in temperature per unit length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kelvin] (temperature difference) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the kelvin unit.
+         * @param prefix Metric prefix applied to the kelvin unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing K/m.
+         * @return A [KelvinPerMetre] expression for `K/m`.
          */
         @Suppress("FunctionNaming")
         internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): KelvinPerMetre =

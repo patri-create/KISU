@@ -55,20 +55,11 @@ class MolarHeatCapacity(
 
     companion object {
         /**
-         * Creates a measure of **joules per kelvin-mole** (J/(K·mol)).
+         * Creates a [JoulePerKelvinMole] expression for **joule per kelvin mole** (`J/(K·mol)`).
          *
-         * This derived unit is used in thermodynamics to express energy,
-         * heat capacity or entropy per unit temperature per amount of substance.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by a [Product] of [Kelvin] (temperature)
-         *    and [Mole] (amount of substance)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing J/(K·mol).
+         * @return A [JoulePerKelvinMole] expression for `J/(K·mol)`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerKelvinMole(prefix: Metric = Metric.BASE): JoulePerKelvinMole =

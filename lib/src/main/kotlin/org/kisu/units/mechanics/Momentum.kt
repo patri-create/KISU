@@ -39,19 +39,11 @@ class Momentum(
 
     companion object {
         /**
-         * Creates a measure of **newton-seconds** (N·s).
+         * Creates a [NewtonSecond] expression for **newton second** (`N·s`).
          *
-         * This compound unit represents the product of:
-         *  - a [Newton] (force) with the specified [prefix]
-         *  - multiplied by a [Second] (time)
-         *
-         * It is commonly used to express **impulse** in mechanics —
-         * the change in momentum resulting from a force applied over time.
-         *
-         * @param prefix Metric prefix to apply to the newton unit.
+         * @param prefix Metric prefix applied to the newton unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [NewtonSecond] representing N·s.
+         * @return A [NewtonSecond] expression for `N·s`.
          */
         @Suppress("FunctionNaming")
         internal fun NewtonSecond(prefix: Metric = Metric.BASE): NewtonSecond =

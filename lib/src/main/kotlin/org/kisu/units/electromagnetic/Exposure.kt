@@ -44,18 +44,11 @@ class Exposure(
 
     companion object {
         /**
-         * Creates a measure of **coulombs per kilogram** (C/kg).
+         * Creates a [CoulombPerKilogram] expression for **coulomb per kilogram** (`C/kg`).
          *
-         * This derived unit expresses **radiation exposure in air** — electric charge liberated in air per unit mass.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Coulomb] (electric charge) with the specified [prefix]
-         *  - divided by a [Kilogram] (mass)
-         *
-         * @param prefix Metric prefix to apply to the coulomb unit.
+         * @param prefix Metric prefix applied to the coulomb unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [CoulombPerKilogram] representing C/kg.
+         * @return A [CoulombPerKilogram] expression for `C/kg`.
          */
         @Suppress("FunctionNaming")
         internal fun CoulombPerKilogram(prefix: Metric = Metric.BASE): CoulombPerKilogram =

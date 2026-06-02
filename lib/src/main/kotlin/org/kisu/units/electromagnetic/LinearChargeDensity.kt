@@ -46,19 +46,11 @@ class LinearChargeDensity(
 
     companion object {
         /**
-         * Creates a measure of **coulombs per metre** (C/m).
+         * Creates a [CoulombPerMetre] expression for **coulomb per metre** (`C/m`).
          *
-         * This derived unit expresses **linear charge density** —
-         * how much electric charge (in coulombs) is distributed per unit length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Coulomb] (electric charge) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the coulomb unit.
+         * @param prefix Metric prefix applied to the coulomb unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [CoulombPerMetre] representing C/m.
+         * @return A [CoulombPerMetre] expression for `C/m`.
          */
         @Suppress("FunctionNaming")
         internal fun CoulombPerMetre(prefix: Metric = Metric.BASE): CoulombPerMetre =

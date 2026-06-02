@@ -42,19 +42,11 @@ class HeatFluxDensity(
 
     companion object {
         /**
-         * Creates a measure of **watts per square metre** (W/m²).
+         * Creates a [WattPerSquareMetre] expression for **watt per square metre** (`W/m²`).
          *
-         * This derived unit expresses **power flux density** —
-         * how much power (energy per unit time) passes through a unit area.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by a [SquareMetre] (area)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WattPerSquareMetre] representing W/m².
+         * @return A [WattPerSquareMetre] expression for `W/m²`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerSquareMetre(prefix: Metric = Metric.BASE): WattPerSquareMetre =

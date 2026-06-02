@@ -43,19 +43,11 @@ class Jerk(
 
     companion object {
         /**
-         * Creates a measure of **radians per second cubed** (rad/s³).
+         * Creates a [RadianPerSecondCubed] expression for **radian per second cubed** (`rad/s³`).
          *
-         * This derived unit expresses the third-order time derivative of angular position —
-         * also known as **angular jerk** or **angular jolt**, i.e. the rate of change of angular acceleration.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Radian] (angle) with the specified [prefix]
-         *  - divided by a [SecondCubed] (time³)
-         *
-         * @param prefix Metric prefix to apply to the radian unit.
+         * @param prefix Metric prefix applied to the radian unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing rad/s³.
+         * @return A [RadianPerSecondCubed] expression for `rad/s³`.
          */
         @Suppress("FunctionNaming")
         internal fun RadianPerSecondCubed(prefix: Metric = Metric.BASE): RadianPerSecondCubed =

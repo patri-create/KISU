@@ -57,21 +57,11 @@ class CatalyticEfficiency(
 
     companion object {
         /**
-         * Creates a measure of **cubic metres per mole-second** (m³/(mol·s)).
+         * Creates a [CubicMetrePerMoleSecond] expression for **cubic metre per mole second** (`m³/(mol·s)`).
          *
-         * This is a derived unit commonly used in chemistry and related
-         * disciplines for expressing volumetric quantities per substance
-         * amount per unit of time.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [CubicMetre] (volume) with the specified [prefix]
-         *  - divided by a [Product] of [Mole] (amount of substance)
-         *    and [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the cubic metre unit.
+         * @param prefix Metric prefix applied to the cubic metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [CubicMetrePerMoleSecond] representing m³/(mol·s).
+         * @return A [CubicMetrePerMoleSecond] expression for `m³/(mol·s)`.
          */
         @Suppress("FunctionNaming")
         internal fun CubicMetrePerMoleSecond(prefix: Metric = Metric.BASE): CubicMetrePerMoleSecond = Quotient(

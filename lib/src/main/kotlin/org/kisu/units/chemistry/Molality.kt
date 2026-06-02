@@ -44,19 +44,11 @@ class Molality(
 
     companion object {
         /**
-         * Creates a measure of **moles per kilogram** (mol/kg).
+         * Creates a [MolePerKilogram] expression for **mole per kilogram** (`mol/kg`).
          *
-         * This derived unit is commonly used in chemistry to express
-         * the amount of substance per unit mass of a solvent or solution.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Mole] (amount of substance) with the specified [prefix]
-         *  - divided by a [Kilogram] (mass)
-         *
-         * @param prefix Metric prefix to apply to the mole unit.
+         * @param prefix Metric prefix applied to the mole unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing mol/kg.
+         * @return A [MolePerKilogram] expression for `mol/kg`.
          */
         @Suppress("FunctionNaming")
         internal fun MolPerKilogram(prefix: Metric = Metric.BASE): MolePerKilogram =

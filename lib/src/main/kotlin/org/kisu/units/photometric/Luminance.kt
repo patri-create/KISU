@@ -46,19 +46,11 @@ class Luminance(
 
     companion object {
         /**
-         * Creates a measure of **candelas per square metre** (cd/m²).
+         * Creates a [CandelaPerSquareMetre] expression for **candela per square metre** (`cd/m²`).
          *
-         * This derived unit expresses luminance — the amount of luminous
-         * intensity emitted or reflected per unit area.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Candela] (luminous intensity) with the specified [prefix]
-         *  - divided by a [SquareMetre] (area)
-         *
-         * @param prefix Metric prefix to apply to the candela unit.
+         * @param prefix Metric prefix applied to the candela unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing cd/m².
+         * @return A [CandelaPerSquareMetre] expression for `cd/m²`.
          */
         @Suppress("FunctionNaming")
         internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): CandelaPerSquareMetre =

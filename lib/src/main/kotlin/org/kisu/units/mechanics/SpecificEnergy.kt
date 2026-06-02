@@ -41,19 +41,11 @@ class SpecificEnergy(
 
     companion object {
         /**
-         * Creates a measure of **joules per kilogram** (J/kg).
+         * Creates a [JoulePerKilogram] expression for **joule per kilogram** (`J/kg`).
          *
-         * This derived unit expresses **specific energy** —
-         * how much energy is associated with a unit mass.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by a [Kilogram] (mass)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [JoulePerKilogram] representing J/kg.
+         * @return A [JoulePerKilogram] expression for `J/kg`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerKilogram(prefix: Metric = Metric.BASE): JoulePerKilogram =

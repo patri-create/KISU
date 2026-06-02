@@ -46,19 +46,11 @@ class KinematicViscosity(
 
     companion object {
         /**
-         * Creates a measure of **square metres per second** (m²/s).
+         * Creates a [SquareMetrePerSecond] expression for **square metre per second** (`m²/s`).
          *
-         * This derived unit expresses **kinematic viscosity** (momentum diffusivity) — the ratio of dynamic viscosity
-         * to density, commonly used in fluid-flow and transport analysis.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [SquareMetre] (area) with the specified [prefix]
-         *  - divided by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the square metre unit.
+         * @param prefix Metric prefix applied to the square metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [SquareMetrePerSecond] representing m²/s.
+         * @return A [SquareMetrePerSecond] expression for `m²/s`.
          */
         @Suppress("FunctionNaming")
         internal fun SquareMetrePerSecond(prefix: Metric = Metric.BASE): SquareMetrePerSecond =

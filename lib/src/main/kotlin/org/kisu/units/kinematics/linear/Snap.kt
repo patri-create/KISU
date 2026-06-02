@@ -43,19 +43,11 @@ class Snap(
 
     companion object {
         /**
-         * Creates a measure of **metres per second to the fourth power** (m/s⁴).
+         * Creates a [MetrePerSecondFourth] expression for **metre per second fourth** (`m/s⁴`).
          *
-         * This derived unit expresses the fourth-order time derivative of linear position —
-         * often called **snap**, i.e., the rate of change of jerk.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Metre] (length) with the specified [prefix]
-         *  - divided by a [SecondFourth] (time⁴)
-         *
-         * @param prefix Metric prefix to apply to the metre unit.
+         * @param prefix Metric prefix applied to the metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing m/s⁴.
+         * @return A [MetrePerSecondFourth] expression for `m/s⁴`.
          */
         @Suppress("FunctionNaming")
         internal fun MetrePerSecondFourth(prefix: Metric = Metric.BASE): MetrePerSecondFourth =

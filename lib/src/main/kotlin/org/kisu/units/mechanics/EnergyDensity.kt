@@ -42,19 +42,11 @@ class EnergyDensity(
 
     companion object {
         /**
-         * Creates a measure of **joules per cubic metre** (J/m³).
+         * Creates a [JoulePerCubicMetre] expression for **joule per cubic metre** (`J/m³`).
          *
-         * This derived unit expresses **energy density** —
-         * how much energy is stored per unit volume.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Joule] (energy) with the specified [prefix]
-         *  - divided by a [CubicMetre] (volume)
-         *
-         * @param prefix Metric prefix to apply to the joule unit.
+         * @param prefix Metric prefix applied to the joule unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [JoulePerCubicMetre] representing J/m³.
+         * @return A [JoulePerCubicMetre] expression for `J/m³`.
          */
         @Suppress("FunctionNaming")
         internal fun JoulePerCubicMetre(prefix: Metric = Metric.BASE): JoulePerCubicMetre =

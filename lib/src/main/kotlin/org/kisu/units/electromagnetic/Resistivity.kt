@@ -45,18 +45,11 @@ class Resistivity(
 
     companion object {
         /**
-         * Creates a measure of **ohm-metres** (Ω·m).
+         * Creates a [OhmMetre] expression for **ohm metre** (`Ω·m`).
          *
-         * This compound unit represents the product of:
-         *  - an [Ohm] (electrical resistance) with the specified [prefix]
-         *  - multiplied by a [Metre] (length)
-         *
-         * It is commonly used to express **resistivity** of materials.
-         *
-         * @param prefix Metric prefix to apply to the ohm unit.
+         * @param prefix Metric prefix applied to the ohm unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return An [OhmMetre] representing Ω·m.
+         * @return A [OhmMetre] expression for `Ω·m`.
          */
         @Suppress("FunctionNaming")
         internal fun OhmMetre(prefix: Metric = Metric.BASE): OhmMetre =

@@ -44,19 +44,11 @@ class Exposure(
 
     companion object {
         /**
-         * Creates a measure of **lux-seconds** (lx·s).
+         * Creates a [LuxSecond] expression for **lux second** (`lx·s`).
          *
-         * This derived unit expresses luminous exposure — the total
-         * illumination received over a period of time.
-         *
-         * Internally this returns a [Product] of:
-         *  - a [Lux] (illuminance) with the specified [prefix]
-         *  - multiplied by a [Second] (time)
-         *
-         * @param prefix Metric prefix to apply to the lux unit.
+         * @param prefix Metric prefix applied to the lux unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Product] representing lx·s.
+         * @return A [LuxSecond] expression for `lx·s`.
          */
         @Suppress("FunctionNaming")
         internal fun LuxSecond(prefix: Metric = Metric.BASE): LuxSecond =

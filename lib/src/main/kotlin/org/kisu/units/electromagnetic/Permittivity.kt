@@ -45,19 +45,11 @@ class Permittivity(
 
     companion object {
         /**
-         * Creates a measure of **farads per metre** (F/m).
+         * Creates a [FaradPerMetre] expression for **farad per metre** (`F/m`).
          *
-         * This derived unit expresses **electric permittivity** — a material property quantifying how a medium
-         * responds to an electric field.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Farad] (capacitance) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the farad unit.
+         * @param prefix Metric prefix applied to the farad unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [FaradPerMetre] representing F/m.
+         * @return A [FaradPerMetre] expression for `F/m`.
          */
         @Suppress("FunctionNaming")
         internal fun FaradPerMetre(prefix: Metric = Metric.BASE): FaradPerMetre =

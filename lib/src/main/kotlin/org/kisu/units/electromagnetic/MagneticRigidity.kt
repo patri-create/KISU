@@ -43,19 +43,11 @@ class MagneticRigidity(
 
     companion object {
         /**
-         * Creates a measure of **tesla-metres** (T·m).
+         * Creates a [TeslaMetre] expression for **tesla metre** (`T·m`).
          *
-         * This compound unit represents the product of:
-         *  - a [Tesla] (magnetic flux density) with the specified [prefix]
-         *  - multiplied by a [Metre] (length)
-         *
-         * It’s commonly used in electromagnetism when expressing quantities like
-         * magnetic flux over a distance.
-         *
-         * @param prefix Metric prefix to apply to the tesla unit.
+         * @param prefix Metric prefix applied to the tesla unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [TeslaMetre] representing T·m.
+         * @return A [TeslaMetre] expression for `T·m`.
          */
         @Suppress("FunctionNaming")
         internal fun TeslaMetre(prefix: Metric = Metric.BASE): TeslaMetre =

@@ -42,19 +42,11 @@ class SpecificVolume(
 
     companion object {
         /**
-         * Creates a measure of **cubic metres per kilogram** (m³/kg).
+         * Creates a [CubicMetrePerKilogram] expression for **cubic metre per kilogram** (`m³/kg`).
          *
-         * This derived unit expresses **specific volume** —
-         * how much volume is associated with a unit mass.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [CubicMetre] (volume) with the specified [prefix]
-         *  - divided by a [Kilogram] (mass)
-         *
-         * @param prefix Metric prefix to apply to the cubic metre unit.
+         * @param prefix Metric prefix applied to the cubic metre unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [CubicMetrePerKilogram] representing m³/kg.
+         * @return A [CubicMetrePerKilogram] expression for `m³/kg`.
          */
         @Suppress("FunctionNaming")
         internal fun CubicMetrePerKilogram(prefix: Metric = Metric.BASE): CubicMetrePerKilogram =

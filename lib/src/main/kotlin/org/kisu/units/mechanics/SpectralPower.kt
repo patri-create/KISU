@@ -41,19 +41,11 @@ class SpectralPower(
 
     companion object {
         /**
-         * Creates a measure of **watts per metre** (W/m).
+         * Creates a [WattPerMetre] expression for **watt per metre** (`W/m`).
          *
-         * This derived unit expresses **linear power density** —
-         * how much power is distributed per unit length.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by a [Metre] (length)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WattPerMetre] representing W/m.
+         * @return A [WattPerMetre] expression for `W/m`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerMetre(prefix: Metric = Metric.BASE): WattPerMetre =

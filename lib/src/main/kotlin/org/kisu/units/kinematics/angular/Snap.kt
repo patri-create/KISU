@@ -43,19 +43,11 @@ class Snap(
 
     companion object {
         /**
-         * Creates a measure of **radians per second to the fourth power** (rad/s⁴).
+         * Creates a [RadianPerSecondFourth] expression for **radian per second fourth** (`rad/s⁴`).
          *
-         * This derived unit expresses the fourth-order time derivative of angular position —
-         * often called **angular snap** (the rate of change of angular jerk).
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Radian] (angle) with the specified [prefix]
-         *  - divided by a [SecondFourth] (time⁴)
-         *
-         * @param prefix Metric prefix to apply to the radian unit.
+         * @param prefix Metric prefix applied to the radian unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing rad/s⁴.
+         * @return A [RadianPerSecondFourth] expression for `rad/s⁴`.
          */
         @Suppress("FunctionNaming")
         internal fun RadianPerSecondFourth(prefix: Metric = Metric.BASE): RadianPerSecondFourth =

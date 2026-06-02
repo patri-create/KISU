@@ -47,20 +47,11 @@ class Molarity(
 
     companion object {
         /**
-         * Creates a measure of **moles per cubic metre** (mol/m³).
+         * Creates a [MolePerCubicMetre] expression for **mole per cubic metre** (`mol/m³`).
          *
-         * This derived unit is widely used in chemistry and physics
-         * to express the amount of substance per unit volume
-         * (molar concentration in SI base units).
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Mole] (amount of substance) with the specified [prefix]
-         *  - divided by a [CubicMetre] (volume)
-         *
-         * @param prefix Metric prefix to apply to the mole unit.
+         * @param prefix Metric prefix applied to the mole unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [Quotient] representing mol/m³.
+         * @return A [MolePerCubicMetre] expression for `mol/m³`.
          */
         @Suppress("FunctionNaming")
         internal fun MolePerCubicMetre(prefix: Metric = Metric.BASE): MolePerCubicMetre =

@@ -40,13 +40,11 @@ class Magnetization(
 
     companion object {
         /**
-         * Creates a unit expression in **amperes per metre** (A/m).
+         * Creates a [AmperePerMetre] expression for **ampere per metre** (`A/m`).
          *
-         * This representation is used by [Magnetization]. Internally it returns a
-         * [Quotient] of [Ampere] by [Metre].
-         *
-         * @param prefix Metric prefix to apply to the ampere unit.
-         * @return An [AmperePerMetre] representing A/m.
+         * @param prefix Metric prefix applied to the ampere unit component.
+         * Defaults to [Metric.BASE] (no prefix).
+         * @return A [AmperePerMetre] expression for `A/m`.
          */
         @Suppress("FunctionNaming")
         internal fun AmperePerMetre(prefix: Metric = Metric.BASE): AmperePerMetre =

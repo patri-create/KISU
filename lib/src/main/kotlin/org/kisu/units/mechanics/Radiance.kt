@@ -44,19 +44,11 @@ class Radiance(
 
     companion object {
         /**
-         * Creates a measure of **watts per steradian per square metre** (W/(sr·m²)).
+         * Creates a [WattPerSteradianSquareMetre] expression for **watt per steradian square metre** (`W/(sr·m²)`).
          *
-         * This derived unit expresses **radiant intensity per unit area** —
-         * the power emitted per unit solid angle and per unit area.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Watt] (power) with the specified [prefix]
-         *  - divided by the product of a [Steradian] (solid angle) and a [SquareMetre] (area)
-         *
-         * @param prefix Metric prefix to apply to the watt unit.
+         * @param prefix Metric prefix applied to the watt unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [WattPerSteradianSquareMetre] representing W/(sr·m²).
+         * @return A [WattPerSteradianSquareMetre] expression for `W/(sr·m²)`.
          */
         @Suppress("FunctionNaming")
         internal fun WattPerSteradianSquareMetre(prefix: Metric = Metric.BASE): WattPerSteradianSquareMetre =

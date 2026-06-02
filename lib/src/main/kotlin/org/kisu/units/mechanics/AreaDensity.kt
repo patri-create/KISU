@@ -42,19 +42,11 @@ class AreaDensity(
 
     companion object {
         /**
-         * Creates a measure of **kilograms per square metre** (kg/m²).
+         * Creates a [KilogramPerSquareMetre] expression for **kilogram per square metre** (`kg/m²`).
          *
-         * This derived unit expresses **surface mass density** —
-         * how much mass is distributed per unit area.
-         *
-         * Internally this returns a [Quotient] of:
-         *  - a [Kilogram] (mass) with the specified [prefix]
-         *  - divided by a [SquareMetre] (area)
-         *
-         * @param prefix Metric prefix to apply to the kilogram unit.
+         * @param prefix Metric prefix applied to the kilogram unit component.
          * Defaults to [Metric.BASE] (no prefix).
-         *
-         * @return A [KilogramPerSquareMetre] representing kg/m².
+         * @return A [KilogramPerSquareMetre] expression for `kg/m²`.
          */
         @Suppress("FunctionNaming")
         internal fun KilogramPerSquareMetre(prefix: Metric = Metric.BASE): KilogramPerSquareMetre =
