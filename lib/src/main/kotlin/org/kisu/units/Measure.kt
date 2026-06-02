@@ -275,7 +275,7 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
      */
     override fun hashCode(): Int {
         val canonical = canonical
-        var result = canonical.magnitude.hashCode()
+        var result = canonical.magnitude.stripTrailingZeros().hashCode()
         result = 31 * result + canonical.expression.hashCode()
         return result
     }

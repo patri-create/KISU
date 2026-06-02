@@ -44,6 +44,11 @@ class MeasureTest : StringSpec({
         Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
             TestMeasure(magnitude, prefix)
         }
+    val invariantMagnitudes = Arb.int(-1_000_000..1_000_000).map { it.bigDecimal }
+    val invariantMeasures =
+        Arb.bind(invariantMagnitudes, prefixes) { magnitude, prefix ->
+            TestMeasure(magnitude, prefix)
+        }
     val greaterThanZero: Arb<BigDecimal> =
         Arb.choice(
             Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
@@ -73,6 +78,23 @@ class MeasureTest : StringSpec({
     "rescales correctly" {
         checkAll(measures, prefixes) { measure, newPrefix ->
             measure.to(newPrefix)
+        }
+    }
+
+    "conversion round-trip preserves value" {
+        checkAll(invariantMeasures, prefixes) { measure, targetPrefix ->
+            val originalExpression = measure.component2()
+            val converted = measure.to(TestUnit(targetPrefix))
+
+            converted.to(originalExpression) shouldBe measure
+        }
+    }
+
+    "canonical value is invariant across conversions" {
+        checkAll(invariantMeasures, prefixes) { measure, targetPrefix ->
+            val converted = measure.to(TestUnit(targetPrefix))
+
+            converted.canonical shouldBe measure.canonical
         }
     }
 
@@ -127,6 +149,19 @@ class MeasureTest : StringSpec({
             val compact = TestMeasure(correctedMagnitude, optimalPrefix)
 
             measure.optimal.representation shouldBe compact.representation
+        }
+    }
+
+    "canonical and optimal normalization are idempotent" {
+        checkAll(invariantMeasures) { measure ->
+            measure.canonical.canonical shouldBe measure.canonical
+            measure.optimal.optimal shouldBe measure.optimal
+        }
+    }
+
+    "optimal normalization preserves value" {
+        checkAll(invariantMeasures) { measure ->
+            measure.optimal shouldBe measure
         }
     }
 
@@ -315,6 +350,27 @@ class MeasureTest : StringSpec({
         }
     }
 
+    "decomposition recomposes to canonical absolute value" {
+        checkAll(invariantMeasures) { measure ->
+            val recomposed =
+                measure.decomposition.fold(TestMeasure(BigDecimal.ZERO)) { sum, component ->
+                    sum + component
+                }.canonical
+
+            recomposed.magnitude.compareTo(measure.canonical.magnitude.abs()) shouldBe 0
+        }
+    }
+
+    "non-zero decomposition omits zero parts and is ordered from largest to smallest expression" {
+        checkAll(invariantMeasures.nonZero) { measure ->
+            val decomposition = measure.decomposition
+
+            decomposition.all { component -> !component.zero }.shouldBeTrue()
+            decomposition.map { component -> component.component2().factor } shouldBe
+                decomposition.map { component -> component.component2().factor }.sortedDescending()
+        }
+    }
+
     "decomposes unit into magnitude, prefix and symbol" {
         checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
             TestMeasure(magnitude, prefix).should { (number, expression, unit) ->
@@ -346,6 +402,27 @@ class MeasureTest : StringSpec({
             (x == y).shouldBeTrue()
             (y == z).shouldBeTrue()
             (x == z).shouldBeTrue()
+        }
+    }
+
+    "equal measures have equal hash codes" {
+        checkAll(invariantMeasures, prefixes) { measure, prefix ->
+            val equivalent = measure.to(TestUnit(prefix))
+
+            equivalent shouldBe measure
+            equivalent.hashCode() shouldBe measure.hashCode()
+        }
+    }
+
+    "ordering matches canonical magnitude comparison" {
+        checkAll(invariantMeasures, invariantMeasures) { a, b ->
+            a.compareTo(b) shouldBe a.canonical.magnitude.compareTo(b.canonical.magnitude)
+        }
+    }
+
+    "ordering is anti-symmetric" {
+        checkAll(invariantMeasures, invariantMeasures) { a, b ->
+            a.compareTo(b) shouldBe -b.compareTo(a)
         }
     }
 
