@@ -267,7 +267,6 @@ public final class org/kisu/units/base/Ampere : org/kisu/units/representation/Sc
 	public static final field Companion Lorg/kisu/units/base/Ampere$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Ampere$Companion {
@@ -277,7 +276,6 @@ public final class org/kisu/units/base/Bit : org/kisu/units/representation/Scala
 	public static final field Companion Lorg/kisu/units/base/Bit$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Binary;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Binary;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Binary;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Bit$Companion {
@@ -287,7 +285,6 @@ public final class org/kisu/units/base/Candela : org/kisu/units/representation/S
 	public static final field Companion Lorg/kisu/units/base/Candela$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Candela$Companion {
@@ -298,7 +295,6 @@ public final class org/kisu/units/base/Current : org/kisu/units/Measure {
 
 public final class org/kisu/units/base/Information : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/base/Information$Companion;
-	public synthetic fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/base/Bit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Information$Companion {
@@ -312,7 +308,6 @@ public final class org/kisu/units/base/Kelvin : org/kisu/units/representation/Sc
 	public static final field Companion Lorg/kisu/units/base/Kelvin$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Kelvin$Companion {
@@ -323,7 +318,6 @@ public final class org/kisu/units/base/Kilogram : org/kisu/units/representation/
 	public fun <init> (Lkotlin/Pair;)V
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun getCanonical ()Lorg/kisu/units/base/Kilogram;
 	public synthetic fun getCanonical ()Lorg/kisu/units/representation/Scalar;
@@ -345,7 +339,6 @@ public final class org/kisu/units/base/Metre : org/kisu/units/representation/Sca
 	public static final field Companion Lorg/kisu/units/base/Metre$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Metre$Companion {
@@ -355,7 +348,6 @@ public final class org/kisu/units/base/Mole : org/kisu/units/representation/Scal
 	public static final field Companion Lorg/kisu/units/base/Mole$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Mole$Companion {
@@ -365,7 +357,6 @@ public final class org/kisu/units/base/Second : org/kisu/units/representation/Sc
 	public static final field Companion Lorg/kisu/units/base/Second$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/Second$Companion {
@@ -375,7 +366,6 @@ public final class org/kisu/units/base/SecondCubed : org/kisu/units/representati
 	public static final field Companion Lorg/kisu/units/base/SecondCubed$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/SecondCubed$Companion {
@@ -385,7 +375,6 @@ public final class org/kisu/units/base/SecondFifth : org/kisu/units/representati
 	public static final field Companion Lorg/kisu/units/base/SecondFifth$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/SecondFifth$Companion {
@@ -395,7 +384,6 @@ public final class org/kisu/units/base/SecondFourth : org/kisu/units/representat
 	public static final field Companion Lorg/kisu/units/base/SecondFourth$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/SecondFourth$Companion {
@@ -405,7 +393,6 @@ public final class org/kisu/units/base/SecondSixth : org/kisu/units/representati
 	public static final field Companion Lorg/kisu/units/base/SecondSixth$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/SecondSixth$Companion {
@@ -415,7 +402,6 @@ public final class org/kisu/units/base/SecondSquared : org/kisu/units/representa
 	public static final field Companion Lorg/kisu/units/base/SecondSquared$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/base/SecondSquared$Companion {
@@ -1461,7 +1447,6 @@ public final class org/kisu/units/electromagnetic/ReciprocalHenry : org/kisu/uni
 	public static final field Companion Lorg/kisu/units/electromagnetic/ReciprocalHenry$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/electromagnetic/ReciprocalHenry$Companion {
@@ -1768,7 +1753,6 @@ public final class org/kisu/units/mechanics/ReciprocalMetre : org/kisu/units/rep
 	public static final field Companion Lorg/kisu/units/mechanics/ReciprocalMetre$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/mechanics/ReciprocalMetre$Companion {
@@ -1778,7 +1762,6 @@ public final class org/kisu/units/mechanics/ReciprocalPascal : org/kisu/units/re
 	public static final field Companion Lorg/kisu/units/mechanics/ReciprocalPascal$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/mechanics/ReciprocalPascal$Companion {
@@ -2013,7 +1996,6 @@ public final class org/kisu/units/special/Becquerel : org/kisu/units/representat
 	public static final field Companion Lorg/kisu/units/special/Becquerel$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Becquerel$Companion {
@@ -2023,7 +2005,6 @@ public final class org/kisu/units/special/Byte : org/kisu/units/representation/S
 	public static final field Companion Lorg/kisu/units/special/Byte$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Byte$Companion {
@@ -2031,7 +2012,6 @@ public final class org/kisu/units/special/Byte$Companion {
 
 public final class org/kisu/units/special/Bytes : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/special/Bytes$Companion;
-	public synthetic fun <init> (Ljava/math/BigDecimal;Lorg/kisu/units/special/Byte;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Bytes$Companion {
@@ -2049,7 +2029,6 @@ public final class org/kisu/units/special/Celsius : org/kisu/units/representatio
 	public static final field Companion Lorg/kisu/units/special/Celsius$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Celsius$Companion {
@@ -2065,7 +2044,6 @@ public final class org/kisu/units/special/Coulomb : org/kisu/units/representatio
 	public static final field Companion Lorg/kisu/units/special/Coulomb$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Coulomb$Companion {
@@ -2075,7 +2053,6 @@ public final class org/kisu/units/special/CubicMetre : org/kisu/units/representa
 	public static final field Companion Lorg/kisu/units/special/CubicMetre$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/CubicMetre$Companion {
@@ -2097,7 +2074,6 @@ public final class org/kisu/units/special/Farad : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Farad$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Farad$Companion {
@@ -2113,7 +2089,6 @@ public final class org/kisu/units/special/Gray : org/kisu/units/representation/S
 	public static final field Companion Lorg/kisu/units/special/Gray$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Gray$Companion {
@@ -2123,7 +2098,6 @@ public final class org/kisu/units/special/Henry : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Henry$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Henry$Companion {
@@ -2133,7 +2107,6 @@ public final class org/kisu/units/special/Hertz : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Hertz$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Hertz$Companion {
@@ -2149,7 +2122,6 @@ public final class org/kisu/units/special/Joule : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Joule$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Joule$Companion {
@@ -2159,7 +2131,6 @@ public final class org/kisu/units/special/Katal : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Katal$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Katal$Companion {
@@ -2169,7 +2140,6 @@ public final class org/kisu/units/special/Lumen : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Lumen$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Lumen$Companion {
@@ -2182,7 +2152,6 @@ public final class org/kisu/units/special/Lux : org/kisu/units/representation/Sc
 	public static final field Companion Lorg/kisu/units/special/Lux$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Lux$Companion {
@@ -2198,7 +2167,6 @@ public final class org/kisu/units/special/Newton : org/kisu/units/representation
 	public static final field Companion Lorg/kisu/units/special/Newton$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Newton$Companion {
@@ -2208,7 +2176,6 @@ public final class org/kisu/units/special/Ohm : org/kisu/units/representation/Sc
 	public static final field Companion Lorg/kisu/units/special/Ohm$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Ohm$Companion {
@@ -2218,7 +2185,6 @@ public final class org/kisu/units/special/Pascal : org/kisu/units/representation
 	public static final field Companion Lorg/kisu/units/special/Pascal$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Pascal$Companion {
@@ -2237,7 +2203,6 @@ public final class org/kisu/units/special/Radian : org/kisu/units/representation
 	public static final field Companion Lorg/kisu/units/special/Radian$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Radian$Companion {
@@ -2253,7 +2218,6 @@ public final class org/kisu/units/special/Siemens : org/kisu/units/representatio
 	public static final field Companion Lorg/kisu/units/special/Siemens$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Siemens$Companion {
@@ -2263,7 +2227,6 @@ public final class org/kisu/units/special/Sievert : org/kisu/units/representatio
 	public static final field Companion Lorg/kisu/units/special/Sievert$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Sievert$Companion {
@@ -2276,7 +2239,6 @@ public final class org/kisu/units/special/SquareMetre : org/kisu/units/represent
 	public static final field Companion Lorg/kisu/units/special/SquareMetre$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/SquareMetre$Companion {
@@ -2286,7 +2248,6 @@ public final class org/kisu/units/special/Steradian : org/kisu/units/representat
 	public static final field Companion Lorg/kisu/units/special/Steradian$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Steradian$Companion {
@@ -2296,7 +2257,6 @@ public final class org/kisu/units/special/Tesla : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Tesla$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Tesla$Companion {
@@ -2306,7 +2266,6 @@ public final class org/kisu/units/special/Volt : org/kisu/units/representation/S
 	public static final field Companion Lorg/kisu/units/special/Volt$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Volt$Companion {
@@ -2319,7 +2278,6 @@ public final class org/kisu/units/special/Watt : org/kisu/units/representation/S
 	public static final field Companion Lorg/kisu/units/special/Watt$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Watt$Companion {
@@ -2329,7 +2287,6 @@ public final class org/kisu/units/special/Weber : org/kisu/units/representation/
 	public static final field Companion Lorg/kisu/units/special/Weber$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/Weber$Companion {
@@ -2347,7 +2304,6 @@ public final class org/kisu/units/thermodynamics/ReciprocalKelvin : org/kisu/uni
 	public static final field Companion Lorg/kisu/units/thermodynamics/ReciprocalKelvin$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/thermodynamics/ReciprocalKelvin$Companion {

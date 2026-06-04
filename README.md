@@ -95,7 +95,7 @@ That work is tracked in the roadmap for milestone `0.3.0`.
 
 ## Toolchain
 
-KISU currently builds and tests against Java 25 and Kotlin 2.3.x.
+KISU currently builds and tests against Java 25 and Kotlin 2.4.x.
 
 - CI uses Temurin JDK 25 in every workflow
 - the Gradle wrapper is the supported entrypoint for local builds
