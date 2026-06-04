@@ -33,7 +33,7 @@ val time = 90.seconds
 val total = distance + shorter
 
 println(distance.representation) // 3 km
-println(distance.canonical)      // 3000 m
+println(distance.canonical.representation) // 3000 m
 println(total)                   // 3.25 km
 println(time.representation)     // 90 s
 ```
@@ -88,6 +88,7 @@ That work is tracked in the roadmap for milestone `0.3.0`.
 
 ## Project Structure
 
+- `docs/`: narrative getting-started and architecture documentation
 - `lib/`: main library module
 - `.github/workflows/`: CI, docs deployment, and dependency review
 - GitHub milestones and issues: execution roadmap and backlog
@@ -172,7 +173,11 @@ The intended flow is:
 
 Generated API docs are built with Dokka and published through the repository workflows.
 
-The generated docs are useful once you already know the model. The root README and the planned getting-started guide are intended to cover first-use onboarding.
+The generated docs are useful once you already know the model. Narrative docs cover first-use onboarding and design
+context:
+
+- [Getting Started](docs/getting-started.md)
+- [Architecture Overview](docs/architecture.md)
 
 ## Contributing
 
