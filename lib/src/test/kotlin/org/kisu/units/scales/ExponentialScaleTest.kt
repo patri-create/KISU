@@ -8,11 +8,16 @@ import org.kisu.test.generators.Metrics
 import java.math.BigDecimal
 
 class ExponentialScaleTest : StringSpec({
-    val base = BigDecimal.TEN
+    val scale = ExponentialScale<Metric>()
 
-    "calculates an exponential factor" {
+    "calculates metric factors for a base-ten expression" {
         checkAll(Metrics.generator) { prefix ->
-            ExponentialScale<Metric>().factor(base, prefix) shouldBe BigDecimal.ONE.movePointRight(prefix.factor.toInt())
+            scale.factor(BigDecimal.TEN, prefix) shouldBe prefix.factor
         }
+    }
+
+    "applies the expression base to the metric exponent" {
+        scale.factor(BigDecimal("100"), Metric.KILO) shouldBe BigDecimal("1000000")
+        scale.factor(BigDecimal("100"), Metric.MILLI) shouldBe BigDecimal("0.000001")
     }
 })

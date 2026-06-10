@@ -2032,6 +2032,20 @@ public final class org/kisu/units/representation/Unit : java/lang/Comparable {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class org/kisu/units/scales/ExponentialScale : org/kisu/units/scales/Scale {
+	public fun <init> ()V
+	public fun factor (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+}
+
+public final class org/kisu/units/scales/LinearScale : org/kisu/units/scales/Scale {
+	public fun <init> ()V
+	public fun factor (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+}
+
+public abstract interface class org/kisu/units/scales/Scale {
+	public abstract fun factor (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+}
+
 public final class org/kisu/units/special/AbsorbedDose : org/kisu/units/Measure {
 }
 
