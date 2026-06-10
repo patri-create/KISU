@@ -68,7 +68,7 @@ enum class Time(
     HOUR(BigDecimal.valueOf(3_600), "h"),
 
     /** 86,400 seconds */
-    DAY(BigDecimal.valueOf(86_400), "d"),
+    DAY(BigDecimal.valueOf(86_400), "day"),
 
     /** 604,800 seconds */
     WEEK(BigDecimal.valueOf(604_800), "wk"),
