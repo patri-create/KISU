@@ -86,5 +86,5 @@ enum class Time(
     CENTURY(BigDecimal.valueOf(3_155_760_000), "century"),
 
     /** 1,000 average Gregorian years = 31,557,600,000 seconds */
-    MILLENNIUM(BigDecimal.valueOf(31_557_600_000), "millennium");
+    MILLENNIUM(BigDecimal.valueOf(31_557_600_000), "millennium")
 }

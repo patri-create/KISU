@@ -5,6 +5,7 @@ import io.kotest.property.arbitrary.of
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.Time
 import org.kisu.prefixes.primitives.EnumSystem
 
 object Systems : Generator<EnumSystem<*>> {
@@ -13,5 +14,6 @@ object Systems : Generator<EnumSystem<*>> {
             EnumSystem(Metric::class),
             EnumSystem(Binary::class),
             EnumSystem(Decimal::class),
+            EnumSystem(Time::class),
         )
 }

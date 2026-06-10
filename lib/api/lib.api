@@ -176,6 +176,52 @@ public final class org/kisu/prefixes/PrefixKt {
 	public static final fun times (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 }
 
+public final class org/kisu/prefixes/Time : java/lang/Enum, org/kisu/prefixes/Prefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
+	public static final field ATTO Lorg/kisu/prefixes/Time;
+	public static final field CENTI Lorg/kisu/prefixes/Time;
+	public static final field CENTURY Lorg/kisu/prefixes/Time;
+	public static final field DAY Lorg/kisu/prefixes/Time;
+	public static final field DECADE Lorg/kisu/prefixes/Time;
+	public static final field DECI Lorg/kisu/prefixes/Time;
+	public static final field FEMTO Lorg/kisu/prefixes/Time;
+	public static final field HOUR Lorg/kisu/prefixes/Time;
+	public static final field MICRO Lorg/kisu/prefixes/Time;
+	public static final field MILLENNIUM Lorg/kisu/prefixes/Time;
+	public static final field MILLI Lorg/kisu/prefixes/Time;
+	public static final field MINUTE Lorg/kisu/prefixes/Time;
+	public static final field MONTH Lorg/kisu/prefixes/Time;
+	public static final field NANO Lorg/kisu/prefixes/Time;
+	public static final field PICO Lorg/kisu/prefixes/Time;
+	public static final field QUECTO Lorg/kisu/prefixes/Time;
+	public static final field RONTO Lorg/kisu/prefixes/Time;
+	public static final field SECOND Lorg/kisu/prefixes/Time;
+	public static final field WEEK Lorg/kisu/prefixes/Time;
+	public static final field YEAR Lorg/kisu/prefixes/Time;
+	public static final field YOCTO Lorg/kisu/prefixes/Time;
+	public static final field ZEPTO Lorg/kisu/prefixes/Time;
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Time;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/prefixes/Time;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getFactor ()Ljava/math/BigDecimal;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/prefixes/Time;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/prefixes/Time;
+	public fun getSymbol ()Ljava/lang/String;
+	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun sortWith (Lorg/kisu/prefixes/Time;)Lkotlin/Pair;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun to (Lorg/kisu/prefixes/Time;)Ljava/math/BigDecimal;
+	public fun toString ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Time;
+	public static fun values ()[Lorg/kisu/prefixes/Time;
+}
+
 public final class org/kisu/prefixes/primitives/CompositeSystem : org/kisu/prefixes/primitives/System {
 	public fun <init> (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;Lkotlin/jvm/functions/Function2;)V
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;

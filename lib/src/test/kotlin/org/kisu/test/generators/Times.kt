@@ -2,7 +2,6 @@ package org.kisu.test.generators
 
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.of
-import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Time
 import org.kisu.prefixes.primitives.EnumSystem
 
