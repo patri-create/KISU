@@ -263,6 +263,8 @@ public abstract class org/kisu/prefixes/primitives/EnumSystem : org/kisu/prefixe
 
 public final class org/kisu/prefixes/primitives/ExponentialEnumSystem : org/kisu/prefixes/primitives/EnumSystem {
 	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun <init> (Lkotlin/reflect/KClass;I)V
+	public fun <init> (Lkotlin/reflect/KClass;Ljava/math/BigDecimal;)V
 	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;

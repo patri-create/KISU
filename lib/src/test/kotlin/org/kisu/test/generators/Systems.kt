@@ -13,7 +13,7 @@ import org.kisu.prefixes.primitives.LinealEnumSystem
 object Systems : Generator<EnumSystem<*>> {
     private val systems: List<EnumSystem<*>> = listOf(
         ExponentialEnumSystem(Metric::class),
-        ExponentialEnumSystem(Binary::class),
+        ExponentialEnumSystem(Binary::class, 2),
         LinealEnumSystem(Decimal::class),
         LinealEnumSystem(Time::class),
     )

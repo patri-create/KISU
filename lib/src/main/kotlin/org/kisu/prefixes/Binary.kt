@@ -6,6 +6,8 @@ import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
 
+private const val BINARY_EXPONENT_BASE = 2
+
 /**
  * Represents the standardized **binary prefixes** based on powers of 2, as defined by the
  * [International Electrotechnical Commission (IEC)](https://www.iec.ch/homepage).
@@ -28,7 +30,9 @@ import java.math.BigDecimal
 enum class Binary(
     override val factor: BigDecimal,
     symbol: String,
-) : Prefix<Binary>, System<Binary> by ExponentialEnumSystem(Binary::class), Symbol by Representation(symbol) {
+) : Prefix<Binary>,
+    System<Binary> by ExponentialEnumSystem(Binary::class, BINARY_EXPONENT_BASE),
+    Symbol by Representation(symbol) {
     /** Base unit with exponent 0 (2⁰). */
     BASE(0, ""),
 

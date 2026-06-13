@@ -14,7 +14,7 @@ import org.kisu.zero
 class ExponentialEnumSystemTest : StringSpec({
     val systems = Arb.element<ExponentialEnumSystem<*>>(
         ExponentialEnumSystem(Metric::class),
-        ExponentialEnumSystem(Binary::class),
+        ExponentialEnumSystem(Binary::class, 2),
     )
 
     "uses the zero-factor prefix as canonical" {
