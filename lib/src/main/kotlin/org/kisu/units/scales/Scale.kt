@@ -11,7 +11,7 @@ import java.math.BigDecimal
  */
 fun interface Scale<A> where A : Prefix<A>, A : System<A> {
     /**
-     * Calculates the factor represented by [prefix] for the given expression [base].
+     * Calculates the factor represented by [prefix].
      */
-    fun factor(base: BigDecimal, prefix: A): BigDecimal
+    fun factor(prefix: A): BigDecimal
 }

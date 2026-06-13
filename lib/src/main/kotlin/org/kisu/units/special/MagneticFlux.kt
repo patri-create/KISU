@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -42,12 +44,12 @@ class MagneticFlux internal constructor(magnitude: BigDecimal, expression: Weber
  * @see Volt
  */
 class Weber private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, Weber>(prefix, overflow, unit, ::Weber) {
+) : Scalar<Metric, Weber>(scale, prefix, unit, ::Weber) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The canonical symbol for weber: "Wb". */

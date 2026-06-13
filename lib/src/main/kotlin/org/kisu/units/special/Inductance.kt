@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -43,12 +45,12 @@ class Inductance internal constructor(magnitude: BigDecimal, expression: Henry) 
  * @see Weber
  */
 class Henry private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, Henry>(prefix, overflow, unit, ::Henry) {
+) : Scalar<Metric, Henry>(scale, prefix, unit, ::Henry) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The canonical symbol for henry: "H". */

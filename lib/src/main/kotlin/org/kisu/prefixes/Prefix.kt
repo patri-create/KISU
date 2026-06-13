@@ -113,10 +113,7 @@ val <P> P.isCanonical: Boolean where P : Prefix<P>, P : System<P>
  * @return A pair of (prefix, remainder) for the resulting factor.
  */
 operator fun <P> P.times(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P : System<P> {
-    val newFactor = factor * other.factor
-    val newPrefix = find(newFactor)
-    val remainder = newFactor / newPrefix.factor
-    return newPrefix to remainder
+    return multiply(this, other)
 }
 
 /**
@@ -138,8 +135,5 @@ operator fun <P> P.times(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P :
  * @return A pair of (prefix, remainder) for the resulting factor.
  */
 operator fun <P> P.div(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P : System<P> {
-    val newFactor = factor.divide(other.factor, KisuConfig.precision)
-    val newPrefix = find(newFactor)
-    val remainder = newFactor.divide(newPrefix.factor, KisuConfig.precision)
-    return newPrefix to remainder
+    return divide(this, other)
 }

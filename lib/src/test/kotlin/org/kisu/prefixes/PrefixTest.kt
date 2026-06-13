@@ -4,11 +4,12 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
+import org.kisu.KisuConfig
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Prefixes
+import org.kisu.test.generators.Times
 import org.kisu.test.matchers.plusOrMinus
 import java.math.BigDecimal
-import java.math.MathContext
 
 class PrefixTest : StringSpec({
     "rescales to a different power" {
@@ -25,25 +26,55 @@ class PrefixTest : StringSpec({
         }
     }
 
-    "prefix multiplication preserves factor identity" {
+    "exponential prefix multiplication adds exponents and returns overflow" {
         checkAll(Metrics.generator, Metrics.generator) { a, b ->
             val (prefix, remainder) = a * b
 
-            val expected = a.factor * b.factor
-            val actual = prefix.factor * remainder
+            val expectedFactor = a.factor + b.factor
+            val expectedPrefix = a.find(expectedFactor)
+            val expectedRemainder = expectedFactor - expectedPrefix.factor
 
-            actual.compareTo(expected) shouldBe 0
+            prefix shouldBe expectedPrefix
+            remainder.compareTo(expectedRemainder) shouldBe 0
         }
     }
 
-    "prefix division preserves factor identity" {
+    "exponential prefix division subtracts exponents and returns overflow" {
         checkAll(Metrics.generator, Metrics.generator) { a, b ->
             val (prefix, remainder) = a / b
 
-            val expected = a.factor.divide(b.factor, MathContext.UNLIMITED)
-            val actual = prefix.factor * remainder
+            val expectedFactor = a.factor - b.factor
+            val expectedPrefix = a.find(expectedFactor)
+            val expectedRemainder = expectedFactor - expectedPrefix.factor
 
-            actual.compareTo(expected) shouldBe 0
+            prefix shouldBe expectedPrefix
+            remainder.compareTo(expectedRemainder) shouldBe 0
+        }
+    }
+
+    "linear prefix multiplication multiplies factors and returns overflow" {
+        checkAll(Times.generator, Times.generator) { a, b ->
+            val (prefix, remainder) = a * b
+
+            val expectedFactor = a.factor * b.factor
+            val expectedPrefix = a.find(expectedFactor)
+            val expectedRemainder = expectedFactor.divide(expectedPrefix.factor, KisuConfig.precision)
+
+            prefix shouldBe expectedPrefix
+            remainder.compareTo(expectedRemainder) shouldBe 0
+        }
+    }
+
+    "linear prefix division divides factors and returns overflow" {
+        checkAll(Times.generator, Times.generator) { a, b ->
+            val (prefix, remainder) = a / b
+
+            val expectedFactor = a.factor.divide(b.factor, KisuConfig.precision)
+            val expectedPrefix = a.find(expectedFactor)
+            val expectedRemainder = expectedFactor.divide(expectedPrefix.factor, KisuConfig.precision)
+
+            prefix shouldBe expectedPrefix
+            remainder.compareTo(expectedRemainder) shouldBe 0
         }
     }
 })

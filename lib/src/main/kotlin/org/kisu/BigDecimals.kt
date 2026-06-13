@@ -41,6 +41,17 @@ val BigDecimal.hasFraction: Boolean
     get() = stripTrailingZeros().scale() > 0
 
 /**
+ * Returns `true` if this [BigDecimal] represents an integer value.
+ *
+ * Trailing zeros are stripped before checking the [java.math.BigDecimal.scale], so values like `5.0` or `2.000` are
+ * treated as integers.
+ *
+ * A zero or negative scale after stripping indicates that no fractional digits remain.
+ */
+val BigDecimal.integer: Boolean
+    get() = stripTrailingZeros().scale() <= 0
+
+/**
  * Converts this [Number] to a [BigDecimal] instance.
  *
  * Handles common numeric types efficiently:

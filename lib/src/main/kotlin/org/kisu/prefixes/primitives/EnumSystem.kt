@@ -1,6 +1,5 @@
 package org.kisu.prefixes.primitives
 
-import org.kisu.one
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
 import org.kisu.prefixes.Prefix
@@ -13,25 +12,24 @@ import kotlin.reflect.KClass
  * This class uses reflection on the provided enum class to:
  * - Retrieve all prefix values,
  * - Sort them by their power from smallest to largest,
- * - Identify the base unit (prefix with power 0),
+ * - Identify the base unit,
  * - Provide easy access to the smallest and largest prefixes.
  *
- * This implementation assumes the enum constants implement [Prefix] and that exactly one prefix has a power of zero
- * (the base unit).
+ * This implementation assumes the enum constants implement [Prefix] and that exactly one prefix represents the
+ * canonical base unit. Exponent-based systems use factor `0`; linear systems use factor `1`.
  *
  * If no such base prefix is found, it throws an [IllegalStateException].
  *
  * @param klass The Kotlin class reference of the enum implementing [Prefix].
  */
-class EnumSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
+abstract class EnumSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
     /**
-     * The base prefix in the system, identified by power == 0.
+     * The base prefix in the system, identified by exponent `0` or linear factor `1`.
      *
      * @throws [IllegalStateException] if no base prefix is found.
      */
     override val canonical: T by lazy {
-        all.find { prefix -> prefix.factor.one }
-            ?: error("${this::class.simpleName} is a system with no base")
+        error("${this::class.simpleName} is a system with no base")
     }
 
     /**

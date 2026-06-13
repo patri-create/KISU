@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -31,12 +33,12 @@ class Temperature internal constructor(magnitude: BigDecimal, expression: Kelvin
 }
 
 class Kelvin private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, Kelvin>(prefix, overflow, unit, ::Kelvin) {
+) : Scalar<Metric, Kelvin>(scale, prefix, unit, ::Kelvin) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The SI symbol for temperature: "K". */

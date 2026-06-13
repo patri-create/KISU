@@ -5,6 +5,8 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -41,12 +43,12 @@ class WaveNumber(
  * @see WaveNumber
  */
 class ReciprocalMetre private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit,
-) : Scalar<Metric, ReciprocalMetre>(prefix, overflow, unit, ::ReciprocalMetre) {
+) : Scalar<Metric, ReciprocalMetre>(scale, prefix, unit, ::ReciprocalMetre) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Metre.UNIT.inverted

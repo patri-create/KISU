@@ -6,7 +6,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
 import org.kisu.productSymbol
 import org.kisu.test.generators.Units
 
@@ -30,12 +29,12 @@ class ProductTest : StringSpec({
     "factors should coalesce equal units" {
         checkAll(Units.generator) { scalar ->
             val product = scalar * scalar
-            val expectedPrefix = Metric.BASE.find(scalar.factor * scalar.factor)
             val expectedUnit = scalar.unit * scalar.unit
 
             product.factors.should { factors ->
                 factors.shouldHaveSize(1)
-                factors.first().symbol shouldBe "$expectedPrefix$expectedUnit"
+                factors.first().unit shouldBe expectedUnit
+                factors.first().factor shouldBe scalar.factor * scalar.factor
             }
             product.symbol shouldBe product.factors.first().symbol
         }

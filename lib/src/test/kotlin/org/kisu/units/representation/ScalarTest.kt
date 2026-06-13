@@ -7,11 +7,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
+import org.kisu.prefixes.Metric
 import org.kisu.productSymbol
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Units
+import org.kisu.units.scales.ExponentialScale
 
 class ScalarTest : StringSpec({
     "Scalar is recognized as positive" {
@@ -38,9 +40,19 @@ class ScalarTest : StringSpec({
         }
     }
 
-    "delegates factor to the prefix" {
+    "delegates factor to the scale" {
         checkAll(Metrics.generator) { metric ->
-            TestUnit(metric).factor shouldBe metric.factor
+            TestUnit(metric).factor shouldBe ExponentialScale<Metric>().factor(metric)
+        }
+    }
+
+    "converts to another scalar scale" {
+        checkAll(Metrics.generator, Metrics.generator) { source, target ->
+            val sourceUnit = TestUnit(source)
+            val targetUnit = TestUnit(target)
+            val conversion = sourceUnit.to(targetUnit)
+
+            (targetUnit.factor * conversion).compareTo(sourceUnit.factor) shouldBe 0
         }
     }
 

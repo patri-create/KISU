@@ -27,8 +27,8 @@ import org.kisu.test.generators.Measures
 import org.kisu.test.generators.distinct
 import org.kisu.test.generators.nonZero
 import org.kisu.test.matchers.plusOrMinus
-import org.kisu.test.utils.magnitude
 import org.kisu.test.utils.optimalPrefixFrom
+import org.kisu.units.scales.ExponentialScale
 import org.kisu.zero
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -144,8 +144,8 @@ class MeasureTest : StringSpec({
     "renders optimal correctly when magnitude is in range" {
         checkAll(inRange) { magnitude ->
             val measure = TestMeasure(magnitude, Metric.BASE)
-            val optimalPrefix = magnitude.optimalPrefixFrom(Metric.BASE)
-            val correctedMagnitude = magnitude * Metric.BASE.to(optimalPrefix)
+            val optimalPrefix = magnitude.optimalPrefixFrom(original = Metric.BASE)
+            val correctedMagnitude = magnitude * TestUnit(Metric.BASE).to(TestUnit(optimalPrefix))
             val compact = TestMeasure(correctedMagnitude, optimalPrefix)
 
             measure.optimal.representation shouldBe compact.representation
@@ -339,7 +339,11 @@ class MeasureTest : StringSpec({
             Metric.BASE.composition,
             MetricGenerator.generator
         ) { composition: List<Pair<BigInteger, Metric>>, prefix ->
-            val testUnit = TestMeasure(composition.magnitude.divide(prefix.factor, MathContext.UNLIMITED), prefix)
+            val scale = ExponentialScale<Metric>()
+            val magnitude = composition.fold(BigDecimal.ZERO) { total, (magnitude, prefix) ->
+                total + (magnitude.bigDecimal * scale.factor(prefix))
+            }
+            val testUnit = TestMeasure(magnitude.divide(scale.factor(prefix), MathContext.UNLIMITED), prefix)
             val decomposition: List<TestMeasure> = testUnit.decomposition
             decomposition shouldContainAll composition.map { (magnitude, prefix) ->
                 TestMeasure(

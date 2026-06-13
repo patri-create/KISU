@@ -1,5 +1,6 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.KisuConfig
 import org.kisu.orElse
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
@@ -83,4 +84,22 @@ interface System<T : Prefix<T>> {
      */
     fun find(factor: BigDecimal): T =
         all.lastOrNull { it.factor <= factor }.orElse { smallest }
+
+    /**
+     * Multiplies two prefixes from this system, returning the closest representable prefix and the remaining factor.
+     */
+    fun multiply(left: T, right: T): Pair<T, BigDecimal> {
+        val factor = left.factor * right.factor
+        val prefix = find(factor)
+        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
+    }
+
+    /**
+     * Divides two prefixes from this system, returning the closest representable prefix and the remaining factor.
+     */
+    fun divide(left: T, right: T): Pair<T, BigDecimal> {
+        val factor = left.factor.divide(right.factor, KisuConfig.precision)
+        val prefix = find(factor)
+        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
+    }
 }

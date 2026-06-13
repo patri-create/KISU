@@ -3,8 +3,8 @@ package org.kisu.test.generators
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.of
 import org.kisu.prefixes.Metric
-import org.kisu.prefixes.primitives.EnumSystem
+import org.kisu.prefixes.primitives.ExponentialEnumSystem
 
 object Metrics : Generator<Metric> {
-    override val generator: Arb<Metric> = Arb.of(EnumSystem(Metric::class).all)
+    override val generator: Arb<Metric> = Arb.of(ExponentialEnumSystem(Metric::class).all)
 }

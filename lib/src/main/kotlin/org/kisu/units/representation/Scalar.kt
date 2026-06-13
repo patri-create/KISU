@@ -1,10 +1,12 @@
 package org.kisu.units.representation
 
+import org.kisu.KisuConfig
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.div
 import org.kisu.prefixes.primitives.ScalarSystem
 import org.kisu.prefixes.primitives.System
 import org.kisu.prefixes.times
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -17,23 +19,23 @@ import java.math.BigDecimal
  * @property unit The base unit symbol and exponent carried by this scalar.
  */
 abstract class Scalar<A, Self : Scalar<A, Self>>(
+    private val scale: Scale<A>,
     private val prefix: A,
-    private val overflow: BigDecimal = BigDecimal.ONE,
     internal val unit: Unit,
-    private val create: (A, BigDecimal, Unit) -> Self,
+    private val create: (Scale<A>, A, Unit) -> Self,
 ) : Expression<Self>(),
-    System<Self> by ScalarSystem(prefix, unit, { prefix, unit -> create(prefix, overflow, unit) })
+    System<Self> by ScalarSystem(prefix, unit, { prefix, unit -> create(scale, prefix, unit) })
     where A : Prefix<A>, A : System<A> {
 
     /**
      * Returns the multiplicative inverse of this scalar.
      *
-     * This creates a new [Scalar] with the same [prefix] and [overflow], but with the [unit] inverted.
+     * This creates a new [Scalar] with the same [prefix], but with the [unit] inverted.
      * For example, if the current scalar represents "m", the inverted scalar represents "1/m".
      *
      * The result is computed lazily and cached for future access.
      */
-    val inverted: Self by lazy { create(prefix, overflow, unit.inverted) }
+    val inverted: Self by lazy { create(scale, prefix, unit.inverted) }
 
     /**
      * Indicates whether this scalar's [unit] has a positive exponent.
@@ -63,8 +65,8 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
         this as Self
     }
 
-    /** The scaling factor of this scalar unit, delegated from the prefix. */
-    override val factor: BigDecimal by lazy { prefix.factor * overflow }
+    /** The scaling factor of this scalar unit, computed by the configured prefix scale. */
+    override val factor: BigDecimal by lazy { scale.factor(prefix) }
 
     /** The combined symbol of the prefix and unit (e.g., "km", "μs"). */
     override val symbol: String by lazy {
@@ -83,6 +85,9 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      */
     override val factors: Set<Scalar<*, *>> = sortedSetOf(this)
 
+    override fun to(other: Self): BigDecimal =
+        scale.factor(prefix).divide(scale.factor(other.prefix), KisuConfig.precision)
+
     /**
      * Multiplies this scalar expression by [other] within the same scalar family.
      *
@@ -94,7 +99,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      */
     operator fun plus(other: Self): Self {
         val (prefix, overflow) = prefix * other.prefix
-        return create(prefix, this.overflow * overflow, unit * other.unit)
+        return create(scale, prefix, unit * other.unit)
     }
 
     internal fun addErased(other: Scalar<*, *>): Scalar<*, *> = self + requireSameFamily(other)
@@ -119,7 +124,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      */
     operator fun minus(other: Self): Self {
         val (prefix, overflow) = prefix / other.prefix
-        return create(prefix, this.overflow * overflow, unit / other.unit)
+        return create(scale, prefix, unit / other.unit)
     }
 
     /**
