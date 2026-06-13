@@ -75,6 +75,9 @@ class Product<A, B>(
             .toSet()
     }
 
+    override fun to(other: Product<A, B>): BigDecimal =
+        left.to(other.left) * right.to(other.right)
+
     /**
      * Multiplies this product expression by a scalar unit, producing a nested [Product].
      *
