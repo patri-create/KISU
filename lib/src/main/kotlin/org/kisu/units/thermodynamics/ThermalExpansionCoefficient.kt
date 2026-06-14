@@ -5,6 +5,8 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -46,12 +48,12 @@ class ThermalExpansionCoefficient(
  * @see Kelvin
  */
 class ReciprocalKelvin private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit,
-) : Scalar<Metric, ReciprocalKelvin>(prefix, overflow, unit, ::ReciprocalKelvin) {
+) : Scalar<Metric, ReciprocalKelvin>(scale, prefix, unit, ::ReciprocalKelvin) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The SI unit for reciprocal kelvin (K⁻¹), defined as the inverse of [Kelvin.UNIT]. */

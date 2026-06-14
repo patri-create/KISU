@@ -3,9 +3,11 @@ package org.kisu.test.generators
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.arbitrary
 import io.kotest.property.arbitrary.bigInt
+import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
 import org.kisu.zero
+import java.math.BigDecimal
 import java.math.BigInteger
 
 object Magnitudes {
@@ -13,11 +15,29 @@ object Magnitudes {
         get() =
             arbitrary {
                 val bounds = all.zipWithNext().map { (current, next) ->
-                    val maxExclusive = next.factor.divide(current.factor)
-                    Arb.bigInt(0..maxExclusive.intValueExact() - 1).bind() to current
+                    val maxExclusive = maxExclusive(current, next)
+                    Arb.bigInt(0..<maxExclusive.intValueExact()).bind() to current
                 }
 
                 (bounds + (Arb.bigInt(0..1_000_000).bind() to largest))
                     .filter { (magnitude, _) -> !magnitude.zero }
+            }
+
+    private fun <T> System<T>.maxExclusive(
+        current: T,
+        next: T,
+    ): BigDecimal where T : Prefix<T> {
+        return if (canonical.factor.zero) {
+            exponentBase.pow((next.factor - current.factor).intValueExact())
+        } else {
+            next.factor.divide(current.factor)
+        }
+    }
+
+    private val <T> System<T>.exponentBase: BigDecimal where T : Prefix<T>
+        get() =
+            when (canonical) {
+                is Binary -> BigDecimal.valueOf(2)
+                else -> BigDecimal.TEN
             }
 }

@@ -8,6 +8,8 @@ import org.kisu.units.base.Bit.Companion.UNIT
 import org.kisu.units.exceptions.SubBitInformation
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -78,17 +80,17 @@ class Information private constructor(magnitude: BigDecimal, expression: Bit) :
  * This type uses [Binary] prefixes such as `Ki`, `Mi`, and `Gi`.
  */
 class Bit private constructor(
+    scale: Scale<Binary> = ExponentialScale(2),
     prefix: Binary,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Binary, Bit>(prefix, overflow, unit, ::Bit) {
+) : Scalar<Binary, Bit>(scale, prefix, unit, ::Bit) {
 
     /**
      * Secondary constructor for convenience.
      *
      * @param prefix Binary prefix to apply to the bit unit.
      */
-    constructor(prefix: Binary = Binary.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Binary = Binary.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The canonical symbol for digital information: "bit". */

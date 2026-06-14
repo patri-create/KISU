@@ -1,10 +1,12 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.EnumSystem
+import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
+
+private const val BINARY_EXPONENT_BASE = 2
 
 /**
  * Represents the standardized **binary prefixes** based on powers of 2, as defined by the
@@ -13,24 +15,26 @@ import java.math.BigDecimal
  * These prefixes are used primarily in computing and digital storage to denote multiples of bytes and bits
  * based on powers of 2 rather than powers of 10.
  *
- * Each prefix corresponds to an exact power of 2, for example:
- * - Kibi (Ki) = 2¹⁰ = 1,024
- * - Mebi (Mi) = 2²⁰ = 1,048,576
- * - Gibi (Gi) = 2³⁰ = 1,073,741,824
+ * Each prefix stores the exponent for an exact power of 2, for example:
+ * - Kibi (Ki) = 10, representing 2¹⁰ = 1,024
+ * - Mebi (Mi) = 20, representing 2²⁰ = 1,048,576
+ * - Gibi (Gi) = 30, representing 2³⁰ = 1,073,741,824
  * and so forth.
  *
- * This enum uses explicit [factor] values as [BigDecimal] to avoid ambiguity and rounding errors.
+ * [Binary] prefixes are resolved into concrete multipliers by [org.kisu.units.scales.ExponentialScale].
  *
- * @property factor The exact multiplication factor relative to the base unit (2⁰ = 1).
+ * @property factor The exponent relative to the base unit (2⁰).
  * @property symbol The standard symbol representing the prefix.
  */
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Binary(
     override val factor: BigDecimal,
     symbol: String,
-) : Prefix<Binary>, System<Binary> by EnumSystem(Binary::class), Symbol by Representation(symbol) {
-    /** Base unit with factor 1 (2^0). */
-    BASE(BigDecimal.ONE, ""),
+) : Prefix<Binary>,
+    System<Binary> by ExponentialEnumSystem(Binary::class, BINARY_EXPONENT_BASE),
+    Symbol by Representation(symbol) {
+    /** Base unit with exponent 0 (2⁰). */
+    BASE(0, ""),
 
     /** Kibi — 2¹⁰ = 1,024 */
     KIBI(10, "Ki"),
@@ -63,5 +67,5 @@ enum class Binary(
     QUEBI(100, "Qi"),
     ;
 
-    constructor(power: Int, symbol: String) : this(factor = BigDecimal.TWO.pow(power), symbol)
+    constructor(power: Int, symbol: String) : this(factor = BigDecimal(power), symbol)
 }

@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import org.kisu.units.special.Pascal
 import java.math.BigDecimal
 
@@ -45,12 +47,12 @@ class Compressibility(
  * @see Pascal
  */
 class ReciprocalPascal private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit,
-) : Scalar<Metric, ReciprocalPascal>(prefix, overflow, unit, ::ReciprocalPascal) {
+) : Scalar<Metric, ReciprocalPascal>(scale, prefix, unit, ::ReciprocalPascal) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Pascal.UNIT.inverted

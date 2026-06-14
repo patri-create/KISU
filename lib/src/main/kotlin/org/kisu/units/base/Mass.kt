@@ -5,6 +5,8 @@ import org.kisu.prefixes.times
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -43,12 +45,16 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
  * - Kilogram(Metric.MICRO) = 1 mg
  */
 class Kilogram private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, Kilogram>(prefix, overflow, unit, ::Kilogram) {
+) : Scalar<Metric, Kilogram>(scale, prefix, unit, ::Kilogram) {
 
-    constructor(pair: Pair<Metric, BigDecimal>) : this(pair.first, pair.second, UNIT)
+    constructor(pair: Pair<Metric, BigDecimal>) : this(
+        scale = ExponentialScale<Metric>().adjustedBy(pair.second),
+        prefix = pair.first,
+        unit = UNIT,
+    )
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix * Metric.KILO)
 
@@ -59,4 +65,13 @@ class Kilogram private constructor(
         /** The canonical unit symbol used internally: "g". */
         internal val UNIT = Unit("g", 1)
     }
+}
+
+private fun Scale<Metric>.adjustedBy(remainder: BigDecimal): Scale<Metric> {
+    if (remainder.compareTo(BigDecimal.ONE) == 0) {
+        return this
+    }
+
+    val delegate = this
+    return Scale { prefix -> delegate.factor(prefix) * remainder }
 }

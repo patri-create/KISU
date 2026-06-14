@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -34,12 +36,12 @@ class LuminousIntensity internal constructor(magnitude: BigDecimal, expression: 
  * The candela (cd) is the standard unit for measuring luminous intensity.
  */
 class Candela private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, Candela>(prefix, overflow, unit, ::Candela) {
+) : Scalar<Metric, Candela>(scale, prefix, unit, ::Candela) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The canonical SI symbol for luminous intensity: "cd". */

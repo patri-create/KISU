@@ -3,12 +3,13 @@ package org.kisu.test.utils
 import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
+import org.kisu.units.scales.ExponentialScale
 import java.math.BigDecimal
 import java.math.BigInteger
 
-fun BigDecimal.optimalPrefixFrom(original: Metric = Metric.BASE): Metric {
+fun BigDecimal.optimalPrefixFrom(base: BigDecimal = BigDecimal.TEN, original: Metric = Metric.BASE): Metric {
     return original.all
-        .filter { it.factor <= this }
+        .filter { ExponentialScale<Metric>(base).factor(it) <= this }
         .maxByOrNull { it.factor }!!
 }
 

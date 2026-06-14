@@ -5,6 +5,8 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -41,12 +43,12 @@ class Amount internal constructor(magnitude: BigDecimal, expression: Mole) :
 }
 
 class Mole private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit,
-) : Scalar<Metric, Mole>(prefix, overflow, unit, ::Mole) {
+) : Scalar<Metric, Mole>(scale, prefix, unit, ::Mole) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The SI symbol for amount of substance: "mol". */

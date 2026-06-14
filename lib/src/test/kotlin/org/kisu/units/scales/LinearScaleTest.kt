@@ -5,12 +5,11 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
 import org.kisu.prefixes.Time
 import org.kisu.test.generators.Times
-import java.math.BigDecimal
 
 class LinearScaleTest : StringSpec({
     "calculates a linear factor" {
         checkAll(Times.generator) { prefix ->
-            LinearScale<Time>().factor(BigDecimal.ONE, prefix) shouldBe prefix.factor
+            LinearScale<Time>().factor(prefix) shouldBe prefix.factor
         }
     }
 })

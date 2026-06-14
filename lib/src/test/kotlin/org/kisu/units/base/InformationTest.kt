@@ -9,19 +9,24 @@ import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.positiveLong
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
+import org.kisu.prefixes.Binary
 import org.kisu.test.generators.BinaryBuilders
 import org.kisu.test.generators.bigDecimal
 import org.kisu.units.builders.bits
 import org.kisu.units.exceptions.SubBitInformation
+import org.kisu.units.scales.ExponentialScale
+import java.math.BigDecimal
 import java.math.MathContext
 
 class InformationTest : StringSpec({
+    val scale = ExponentialScale<Binary>(BigDecimal.TWO)
+
     "fractional information is physically meaningless" {
         checkAll(
             Arb.bigDecimal(minFractionalDigits = 1).map { it.abs() },
             BinaryBuilders.generator
         ) { magnitude, builder ->
-            val scaled = magnitude.divide(magnitude.builder().binary.factor, MathContext.DECIMAL128)
+            val scaled = magnitude.divide(scale.factor(magnitude.builder().binary), MathContext.DECIMAL128)
             shouldThrow<SubBitInformation> { scaled.builder().bits }
         }
     }

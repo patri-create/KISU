@@ -21,8 +21,7 @@ class ScalarSystemTest : StringSpec({
     "retrieves all prefixes for a system" {
         checkAll(Metrics.generator) { prefix ->
             TestUnit(prefix).all
-                .map { scalar -> scalar.factor }
-                .shouldContainInOrder(prefix.all.map { prefix -> prefix.factor })
+                .shouldContainInOrder(prefix.all.map { prefix -> TestUnit(prefix) })
         }
     }
 

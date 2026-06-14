@@ -4,7 +4,11 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
+
+private const val CUBIC_METRE_SCALE_BASE = 1000
 
 /**
  * Represents the physical quantity of **volume**, measured in [CubicMetre].
@@ -41,12 +45,12 @@ class Volume internal constructor(magnitude: BigDecimal, expression: CubicMetre)
  * @see SquareMetre
  */
 class CubicMetre private constructor(
+    scale: Scale<Metric> = ExponentialScale(CUBIC_METRE_SCALE_BASE),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, CubicMetre>(prefix, overflow, unit, ::CubicMetre) {
+) : Scalar<Metric, CubicMetre>(scale, prefix, unit, ::CubicMetre) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The canonical symbol for cubic metre: "m³". */

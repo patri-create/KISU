@@ -8,7 +8,8 @@ import org.kisu.units.kinematics.linear.Pop
 import org.kisu.units.kinematics.linear.Snap
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 
 /**
  * Represents squared seconds (s²).
@@ -16,12 +17,12 @@ import java.math.BigDecimal
  * Commonly used in [Acceleration] (m/s²).
  */
 class SecondSquared private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondSquared>(prefix, overflow, unit, ::SecondSquared) {
+) : Scalar<Metric, SecondSquared>(scale, prefix, unit, ::SecondSquared) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Unit("s", 2)
@@ -34,12 +35,12 @@ class SecondSquared private constructor(
  * Used in [Jerk] (m/s³).
  */
 class SecondCubed private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondCubed>(prefix, overflow, unit, ::SecondCubed) {
+) : Scalar<Metric, SecondCubed>(scale, prefix, unit, ::SecondCubed) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Unit("s", 3)
@@ -52,12 +53,12 @@ class SecondCubed private constructor(
  * Used in [Snap] derivatives.
  */
 class SecondFourth private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondFourth>(prefix, overflow, unit, ::SecondFourth) {
+) : Scalar<Metric, SecondFourth>(scale, prefix, unit, ::SecondFourth) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Unit("s", 4)
@@ -70,12 +71,12 @@ class SecondFourth private constructor(
  * Used in [Crackle] (5th derivative of position).
  */
 class SecondFifth private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondFifth>(prefix, overflow, unit, ::SecondFifth) {
+) : Scalar<Metric, SecondFifth>(scale, prefix, unit, ::SecondFifth) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Unit("s", 5)
@@ -88,12 +89,12 @@ class SecondFifth private constructor(
  * Used in [Pop] (6th derivative of position).
  */
 class SecondSixth private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, SecondSixth>(prefix, overflow, unit, ::SecondSixth) {
+) : Scalar<Metric, SecondSixth>(scale, prefix, unit, ::SecondSixth) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         internal val UNIT = Unit("s", 6)

@@ -7,11 +7,15 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
+import org.kisu.KisuConfig
+import org.kisu.prefixes.Metric
 import org.kisu.productSymbol
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Units
+import org.kisu.units.scales.ExponentialScale
+import java.math.BigDecimal
 
 class ScalarTest : StringSpec({
     "Scalar is recognized as positive" {
@@ -38,10 +42,41 @@ class ScalarTest : StringSpec({
         }
     }
 
-    "delegates factor to the prefix" {
+    "delegates factor to the scale" {
         checkAll(Metrics.generator) { metric ->
-            TestUnit(metric).factor shouldBe metric.factor
+            TestUnit(metric).factor shouldBe ExponentialScale<Metric>().factor(metric)
         }
+    }
+
+    "converts to another scalar scale" {
+        checkAll(Metrics.generator, Metrics.generator) { source, target ->
+            val sourceUnit = TestUnit(source)
+            val targetUnit = TestUnit(target)
+            val conversion = sourceUnit.to(targetUnit)
+
+            (targetUnit.factor * conversion).compareTo(sourceUnit.factor) shouldBe 0
+        }
+    }
+
+    "converts using each scalar scale" {
+        val source = TestUnit(ExponentialScale(), Metric.KILO, Unit("ts", 1))
+        val target = TestUnit(ExponentialScale(SQUARE_SCALE_BASE), Metric.KILO, Unit("ts", 1))
+
+        source.to(target).compareTo(source.factor.divide(target.factor, KisuConfig.precision)) shouldBe 0
+    }
+
+    "preserves overflow when multiplying clamped prefixes" {
+        val left = TestUnit(Metric.QUETTA)
+        val right = TestUnit(Metric.KILO)
+
+        (left + right).factor.compareTo(left.factor * right.factor) shouldBe 0
+    }
+
+    "preserves overflow when dividing clamped prefixes" {
+        val left = TestUnit(Metric.QUECTO)
+        val right = TestUnit(Metric.KILO)
+
+        (left - right).factor.compareTo(left.factor.divide(right.factor, KisuConfig.precision)) shouldBe 0
     }
 
     "symbol is the combination of the prefix and the unit" {
@@ -98,3 +133,5 @@ class ScalarTest : StringSpec({
         }
     }
 })
+
+private val SQUARE_SCALE_BASE = BigDecimal("100")

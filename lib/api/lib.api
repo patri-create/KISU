@@ -1,6 +1,7 @@
 public final class org/kisu/BigDecimalsKt {
 	public static final fun getBigDecimal (Ljava/lang/Number;)Ljava/math/BigDecimal;
 	public static final fun getHasFraction (Ljava/math/BigDecimal;)Z
+	public static final fun getInteger (Ljava/math/BigDecimal;)Z
 	public static final fun getNegative (Ljava/math/BigDecimal;)Z
 	public static final fun getOne (Ljava/math/BigDecimal;)Z
 	public static final fun getZero (Ljava/math/BigDecimal;)Z
@@ -51,6 +52,8 @@ public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/
 	public static final field ZEBI Lorg/kisu/prefixes/Binary;
 	public synthetic fun compareTo (Ljava/lang/Object;)I
 	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun divide (Lorg/kisu/prefixes/Binary;Lorg/kisu/prefixes/Binary;)Lkotlin/Pair;
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Binary;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
@@ -63,6 +66,8 @@ public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/
 	public fun getSmallest ()Lorg/kisu/prefixes/Binary;
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSymbol ()Ljava/lang/String;
+	public fun multiply (Lorg/kisu/prefixes/Binary;Lorg/kisu/prefixes/Binary;)Lkotlin/Pair;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Binary;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun to (Lorg/kisu/prefixes/Binary;)Ljava/math/BigDecimal;
@@ -86,6 +91,8 @@ public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes
 	public static final field ZETTA Lorg/kisu/prefixes/Decimal;
 	public synthetic fun compareTo (Ljava/lang/Object;)I
 	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun divide (Lorg/kisu/prefixes/Decimal;Lorg/kisu/prefixes/Decimal;)Lkotlin/Pair;
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Decimal;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
@@ -98,6 +105,8 @@ public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes
 	public fun getSmallest ()Lorg/kisu/prefixes/Decimal;
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSymbol ()Ljava/lang/String;
+	public fun multiply (Lorg/kisu/prefixes/Decimal;Lorg/kisu/prefixes/Decimal;)Lkotlin/Pair;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Decimal;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun to (Lorg/kisu/prefixes/Decimal;)Ljava/math/BigDecimal;
@@ -135,6 +144,8 @@ public final class org/kisu/prefixes/Metric : java/lang/Enum, org/kisu/prefixes/
 	public static final field ZETTA Lorg/kisu/prefixes/Metric;
 	public synthetic fun compareTo (Ljava/lang/Object;)I
 	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun divide (Lorg/kisu/prefixes/Metric;Lorg/kisu/prefixes/Metric;)Lkotlin/Pair;
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Metric;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
@@ -147,6 +158,8 @@ public final class org/kisu/prefixes/Metric : java/lang/Enum, org/kisu/prefixes/
 	public fun getSmallest ()Lorg/kisu/prefixes/Metric;
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSymbol ()Ljava/lang/String;
+	public fun multiply (Lorg/kisu/prefixes/Metric;Lorg/kisu/prefixes/Metric;)Lkotlin/Pair;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Metric;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun to (Lorg/kisu/prefixes/Metric;)Ljava/math/BigDecimal;
@@ -201,6 +214,8 @@ public final class org/kisu/prefixes/Time : java/lang/Enum, org/kisu/prefixes/Pr
 	public static final field ZEPTO Lorg/kisu/prefixes/Time;
 	public synthetic fun compareTo (Ljava/lang/Object;)I
 	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun divide (Lorg/kisu/prefixes/Time;Lorg/kisu/prefixes/Time;)Lkotlin/Pair;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Time;
 	public fun getAll ()Ljava/util/List;
@@ -213,6 +228,8 @@ public final class org/kisu/prefixes/Time : java/lang/Enum, org/kisu/prefixes/Pr
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/prefixes/Time;
 	public fun getSymbol ()Ljava/lang/String;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun multiply (Lorg/kisu/prefixes/Time;Lorg/kisu/prefixes/Time;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Time;)Lkotlin/Pair;
 	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
@@ -224,20 +241,41 @@ public final class org/kisu/prefixes/Time : java/lang/Enum, org/kisu/prefixes/Pr
 
 public final class org/kisu/prefixes/primitives/CompositeSystem : org/kisu/prefixes/primitives/System {
 	public fun <init> (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;Lkotlin/jvm/functions/Function2;)V
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
 	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun getLargest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 }
 
-public final class org/kisu/prefixes/primitives/EnumSystem : org/kisu/prefixes/primitives/System {
+public abstract class org/kisu/prefixes/primitives/EnumSystem : org/kisu/prefixes/primitives/System {
 	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
 	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun getLargest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+}
+
+public final class org/kisu/prefixes/primitives/ExponentialEnumSystem : org/kisu/prefixes/primitives/EnumSystem {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun <init> (Lkotlin/reflect/KClass;I)V
+	public fun <init> (Lkotlin/reflect/KClass;Ljava/math/BigDecimal;)V
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+}
+
+public final class org/kisu/prefixes/primitives/LinealEnumSystem : org/kisu/prefixes/primitives/EnumSystem {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public final fun convert (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 }
 
 public final class org/kisu/prefixes/primitives/Representation : org/kisu/prefixes/primitives/Symbol {
@@ -248,6 +286,8 @@ public final class org/kisu/prefixes/primitives/Representation : org/kisu/prefix
 
 public final class org/kisu/prefixes/primitives/ScalarSystem : org/kisu/prefixes/primitives/System {
 	public fun <init> (Lorg/kisu/prefixes/Prefix;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun divide (Lorg/kisu/units/representation/Scalar;Lorg/kisu/units/representation/Scalar;)Lkotlin/Pair;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Scalar;
 	public fun getAll ()Ljava/util/List;
@@ -257,6 +297,8 @@ public final class org/kisu/prefixes/primitives/ScalarSystem : org/kisu/prefixes
 	public fun getLargest ()Lorg/kisu/units/representation/Scalar;
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/units/representation/Scalar;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun multiply (Lorg/kisu/units/representation/Scalar;Lorg/kisu/units/representation/Scalar;)Lkotlin/Pair;
 }
 
 public abstract interface class org/kisu/prefixes/primitives/Symbol {
@@ -265,15 +307,19 @@ public abstract interface class org/kisu/prefixes/primitives/Symbol {
 }
 
 public abstract interface class org/kisu/prefixes/primitives/System {
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public abstract fun getAll ()Ljava/util/List;
 	public abstract fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public abstract fun getLargest ()Lorg/kisu/prefixes/Prefix;
 	public abstract fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 }
 
 public final class org/kisu/prefixes/primitives/System$DefaultImpls {
+	public static fun divide (Lorg/kisu/prefixes/primitives/System;Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public static fun find (Lorg/kisu/prefixes/primitives/System;Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
+	public static fun multiply (Lorg/kisu/prefixes/primitives/System;Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 }
 
 public abstract class org/kisu/units/Measure : java/lang/Comparable {
@@ -1932,10 +1978,12 @@ public abstract class org/kisu/units/representation/Expression : org/kisu/prefix
 	public fun <init> ()V
 	public synthetic fun compareTo (Ljava/lang/Object;)I
 	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public abstract fun getFactors ()Ljava/util/Set;
 	public fun hashCode ()I
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 	public fun toString ()Ljava/lang/String;
@@ -1946,6 +1994,8 @@ public final class org/kisu/units/representation/Product : org/kisu/units/repres
 	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun divide (Lorg/kisu/units/representation/Product;Lorg/kisu/units/representation/Product;)Lkotlin/Pair;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Product;
 	public fun getAll ()Ljava/util/List;
@@ -1958,6 +2008,8 @@ public final class org/kisu/units/representation/Product : org/kisu/units/repres
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/units/representation/Product;
 	public fun getSymbol ()Ljava/lang/String;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun multiply (Lorg/kisu/units/representation/Product;Lorg/kisu/units/representation/Product;)Lkotlin/Pair;
 	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Product;
 	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Product;
@@ -1970,6 +2022,8 @@ public final class org/kisu/units/representation/Quotient : org/kisu/units/repre
 	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun divide (Lorg/kisu/units/representation/Quotient;Lorg/kisu/units/representation/Quotient;)Lkotlin/Pair;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Quotient;
 	public fun getAll ()Ljava/util/List;
@@ -1982,17 +2036,20 @@ public final class org/kisu/units/representation/Quotient : org/kisu/units/repre
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/units/representation/Quotient;
 	public fun getSymbol ()Ljava/lang/String;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun multiply (Lorg/kisu/units/representation/Quotient;Lorg/kisu/units/representation/Quotient;)Lkotlin/Pair;
 	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
 }
 
 public abstract class org/kisu/units/representation/Scalar : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
-	public fun <init> (Lorg/kisu/prefixes/Prefix;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Prefix;Ljava/math/BigDecimal;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lorg/kisu/units/scales/Scale;Lorg/kisu/prefixes/Prefix;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;)V
 	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun divide (Lorg/kisu/units/representation/Scalar;Lorg/kisu/units/representation/Scalar;)Lkotlin/Pair;
 	public synthetic fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/units/representation/Scalar;
 	public fun getAll ()Ljava/util/List;
@@ -2009,10 +2066,14 @@ public abstract class org/kisu/units/representation/Scalar : org/kisu/units/repr
 	public fun getSymbol ()Ljava/lang/String;
 	public final fun getZero ()Z
 	public final fun minus (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Scalar;
+	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun multiply (Lorg/kisu/units/representation/Scalar;Lorg/kisu/units/representation/Scalar;)Lkotlin/Pair;
 	public final fun plus (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Scalar;
 	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Product;
 	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Product;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun to (Lorg/kisu/units/representation/Scalar;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/units/representation/Unit : java/lang/Comparable {
@@ -2034,16 +2095,19 @@ public final class org/kisu/units/representation/Unit : java/lang/Comparable {
 
 public final class org/kisu/units/scales/ExponentialScale : org/kisu/units/scales/Scale {
 	public fun <init> ()V
-	public fun factor (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun <init> (I)V
+	public fun <init> (Ljava/math/BigDecimal;)V
+	public synthetic fun <init> (Ljava/math/BigDecimal;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/units/scales/LinearScale : org/kisu/units/scales/Scale {
 	public fun <init> ()V
-	public fun factor (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 }
 
 public abstract interface class org/kisu/units/scales/Scale {
-	public abstract fun factor (Ljava/math/BigDecimal;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public abstract fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/units/special/AbsorbedDose : org/kisu/units/Measure {

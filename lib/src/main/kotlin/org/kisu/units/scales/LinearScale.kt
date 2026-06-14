@@ -10,5 +10,5 @@ import java.math.BigDecimal
  * This is useful for irregular systems such as time, where values like minutes and hours map directly to seconds.
  */
 class LinearScale<A> : Scale<A> where A : Prefix<A>, A : System<A> {
-    override fun factor(base: BigDecimal, prefix: A): BigDecimal = prefix.factor
+    override fun factor(prefix: A): BigDecimal = prefix.factor
 }

@@ -1,11 +1,10 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.EnumSystem
+import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
-import java.math.BigInteger
 
 /**
  * The `Metric` prefix system defines unit prefixes based on powers of 10 (10ⁿ), standardized by the International
@@ -42,46 +41,46 @@ enum class Metric(
     override val factor: BigDecimal,
     symbol: String,
 ) : Prefix<Metric>,
-    System<Metric> by EnumSystem(Metric::class),
+    System<Metric> by ExponentialEnumSystem(Metric::class),
     Symbol by Representation(symbol) {
     /** 10⁻³⁰ = 0.000000000000000000000000000001 */
-    QUECTO(BigDecimal(BigInteger("1"), 30), "q"),
+    QUECTO(-30, "q"),
 
     /** 10⁻²⁷ = 0.000000000000000000000000001 */
-    RONTO(BigDecimal(BigInteger("1"), 27), "r"),
+    RONTO(-27, "r"),
 
     /** 10⁻²⁴ = 0.000000000000000000000001 */
-    YOCTO(BigDecimal(BigInteger("1"), 24), "y"),
+    YOCTO(-24, "y"),
 
     /** 10⁻²¹ = 0.000000000000000000001 */
-    ZEPTO(BigDecimal(BigInteger("1"), 21), "z"),
+    ZEPTO(-21, "z"),
 
     /** 10⁻¹⁸ = 0.000000000000000001 */
-    ATTO(BigDecimal(BigInteger("1"), 18), "a"),
+    ATTO(-18, "a"),
 
     /** 10⁻¹⁵ = 0.000000000000001 */
-    FEMTO(BigDecimal(BigInteger("1"), 15), "f"),
+    FEMTO(-15, "f"),
 
     /** 10⁻¹² = 0.000000000001 */
-    PICO(BigDecimal(BigInteger("1"), 12), "p"),
+    PICO(-12, "p"),
 
     /** 10⁻⁹ = 0.000000001 */
-    NANO(BigDecimal(BigInteger("1"), 9), "n"),
+    NANO(-9, "n"),
 
     /** 10⁻⁶ = 0.000001 */
-    MICRO(BigDecimal(BigInteger("1"), 6), "μ"),
+    MICRO(-6, "μ"),
 
     /** 10⁻³ = 0.001 */
-    MILLI(BigDecimal(BigInteger("1"), 3), "m"),
+    MILLI(-3, "m"),
 
     /** 10⁻² = 0.01 */
-    CENTI(BigDecimal(BigInteger("1"), 2), "c"),
+    CENTI(-2, "c"),
 
     /** 10⁻¹ = 0.1 */
-    DECI(BigDecimal(BigInteger("1"), 1), "d"),
+    DECI(-1, "d"),
 
     /** 10⁰ = 1 */
-    BASE(BigDecimal.ONE, ""),
+    BASE(0, ""),
 
     /** 10¹ = 10 */
     DECA(1, "da"),
@@ -120,5 +119,5 @@ enum class Metric(
     QUETTA(30, "Q"),
     ;
 
-    constructor(power: Int, symbol: String) : this(factor = BigDecimal.TEN.pow(power), symbol)
+    constructor(power: Int, symbol: String) : this(factor = BigDecimal(power), symbol)
 }

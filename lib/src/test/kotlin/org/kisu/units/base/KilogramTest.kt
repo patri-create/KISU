@@ -7,15 +7,19 @@ import io.kotest.property.checkAll
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.times
 import org.kisu.test.generators.Metrics
+import org.kisu.units.scales.ExponentialScale
+import java.math.BigDecimal
 
 class KilogramTest : StringSpec({
     "kilogram corrects the metric prefix" {
         checkAll(Metrics.generator) { prefix ->
-            val (newPrefix, overflow) = prefix * Metric.KILO
+            val scale = ExponentialScale<Metric>(BigDecimal.TEN)
+
+            val (newPrefix, remainder) = prefix * Metric.KILO
             val kilos = Kilogram(prefix)
 
             kilos.symbol shouldBe "${newPrefix}g"
-            (kilos.factor / newPrefix.factor).compareTo(overflow).shouldBeZero()
+            (kilos.factor).compareTo(scale.factor(newPrefix) * remainder).shouldBeZero()
         }
     }
 

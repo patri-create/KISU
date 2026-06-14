@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 class TestMeasure(
@@ -18,12 +20,14 @@ class TestMeasure(
 }
 
 class TestUnit constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit
-) : Scalar<Metric, TestUnit>(prefix, overflow, unit, ::TestUnit) {
+) : Scalar<Metric, TestUnit>(scale, prefix, unit, ::TestUnit) {
 
-    constructor(prefix: Metric) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric) : this(ExponentialScale(), prefix, UNIT)
+
+    constructor(prefix: Metric, unit: Unit) : this(ExponentialScale(), prefix, unit)
 
     companion object {
         /** The canonical SI symbol for electric current: "A". */

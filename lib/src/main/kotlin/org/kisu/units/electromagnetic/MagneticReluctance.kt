@@ -4,6 +4,8 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.scales.ExponentialScale
+import org.kisu.units.scales.Scale
 import org.kisu.units.special.Henry
 import java.math.BigDecimal
 
@@ -44,12 +46,12 @@ class MagneticReluctance(
  * @see Henry
  */
 class ReciprocalHenry private constructor(
+    scale: Scale<Metric> = ExponentialScale(),
     prefix: Metric,
-    overflow: BigDecimal = BigDecimal.ONE,
     unit: Unit,
-) : Scalar<Metric, ReciprocalHenry>(prefix, overflow, unit, ::ReciprocalHenry) {
+) : Scalar<Metric, ReciprocalHenry>(scale, prefix, unit, ::ReciprocalHenry) {
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix, BigDecimal.ONE, UNIT)
+    constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
         /** The SI unit for reciprocal henry, used in magnetic reluctance calculations. */

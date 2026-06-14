@@ -11,17 +11,24 @@ import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
-import org.kisu.one
-import org.kisu.test.fakes.InvalidPrefix
+import org.kisu.prefixes.Metric
+import org.kisu.prefixes.Prefix
 import org.kisu.test.generators.Systems
 import java.math.BigDecimal
+import kotlin.reflect.KClass
 
 class EnumSystemTest : StringSpec({
+    val withinFactors = Systems.generator.flatMap { system ->
+        Arb.bigDecimal(
+            min = system.smallest.factor,
+            max = system.largest.factor
+        ).map { factor -> system to factor }
+    }
 
     val belowFactors = Systems.generator.flatMap { system ->
         val smallest = system.smallest
         val below = Arb.bigDecimal(
-            min = BigDecimal("1e-300"),
+            min = smallest.factor - FACTOR_RANGE_MARGIN,
             max = smallest.factor
         )
         below.map { factor -> system to factor }
@@ -31,20 +38,14 @@ class EnumSystemTest : StringSpec({
         val largest = system.largest
         val above = Arb.bigDecimal(
             min = largest.factor,
-            max = BigDecimal("1e300")
+            max = largest.factor + FACTOR_RANGE_MARGIN
         )
         above.map { factor -> system to factor }
     }
 
-    "retrieves base unit" {
-        checkAll(Systems.generator) { system ->
-            system.canonical.factor.one.shouldBeTrue()
-        }
-    }
-
-    "crashes if there is an invalid system with no base" {
+    "crashes if a subclass does not define a canonical strategy" {
         shouldThrow<IllegalStateException> {
-            EnumSystem(InvalidPrefix::class).canonical
+            NoCanonicalEnumSystem(Metric::class).canonical
         }
     }
 
@@ -72,11 +73,23 @@ class EnumSystemTest : StringSpec({
         }
     }
 
-    "finds the appropriate prefix for an exact factor" {
+    "finds every exact prefix factor" {
         checkAll(Systems.generator) { system ->
-            val prefix = system.all.random()
+            system.all.forEach { prefix ->
+                system.find(prefix.factor) shouldBe prefix
+            }
+        }
+    }
 
-            system.find(prefix.factor) shouldBe prefix
+    "finds the closest prefix at or below a factor" {
+        checkAll(withinFactors) { (system, factor) ->
+            val prefix = system.find(factor)
+
+            (prefix in system.all).shouldBeTrue()
+            (prefix.factor <= factor).shouldBeTrue()
+            system.all.none { candidate ->
+                candidate.factor <= factor && candidate.factor > prefix.factor
+            }.shouldBeTrue()
         }
     }
 
@@ -92,3 +105,7 @@ class EnumSystemTest : StringSpec({
         }
     }
 })
+
+private val FACTOR_RANGE_MARGIN = BigDecimal("1000")
+
+private class NoCanonicalEnumSystem<T : Prefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass)
