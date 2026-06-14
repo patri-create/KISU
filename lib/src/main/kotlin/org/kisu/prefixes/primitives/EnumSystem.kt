@@ -7,30 +7,22 @@ import java.math.BigDecimal
 import kotlin.reflect.KClass
 
 /**
- * A scalar implementation of [System] that works with an enum class representing prefixes.
+ * Base [System] implementation for enum-backed prefix families.
  *
- * This class uses reflection on the provided enum class to:
- * - Retrieve all prefix values,
- * - Sort them by their power from smallest to largest,
- * - Identify the base unit,
- * - Provide easy access to the smallest and largest prefixes.
- *
- * This implementation assumes the enum constants implement [Prefix] and that exactly one prefix represents the
- * canonical base unit. Exponent-based systems use factor `0`; linear systems use factor `1`.
- *
- * If no such base prefix is found, it throws an [IllegalStateException].
+ * This class uses reflection on the provided enum class to retrieve all prefix values, sort them by their factor,
+ * and expose common lookup operations. Concrete systems define which enum value is [canonical] because different
+ * prefix algebra strategies use different base-prefix rules.
  *
  * @param klass The Kotlin class reference of the enum implementing [Prefix].
  */
 abstract class EnumSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
     /**
-     * The base prefix in the system, identified by exponent `0` or linear factor `1`.
+     * The base prefix in the system.
      *
-     * @throws [IllegalStateException] if no base prefix is found.
+     * Concrete systems must define this explicitly so missing canonical strategies fail at compile time rather than
+     * at first access.
      */
-    override val canonical: T by lazy {
-        error("${this::class.simpleName} is a system with no base")
-    }
+    abstract override val canonical: T
 
     /**
      * All prefixes defined in this system.
@@ -65,4 +57,10 @@ abstract class EnumSystem<T : Prefix<T>>(klass: KClass<T>) : System<T> {
         return all.lastOrNull { it.factor <= factor }
             ?: all.first() // factor is smaller than the smallest known prefix
     }
+
+    /**
+     * Fails when a concrete system cannot find a canonical prefix matching [expected].
+     */
+    protected fun noCanonicalPrefixError(expected: String): Nothing =
+        error("${this::class.simpleName} is a system with no $expected canonical prefix")
 }

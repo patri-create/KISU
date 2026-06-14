@@ -255,10 +255,11 @@ public abstract class org/kisu/prefixes/primitives/EnumSystem : org/kisu/prefixe
 	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun find (Ljava/math/BigDecimal;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
-	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public abstract fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun getLargest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	protected final fun noCanonicalPrefixError (Ljava/lang/String;)Ljava/lang/Void;
 }
 
 public final class org/kisu/prefixes/primitives/ExponentialEnumSystem : org/kisu/prefixes/primitives/EnumSystem {

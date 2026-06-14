@@ -1,6 +1,5 @@
 package org.kisu.prefixes.primitives
 
-import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldBeSorted
@@ -11,11 +10,8 @@ import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
-import org.kisu.prefixes.Metric
-import org.kisu.prefixes.Prefix
 import org.kisu.test.generators.Systems
 import java.math.BigDecimal
-import kotlin.reflect.KClass
 
 class EnumSystemTest : StringSpec({
     val withinFactors = Systems.generator.flatMap { system ->
@@ -41,12 +37,6 @@ class EnumSystemTest : StringSpec({
             max = largest.factor + FACTOR_RANGE_MARGIN
         )
         above.map { factor -> system to factor }
-    }
-
-    "crashes if a subclass does not define a canonical strategy" {
-        shouldThrow<IllegalStateException> {
-            NoCanonicalEnumSystem(Metric::class).canonical
-        }
     }
 
     "retrieves all prefixes for a system" {
@@ -107,5 +97,3 @@ class EnumSystemTest : StringSpec({
 })
 
 private val FACTOR_RANGE_MARGIN = BigDecimal("1000")
-
-private class NoCanonicalEnumSystem<T : Prefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass)
