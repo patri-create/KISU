@@ -50,7 +50,11 @@ class Kilogram private constructor(
     unit: Unit
 ) : Scalar<Metric, Kilogram>(scale, prefix, unit, ::Kilogram) {
 
-    constructor(pair: Pair<Metric, BigDecimal>) : this(prefix = pair.first, unit = UNIT)
+    constructor(pair: Pair<Metric, BigDecimal>) : this(
+        scale = ExponentialScale<Metric>().adjustedBy(pair.second),
+        prefix = pair.first,
+        unit = UNIT,
+    )
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix * Metric.KILO)
 
@@ -61,4 +65,13 @@ class Kilogram private constructor(
         /** The canonical unit symbol used internally: "g". */
         internal val UNIT = Unit("g", 1)
     }
+}
+
+private fun Scale<Metric>.adjustedBy(remainder: BigDecimal): Scale<Metric> {
+    if (remainder.compareTo(BigDecimal.ONE) == 0) {
+        return this
+    }
+
+    val delegate = this
+    return Scale { prefix -> delegate.factor(prefix) * remainder }
 }

@@ -3,12 +3,12 @@ package org.kisu.units.scales
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
+import org.kisu.KisuConfig
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 import org.kisu.test.generators.Binaries
 import org.kisu.test.generators.Metrics
 import java.math.BigDecimal
-import kotlin.math.pow
 
 class ExponentialScaleTest : StringSpec({
     val metricBase = BigDecimal.TEN
@@ -16,10 +16,12 @@ class ExponentialScaleTest : StringSpec({
 
     "calculates exponential factors" {
         checkAll(Metrics.generator) { prefix ->
-            val expected = metricBase.toDouble()
-                .pow(prefix.factor.toDouble())
-                .toBigDecimal()
-                .stripTrailingZeros()
+            val power = metricBase.pow(prefix.factor.abs().toInt())
+            val expected = if (prefix.factor < BigDecimal.ZERO) {
+                BigDecimal.ONE.divide(power, KisuConfig.precision)
+            } else {
+                power
+            }
 
             ExponentialScale<Metric>(metricBase).factor(prefix).compareTo(expected) shouldBe 0
         }

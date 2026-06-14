@@ -86,7 +86,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     override val factors: Set<Scalar<*, *>> = sortedSetOf(this)
 
     override fun to(other: Self): BigDecimal =
-        scale.factor(prefix).divide(scale.factor(other.prefix), KisuConfig.precision)
+        factor.divide(other.factor, KisuConfig.precision)
 
     /**
      * Multiplies this scalar expression by [other] within the same scalar family.
@@ -98,8 +98,8 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * @return A new scalar expression representing the product.
      */
     operator fun plus(other: Self): Self {
-        val (prefix, overflow) = prefix * other.prefix
-        return create(scale, prefix, unit * other.unit)
+        val (prefix, remainder) = prefix * other.prefix
+        return create(scale.adjustedBy(remainder), prefix, unit * other.unit)
     }
 
     internal fun addErased(other: Scalar<*, *>): Scalar<*, *> = self + requireSameFamily(other)
@@ -123,8 +123,8 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * @return A new scalar expression representing the quotient.
      */
     operator fun minus(other: Self): Self {
-        val (prefix, overflow) = prefix / other.prefix
-        return create(scale, prefix, unit / other.unit)
+        val (prefix, remainder) = prefix / other.prefix
+        return create(scale.adjustedBy(remainder), prefix, unit / other.unit)
     }
 
     /**
@@ -193,4 +193,13 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     operator fun <B, C> div(other: Quotient<B, C>): Quotient<Product<Self, C>, B>
         where B : Expression<B>, B : System<B>, C : Expression<C>, C : System<C> =
         Quotient(Product(self, other.component2()), other.component1())
+}
+
+private fun <A> Scale<A>.adjustedBy(remainder: BigDecimal): Scale<A> where A : Prefix<A>, A : System<A> {
+    if (remainder.compareTo(BigDecimal.ONE) == 0) {
+        return this
+    }
+
+    val delegate = this
+    return Scale { prefix -> delegate.factor(prefix) * remainder }
 }
