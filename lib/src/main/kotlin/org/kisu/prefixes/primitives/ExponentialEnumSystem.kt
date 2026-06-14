@@ -6,6 +6,13 @@ import org.kisu.zero
 import java.math.BigDecimal
 import kotlin.reflect.KClass
 
+/**
+ * Enum-backed [System] for prefixes whose [Prefix.factor] stores an exponent.
+ *
+ * Prefix multiplication and division add or subtract exponents, select the closest declared prefix, and return any
+ * leftover exponent as a multiplicative remainder using this system's [base]. The canonical prefix is the enum value
+ * with factor `0`.
+ */
 class ExponentialEnumSystem<T : Prefix<T>> : EnumSystem<T> {
     private val base: BigDecimal
 
@@ -17,8 +24,12 @@ class ExponentialEnumSystem<T : Prefix<T>> : EnumSystem<T> {
         this.base = base
     }
 
+    /**
+     * The zero-factor prefix for this exponent-based system.
+     */
     override val canonical: T by lazy {
-        all.find { prefix -> prefix.factor.zero } ?: super.canonical
+        all.find { prefix -> prefix.factor.zero }
+            ?: noCanonicalPrefixError("zero-factor")
     }
 
     override fun multiply(left: T, right: T): Pair<T, BigDecimal> {
