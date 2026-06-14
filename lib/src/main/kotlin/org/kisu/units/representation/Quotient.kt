@@ -108,6 +108,9 @@ class Quotient<A, B>(
         (intersected + onlyInLeft + onlyInRight.map { it.inverted }).filter { !it.zero }.toSet()
     }
 
+    override fun to(other: Quotient<A, B>): BigDecimal =
+        numerator.to(other.numerator).divide(denominator.to(other.denominator), KisuConfig.precision)
+
     /**
      * Returns the numerator component of the quotient.
      */

@@ -2,6 +2,7 @@ package org.kisu.units.representation
 
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
+import java.math.BigDecimal
 
 /**
  * Represents a combination of a [Prefix] and a unit symbol, forming a complete unit expression
@@ -29,6 +30,8 @@ abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
      * and its contents define the meaning of the expression in terms of base units.
      */
     abstract val factors: Set<Scalar<*, *>>
+
+    abstract override fun to(other: A): BigDecimal
 
     /**
      * Checks structural equality based on the [symbol] property.

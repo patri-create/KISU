@@ -1985,7 +1985,7 @@ public abstract class org/kisu/units/representation/Expression : org/kisu/prefix
 	public fun hashCode ()I
 	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
-	public fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public abstract fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 	public fun toString ()Ljava/lang/String;
 }
 
@@ -2013,6 +2013,8 @@ public final class org/kisu/units/representation/Product : org/kisu/units/repres
 	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Product;
 	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Product;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun to (Lorg/kisu/units/representation/Product;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/units/representation/Quotient : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
@@ -2041,6 +2043,8 @@ public final class org/kisu/units/representation/Quotient : org/kisu/units/repre
 	public final fun times (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun times (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun to (Lorg/kisu/units/representation/Quotient;)Ljava/math/BigDecimal;
 }
 
 public abstract class org/kisu/units/representation/Scalar : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
