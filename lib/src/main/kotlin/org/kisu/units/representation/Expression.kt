@@ -19,6 +19,11 @@ import java.math.BigDecimal
  */
 abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
     /**
+     * Concrete scaling factor represented by this expression.
+     */
+    abstract val factor: BigDecimal
+
+    /**
      * The set of scalar components that make up this expression.
      *
      * This property represents the irreducible parts of the expression, where each [Scalar]
@@ -38,6 +43,14 @@ abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
      * correctly.
      */
     abstract fun to(other: A): BigDecimal
+
+    @Suppress("UNCHECKED_CAST")
+    open fun decompose(magnitude: BigDecimal): List<Pair<BigDecimal, A>> = listOf(magnitude to this as A)
+
+    /**
+     * Compares expressions by their resolved scaling factor.
+     */
+    override fun compareTo(other: A): Int = factor.compareTo((other as Expression<*>).factor)
 
     /**
      * Checks structural equality based on the [symbol] property.
