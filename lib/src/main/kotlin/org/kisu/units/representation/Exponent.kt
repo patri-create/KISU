@@ -1,10 +1,8 @@
 package org.kisu.units.representation
 
-import kotlin.math.absoluteValue
-
 /**
  * Represents an integer exponent, providing utilities for arithmetic and string representation
- * using Unicode superscripts when the absolute value is greater than 1.
+ * using Unicode superscripts for every value except 0 and 1.
  *
  * This class is intended for use in contexts such as unit systems or mathematical formatting,
  * where exponents are displayed in a human-readable superscript form.
@@ -33,8 +31,8 @@ data class Exponent(private val exponent: Int) {
     /**
      * A lazily computed string representation of the exponent using Unicode superscript characters.
      *
-     * If the absolute value of the exponent is greater than 1, it is converted to a superscript string;
-     * otherwise, it is rendered as an empty string (e.g., x¹ is usually rendered as x).
+     * Exponents 0 and 1 are rendered as an empty string, matching common unit notation where `x¹` is shown as `x`.
+     * Every other exponent is converted to a superscript string, including negative exponents such as `⁻¹`.
      *
      * ```
      * Exponent(2) // "²"
@@ -42,9 +40,12 @@ data class Exponent(private val exponent: Int) {
      * ```
      * Exponent(1) // ""
      * ```
+     * ```
+     * Exponent(-1) // "⁻¹"
+     * ```
      */
     val representation: String by lazy {
-        if (exponent.absoluteValue > 1) {
+        if (exponent != 0 && exponent != 1) {
             exponent.toString().fold("") { acc, ch -> acc + superscripts[ch] }
         } else {
             ""
