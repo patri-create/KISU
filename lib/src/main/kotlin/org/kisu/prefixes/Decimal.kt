@@ -1,6 +1,6 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.LinealEnumSystem
+import org.kisu.prefixes.primitives.LinearEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
@@ -31,7 +31,7 @@ enum class Decimal(
     override val factor: BigDecimal,
     symbol: String,
 ) : Prefix<Decimal>,
-    System<Decimal> by LinealEnumSystem(Decimal::class),
+    System<Decimal> by LinearEnumSystem(Decimal::class),
     Symbol by Representation(symbol) {
     /** 1000⁰ = 1 */
     BASE(BigDecimal.ONE, ""),

@@ -1,6 +1,6 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.LinealEnumSystem
+import org.kisu.prefixes.primitives.LinearEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
@@ -20,7 +20,7 @@ enum class Time(
     override val factor: BigDecimal,
     symbol: String,
 ) : Prefix<Time>,
-    System<Time> by LinealEnumSystem(Time::class),
+    System<Time> by LinearEnumSystem(Time::class),
     Symbol by Representation(symbol) {
     /** 10⁻³⁰ = 0.000000000000000000000000000001 */
     QUECTO(BigDecimal(BigInteger("1"), 30), "q"),

@@ -20,6 +20,7 @@ import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
 import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.fakes.TestMeasure
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Magnitudes.composition
@@ -28,7 +29,6 @@ import org.kisu.test.generators.distinct
 import org.kisu.test.generators.nonZero
 import org.kisu.test.matchers.plusOrMinus
 import org.kisu.test.utils.optimalPrefixFrom
-import org.kisu.units.scales.ExponentialScale
 import org.kisu.zero
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -339,7 +339,7 @@ class MeasureTest : StringSpec({
             Metric.BASE.composition,
             MetricGenerator.generator
         ) { composition: List<Pair<BigInteger, Metric>>, prefix ->
-            val scale = ExponentialScale<Metric>()
+            val scale = ExponentialAlgebra<Metric>()
             val magnitude = composition.fold(BigDecimal.ZERO) { total, (magnitude, prefix) ->
                 total + (magnitude.bigDecimal * scale.factor(prefix))
             }

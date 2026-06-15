@@ -7,10 +7,10 @@ import io.kotest.property.checkAll
 import org.kisu.KisuConfig
 import org.kisu.prefixes.Binary.BASE
 import org.kisu.prefixes.Binary.QUEBI
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Prefixes
 import org.kisu.test.generators.Times
-import org.kisu.units.scales.ExponentialScale
 import java.math.BigDecimal
 
 class PrefixTest : StringSpec({
@@ -22,7 +22,7 @@ class PrefixTest : StringSpec({
     }
 
     "exponential prefix multiplication adds exponents and returns multiplicative overflow" {
-        val scale = ExponentialScale<Metric>()
+        val scale = ExponentialAlgebra<Metric>()
 
         checkAll(Metrics.generator, Metrics.generator) { a, b ->
             val (prefix, remainder) = a * b
@@ -38,7 +38,7 @@ class PrefixTest : StringSpec({
     }
 
     "exponential prefix division subtracts exponents and returns multiplicative overflow" {
-        val scale = ExponentialScale<Metric>()
+        val scale = ExponentialAlgebra<Metric>()
 
         checkAll(Metrics.generator, Metrics.generator) { a, b ->
             val (prefix, remainder) = a / b

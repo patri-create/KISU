@@ -1,11 +1,11 @@
 package org.kisu.test.fakes
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 class TestMeasure(
@@ -20,14 +20,14 @@ class TestMeasure(
 }
 
 class TestUnit constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, TestUnit>(scale, prefix, unit, ::TestUnit) {
+) : Scalar<Metric, TestUnit>(algebra, prefix, unit, ::TestUnit) {
 
-    constructor(prefix: Metric) : this(ExponentialScale(), prefix, UNIT)
+    constructor(prefix: Metric) : this(ExponentialAlgebra(), prefix, UNIT)
 
-    constructor(prefix: Metric, unit: Unit) : this(ExponentialScale(), prefix, unit)
+    constructor(prefix: Metric, unit: Unit) : this(ExponentialAlgebra(), prefix, unit)
 
     companion object {
         /** The canonical SI symbol for electric current: "A". */

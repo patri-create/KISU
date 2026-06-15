@@ -8,14 +8,14 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Time
 import org.kisu.prefixes.primitives.EnumSystem
 import org.kisu.prefixes.primitives.ExponentialEnumSystem
-import org.kisu.prefixes.primitives.LinealEnumSystem
+import org.kisu.prefixes.primitives.LinearEnumSystem
 
 object Systems : Generator<EnumSystem<*>> {
     private val systems: List<EnumSystem<*>> = listOf(
         ExponentialEnumSystem(Metric::class),
         ExponentialEnumSystem(Binary::class, 2),
-        LinealEnumSystem(Decimal::class),
-        LinealEnumSystem(Time::class),
+        LinearEnumSystem(Decimal::class),
+        LinearEnumSystem(Time::class),
     )
 
     override val generator: Arb<EnumSystem<*>> =

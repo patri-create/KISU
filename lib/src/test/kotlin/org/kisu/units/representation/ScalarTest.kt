@@ -9,12 +9,13 @@ import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
 import org.kisu.KisuConfig
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.productSymbol
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Units
-import org.kisu.units.scales.ExponentialScale
 import java.math.BigDecimal
 
 class ScalarTest : StringSpec({
@@ -44,7 +45,7 @@ class ScalarTest : StringSpec({
 
     "delegates factor to the scale" {
         checkAll(Metrics.generator) { metric ->
-            TestUnit(metric).factor shouldBe ExponentialScale<Metric>().factor(metric)
+            TestUnit(metric).factor shouldBe ExponentialAlgebra<Metric>().factor(metric)
         }
     }
 
@@ -59,8 +60,8 @@ class ScalarTest : StringSpec({
     }
 
     "converts using each scalar scale" {
-        val source = TestUnit(ExponentialScale(), Metric.KILO, Unit("ts", 1))
-        val target = TestUnit(ExponentialScale(SQUARE_SCALE_BASE), Metric.KILO, Unit("ts", 1))
+        val source = TestUnit(ExponentialAlgebra(), Metric.KILO, Unit("ts", 1))
+        val target = TestUnit(ExponentialAlgebra(SQUARE_SCALE_BASE), Metric.KILO, Unit("ts", 1))
 
         source.to(target).compareTo(source.factor.divide(target.factor, KisuConfig.precision)) shouldBe 0
     }
@@ -72,9 +73,23 @@ class ScalarTest : StringSpec({
         (left + right).factor.compareTo(left.factor * right.factor) shouldBe 0
     }
 
+    "preserves adjusted algebra factors when multiplying scalars" {
+        val left = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("2")), Metric.KILO, Unit("ts", 1))
+        val right = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("3")), Metric.KILO, Unit("ts", 1))
+
+        (left + right).factor.compareTo(left.factor * right.factor) shouldBe 0
+    }
+
     "preserves overflow when dividing clamped prefixes" {
         val left = TestUnit(Metric.QUECTO)
         val right = TestUnit(Metric.KILO)
+
+        (left - right).factor.compareTo(left.factor.divide(right.factor, KisuConfig.precision)) shouldBe 0
+    }
+
+    "preserves adjusted algebra factors when dividing scalars" {
+        val left = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("6")), Metric.KILO, Unit("ts", 1))
+        val right = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("2")), Metric.KILO, Unit("ts", 1))
 
         (left - right).factor.compareTo(left.factor.divide(right.factor, KisuConfig.precision)) shouldBe 0
     }
@@ -135,3 +150,18 @@ class ScalarTest : StringSpec({
 })
 
 private val SQUARE_SCALE_BASE = BigDecimal("100")
+
+private fun Algebra<Metric>.adjustedBy(remainder: BigDecimal): Algebra<Metric> {
+    val delegate = this
+    return object : Algebra<Metric> {
+        override fun factor(prefix: Metric): BigDecimal = delegate.factor(prefix) * remainder
+
+        override fun multiply(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+            delegate.multiply(left, right).let { (prefix, overflow) -> prefix to overflow * remainder }
+
+        override fun divide(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+            delegate.divide(left, right).let { (prefix, overflow) ->
+                prefix to overflow.divide(remainder, KisuConfig.precision)
+            }
+    }
+}
