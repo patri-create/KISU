@@ -1,6 +1,5 @@
 package org.kisu.prefixes
 
-import org.kisu.KisuConfig
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
@@ -40,25 +39,6 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
      * - "mebi" → 1,048,576
      */
     val factor: BigDecimal
-
-    /**
-     * Returns the factor needed to convert a value expressed with this prefix into one expressed in [other].
-     *
-     * For example:
-     * ```kotlin
-     * KILO.to(MILLI) // → 1_000_000
-     * MILLI.to(KILO) // → 0.000001
-     * ```
-     *
-     * This satisfies:
-     * ```kotlin
-     * magnitudeInThis * this.to(other) == magnitudeInOther
-     * ```
-     *
-     * @param other the target prefix
-     * @return the conversion factor from this prefix to [other]
-     */
-    fun to(other: Self): BigDecimal = factor.divide(other.factor, KisuConfig.precision)
 
     /**
      * Returns this prefix and [other], sorted in ascending order of their [factor].

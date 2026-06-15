@@ -10,18 +10,10 @@ import org.kisu.prefixes.Binary.QUEBI
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Prefixes
 import org.kisu.test.generators.Times
-import org.kisu.test.matchers.plusOrMinus
 import org.kisu.units.scales.ExponentialScale
 import java.math.BigDecimal
 
 class PrefixTest : StringSpec({
-    "rescales to a different power" {
-        checkAll(Prefixes.generator, Prefixes.generator) { left, right ->
-            val decimal = left.to(right) * right.to(left)
-            decimal shouldBe (BigDecimal.ONE plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
-        }
-    }
-
     "order is maintained" {
         checkAll(Prefixes.generator, Prefixes.generator) { left, right ->
             left.sortWith(right).toList().shouldBeSorted()
@@ -105,5 +97,3 @@ class PrefixTest : StringSpec({
 })
 
 private val BINARY_EXPONENT_BASE = BigDecimal.valueOf(2)
-
-private const val ALLOWED_TOLERANCE = 1e-14

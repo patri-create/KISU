@@ -30,14 +30,23 @@ That separation is the main architectural rule: quantities own values, expressio
 
 ## Prefix Systems
 
-[Prefix](../lib/src/main/kotlin/org/kisu/prefixes/Prefix.kt) is the common contract for a scale factor with a symbol. It
-supports conversion to another prefix of the same system and comparison by factor:
+[Prefix](../lib/src/main/kotlin/org/kisu/prefixes/Prefix.kt) is the common contract for a scale coordinate with a symbol.
+It supports comparison by factor:
 
 ```kotlin
 import org.kisu.prefixes.Metric
 
-Metric.KILO.to(Metric.MILLI) // 1_000_000
 Metric.MEGA > Metric.KILO   // true
+```
+
+Prefix-to-prefix conversion intentionally lives on unit expressions rather than raw prefixes. Expressions carry the
+`Scale` context needed to resolve whether a prefix factor is an absolute multiplier or an exponent coordinate:
+
+```kotlin
+import org.kisu.prefixes.Metric
+import org.kisu.units.base.Metre
+
+Metre(Metric.KILO).to(Metre(Metric.MILLI)) // 1_000_000
 ```
 
 The self type on `Prefix<Self>` is deliberate. It prevents mixing unrelated systems in prefix operations:
@@ -46,8 +55,8 @@ The self type on `Prefix<Self>` is deliberate. It prevents mixing unrelated syst
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 
-Metric.KILO.to(Metric.MEGA) // valid
-Metric.KILO.to(Binary.KIBI) // does not compile
+Metric.KILO * Metric.MEGA  // valid
+Metric.KILO * Binary.KIBI  // does not compile
 ```
 
 [System](../lib/src/main/kotlin/org/kisu/prefixes/primitives/System.kt) describes the complete ordered set around a
