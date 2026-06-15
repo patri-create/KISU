@@ -1,11 +1,11 @@
 package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -33,10 +33,10 @@ class Temperature internal constructor(magnitude: BigDecimal, expression: Kelvin
 }
 
 class Kelvin private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, Kelvin>(scale, prefix, unit, ::Kelvin) {
+) : Scalar<Metric, Kelvin>(algebra, prefix, unit, ::Kelvin) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 

@@ -1,11 +1,11 @@
 package org.kisu.units.special
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -45,10 +45,10 @@ class Inductance internal constructor(magnitude: BigDecimal, expression: Henry) 
  * @see Weber
  */
 class Henry private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, Henry>(scale, prefix, unit, ::Henry) {
+) : Scalar<Metric, Henry>(algebra, prefix, unit, ::Henry) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 

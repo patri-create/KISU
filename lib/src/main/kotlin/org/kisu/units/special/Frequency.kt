@@ -1,11 +1,11 @@
 package org.kisu.units.special
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -41,10 +41,10 @@ class Frequency internal constructor(magnitude: BigDecimal, expression: Hertz) :
  * @see Becquerel
  */
 class Hertz private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, Hertz>(scale, prefix, unit, ::Hertz) {
+) : Scalar<Metric, Hertz>(algebra, prefix, unit, ::Hertz) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 

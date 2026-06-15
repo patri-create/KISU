@@ -2,14 +2,14 @@ package org.kisu.units.base
 
 import org.kisu.hasFraction
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.prefixes.isCanonical
 import org.kisu.units.Measure
 import org.kisu.units.base.Bit.Companion.UNIT
 import org.kisu.units.exceptions.SubBitInformation
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -80,10 +80,10 @@ class Information private constructor(magnitude: BigDecimal, expression: Bit) :
  * This type uses [Binary] prefixes such as `Ki`, `Mi`, and `Gi`.
  */
 class Bit private constructor(
-    scale: Scale<Binary> = ExponentialScale(2),
+    algebra: Algebra<Binary> = ExponentialAlgebra(2),
     prefix: Binary,
     unit: Unit
-) : Scalar<Binary, Bit>(scale, prefix, unit, ::Bit) {
+) : Scalar<Binary, Bit>(algebra, prefix, unit, ::Bit) {
 
     /**
      * Secondary constructor for convenience.

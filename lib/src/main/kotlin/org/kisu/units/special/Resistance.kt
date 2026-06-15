@@ -1,11 +1,11 @@
 package org.kisu.units.special
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -44,10 +44,10 @@ class Resistance internal constructor(magnitude: BigDecimal, expression: Ohm) :
  * @see Siemens
  */
 class Ohm private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, Ohm>(scale, prefix, unit, ::Ohm) {
+) : Scalar<Metric, Ohm>(algebra, prefix, unit, ::Ohm) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
