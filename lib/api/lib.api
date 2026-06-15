@@ -70,8 +70,6 @@ public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/
 	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Binary;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
-	public fun to (Lorg/kisu/prefixes/Binary;)Ljava/math/BigDecimal;
-	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 	public fun toString ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Binary;
 	public static fun values ()[Lorg/kisu/prefixes/Binary;
@@ -109,8 +107,6 @@ public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes
 	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Decimal;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
-	public fun to (Lorg/kisu/prefixes/Decimal;)Ljava/math/BigDecimal;
-	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 	public fun toString ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Decimal;
 	public static fun values ()[Lorg/kisu/prefixes/Decimal;
@@ -162,8 +158,6 @@ public final class org/kisu/prefixes/Metric : java/lang/Enum, org/kisu/prefixes/
 	public synthetic fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Metric;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
-	public fun to (Lorg/kisu/prefixes/Metric;)Ljava/math/BigDecimal;
-	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 	public fun toString ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Metric;
 	public static fun values ()[Lorg/kisu/prefixes/Metric;
@@ -174,13 +168,11 @@ public abstract interface class org/kisu/prefixes/Prefix : java/lang/Comparable,
 	public fun compareTo (Lorg/kisu/prefixes/Prefix;)I
 	public abstract fun getFactor ()Ljava/math/BigDecimal;
 	public fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
-	public fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/prefixes/Prefix$DefaultImpls {
 	public static fun compareTo (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)I
 	public static fun sortWith (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
-	public static fun to (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/prefixes/PrefixKt {
@@ -232,8 +224,6 @@ public final class org/kisu/prefixes/Time : java/lang/Enum, org/kisu/prefixes/Pr
 	public fun multiply (Lorg/kisu/prefixes/Time;Lorg/kisu/prefixes/Time;)Lkotlin/Pair;
 	public synthetic fun sortWith (Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun sortWith (Lorg/kisu/prefixes/Time;)Lkotlin/Pair;
-	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
-	public fun to (Lorg/kisu/prefixes/Time;)Ljava/math/BigDecimal;
 	public fun toString ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/prefixes/Time;
 	public static fun values ()[Lorg/kisu/prefixes/Time;
@@ -273,7 +263,6 @@ public final class org/kisu/prefixes/primitives/ExponentialEnumSystem : org/kisu
 
 public final class org/kisu/prefixes/primitives/LinealEnumSystem : org/kisu/prefixes/primitives/EnumSystem {
 	public fun <init> (Lkotlin/reflect/KClass;)V
-	public final fun convert (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;

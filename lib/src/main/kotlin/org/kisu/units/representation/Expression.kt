@@ -31,7 +31,13 @@ abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
      */
     abstract val factors: Set<Scalar<*, *>>
 
-    abstract override fun to(other: A): BigDecimal
+    /**
+     * Returns the conversion factor from this expression to [other].
+     *
+     * Unlike raw prefixes, expressions carry the scale and dimensional structure needed to resolve prefixed factors
+     * correctly.
+     */
+    abstract fun to(other: A): BigDecimal
 
     /**
      * Checks structural equality based on the [symbol] property.
