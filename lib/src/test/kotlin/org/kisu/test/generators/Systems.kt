@@ -14,7 +14,7 @@ object Systems : Generator<EnumSystem<*>> {
     private val systems: List<EnumSystem<*>> = listOf(
         ExponentialEnumSystem(Metric::class),
         ExponentialEnumSystem(Binary::class, 2),
-        LinearEnumSystem(Decimal::class),
+        ExponentialEnumSystem(Decimal::class),
         LinearEnumSystem(Time::class),
     )
 

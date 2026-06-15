@@ -1,18 +1,18 @@
 package org.kisu.prefixes.primitives
 
-import org.kisu.KisuConfig
 import org.kisu.one
-import org.kisu.prefixes.Prefix
+import org.kisu.orElse
+import org.kisu.prefixes.LinearPrefix
 import java.math.BigDecimal
 import kotlin.reflect.KClass
 
 /**
- * Enum-backed [System] for prefixes whose [Prefix.factor] is the concrete multiplicative factor.
+ * Enum-backed [System] for prefixes whose [LinearPrefix.factor] is the concrete multiplicative factor.
  *
  * Prefix multiplication and division multiply or divide factors directly, select the closest declared prefix, and
  * return any residual value as a multiplicative remainder. The canonical prefix is the enum value with factor `1`.
  */
-class LinearEnumSystem<T : Prefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass) {
+class LinearEnumSystem<T : LinearPrefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass) {
     /**
      * The unit-factor prefix for this linear system.
      */
@@ -21,15 +21,6 @@ class LinearEnumSystem<T : Prefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass) {
             ?: noCanonicalPrefixError("unit-factor")
     }
 
-    override fun multiply(left: T, right: T): Pair<T, BigDecimal> {
-        val factor = left.factor * right.factor
-        val prefix = find(factor)
-        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
-    }
-
-    override fun divide(left: T, right: T): Pair<T, BigDecimal> {
-        val factor = left.factor.divide(right.factor, KisuConfig.precision)
-        val prefix = find(factor)
-        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
-    }
+    override fun find(factor: BigDecimal): T =
+        all.lastOrNull { it.factor <= factor }.orElse { smallest }
 }

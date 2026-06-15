@@ -1,7 +1,5 @@
 package org.kisu.prefixes.primitives
 
-import org.kisu.KisuConfig
-import org.kisu.orElse
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Metric.QUECTO
@@ -22,13 +20,14 @@ import java.math.BigDecimal
  * - The [Metric] system includes prefixes like milli, centi, kilo, mega, etc.
  * - The [Binary] system includes prefixes like kibi, mebi, gibi, etc.
  *
- * @param T the enum type representing the prefixes in this system, which must implement [Prefix]
+ * @param P the enum type representing the prefixes in this system, which must implement [Prefix]
  */
-interface System<T : Prefix<T>> {
+interface System<P : Prefix<P>> {
     /**
      * The canonical unit for the system.
      *
-     * It is a prefix whose power is 0, and to which all the prefixes in the system refer to.
+     * It is the prefix representing the system's base coordinate, such as power `0` for exponential systems or
+     * factor `1` for linear systems.
      *
      * ```kotlin
      * val metricSystem: System<Metric>
@@ -36,14 +35,14 @@ interface System<T : Prefix<T>> {
      * metricSystem.canonical // METER
      * ```
      */
-    val canonical: T
+    val canonical: P
 
     /**
      * All prefixes defined in this system.
      *
-     * To maintain an order, this list is sorted by power, smallest to largest.
+     * To maintain an order, this list is sorted by each prefix type's natural ordering, smallest to largest.
      */
-    val all: List<T>
+    val all: List<P>
 
     /**
      * The smallest prefix in this system (e.g., [QUECTO] in Metric).
@@ -54,7 +53,7 @@ interface System<T : Prefix<T>> {
      * metricSystem.smallest // QUECTO
      * ```
      */
-    val smallest: T
+    val smallest: P
 
     /**
      * The largest prefix in this system (e.g., [QUETTA] in Metric).
@@ -65,41 +64,20 @@ interface System<T : Prefix<T>> {
      * metricSystem.largest // QUETTA
      * ```
      */
-    val largest: T
+    val largest: P
 
     /**
-     * Finds the closest defined unit in the system that does not exceed the given [factor].
+     * Finds the closest defined unit in the system that does not exceed the given coordinate.
      *
      * This function searches through all available units ([all]) and returns the last one
-     * whose [factor] is less than or equal to the provided [factor]. If no such unit exists,
-     * it returns the [smallest] unit. If the given [factor] is greater than all available units,
-     * it returns the [largest] unit.
+     * whose coordinate is less than or equal to the provided value. If no such unit exists, it returns the [smallest]
+     * unit. If the given value is greater than all available units, it returns the [largest] unit.
      *
-     * This is typically used for prefix or unit resolution when mapping a numeric factor
-     * back to a known representation (e.g., resolving `1500` to `kilo`).
+     * For exponential systems the coordinate is a power. For linear systems the coordinate is a concrete factor.
      *
-     * @param factor The numerical factor to match against known units.
-     * @return The closest unit not greater than the provided [factor], or [smallest] if it's below the range,
+     * @param factor The numerical coordinate to match against known units.
+     * @return The closest unit not greater than the provided coordinate, or [smallest] if it's below the range,
      * or [largest] if it exceeds all defined units.
      */
-    fun find(factor: BigDecimal): T =
-        all.lastOrNull { it.factor <= factor }.orElse { smallest }
-
-    /**
-     * Multiplies two prefixes from this system, returning the closest representable prefix and the remaining factor.
-     */
-    fun multiply(left: T, right: T): Pair<T, BigDecimal> {
-        val factor = left.factor * right.factor
-        val prefix = find(factor)
-        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
-    }
-
-    /**
-     * Divides two prefixes from this system, returning the closest representable prefix and the remaining factor.
-     */
-    fun divide(left: T, right: T): Pair<T, BigDecimal> {
-        val factor = left.factor.divide(right.factor, KisuConfig.precision)
-        val prefix = find(factor)
-        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
-    }
+    fun find(factor: BigDecimal): P
 }
