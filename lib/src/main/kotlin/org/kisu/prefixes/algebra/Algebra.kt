@@ -7,7 +7,8 @@ import java.math.BigDecimal
 /**
  * Resolves the effective factor for a prefix when applied to a measurement expression.
  *
- * Some systems use the prefix factor directly, while others derive the factor from an expression-specific base.
+ * Some systems use a direct prefix factor, while others derive the factor from a prefix power and an
+ * expression-specific base.
  */
 interface Algebra<P> where P : Prefix<P>, P : System<P> {
     /**

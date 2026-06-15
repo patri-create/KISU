@@ -1,10 +1,9 @@
 package org.kisu.prefixes
 
-import org.kisu.prefixes.primitives.LinearEnumSystem
+import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 /**
  * The `Decimal` prefix system defines unit prefixes based on powers of 1000 (10³).
@@ -28,13 +27,13 @@ import java.math.BigDecimal
  */
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Decimal(
-    override val factor: BigDecimal,
+    override val power: Int,
     symbol: String,
-) : Prefix<Decimal>,
-    System<Decimal> by LinearEnumSystem(Decimal::class),
+) : ExponentialPrefix<Decimal>,
+    System<Decimal> by ExponentialEnumSystem(Decimal::class),
     Symbol by Representation(symbol) {
     /** 1000⁰ = 1 */
-    BASE(BigDecimal.ONE, ""),
+    BASE(0, ""),
 
     /** 1000¹ = 1,000 */
     KILO(3, "k"),
@@ -65,7 +64,4 @@ enum class Decimal(
 
     /** 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
     QUETTA(30, "Q"),
-    ;
-
-    constructor(power: Int, symbol: String) : this(factor = BigDecimal.TEN.pow(power), symbol)
 }

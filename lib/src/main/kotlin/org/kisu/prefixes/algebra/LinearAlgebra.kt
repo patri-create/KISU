@@ -1,7 +1,7 @@
 package org.kisu.prefixes.algebra
 
 import org.kisu.KisuConfig
-import org.kisu.prefixes.Prefix
+import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
 
@@ -10,7 +10,7 @@ import java.math.BigDecimal
  *
  * This is useful for irregular systems such as time, where values like minutes and hours map directly to seconds.
  */
-class LinearAlgebra<P> : Algebra<P> where P : Prefix<P>, P : System<P> {
+class LinearAlgebra<P> : Algebra<P> where P : LinearPrefix<P>, P : System<P> {
 
     override fun factor(prefix: P): BigDecimal = prefix.factor
 

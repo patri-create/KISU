@@ -2,46 +2,25 @@ package org.kisu.prefixes
 
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 /**
- * A `Prefix` is a mnemonic added to a unit of measurement to indicate multiplication by a specific factor.
+ * A `Prefix` is a symbolic scale coordinate attached to a unit of measurement.
  *
- * These prefixes are commonly standardized by the [International Bureau of Weights and Measures](https://www.bipm.org/en/)
- * (for SI units), or the [International Electrotechnical Commission](https://www.iec.ch/) (for binary units).
+ * The common contract intentionally does not expose a concrete multiplier. Different prefix families encode their
+ * coordinate differently: [ExponentialPrefix] stores an exponent coordinate such as `3` for kilo, while [LinearPrefix]
+ * stores a direct multiplier such as `60` for minute. Unit expressions and prefix algebras resolve those coordinates
+ * into concrete scale factors when a value is converted or normalized.
  *
- * Prefixes express consistent scaling factors that allow measurement units to span a wide range of magnitudes, such as:
- * - "milli" (m) for 0.001
- * - "kilo" (k) for 1,000
- * - "mega" (M) for 1,000,000
- * - "mebi" (Mi) for 1,048,576 (2²⁰)
- *
- * This interface abstracts the scaling factor directly, without relying on base/exponent representations.
- *
- * ```
- * | Name  | Symbol | Factor           |
- * |-------|--------|------------------|
- * | centi | c      | 0.01             |
- * | kilo  | k      | 1,000            |
- * | mega  | M      | 1,000,000        |
- * | mebi  | Mi     | 1,048,576        |
- * ```
- *
- * Implementations typically come from enums such as [Metric], [Binary], or other domain-specific systems.
+ * Implementations typically come from enums such as [Metric], [Binary], [Decimal], [Time], or other domain-specific
+ * systems.
  */
-interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
-    /**
-     * The factor by which a unit is scaled when this prefix is applied.
-     *
-     * For example:
-     * - "milli" → 0.001
-     * - "kilo" → 1,000
-     * - "mebi" → 1,048,576
-     */
-    val factor: BigDecimal
+interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Self> {
 
     /**
-     * Returns this prefix and [other], sorted in ascending order of their [factor].
+     * Returns this prefix and [other], sorted according to this prefix type's ordering.
+     *
+     * Concrete prefix contracts define the ordering coordinate. Linear prefixes order by their concrete multiplier,
+     * while exponential prefixes order by their power.
      *
      * @param other the prefix to compare
      * @return a [Pair] of prefixes sorted from smallest to largest
@@ -51,69 +30,16 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Prefix<Self>> {
         listOf(this as Self, other)
             .sorted()
             .let { (left, right) -> left to right }
-
-    /**
-     * Compares this [Prefix] to another based on their [factor].
-     *
-     * @param other the other [Prefix] to compare
-     * @return a negative integer if this prefix is smaller, zero if equal, or a positive integer if larger
-     */
-    override fun compareTo(other: Prefix<Self>): Int = factor.compareTo(other.factor)
 }
 
 /**
  * Returns `true` if this [Prefix] is the **canonical** or base unit prefix for its system.
  *
- * In most systems, this typically corresponds to the unit with a factor of 1 (e.g., no prefix in metric,
- * or `BASE` in binary). It compares the current prefix with the system-defined
+ * In most systems, this corresponds to the base coordinate for the system, such as power `0` for exponential prefixes
+ * or factor `1` for linear prefixes. It compares the current prefix with the system-defined
  * [org.kisu.prefixes.primitives.System.canonical] prefix.
  *
  * @return `true` if this prefix is the canonical base unit, `false` otherwise.
  */
 val <P> P.isCanonical: Boolean where P : Prefix<P>, P : System<P>
     get() = this == canonical
-
-/**
- * Multiplies this prefix by another prefix of the same system.
- *
- * This combines the scaling factors of both prefixes using multiplication, and returns
- * a pair consisting of:
- * - The closest matching prefix in the system for the resulting factor.
- * - A remainder that captures the excess factor not represented by the prefix itself.
- *
- * For example:
- * ```
- * Metric.KILO * Metric.KILO // (Metric.MEGA, 1)
- * ```
- * ```
- * Metric.QUETTA * Metric.KILO // (Metric.QUETTA, 1000)
- * ```
- *
- * @param other The prefix to multiply with.
- * @return A pair of (prefix, remainder) for the resulting factor.
- */
-operator fun <P> P.times(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P : System<P> {
-    return multiply(this, other)
-}
-
-/**
- * Divides this prefix by another prefix of the same system.
- *
- * This combines the scaling factors of both prefixes using division, and returns
- * a pair consisting of:
- * - The closest matching prefix in the system for the resulting factor.
- * - A remainder that captures the fractional difference not represented by the prefix.
- *
- * For example:
- * ```
- * Metric.MEGA / Metric.KILO // (Metric.KILO, 1000)`
- * ```
- * ```
- * Metric.QUECTO / Metric.HECTO = (Metric.QUECTO, 1e-2)`
- * ```
- * @param other The prefix to divide by.
- * @return A pair of (prefix, remainder) for the resulting factor.
- */
-operator fun <P> P.div(other: P): Pair<P, BigDecimal> where P : Prefix<P>, P : System<P> {
-    return divide(this, other)
-}

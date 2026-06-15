@@ -19,7 +19,7 @@ import java.math.BigInteger
 enum class Time(
     override val factor: BigDecimal,
     symbol: String,
-) : Prefix<Time>,
+) : LinearPrefix<Time>,
     System<Time> by LinearEnumSystem(Time::class),
     Symbol by Representation(symbol) {
     /** 10⁻³⁰ = 0.000000000000000000000000000001 */
