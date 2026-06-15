@@ -12,7 +12,7 @@ import kotlin.reflect.KClass
  * Prefix multiplication and division multiply or divide factors directly, select the closest declared prefix, and
  * return any residual value as a multiplicative remainder. The canonical prefix is the enum value with factor `1`.
  */
-class LinealEnumSystem<T : Prefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass) {
+class LinearEnumSystem<T : Prefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass) {
     /**
      * The unit-factor prefix for this linear system.
      */

@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import org.kisu.units.special.Henry
 import java.math.BigDecimal
 
@@ -46,10 +46,10 @@ class MagneticReluctance(
  * @see Henry
  */
 class ReciprocalHenry private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit,
-) : Scalar<Metric, ReciprocalHenry>(scale, prefix, unit, ::ReciprocalHenry) {
+) : Scalar<Metric, ReciprocalHenry>(algebra, prefix, unit, ::ReciprocalHenry) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 

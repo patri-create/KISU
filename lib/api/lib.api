@@ -229,6 +229,29 @@ public final class org/kisu/prefixes/Time : java/lang/Enum, org/kisu/prefixes/Pr
 	public static fun values ()[Lorg/kisu/prefixes/Time;
 }
 
+public abstract interface class org/kisu/prefixes/algebra/Algebra {
+	public abstract fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public abstract fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public abstract fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+}
+
+public final class org/kisu/prefixes/algebra/ExponentialAlgebra : org/kisu/prefixes/algebra/Algebra {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public fun <init> (Ljava/math/BigDecimal;)V
+	public synthetic fun <init> (Ljava/math/BigDecimal;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+}
+
+public final class org/kisu/prefixes/algebra/LinearAlgebra : org/kisu/prefixes/algebra/Algebra {
+	public fun <init> ()V
+	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+	public fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
+	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
+}
+
 public final class org/kisu/prefixes/primitives/CompositeSystem : org/kisu/prefixes/primitives/System {
 	public fun <init> (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;Lkotlin/jvm/functions/Function2;)V
 	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
@@ -261,7 +284,7 @@ public final class org/kisu/prefixes/primitives/ExponentialEnumSystem : org/kisu
 	public fun multiply (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 }
 
-public final class org/kisu/prefixes/primitives/LinealEnumSystem : org/kisu/prefixes/primitives/EnumSystem {
+public final class org/kisu/prefixes/primitives/LinearEnumSystem : org/kisu/prefixes/primitives/EnumSystem {
 	public fun <init> (Lkotlin/reflect/KClass;)V
 	public fun divide (Lorg/kisu/prefixes/Prefix;Lorg/kisu/prefixes/Prefix;)Lkotlin/Pair;
 	public fun getCanonical ()Lorg/kisu/prefixes/Prefix;
@@ -2038,7 +2061,7 @@ public final class org/kisu/units/representation/Quotient : org/kisu/units/repre
 }
 
 public abstract class org/kisu/units/representation/Scalar : org/kisu/units/representation/Expression, org/kisu/prefixes/primitives/System {
-	public fun <init> (Lorg/kisu/units/scales/Scale;Lorg/kisu/prefixes/Prefix;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;)V
+	public fun <init> (Lorg/kisu/prefixes/algebra/Algebra;Lorg/kisu/prefixes/Prefix;Lorg/kisu/units/representation/Unit;Lkotlin/jvm/functions/Function3;)V
 	public final fun div (Lorg/kisu/units/representation/Product;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Quotient;)Lorg/kisu/units/representation/Quotient;
 	public final fun div (Lorg/kisu/units/representation/Scalar;)Lorg/kisu/units/representation/Quotient;
@@ -2085,23 +2108,6 @@ public final class org/kisu/units/representation/Unit : java/lang/Comparable {
 	public fun hashCode ()I
 	public final fun times (Lorg/kisu/units/representation/Unit;)Lorg/kisu/units/representation/Unit;
 	public fun toString ()Ljava/lang/String;
-}
-
-public final class org/kisu/units/scales/ExponentialScale : org/kisu/units/scales/Scale {
-	public fun <init> ()V
-	public fun <init> (I)V
-	public fun <init> (Ljava/math/BigDecimal;)V
-	public synthetic fun <init> (Ljava/math/BigDecimal;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
-}
-
-public final class org/kisu/units/scales/LinearScale : org/kisu/units/scales/Scale {
-	public fun <init> ()V
-	public fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
-}
-
-public abstract interface class org/kisu/units/scales/Scale {
-	public abstract fun factor (Lorg/kisu/prefixes/Prefix;)Ljava/math/BigDecimal;
 }
 
 public final class org/kisu/units/special/AbsorbedDose : org/kisu/units/Measure {

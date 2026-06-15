@@ -1,6 +1,8 @@
 package org.kisu.units.base
 
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.kinematics.linear.Acceleration
 import org.kisu.units.kinematics.linear.Crackle
 import org.kisu.units.kinematics.linear.Jerk
@@ -8,8 +10,6 @@ import org.kisu.units.kinematics.linear.Pop
 import org.kisu.units.kinematics.linear.Snap
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 
 /**
  * Represents squared seconds (s²).
@@ -17,10 +17,10 @@ import org.kisu.units.scales.Scale
  * Commonly used in [Acceleration] (m/s²).
  */
 class SecondSquared private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, SecondSquared>(scale, prefix, unit, ::SecondSquared) {
+) : Scalar<Metric, SecondSquared>(algebra, prefix, unit, ::SecondSquared) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
@@ -35,10 +35,10 @@ class SecondSquared private constructor(
  * Used in [Jerk] (m/s³).
  */
 class SecondCubed private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, SecondCubed>(scale, prefix, unit, ::SecondCubed) {
+) : Scalar<Metric, SecondCubed>(algebra, prefix, unit, ::SecondCubed) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
@@ -53,10 +53,10 @@ class SecondCubed private constructor(
  * Used in [Snap] derivatives.
  */
 class SecondFourth private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, SecondFourth>(scale, prefix, unit, ::SecondFourth) {
+) : Scalar<Metric, SecondFourth>(algebra, prefix, unit, ::SecondFourth) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
@@ -71,10 +71,10 @@ class SecondFourth private constructor(
  * Used in [Crackle] (5th derivative of position).
  */
 class SecondFifth private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, SecondFifth>(scale, prefix, unit, ::SecondFifth) {
+) : Scalar<Metric, SecondFifth>(algebra, prefix, unit, ::SecondFifth) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
@@ -89,10 +89,10 @@ class SecondFifth private constructor(
  * Used in [Pop] (6th derivative of position).
  */
 class SecondSixth private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, SecondSixth>(scale, prefix, unit, ::SecondSixth) {
+) : Scalar<Metric, SecondSixth>(algebra, prefix, unit, ::SecondSixth) {
 
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 

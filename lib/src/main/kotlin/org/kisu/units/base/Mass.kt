@@ -1,12 +1,12 @@
 package org.kisu.units.base
 
+import org.kisu.KisuConfig
 import org.kisu.prefixes.Metric
-import org.kisu.prefixes.times
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import org.kisu.units.scales.ExponentialScale
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -45,18 +45,18 @@ class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
  * - Kilogram(Metric.MICRO) = 1 mg
  */
 class Kilogram private constructor(
-    scale: Scale<Metric> = ExponentialScale(),
+    algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit
-) : Scalar<Metric, Kilogram>(scale, prefix, unit, ::Kilogram) {
+) : Scalar<Metric, Kilogram>(algebra, prefix, unit, ::Kilogram) {
 
     constructor(pair: Pair<Metric, BigDecimal>) : this(
-        scale = ExponentialScale<Metric>().adjustedBy(pair.second),
+        algebra = ExponentialAlgebra<Metric>().adjustedBy(pair.second),
         prefix = pair.first,
         unit = UNIT,
     )
 
-    constructor(prefix: Metric = Metric.BASE) : this(prefix * Metric.KILO)
+    constructor(prefix: Metric = Metric.BASE) : this(ExponentialAlgebra<Metric>().multiply(prefix, Metric.KILO))
 
     /** The public canonical mass unit is always kilogram (`kg`). */
     override val canonical: Kilogram by lazy { Kilogram() }
@@ -67,11 +67,21 @@ class Kilogram private constructor(
     }
 }
 
-private fun Scale<Metric>.adjustedBy(remainder: BigDecimal): Scale<Metric> {
+private fun Algebra<Metric>.adjustedBy(remainder: BigDecimal): Algebra<Metric> {
     if (remainder.compareTo(BigDecimal.ONE) == 0) {
         return this
     }
 
     val delegate = this
-    return Scale { prefix -> delegate.factor(prefix) * remainder }
+    return object : Algebra<Metric> {
+        override fun factor(prefix: Metric): BigDecimal = delegate.factor(prefix) * remainder
+
+        override fun multiply(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+            delegate.multiply(left, right).let { (prefix, overflow) -> prefix to overflow * remainder }
+
+        override fun divide(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+            delegate.divide(left, right).let { (prefix, overflow) ->
+                prefix to overflow.divide(remainder, KisuConfig.precision)
+            }
+    }
 }

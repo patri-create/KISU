@@ -11,10 +11,10 @@ import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.Time
 import org.kisu.test.fakes.InvalidPrefix
 
-class LinealEnumSystemTest : StringSpec({
-    val systems = Arb.element<LinealEnumSystem<*>>(
-        LinealEnumSystem(Decimal::class),
-        LinealEnumSystem(Time::class),
+class LinearEnumSystemTest : StringSpec({
+    val systems = Arb.element<LinearEnumSystem<*>>(
+        LinearEnumSystem(Decimal::class),
+        LinearEnumSystem(Time::class),
     )
 
     "uses the unit-factor prefix as canonical" {
@@ -25,7 +25,7 @@ class LinealEnumSystemTest : StringSpec({
 
     "crashes if there is no unit-factor prefix" {
         shouldThrow<IllegalStateException> {
-            LinealEnumSystem(InvalidPrefix::class).canonical
+            LinearEnumSystem(InvalidPrefix::class).canonical
         }
     }
 })

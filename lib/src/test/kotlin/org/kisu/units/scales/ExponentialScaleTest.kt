@@ -6,6 +6,7 @@ import io.kotest.property.checkAll
 import org.kisu.KisuConfig
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.generators.Binaries
 import org.kisu.test.generators.Metrics
 import java.math.BigDecimal
@@ -23,7 +24,7 @@ class ExponentialScaleTest : StringSpec({
                 power
             }
 
-            ExponentialScale<Metric>(metricBase).factor(prefix).compareTo(expected) shouldBe 0
+            ExponentialAlgebra<Metric>(metricBase).factor(prefix).compareTo(expected) shouldBe 0
         }
     }
 
@@ -31,7 +32,7 @@ class ExponentialScaleTest : StringSpec({
         checkAll(Binaries.generator) { prefix ->
             val expected = binaryBase.pow(prefix.factor.toInt())
 
-            ExponentialScale<Binary>(binaryBase).factor(prefix).compareTo(expected) shouldBe 0
+            ExponentialAlgebra<Binary>(binaryBase).factor(prefix).compareTo(expected) shouldBe 0
         }
     }
 })

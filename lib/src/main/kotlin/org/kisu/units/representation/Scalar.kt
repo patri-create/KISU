@@ -2,11 +2,9 @@ package org.kisu.units.representation
 
 import org.kisu.KisuConfig
 import org.kisu.prefixes.Prefix
-import org.kisu.prefixes.div
+import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.primitives.ScalarSystem
 import org.kisu.prefixes.primitives.System
-import org.kisu.prefixes.times
-import org.kisu.units.scales.Scale
 import java.math.BigDecimal
 
 /**
@@ -19,12 +17,12 @@ import java.math.BigDecimal
  * @property unit The base unit symbol and exponent carried by this scalar.
  */
 abstract class Scalar<A, Self : Scalar<A, Self>>(
-    private val scale: Scale<A>,
+    private val algebra: Algebra<A>,
     private val prefix: A,
     internal val unit: Unit,
-    private val create: (Scale<A>, A, Unit) -> Self,
+    private val create: (Algebra<A>, A, Unit) -> Self,
 ) : Expression<Self>(),
-    System<Self> by ScalarSystem(prefix, unit, { prefix, unit -> create(scale, prefix, unit) })
+    System<Self> by ScalarSystem(prefix, unit, { prefix, unit -> create(algebra, prefix, unit) })
     where A : Prefix<A>, A : System<A> {
 
     /**
@@ -35,7 +33,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      *
      * The result is computed lazily and cached for future access.
      */
-    val inverted: Self by lazy { create(scale, prefix, unit.inverted) }
+    val inverted: Self by lazy { create(algebra, prefix, unit.inverted) }
 
     /**
      * Indicates whether this scalar's [unit] has a positive exponent.
@@ -66,7 +64,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     }
 
     /** The scaling factor of this scalar unit, computed by the configured prefix scale. */
-    override val factor: BigDecimal by lazy { scale.factor(prefix) }
+    override val factor: BigDecimal by lazy { algebra.factor(prefix) }
 
     /** The combined symbol of the prefix and unit (e.g., "km", "μs"). */
     override val symbol: String by lazy {
@@ -98,8 +96,11 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * @return A new scalar expression representing the product.
      */
     operator fun plus(other: Self): Self {
-        val (prefix, remainder) = prefix * other.prefix
-        return create(scale.adjustedBy(remainder), prefix, unit * other.unit)
+        val (prefix) = algebra.multiply(prefix, other.prefix)
+        val remainder = factor
+            .multiply(other.factor)
+            .divide(algebra.factor(prefix), KisuConfig.precision)
+        return create(algebra.adjustedBy(remainder), prefix, unit * other.unit)
     }
 
     internal fun addErased(other: Scalar<*, *>): Scalar<*, *> = self + requireSameFamily(other)
@@ -123,8 +124,11 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
      * @return A new scalar expression representing the quotient.
      */
     operator fun minus(other: Self): Self {
-        val (prefix, remainder) = prefix / other.prefix
-        return create(scale.adjustedBy(remainder), prefix, unit / other.unit)
+        val (prefix) = algebra.divide(prefix, other.prefix)
+        val remainder = factor
+            .divide(other.factor, KisuConfig.precision)
+            .divide(algebra.factor(prefix), KisuConfig.precision)
+        return create(algebra.adjustedBy(remainder), prefix, unit / other.unit)
     }
 
     /**
@@ -195,11 +199,21 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
         Quotient(Product(self, other.component2()), other.component1())
 }
 
-private fun <A> Scale<A>.adjustedBy(remainder: BigDecimal): Scale<A> where A : Prefix<A>, A : System<A> {
+private fun <A> Algebra<A>.adjustedBy(remainder: BigDecimal): Algebra<A> where A : Prefix<A>, A : System<A> {
     if (remainder.compareTo(BigDecimal.ONE) == 0) {
         return this
     }
 
     val delegate = this
-    return Scale { prefix -> delegate.factor(prefix) * remainder }
+    return object : Algebra<A> {
+        override fun factor(prefix: A): BigDecimal = delegate.factor(prefix) * remainder
+
+        override fun multiply(left: A, right: A): Pair<A, BigDecimal> =
+            delegate.multiply(left, right).let { (prefix, overflow) -> prefix to overflow * remainder }
+
+        override fun divide(left: A, right: A): Pair<A, BigDecimal> =
+            delegate.divide(left, right).let { (prefix, overflow) ->
+                prefix to overflow.divide(remainder, KisuConfig.precision)
+            }
+    }
 }
