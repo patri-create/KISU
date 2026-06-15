@@ -7,7 +7,6 @@ import org.kisu.prefixes.primitives.System
 import org.kisu.units.representation.Expression
 import org.kisu.zero
 import java.math.BigDecimal
-import java.math.RoundingMode
 
 /**
  * Base type for a measured quantity expressed as a numeric [magnitude] in some unit [expression].
@@ -102,13 +101,8 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
         if (expression != expression.canonical) {
             canonical.decomposition
         } else {
-            var remainder = magnitude.stripTrailingZeros().abs()
-            expression.all.sortedDescending().fold(listOf<Self>()) { acc, prefix ->
-                remainder.divide(prefix.factor, 0, RoundingMode.DOWN).let { quotient ->
-                    acc + create(quotient, prefix)
-                        .also { remainder -= prefix.factor.multiply(quotient) }
-                }
-            }.filter { measure -> !measure.zero }
+            expression.decompose(magnitude)
+                .map { (magnitude, expression) -> create(magnitude, expression) }
         }
     }
 

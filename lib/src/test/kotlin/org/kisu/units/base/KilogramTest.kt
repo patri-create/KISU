@@ -15,7 +15,7 @@ class KilogramTest : StringSpec({
         checkAll(Metrics.generator) { prefix ->
             val scale = ExponentialAlgebra<Metric>(BigDecimal.TEN)
 
-            val (newPrefix, remainder) = prefix * Metric.KILO
+            val (newPrefix, remainder) = scale.multiply(prefix, Metric.KILO)
             val kilos = Kilogram(prefix)
 
             kilos.symbol shouldBe "${newPrefix}g"
