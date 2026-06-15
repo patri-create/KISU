@@ -9,15 +9,13 @@ import io.kotest.property.Arb
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.filterNot
 import io.kotest.property.arbitrary.int
-import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
 import org.kisu.test.generators.Exponents
 import org.kisu.test.utils.superscript
-import kotlin.math.absoluteValue
 
 class ExponentTest : StringSpec({
     "represents correctly an exponent" {
-        checkAll(Arb.int().filter { it.absoluteValue > 1 }) { n ->
+        checkAll(Arb.int().filter { it != 0 && it != 1 }) { n ->
             Exponent(n).toString() shouldBe n.superscript
         }
     }
@@ -50,9 +48,9 @@ class ExponentTest : StringSpec({
         }
     }
 
-    "exponent 0 and 1 are represented by empty string" {
-        checkAll(Arb.int(0..1).map(::Exponent)) { exponent ->
-            exponent.toString().shouldBeEmpty()
+    "represents zero and one as empty string" {
+        checkAll(Arb.int(0..1)) { exponent ->
+            Exponent(exponent).toString().shouldBeEmpty()
         }
     }
 
@@ -90,7 +88,7 @@ class ExponentTest : StringSpec({
         }
     }
 
-    "substracts two exponents" {
+    "subtracts two exponents" {
         checkAll(Arb.int(), Arb.int()) { a, b ->
             (Exponent(a) - Exponent(b)) shouldBe Exponent(a - b)
         }
