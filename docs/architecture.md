@@ -5,7 +5,7 @@ is stored as a numeric magnitude and a unit expression, wrapped in a concrete me
 
 The core layers are:
 
-- [prefixes](../lib/src/main/kotlin/org/kisu/prefixes): scale factors such as `kilo`, `milli`, and `kibi`
+- [prefixes](../lib/src/main/kotlin/org/kisu/prefixes): scale coordinates such as `kilo`, `milli`, and `kibi`
 - [unit expressions](../lib/src/main/kotlin/org/kisu/units/representation): symbolic unit forms such as `m`, `m²`,
   `m/s`, and `J/(K·mol)`
 - [measures](../lib/src/main/kotlin/org/kisu/units/Measure.kt): typed quantities such as `Length`, `Time`, `Speed`, and
@@ -21,7 +21,7 @@ Measure<Metre, Length>
 └── expression: Metre(Metric.KILO)
     ├── prefix: Metric.KILO
     │   ├── symbol: "k"
-    │   └── factor: 1000
+    │   └── power: 3
     └── unit: Unit("m")
         └── symbol: "m"
 ```
@@ -31,7 +31,7 @@ That separation is the main architectural rule: quantities own values, expressio
 ## Prefix Systems
 
 [Prefix](../lib/src/main/kotlin/org/kisu/prefixes/Prefix.kt) is the common contract for a scale coordinate with a symbol.
-It supports comparison by factor:
+It supports comparison by each prefix type's natural coordinate:
 
 ```kotlin
 import org.kisu.prefixes.Metric
@@ -40,7 +40,7 @@ Metric.MEGA > Metric.KILO   // true
 ```
 
 Prefix-to-prefix conversion intentionally lives on unit expressions rather than raw prefixes. Expressions carry the
-`Scale` context needed to resolve whether a prefix factor is an absolute multiplier or an exponent coordinate:
+algebra needed to resolve whether a prefix coordinate is an absolute multiplier or an exponent coordinate:
 
 ```kotlin
 import org.kisu.prefixes.Metric
@@ -55,17 +55,17 @@ The self type on `Prefix<Self>` is deliberate. It prevents mixing unrelated syst
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 
-Metric.KILO * Metric.MEGA  // valid
-Metric.KILO * Binary.KIBI  // does not compile
+Metric.KILO + Metric.MEGA  // valid
+Metric.KILO + Binary.KIBI  // does not compile
 ```
 
 [System](../lib/src/main/kotlin/org/kisu/prefixes/primitives/System.kt) describes the complete ordered set around a
 prefix. Every system exposes:
 
-- `canonical`: the base scale, normally factor `1`
+- `canonical`: the base coordinate, such as power `0` for exponential systems or factor `1` for linear systems
 - `all`: every available prefix sorted from smallest to largest
 - `smallest` and `largest`: the range boundaries
-- `find(factor)`: the largest known prefix whose factor does not exceed the requested factor
+- `find(factor)`: the largest known prefix whose coordinate does not exceed the requested value
 
 KISU currently defines:
 
@@ -77,7 +77,7 @@ KISU currently defines:
 Metric and binary systems are exposed through the public builder DSL today. `Decimal` is a prefix system in the model,
 but it is not the primary user-facing builder path.
 
-Prefix multiplication and division can produce factors outside the named range. In that case, the closest available
+Prefix multiplication and division can produce coordinates outside the named range. In that case, the closest available
 prefix is kept and the remaining scale is carried separately as an overflow factor at the scalar-expression layer.
 
 ## Unit Expressions
