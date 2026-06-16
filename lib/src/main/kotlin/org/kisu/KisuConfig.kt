@@ -5,9 +5,15 @@ import java.math.MathContext
 import java.math.RoundingMode
 
 /**
- * Configuration object for global settings related to numeric precision.
+ * Process-wide numeric configuration used by KISU.
+ *
+ * `KisuConfig` remains the existing global entry point for precision settings. It also implements [MagnitudeConfig],
+ * so decimal abstractions can use it as their default configuration while still accepting a separate
+ * [MagnitudeConfig] when a caller needs per-instance arithmetic settings.
+ *
+ * Mutating [precision] changes the global default for operations that keep a reference to this object.
  */
-object KisuConfig {
+object KisuConfig : MagnitudeConfig {
     /**
      * The global [MathContext] used to control precision and rounding for
      * [BigDecimal] operations across the library.
@@ -22,8 +28,13 @@ object KisuConfig {
      * KisuConfig.precision = MathContext(20, RoundingMode.HALF_UP)
      * ```
      */
-    var precision: MathContext = MathContext.DECIMAL128
+    override var precision: MathContext = MathContext.DECIMAL128
 
+    /**
+     * Restores the global numeric settings to their defaults.
+     *
+     * After this call, [precision] is [MathContext.DECIMAL128].
+     */
     fun default() {
         precision = MathContext.DECIMAL128
     }
