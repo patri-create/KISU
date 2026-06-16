@@ -6,6 +6,7 @@ is stored as a numeric magnitude and a unit expression, wrapped in a concrete me
 The core layers are:
 
 - [prefixes](../lib/src/main/kotlin/org/kisu/prefixes): scale coordinates such as `kilo`, `milli`, and `kibi`
+- [magnitudes](../lib/src/main/kotlin/org/kisu/Magnitude.kt): decimal values and arithmetic configuration
 - [unit expressions](../lib/src/main/kotlin/org/kisu/units/representation): symbolic unit forms such as `m`, `m²`,
   `m/s`, and `J/(K·mol)`
 - [measures](../lib/src/main/kotlin/org/kisu/units/Measure.kt): typed quantities such as `Length`, `Time`, `Speed`, and
@@ -190,6 +191,13 @@ Many derived quantity expressions are typealiases over products and quotients. F
 - a `BigDecimal` magnitude
 - an expression `A`
 - a factory function for creating the same concrete measure type after conversion or arithmetic
+
+KISU also exposes [Magnitude](../lib/src/main/kotlin/org/kisu/Magnitude.kt) as the decimal abstraction that will carry
+the numeric implementation forward. The current JVM measure API still accepts and returns `BigDecimal` for
+compatibility, while `Magnitude` models the decimal behavior KISU relies on and carries a
+[MagnitudeConfig](../lib/src/main/kotlin/org/kisu/MagnitudeConfig.kt).
+By default, magnitudes use [KisuConfig](../lib/src/main/kotlin/org/kisu/KisuConfig.kt); callers can pass a separate
+config to customize arithmetic precision per instance.
 
 Its generic bounds are the key to the type model:
 

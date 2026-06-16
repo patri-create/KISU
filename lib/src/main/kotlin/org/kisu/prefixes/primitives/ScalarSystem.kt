@@ -8,8 +8,9 @@ import java.math.BigDecimal
 /**
  * Represents a system of [Scalar] units derived from a given prefix system and unit symbol.
  *
- * This class adapts a [System] of prefixes (e.g., [Metric], [Binary]) into a system of full [Scalar] expressions,
- * by pairing each prefix with a specific unit (e.g., `"m"` for meters, `"B"` for bytes).
+ * This class adapts a [System] of prefixes (e.g., [org.kisu.prefixes.Metric], [org.kisu.prefixes.Binary]) into a
+ * system of full [Scalar] expressions, by pairing each prefix with a specific unit (e.g., `"m"` for meters, `"B"` for
+ * bytes).
  *
  * It provides the canonical, smallest, largest, and full list of all scalar variants derived from the prefix system.
  * For example, if the prefix system is Metric and the unit is `"m"`, this system will generate:
