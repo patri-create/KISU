@@ -34,6 +34,62 @@ public final class org/kisu/KisuConfig : org/kisu/MagnitudeConfig {
 	public fun setPrecision (Ljava/math/MathContext;)V
 }
 
+public final class org/kisu/Magnitude : java/lang/Comparable {
+	public static final field Companion Lorg/kisu/Magnitude$Companion;
+	public fun <init> (Ljava/lang/Number;Lorg/kisu/MagnitudeConfig;)V
+	public synthetic fun <init> (Ljava/lang/Number;Lorg/kisu/MagnitudeConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Lorg/kisu/MagnitudeConfig;)V
+	public synthetic fun <init> (Ljava/lang/String;Lorg/kisu/MagnitudeConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/math/BigDecimal;Lorg/kisu/MagnitudeConfig;)V
+	public synthetic fun <init> (Ljava/math/BigDecimal;Lorg/kisu/MagnitudeConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/math/BigInteger;ILorg/kisu/MagnitudeConfig;)V
+	public synthetic fun <init> (Ljava/math/BigInteger;ILorg/kisu/MagnitudeConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/math/BigInteger;Lorg/kisu/MagnitudeConfig;)V
+	public synthetic fun <init> (Ljava/math/BigInteger;Lorg/kisu/MagnitudeConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo (Lorg/kisu/Magnitude;)I
+	public final fun div (Lorg/kisu/Magnitude;)Lorg/kisu/Magnitude;
+	public final fun divide (Lorg/kisu/Magnitude;ILjava/math/RoundingMode;)Lorg/kisu/Magnitude;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAbs ()Lorg/kisu/Magnitude;
+	public final fun getHasFraction ()Z
+	public final fun getInteger ()Z
+	public final fun getNegated ()Lorg/kisu/Magnitude;
+	public final fun getNegative ()Z
+	public final fun getOne ()Z
+	public final fun getScale ()I
+	public final fun getSignum ()Lorg/kisu/Magnitude$Signum;
+	public final fun getZero ()Z
+	public fun hashCode ()I
+	public final fun minus (Lorg/kisu/Magnitude;)Lorg/kisu/Magnitude;
+	public final fun plus (Lorg/kisu/Magnitude;)Lorg/kisu/Magnitude;
+	public final fun pow (I)Lorg/kisu/Magnitude;
+	public final fun stripTrailingZeros ()Lorg/kisu/Magnitude;
+	public final fun times (Lorg/kisu/Magnitude;)Lorg/kisu/Magnitude;
+	public final fun toBigDecimal ()Ljava/math/BigDecimal;
+	public fun toString ()Ljava/lang/String;
+	public final fun unaryMinus ()Lorg/kisu/Magnitude;
+}
+
+public final class org/kisu/Magnitude$Companion {
+	public final fun getONE ()Lorg/kisu/Magnitude;
+	public final fun getTEN ()Lorg/kisu/Magnitude;
+	public final fun getZERO ()Lorg/kisu/Magnitude;
+	public final fun valueOf (DLorg/kisu/MagnitudeConfig;)Lorg/kisu/Magnitude;
+	public final fun valueOf (JLorg/kisu/MagnitudeConfig;)Lorg/kisu/Magnitude;
+	public static synthetic fun valueOf$default (Lorg/kisu/Magnitude$Companion;DLorg/kisu/MagnitudeConfig;ILjava/lang/Object;)Lorg/kisu/Magnitude;
+	public static synthetic fun valueOf$default (Lorg/kisu/Magnitude$Companion;JLorg/kisu/MagnitudeConfig;ILjava/lang/Object;)Lorg/kisu/Magnitude;
+}
+
+public final class org/kisu/Magnitude$Signum : java/lang/Enum {
+	public static final field NEGATIVE Lorg/kisu/Magnitude$Signum;
+	public static final field POSITIVE Lorg/kisu/Magnitude$Signum;
+	public static final field ZERO Lorg/kisu/Magnitude$Signum;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lorg/kisu/Magnitude$Signum;
+	public static fun values ()[Lorg/kisu/Magnitude$Signum;
+}
+
 public abstract interface class org/kisu/MagnitudeConfig {
 	public static final field Companion Lorg/kisu/MagnitudeConfig$Companion;
 	public abstract fun getPrecision ()Ljava/math/MathContext;
