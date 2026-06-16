@@ -1,9 +1,9 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Prefix
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents a system of [Scalar] units derived from a given prefix system and unit symbol.
@@ -41,6 +41,6 @@ class ScalarSystem<A, Self>(private val prefix: A, private val unit: Unit, priva
         create(prefix.largest, unit)
     }
 
-    override fun find(coordinate: BigDecimal): Self =
+    override fun find(coordinate: Magnitude): Self =
         create(prefix.find(coordinate), unit)
 }

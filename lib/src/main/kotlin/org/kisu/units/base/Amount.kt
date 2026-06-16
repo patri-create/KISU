@@ -1,5 +1,6 @@
 package org.kisu.units.base
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -7,7 +8,6 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **amount of substance**, measured in moles (mol).
@@ -23,12 +23,12 @@ import java.math.BigDecimal
  *
  * Negative amounts would be physically meaningless in the context of matter.
  *
- * Instances of this class are immutable and preserve their precision using [BigDecimal].
+ * Instances of this class are immutable and preserve their precision using [Magnitude].
  */
-class Amount internal constructor(magnitude: BigDecimal, expression: Mole) :
+class Amount internal constructor(magnitude: Magnitude, expression: Mole) :
     Measure<Mole, Amount>(magnitude, expression, ::Amount) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Mole(prefix))
 
     companion object {
@@ -38,7 +38,7 @@ class Amount internal constructor(magnitude: BigDecimal, expression: Mole) :
          *
          * This is a fundamental physical constant.
          */
-        val AVOGADROS_NUMBER: BigDecimal = BigDecimal("6.02214076e23")
+        val AVOGADROS_NUMBER: Magnitude = Magnitude("6.02214076e23")
     }
 }
 

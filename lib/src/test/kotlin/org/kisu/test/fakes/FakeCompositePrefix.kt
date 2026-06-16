@@ -1,10 +1,10 @@
 package org.kisu.test.fakes
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.ExponentialPrefix
 import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 class FakeCompositePrefix<A, B>(
     val a: A,
@@ -12,7 +12,7 @@ class FakeCompositePrefix<A, B>(
 ) : LinearPrefix<FakeCompositePrefix<A, B>>
     where A : Prefix<A>, A : System<A>, B : Prefix<B>, B : System<B> {
 
-    override val factor: BigDecimal = a.coordinate + b.coordinate
+    override val factor: Magnitude = a.coordinate + b.coordinate
     override val symbol: String = a.symbol + "-" + b.symbol
     override fun toString(): String = symbol
     operator fun component1() = a
@@ -32,10 +32,10 @@ class FakeCompositePrefix<A, B>(
     }
 }
 
-private val Prefix<*>.coordinate: BigDecimal
+private val Prefix<*>.coordinate: Magnitude
     get() =
         when (this) {
-            is ExponentialPrefix<*> -> power.toBigDecimal()
+            is ExponentialPrefix<*> -> Magnitude(power)
             is LinearPrefix<*> -> factor
             else -> error("Unsupported prefix type: ${this::class.qualifiedName}")
         }

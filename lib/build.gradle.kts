@@ -36,6 +36,10 @@ java {
     withJavadocJar()
 }
 
+tasks.named("javadocJar") {
+    dependsOn(tasks.named("dokkaGeneratePublicationHtml"))
+}
+
 detekt {
     buildUponDefaultConfig = true
     config.setFrom(file("config/detekt/detekt.yml"))

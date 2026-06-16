@@ -6,12 +6,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.watts
 
 class PowerTest : StringSpec({
     "creates a Power" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().watts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Watt(magnitude.builder().metric)
@@ -21,7 +21,7 @@ class PowerTest : StringSpec({
     }
 
     "creates a base Power" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.watts.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Watt()

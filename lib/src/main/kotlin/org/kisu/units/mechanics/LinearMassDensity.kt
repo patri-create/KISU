@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **linear mass density**, measured in
@@ -21,14 +21,14 @@ import java.math.BigDecimal
  * The associated unit representation is [KilogramPerMetre] (`kg/m`).
  */
 class LinearMassDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KilogramPerMetre
 ) : Measure<LinearMassDensity.KilogramPerMetre, LinearMassDensity>(
     magnitude = magnitude,
     expression = expression,
     create = ::LinearMassDensity
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramPerMetre(prefix))
 
     /**

@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.luxSecond
 import org.kisu.units.photometric.Exposure.Companion.LuxSecond
 
 class ExposureTest : StringSpec({
     "creates an Exposure" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().luxSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe LuxSecond(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class ExposureTest : StringSpec({
     }
 
     "creates a base Exposure" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.luxSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe LuxSecond()

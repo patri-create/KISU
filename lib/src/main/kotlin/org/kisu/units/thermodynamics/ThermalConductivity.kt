@@ -1,5 +1,6 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
@@ -7,7 +8,6 @@ import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Watt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **thermal conductivity**, measured in
@@ -23,14 +23,14 @@ import java.math.BigDecimal
  * The associated SI unit representation is [WattPerMetreKelvin] (`W/(m·K)`).
  */
 class ThermalConductivity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WattPerMetreKelvin
 ) : Measure<ThermalConductivity.WattPerMetreKelvin, ThermalConductivity>(
     magnitude = magnitude,
     expression = expression,
     create = ::ThermalConductivity
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WattPerMetreKelvin(prefix))
 
     /**

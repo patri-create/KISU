@@ -1,7 +1,7 @@
 package org.kisu.units.exceptions
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
-import java.math.BigDecimal
 
 /**
  * Exception thrown when an attempt is made to create or represent
@@ -14,6 +14,6 @@ import java.math.BigDecimal
  * @param prefix The metric prefix associated with the value.
  * @param symbol The unit symbol (e.g., "K").
  */
-class NegativeTemperature(value: BigDecimal, prefix: Metric, symbol: String) : ArithmeticException(
+class NegativeTemperature(value: Magnitude, prefix: Metric, symbol: String) : ArithmeticException(
     "Temperature cannot be below absolute zero: received $value $prefix$symbol",
 )

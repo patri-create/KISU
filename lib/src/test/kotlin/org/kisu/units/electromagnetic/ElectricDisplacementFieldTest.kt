@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.coulombsPerSquareMetre
 import org.kisu.units.electromagnetic.ElectricDisplacementField.Companion.CoulombPerSquareMetre
 
 class ElectricDisplacementFieldTest : StringSpec({
     "creates an ElectricDisplacementField" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().coulombsPerSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CoulombPerSquareMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class ElectricDisplacementFieldTest : StringSpec({
     }
 
     "creates a base ElectricDisplacementField" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.coulombsPerSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CoulombPerSquareMetre()

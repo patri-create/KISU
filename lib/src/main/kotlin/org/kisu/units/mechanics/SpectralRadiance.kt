@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Product
@@ -7,7 +8,6 @@ import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
 import org.kisu.units.special.Steradian
 import org.kisu.units.special.Watt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **spectral radiance**, measured in
@@ -23,14 +23,14 @@ import java.math.BigDecimal
  * The associated unit representation is [WattPerSteradianCubicMetre].
  */
 class SpectralRadiance(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WattPerSteradianCubicMetre
 ) : Measure<SpectralRadiance.WattPerSteradianCubicMetre, SpectralRadiance>(
     magnitude = magnitude,
     expression = expression,
     create = ::SpectralRadiance
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WattPerSteradianCubicMetre(prefix))
 
     /**

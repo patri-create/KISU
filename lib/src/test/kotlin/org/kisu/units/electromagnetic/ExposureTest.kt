@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.coulombsPerKilogram
 import org.kisu.units.electromagnetic.Exposure.Companion.CoulombPerKilogram
 
 class ExposureTest : StringSpec({
     "creates an Exposure" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().coulombsPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CoulombPerKilogram(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class ExposureTest : StringSpec({
     }
 
     "creates a base Exposure" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.coulombsPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CoulombPerKilogram()

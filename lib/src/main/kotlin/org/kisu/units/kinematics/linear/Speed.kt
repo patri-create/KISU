@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **speed**, measured in [MetrePerSecond].
@@ -19,10 +19,10 @@ import java.math.BigDecimal
  * The associated unit representation is [MetrePerSecond] (`m/s`).
  */
 class Speed(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MetrePerSecond
 ) : Measure<Speed.MetrePerSecond, Speed>(magnitude, expression, ::Speed) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerSecond(prefix))
 
     /**

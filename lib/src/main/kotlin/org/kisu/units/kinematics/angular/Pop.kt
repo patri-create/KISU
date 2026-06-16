@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondSixth
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **angular pop**, measured in
@@ -18,10 +18,10 @@ import java.math.BigDecimal
  * The associated unit representation is [RadianPerSecondSixth] (`rad/s⁶`).
  */
 class Pop internal constructor(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: RadianPerSecondSixth
 ) : Measure<Pop.RadianPerSecondSixth, Pop>(magnitude, expression, ::Pop) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, RadianPerSecondSixth(prefix))
 
     /**

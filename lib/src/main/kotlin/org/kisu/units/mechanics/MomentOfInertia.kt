@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Product
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **moment of inertia**, measured in
@@ -20,14 +20,14 @@ import java.math.BigDecimal
  * The associated unit representation is [KilogramSquareMetre] (`kg·m²`).
  */
 class MomentOfInertia(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KilogramSquareMetre
 ) : Measure<MomentOfInertia.KilogramSquareMetre, MomentOfInertia>(
     magnitude = magnitude,
     expression = expression,
     create = ::MomentOfInertia
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramSquareMetre(prefix))
 
     /**

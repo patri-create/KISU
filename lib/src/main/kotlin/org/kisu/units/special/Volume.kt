@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 private const val CUBIC_METRE_PREFIX_BASE = 1000
 
@@ -23,10 +23,10 @@ private const val CUBIC_METRE_PREFIX_BASE = 1000
  * The canonical SI unit is the [CubicMetre] (`m³`), with smaller or larger metric
  * forms such as `cm³` or `km³` used when appropriate.
  */
-class Volume internal constructor(magnitude: BigDecimal, expression: CubicMetre) :
+class Volume internal constructor(magnitude: Magnitude, expression: CubicMetre) :
     Measure<CubicMetre, Volume>(magnitude, expression, ::Volume) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetre(prefix))
 }
 

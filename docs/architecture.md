@@ -188,13 +188,13 @@ Many derived quantity expressions are typealiases over products and quotients. F
 
 [Measure](../lib/src/main/kotlin/org/kisu/units/Measure.kt) is the base class for values. A concrete measure stores:
 
-- a `BigDecimal` magnitude
+- a `Magnitude` magnitude
 - an expression `A`
 - a factory function for creating the same concrete measure type after conversion or arithmetic
 
-KISU also exposes [Magnitude](../lib/src/main/kotlin/org/kisu/Magnitude.kt) as the decimal abstraction that will carry
-the numeric implementation forward. The current JVM measure API still accepts and returns `BigDecimal` for
-compatibility, while `Magnitude` models the decimal behavior KISU relies on and carries a
+KISU exposes [Magnitude](../lib/src/main/kotlin/org/kisu/Magnitude.kt) as the decimal abstraction that carries the
+numeric implementation forward. The measure API, prefix algebra, expression factors, and builders use `Magnitude`
+instead of exposing the JVM decimal backend directly. `Magnitude` also carries a
 [MagnitudeConfig](../lib/src/main/kotlin/org/kisu/MagnitudeConfig.kt).
 By default, magnitudes use [KisuConfig](../lib/src/main/kotlin/org/kisu/KisuConfig.kt); callers can pass a separate
 config to customize arithmetic precision per instance.
@@ -248,7 +248,7 @@ produce the same display.
 Concrete quantity files pair a measure type with its expression type. Simple quantities use one scalar expression:
 
 ```kotlin
-class Length internal constructor(magnitude: BigDecimal, expression: Metre) :
+class Length internal constructor(magnitude: Magnitude, expression: Metre) :
     Measure<Metre, Length>(magnitude, expression, ::Length)
 
 class Metre(...) : Scalar<Metric, Metre>(...)
@@ -257,7 +257,7 @@ class Metre(...) : Scalar<Metric, Metre>(...)
 Derived quantities use products, quotients, or catalog scalar units:
 
 ```kotlin
-class Speed(magnitude: BigDecimal, expression: MetrePerSecond) :
+class Speed(magnitude: Magnitude, expression: MetrePerSecond) :
     Measure<Speed.MetrePerSecond, Speed>(magnitude, expression, ::Speed) {
 
     typealias MetrePerSecond = Quotient<Metre, Second>

@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.joulesPerSquareMetre
 import org.kisu.units.mechanics.RadiantExposure.Companion.JoulePerSquareMetre
 
 class RadiantExposureTest : StringSpec({
     "creates a RadiantExposure" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().joulesPerSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerSquareMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class RadiantExposureTest : StringSpec({
     }
 
     "creates a base RadiantExposure" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.joulesPerSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerSquareMetre()

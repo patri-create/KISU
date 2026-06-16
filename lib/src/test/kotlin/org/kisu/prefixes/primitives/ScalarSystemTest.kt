@@ -6,7 +6,6 @@ import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
-import org.kisu.one
 import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Metrics
 

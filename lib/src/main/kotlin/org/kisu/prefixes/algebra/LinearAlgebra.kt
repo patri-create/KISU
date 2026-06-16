@@ -1,9 +1,8 @@
 package org.kisu.prefixes.algebra
 
-import org.kisu.KisuConfig
+import org.kisu.Magnitude
 import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 /**
  * Algebra for prefix systems whose factors are already expressed as absolute multipliers.
@@ -12,17 +11,17 @@ import java.math.BigDecimal
  */
 class LinearAlgebra<P> : Algebra<P> where P : LinearPrefix<P>, P : System<P> {
 
-    override fun factor(prefix: P): BigDecimal = prefix.factor
+    override fun factor(prefix: P): Magnitude = prefix.factor
 
-    override fun multiply(left: P, right: P): Pair<P, BigDecimal> {
-        val factor = left.factor.multiply(right.factor)
+    override fun multiply(left: P, right: P): Pair<P, Magnitude> {
+        val factor = left.factor * right.factor
         val prefix = left.find(factor)
-        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
+        return prefix to factor / prefix.factor
     }
 
-    override fun divide(left: P, right: P): Pair<P, BigDecimal> {
-        val factor = left.factor.divide(right.factor, KisuConfig.precision)
+    override fun divide(left: P, right: P): Pair<P, Magnitude> {
+        val factor = left.factor / right.factor
         val prefix = left.find(factor)
-        return prefix to factor.divide(prefix.factor, KisuConfig.precision)
+        return prefix to factor / prefix.factor
     }
 }

@@ -9,17 +9,15 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.property.Arb
-import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.bind
-import io.kotest.property.arbitrary.choice
 import io.kotest.property.arbitrary.double
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.int
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
-import org.kisu.KisuConfig
-import org.kisu.bigDecimal
+import org.kisu.Magnitude
+import org.kisu.magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.fakes.TestMeasure
@@ -27,54 +25,47 @@ import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Magnitudes.composition
 import org.kisu.test.generators.Measures
 import org.kisu.test.generators.distinct
+import org.kisu.test.generators.magnitude
 import org.kisu.test.generators.nonZero
 import org.kisu.test.matchers.plusOrMinus
 import org.kisu.test.utils.optimalPrefixFrom
-import org.kisu.zero
-import java.math.BigDecimal
 import java.math.BigInteger
 import java.math.MathContext
 import org.kisu.test.generators.Metrics as MetricGenerator
 
 class MeasureTest : StringSpec({
 
-    val magnitudes = Arb.bigDecimal()
-    val nonZeroMagnitudes = magnitudes.filter { it.compareTo(BigDecimal.ZERO) != 0 }
+    val magnitudes = Arb.magnitude()
+    val nonZeroMagnitudes = magnitudes.filter { it.compareTo(Magnitude.ZERO) != 0 }
     val prefixes = MetricGenerator.generator
     val measures =
         Arb.bind(magnitudes, prefixes) { magnitude, prefix ->
             TestMeasure(magnitude, prefix)
         }
-    val invariantMagnitudes = Arb.int(-1_000_000..1_000_000).map { it.bigDecimal }
+    val invariantMagnitudes = Arb.int(-1_000_000..1_000_000).map { it.magnitude }
     val invariantMeasures =
         Arb.bind(invariantMagnitudes, prefixes) { magnitude, prefix ->
             TestMeasure(magnitude, prefix)
         }
-    val greaterThanZero: Arb<BigDecimal> =
-        Arb.choice(
-            Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)),
-            Arb.bigDecimal(min = BigDecimal.ONE, max = BigDecimal.valueOf(Double.MAX_VALUE)).map { it.negate() },
-        )
+    val greaterThanZero: Arb<Magnitude> =
+        Arb.magnitude().filter { it.abs >= Magnitude.ONE }
     val lesserThanOne =
-        Arb.bigDecimal(
-            min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
-            max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10)),
-        ).filter { !it.zero }
+        Arb.magnitude().filter { !it.zero && it.abs < Magnitude.ONE }
     val belowSmallestPrefix =
-        Arb.bigDecimal(min = BigDecimal("1E-40"), max = BigDecimal("9E-31")).filter { !it.zero }
+        Arb.int(1..9).map { coefficient -> Magnitude("${coefficient}E-40") }
     val scalars = Arb.double().filter { it != 0.0 && !it.isNaN() && !it.isInfinite() }
     val divisionScalars =
-        Arb.bigDecimal()
-            .filter { it != BigDecimal.ZERO }
-            .filter { it in BigDecimal("1E-6")..BigDecimal("1E10") }
+        Arb.magnitude()
+            .filter { it != Magnitude.ZERO }
+            .filter { it in Magnitude("1E-6")..Magnitude("1E10") }
     val inRange =
         Arb.int(-30..30)
             .filter { it != 0 }
             .map { power ->
                 if (power > 0) {
-                    BigDecimal.TEN.pow(power)
+                    Magnitude.TEN.pow(power)
                 } else {
-                    BigDecimal.ONE.divide(BigDecimal.TEN.pow(-power), MathContext.DECIMAL128)
+                    Magnitude.ONE / Magnitude.TEN.pow(-power)
                 }
             }
 
@@ -112,7 +103,7 @@ class MeasureTest : StringSpec({
 
     "renders representation when the magnitude is zero" {
         checkAll(prefixes) { prefix ->
-            TestMeasure(BigDecimal.ZERO, prefix).representation shouldBe "0 ${TestUnit.UNIT}"
+            TestMeasure(Magnitude.ZERO, prefix).representation shouldBe "0 ${TestUnit.UNIT}"
         }
     }
 
@@ -125,7 +116,7 @@ class MeasureTest : StringSpec({
 
     "renders optimal correctly when magnitude is 0" {
         checkAll(prefixes) { prefix ->
-            val measure = TestMeasure(BigDecimal.ZERO, prefix)
+            val measure = TestMeasure(Magnitude.ZERO, prefix)
             measure.optimal shouldBe measure.canonical
         }
     }
@@ -175,7 +166,7 @@ class MeasureTest : StringSpec({
     }
 
     "adds two of the same unit" {
-        checkAll(Arb.bigDecimal(), Arb.bigDecimal()) { a, b ->
+        checkAll(Arb.magnitude(), Arb.magnitude()) { a, b ->
             val left = TestMeasure(a)
             val right = TestMeasure(b)
             (left + right) shouldBe TestMeasure(a + b)
@@ -196,7 +187,7 @@ class MeasureTest : StringSpec({
 
     "addition has zero identity" {
         checkAll(Measures.generator) { a ->
-            val zero = TestMeasure(BigDecimal.ZERO)
+            val zero = TestMeasure(Magnitude.ZERO)
 
             (a + zero) shouldBe a
         }
@@ -210,7 +201,7 @@ class MeasureTest : StringSpec({
 
     "subtraction of self is zero" {
         checkAll(Measures.generator) { a ->
-            (a - a) shouldBe TestMeasure(BigDecimal.ZERO)
+            (a - a) shouldBe TestMeasure(Magnitude.ZERO)
         }
     }
 
@@ -236,7 +227,7 @@ class MeasureTest : StringSpec({
 
     "scalar distributivity over subtraction" {
         checkAll(Measures.generator, Measures.generator, scalars) { a, b, scalar ->
-            val scale = BigDecimal.valueOf(scalar)
+            val scale = Magnitude.valueOf(scalar)
             val left = (a - b) * scale
             val right = (a * scale) - (b * scale)
             left shouldBe right
@@ -251,13 +242,13 @@ class MeasureTest : StringSpec({
 
     "multiplying by zero gives zero" {
         checkAll(Measures.generator) { a ->
-            (a * 0) shouldBe TestMeasure(BigDecimal.ZERO)
+            (a * 0) shouldBe TestMeasure(Magnitude.ZERO)
         }
     }
 
     "scalar distributivity over addition" {
         checkAll(Measures.generator, Measures.generator, scalars) { a, b, scalar ->
-            val scale = BigDecimal.valueOf(scalar)
+            val scale = Magnitude.valueOf(scalar)
             val left = (a * scale) + (b * scale)
             val right = (a + b) * scale
             left shouldBe right
@@ -276,21 +267,21 @@ class MeasureTest : StringSpec({
     "division is right-inverse of multiplication" {
         checkAll(Measures.generator, divisionScalars) { a, scalar ->
             val result = (a * scalar) / scalar
-            result.magnitude shouldBe (a.magnitude plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
+            result.magnitude shouldBe (a.magnitude plusOrMinus (Magnitude.valueOf(ALLOWED_TOLERANCE)))
         }
     }
 
     "division is left-inverse of multiplication" {
         checkAll(Measures.generator, divisionScalars) { a, scalar ->
             val result = (a / scalar) * scalar
-            result.magnitude shouldBe (a.magnitude plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
+            result.magnitude shouldBe (a.magnitude plusOrMinus (Magnitude.valueOf(ALLOWED_TOLERANCE)))
         }
     }
 
     "division by one keeps the same value" {
         checkAll(Measures.generator) { a ->
             val result = a / 1
-            result.magnitude shouldBe (a.magnitude plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
+            result.magnitude shouldBe (a.magnitude plusOrMinus (Magnitude.valueOf(ALLOWED_TOLERANCE)))
         }
     }
 
@@ -298,7 +289,7 @@ class MeasureTest : StringSpec({
         checkAll(Measures.generator, Measures.generator, divisionScalars) { a, b, scalar ->
             val left = (a - b) / scalar
             val right = (a / scalar) - (b / scalar)
-            left.magnitude shouldBe (right.magnitude plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
+            left.magnitude shouldBe (right.magnitude plusOrMinus (Magnitude.valueOf(ALLOWED_TOLERANCE)))
         }
     }
 
@@ -306,7 +297,7 @@ class MeasureTest : StringSpec({
         checkAll(Measures.generator, divisionScalars, divisionScalars) { a, s1, s2 ->
             val left = a / (s1 * s2)
             val right = (a / s1) / s2
-            left.magnitude shouldBe (right.magnitude plusOrMinus (BigDecimal.valueOf(ALLOWED_TOLERANCE)))
+            left.magnitude shouldBe (right.magnitude plusOrMinus (Magnitude.valueOf(ALLOWED_TOLERANCE)))
         }
     }
 
@@ -332,8 +323,8 @@ class MeasureTest : StringSpec({
         checkAll(
             MetricGenerator.generator
         ) { prefix ->
-            TestMeasure(BigDecimal.ZERO, prefix).decomposition shouldContainExactly
-                listOf(TestMeasure(BigDecimal.ZERO, prefix))
+            TestMeasure(Magnitude.ZERO, prefix).decomposition shouldContainExactly
+                listOf(TestMeasure(Magnitude.ZERO, prefix))
         }
     }
 
@@ -343,14 +334,14 @@ class MeasureTest : StringSpec({
             MetricGenerator.generator
         ) { composition: List<Pair<BigInteger, Metric>>, prefix ->
             val scale = ExponentialAlgebra<Metric>()
-            val magnitude = composition.fold(BigDecimal.ZERO) { total, (magnitude, prefix) ->
-                total + (magnitude.bigDecimal * scale.factor(prefix))
+            val magnitude = composition.fold(Magnitude.ZERO) { total, (magnitude, prefix) ->
+                total + (magnitude.magnitude * scale.factor(prefix))
             }
             val testUnit = TestMeasure(magnitude.divide(scale.factor(prefix), MathContext.UNLIMITED), prefix)
             val decomposition: List<TestMeasure> = testUnit.decomposition
             decomposition shouldContainAll composition.map { (magnitude, prefix) ->
                 TestMeasure(
-                    magnitude.bigDecimal,
+                    magnitude.magnitude,
                     prefix
                 )
             }
@@ -360,11 +351,11 @@ class MeasureTest : StringSpec({
     "decomposition recomposes to canonical absolute value" {
         checkAll(invariantMeasures) { measure ->
             val recomposed =
-                measure.decomposition.fold(TestMeasure(BigDecimal.ZERO)) { sum, component ->
+                measure.decomposition.fold(TestMeasure(Magnitude.ZERO)) { sum, component ->
                     sum + component
                 }.canonical
 
-            recomposed.magnitude.compareTo(measure.canonical.magnitude.abs()) shouldBe 0
+            recomposed.magnitude.compareTo(measure.canonical.magnitude.abs) shouldBe 0
         }
     }
 
@@ -372,10 +363,7 @@ class MeasureTest : StringSpec({
         checkAll(belowSmallestPrefix) { magnitude ->
             val decomposition = TestMeasure(magnitude, Metric.BASE).decomposition
             val component = decomposition.single()
-            val expectedMagnitude = magnitude.divide(
-                ExponentialAlgebra<Metric>().factor(Metric.QUECTO),
-                KisuConfig.precision
-            )
+            val expectedMagnitude = magnitude / ExponentialAlgebra<Metric>().factor(Metric.QUECTO)
 
             component.component1().compareTo(expectedMagnitude) shouldBe 0
             component.component2() shouldBe TestUnit(Metric.QUECTO)
@@ -393,7 +381,7 @@ class MeasureTest : StringSpec({
     }
 
     "decomposes unit into magnitude, prefix and symbol" {
-        checkAll(Arb.bigDecimal(), MetricGenerator.generator) { magnitude, prefix ->
+        checkAll(Arb.magnitude(), MetricGenerator.generator) { magnitude, prefix ->
             TestMeasure(magnitude, prefix).should { (number, expression, unit) ->
                 number shouldBe magnitude
                 expression shouldBe TestUnit(prefix)

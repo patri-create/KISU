@@ -5,11 +5,10 @@ import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
-import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
 import org.kisu.test.generators.Units
-import org.kisu.zero
+import org.kisu.test.generators.magnitude
 
 class ExpressionTest : StringSpec({
     "the string representation is the symbol" {
@@ -21,10 +20,10 @@ class ExpressionTest : StringSpec({
     }
 
     "default decomposition returns an absolute magnitude" {
-        checkAll(Units.distinct(2), Arb.bigDecimal().filter { !it.zero }) { (left, right), magnitude ->
+        checkAll(Units.distinct(2), Arb.magnitude().filter { !it.zero }) { (left, right), magnitude ->
             val expression = Product(left.self, right.self)
 
-            expression.decompose(magnitude) shouldBe listOf(magnitude.stripTrailingZeros().abs() to expression)
+            expression.decompose(magnitude) shouldBe listOf(magnitude.stripTrailingZeros().abs to expression)
         }
     }
 

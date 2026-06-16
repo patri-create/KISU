@@ -1,5 +1,6 @@
 package org.kisu.units.builders
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.base.Amount
 import org.kisu.units.base.Current
@@ -106,7 +107,6 @@ import org.kisu.units.thermodynamics.TemperatureGradient
 import org.kisu.units.thermodynamics.ThermalConductivity
 import org.kisu.units.thermodynamics.ThermalExpansionCoefficient
 import org.kisu.units.thermodynamics.ThermalResistance
-import java.math.BigDecimal
 import org.kisu.units.kinematics.angular.Acceleration as AngularAcceleration
 import org.kisu.units.kinematics.angular.Crackle as AngularCrackle
 import org.kisu.units.kinematics.angular.Jerk as AngularJerk
@@ -122,7 +122,7 @@ sealed interface MetricUnitBuilder {
      * The numeric magnitude associated with this metric prefix.
      * For example, for `25.kilo`, magnitude would be 25.
      */
-    val magnitude: BigDecimal
+    val magnitude: Magnitude
 
     /** The metric prefix associated with this builder (e.g., [Metric.KILO], [Metric.MILLI]). */
     val metric: Metric

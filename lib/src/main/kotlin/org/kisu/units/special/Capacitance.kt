@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **capacitance**, measured in [Farad].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Farad] (`F`), although practical circuits usually use
  * `mF`, `µF`, `nF`, or `pF`.
  */
-class Capacitance internal constructor(magnitude: BigDecimal, expression: Farad) :
+class Capacitance internal constructor(magnitude: Magnitude, expression: Farad) :
     Measure<Farad, Capacitance>(magnitude, expression, ::Capacitance) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Farad(prefix))
 }
 

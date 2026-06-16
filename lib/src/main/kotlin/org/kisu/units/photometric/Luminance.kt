@@ -1,11 +1,11 @@
 package org.kisu.units.photometric
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Candela
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **luminance**, measured in
@@ -22,10 +22,10 @@ import java.math.BigDecimal
  * in display contexts as nits.
  */
 class Luminance(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CandelaPerSquareMetre
 ) : Measure<Luminance.CandelaPerSquareMetre, Luminance>(magnitude, expression, ::Luminance) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CandelaPerSquareMetre(prefix))
 
     /**

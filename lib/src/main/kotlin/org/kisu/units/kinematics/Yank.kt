@@ -1,5 +1,6 @@
 package org.kisu.units.kinematics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
@@ -8,7 +9,6 @@ import org.kisu.units.base.SecondCubed
 import org.kisu.units.kinematics.Yank.Companion.KilogramMetrePerSecondCubed
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **yank**, measured in
@@ -23,10 +23,10 @@ import java.math.BigDecimal
  * The associated unit representation is [KilogramMetrePerSecondCubed] (`kg·m/s³`).
  */
 class Yank internal constructor(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KilogramMetrePerSecondCubed
 ) : Measure<Yank.KilogramMetrePerSecondCubed, Yank>(magnitude, expression, ::Yank) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
             KilogramMetrePerSecondCubed(prefix)

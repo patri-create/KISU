@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **absorbed dose**, measured in [Gray].
@@ -22,10 +22,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Gray] (`Gy`), with practical values often expressed in
  * mGy or cGy.
  */
-class AbsorbedDose internal constructor(magnitude: BigDecimal, expression: Gray) :
+class AbsorbedDose internal constructor(magnitude: Magnitude, expression: Gray) :
     Measure<Gray, AbsorbedDose>(magnitude, expression, ::AbsorbedDose) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Gray(prefix))
 }
 

@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
 import org.kisu.units.special.Tesla
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetic dipole moment**, measured in
@@ -20,7 +20,7 @@ import java.math.BigDecimal
  * The associated unit representation is [JoulePerTesla] (`J/T`), equivalent to `A·m²`.
  */
 class MagneticDipoleMoment(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerTesla
 ) : Measure<MagneticDipoleMoment.JoulePerTesla, MagneticDipoleMoment>(
     magnitude = magnitude,
@@ -28,7 +28,7 @@ class MagneticDipoleMoment(
     create = ::MagneticDipoleMoment
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerTesla(prefix))
 
     /**

@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **force**, measured in [Newton].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Newton] (`N`), often scaled to `mN` or `kN` depending
  * on the application.
  */
-class Force internal constructor(magnitude: BigDecimal, expression: Newton) :
+class Force internal constructor(magnitude: Magnitude, expression: Newton) :
     Measure<Newton, Force>(magnitude, expression, ::Force) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Newton(prefix))
 }
 

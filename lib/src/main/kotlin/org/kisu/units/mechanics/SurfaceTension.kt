@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Newton
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **surface tension**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [NewtonPerMetre] (`N/m`).
  */
 class SurfaceTension(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: NewtonPerMetre
 ) : Measure<SurfaceTension.NewtonPerMetre, SurfaceTension>(magnitude, expression, ::SurfaceTension) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, NewtonPerMetre(prefix))
 
     /**

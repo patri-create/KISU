@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -7,7 +8,6 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **wave number**, measured in
@@ -22,10 +22,10 @@ import java.math.BigDecimal
  * The associated unit representation is [ReciprocalMetre] (`m⁻¹`).
  */
 class WaveNumber(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: ReciprocalMetre
 ) : Measure<ReciprocalMetre, WaveNumber>(magnitude, expression, ::WaveNumber) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalMetre(prefix))
 }
 

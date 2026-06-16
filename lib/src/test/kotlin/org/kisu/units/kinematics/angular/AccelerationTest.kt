@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.radiansPerSecondSquared
 import org.kisu.units.kinematics.angular.Acceleration.Companion.RadianPerSecondSquared
 
 class AccelerationTest : StringSpec({
     "creates an angular Acceleration" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().radiansPerSecondSquared.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe RadianPerSecondSquared(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class AccelerationTest : StringSpec({
     }
 
     "creates a base angular Acceleration" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.radiansPerSecondSquared.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe RadianPerSecondSquared()

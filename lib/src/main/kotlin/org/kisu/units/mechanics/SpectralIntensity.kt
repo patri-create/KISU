@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
@@ -7,7 +8,6 @@ import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Steradian
 import org.kisu.units.special.Watt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **spectral intensity**, measured in
@@ -23,14 +23,14 @@ import java.math.BigDecimal
  * The associated unit representation is [WattPerSteradianMetre].
  */
 class SpectralIntensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WattPerSteradianMetre
 ) : Measure<SpectralIntensity.WattPerSteradianMetre, SpectralIntensity>(
     magnitude = magnitude,
     expression = expression,
     create = ::SpectralIntensity
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WattPerSteradianMetre(prefix))
 
     /**

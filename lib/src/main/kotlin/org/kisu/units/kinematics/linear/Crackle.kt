@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondFifth
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **crackle**, measured in
@@ -18,10 +18,10 @@ import java.math.BigDecimal
  * The associated unit representation is [MetrePerSecondFifth] (`m/s⁵`).
  */
 class Crackle internal constructor(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MetrePerSecondFifth
 ) : Measure<Crackle.MetrePerSecondFifth, Crackle>(magnitude, expression, ::Crackle) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerSecondFifth(prefix))
 
     /**

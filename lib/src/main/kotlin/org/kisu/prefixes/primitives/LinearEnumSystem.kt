@@ -1,9 +1,8 @@
 package org.kisu.prefixes.primitives
 
-import org.kisu.one
+import org.kisu.Magnitude
 import org.kisu.orElse
 import org.kisu.prefixes.LinearPrefix
-import java.math.BigDecimal
 import kotlin.reflect.KClass
 
 /**
@@ -21,6 +20,6 @@ class LinearEnumSystem<T : LinearPrefix<T>>(klass: KClass<T>) : EnumSystem<T>(kl
             ?: noCanonicalPrefixError("unit-factor")
     }
 
-    override fun find(coordinate: BigDecimal): T =
+    override fun find(coordinate: Magnitude): T =
         all.lastOrNull { it.factor <= coordinate }.orElse { smallest }
 }

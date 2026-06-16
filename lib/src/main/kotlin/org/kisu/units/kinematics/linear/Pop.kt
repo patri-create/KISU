@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondSixth
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **pop**, measured in [MetrePerSecondSixth].
@@ -17,10 +17,10 @@ import java.math.BigDecimal
  * The associated unit representation is [MetrePerSecondSixth] (`m/s⁶`).
  */
 class Pop internal constructor(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MetrePerSecondSixth
 ) : Measure<Pop.MetrePerSecondSixth, Pop>(magnitude, expression, ::Pop) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerSecondSixth(prefix))
 
     /**

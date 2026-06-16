@@ -1,12 +1,10 @@
 package org.kisu.units
 
-import org.kisu.KisuConfig
-import org.kisu.bigDecimal
+import org.kisu.Magnitude
+import org.kisu.magnitude
 import org.kisu.orElse
 import org.kisu.prefixes.primitives.System
 import org.kisu.units.representation.Expression
-import org.kisu.zero
-import java.math.BigDecimal
 
 /**
  * Base type for a measured quantity expressed as a numeric [magnitude] in some unit [expression].
@@ -24,9 +22,9 @@ import java.math.BigDecimal
  */
 @Suppress("TooManyFunctions")
 abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
-    private val magnitude: BigDecimal,
+    private val magnitude: Magnitude,
     private val expression: A,
-    private val create: (BigDecimal, A) -> Self
+    private val create: (Magnitude, A) -> Self
 ) : Comparable<Self> where A : Expression<A>, A : System<A> {
     /**
      * Returns this measure converted to its canonical expression.
@@ -53,13 +51,13 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
     val optimal: Self by lazy {
         when {
             magnitude.zero -> canonical
-            expression == expression.smallest && magnitude.abs() < BigDecimal.ONE -> self
-            expression == expression.largest && magnitude.abs() > BigDecimal.ONE -> self
+            expression == expression.smallest && magnitude.abs < Magnitude.ONE -> self
+            expression == expression.largest && magnitude.abs > Magnitude.ONE -> self
             else ->
                 expression.all
                     .asSequence()
                     .map(this::to)
-                    .lastOrNull { measure -> measure.magnitude.abs() >= BigDecimal.ONE }
+                    .lastOrNull { measure -> measure.magnitude.abs >= Magnitude.ONE }
                     .orElse { to(expression.largest) }
         }
     }
@@ -96,7 +94,7 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
      */
     val decomposition: List<Self> by lazy {
         if (zero) {
-            return@lazy listOf(create(BigDecimal.ZERO, expression.canonical))
+            return@lazy listOf(create(Magnitude.ZERO, expression.canonical))
         }
         if (expression != expression.canonical) {
             canonical.decomposition
@@ -154,38 +152,38 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
     /**
      * Multiplies this measure by a [Number] scalar.
      *
-     * Internally converts the number to [BigDecimal].
+     * Internally converts the number to [Magnitude].
      *
      * @param number The scalar to multiply by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun times(number: Number): Self = times(number.bigDecimal)
+    operator fun times(number: Number): Self = times(number.magnitude)
 
     /**
-     * Multiplies this measure by a [BigDecimal] scalar.
+     * Multiplies this measure by a [Magnitude] scalar.
      *
      * @param number The scalar to multiply by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun times(number: BigDecimal): Self = create(magnitude.times(number), expression)
+    operator fun times(number: Magnitude): Self = create(magnitude * number, expression)
 
     /**
-     * Divides this measure by a [BigDecimal] scalar.
+     * Divides this measure by a [Magnitude] scalar.
      *
      * @param number The scalar to divide by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun div(number: BigDecimal): Self = create(magnitude.divide(number, KisuConfig.precision), expression)
+    operator fun div(number: Magnitude): Self = create(magnitude / number, expression)
 
     /**
      * Divides this measure by a [Number] scalar.
      *
-     * Internally converts the number to [BigDecimal].
+     * Internally converts the number to [Magnitude].
      *
      * @param number The scalar to divide by.
      * @return A new measure scaled by the given factor.
      */
-    operator fun div(number: Number): Self = div(number.bigDecimal)
+    operator fun div(number: Number): Self = div(number.magnitude)
 
     /**
      * Returns the magnitude component of this measure.
@@ -195,7 +193,7 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
      * val (magnitude, _, _) = measure
      * ```
      */
-    operator fun component1(): BigDecimal = magnitude
+    operator fun component1(): Magnitude = magnitude
 
     /**
      * Returns the expression component of this measure.

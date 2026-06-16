@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
@@ -8,7 +9,6 @@ import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Siemens
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **molar conductivity**, measured in
@@ -24,7 +24,7 @@ import java.math.BigDecimal
  * The associated SI unit representation is [SiemensSquareMetrePerMole] (`S·m²/mol`).
  */
 class MolarConductivity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: SiemensSquareMetrePerMole
 ) : Measure<MolarConductivity.SiemensSquareMetrePerMole, MolarConductivity>(
     magnitude = magnitude,
@@ -32,7 +32,7 @@ class MolarConductivity(
     create = ::MolarConductivity
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
             SiemensSquareMetrePerMole(prefix)

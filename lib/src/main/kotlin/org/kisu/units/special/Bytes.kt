@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents a quantity of digital information measured in [Byte].
@@ -21,17 +21,17 @@ import java.math.BigDecimal
  * The canonical unit is [Byte] (`B`), usually combined with metric prefixes such as
  * `kB`, `MB`, or `GB`.
  */
-class Bytes private constructor(magnitude: BigDecimal, expression: Byte) :
+class Bytes private constructor(magnitude: Magnitude, expression: Byte) :
     Measure<Byte, Bytes>(magnitude, expression, ::Bytes) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Byte(prefix))
 
     companion object {
         /** The symbol for byte: "B". */
         internal val UNIT = Unit("B", 1)
 
-        operator fun invoke(magnitude: BigDecimal, prefix: Metric = Metric.BASE): Bytes =
+        operator fun invoke(magnitude: Magnitude, prefix: Metric = Metric.BASE): Bytes =
             Bytes(magnitude, prefix)
     }
 }

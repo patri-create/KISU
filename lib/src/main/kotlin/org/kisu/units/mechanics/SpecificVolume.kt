@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **specific volume**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [CubicMetrePerKilogram] (`m³/kg`).
  */
 class SpecificVolume(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CubicMetrePerKilogram
 ) : Measure<SpecificVolume.CubicMetrePerKilogram, SpecificVolume>(magnitude, expression, ::SpecificVolume) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetrePerKilogram(prefix))
 
     /**

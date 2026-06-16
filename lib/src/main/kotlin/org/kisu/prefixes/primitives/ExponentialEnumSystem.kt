@@ -1,8 +1,8 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.Magnitude
 import org.kisu.orElse
 import org.kisu.prefixes.ExponentialPrefix
-import java.math.BigDecimal
 import kotlin.reflect.KClass
 
 /**
@@ -26,7 +26,7 @@ class ExponentialEnumSystem<T : ExponentialPrefix<T>> : EnumSystem<T> {
         replaceWith = ReplaceWith("ExponentialEnumSystem(klass)")
     )
     @Suppress("UNUSED_PARAMETER")
-    constructor(klass: KClass<T>, base: BigDecimal) : this(klass)
+    constructor(klass: KClass<T>, base: Magnitude) : this(klass)
 
     /**
      * The zero-power prefix for this exponent-based system.
@@ -36,6 +36,6 @@ class ExponentialEnumSystem<T : ExponentialPrefix<T>> : EnumSystem<T> {
             ?: noCanonicalPrefixError("zero-power")
     }
 
-    override fun find(coordinate: BigDecimal): T =
-        all.lastOrNull { it.power.toBigDecimal() <= coordinate }.orElse { smallest }
+    override fun find(coordinate: Magnitude): T =
+        all.lastOrNull { Magnitude(it.power) <= coordinate }.orElse { smallest }
 }

@@ -1,11 +1,11 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **molar energy**, measured in [JoulePerMole].
@@ -20,11 +20,11 @@ import java.math.BigDecimal
  * The associated SI unit representation is [JoulePerMole] (`J/mol`).
  */
 class MolarEnergy(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerMole
 ) : Measure<MolarEnergy.JoulePerMole, MolarEnergy>(magnitude, expression, ::MolarEnergy) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerMole(prefix))
 
     /**

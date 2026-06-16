@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondSquared
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **angular acceleration**, measured in
@@ -18,10 +18,10 @@ import java.math.BigDecimal
  * The associated unit representation is [RadianPerSecondSquared] (`rad/s²`).
  */
 class Acceleration(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: RadianPerSecondSquared
 ) : Measure<Acceleration.RadianPerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, RadianPerSecondSquared(prefix))
 
     /**

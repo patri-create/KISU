@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondSquared
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **linear acceleration**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [MetrePerSecondSquared] (`m/s²`).
  */
 class Acceleration(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MetrePerSecondSquared
 ) : Measure<Acceleration.MetrePerSecondSquared, Acceleration>(magnitude, expression, ::Acceleration) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerSecondSquared(prefix))
 
     /**

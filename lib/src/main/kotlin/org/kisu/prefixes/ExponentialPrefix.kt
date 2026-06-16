@@ -1,5 +1,6 @@
 package org.kisu.prefixes
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.prefixes.primitives.System
 
@@ -30,12 +31,12 @@ interface ExponentialPrefix<Self : ExponentialPrefix<Self>> : Prefix<Self> {
 
 operator fun <P> P.plus(other: P): Pair<P, Int> where P : ExponentialPrefix<P>, P : System<P> {
     val power = Math.addExact(this.power, other.power)
-    val newPrefix = find(power.toBigDecimal())
+    val newPrefix = find(Magnitude(power))
     return newPrefix to Math.subtractExact(power, newPrefix.power)
 }
 
 operator fun <P> P.minus(other: P): Pair<P, Int> where P : ExponentialPrefix<P>, P : System<P> {
     val power = Math.subtractExact(this.power, other.power)
-    val newPrefix = find(power.toBigDecimal())
+    val newPrefix = find(Magnitude(power))
     return newPrefix to Math.subtractExact(power, newPrefix.power)
 }

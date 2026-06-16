@@ -6,7 +6,6 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.element
 import io.kotest.property.checkAll
-import org.kisu.one
 import org.kisu.prefixes.Time
 import org.kisu.test.fakes.InvalidPrefix
 

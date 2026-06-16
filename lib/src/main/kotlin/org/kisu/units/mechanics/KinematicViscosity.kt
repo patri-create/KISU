@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **kinematic viscosity**, measured in
@@ -21,14 +21,14 @@ import java.math.BigDecimal
  * The associated unit representation is [SquareMetrePerSecond] (`m²/s`).
  */
 class KinematicViscosity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: SquareMetrePerSecond
 ) : Measure<KinematicViscosity.SquareMetrePerSecond, KinematicViscosity>(
     magnitude = magnitude,
     expression = expression,
     create = ::KinematicViscosity
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, SquareMetrePerSecond(prefix))
 
     /**

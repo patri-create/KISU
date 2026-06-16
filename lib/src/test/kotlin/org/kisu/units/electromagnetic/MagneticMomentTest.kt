@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.webersMetre
 import org.kisu.units.electromagnetic.MagneticMoment.Companion.WeberMetre
 
 class MagneticMomentTest : StringSpec({
     "creates a MagneticMoment" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().webersMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe WeberMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class MagneticMomentTest : StringSpec({
     }
 
     "creates a base MagneticMoment" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.webersMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe WeberMetre()

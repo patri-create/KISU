@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Henry
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetic susceptibility**, measured in
@@ -18,7 +18,7 @@ import java.math.BigDecimal
  * The associated unit representation is [MetrePerHenry] (`m/H`) as modeled by this API.
  */
 class MagneticSusceptibility(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MetrePerHenry
 ) : Measure<MagneticSusceptibility.MetrePerHenry, MagneticSusceptibility>(
     magnitude = magnitude,
@@ -26,7 +26,7 @@ class MagneticSusceptibility(
     create = ::MagneticSusceptibility
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerHenry(prefix))
 
     /**

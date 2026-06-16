@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **radiation exposure**, measured in
@@ -20,11 +20,11 @@ import java.math.BigDecimal
  * The associated unit representation is [CoulombPerKilogram] (`C/kg`).
  */
 class Exposure(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CoulombPerKilogram
 ) : Measure<Exposure.CoulombPerKilogram, Exposure>(magnitude, expression, ::Exposure) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CoulombPerKilogram(prefix))
 
     /**

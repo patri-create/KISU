@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -7,7 +8,6 @@ import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 import org.kisu.units.special.Pascal
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **compressibility**, measured in
@@ -24,11 +24,11 @@ import java.math.BigDecimal
  * The associated unit representation is [ReciprocalPascal] (`Pa⁻¹`).
  */
 class Compressibility(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: ReciprocalPascal
 ) : Measure<ReciprocalPascal, Compressibility>(magnitude, expression, ::Compressibility) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalPascal(prefix))
 }
 

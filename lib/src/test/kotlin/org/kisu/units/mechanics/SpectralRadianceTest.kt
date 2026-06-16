@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.wattsPerSteradianCubicMetre
 import org.kisu.units.mechanics.SpectralRadiance.Companion.WattPerSteradianCubicMetre
 
 class SpectralRadianceTest : StringSpec({
     "creates a SpectralRadiance" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().wattsPerSteradianCubicMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe WattPerSteradianCubicMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class SpectralRadianceTest : StringSpec({
     }
 
     "creates a base SpectralRadiance" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.wattsPerSteradianCubicMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe WattPerSteradianCubicMetre()

@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **linear charge density**, measured in
@@ -18,7 +18,7 @@ import java.math.BigDecimal
  * The associated unit representation is [CoulombPerMetre] (`C/m`).
  */
 class LinearChargeDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CoulombPerMetre
 ) : Measure<LinearChargeDensity.CoulombPerMetre, LinearChargeDensity>(
     magnitude = magnitude,
@@ -26,7 +26,7 @@ class LinearChargeDensity(
     create = ::LinearChargeDensity
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CoulombPerMetre(prefix))
 
     /**

@@ -1,11 +1,11 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **molar mass**, measured in [KilogramPerMole].
@@ -20,11 +20,11 @@ import java.math.BigDecimal
  * The associated SI unit representation is [KilogramPerMole] (`kg/mol`).
  */
 class MolarMass(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KilogramPerMole
 ) : Measure<MolarMass.KilogramPerMole, MolarMass>(magnitude, expression, ::MolarMass) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramPerMole(prefix))
 
     /**

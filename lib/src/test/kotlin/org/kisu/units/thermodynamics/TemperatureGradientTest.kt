@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.kelvinsPerMetre
 import org.kisu.units.thermodynamics.TemperatureGradient.Companion.KelvinPerMetre
 
 class TemperatureGradientTest : StringSpec({
     "creates a TemperatureGradient" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().kelvinsPerMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KelvinPerMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class TemperatureGradientTest : StringSpec({
     }
 
     "creates a base TemperatureGradient" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.kelvinsPerMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KelvinPerMetre()

@@ -1,12 +1,12 @@
 package org.kisu.units.base
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **length**, measured in metres (m).
@@ -16,12 +16,12 @@ import java.math.BigDecimal
  * centimetre (cm), and kilometre (km).
  *
  * The quantity is expressed with a [magnitude] and an [expression], enabling precise representation of both small- and
- * large-scale measurements using [BigDecimal] for accuracy.
+ * large-scale measurements using [Magnitude] for accuracy.
  */
-class Length internal constructor(magnitude: BigDecimal, expression: Metre) :
+class Length internal constructor(magnitude: Magnitude, expression: Metre) :
     Measure<Metre, Length>(magnitude, expression, ::Length) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Metre(prefix))
 }
 

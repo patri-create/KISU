@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **mass flow rate**, measured in
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  * The associated unit representation is [KilogramPerSecond] (`kg/s`).
  */
 class MassFlowRate(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KilogramPerSecond
 ) : Measure<MassFlowRate.KilogramPerSecond, MassFlowRate>(magnitude, expression, ::MassFlowRate) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramPerSecond(prefix))
 
     /**

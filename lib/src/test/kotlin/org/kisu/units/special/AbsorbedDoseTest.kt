@@ -6,12 +6,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.grays
 
 class AbsorbedDoseTest : StringSpec({
     "creates an AbsorbedDose" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().grays
                 .should { (amount, expression, symbol) ->
                     amount shouldBe magnitude
@@ -22,7 +22,7 @@ class AbsorbedDoseTest : StringSpec({
     }
 
     "creates a base AbsorbedDose" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.grays.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Gray()

@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
 import org.kisu.units.special.Joule
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **energy density**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [JoulePerCubicMetre] (`J/m³`).
  */
 class EnergyDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerCubicMetre
 ) : Measure<EnergyDensity.JoulePerCubicMetre, EnergyDensity>(magnitude, expression, ::EnergyDensity) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerCubicMetre(prefix))
 
     /**

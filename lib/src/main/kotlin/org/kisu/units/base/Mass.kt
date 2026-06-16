@@ -1,13 +1,12 @@
 package org.kisu.units.base
 
-import org.kisu.KisuConfig
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **mass**, measured in grams (g).
@@ -20,16 +19,16 @@ import java.math.BigDecimal
  * absence of matter, but any valid amount of substance must have a non-negative mass.
  *
  * This class models mass as a combination of a [magnitude] and an [expression], allowing precise values such as
- * milligrams (mg), kilograms (kg), or megagrams (Mg). All values are represented using [BigDecimal] for high-precision
+ * milligrams (mg), kilograms (kg), or megagrams (Mg). All values are represented using [Magnitude] for high-precision
  * calculations.
  *
  * Instances of this class are immutable and validated at construction.
  */
-class Mass internal constructor(magnitude: BigDecimal, expression: Kilogram) :
+class Mass internal constructor(magnitude: Magnitude, expression: Kilogram) :
     Measure<Kilogram, Mass>(magnitude, expression, ::Mass) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.KILO) :
-        this(magnitude, Kilogram(prefix to BigDecimal.ONE))
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.KILO) :
+        this(magnitude, Kilogram(prefix to Magnitude.ONE))
 }
 
 /**
@@ -50,7 +49,7 @@ class Kilogram private constructor(
     unit: Unit
 ) : Scalar<Metric, Kilogram>(algebra, prefix, unit, ::Kilogram) {
 
-    constructor(pair: Pair<Metric, BigDecimal>) : this(
+    constructor(pair: Pair<Metric, Magnitude>) : this(
         algebra = ExponentialAlgebra<Metric>().adjustedBy(pair.second),
         prefix = pair.first,
         unit = UNIT,
@@ -67,21 +66,21 @@ class Kilogram private constructor(
     }
 }
 
-private fun Algebra<Metric>.adjustedBy(remainder: BigDecimal): Algebra<Metric> {
-    if (remainder.compareTo(BigDecimal.ONE) == 0) {
+private fun Algebra<Metric>.adjustedBy(remainder: Magnitude): Algebra<Metric> {
+    if (remainder == Magnitude.ONE) {
         return this
     }
 
     val delegate = this
     return object : Algebra<Metric> {
-        override fun factor(prefix: Metric): BigDecimal = delegate.factor(prefix) * remainder
+        override fun factor(prefix: Metric): Magnitude = delegate.factor(prefix) * remainder
 
-        override fun multiply(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+        override fun multiply(left: Metric, right: Metric): Pair<Metric, Magnitude> =
             delegate.multiply(left, right).let { (prefix, overflow) -> prefix to overflow * remainder }
 
-        override fun divide(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+        override fun divide(left: Metric, right: Metric): Pair<Metric, Magnitude> =
             delegate.divide(left, right).let { (prefix, overflow) ->
-                prefix to overflow.divide(remainder, KisuConfig.precision)
+                prefix to overflow / remainder
             }
     }
 }

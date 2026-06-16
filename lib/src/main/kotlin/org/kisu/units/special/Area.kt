@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 private const val SQUARE_METRE_SCALE_BASE = 100
 
@@ -23,10 +23,10 @@ private const val SQUARE_METRE_SCALE_BASE = 100
  * The canonical SI unit is the [SquareMetre] (`m²`), with smaller or larger metric
  * forms such as `cm²` or `km²` used when convenient.
  */
-class Area internal constructor(magnitude: BigDecimal, expression: SquareMetre) :
+class Area internal constructor(magnitude: Magnitude, expression: SquareMetre) :
     Measure<SquareMetre, Area>(magnitude, expression, ::Area) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, SquareMetre(prefix))
 }
 
