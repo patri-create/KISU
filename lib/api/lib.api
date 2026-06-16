@@ -27,11 +27,21 @@ public final class org/kisu/IfsKt {
 	public static final fun orElse (Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 }
 
-public final class org/kisu/KisuConfig {
+public final class org/kisu/KisuConfig : org/kisu/MagnitudeConfig {
 	public static final field INSTANCE Lorg/kisu/KisuConfig;
 	public final fun default ()V
-	public final fun getPrecision ()Ljava/math/MathContext;
-	public final fun setPrecision (Ljava/math/MathContext;)V
+	public fun getPrecision ()Ljava/math/MathContext;
+	public fun setPrecision (Ljava/math/MathContext;)V
+}
+
+public abstract interface class org/kisu/MagnitudeConfig {
+	public static final field Companion Lorg/kisu/MagnitudeConfig$Companion;
+	public abstract fun getPrecision ()Ljava/math/MathContext;
+}
+
+public final class org/kisu/MagnitudeConfig$Companion {
+	public final fun invoke (Ljava/math/MathContext;)Lorg/kisu/MagnitudeConfig;
+	public static synthetic fun invoke$default (Lorg/kisu/MagnitudeConfig$Companion;Ljava/math/MathContext;ILjava/lang/Object;)Lorg/kisu/MagnitudeConfig;
 }
 
 public final class org/kisu/PairsKt {
