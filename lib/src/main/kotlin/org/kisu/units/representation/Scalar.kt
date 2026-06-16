@@ -70,11 +70,17 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
 
     override fun decompose(magnitude: BigDecimal): List<Pair<BigDecimal, Self>> {
         var remainder = magnitude.stripTrailingZeros().abs()
-        return prefix.all.sortedDescending().fold(listOf<Pair<BigDecimal, A>>()) { list, prefix ->
+        val ordered = prefix.all.sortedDescending()
+        return ordered.foldIndexed(listOf<Pair<BigDecimal, A>>()) { index, list, prefix ->
             val factor = algebra.factor(prefix)
-            remainder.divide(factor, 0, RoundingMode.DOWN).let { quotient ->
-                (list + (quotient to prefix))
-                    .also { remainder -= factor.multiply(quotient) }
+            val quotient =
+                if (index == ordered.lastIndex) {
+                    remainder.divide(factor, KisuConfig.precision)
+                } else {
+                    remainder.divide(factor, 0, RoundingMode.DOWN)
+                }
+            (list + (quotient to prefix)).also {
+                remainder -= factor.multiply(quotient)
             }
         }.filter { (measure, _) -> !measure.zero }
             .map { (magnitude, prefix) -> magnitude to create(algebra, prefix, unit) }

@@ -40,6 +40,6 @@ class ScalarSystem<A, Self>(private val prefix: A, private val unit: Unit, priva
         create(prefix.largest, unit)
     }
 
-    override fun find(factor: BigDecimal): Self =
-        create(prefix.find(factor), unit)
+    override fun find(coordinate: BigDecimal): Self =
+        create(prefix.find(coordinate), unit)
 }

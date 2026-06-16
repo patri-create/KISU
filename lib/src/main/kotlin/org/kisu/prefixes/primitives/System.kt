@@ -75,9 +75,9 @@ interface System<P : Prefix<P>> {
      *
      * For exponential systems the coordinate is a power. For linear systems the coordinate is a concrete factor.
      *
-     * @param factor The numerical coordinate to match against known units.
+     * @param coordinate The numerical coordinate to match against known units.
      * @return The closest unit not greater than the provided coordinate, or [smallest] if it's below the range,
      * or [largest] if it exceeds all defined units.
      */
-    fun find(factor: BigDecimal): P
+    fun find(coordinate: BigDecimal): P
 }

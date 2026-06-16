@@ -29,13 +29,13 @@ interface ExponentialPrefix<Self : ExponentialPrefix<Self>> : Prefix<Self> {
 }
 
 operator fun <P> P.plus(other: P): Pair<P, Int> where P : ExponentialPrefix<P>, P : System<P> {
-    val power = this.power + other.power
+    val power = Math.addExact(this.power, other.power)
     val newPrefix = find(power.toBigDecimal())
-    return newPrefix to power - newPrefix.power
+    return newPrefix to Math.subtractExact(power, newPrefix.power)
 }
 
 operator fun <P> P.minus(other: P): Pair<P, Int> where P : ExponentialPrefix<P>, P : System<P> {
-    val power = this.power - other.power
+    val power = Math.subtractExact(this.power, other.power)
     val newPrefix = find(power.toBigDecimal())
-    return newPrefix to power - newPrefix.power
+    return newPrefix to Math.subtractExact(power, newPrefix.power)
 }

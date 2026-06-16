@@ -9,8 +9,8 @@ import kotlin.reflect.KClass
 /**
  * Enum-backed [System] for prefixes whose [LinearPrefix.factor] is the concrete multiplicative factor.
  *
- * Prefix multiplication and division multiply or divide factors directly, select the closest declared prefix, and
- * return any residual value as a multiplicative remainder. The canonical prefix is the enum value with factor `1`.
+ * Lookup compares requested concrete factors against declared prefix factors. The canonical prefix is the enum value
+ * with factor `1`.
  */
 class LinearEnumSystem<T : LinearPrefix<T>>(klass: KClass<T>) : EnumSystem<T>(klass) {
     /**
@@ -21,6 +21,6 @@ class LinearEnumSystem<T : LinearPrefix<T>>(klass: KClass<T>) : EnumSystem<T>(kl
             ?: noCanonicalPrefixError("unit-factor")
     }
 
-    override fun find(factor: BigDecimal): T =
-        all.lastOrNull { it.factor <= factor }.orElse { smallest }
+    override fun find(coordinate: BigDecimal): T =
+        all.lastOrNull { it.factor <= coordinate }.orElse { smallest }
 }

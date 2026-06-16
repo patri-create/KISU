@@ -65,7 +65,7 @@ prefix. Every system exposes:
 - `canonical`: the base coordinate, such as power `0` for exponential systems or factor `1` for linear systems
 - `all`: every available prefix sorted from smallest to largest
 - `smallest` and `largest`: the range boundaries
-- `find(factor)`: the largest known prefix whose coordinate does not exceed the requested value
+- `find(coordinate)`: the largest known prefix whose coordinate does not exceed the requested value
 
 KISU currently defines:
 

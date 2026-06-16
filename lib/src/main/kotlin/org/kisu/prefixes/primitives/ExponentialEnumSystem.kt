@@ -12,12 +12,21 @@ import kotlin.reflect.KClass
  * with power `0`.
  */
 class ExponentialEnumSystem<T : ExponentialPrefix<T>> : EnumSystem<T> {
-    constructor(klass: KClass<T>) : this(klass, BigDecimal.TEN)
+    constructor(klass: KClass<T>) : super(klass)
 
-    constructor(klass: KClass<T>, base: Int) : this(klass, BigDecimal.valueOf(base.toLong()))
-
+    @Deprecated(
+        message = "The base is algebra-specific; ExponentialEnumSystem now stores and finds prefixes by power only.",
+        replaceWith = ReplaceWith("ExponentialEnumSystem(klass)")
+    )
     @Suppress("UNUSED_PARAMETER")
-    constructor(klass: KClass<T>, base: BigDecimal) : super(klass)
+    constructor(klass: KClass<T>, base: Int) : this(klass)
+
+    @Deprecated(
+        message = "The base is algebra-specific; ExponentialEnumSystem now stores and finds prefixes by power only.",
+        replaceWith = ReplaceWith("ExponentialEnumSystem(klass)")
+    )
+    @Suppress("UNUSED_PARAMETER")
+    constructor(klass: KClass<T>, base: BigDecimal) : this(klass)
 
     /**
      * The zero-power prefix for this exponent-based system.
@@ -27,5 +36,6 @@ class ExponentialEnumSystem<T : ExponentialPrefix<T>> : EnumSystem<T> {
             ?: noCanonicalPrefixError("zero-power")
     }
 
-    override fun find(factor: BigDecimal): T = all.lastOrNull { it.power.toBigDecimal() <= factor }.orElse { smallest }
+    override fun find(coordinate: BigDecimal): T =
+        all.lastOrNull { it.power.toBigDecimal() <= coordinate }.orElse { smallest }
 }

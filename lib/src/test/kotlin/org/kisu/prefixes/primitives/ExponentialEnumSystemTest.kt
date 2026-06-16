@@ -13,7 +13,7 @@ import org.kisu.prefixes.Metric
 class ExponentialEnumSystemTest : StringSpec({
     val systems = Arb.element<ExponentialEnumSystem<*>>(
         ExponentialEnumSystem(Metric::class),
-        ExponentialEnumSystem(Binary::class, 2),
+        ExponentialEnumSystem(Binary::class),
     )
 
     "uses the zero-power prefix as canonical" {

@@ -47,5 +47,5 @@ class CompositeSystem<T : Prefix<T>, A, B>(
         create(a.largest, b)
     }
 
-    override fun find(factor: BigDecimal): T = create(a.find(factor), b)
+    override fun find(coordinate: BigDecimal): T = create(a.find(coordinate), b)
 }

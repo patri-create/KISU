@@ -4,7 +4,9 @@ import org.kisu.KisuConfig
 import org.kisu.prefixes.ExponentialPrefix
 import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
-import kotlin.math.absoluteValue
+import kotlin.math.abs
+
+private const val MAX_BIG_DECIMAL_POWER = 999_999_999
 
 /**
  * Algebra for prefix systems whose powers resolve to concrete factors through an expression-specific base.
@@ -27,18 +29,22 @@ class ExponentialAlgebra<P>(
     override fun factor(prefix: P): BigDecimal = remainder(prefix.power)
 
     override fun multiply(left: P, right: P): Pair<P, BigDecimal> =
-        resolve(left, left.power + right.power)
+        resolve(left, Math.addExact(left.power, right.power))
 
     override fun divide(left: P, right: P): Pair<P, BigDecimal> =
-        resolve(left, left.power - right.power)
+        resolve(left, Math.subtractExact(left.power, right.power))
 
     private fun resolve(system: P, power: Int): Pair<P, BigDecimal> {
         val prefix = system.all.lastOrNull { prefix -> prefix.power <= power } ?: system.smallest
-        return prefix to remainder(power - prefix.power)
+        return prefix to remainder(Math.subtractExact(power, prefix.power))
     }
 
     private fun remainder(power: Int): BigDecimal {
-        val factor = base.pow(power.absoluteValue)
+        val magnitude = abs(power.toLong())
+        require(magnitude <= MAX_BIG_DECIMAL_POWER) {
+            "Exponential power magnitude is too large: $power"
+        }
+        val factor = base.pow(magnitude.toInt())
         return if (power < 0) {
             BigDecimal.ONE.divide(factor, KisuConfig.precision)
         } else {

@@ -45,7 +45,8 @@ abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
     abstract fun to(other: A): BigDecimal
 
     @Suppress("UNCHECKED_CAST")
-    open fun decompose(magnitude: BigDecimal): List<Pair<BigDecimal, A>> = listOf(magnitude to this as A)
+    open fun decompose(magnitude: BigDecimal): List<Pair<BigDecimal, A>> =
+        listOf(magnitude.stripTrailingZeros().abs() to this as A)
 
     /**
      * Compares expressions by their resolved scaling factor.
