@@ -18,6 +18,7 @@ import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.int
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
+import org.kisu.KisuConfig
 import org.kisu.bigDecimal
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -59,6 +60,8 @@ class MeasureTest : StringSpec({
             min = BigDecimal.ONE.negate().plus(BigDecimal.valueOf(1e-10)),
             max = BigDecimal.ONE.minus(BigDecimal.valueOf(1e-10)),
         ).filter { !it.zero }
+    val belowSmallestPrefix =
+        Arb.bigDecimal(min = BigDecimal("1E-40"), max = BigDecimal("9E-31")).filter { !it.zero }
     val scalars = Arb.double().filter { it != 0.0 && !it.isNaN() && !it.isInfinite() }
     val divisionScalars =
         Arb.bigDecimal()
@@ -362,6 +365,20 @@ class MeasureTest : StringSpec({
                 }.canonical
 
             recomposed.magnitude.compareTo(measure.canonical.magnitude.abs()) shouldBe 0
+        }
+    }
+
+    "decomposition preserves non-zero tails below the smallest prefix" {
+        checkAll(belowSmallestPrefix) { magnitude ->
+            val decomposition = TestMeasure(magnitude, Metric.BASE).decomposition
+            val component = decomposition.single()
+            val expectedMagnitude = magnitude.divide(
+                ExponentialAlgebra<Metric>().factor(Metric.QUECTO),
+                KisuConfig.precision
+            )
+
+            component.component1().compareTo(expectedMagnitude) shouldBe 0
+            component.component2() shouldBe TestUnit(Metric.QUECTO)
         }
     }
 

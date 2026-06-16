@@ -25,7 +25,7 @@ class ScalarSystemTest : StringSpec({
         }
     }
 
-    "all prefixes from a system are sorted by power" {
+    "all prefixes from a system are sorted by natural ordering" {
         checkAll(Metrics.generator) { prefix ->
             TestUnit(prefix).all.shouldBeSorted()
         }

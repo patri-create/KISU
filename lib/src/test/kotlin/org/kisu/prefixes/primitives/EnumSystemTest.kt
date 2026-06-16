@@ -10,33 +10,36 @@ import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
+import org.kisu.prefixes.ExponentialPrefix
+import org.kisu.prefixes.LinearPrefix
+import org.kisu.prefixes.Prefix
 import org.kisu.test.generators.Systems
 import java.math.BigDecimal
 
 class EnumSystemTest : StringSpec({
-    val withinFactors = Systems.generator.flatMap { system ->
+    val withinCoordinates = Systems.generator.flatMap { system ->
         Arb.bigDecimal(
-            min = system.smallest.factor,
-            max = system.largest.factor
-        ).map { factor -> system to factor }
+            min = system.smallest.coordinate,
+            max = system.largest.coordinate
+        ).map { coordinate -> system to coordinate }
     }
 
-    val belowFactors = Systems.generator.flatMap { system ->
+    val belowCoordinates = Systems.generator.flatMap { system ->
         val smallest = system.smallest
         val below = Arb.bigDecimal(
-            min = smallest.factor - FACTOR_RANGE_MARGIN,
-            max = smallest.factor
+            min = smallest.coordinate - FACTOR_RANGE_MARGIN,
+            max = smallest.coordinate
         )
-        below.map { factor -> system to factor }
+        below.map { coordinate -> system to coordinate }
     }
 
-    val aboveFactors = Systems.generator.flatMap { system ->
+    val aboveCoordinates = Systems.generator.flatMap { system ->
         val largest = system.largest
         val above = Arb.bigDecimal(
-            min = largest.factor,
-            max = largest.factor + FACTOR_RANGE_MARGIN
+            min = largest.coordinate,
+            max = largest.coordinate + FACTOR_RANGE_MARGIN
         )
-        above.map { factor -> system to factor }
+        above.map { coordinate -> system to coordinate }
     }
 
     "retrieves all prefixes for a system" {
@@ -45,7 +48,7 @@ class EnumSystemTest : StringSpec({
         }
     }
 
-    "all prefixes from a system are sorted by power" {
+    "all prefixes from a system are sorted by natural ordering" {
         checkAll(Systems.generator) { system ->
             system.all.shouldBeSorted()
         }
@@ -66,34 +69,42 @@ class EnumSystemTest : StringSpec({
     "finds every exact prefix factor" {
         checkAll(Systems.generator) { system ->
             system.all.forEach { prefix ->
-                system.find(prefix.factor) shouldBe prefix
+                system.find(prefix.coordinate) shouldBe prefix
             }
         }
     }
 
     "finds the closest prefix at or below a factor" {
-        checkAll(withinFactors) { (system, factor) ->
-            val prefix = system.find(factor)
+        checkAll(withinCoordinates) { (system, coordinate) ->
+            val prefix = system.find(coordinate)
 
             (prefix in system.all).shouldBeTrue()
-            (prefix.factor <= factor).shouldBeTrue()
+            (prefix.coordinate <= coordinate).shouldBeTrue()
             system.all.none { candidate ->
-                candidate.factor <= factor && candidate.factor > prefix.factor
+                candidate.coordinate <= coordinate && candidate.coordinate > prefix.coordinate
             }.shouldBeTrue()
         }
     }
 
     "returns the largest prefix when the factor exceeds the known range" {
-        checkAll(aboveFactors) { (system, factor) ->
-            system.find(factor) shouldBe system.largest
+        checkAll(aboveCoordinates) { (system, coordinate) ->
+            system.find(coordinate) shouldBe system.largest
         }
     }
 
     "returns the smallest prefix when the factor is below the known range" {
-        checkAll(belowFactors) { (system, factor) ->
-            system.find(factor) shouldBe system.smallest
+        checkAll(belowCoordinates) { (system, coordinate) ->
+            system.find(coordinate) shouldBe system.smallest
         }
     }
 })
 
 private val FACTOR_RANGE_MARGIN = BigDecimal("1000")
+
+private val Prefix<*>.coordinate: BigDecimal
+    get() =
+        when (this) {
+            is ExponentialPrefix<*> -> power.toBigDecimal()
+            is LinearPrefix<*> -> factor
+            else -> error("Unsupported prefix type: ${this::class.qualifiedName}")
+        }

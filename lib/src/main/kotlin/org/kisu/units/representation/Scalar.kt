@@ -5,7 +5,9 @@ import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.primitives.ScalarSystem
 import org.kisu.prefixes.primitives.System
+import org.kisu.zero
 import java.math.BigDecimal
+import java.math.RoundingMode
 
 /**
  * Atomic unit expression consisting of a prefixed [unit], such as `km`, `ms`, or `kg`.
@@ -63,8 +65,26 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
         this as Self
     }
 
-    /** The scaling factor of this scalar unit, computed by the configured prefix scale. */
+    /** The scaling factor of this scalar unit, computed by the configured prefix algebra. */
     override val factor: BigDecimal by lazy { algebra.factor(prefix) }
+
+    override fun decompose(magnitude: BigDecimal): List<Pair<BigDecimal, Self>> {
+        var remainder = magnitude.stripTrailingZeros().abs()
+        val ordered = prefix.all.sortedDescending()
+        return ordered.foldIndexed(listOf<Pair<BigDecimal, A>>()) { index, list, prefix ->
+            val factor = algebra.factor(prefix)
+            val quotient =
+                if (index == ordered.lastIndex) {
+                    remainder.divide(factor, KisuConfig.precision)
+                } else {
+                    remainder.divide(factor, 0, RoundingMode.DOWN)
+                }
+            (list + (quotient to prefix)).also {
+                remainder -= factor.multiply(quotient)
+            }
+        }.filter { (measure, _) -> !measure.zero }
+            .map { (magnitude, prefix) -> magnitude to create(algebra, prefix, unit) }
+    }
 
     /** The combined symbol of the prefix and unit (e.g., "km", "μs"). */
     override val symbol: String by lazy {

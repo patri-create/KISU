@@ -4,7 +4,6 @@ import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 /**
  * The `Metric` prefix system defines unit prefixes based on powers of 10 (10ⁿ), standardized by the International
@@ -38,11 +37,12 @@ import java.math.BigDecimal
  */
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Metric(
-    override val factor: BigDecimal,
+    override val power: Int,
     symbol: String,
-) : Prefix<Metric>,
+) : ExponentialPrefix<Metric>,
     System<Metric> by ExponentialEnumSystem(Metric::class),
     Symbol by Representation(symbol) {
+
     /** 10⁻³⁰ = 0.000000000000000000000000000001 */
     QUECTO(-30, "q"),
 
@@ -117,7 +117,4 @@ enum class Metric(
 
     /** 10³⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
     QUETTA(30, "Q"),
-    ;
-
-    constructor(power: Int, symbol: String) : this(factor = BigDecimal(power), symbol)
 }

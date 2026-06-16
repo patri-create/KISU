@@ -7,11 +7,9 @@ import io.kotest.property.checkAll
 import org.kisu.KisuConfig
 import org.kisu.prefixes.Binary.BASE
 import org.kisu.prefixes.Binary.QUEBI
-import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Prefixes
 import org.kisu.test.generators.Times
-import java.math.BigDecimal
 
 class PrefixTest : StringSpec({
     "order is maintained" {
@@ -21,52 +19,44 @@ class PrefixTest : StringSpec({
         }
     }
 
-    "exponential prefix multiplication adds exponents and returns multiplicative overflow" {
-        val scale = ExponentialAlgebra<Metric>()
-
+    "exponential prefix multiplication adds exponents and returns exponent overflow" {
         checkAll(Metrics.generator, Metrics.generator) { a, b ->
-            val (prefix, remainder) = a * b
+            val (prefix, overflow) = a + b
 
-            val expectedFactor = a.factor + b.factor
-            val expectedPrefix = a.find(expectedFactor)
-            val expectedConcreteFactor = scale.factor(a) * scale.factor(b)
-            val actualConcreteFactor = scale.factor(prefix) * remainder
+            val expectedPower = a.power + b.power
+            val expectedPrefix = a.find(expectedPower.toBigDecimal())
+            val expectedOverflow = expectedPower - expectedPrefix.power
 
             prefix shouldBe expectedPrefix
-            actualConcreteFactor.compareTo(expectedConcreteFactor) shouldBe 0
+            overflow shouldBe expectedOverflow
         }
     }
 
-    "exponential prefix division subtracts exponents and returns multiplicative overflow" {
-        val scale = ExponentialAlgebra<Metric>()
-
+    "exponential prefix division subtracts exponents and returns exponent overflow" {
         checkAll(Metrics.generator, Metrics.generator) { a, b ->
-            val (prefix, remainder) = a / b
+            val (prefix, overflow) = a - b
 
-            val expectedFactor = a.factor - b.factor
-            val expectedPrefix = a.find(expectedFactor)
-            val expectedConcreteFactor = scale.factor(a).divide(scale.factor(b), KisuConfig.precision)
-            val actualConcreteFactor = scale.factor(prefix) * remainder
+            val expectedPower = a.power - b.power
+            val expectedPrefix = a.find(expectedPower.toBigDecimal())
+            val expectedOverflow = expectedPower - expectedPrefix.power
 
             prefix shouldBe expectedPrefix
-            actualConcreteFactor.compareTo(expectedConcreteFactor) shouldBe 0
+            overflow shouldBe expectedOverflow
         }
     }
 
-    "binary prefix multiplication returns base-two multiplicative overflow" {
-        val (prefix, remainder) = QUEBI * QUEBI
+    "binary prefix multiplication returns exponent overflow" {
+        val (prefix, overflow) = QUEBI + QUEBI
 
         prefix shouldBe QUEBI
-        remainder.compareTo(BINARY_EXPONENT_BASE.pow(QUEBI.factor.intValueExact())) shouldBe 0
+        overflow shouldBe QUEBI.power
     }
 
-    "binary prefix division returns base-two multiplicative overflow" {
-        val (prefix, remainder) = BASE / QUEBI
+    "binary prefix division returns exponent overflow" {
+        val (prefix, overflow) = BASE - QUEBI
 
         prefix shouldBe BASE
-        remainder.compareTo(
-            BigDecimal.ONE.divide(BINARY_EXPONENT_BASE.pow(QUEBI.factor.intValueExact()), KisuConfig.precision)
-        ) shouldBe 0
+        overflow shouldBe -QUEBI.power
     }
 
     "linear prefix multiplication multiplies factors and returns overflow" {
@@ -95,5 +85,3 @@ class PrefixTest : StringSpec({
         }
     }
 })
-
-private val BINARY_EXPONENT_BASE = BigDecimal.valueOf(2)

@@ -30,7 +30,7 @@ class CompositeSystemTest : StringSpec({
         }
     }
 
-    "all prefixes from a system are sorted by power" {
+    "all prefixes from a system are sorted by natural ordering" {
         checkAll(Metrics.generator, Binaries.generator) { metric, binary ->
             createSystem(metric, binary).all.shouldBeSorted()
         }

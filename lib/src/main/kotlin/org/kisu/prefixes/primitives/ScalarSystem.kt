@@ -1,10 +1,9 @@
 package org.kisu.prefixes.primitives
 
-import org.kisu.prefixes.Binary
-import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import java.math.BigDecimal
 
 /**
  * Represents a system of [Scalar] units derived from a given prefix system and unit symbol.
@@ -26,6 +25,7 @@ import org.kisu.units.representation.Unit
  */
 class ScalarSystem<A, Self>(private val prefix: A, private val unit: Unit, private val create: (A, Unit) -> Self) :
     System<Self> where A : Prefix<A>, A : System<A>, Self : Scalar<A, Self> {
+
     override val canonical: Self by lazy {
         create(prefix.canonical, unit)
     }
@@ -39,4 +39,7 @@ class ScalarSystem<A, Self>(private val prefix: A, private val unit: Unit, priva
     override val largest: Self by lazy {
         create(prefix.largest, unit)
     }
+
+    override fun find(coordinate: BigDecimal): Self =
+        create(prefix.find(coordinate), unit)
 }

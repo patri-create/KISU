@@ -1,6 +1,9 @@
 package org.kisu.test.utils
 
 import org.kisu.bigDecimal
+import org.kisu.prefixes.Binary
+import org.kisu.prefixes.Decimal
+import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -10,7 +13,7 @@ import java.math.BigInteger
 fun BigDecimal.optimalPrefixFrom(base: BigDecimal = BigDecimal.TEN, original: Metric = Metric.BASE): Metric {
     return original.all
         .filter { ExponentialAlgebra<Metric>(base).factor(it) <= this }
-        .maxByOrNull { it.factor }!!
+        .maxByOrNull { it.power }!!
 }
 
 val BigDecimal.magnitude: Int
@@ -37,5 +40,15 @@ val BigDecimal.magnitude: Int
 
 val <T> List<Pair<BigInteger, T>>.magnitude: BigDecimal where T : Prefix<T>
     get() = fold(BigDecimal.ZERO) { magnitude, (number, prefix) ->
-        magnitude + (number.bigDecimal * prefix.factor).bigDecimal
+        magnitude + (number.bigDecimal * prefix.concreteFactor).bigDecimal
     }
+
+private val Prefix<*>.concreteFactor: BigDecimal
+    get() =
+        when (this) {
+            is Binary -> ExponentialAlgebra<Binary>(2).factor(this)
+            is Decimal -> ExponentialAlgebra<Decimal>().factor(this)
+            is Metric -> ExponentialAlgebra<Metric>().factor(this)
+            is LinearPrefix<*> -> factor
+            else -> error("Unsupported prefix type: ${this::class.qualifiedName}")
+        }

@@ -66,8 +66,7 @@ class Product<A, B>(
      * The computation is cached after the first access using [lazy].
      */
     override val factors: Set<Scalar<*, *>> by lazy {
-        left.factors.toList()
-            .plus(right.factors)
+        (left.factors.asSequence() + right.factors.asSequence())
             .filter { !it.zero }
             .groupBy { factor -> factor.symbol }
             .map { (_, group) -> group.reduce(Scalar<*, *>::addErased) }

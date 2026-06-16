@@ -4,8 +4,12 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
+import io.kotest.property.Arb
+import io.kotest.property.arbitrary.bigDecimal
+import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
 import org.kisu.test.generators.Units
+import org.kisu.zero
 
 class ExpressionTest : StringSpec({
     "the string representation is the symbol" {
@@ -13,6 +17,14 @@ class ExpressionTest : StringSpec({
             val expression = Quotient(a.self, b.self)
 
             expression.symbol shouldBe expression.toString()
+        }
+    }
+
+    "default decomposition returns an absolute magnitude" {
+        checkAll(Units.distinct(2), Arb.bigDecimal().filter { !it.zero }) { (left, right), magnitude ->
+            val expression = Product(left.self, right.self)
+
+            expression.decompose(magnitude) shouldBe listOf(magnitude.stripTrailingZeros().abs() to expression)
         }
     }
 

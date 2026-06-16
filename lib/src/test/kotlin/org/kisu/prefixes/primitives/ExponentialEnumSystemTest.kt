@@ -7,25 +7,34 @@ import io.kotest.property.Arb
 import io.kotest.property.arbitrary.element
 import io.kotest.property.checkAll
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.ExponentialPrefix
 import org.kisu.prefixes.Metric
-import org.kisu.test.fakes.InvalidPrefix
-import org.kisu.zero
 
 class ExponentialEnumSystemTest : StringSpec({
     val systems = Arb.element<ExponentialEnumSystem<*>>(
         ExponentialEnumSystem(Metric::class),
-        ExponentialEnumSystem(Binary::class, 2),
+        ExponentialEnumSystem(Binary::class),
     )
 
-    "uses the zero-factor prefix as canonical" {
+    "uses the zero-power prefix as canonical" {
         checkAll(systems) { system ->
-            system.canonical shouldBe system.all.first { prefix -> prefix.factor.zero }
+            system.canonical shouldBe system.all.first { prefix -> prefix.power == 0 }
         }
     }
 
-    "crashes if there is no zero-factor prefix" {
+    "crashes if there is no zero-power prefix" {
         shouldThrow<IllegalStateException> {
-            ExponentialEnumSystem(InvalidPrefix::class).canonical
+            ExponentialEnumSystem(InvalidExponentialPrefix::class).canonical
         }
     }
 })
+
+@Suppress("DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
+private enum class InvalidExponentialPrefix(
+    override val power: Int,
+    symbol: String,
+) : ExponentialPrefix<InvalidExponentialPrefix>,
+    System<InvalidExponentialPrefix> by ExponentialEnumSystem(InvalidExponentialPrefix::class),
+    Symbol by Representation(symbol) {
+    ERROR(3, ""),
+}

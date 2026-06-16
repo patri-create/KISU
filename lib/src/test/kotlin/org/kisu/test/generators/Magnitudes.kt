@@ -4,6 +4,8 @@ import io.kotest.property.Arb
 import io.kotest.property.arbitrary.arbitrary
 import io.kotest.property.arbitrary.bigInt
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.ExponentialPrefix
+import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
 import org.kisu.zero
@@ -27,10 +29,12 @@ object Magnitudes {
         current: T,
         next: T,
     ): BigDecimal where T : Prefix<T> {
-        return if (canonical.factor.zero) {
-            exponentBase.pow((next.factor - current.factor).intValueExact())
-        } else {
-            next.factor.divide(current.factor)
+        return when {
+            current is ExponentialPrefix<*> && next is ExponentialPrefix<*> ->
+                exponentBase.pow(next.power - current.power)
+            current is LinearPrefix<*> && next is LinearPrefix<*> ->
+                next.factor.divide(current.factor)
+            else -> error("Unsupported prefix type: ${current::class.qualifiedName}")
         }
     }
 

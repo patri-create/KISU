@@ -5,7 +5,10 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import org.kisu.KisuConfig
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.ExponentialPrefix
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.primitives.ExponentialEnumSystem
+import org.kisu.prefixes.primitives.System
 import java.math.BigDecimal
 
 class ExponentialAlgebraTest : StringSpec({
@@ -52,4 +55,39 @@ class ExponentialAlgebraTest : StringSpec({
         prefix shouldBe Binary.QUEBI
         remainder.compareTo(BigDecimal.valueOf(2).pow(10)) shouldBe 0
     }
+
+    "fails when multiplication overflows the power coordinate" {
+        val algebra = ExponentialAlgebra<ExtremePowerPrefix>()
+
+        shouldThrow<ArithmeticException> {
+            algebra.multiply(ExtremePowerPrefix.MAX, ExtremePowerPrefix.MAX)
+        }
+    }
+
+    "fails when division overflows the power coordinate" {
+        val algebra = ExponentialAlgebra<ExtremePowerPrefix>()
+
+        shouldThrow<ArithmeticException> {
+            algebra.divide(ExtremePowerPrefix.MIN, ExtremePowerPrefix.MAX)
+        }
+    }
+
+    "rejects powers outside BigDecimal exponent bounds" {
+        val algebra = ExponentialAlgebra<ExtremePowerPrefix>()
+
+        shouldThrow<IllegalArgumentException> {
+            algebra.factor(ExtremePowerPrefix.MAX)
+        }
+    }
 })
+
+@Suppress("DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
+private enum class ExtremePowerPrefix(
+    override val power: Int,
+    override val symbol: String,
+) : ExponentialPrefix<ExtremePowerPrefix>,
+    System<ExtremePowerPrefix> by ExponentialEnumSystem(ExtremePowerPrefix::class) {
+    MIN(Int.MIN_VALUE, "min"),
+    BASE(0, ""),
+    MAX(Int.MAX_VALUE, "max"),
+}

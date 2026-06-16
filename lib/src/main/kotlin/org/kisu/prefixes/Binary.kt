@@ -4,9 +4,6 @@ import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
-
-private const val BINARY_EXPONENT_BASE = 2
 
 /**
  * Represents the standardized **binary prefixes** based on powers of 2, as defined by the
@@ -23,15 +20,15 @@ private const val BINARY_EXPONENT_BASE = 2
  *
  * [Binary] prefixes are resolved into concrete multipliers by [org.kisu.prefixes.algebra.ExponentialAlgebra].
  *
- * @property factor The exponent relative to the base unit (2⁰).
+ * @property power The exponent relative to the base unit (2⁰).
  * @property symbol The standard symbol representing the prefix.
  */
 @Suppress("MagicNumber", "DELEGATED_MEMBER_HIDES_SUPERTYPE_OVERRIDE")
 enum class Binary(
-    override val factor: BigDecimal,
+    override val power: Int,
     symbol: String,
-) : Prefix<Binary>,
-    System<Binary> by ExponentialEnumSystem(Binary::class, BINARY_EXPONENT_BASE),
+) : ExponentialPrefix<Binary>,
+    System<Binary> by ExponentialEnumSystem(Binary::class),
     Symbol by Representation(symbol) {
     /** Base unit with exponent 0 (2⁰). */
     BASE(0, ""),
@@ -65,7 +62,4 @@ enum class Binary(
 
     /** Quebi — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
     QUEBI(100, "Qi"),
-    ;
-
-    constructor(power: Int, symbol: String) : this(factor = BigDecimal(power), symbol)
 }

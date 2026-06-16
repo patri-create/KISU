@@ -10,6 +10,7 @@ import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.generators.Binaries
 import org.kisu.test.generators.Metrics
 import java.math.BigDecimal
+import kotlin.math.absoluteValue
 
 class ExponentialScaleTest : StringSpec({
     val metricBase = BigDecimal.TEN
@@ -17,8 +18,8 @@ class ExponentialScaleTest : StringSpec({
 
     "calculates exponential factors" {
         checkAll(Metrics.generator) { prefix ->
-            val power = metricBase.pow(prefix.factor.abs().toInt())
-            val expected = if (prefix.factor < BigDecimal.ZERO) {
+            val power = metricBase.pow(prefix.power.absoluteValue)
+            val expected = if (prefix.power < 0) {
                 BigDecimal.ONE.divide(power, KisuConfig.precision)
             } else {
                 power
@@ -30,7 +31,7 @@ class ExponentialScaleTest : StringSpec({
 
     "works for other bases" {
         checkAll(Binaries.generator) { prefix ->
-            val expected = binaryBase.pow(prefix.factor.toInt())
+            val expected = binaryBase.pow(prefix.power)
 
             ExponentialAlgebra<Binary>(binaryBase).factor(prefix).compareTo(expected) shouldBe 0
         }
