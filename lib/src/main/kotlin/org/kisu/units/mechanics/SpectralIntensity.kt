@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
+import org.kisu.units.mechanics.SpectralIntensity.Companion.WattPerSteradianMetre
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Steradian

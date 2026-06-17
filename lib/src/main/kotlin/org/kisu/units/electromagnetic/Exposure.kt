@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
+import org.kisu.units.electromagnetic.Exposure.Companion.CoulombPerKilogram
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
 

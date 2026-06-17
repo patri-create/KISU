@@ -1,7 +1,3 @@
-public final class org/kisu/BigIntegersKt {
-	public static final fun getZero (Ljava/math/BigInteger;)Z
-}
-
 public final class org/kisu/CollectionsKt {
 	public static final fun intersect (Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)Ljava/util/Set;
 	public static synthetic fun intersect$default (Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/util/Set;

@@ -3,6 +3,7 @@ package org.kisu.units.photometric
 import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.photometric.Efficacy.Companion.LumenPerWatt
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Lumen
 import org.kisu.units.special.Watt

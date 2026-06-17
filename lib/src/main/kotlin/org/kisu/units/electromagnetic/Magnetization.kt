@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.base.Metre
+import org.kisu.units.electromagnetic.Magnetization.Companion.AmperePerMetre
 import org.kisu.units.representation.Quotient
 
 /**

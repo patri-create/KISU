@@ -6,6 +6,7 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Watt
+import org.kisu.units.thermodynamics.ThermalResistance.Companion.KelvinPerWatt
 
 /**
  * Represents the physical quantity of **thermal resistance**, measured in

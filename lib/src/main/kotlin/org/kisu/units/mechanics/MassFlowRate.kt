@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Second
+import org.kisu.units.mechanics.MassFlowRate.Companion.KilogramPerSecond
 import org.kisu.units.representation.Quotient
 
 /**

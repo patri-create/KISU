@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
+import org.kisu.units.photometric.LuminousEnergy.Companion.LumenSecond
 import org.kisu.units.representation.Product
 import org.kisu.units.special.Lumen
 

@@ -1,4 +1,4 @@
-package org.kisu
+package org.kisu.test.utils
 
 import java.math.BigInteger
 

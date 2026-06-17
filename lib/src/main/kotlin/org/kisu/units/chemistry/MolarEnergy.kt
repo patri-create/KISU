@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
+import org.kisu.units.chemistry.MolarEnergy.Companion.JoulePerMole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
 

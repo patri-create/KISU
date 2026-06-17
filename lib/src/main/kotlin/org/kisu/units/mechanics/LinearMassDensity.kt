@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.base.Metre
+import org.kisu.units.mechanics.LinearMassDensity.Companion.KilogramPerMetre
 import org.kisu.units.representation.Quotient
 
 /**

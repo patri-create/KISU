@@ -1,6 +1,6 @@
 package org.kisu
 
-import org.kisu.Magnitude
+import org.kisu.KisuConfig.precision
 import java.math.MathContext
 import java.math.RoundingMode
 
