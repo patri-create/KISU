@@ -1,11 +1,11 @@
 package org.kisu.units.photometric
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Lumen
 import org.kisu.units.special.Watt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **luminous efficacy**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [LumenPerWatt] (`lm/W`).
  */
 class Efficacy(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: LumenPerWatt
 ) : Measure<Efficacy.LumenPerWatt, Efficacy>(magnitude, expression, ::Efficacy) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, LumenPerWatt(prefix))
 
     /**

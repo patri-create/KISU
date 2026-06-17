@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **inductance**, measured in [Henry].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Henry] (`H`), while `mH` and `µH` are common in
  * practical electronics.
  */
-class Inductance internal constructor(magnitude: BigDecimal, expression: Henry) :
+class Inductance internal constructor(magnitude: Magnitude, expression: Henry) :
     Measure<Henry, Inductance>(magnitude, expression, ::Inductance) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Henry(prefix))
 }
 

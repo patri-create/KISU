@@ -1,12 +1,12 @@
 package org.kisu.units.base
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric current**, measured in amperes (A).
@@ -20,12 +20,12 @@ import java.math.BigDecimal
  * This class expresses current as a combination of a [magnitude] and an [expression], supporting values such as
  * milliamperes (mA), microamperes (µA), or kiloamperes (kA).
  *
- * Instances of this class are immutable and use [BigDecimal] for precision.
+ * Instances of this class are immutable and use [Magnitude] for precision.
  */
-class Current internal constructor(magnitude: BigDecimal, expression: Ampere) :
+class Current internal constructor(magnitude: Magnitude, expression: Ampere) :
     Measure<Ampere, Current>(magnitude, expression, ::Current) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Ampere(prefix))
 }
 

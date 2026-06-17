@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetic flux density**, measured in [Tesla].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Tesla] (`T`), with `mT` and `µT` being common in
  * practice.
  */
-class MagneticFluxDensity internal constructor(magnitude: BigDecimal, expression: Tesla) :
+class MagneticFluxDensity internal constructor(magnitude: Magnitude, expression: Tesla) :
     Measure<Tesla, MagneticFluxDensity>(magnitude, expression, ::MagneticFluxDensity) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Tesla(prefix))
 }
 

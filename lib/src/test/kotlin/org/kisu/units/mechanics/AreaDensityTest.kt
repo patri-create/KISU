@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.gramsPerSquareMetre
 import org.kisu.units.mechanics.AreaDensity.Companion.KilogramPerSquareMetre
 
 class AreaDensityTest : StringSpec({
     "creates an AreaDensity" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().gramsPerSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KilogramPerSquareMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class AreaDensityTest : StringSpec({
     }
 
     "creates a base AreaDensity" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.gramsPerSquareMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KilogramPerSquareMetre()

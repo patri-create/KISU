@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
@@ -8,7 +9,6 @@ import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Newton
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **specific angular momentum**, measured in
@@ -24,14 +24,14 @@ import java.math.BigDecimal
  * The associated unit representation is [NewtonMetreSecondPerKilogram] (`N·m·s/kg`).
  */
 class SpecificAngularMomentum(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: NewtonMetreSecondPerKilogram
 ) : Measure<SpecificAngularMomentum.NewtonMetreSecondPerKilogram, SpecificAngularMomentum>(
     magnitude,
     expression,
     ::SpecificAngularMomentum
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, NetwonMetreSecondPerKilogram(prefix))
 
     /**

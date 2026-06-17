@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Volt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric field strength**, measured in
@@ -21,7 +21,7 @@ import java.math.BigDecimal
  * The associated unit representation is [VoltPerMetre] (`V/m`).
  */
 class ElectricFieldStrength(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: VoltPerMetre
 ) : Measure<ElectricFieldStrength.VoltPerMetre, ElectricFieldStrength>(
     magnitude = magnitude,
@@ -29,7 +29,7 @@ class ElectricFieldStrength(
     create = ::ElectricFieldStrength
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, VoltPerMetre(prefix))
 
     /**

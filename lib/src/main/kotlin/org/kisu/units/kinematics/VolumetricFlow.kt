@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **volumetric flow rate**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [CubicMetrePerSecond] (`m³/s`).
  */
 class VolumetricFlow internal constructor(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CubicMetrePerSecond
 ) : Measure<VolumetricFlow.CubicMetrePerSecond, VolumetricFlow>(magnitude, expression, ::VolumetricFlow) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetrePerSecond(prefix))
 
     /**

@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
 import org.kisu.units.special.Watt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **heat flux density**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [WattPerSquareMetre] (`W/m²`).
  */
 class HeatFluxDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WattPerSquareMetre
 ) : Measure<HeatFluxDensity.WattPerSquareMetre, HeatFluxDensity>(magnitude, expression, ::HeatFluxDensity) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WattPerSquareMetre(prefix))
 
     /**

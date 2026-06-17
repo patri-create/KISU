@@ -6,12 +6,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.squareMetres
 
 class AreaTest : StringSpec({
     "creates an Area" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().squareMetres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetre(magnitude.builder().metric)
@@ -21,7 +21,7 @@ class AreaTest : StringSpec({
     }
 
     "creates a base Area" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.squareMetres.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetre()

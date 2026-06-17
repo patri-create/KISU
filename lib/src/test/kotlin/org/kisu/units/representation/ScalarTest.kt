@@ -7,7 +7,7 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.checkAll
-import org.kisu.KisuConfig
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -16,7 +16,6 @@ import org.kisu.test.fakes.TestUnit
 import org.kisu.test.generators.Exponents
 import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.Units
-import java.math.BigDecimal
 
 class ScalarTest : StringSpec({
     "Scalar is recognized as positive" {
@@ -63,7 +62,7 @@ class ScalarTest : StringSpec({
         val source = TestUnit(ExponentialAlgebra(), Metric.KILO, Unit("ts", 1))
         val target = TestUnit(ExponentialAlgebra(SQUARE_SCALE_BASE), Metric.KILO, Unit("ts", 1))
 
-        source.to(target).compareTo(source.factor.divide(target.factor, KisuConfig.precision)) shouldBe 0
+        source.to(target).compareTo(source.factor / target.factor) shouldBe 0
     }
 
     "preserves overflow when multiplying clamped prefixes" {
@@ -74,8 +73,8 @@ class ScalarTest : StringSpec({
     }
 
     "preserves adjusted algebra factors when multiplying scalars" {
-        val left = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("2")), Metric.KILO, Unit("ts", 1))
-        val right = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("3")), Metric.KILO, Unit("ts", 1))
+        val left = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(Magnitude("2")), Metric.KILO, Unit("ts", 1))
+        val right = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(Magnitude("3")), Metric.KILO, Unit("ts", 1))
 
         (left + right).factor.compareTo(left.factor * right.factor) shouldBe 0
     }
@@ -84,14 +83,14 @@ class ScalarTest : StringSpec({
         val left = TestUnit(Metric.QUECTO)
         val right = TestUnit(Metric.KILO)
 
-        (left - right).factor.compareTo(left.factor.divide(right.factor, KisuConfig.precision)) shouldBe 0
+        (left - right).factor.compareTo(left.factor / right.factor) shouldBe 0
     }
 
     "preserves adjusted algebra factors when dividing scalars" {
-        val left = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("6")), Metric.KILO, Unit("ts", 1))
-        val right = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(BigDecimal("2")), Metric.KILO, Unit("ts", 1))
+        val left = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(Magnitude("6")), Metric.KILO, Unit("ts", 1))
+        val right = TestUnit(ExponentialAlgebra<Metric>().adjustedBy(Magnitude("2")), Metric.KILO, Unit("ts", 1))
 
-        (left - right).factor.compareTo(left.factor.divide(right.factor, KisuConfig.precision)) shouldBe 0
+        (left - right).factor.compareTo(left.factor / right.factor) shouldBe 0
     }
 
     "symbol is the combination of the prefix and the unit" {
@@ -149,19 +148,19 @@ class ScalarTest : StringSpec({
     }
 })
 
-private val SQUARE_SCALE_BASE = BigDecimal("100")
+private val SQUARE_SCALE_BASE = Magnitude("100")
 
-private fun Algebra<Metric>.adjustedBy(remainder: BigDecimal): Algebra<Metric> {
+private fun Algebra<Metric>.adjustedBy(remainder: Magnitude): Algebra<Metric> {
     val delegate = this
     return object : Algebra<Metric> {
-        override fun factor(prefix: Metric): BigDecimal = delegate.factor(prefix) * remainder
+        override fun factor(prefix: Metric): Magnitude = delegate.factor(prefix) * remainder
 
-        override fun multiply(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+        override fun multiply(left: Metric, right: Metric): Pair<Metric, Magnitude> =
             delegate.multiply(left, right).let { (prefix, overflow) -> prefix to overflow * remainder }
 
-        override fun divide(left: Metric, right: Metric): Pair<Metric, BigDecimal> =
+        override fun divide(left: Metric, right: Metric): Pair<Metric, Magnitude> =
             delegate.divide(left, right).let { (prefix, overflow) ->
-                prefix to overflow.divide(remainder, KisuConfig.precision)
+                prefix to overflow / remainder
             }
     }
 }

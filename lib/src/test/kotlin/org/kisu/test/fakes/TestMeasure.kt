@@ -1,22 +1,22 @@
 package org.kisu.test.fakes
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 class TestMeasure(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: TestUnit,
 ) : Measure<TestUnit, TestMeasure>(magnitude, expression, ::TestMeasure) {
 
-    constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, TestUnit(prefix))
 
-    val magnitude: BigDecimal = magnitude
+    val magnitude: Magnitude = magnitude
 }
 
 class TestUnit constructor(

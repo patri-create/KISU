@@ -1,7 +1,7 @@
 package org.kisu.units.exceptions
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Binary
-import java.math.BigDecimal
 
 /**
  * Exception thrown when an attempt is made to create or represent
@@ -14,6 +14,6 @@ import java.math.BigDecimal
  * @param prefix The binary prefix associated with the value.
  * @param symbol The unit symbol (e.g., "bit").
  */
-class NegativeInformation(value: BigDecimal, prefix: Binary, symbol: String) : ArithmeticException(
+class NegativeInformation(value: Magnitude, prefix: Binary, symbol: String) : ArithmeticException(
     "Information quantity cannot be negative: received $value $prefix$symbol",
 )

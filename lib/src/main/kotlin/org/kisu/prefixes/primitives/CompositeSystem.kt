@@ -1,9 +1,9 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Prefix
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents a composite [System] formed by combining two underlying prefix systems.
@@ -47,5 +47,5 @@ class CompositeSystem<T : Prefix<T>, A, B>(
         create(a.largest, b)
     }
 
-    override fun find(coordinate: BigDecimal): T = create(a.find(coordinate), b)
+    override fun find(coordinate: Magnitude): T = create(a.find(coordinate), b)
 }

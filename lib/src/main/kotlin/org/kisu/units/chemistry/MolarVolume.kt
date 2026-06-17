@@ -1,11 +1,11 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **molar volume**, measured in
@@ -21,11 +21,11 @@ import java.math.BigDecimal
  * The associated SI unit representation is [CubicMetrePerMole] (`m³/mol`).
  */
 class MolarVolume(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CubicMetrePerMole
 ) : Measure<MolarVolume.CubicMetrePerMole, MolarVolume>(magnitude, expression, ::MolarVolume) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetrePerMole(prefix))
 
     /**

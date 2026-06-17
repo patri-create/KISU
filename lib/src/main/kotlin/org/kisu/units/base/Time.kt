@@ -1,12 +1,12 @@
 package org.kisu.units.base
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **time**, measured in seconds (s).
@@ -19,13 +19,13 @@ import java.math.BigDecimal
  * meaning — you cannot go back and create a duration with a negative length. Zero represents an
  * instantaneous or null duration, while positive values represent elapsed or measurable intervals.
  *
- * The magnitude is stored using [BigDecimal] to ensure high precision. Instances of this class are immutable
+ * The magnitude is stored using [Magnitude] to ensure high precision. Instances of this class are immutable
  * and validated to reflect physical reality.
  */
-class Time internal constructor(magnitude: BigDecimal, expression: Second) :
+class Time internal constructor(magnitude: Magnitude, expression: Second) :
     Measure<Second, Time>(magnitude, expression, ::Time) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Second(prefix))
 }
 

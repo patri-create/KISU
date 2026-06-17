@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.squareMetresPerSecond
 import org.kisu.units.mechanics.KinematicViscosity.Companion.SquareMetrePerSecond
 
 class KinematicViscosityTest : StringSpec({
     "creates a LinearChargeDensity" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().squareMetresPerSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetrePerSecond(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class KinematicViscosityTest : StringSpec({
     }
 
     "creates a base LinearChargeDensity" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.squareMetresPerSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetrePerSecond()

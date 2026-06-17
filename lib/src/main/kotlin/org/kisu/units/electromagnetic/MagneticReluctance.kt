@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -7,7 +8,6 @@ import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 import org.kisu.units.special.Henry
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetic reluctance**, measured in
@@ -23,11 +23,11 @@ import java.math.BigDecimal
  * The associated unit representation is [ReciprocalHenry] (`H⁻¹`).
  */
 class MagneticReluctance(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: ReciprocalHenry
 ) : Measure<ReciprocalHenry, MagneticReluctance>(magnitude, expression, ::MagneticReluctance) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalHenry(prefix))
 }
 

@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.wattsPerMetreKelvin
 import org.kisu.units.thermodynamics.ThermalConductivity.Companion.WattPerMetreKelvin
 
 class ThermalConductivityTest : StringSpec({
     "creates a ThermalConductivity" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().wattsPerMetreKelvin.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe WattPerMetreKelvin(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class ThermalConductivityTest : StringSpec({
     }
 
     "creates a base ThermalConductivity" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.wattsPerMetreKelvin.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe WattPerMetreKelvin()

@@ -1,11 +1,11 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **heat capacity**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated SI unit representation is [JoulePerKelvin] (`J/K`).
  */
 class HeatCapacity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerKelvin
 ) : Measure<HeatCapacity.JoulePerKelvin, HeatCapacity>(magnitude, expression, ::HeatCapacity) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerKelvin(prefix))
 
     /**

@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
 import org.kisu.units.special.Weber
-import java.math.BigDecimal
 
 /**
  * Represents magnetic moment in terms of [WeberMetre].
@@ -18,11 +18,11 @@ import java.math.BigDecimal
  * @param expression Unit expression in weber metres (`Wb·m`).
  */
 class MagneticMoment(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WeberMetre
 ) : Measure<MagneticMoment.WeberMetre, MagneticMoment>(magnitude, expression, ::MagneticMoment) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WeberMetre(prefix))
 
     /**

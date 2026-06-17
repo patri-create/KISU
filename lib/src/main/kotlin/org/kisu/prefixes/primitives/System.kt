@@ -1,11 +1,11 @@
 package org.kisu.prefixes.primitives
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Metric.QUECTO
 import org.kisu.prefixes.Metric.QUETTA
 import org.kisu.prefixes.Prefix
-import java.math.BigDecimal
 
 /**
  * Represents a complete system of unit prefixes.
@@ -79,5 +79,5 @@ interface System<P : Prefix<P>> {
      * @return The closest unit not greater than the provided coordinate, or [smallest] if it's below the range,
      * or [largest] if it exceeds all defined units.
      */
-    fun find(coordinate: BigDecimal): P
+    fun find(coordinate: Magnitude): P
 }

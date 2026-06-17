@@ -1,8 +1,8 @@
 package org.kisu.units.representation
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 /**
  * Represents a combination of a [Prefix] and a unit symbol, forming a complete unit expression
@@ -21,7 +21,7 @@ abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
     /**
      * Concrete scaling factor represented by this expression.
      */
-    abstract val factor: BigDecimal
+    abstract val factor: Magnitude
 
     /**
      * The set of scalar components that make up this expression.
@@ -42,11 +42,11 @@ abstract class Expression<A : Prefix<A>> : Prefix<A>, System<A> {
      * Unlike raw prefixes, expressions carry the scale and dimensional structure needed to resolve prefixed factors
      * correctly.
      */
-    abstract fun to(other: A): BigDecimal
+    abstract fun to(other: A): Magnitude
 
     @Suppress("UNCHECKED_CAST")
-    open fun decompose(magnitude: BigDecimal): List<Pair<BigDecimal, A>> =
-        listOf(magnitude.stripTrailingZeros().abs() to this as A)
+    open fun decompose(magnitude: Magnitude): List<Pair<Magnitude, A>> =
+        listOf(magnitude.stripTrailingZeros().abs to this as A)
 
     /**
      * Compares expressions by their resolved scaling factor.

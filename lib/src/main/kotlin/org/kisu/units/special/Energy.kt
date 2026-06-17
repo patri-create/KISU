@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **energy**, measured in [Joule].
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  *
  * The canonical SI unit is the [Joule] (`J`), commonly scaled as `mJ`, `kJ`, or `MJ`.
  */
-class Energy internal constructor(magnitude: BigDecimal, expression: Joule) :
+class Energy internal constructor(magnitude: Magnitude, expression: Joule) :
     Measure<Joule, Energy>(magnitude, expression, ::Energy) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Joule(prefix))
 }
 

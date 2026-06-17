@@ -2,11 +2,11 @@ package org.kisu.test.matchers
 
 import io.kotest.matchers.Matcher
 import io.kotest.matchers.MatcherResult
-import java.math.BigDecimal
+import org.kisu.Magnitude
 
-infix fun BigDecimal.plusOrMinus(tolerance: BigDecimal) =
-    Matcher<BigDecimal> { actual ->
-        val difference = actual.subtract(this).abs()
+infix fun Magnitude.plusOrMinus(tolerance: Magnitude) =
+    Matcher<Magnitude> { actual ->
+        val difference = (actual - this).abs
         MatcherResult(
             difference <= tolerance,
             { "Expected $actual to be within ±$tolerance of $this, but difference was $difference" },

@@ -1,10 +1,10 @@
 package org.kisu.units.representation
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.CompositeSystem
 import org.kisu.prefixes.primitives.System
 import org.kisu.productSymbol
-import java.math.BigDecimal
 
 /**
  * Represents the product of two unit expressions in the physical unit system.
@@ -39,7 +39,7 @@ class Product<A, B>(
      * This allows correct scaling when units carry metric or binary prefixes, such as `kN·mm`
      * or `μmol·K`.
      */
-    override val factor: BigDecimal by lazy { left.factor * right.factor }
+    override val factor: Magnitude by lazy { left.factor * right.factor }
 
     /**
      * The symbol representing the unit product, rendered as `"left·right"`.
@@ -74,7 +74,7 @@ class Product<A, B>(
             .toSet()
     }
 
-    override fun to(other: Product<A, B>): BigDecimal =
+    override fun to(other: Product<A, B>): Magnitude =
         left.to(other.left) * right.to(other.right)
 
     /**

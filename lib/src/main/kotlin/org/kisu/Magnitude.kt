@@ -2,6 +2,7 @@ package org.kisu
 
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.math.MathContext
 import java.math.RoundingMode
 import kotlin.math.absoluteValue
 
@@ -21,7 +22,7 @@ private const val MAX_BIG_DECIMAL_POWER = 999_999_999
 class Magnitude(
     private val value: BigDecimal,
     internal val config: MagnitudeConfig = KisuConfig
-) : Comparable<Magnitude> {
+) : Number(), Comparable<Magnitude> {
     /**
      * Creates a magnitude from an unscaled integer and decimal [scale].
      */
@@ -37,9 +38,9 @@ class Magnitude(
     constructor(value: BigInteger, config: MagnitudeConfig = KisuConfig) : this(value.toBigDecimal(), config)
 
     /**
-     * Creates a magnitude from any [Number] supported by [bigDecimal].
+     * Creates a magnitude from any supported [Number].
      */
-    constructor(value: Number, config: MagnitudeConfig = KisuConfig) : this(value.bigDecimal, config)
+    constructor(value: Number, config: MagnitudeConfig = KisuConfig) : this(value.toBigDecimalValue(), config)
 
     /**
      * Creates a magnitude by parsing [value] as a [BigDecimal].
@@ -134,6 +135,12 @@ class Magnitude(
         Magnitude(value.divide(other.value, scale, roundingMode), config)
 
     /**
+     * Divides by [other] using [precision].
+     */
+    fun divide(other: Magnitude, precision: MathContext): Magnitude =
+        Magnitude(value.divide(other.value, precision), config)
+
+    /**
      * Divides by [other] using this magnitude's [MagnitudeConfig.precision].
      */
     operator fun div(other: Magnitude): Magnitude =
@@ -171,6 +178,45 @@ class Magnitude(
      * Returns a numerically equivalent magnitude with insignificant trailing zeros removed.
      */
     fun stripTrailingZeros(): Magnitude = Magnitude(value.stripTrailingZeros(), config)
+
+    /**
+     * Converts this magnitude to a [Byte] using the delegated decimal conversion.
+     */
+    override fun toByte(): Byte = value.toByte()
+
+    /**
+     * Converts this magnitude to a [Char] using the delegated decimal conversion.
+     */
+    @Deprecated(
+        message = "Direct conversion to Char is deprecated. Convert to Int explicitly before converting to Char.",
+        replaceWith = ReplaceWith("toInt().toChar()")
+    )
+    override fun toChar(): Char = value.toInt().toChar()
+
+    /**
+     * Converts this magnitude to a [Double] using the delegated decimal conversion.
+     */
+    override fun toDouble(): Double = value.toDouble()
+
+    /**
+     * Converts this magnitude to a [Float] using the delegated decimal conversion.
+     */
+    override fun toFloat(): Float = value.toFloat()
+
+    /**
+     * Converts this magnitude to an [Int] using the delegated decimal conversion.
+     */
+    override fun toInt(): Int = value.toInt()
+
+    /**
+     * Converts this magnitude to a [Long] using the delegated decimal conversion.
+     */
+    override fun toLong(): Long = value.toLong()
+
+    /**
+     * Converts this magnitude to a [Short] using the delegated decimal conversion.
+     */
+    override fun toShort(): Short = value.toShort()
 
     /**
      * Returns the delegated [BigDecimal] value.
@@ -239,6 +285,11 @@ class Magnitude(
         val TEN: Magnitude = Magnitude(BigDecimal.TEN)
 
         /**
+         * Numeric two.
+         */
+        val TWO: Magnitude = Magnitude(BigDecimal.TWO)
+
+        /**
          * Creates a magnitude from a [Long] using the same semantics as [BigDecimal.valueOf].
          */
         fun valueOf(value: Long, config: MagnitudeConfig = KisuConfig): Magnitude =
@@ -251,3 +302,25 @@ class Magnitude(
             Magnitude(BigDecimal.valueOf(value), config)
     }
 }
+
+private val BigDecimal.zero: Boolean
+    get() = compareTo(BigDecimal.ZERO) == 0
+
+private val BigDecimal.one: Boolean
+    get() = compareTo(BigDecimal.ONE) == 0
+
+private val BigDecimal.negative: Boolean
+    get() = signum() == -1
+
+private val BigDecimal.hasFraction: Boolean
+    get() = stripTrailingZeros().scale() > 0
+
+private fun Number.toBigDecimalValue(): BigDecimal =
+    when (this) {
+        is Magnitude -> toBigDecimal()
+        is BigDecimal -> this
+        is BigInteger -> toBigDecimal()
+        is Long, is Int, is Short, is Byte -> BigDecimal.valueOf(toLong())
+        is Double, is Float -> BigDecimal(toString())
+        else -> BigDecimal(toString())
+    }

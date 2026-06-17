@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.linear
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondCubed
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **jerk**, measured in
@@ -18,10 +18,10 @@ import java.math.BigDecimal
  * The associated unit representation is [MetrePerSecondCubed] (`m/s³`).
  */
 class Jerk(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MetrePerSecondCubed
 ) : Measure<Jerk.MetrePerSecondCubed, Jerk>(magnitude, expression, ::Jerk) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerSecondCubed(prefix))
 
     /**

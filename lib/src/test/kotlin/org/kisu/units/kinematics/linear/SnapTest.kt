@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.metresPerSecondFourth
 import org.kisu.units.kinematics.linear.Snap.Companion.MetrePerSecondFourth
 
 class SnapTest : StringSpec({
     "creates a linear Snap" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().metresPerSecondFourth.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe MetrePerSecondFourth(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class SnapTest : StringSpec({
     }
 
     "creates a base linear Snap" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.metresPerSecondFourth.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe MetrePerSecondFourth()

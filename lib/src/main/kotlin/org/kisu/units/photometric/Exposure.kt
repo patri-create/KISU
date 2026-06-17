@@ -1,11 +1,11 @@
 package org.kisu.units.photometric
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
 import org.kisu.units.special.Lux
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **luminous exposure**, measured in [LuxSecond].
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  * The associated unit representation is [LuxSecond] (`lx·s`).
  */
 class Exposure(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: LuxSecond
 ) : Measure<Exposure.LuxSecond, Exposure>(magnitude, expression, ::Exposure) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, LuxSecond(prefix))
 
     /**

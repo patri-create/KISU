@@ -6,7 +6,6 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.property.checkAll
-import org.kisu.KisuConfig
 import org.kisu.productSymbol
 import org.kisu.test.generators.Units
 
@@ -15,7 +14,7 @@ class QuotientTest : StringSpec({
         checkAll(Units.generator, Units.binaries()) { metric, binary ->
             val expression = Quotient(metric.self, binary.self)
 
-            expression.factor shouldBe metric.factor.divide(binary.factor, KisuConfig.precision)
+            expression.factor shouldBe metric.factor / binary.factor
         }
     }
 

@@ -6,14 +6,13 @@ import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
-import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.double
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.int
 import io.kotest.property.arbitrary.long
 import io.kotest.property.arbitrary.map
 import io.kotest.property.checkAll
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.math.MathContext
@@ -120,7 +119,7 @@ class MagnitudeTest : StringSpec({
     }
 
     "detects integer values" {
-        checkAll(Arb.int().map { number -> number.bigDecimal }) { number ->
+        checkAll(Arb.int().map { number -> BigDecimal.valueOf(number.toLong()) }) { number ->
             Magnitude(number).integer.shouldBeTrue()
             Magnitude(number).hasFraction.shouldBeFalse()
         }
@@ -168,7 +167,8 @@ class MagnitudeTest : StringSpec({
 
     "raises values to integer powers like BigDecimal" {
         checkAll(Arb.int(range = -100..100), Arb.int(range = 0..12)) { number, exponent ->
-            Magnitude(number.bigDecimal).pow(exponent).toBigDecimal() shouldBe number.bigDecimal.pow(exponent)
+            val base = BigDecimal.valueOf(number.toLong())
+            Magnitude(base).pow(exponent).toBigDecimal() shouldBe base.pow(exponent)
         }
     }
 
@@ -179,7 +179,7 @@ class MagnitudeTest : StringSpec({
             Arb.int(range = 1..34),
         ) { number, exponent, precision ->
             val config = MagnitudeConfig(MathContext(precision, RoundingMode.DOWN))
-            val base = number.bigDecimal
+            val base = BigDecimal.valueOf(number.toLong())
 
             Magnitude(base, config).pow(exponent).toBigDecimal() shouldBe
                 BigDecimal.ONE.divide(base.pow(-exponent), config.precision)
@@ -243,13 +243,21 @@ class MagnitudeTest : StringSpec({
 
     "equality ignores decimal scale" {
         checkAll(Arb.int(range = -1_000_000..1_000_000), Arb.int(range = 0..20)) { value, scale ->
-            Magnitude(value.bigDecimal) shouldBe Magnitude(value.bigDecimal.setScale(scale))
+            val number = BigDecimal.valueOf(value.toLong())
+            Magnitude(number) shouldBe Magnitude(number.setScale(scale))
         }
     }
 
     "equal numeric values have the same hash code" {
         checkAll(Arb.int(range = -1_000_000..1_000_000), Arb.int(range = 0..20)) { value, scale ->
-            Magnitude(value.bigDecimal).hashCode() shouldBe Magnitude(value.bigDecimal.setScale(scale)).hashCode()
+            val number = BigDecimal.valueOf(value.toLong())
+            Magnitude(number).hashCode() shouldBe Magnitude(number.setScale(scale)).hashCode()
         }
     }
 })
+
+private fun Arb.Companion.bigDecimal(
+    maxDigits: Int = 10,
+    minFractionalDigits: Int = 1,
+    maxFractionalDigits: Int = 5,
+) = magnitude(maxDigits, minFractionalDigits, maxFractionalDigits).map(Magnitude::toBigDecimal)

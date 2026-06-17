@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents temperature measured on the **Celsius scale**, using [Celsius].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  *
  * The associated unit representation is [Celsius] (`°C`).
  */
-class CelsiusTemperature internal constructor(magnitude: BigDecimal, expression: Celsius) :
+class CelsiusTemperature internal constructor(magnitude: Magnitude, expression: Celsius) :
     Measure<Celsius, CelsiusTemperature>(magnitude, expression, ::CelsiusTemperature) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Celsius(prefix))
 }
 

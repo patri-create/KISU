@@ -1,24 +1,24 @@
 package org.kisu.test.utils
 
-import org.kisu.bigDecimal
+import org.kisu.Magnitude
+import org.kisu.magnitude
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.algebra.ExponentialAlgebra
-import java.math.BigDecimal
 import java.math.BigInteger
 
-fun BigDecimal.optimalPrefixFrom(base: BigDecimal = BigDecimal.TEN, original: Metric = Metric.BASE): Metric {
+fun Magnitude.optimalPrefixFrom(base: Magnitude = Magnitude.TEN, original: Metric = Metric.BASE): Metric {
     return original.all
         .filter { ExponentialAlgebra<Metric>(base).factor(it) <= this }
         .maxByOrNull { it.power }!!
 }
 
-val BigDecimal.magnitude: Int
+val Magnitude.magnitude: Int
     get() {
-        val str = stripTrailingZeros().toPlainString()
+        val str = stripTrailingZeros().toBigDecimal().toPlainString()
         return if (str.contains('.')) {
             val parts = str.split('.')
             val intPart = parts[0]
@@ -38,12 +38,12 @@ val BigDecimal.magnitude: Int
         }
     }
 
-val <T> List<Pair<BigInteger, T>>.magnitude: BigDecimal where T : Prefix<T>
-    get() = fold(BigDecimal.ZERO) { magnitude, (number, prefix) ->
-        magnitude + (number.bigDecimal * prefix.concreteFactor).bigDecimal
+val <T> List<Pair<BigInteger, T>>.magnitude: Magnitude where T : Prefix<T>
+    get() = fold(Magnitude.ZERO) { magnitude, (number, prefix) ->
+        magnitude + number.magnitude * prefix.concreteFactor
     }
 
-private val Prefix<*>.concreteFactor: BigDecimal
+private val Prefix<*>.concreteFactor: Magnitude
     get() =
         when (this) {
             is Binary -> ExponentialAlgebra<Binary>(2).factor(this)

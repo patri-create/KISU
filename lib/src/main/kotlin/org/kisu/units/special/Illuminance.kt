@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **illuminance**, measured in [Lux].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Lux] (`lx`), with values ranging from fractions of a
  * lux in dim settings to many kilolux in full daylight.
  */
-class Illuminance internal constructor(magnitude: BigDecimal, expression: Lux) :
+class Illuminance internal constructor(magnitude: Magnitude, expression: Lux) :
     Measure<Lux, Illuminance>(magnitude, expression, ::Illuminance) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Lux(prefix))
 }
 

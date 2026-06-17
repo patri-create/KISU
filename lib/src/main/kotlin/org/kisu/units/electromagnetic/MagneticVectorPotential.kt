@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Weber
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetic vector potential**, measured in
@@ -21,7 +21,7 @@ import java.math.BigDecimal
  * The associated unit representation is [WeberPerMetre] (`Wb/m`).
  */
 class MagneticVectorPotential(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WeberPerMetre
 ) : Measure<MagneticVectorPotential.WeberPerMetre, MagneticVectorPotential>(
     magnitude = magnitude,
@@ -29,7 +29,7 @@ class MagneticVectorPotential(
     create = ::MagneticVectorPotential
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WeberPerMetre(prefix))
 
     /**

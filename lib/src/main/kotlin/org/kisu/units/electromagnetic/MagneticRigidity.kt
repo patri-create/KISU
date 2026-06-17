@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
 import org.kisu.units.special.Tesla
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetic rigidity**, measured in [TeslaMetre].
@@ -19,11 +19,11 @@ import java.math.BigDecimal
  * The associated unit representation is [TeslaMetre] (`T·m`).
  */
 class MagneticRigidity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: TeslaMetre
 ) : Measure<MagneticRigidity.TeslaMetre, MagneticRigidity>(magnitude, expression, ::MagneticRigidity) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, TeslaMetre(prefix))
 
     /**

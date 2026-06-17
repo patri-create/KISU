@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.graysPerSecond
 import org.kisu.units.mechanics.AbsorbedDoseRate.Companion.GrayPerSecond
 
 class AbsorbedDoseRateTest : StringSpec({
     "creates an AbsorbedDoseRate" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().graysPerSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe GrayPerSecond(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class AbsorbedDoseRateTest : StringSpec({
     }
 
     "creates a base AbsorbedDoseRate" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.graysPerSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe GrayPerSecond()

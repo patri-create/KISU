@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Watt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **spectral power**, measured in [WattPerMetre].
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  * The associated unit representation is [WattPerMetre].
  */
 class SpectralPower(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: WattPerMetre
 ) : Measure<SpectralPower.WattPerMetre, SpectralPower>(magnitude, expression, ::SpectralPower) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, WattPerMetre(prefix))
 
     /**

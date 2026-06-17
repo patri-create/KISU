@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric current density**, measured in
@@ -18,7 +18,7 @@ import java.math.BigDecimal
  * The associated unit representation is [AmperePerSquareMetre] (`A/m²`).
  */
 class ElectricCurrentDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: AmperePerSquareMetre
 ) : Measure<ElectricCurrentDensity.AmperePerSquareMetre, ElectricCurrentDensity>(
     magnitude = magnitude,
@@ -26,7 +26,7 @@ class ElectricCurrentDensity(
     create = ::ElectricCurrentDensity
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, AmperePerSquareMetre(prefix))
 
     /**

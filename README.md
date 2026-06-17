@@ -73,7 +73,7 @@ Two non-obvious cases are worth calling out:
 ## What KISU Focuses On
 
 - SI and IEC-style unit modeling
-- precise numeric handling with `BigDecimal`
+- precise numeric handling with `Magnitude`
 - readable Kotlin DSL for prefixed quantities
 - explicit quantity types instead of raw numbers and strings
 

@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **frequency**, measured in [Hertz].
@@ -19,10 +19,10 @@ import java.math.BigDecimal
  *
  * The canonical SI unit is the [Hertz] (`Hz`), often scaled as `kHz`, `MHz`, or `GHz`.
  */
-class Frequency internal constructor(magnitude: BigDecimal, expression: Hertz) :
+class Frequency internal constructor(magnitude: Magnitude, expression: Hertz) :
     Measure<Hertz, Frequency>(magnitude, expression, ::Frequency) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Hertz(prefix))
 }
 

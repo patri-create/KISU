@@ -1,11 +1,11 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **molarity**, also called molar concentration,
@@ -22,11 +22,11 @@ import java.math.BigDecimal
  * litre-based forms are also common in practice.
  */
 class Molarity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: MolePerCubicMetre
 ) : Measure<Molarity.MolePerCubicMetre, Molarity>(magnitude, expression, ::Molarity) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MolePerCubicMetre(prefix))
 
     /**

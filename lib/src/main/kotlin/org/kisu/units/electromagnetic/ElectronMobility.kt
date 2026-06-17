@@ -1,5 +1,6 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
@@ -7,7 +8,6 @@ import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
 import org.kisu.units.special.Volt
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electron mobility**, measured in
@@ -23,7 +23,7 @@ import java.math.BigDecimal
  * The associated unit representation is [SquareMetrePerVoltSecond] (`m²/(V·s)`).
  */
 class ElectronMobility(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: SquareMetrePerVoltSecond
 ) : Measure<ElectronMobility.SquareMetrePerVoltSecond, ElectronMobility>(
     magnitude = magnitude,
@@ -31,7 +31,7 @@ class ElectronMobility(
     create = ::ElectronMobility
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, SquareMetrePerVoltSecond(prefix))
 
     /**

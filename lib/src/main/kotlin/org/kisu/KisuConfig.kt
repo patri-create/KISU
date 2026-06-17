@@ -1,6 +1,6 @@
 package org.kisu
 
-import java.math.BigDecimal
+import org.kisu.Magnitude
 import java.math.MathContext
 import java.math.RoundingMode
 
@@ -16,7 +16,7 @@ import java.math.RoundingMode
 object KisuConfig : MagnitudeConfig {
     /**
      * The global [MathContext] used to control precision and rounding for
-     * [BigDecimal] operations across the library.
+     * [Magnitude] operations across the library.
      *
      * Defaults to [MathContext.DECIMAL128], which provides 34 digits of precision
      * and uses [RoundingMode.HALF_EVEN].

@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.joulesPerCubicMetre
 import org.kisu.units.mechanics.EnergyDensity.Companion.JoulePerCubicMetre
 
 class EnergyDensityTest : StringSpec({
     "creates an EnergyDensity" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().joulesPerCubicMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerCubicMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class EnergyDensityTest : StringSpec({
     }
 
     "creates a base EnergyDensity" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.joulesPerCubicMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerCubicMetre()

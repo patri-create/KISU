@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.gramsMetreSecondCubed
 import org.kisu.units.kinematics.Yank.Companion.KilogramMetrePerSecondCubed
 
 class YankTest : StringSpec({
     "creates a Yank" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().gramsMetreSecondCubed.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KilogramMetrePerSecondCubed(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class YankTest : StringSpec({
     }
 
     "creates a base Yank" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.gramsMetreSecondCubed.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KilogramMetrePerSecondCubed()

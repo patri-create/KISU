@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Siemens
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric conductivity**, measured in
@@ -18,7 +18,7 @@ import java.math.BigDecimal
  * The associated unit representation is [SiemensPerMetre] (`S/m`).
  */
 class ElectricConductivity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: SiemensPerMetre
 ) : Measure<ElectricConductivity.SiemensPerMetre, ElectricConductivity>(
     magnitude = magnitude,
@@ -26,7 +26,7 @@ class ElectricConductivity(
     create = ::ElectricConductivity
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, SiemensPerMetre(prefix))
 
     /**

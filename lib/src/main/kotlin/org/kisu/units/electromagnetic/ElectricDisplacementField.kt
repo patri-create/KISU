@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the **electric displacement field** `D`, measured in
@@ -23,7 +23,7 @@ import java.math.BigDecimal
  * @see ElectricFieldStrength
  */
 class ElectricDisplacementField(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CoulombPerSquareMetre
 ) : Measure<ElectricDisplacementField.CoulombPerSquareMetre, ElectricDisplacementField>(
     magnitude = magnitude,
@@ -31,7 +31,7 @@ class ElectricDisplacementField(
     create = ::ElectricDisplacementField
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CoulombPerSquareMetre(prefix))
 
     /**

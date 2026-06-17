@@ -1,5 +1,6 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
@@ -8,7 +9,6 @@ import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
 import org.kisu.units.special.SquareMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **energy flux density**, measured in
@@ -23,14 +23,14 @@ import java.math.BigDecimal
  * The associated unit representation is [JoulePerSquareMetreSecond] (`J/(m²·s)`).
  */
 class EnergyFluxDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerSquareMetreSecond
 ) : Measure<EnergyFluxDensity.JoulePerSquareMetreSecond, EnergyFluxDensity>(
     magnitude = magnitude,
     expression = expression,
     create = ::EnergyFluxDensity
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerSquareMetreSecond(prefix))
 
     /**

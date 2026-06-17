@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
@@ -7,7 +8,6 @@ import org.kisu.units.base.Mole
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **molar heat capacity**, measured in
@@ -23,14 +23,14 @@ import java.math.BigDecimal
  * The associated SI unit representation is [JoulePerKelvinMole] (`J/(K·mol)`).
  */
 class MolarHeatCapacity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerKelvinMole
 ) : Measure<MolarHeatCapacity.JoulePerKelvinMole, MolarHeatCapacity>(
     magnitude = magnitude,
     expression = expression,
     create = ::MolarHeatCapacity
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
             JoulePerKelvinMole(prefix)

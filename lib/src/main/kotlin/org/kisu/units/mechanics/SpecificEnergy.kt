@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **specific energy**, measured in
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  * The associated unit representation is [JoulePerKilogram] (`J/kg`).
  */
 class SpecificEnergy(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: JoulePerKilogram
 ) : Measure<SpecificEnergy.JoulePerKilogram, SpecificEnergy>(magnitude, expression, ::SpecificEnergy) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, JoulePerKilogram(prefix))
 
     /**

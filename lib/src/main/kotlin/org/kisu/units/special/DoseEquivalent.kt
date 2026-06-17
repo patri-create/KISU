@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **dose equivalent**, measured in [Sievert].
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Sievert] (`Sv`), with `mSv` and `µSv` being especially
  * common in practice.
  */
-class DoseEquivalent internal constructor(magnitude: BigDecimal, expression: Sievert) :
+class DoseEquivalent internal constructor(magnitude: Magnitude, expression: Sievert) :
     Measure<Sievert, DoseEquivalent>(magnitude, expression, ::DoseEquivalent) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Sievert(prefix))
 }
 

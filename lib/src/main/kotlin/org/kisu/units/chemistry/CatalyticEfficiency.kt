@@ -1,5 +1,6 @@
 package org.kisu.units.chemistry
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Mole
@@ -8,7 +9,6 @@ import org.kisu.units.chemistry.CatalyticEfficiency.Companion.CubicMetrePerMoleS
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **catalytic efficiency**, measured in
@@ -25,7 +25,7 @@ import java.math.BigDecimal
  * The associated SI unit representation is [CubicMetrePerMoleSecond] (`m³/(mol·s)`).
  */
 class CatalyticEfficiency(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CubicMetrePerMoleSecond
 ) : Measure<CatalyticEfficiency.CubicMetrePerMoleSecond, CatalyticEfficiency>(
     magnitude = magnitude,
@@ -33,7 +33,7 @@ class CatalyticEfficiency(
     create = ::CatalyticEfficiency
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(
             magnitude,
             CubicMetrePerMoleSecond(prefix)

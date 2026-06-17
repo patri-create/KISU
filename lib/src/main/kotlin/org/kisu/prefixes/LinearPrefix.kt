@@ -1,9 +1,8 @@
 package org.kisu.prefixes
 
-import org.kisu.KisuConfig
+import org.kisu.Magnitude
 import org.kisu.prefixes.algebra.LinearAlgebra
 import org.kisu.prefixes.primitives.System
-import java.math.BigDecimal
 
 /**
  * Prefix whose position in a scale is represented directly by its concrete multiplier.
@@ -20,7 +19,7 @@ interface LinearPrefix<Self : LinearPrefix<Self>> : Prefix<Self> {
      * - "kilo" → 1,000
      * - "mebi" → 1,048,576
      */
-    val factor: BigDecimal
+    val factor: Magnitude
 
     /**
      * Compares this prefix to another linear prefix by [factor].
@@ -50,10 +49,10 @@ interface LinearPrefix<Self : LinearPrefix<Self>> : Prefix<Self> {
  * @param other The prefix to multiply with.
  * @return A pair of (prefix, remainder) for the resulting factor.
  */
-operator fun <P> P.times(other: P): Pair<P, BigDecimal> where P : LinearPrefix<P>, P : System<P> {
-    val factor = this.factor.multiply(other.factor)
+operator fun <P> P.times(other: P): Pair<P, Magnitude> where P : LinearPrefix<P>, P : System<P> {
+    val factor = this.factor * other.factor
     val newPrefix = find(factor)
-    return newPrefix to factor.divide(newPrefix.factor, KisuConfig.precision)
+    return newPrefix to factor / newPrefix.factor
 }
 
 /**
@@ -74,8 +73,8 @@ operator fun <P> P.times(other: P): Pair<P, BigDecimal> where P : LinearPrefix<P
  * @param other The prefix to divide by.
  * @return A pair of (prefix, remainder) for the resulting factor.
  */
-operator fun <P> P.div(other: P): Pair<P, BigDecimal> where P : LinearPrefix<P>, P : System<P> {
-    val factor = this.factor.divide(other.factor, KisuConfig.precision)
+operator fun <P> P.div(other: P): Pair<P, Magnitude> where P : LinearPrefix<P>, P : System<P> {
+    val factor = this.factor / other.factor
     val newPrefix = find(factor)
-    return newPrefix to factor.divide(newPrefix.factor, KisuConfig.precision)
+    return newPrefix to factor / newPrefix.factor
 }

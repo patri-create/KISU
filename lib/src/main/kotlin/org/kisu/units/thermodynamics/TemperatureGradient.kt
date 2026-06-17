@@ -1,11 +1,11 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **temperature gradient**, measured in
@@ -21,14 +21,14 @@ import java.math.BigDecimal
  * The associated SI unit representation is [KelvinPerMetre] (`K/m`).
  */
 class TemperatureGradient(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KelvinPerMetre
 ) : Measure<TemperatureGradient.KelvinPerMetre, TemperatureGradient>(
     magnitude = magnitude,
     expression = expression,
     create = ::TemperatureGradient
 ) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KelvinPerMetre(prefix))
 
     /**

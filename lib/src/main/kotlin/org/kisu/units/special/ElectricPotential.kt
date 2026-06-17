@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric potential difference**, measured in
@@ -22,10 +22,10 @@ import java.math.BigDecimal
  * The canonical SI unit is the [Volt] (`V`), with common practical forms such as `mV`,
  * `kV`, and everything in between.
  */
-class ElectricPotential internal constructor(magnitude: BigDecimal, expression: Volt) :
+class ElectricPotential internal constructor(magnitude: Magnitude, expression: Volt) :
     Measure<Volt, ElectricPotential>(magnitude, expression, ::ElectricPotential) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Volt(prefix))
 }
 

@@ -14,25 +14,26 @@ expectations while giving the library a stable type to migrate internals toward.
 existing global precision behavior remains available through `KisuConfig.precision`. A caller that needs different
 arithmetic for one value can pass a separate `MagnitudeConfig` to that `Magnitude` instance.
 
-Current measure constructors and destructuring still expose `BigDecimal`. That keeps the JVM source surface stable while
-the decimal abstraction is introduced and tested.
+Measure constructors, destructuring, prefix algebra, expression factors, and builders now expose `Magnitude`. Direct
+JVM decimal access is isolated behind `Magnitude.toBigDecimal()` for explicit interop and delegate tests.
 
 ## Why This First
 
-Direct `BigDecimal` usage appears across public measure constructors, builders, prefix algebra, exceptions, tests,
-documentation, and ABI declarations. Replacing every public signature in one change would combine an architecture
-migration with a large source and binary compatibility break.
+Direct decimal usage appeared across public measure constructors, builders, prefix algebra, exceptions, tests,
+documentation, and ABI declarations. This migration deliberately accepts the source and binary compatibility break so
+KISU's numeric surface is `Magnitude` before the multiplatform backend work starts.
 
 The wrapper-first path keeps behavior measurable:
 
 - `Magnitude` provides KISU's current decimal construction paths: constants, strings, numbers, `valueOf`, and scaled
   integer values.
 - `Magnitude` equality and comparison use numeric value, ignoring `BigDecimal` scale.
-- Division uses the instance config, defaulting to `KisuConfig`, and also exposes a scale-plus-rounding overload for
-  current decomposition behavior.
+- Division uses the instance config, defaulting to `KisuConfig`, and also exposes `MathContext` and
+  scale-plus-rounding overloads for current decomposition behavior.
 - Power, absolute value, sign, scale, and trailing-zero normalization are represented on the wrapper.
+- `Magnitude` extends `Number`, so the existing numeric builder DSL also accepts magnitude values.
 - Arithmetic results keep the left operand config.
-- `toBigDecimal()` keeps JVM interop explicit during the transition.
+- `toBigDecimal()` keeps JVM interop explicit at the wrapper boundary.
 
 ## KMP Constraints
 
@@ -51,9 +52,8 @@ The JVM behavior to preserve is:
 
 ## Migration Path
 
-1. Keep this PR focused on the `Magnitude` contract while preserving current `BigDecimal` call sites.
-2. Replace internal `BigDecimal` usage with `Magnitude` in a follow-up PR, starting with prefix algebra and expression
-   factors.
+1. Introduce the `Magnitude` contract while preserving current behavior.
+2. Replace public and internal `BigDecimal` usage with `Magnitude` across measures, builders, prefix algebra, expression
+   factors, tests, docs, and ABI declarations.
 3. Define the multiplatform decimal backend behind the same `Magnitude` behavior.
 4. Split source sets once the backend choice is validated for JVM, JS, and Native.
-5. Plan a separate public API migration if measure constructors or destructuring should expose `Magnitude` directly.

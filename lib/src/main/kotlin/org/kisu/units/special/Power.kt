@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **power**, measured in [Watt].
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  *
  * The canonical SI unit is the [Watt] (`W`), commonly scaled as `mW`, `kW`, or `MW`.
  */
-class Power internal constructor(magnitude: BigDecimal, expression: Watt) :
+class Power internal constructor(magnitude: Magnitude, expression: Watt) :
     Measure<Watt, Power>(magnitude, expression, ::Power) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Watt(prefix))
 }
 

@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.joulesPerTesla
 import org.kisu.units.electromagnetic.MagneticDipoleMoment.Companion.JoulePerTesla
 
 class MagneticDipoleMomentTest : StringSpec({
     "creates a MagneticDipoleMoment" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().joulesPerTesla.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerTesla(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class MagneticDipoleMomentTest : StringSpec({
     }
 
     "creates a base MagneticDipoleMoment" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.joulesPerTesla.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerTesla()

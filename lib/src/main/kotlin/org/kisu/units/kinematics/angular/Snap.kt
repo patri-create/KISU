@@ -1,11 +1,11 @@
 package org.kisu.units.kinematics.angular
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondFourth
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **angular snap**, measured in
@@ -18,10 +18,10 @@ import java.math.BigDecimal
  * The associated unit representation is [RadianPerSecondFourth] (`rad/s⁴`).
  */
 class Snap(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: RadianPerSecondFourth
 ) : Measure<Snap.RadianPerSecondFourth, Snap>(magnitude, expression, ::Snap) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, RadianPerSecondFourth(prefix))
 
     /**

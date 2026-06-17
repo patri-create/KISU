@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetization**, measured in
@@ -20,11 +20,11 @@ import java.math.BigDecimal
  * The associated unit representation is [AmperePerMetre] (`A/m`).
  */
 class Magnetization(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: AmperePerMetre
 ) : Measure<Magnetization.AmperePerMetre, Magnetization>(magnitude, expression, ::Magnetization) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, AmperePerMetre(prefix))
 
     /**

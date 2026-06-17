@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Henry
-import java.math.BigDecimal
 
 /**
  * Represents magnetic permeability, here exposed under the type name
@@ -21,7 +21,7 @@ import java.math.BigDecimal
  * The associated unit representation is [HenryPerMetre] (`H/m`).
  */
 class MagneticPermittivity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: HenryPerMetre
 ) : Measure<MagneticPermittivity.HenryPerMetre, MagneticPermittivity>(
     magnitude = magnitude,
@@ -29,7 +29,7 @@ class MagneticPermittivity(
     create = ::MagneticPermittivity
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, HenryPerMetre(prefix))
 
     /**

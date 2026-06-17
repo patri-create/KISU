@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.radiansPerSecondFourth
 import org.kisu.units.kinematics.angular.Snap.Companion.RadianPerSecondFourth
 
 class SnapTest : StringSpec({
     "creates an angular Snap" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().radiansPerSecondFourth.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe RadianPerSecondFourth(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class SnapTest : StringSpec({
     }
 
     "creates a base angular Snap" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.radiansPerSecondFourth.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe RadianPerSecondFourth()

@@ -4,7 +4,7 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
-import org.kisu.KisuConfig
+import org.kisu.Magnitude
 import org.kisu.prefixes.Binary.BASE
 import org.kisu.prefixes.Binary.QUEBI
 import org.kisu.test.generators.Metrics
@@ -24,7 +24,7 @@ class PrefixTest : StringSpec({
             val (prefix, overflow) = a + b
 
             val expectedPower = a.power + b.power
-            val expectedPrefix = a.find(expectedPower.toBigDecimal())
+            val expectedPrefix = a.find(Magnitude(expectedPower))
             val expectedOverflow = expectedPower - expectedPrefix.power
 
             prefix shouldBe expectedPrefix
@@ -37,7 +37,7 @@ class PrefixTest : StringSpec({
             val (prefix, overflow) = a - b
 
             val expectedPower = a.power - b.power
-            val expectedPrefix = a.find(expectedPower.toBigDecimal())
+            val expectedPrefix = a.find(Magnitude(expectedPower))
             val expectedOverflow = expectedPower - expectedPrefix.power
 
             prefix shouldBe expectedPrefix
@@ -65,7 +65,7 @@ class PrefixTest : StringSpec({
 
             val expectedFactor = a.factor * b.factor
             val expectedPrefix = a.find(expectedFactor)
-            val expectedRemainder = expectedFactor.divide(expectedPrefix.factor, KisuConfig.precision)
+            val expectedRemainder = expectedFactor / expectedPrefix.factor
 
             prefix shouldBe expectedPrefix
             remainder.compareTo(expectedRemainder) shouldBe 0
@@ -76,9 +76,9 @@ class PrefixTest : StringSpec({
         checkAll(Times.generator, Times.generator) { a, b ->
             val (prefix, remainder) = a / b
 
-            val expectedFactor = a.factor.divide(b.factor, KisuConfig.precision)
+            val expectedFactor = a.factor / b.factor
             val expectedPrefix = a.find(expectedFactor)
-            val expectedRemainder = expectedFactor.divide(expectedPrefix.factor, KisuConfig.precision)
+            val expectedRemainder = expectedFactor / expectedPrefix.factor
 
             prefix shouldBe expectedPrefix
             remainder.compareTo(expectedRemainder) shouldBe 0

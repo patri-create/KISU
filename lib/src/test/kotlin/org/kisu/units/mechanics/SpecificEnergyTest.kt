@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.joulesPerKilogram
 import org.kisu.units.mechanics.SpecificEnergy.Companion.JoulePerKilogram
 
 class SpecificEnergyTest : StringSpec({
     "creates a SpecificEnergy" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().joulesPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerKilogram(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class SpecificEnergyTest : StringSpec({
     }
 
     "creates a base SpecificEnergy" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.joulesPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe JoulePerKilogram()

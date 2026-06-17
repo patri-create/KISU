@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.siemensPerMetre
 import org.kisu.units.electromagnetic.ElectricConductivity.Companion.SiemensPerMetre
 
 class ElectricConductivityTest : StringSpec({
     "creates an ElectricConductivity" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().siemensPerMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SiemensPerMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class ElectricConductivityTest : StringSpec({
     }
 
     "creates a base ElectricConductivity" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.siemensPerMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SiemensPerMetre()

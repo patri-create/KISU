@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.cubicMetresPerKilogram
 import org.kisu.units.mechanics.SpecificVolume.Companion.CubicMetrePerKilogram
 
 class SpecificVolumeTest : StringSpec({
     "creates a SpecificVolume" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().cubicMetresPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetrePerKilogram(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class SpecificVolumeTest : StringSpec({
     }
 
     "creates a base SpecificVolume" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.cubicMetresPerKilogram.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetrePerKilogram()

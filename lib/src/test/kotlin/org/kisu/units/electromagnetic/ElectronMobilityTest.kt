@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.squareMetresPerVoltSecond
 import org.kisu.units.electromagnetic.ElectronMobility.Companion.SquareMetrePerVoltSecond
 
 class ElectronMobilityTest : StringSpec({
     "creates an ElectronMobility" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().squareMetresPerVoltSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetrePerVoltSecond(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class ElectronMobilityTest : StringSpec({
     }
 
     "creates a base ElectronMobility" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.squareMetresPerVoltSecond.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe SquareMetrePerVoltSecond()

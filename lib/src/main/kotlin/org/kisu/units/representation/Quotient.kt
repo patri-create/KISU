@@ -1,6 +1,6 @@
 package org.kisu.units.representation
 
-import org.kisu.KisuConfig
+import org.kisu.Magnitude
 import org.kisu.Matcher
 import org.kisu.Merger
 import org.kisu.intersect
@@ -8,7 +8,6 @@ import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.CompositeSystem
 import org.kisu.prefixes.primitives.System
 import org.kisu.productSymbol
-import java.math.BigDecimal
 
 /**
  * Represents the quotient of two unit expressions in the physical unit system.
@@ -45,8 +44,8 @@ class Quotient<A, B>(
      * This ensures accurate scaling for expressions involving prefixed units such as
      * `kN/s`, `MJ/(mol·K)`, or `μA/mm²`.
      */
-    override val factor: BigDecimal by lazy {
-        numerator.factor.divide(denominator.factor, KisuConfig.precision)
+    override val factor: Magnitude by lazy {
+        numerator.factor / denominator.factor
     }
 
     /**
@@ -108,8 +107,8 @@ class Quotient<A, B>(
         (intersected + onlyInLeft + onlyInRight.map { it.inverted }).filter { !it.zero }.toSet()
     }
 
-    override fun to(other: Quotient<A, B>): BigDecimal =
-        numerator.to(other.numerator).divide(denominator.to(other.denominator), KisuConfig.precision)
+    override fun to(other: Quotient<A, B>): Magnitude =
+        numerator.to(other.numerator) / denominator.to(other.denominator)
 
     /**
      * Returns the numerator component of the quotient.

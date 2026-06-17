@@ -5,6 +5,7 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
+import org.kisu.Magnitude
 import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.System
 import org.kisu.test.generators.ExponentialPrefixes
@@ -23,7 +24,7 @@ class ExponentialPrefixTest : StringSpec({
             val (prefix, overflow) = left + right
             val expectedPower = Math.addExact(left.power, right.power)
 
-            prefix shouldBe left.find(expectedPower.toBigDecimal())
+            prefix shouldBe left.find(Magnitude(expectedPower))
             overflow shouldBe Math.subtractExact(expectedPower, prefix.power)
         }
     }
@@ -33,7 +34,7 @@ class ExponentialPrefixTest : StringSpec({
             val (prefix, overflow) = left - right
             val expectedPower = Math.subtractExact(left.power, right.power)
 
-            prefix shouldBe left.find(expectedPower.toBigDecimal())
+            prefix shouldBe left.find(Magnitude(expectedPower))
             overflow shouldBe Math.subtractExact(expectedPower, prefix.power)
         }
     }

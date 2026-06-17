@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Gray
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **absorbed dose rate**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [GrayPerSecond] (`Gy/s`).
  */
 class AbsorbedDoseRate(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: GrayPerSecond
 ) : Measure<AbsorbedDoseRate.GrayPerSecond, AbsorbedDoseRate>(magnitude, expression, ::AbsorbedDoseRate) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, GrayPerSecond(prefix))
 
     /**

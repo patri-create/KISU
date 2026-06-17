@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
-import org.kisu.test.generators.bigDecimal
+import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.newtonsPerMetre
 import org.kisu.units.mechanics.SurfaceTension.Companion.NewtonPerMetre
 
 class SurfaceTensionTest : StringSpec({
     "creates a SurfaceTension" {
-        checkAll(Arb.bigDecimal(), MetricBuilders.generator) { magnitude, builder ->
+        checkAll(Arb.magnitude(), MetricBuilders.generator) { magnitude, builder ->
             magnitude.builder().newtonsPerMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe NewtonPerMetre(magnitude.builder().metric)
@@ -22,7 +22,7 @@ class SurfaceTensionTest : StringSpec({
     }
 
     "creates a base SurfaceTension" {
-        checkAll(Arb.bigDecimal()) { magnitude ->
+        checkAll(Arb.magnitude()) { magnitude ->
             magnitude.newtonsPerMetre.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe NewtonPerMetre()

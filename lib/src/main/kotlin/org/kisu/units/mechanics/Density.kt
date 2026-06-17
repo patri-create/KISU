@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **density**, measured in
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  * The associated unit representation is [KilogramPerCubicMetre] (`kg/m³`).
  */
 class Density(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: KilogramPerCubicMetre
 ) : Measure<Density.KilogramPerCubicMetre, Density>(magnitude, expression, ::Density) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramPerCubicMetre(prefix))
 
     /**

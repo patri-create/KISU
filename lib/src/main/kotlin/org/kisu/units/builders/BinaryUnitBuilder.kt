@@ -1,8 +1,8 @@
 package org.kisu.units.builders
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Binary
 import org.kisu.units.base.Information
-import java.math.BigDecimal
 
 /**
  * Builder interface for binary-prefixed quantities.
@@ -13,7 +13,7 @@ import java.math.BigDecimal
  */
 interface BinaryUnitBuilder {
     /** The numeric value of the quantity, before applying the binary prefix. */
-    val magnitude: BigDecimal
+    val magnitude: Magnitude
 
     /** The binary prefix associated with this builder (e.g., KIBI, MEBI). */
     val binary: Binary

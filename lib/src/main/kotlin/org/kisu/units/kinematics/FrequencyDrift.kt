@@ -1,12 +1,12 @@
 package org.kisu.units.kinematics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.kinematics.FrequencyDrift.Companion.HertzPerSecond
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Hertz
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **frequency drift**, measured in
@@ -21,10 +21,10 @@ import java.math.BigDecimal
  * The associated unit representation is [HertzPerSecond] (`Hz/s`).
  */
 class FrequencyDrift internal constructor(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: HertzPerSecond
 ) : Measure<FrequencyDrift.HertzPerSecond, FrequencyDrift>(magnitude, expression, ::FrequencyDrift) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, HertzPerSecond(prefix))
 
     /**

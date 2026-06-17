@@ -1,12 +1,12 @@
 package org.kisu.units.base
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **thermodynamic temperature**, measured in kelvin (K).
@@ -22,13 +22,13 @@ import java.math.BigDecimal
  * This class models temperature as a combination of a [magnitude] and an optional metric [expression],
  * enabling precise representation of values such as millikelvin (mK) or kilokelvin (kK).
  *
- * The magnitude is stored using [BigDecimal] for accuracy. All instances are validated to ensure they
+ * The magnitude is stored using [Magnitude] for accuracy. All instances are validated to ensure they
  * respect physical constraints and are immutable once created.
  */
-class Temperature internal constructor(magnitude: BigDecimal, expression: Kelvin) :
+class Temperature internal constructor(magnitude: Magnitude, expression: Kelvin) :
     Measure<Kelvin, Temperature>(magnitude, expression, ::Temperature) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Kelvin(prefix))
 }
 

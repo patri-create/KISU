@@ -4,7 +4,6 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeSorted
 import io.kotest.matchers.shouldBe
 import io.kotest.property.checkAll
-import org.kisu.KisuConfig
 import org.kisu.test.generators.LinearPrefixes
 import org.kisu.test.generators.Times
 
@@ -19,8 +18,8 @@ class LinearPrefixTest : StringSpec({
     "multiplies factors and returns multiplicative remainder" {
         checkAll(Times.generator, Times.generator) { left, right ->
             val (prefix, remainder) = left * right
-            val expectedFactor = left.factor.multiply(right.factor)
-            val expectedRemainder = expectedFactor.divide(prefix.factor, KisuConfig.precision)
+            val expectedFactor = left.factor * right.factor
+            val expectedRemainder = expectedFactor / prefix.factor
 
             prefix shouldBe left.find(expectedFactor)
             remainder.compareTo(expectedRemainder) shouldBe 0
@@ -30,8 +29,8 @@ class LinearPrefixTest : StringSpec({
     "divides factors and returns multiplicative remainder" {
         checkAll(Times.generator, Times.generator) { left, right ->
             val (prefix, remainder) = left / right
-            val expectedFactor = left.factor.divide(right.factor, KisuConfig.precision)
-            val expectedRemainder = expectedFactor.divide(prefix.factor, KisuConfig.precision)
+            val expectedFactor = left.factor / right.factor
+            val expectedRemainder = expectedFactor / prefix.factor
 
             prefix shouldBe left.find(expectedFactor)
             remainder.compareTo(expectedRemainder) shouldBe 0

@@ -1,12 +1,12 @@
 package org.kisu.units.special
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electrical conductance**, measured in [Siemens].
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  *
  * The canonical SI unit is the [Siemens] (`S`), often seen as `mS` or `µS` in practice.
  */
-class Conductance internal constructor(magnitude: BigDecimal, expression: Siemens) :
+class Conductance internal constructor(magnitude: Magnitude, expression: Siemens) :
     Measure<Siemens, Conductance>(magnitude, expression, ::Conductance) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Siemens(prefix))
 }
 

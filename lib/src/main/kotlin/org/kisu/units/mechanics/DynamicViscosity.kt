@@ -1,11 +1,11 @@
 package org.kisu.units.mechanics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Product
 import org.kisu.units.special.Pascal
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **dynamic viscosity**, measured in
@@ -20,10 +20,10 @@ import java.math.BigDecimal
  * The associated unit representation is [PascalSecond] (`Pa·s`).
  */
 class DynamicViscosity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: PascalSecond
 ) : Measure<DynamicViscosity.PascalSecond, DynamicViscosity>(magnitude, expression, ::DynamicViscosity) {
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, PascalSecond(prefix))
 
     /**

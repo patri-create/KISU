@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Farad
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric permittivity**, measured in
@@ -21,11 +21,11 @@ import java.math.BigDecimal
  * The associated unit representation is [FaradPerMetre] (`F/m`).
  */
 class Permittivity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: FaradPerMetre
 ) : Measure<Permittivity.FaradPerMetre, Permittivity>(magnitude, expression, ::Permittivity) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, FaradPerMetre(prefix))
 
     /**

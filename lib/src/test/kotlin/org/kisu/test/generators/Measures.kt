@@ -1,7 +1,6 @@
 package org.kisu.test.generators
 
 import io.kotest.property.Arb
-import io.kotest.property.arbitrary.bigDecimal
 import io.kotest.property.arbitrary.bind
 import io.kotest.property.arbitrary.filter
 import io.kotest.property.arbitrary.flatMap
@@ -11,7 +10,7 @@ import org.kisu.test.generators.Measures.generator
 
 object Measures : Generator<TestMeasure> {
     override val generator: Arb<TestMeasure> =
-        Arb.bind(Arb.bigDecimal().map { it }, Metrics.generator) { magnitude, prefix ->
+        Arb.bind(Arb.magnitude().map { it }, Metrics.generator) { magnitude, prefix ->
             TestMeasure(magnitude, prefix)
         }
 }

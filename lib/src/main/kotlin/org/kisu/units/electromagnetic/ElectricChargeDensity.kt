@@ -1,12 +1,12 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.electromagnetic.ElectricChargeDensity.Companion.CoulombPerCubicMetre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Coulomb
 import org.kisu.units.special.CubicMetre
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **electric charge density**, measured in
@@ -19,7 +19,7 @@ import java.math.BigDecimal
  * The associated unit representation is [CoulombPerCubicMetre] (`C/m³`).
  */
 class ElectricChargeDensity(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: CoulombPerCubicMetre
 ) : Measure<ElectricChargeDensity.CoulombPerCubicMetre, ElectricChargeDensity>(
     magnitude = magnitude,
@@ -27,7 +27,7 @@ class ElectricChargeDensity(
     create = ::ElectricChargeDensity
 ) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CoulombPerCubicMetre(prefix))
 
     /**

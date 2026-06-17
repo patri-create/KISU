@@ -1,11 +1,11 @@
 package org.kisu.units.electromagnetic
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Ampere
 import org.kisu.units.representation.Product
 import org.kisu.units.special.Radian
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **magnetomotive force**, measured in
@@ -21,11 +21,11 @@ import java.math.BigDecimal
  * API.
  */
 class MagnetomotiveForce(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: AmpereRadian
 ) : Measure<MagnetomotiveForce.AmpereRadian, MagnetomotiveForce>(magnitude, expression, ::MagnetomotiveForce) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, AmpereRadian(prefix))
 
     /**

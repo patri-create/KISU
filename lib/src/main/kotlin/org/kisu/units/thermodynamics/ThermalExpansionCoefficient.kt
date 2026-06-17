@@ -1,5 +1,6 @@
 package org.kisu.units.thermodynamics
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
@@ -7,7 +8,6 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
-import java.math.BigDecimal
 
 /**
  * Represents the physical quantity of **thermal expansion coefficient**, measured in
@@ -23,11 +23,11 @@ import java.math.BigDecimal
  * The associated SI unit representation is [ReciprocalKelvin] (`K⁻¹`).
  */
 class ThermalExpansionCoefficient(
-    magnitude: BigDecimal,
+    magnitude: Magnitude,
     expression: ReciprocalKelvin
 ) : Measure<ReciprocalKelvin, ThermalExpansionCoefficient>(magnitude, expression, ::ThermalExpansionCoefficient) {
 
-    internal constructor(magnitude: BigDecimal, prefix: Metric = Metric.BASE) :
+    internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalKelvin(prefix))
 }
 
