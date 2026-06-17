@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondSquared
+import org.kisu.units.kinematics.linear.Acceleration.Companion.MetrePerSecondSquared
 import org.kisu.units.representation.Quotient
 
 /**

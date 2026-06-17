@@ -8,6 +8,7 @@ import org.kisu.units.base.Metre
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Watt
+import org.kisu.units.thermodynamics.ThermalConductivity.Companion.WattPerMetreKelvin
 
 /**
  * Represents the physical quantity of **thermal conductivity**, measured in

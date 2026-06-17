@@ -6,6 +6,7 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Quotient
+import org.kisu.units.thermodynamics.TemperatureGradient.Companion.KelvinPerMetre
 
 /**
  * Represents the physical quantity of **temperature gradient**, measured in

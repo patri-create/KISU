@@ -9,7 +9,7 @@ import org.kisu.prefixes.ExponentialPrefix
 import org.kisu.prefixes.LinearPrefix
 import org.kisu.prefixes.Prefix
 import org.kisu.prefixes.primitives.System
-import org.kisu.zero
+import org.kisu.test.utils.zero
 import java.math.BigInteger
 
 object Magnitudes {
@@ -29,11 +29,13 @@ object Magnitudes {
         current: T,
         next: T,
     ): Magnitude where T : Prefix<T> {
-        return when {
-            current is ExponentialPrefix<*> && next is ExponentialPrefix<*> ->
+        return when (current) {
+            is ExponentialPrefix<*> if next is ExponentialPrefix<*> ->
                 exponentBase.pow(next.power - current.power)
-            current is LinearPrefix<*> && next is LinearPrefix<*> ->
+
+            is LinearPrefix<*> if next is LinearPrefix<*> ->
                 next.factor / current.factor
+
             else -> error("Unsupported prefix type: ${current::class.qualifiedName}")
         }
     }

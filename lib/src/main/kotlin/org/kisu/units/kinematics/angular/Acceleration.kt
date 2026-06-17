@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.SecondSquared
+import org.kisu.units.kinematics.angular.Acceleration.Companion.RadianPerSecondSquared
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Radian
 

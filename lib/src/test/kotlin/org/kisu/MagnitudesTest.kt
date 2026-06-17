@@ -13,7 +13,6 @@ import io.kotest.property.arbitrary.long
 import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.short
 import io.kotest.property.checkAll
-import org.kisu.Magnitude
 import org.kisu.test.generators.magnitude
 import java.math.BigInteger
 

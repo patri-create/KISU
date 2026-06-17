@@ -6,6 +6,7 @@ import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
+import org.kisu.units.thermodynamics.HeatCapacity.Companion.JoulePerKelvin
 
 /**
  * Represents the physical quantity of **heat capacity**, measured in

@@ -3,6 +3,7 @@ package org.kisu.units.mechanics
 import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.mechanics.HeatFluxDensity.Companion.WattPerSquareMetre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
 import org.kisu.units.special.Watt

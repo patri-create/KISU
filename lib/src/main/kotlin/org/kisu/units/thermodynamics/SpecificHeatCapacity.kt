@@ -8,6 +8,7 @@ import org.kisu.units.base.Kilogram
 import org.kisu.units.representation.Product
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
+import org.kisu.units.thermodynamics.SpecificHeatCapacity.Companion.JoulePerKilogramKelvin
 
 /**
  * Represents the physical quantity of **specific heat capacity**, measured in

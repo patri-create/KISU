@@ -12,4 +12,4 @@ package org.kisu
  * ```
  */
 val Number.magnitude: Magnitude
-    get() = if (this is Magnitude) this else Magnitude(this)
+    get() = this as? Magnitude ?: Magnitude(this)

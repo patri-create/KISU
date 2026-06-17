@@ -3,6 +3,7 @@ package org.kisu.units.electromagnetic
 import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
+import org.kisu.units.electromagnetic.MagneticDipoleMoment.Companion.JoulePerTesla
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.Joule
 import org.kisu.units.special.Tesla

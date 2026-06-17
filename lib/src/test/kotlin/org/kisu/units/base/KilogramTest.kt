@@ -7,7 +7,6 @@ import io.kotest.property.checkAll
 import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.ExponentialAlgebra
-import org.kisu.prefixes.times
 import org.kisu.test.generators.Metrics
 
 class KilogramTest : StringSpec({

@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Candela
+import org.kisu.units.photometric.Luminance.Companion.CandelaPerSquareMetre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.SquareMetre
 

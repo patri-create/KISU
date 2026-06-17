@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondFourth
+import org.kisu.units.kinematics.linear.Snap.Companion.MetrePerSecondFourth
 import org.kisu.units.representation.Quotient
 
 /**

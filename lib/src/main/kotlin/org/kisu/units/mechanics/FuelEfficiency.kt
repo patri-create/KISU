@@ -4,6 +4,7 @@ import org.kisu.Magnitude
 import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
+import org.kisu.units.mechanics.FuelEfficiency.Companion.MetrePerCubicMetre
 import org.kisu.units.representation.Quotient
 import org.kisu.units.special.CubicMetre
 

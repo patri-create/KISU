@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.units.Measure
 import org.kisu.units.base.Metre
 import org.kisu.units.base.SecondFifth
+import org.kisu.units.kinematics.linear.Crackle.Companion.MetrePerSecondFifth
 import org.kisu.units.representation.Quotient
 
 /**
