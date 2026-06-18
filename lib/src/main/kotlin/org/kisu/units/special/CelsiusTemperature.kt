@@ -32,7 +32,7 @@ class CelsiusTemperature internal constructor(magnitude: Magnitude, expression: 
      * Returns this Celsius temperature as an absolute kelvin temperature.
      */
     val kelvin: Temperature
-        get() = Temperature(canonical.component1() + Celsius.KELVIN_TO_CELSIUS)
+        get() = Temperature(canonical.component1() + Celsius.CELSIUS_TO_KELVIN_OFFSET)
 }
 
 /**
@@ -61,6 +61,6 @@ class Celsius private constructor(
     companion object {
         /** The canonical symbol for degree Celsius: "°C". */
         internal val UNIT = Unit("°C", 1)
-        internal val KELVIN_TO_CELSIUS = Magnitude(273.15)
+        internal val CELSIUS_TO_KELVIN_OFFSET = Magnitude("273.15")
     }
 }

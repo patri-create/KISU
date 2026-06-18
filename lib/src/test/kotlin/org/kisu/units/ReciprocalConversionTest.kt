@@ -1,5 +1,6 @@
 package org.kisu.units
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
@@ -169,6 +170,12 @@ class ReciprocalConversionTest : StringSpec({
                 electricConductivity.component1(),
                 electricConductivity.resistivity.component1(),
             )
+        }
+    }
+
+    "fails when converting zero electric conductivity to resistivity" {
+        shouldThrow<ArithmeticException> {
+            0.siemensPerMetre.resistivity
         }
     }
 

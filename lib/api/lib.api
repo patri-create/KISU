@@ -2349,8 +2349,6 @@ public final class org/kisu/units/special/InverseFarad : org/kisu/units/represen
 	public static final field Companion Lorg/kisu/units/special/InverseFarad$Companion;
 	public fun <init> (Lorg/kisu/prefixes/Metric;)V
 	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Lorg/kisu/prefixes/algebra/Algebra;Lorg/kisu/prefixes/Metric;Lorg/kisu/units/representation/Unit;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/algebra/Algebra;Lorg/kisu/prefixes/Metric;Lorg/kisu/units/representation/Unit;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 }
 
 public final class org/kisu/units/special/InverseFarad$Companion {

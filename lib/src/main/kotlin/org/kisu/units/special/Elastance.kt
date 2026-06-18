@@ -41,7 +41,7 @@ class Elastance internal constructor(magnitude: Magnitude, expression: InverseFa
  * @see Elastance
  * @see Farad
  */
-class InverseFarad constructor(
+class InverseFarad private constructor(
     algebra: Algebra<Metric> = ExponentialAlgebra(),
     prefix: Metric,
     unit: Unit

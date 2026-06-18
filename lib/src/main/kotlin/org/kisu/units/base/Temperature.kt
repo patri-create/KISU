@@ -38,7 +38,7 @@ class Temperature internal constructor(magnitude: Magnitude, expression: Kelvin)
      * Returns this absolute temperature on the Celsius scale.
      */
     val celsius: CelsiusTemperature
-        get() = CelsiusTemperature(canonical.component1() - Celsius.KELVIN_TO_CELSIUS)
+        get() = CelsiusTemperature(canonical.component1() - Celsius.CELSIUS_TO_KELVIN_OFFSET)
 
     /**
      * Returns the reciprocal-kelvin coefficient associated with this temperature.

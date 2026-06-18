@@ -109,10 +109,10 @@ class Magnitude(
     /**
      * Returns the reciprocal magnitude, `1 / this`, using this magnitude's arithmetic [config].
      *
-     * Zero is mapped to zero so reciprocal unit projections can preserve zero-valued measures without throwing.
+     * @throws ArithmeticException when this magnitude is zero.
      */
     val inverted: Magnitude
-        get() = if (value.zero) Magnitude.ZERO else Magnitude(BigDecimal.ONE.divide(value, config.precision), config)
+        get() = Magnitude(BigDecimal.ONE.divide(value, config.precision), config)
 
     /**
      * Adds [other] and keeps this magnitude's [config].
