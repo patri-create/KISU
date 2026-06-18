@@ -34,6 +34,12 @@ class MagneticPermittivity(
         this(magnitude, HenryPerMetre(prefix))
 
     /**
+     * Returns the magnetic susceptibility associated with this permeability by inverting its canonical magnitude.
+     */
+    val magneticSusceptibility: MagneticSusceptibility
+        get() = MagneticSusceptibility(canonical.component1().inverted)
+
+    /**
      * Represents the SI unit **henry per metre (H/m)**.
      *
      * This unit is used for magnetic permeability: inductive response normalized by

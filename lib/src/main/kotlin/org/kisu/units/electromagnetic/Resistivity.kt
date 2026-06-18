@@ -30,6 +30,12 @@ class Resistivity(
         this(magnitude, OhmMetre(prefix))
 
     /**
+     * Returns the electrical conductivity associated with this resistivity by inverting its canonical magnitude.
+     */
+    val electricConductivity: ElectricConductivity
+        get() = ElectricConductivity(canonical.component1().inverted)
+
+    /**
      * Represents the SI unit **ohm metre (Ω·m)**.
      *
      * This unit measures **electrical resistivity**, i.e., the intrinsic property

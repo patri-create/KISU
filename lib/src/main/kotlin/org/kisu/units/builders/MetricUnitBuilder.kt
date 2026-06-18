@@ -17,6 +17,7 @@ import org.kisu.units.chemistry.MolarHeatCapacity
 import org.kisu.units.chemistry.MolarMass
 import org.kisu.units.chemistry.MolarVolume
 import org.kisu.units.chemistry.Molarity
+import org.kisu.units.chemistry.ReciprocalAmount
 import org.kisu.units.electromagnetic.ElectricChargeDensity
 import org.kisu.units.electromagnetic.ElectricConductivity
 import org.kisu.units.electromagnetic.ElectricCurrentDensity
@@ -84,6 +85,7 @@ import org.kisu.units.special.CatalyticActivity
 import org.kisu.units.special.CelsiusTemperature
 import org.kisu.units.special.Conductance
 import org.kisu.units.special.DoseEquivalent
+import org.kisu.units.special.Elastance
 import org.kisu.units.special.ElectricCharge
 import org.kisu.units.special.ElectricPotential
 import org.kisu.units.special.Energy
@@ -350,6 +352,17 @@ val MetricUnitBuilder.faradsPerMetre: Permittivity
  * ```
  */
 val MetricUnitBuilder.farads: Capacitance get() = Capacitance(magnitude, metric)
+
+/**
+ * Creates an [Elastance] measure by applying the metric prefix scale to the magnitude.
+ *
+ * Example usage:
+ * ```
+ * val elastance = 1.kilo.reciprocalFarads // 1000 F⁻¹
+ * ```
+ */
+val MetricUnitBuilder.reciprocalFarads: Elastance
+    get() = Elastance(magnitude, metric)
 
 /**
  * Creates a [Yank] measure by applying the metric prefix scale to the magnitude.
@@ -1040,6 +1053,17 @@ val MetricUnitBuilder.reciprocalHenries: MagneticReluctance
  */
 val MetricUnitBuilder.reciprocalKelvins: ThermalExpansionCoefficient
     get() = ThermalExpansionCoefficient(magnitude, metric)
+
+/**
+ * Creates a [ReciprocalAmount] measure in reciprocal moles.
+ *
+ * Example usage:
+ * ```
+ * val reciprocalAmount = 1.reciprocalMoles
+ * ```
+ */
+val MetricUnitBuilder.reciprocalMoles: ReciprocalAmount
+    get() = ReciprocalAmount(magnitude, metric)
 
 /**
  * Creates a [WaveNumber] measure in reciprocal metres.

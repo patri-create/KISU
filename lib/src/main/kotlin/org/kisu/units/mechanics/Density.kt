@@ -28,6 +28,12 @@ class Density(
         this(magnitude, KilogramPerCubicMetre(prefix))
 
     /**
+     * Returns the specific volume associated with this density by inverting its canonical magnitude.
+     */
+    val specificVolume: SpecificVolume
+        get() = SpecificVolume(canonical.component1().inverted)
+
+    /**
      * Unit of [Density].
      *
      * Represents the unit of **density**, i.e., the physical quantity measuring

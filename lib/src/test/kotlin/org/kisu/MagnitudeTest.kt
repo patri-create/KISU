@@ -186,6 +186,25 @@ class MagnitudeTest : StringSpec({
         }
     }
 
+    "inverts values with configured precision" {
+        checkAll(
+            Arb.int(range = -100..100).filter { number -> number != 0 },
+            Arb.int(range = 1..34),
+        ) { number, precision ->
+            val config = MagnitudeConfig(MathContext(precision, RoundingMode.DOWN))
+            val value = BigDecimal.valueOf(number.toLong())
+
+            Magnitude(value, config).inverted.toBigDecimal() shouldBe BigDecimal.ONE.divide(value, config.precision)
+            Magnitude(value, config).inverted.config shouldBe config
+        }
+    }
+
+    "fails when inverting zero" {
+        shouldThrow<ArithmeticException> {
+            Magnitude.ZERO.inverted
+        }
+    }
+
     "fails when raising zero to a negative exponent" {
         checkAll(Arb.int(range = -12..-1)) { exponent ->
             shouldThrow<ArithmeticException> {

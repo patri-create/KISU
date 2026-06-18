@@ -8,6 +8,7 @@ import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 import org.kisu.units.special.Pascal
+import org.kisu.units.special.Pressure
 
 /**
  * Represents the physical quantity of **compressibility**, measured in
@@ -30,6 +31,12 @@ class Compressibility(
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalPascal(prefix))
+
+    /**
+     * Returns the pressure associated with this compressibility by inverting its canonical magnitude.
+     */
+    val pressure: Pressure
+        get() = Pressure(canonical.component1().inverted)
 }
 
 /**

@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.base.Time
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -26,6 +27,12 @@ class Radioactivity internal constructor(magnitude: Magnitude, expression: Becqu
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Becquerel(prefix))
+
+    /**
+     * Returns the mean interval associated with this activity by inverting its canonical magnitude.
+     */
+    val meanInterval: Time
+        get() = Time(canonical.component1().inverted)
 }
 
 /**

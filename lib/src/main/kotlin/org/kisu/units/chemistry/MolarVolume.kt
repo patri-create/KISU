@@ -30,6 +30,12 @@ class MolarVolume(
         this(magnitude, CubicMetrePerMole(prefix))
 
     /**
+     * Returns the molarity associated with this molar volume by inverting its canonical magnitude.
+     */
+    val molarity: Molarity
+        get() = Molarity(canonical.component1().inverted)
+
+    /**
      * Represents the SI unit **cubic metre per mole (m³/mol)**.
      *
      * This unit measures **molar volume**, i.e., the volume occupied by one mole

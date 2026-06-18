@@ -28,6 +28,12 @@ class Molality(
         this(magnitude, MolPerKilogram(prefix))
 
     /**
+     * Returns the molar mass associated with this molality by inverting its canonical magnitude.
+     */
+    val molarMass: MolarMass
+        get() = MolarMass(canonical.component1().inverted)
+
+    /**
      * Represents the SI unit **mole per kilogram (mol/kg)**.
      *
      * This unit measures **molality**, i.e., the amount of substance per unit mass

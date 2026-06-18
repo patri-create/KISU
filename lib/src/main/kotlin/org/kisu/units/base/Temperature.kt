@@ -7,6 +7,9 @@ import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.special.Celsius
+import org.kisu.units.special.CelsiusTemperature
+import org.kisu.units.thermodynamics.ThermalExpansionCoefficient
 
 /**
  * Represents the physical quantity of **thermodynamic temperature**, measured in kelvin (K).
@@ -30,6 +33,18 @@ class Temperature internal constructor(magnitude: Magnitude, expression: Kelvin)
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Kelvin(prefix))
+
+    /**
+     * Returns this absolute temperature on the Celsius scale.
+     */
+    val celsius: CelsiusTemperature
+        get() = CelsiusTemperature(canonical.component1() - Celsius.CELSIUS_TO_KELVIN_OFFSET)
+
+    /**
+     * Returns the reciprocal-kelvin coefficient associated with this temperature.
+     */
+    val thermalExpansionCoefficient: ThermalExpansionCoefficient
+        get() = ThermalExpansionCoefficient(canonical.component1().inverted)
 }
 
 class Kelvin private constructor(

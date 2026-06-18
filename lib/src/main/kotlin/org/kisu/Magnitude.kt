@@ -107,6 +107,14 @@ class Magnitude(
         get() = value.scale()
 
     /**
+     * Returns the reciprocal magnitude, `1 / this`, using this magnitude's arithmetic [config].
+     *
+     * @throws ArithmeticException when this magnitude is zero.
+     */
+    val inverted: Magnitude
+        get() = Magnitude(BigDecimal.ONE.divide(value, config.precision), config)
+
+    /**
      * Adds [other] and keeps this magnitude's [config].
      */
     operator fun plus(other: Magnitude): Magnitude =

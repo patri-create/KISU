@@ -6,6 +6,7 @@ import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.base.Kelvin
+import org.kisu.units.base.Temperature
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -29,6 +30,12 @@ class ThermalExpansionCoefficient(
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalKelvin(prefix))
+
+    /**
+     * Returns the temperature associated with this reciprocal-kelvin coefficient.
+     */
+    val temperature: Temperature
+        get() = Temperature(canonical.component1().inverted)
 }
 
 /**

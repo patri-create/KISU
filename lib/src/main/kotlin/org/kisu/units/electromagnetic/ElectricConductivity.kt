@@ -31,6 +31,12 @@ class ElectricConductivity(
         this(magnitude, SiemensPerMetre(prefix))
 
     /**
+     * Returns the electrical resistivity associated with this conductivity by inverting its canonical magnitude.
+     */
+    val resistivity: Resistivity
+        get() = Resistivity(canonical.component1().inverted)
+
+    /**
      * Represents the SI unit **siemens per metre (S/m)**.
      *
      * This unit measures **electric conductivity**, i.e., the ability of a material

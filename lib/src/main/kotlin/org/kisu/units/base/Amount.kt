@@ -6,6 +6,7 @@ import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.base.Amount.Companion.AVOGADROS_NUMBER
+import org.kisu.units.chemistry.ReciprocalAmount
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -30,6 +31,12 @@ class Amount internal constructor(magnitude: Magnitude, expression: Mole) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Mole(prefix))
+
+    /**
+     * Returns this amount as a reciprocal amount (`mol⁻¹`) by inverting its canonical magnitude.
+     */
+    val reciprocalAmount: ReciprocalAmount
+        get() = ReciprocalAmount(canonical.component1().inverted)
 
     companion object {
         /**

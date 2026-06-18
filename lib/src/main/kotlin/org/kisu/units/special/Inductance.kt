@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.electromagnetic.MagneticReluctance
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -26,6 +27,12 @@ class Inductance internal constructor(magnitude: Magnitude, expression: Henry) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Henry(prefix))
+
+    /**
+     * Returns the magnetic reluctance associated with this inductance by inverting its canonical magnitude.
+     */
+    val magneticReluctance: MagneticReluctance
+        get() = MagneticReluctance(canonical.component1().inverted)
 }
 
 /**

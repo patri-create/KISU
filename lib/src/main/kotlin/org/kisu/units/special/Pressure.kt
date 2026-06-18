@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.mechanics.Compressibility
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -26,6 +27,12 @@ class Pressure internal constructor(magnitude: Magnitude, expression: Pascal) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Pascal(prefix))
+
+    /**
+     * Returns the compressibility associated with this pressure by inverting its canonical magnitude.
+     */
+    val compressibility: Compressibility
+        get() = Compressibility(canonical.component1().inverted)
 }
 
 /**
