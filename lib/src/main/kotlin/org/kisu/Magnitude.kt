@@ -106,6 +106,9 @@ class Magnitude(
     val scale: Int
         get() = value.scale()
 
+    val inverted: Magnitude
+        get() = if (value.zero) Magnitude.ZERO else Magnitude(BigDecimal.ONE.divide(value, config.precision), config)
+
     /**
      * Adds [other] and keeps this magnitude's [config].
      */

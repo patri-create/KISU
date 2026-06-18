@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.base.Time
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -24,6 +25,9 @@ class Frequency internal constructor(magnitude: Magnitude, expression: Hertz) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Hertz(prefix))
+
+    val period: Time
+        get() = Time(canonical.component1().inverted)
 }
 
 /**

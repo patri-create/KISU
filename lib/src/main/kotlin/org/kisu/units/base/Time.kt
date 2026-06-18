@@ -7,6 +7,8 @@ import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
+import org.kisu.units.special.Frequency
+import org.kisu.units.special.Radioactivity
 
 /**
  * Represents the physical quantity of **time**, measured in seconds (s).
@@ -27,6 +29,12 @@ class Time internal constructor(magnitude: Magnitude, expression: Second) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Second(prefix))
+
+    val frequency: Frequency
+        get() = Frequency(canonical.component1().inverted)
+
+    val activity: Radioactivity
+        get() = Radioactivity(canonical.component1().inverted)
 }
 
 /**

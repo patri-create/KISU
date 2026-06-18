@@ -29,6 +29,9 @@ class Resistivity(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, OhmMetre(prefix))
 
+    val electricConductivity: ElectricConductivity
+        get() = ElectricConductivity(canonical.component1().inverted)
+
     /**
      * Represents the SI unit **ohm metre (Ω·m)**.
      *

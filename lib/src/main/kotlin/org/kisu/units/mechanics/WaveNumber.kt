@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.base.Length
 import org.kisu.units.base.Metre
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
@@ -25,8 +26,12 @@ class WaveNumber(
     magnitude: Magnitude,
     expression: ReciprocalMetre
 ) : Measure<ReciprocalMetre, WaveNumber>(magnitude, expression, ::WaveNumber) {
+
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalMetre(prefix))
+
+    val wavelength: Length
+        get() = Length(canonical.component1().inverted)
 }
 
 /**

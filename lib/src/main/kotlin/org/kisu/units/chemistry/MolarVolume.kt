@@ -29,6 +29,9 @@ class MolarVolume(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetrePerMole(prefix))
 
+    val molarity: Molarity
+        get() = Molarity(canonical.component1().inverted)
+
     /**
      * Represents the SI unit **cubic metre per mole (m³/mol)**.
      *

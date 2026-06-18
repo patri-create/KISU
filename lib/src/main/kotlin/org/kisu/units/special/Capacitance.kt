@@ -26,6 +26,9 @@ class Capacitance internal constructor(magnitude: Magnitude, expression: Farad) 
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Farad(prefix))
+
+    val elastance: Elastance
+        get() = Elastance(canonical.component1().inverted)
 }
 
 /**

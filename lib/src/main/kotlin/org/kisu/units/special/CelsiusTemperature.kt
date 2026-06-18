@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.base.Temperature
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -26,6 +27,9 @@ class CelsiusTemperature internal constructor(magnitude: Magnitude, expression: 
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Celsius(prefix))
+
+    val kelvin: Temperature
+        get() = Temperature(canonical.component1() + Celsius.KELVIN_TO_CELSIUS)
 }
 
 /**
@@ -54,5 +58,6 @@ class Celsius private constructor(
     companion object {
         /** The canonical symbol for degree Celsius: "°C". */
         internal val UNIT = Unit("°C", 1)
+        internal val KELVIN_TO_CELSIUS = Magnitude(273.15)
     }
 }

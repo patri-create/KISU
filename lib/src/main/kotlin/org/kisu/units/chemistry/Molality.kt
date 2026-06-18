@@ -27,6 +27,9 @@ class Molality(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MolPerKilogram(prefix))
 
+    val molarMass: MolarMass
+        get() = MolarMass(canonical.component1().inverted)
+
     /**
      * Represents the SI unit **mole per kilogram (mol/kg)**.
      *

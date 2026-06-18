@@ -45,6 +45,7 @@ public final class org/kisu/Magnitude : java/lang/Number, java/lang/Comparable {
 	public final fun getAbs ()Lorg/kisu/Magnitude;
 	public final fun getHasFraction ()Z
 	public final fun getInteger ()Z
+	public final fun getInverted ()Lorg/kisu/Magnitude;
 	public final fun getNegated ()Lorg/kisu/Magnitude;
 	public final fun getNegative ()Z
 	public final fun getOne ()Z
@@ -431,6 +432,7 @@ public abstract class org/kisu/units/Measure : java/lang/Comparable {
 
 public final class org/kisu/units/base/Amount : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/base/Amount$Companion;
+	public final fun getReciprocalAmount ()Lorg/kisu/units/chemistry/ReciprocalAmount;
 }
 
 public final class org/kisu/units/base/Amount$Companion {
@@ -501,6 +503,7 @@ public final class org/kisu/units/base/Kilogram$Companion {
 }
 
 public final class org/kisu/units/base/Length : org/kisu/units/Measure {
+	public final fun getWaveNumber ()Lorg/kisu/units/mechanics/WaveNumber;
 }
 
 public final class org/kisu/units/base/LuminousIntensity : org/kisu/units/Measure {
@@ -582,9 +585,13 @@ public final class org/kisu/units/base/SecondSquared$Companion {
 }
 
 public final class org/kisu/units/base/Temperature : org/kisu/units/Measure {
+	public final fun getCelsius ()Lorg/kisu/units/special/CelsiusTemperature;
+	public final fun getThermalExpansionCoefficient ()Lorg/kisu/units/thermodynamics/ThermalExpansionCoefficient;
 }
 
 public final class org/kisu/units/base/Time : org/kisu/units/Measure {
+	public final fun getActivity ()Lorg/kisu/units/special/Radioactivity;
+	public final fun getFrequency ()Lorg/kisu/units/special/Frequency;
 }
 
 public final class org/kisu/units/builders/AttoBuilder : org/kisu/units/builders/MetricUnitBuilder {
@@ -909,9 +916,11 @@ public final class org/kisu/units/builders/MetricUnitBuilderKt {
 	public static final fun getRadiansPerSecondFourth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Snap;
 	public static final fun getRadiansPerSecondSixth (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Pop;
 	public static final fun getRadiansPerSecondSquared (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/kinematics/angular/Acceleration;
+	public static final fun getReciprocalFarads (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Elastance;
 	public static final fun getReciprocalHenries (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagneticReluctance;
 	public static final fun getReciprocalKelvins (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/thermodynamics/ThermalExpansionCoefficient;
 	public static final fun getReciprocalMetres (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/WaveNumber;
+	public static final fun getReciprocalMoles (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/chemistry/ReciprocalAmount;
 	public static final fun getReciprocalPascals (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/mechanics/Compressibility;
 	public static final fun getSeconds (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Time;
 	public static final fun getSiemens (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Conductance;
@@ -1073,9 +1082,11 @@ public final class org/kisu/units/builders/NumberExtensionsKt {
 	public static final fun getRadiansPerSecondFourth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Snap;
 	public static final fun getRadiansPerSecondSixth (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Pop;
 	public static final fun getRadiansPerSecondSquared (Ljava/lang/Number;)Lorg/kisu/units/kinematics/angular/Acceleration;
+	public static final fun getReciprocalFarads (Ljava/lang/Number;)Lorg/kisu/units/special/Elastance;
 	public static final fun getReciprocalHenries (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagneticReluctance;
 	public static final fun getReciprocalKelvins (Ljava/lang/Number;)Lorg/kisu/units/thermodynamics/ThermalExpansionCoefficient;
 	public static final fun getReciprocalMetres (Ljava/lang/Number;)Lorg/kisu/units/mechanics/WaveNumber;
+	public static final fun getReciprocalMoles (Ljava/lang/Number;)Lorg/kisu/units/chemistry/ReciprocalAmount;
 	public static final fun getReciprocalPascals (Ljava/lang/Number;)Lorg/kisu/units/mechanics/Compressibility;
 	public static final fun getSeconds (Ljava/lang/Number;)Lorg/kisu/units/base/Time;
 	public static final fun getSiemens (Ljava/lang/Number;)Lorg/kisu/units/special/Conductance;
@@ -1424,6 +1435,7 @@ public final class org/kisu/units/chemistry/CatalyticEfficiency$Companion {
 public final class org/kisu/units/chemistry/Molality : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/Molality$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getMolarMass ()Lorg/kisu/units/chemistry/MolarMass;
 }
 
 public final class org/kisu/units/chemistry/Molality$Companion {
@@ -1456,6 +1468,7 @@ public final class org/kisu/units/chemistry/MolarHeatCapacity$Companion {
 public final class org/kisu/units/chemistry/MolarMass : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarMass$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getMolality ()Lorg/kisu/units/chemistry/Molality;
 }
 
 public final class org/kisu/units/chemistry/MolarMass$Companion {
@@ -1464,6 +1477,7 @@ public final class org/kisu/units/chemistry/MolarMass$Companion {
 public final class org/kisu/units/chemistry/MolarVolume : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarVolume$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getMolarity ()Lorg/kisu/units/chemistry/Molarity;
 }
 
 public final class org/kisu/units/chemistry/MolarVolume$Companion {
@@ -1472,9 +1486,23 @@ public final class org/kisu/units/chemistry/MolarVolume$Companion {
 public final class org/kisu/units/chemistry/Molarity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/Molarity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getMolarVolume ()Lorg/kisu/units/chemistry/MolarVolume;
 }
 
 public final class org/kisu/units/chemistry/Molarity$Companion {
+}
+
+public final class org/kisu/units/chemistry/ReciprocalAmount : org/kisu/units/Measure {
+	public final fun getAmount ()Lorg/kisu/units/base/Amount;
+}
+
+public final class org/kisu/units/chemistry/ReciprocalMole : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/chemistry/ReciprocalMole$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/chemistry/ReciprocalMole$Companion {
 }
 
 public final class org/kisu/units/electromagnetic/ElectricChargeDensity : org/kisu/units/Measure {
@@ -1488,6 +1516,7 @@ public final class org/kisu/units/electromagnetic/ElectricChargeDensity$Companio
 public final class org/kisu/units/electromagnetic/ElectricConductivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricConductivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getResistivity ()Lorg/kisu/units/electromagnetic/Resistivity;
 }
 
 public final class org/kisu/units/electromagnetic/ElectricConductivity$Companion {
@@ -1560,6 +1589,7 @@ public final class org/kisu/units/electromagnetic/MagneticMoment$Companion {
 public final class org/kisu/units/electromagnetic/MagneticPermittivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticPermittivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getMagneticSusceptibility ()Lorg/kisu/units/electromagnetic/MagneticSusceptibility;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticPermittivity$Companion {
@@ -1567,6 +1597,7 @@ public final class org/kisu/units/electromagnetic/MagneticPermittivity$Companion
 
 public final class org/kisu/units/electromagnetic/MagneticReluctance : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/electromagnetic/ReciprocalHenry;)V
+	public final fun getInductance ()Lorg/kisu/units/special/Inductance;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticRigidity : org/kisu/units/Measure {
@@ -1580,6 +1611,7 @@ public final class org/kisu/units/electromagnetic/MagneticRigidity$Companion {
 public final class org/kisu/units/electromagnetic/MagneticSusceptibility : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticSusceptibility$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getMagneticPermittivity ()Lorg/kisu/units/electromagnetic/MagneticPermittivity;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticSusceptibility$Companion {
@@ -1629,6 +1661,7 @@ public final class org/kisu/units/electromagnetic/ReciprocalHenry$Companion {
 public final class org/kisu/units/electromagnetic/Resistivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/Resistivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun getElectricConductivity ()Lorg/kisu/units/electromagnetic/ElectricConductivity;
 }
 
 public final class org/kisu/units/electromagnetic/Resistivity$Companion {
@@ -1809,11 +1842,13 @@ public final class org/kisu/units/mechanics/AreaDensity$Companion {
 
 public final class org/kisu/units/mechanics/Compressibility : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/mechanics/ReciprocalPascal;)V
+	public final fun getPressure ()Lorg/kisu/units/special/Pressure;
 }
 
 public final class org/kisu/units/mechanics/Density : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/Density$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getSpecificVolume ()Lorg/kisu/units/mechanics/SpecificVolume;
 }
 
 public final class org/kisu/units/mechanics/Density$Companion {
@@ -1960,6 +1995,7 @@ public final class org/kisu/units/mechanics/SpecificEnergy$Companion {
 public final class org/kisu/units/mechanics/SpecificVolume : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpecificVolume$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun getDensity ()Lorg/kisu/units/mechanics/Density;
 }
 
 public final class org/kisu/units/mechanics/SpecificVolume$Companion {
@@ -2007,6 +2043,7 @@ public final class org/kisu/units/mechanics/SurfaceTension$Companion {
 
 public final class org/kisu/units/mechanics/WaveNumber : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/mechanics/ReciprocalMetre;)V
+	public final fun getWavelength ()Lorg/kisu/units/base/Length;
 }
 
 public final class org/kisu/units/photometric/Efficacy : org/kisu/units/Measure {
@@ -2201,6 +2238,7 @@ public final class org/kisu/units/special/Bytes$Companion {
 }
 
 public final class org/kisu/units/special/Capacitance : org/kisu/units/Measure {
+	public final fun getElastance ()Lorg/kisu/units/special/Elastance;
 }
 
 public final class org/kisu/units/special/CatalyticActivity : org/kisu/units/Measure {
@@ -2216,9 +2254,11 @@ public final class org/kisu/units/special/Celsius$Companion {
 }
 
 public final class org/kisu/units/special/CelsiusTemperature : org/kisu/units/Measure {
+	public final fun getKelvin ()Lorg/kisu/units/base/Temperature;
 }
 
 public final class org/kisu/units/special/Conductance : org/kisu/units/Measure {
+	public final fun getResistance ()Lorg/kisu/units/special/Resistance;
 }
 
 public final class org/kisu/units/special/Coulomb : org/kisu/units/representation/Scalar {
@@ -2240,6 +2280,10 @@ public final class org/kisu/units/special/CubicMetre$Companion {
 }
 
 public final class org/kisu/units/special/DoseEquivalent : org/kisu/units/Measure {
+}
+
+public final class org/kisu/units/special/Elastance : org/kisu/units/Measure {
+	public final fun getCapacitance ()Lorg/kisu/units/special/Capacitance;
 }
 
 public final class org/kisu/units/special/ElectricCharge : org/kisu/units/Measure {
@@ -2264,6 +2308,7 @@ public final class org/kisu/units/special/Force : org/kisu/units/Measure {
 }
 
 public final class org/kisu/units/special/Frequency : org/kisu/units/Measure {
+	public final fun getPeriod ()Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/special/Gray : org/kisu/units/representation/Scalar {
@@ -2297,6 +2342,18 @@ public final class org/kisu/units/special/Illuminance : org/kisu/units/Measure {
 }
 
 public final class org/kisu/units/special/Inductance : org/kisu/units/Measure {
+	public final fun getMagneticReluctance ()Lorg/kisu/units/electromagnetic/MagneticReluctance;
+}
+
+public final class org/kisu/units/special/InverseFarad : org/kisu/units/representation/Scalar {
+	public static final field Companion Lorg/kisu/units/special/InverseFarad$Companion;
+	public fun <init> (Lorg/kisu/prefixes/Metric;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lorg/kisu/prefixes/algebra/Algebra;Lorg/kisu/prefixes/Metric;Lorg/kisu/units/representation/Unit;)V
+	public synthetic fun <init> (Lorg/kisu/prefixes/algebra/Algebra;Lorg/kisu/prefixes/Metric;Lorg/kisu/units/representation/Unit;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class org/kisu/units/special/InverseFarad$Companion {
 }
 
 public final class org/kisu/units/special/Joule : org/kisu/units/representation/Scalar {
@@ -2378,6 +2435,7 @@ public final class org/kisu/units/special/Power : org/kisu/units/Measure {
 }
 
 public final class org/kisu/units/special/Pressure : org/kisu/units/Measure {
+	public final fun getCompressibility ()Lorg/kisu/units/mechanics/Compressibility;
 }
 
 public final class org/kisu/units/special/Radian : org/kisu/units/representation/Scalar {
@@ -2390,9 +2448,11 @@ public final class org/kisu/units/special/Radian$Companion {
 }
 
 public final class org/kisu/units/special/Radioactivity : org/kisu/units/Measure {
+	public final fun getMeanInterval ()Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/special/Resistance : org/kisu/units/Measure {
+	public final fun getConductance ()Lorg/kisu/units/special/Conductance;
 }
 
 public final class org/kisu/units/special/Siemens : org/kisu/units/representation/Scalar {
@@ -2516,6 +2576,7 @@ public final class org/kisu/units/thermodynamics/ThermalConductivity$Companion {
 
 public final class org/kisu/units/thermodynamics/ThermalExpansionCoefficient : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/thermodynamics/ReciprocalKelvin;)V
+	public final fun getTemperature ()Lorg/kisu/units/base/Temperature;
 }
 
 public final class org/kisu/units/thermodynamics/ThermalResistance : org/kisu/units/Measure {

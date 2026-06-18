@@ -30,6 +30,9 @@ class MagneticSusceptibility(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerHenry(prefix))
 
+    val magneticPermittivity: MagneticPermittivity
+        get() = MagneticPermittivity(canonical.component1().inverted)
+
     /**
      * Represents the library unit form **metre per henry (m/H)** used by this type.
      *

@@ -28,6 +28,9 @@ class SpecificVolume(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetrePerKilogram(prefix))
 
+    val density: Density
+        get() = Density(canonical.component1().inverted)
+
     /**
      * Unit of [SpecificVolume].
      *

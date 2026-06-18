@@ -25,6 +25,9 @@ class Resistance internal constructor(magnitude: Magnitude, expression: Ohm) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Ohm(prefix))
+
+    val conductance: Conductance
+        get() = Conductance(canonical.component1().inverted)
 }
 
 /**

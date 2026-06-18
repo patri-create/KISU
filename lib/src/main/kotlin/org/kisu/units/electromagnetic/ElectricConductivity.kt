@@ -30,6 +30,9 @@ class ElectricConductivity(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, SiemensPerMetre(prefix))
 
+    val resistivity: Resistivity
+        get() = Resistivity(canonical.component1().inverted)
+
     /**
      * Represents the SI unit **siemens per metre (S/m)**.
      *

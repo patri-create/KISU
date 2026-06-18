@@ -19,6 +19,7 @@ import org.kisu.units.chemistry.MolarHeatCapacity
 import org.kisu.units.chemistry.MolarMass
 import org.kisu.units.chemistry.MolarVolume
 import org.kisu.units.chemistry.Molarity
+import org.kisu.units.chemistry.ReciprocalAmount
 import org.kisu.units.electromagnetic.ElectricChargeDensity
 import org.kisu.units.electromagnetic.ElectricConductivity
 import org.kisu.units.electromagnetic.ElectricCurrentDensity
@@ -87,6 +88,7 @@ import org.kisu.units.special.CatalyticActivity
 import org.kisu.units.special.CelsiusTemperature
 import org.kisu.units.special.Conductance
 import org.kisu.units.special.DoseEquivalent
+import org.kisu.units.special.Elastance
 import org.kisu.units.special.ElectricCharge
 import org.kisu.units.special.ElectricPotential
 import org.kisu.units.special.Energy
@@ -251,6 +253,12 @@ val Number.faradsPerMetre: Permittivity get() = Permittivity(magnitude)
  * the SI unit for capacitance.
  */
 val Number.farads: Capacitance get() = Capacitance(magnitude)
+
+/**
+ * Creates an [Elastance] from this [Number] representing an elastance in reciprocal farads,
+ * the SI unit for elastance.
+ */
+val Number.reciprocalFarads: Elastance get() = Elastance(magnitude)
 
 /**
  * Creates a [Yank] from this [Number] representing a yank in gram metre second third,
@@ -634,6 +642,12 @@ val Number.reciprocalHenries: MagneticReluctance get() = MagneticReluctance(magn
  * reciprocal kelvins, the SI unit for thermal expansion coefficient.
  */
 val Number.reciprocalKelvins: ThermalExpansionCoefficient get() = ThermalExpansionCoefficient(magnitude)
+
+/**
+ * Creates a [ReciprocalAmount] from this [Number] representing a reciprocal amount in reciprocal moles,
+ * the SI unit for reciprocal amount.
+ */
+val Number.reciprocalMoles: ReciprocalAmount get() = ReciprocalAmount(magnitude)
 
 /**
  * Creates a [WaveNumber] from this [Number] representing a compressibility in reciprocal metres,

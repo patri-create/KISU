@@ -5,6 +5,7 @@ import org.kisu.prefixes.Metric
 import org.kisu.prefixes.algebra.Algebra
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.Measure
+import org.kisu.units.mechanics.WaveNumber
 import org.kisu.units.representation.Scalar
 import org.kisu.units.representation.Unit
 
@@ -23,6 +24,9 @@ class Length internal constructor(magnitude: Magnitude, expression: Metre) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Metre(prefix))
+
+    val waveNumber: WaveNumber
+        get() = WaveNumber(canonical.component1().inverted)
 }
 
 /**
