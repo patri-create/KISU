@@ -31,6 +31,9 @@ class ThermalExpansionCoefficient(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalKelvin(prefix))
 
+    /**
+     * Returns the temperature associated with this reciprocal-kelvin coefficient.
+     */
     val temperature: Temperature
         get() = Temperature(canonical.component1().inverted)
 }

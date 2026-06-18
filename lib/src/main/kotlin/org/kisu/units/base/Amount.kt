@@ -32,6 +32,9 @@ class Amount internal constructor(magnitude: Magnitude, expression: Mole) :
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Mole(prefix))
 
+    /**
+     * Returns this amount as a reciprocal amount (`mol⁻¹`) by inverting its canonical magnitude.
+     */
     val reciprocalAmount: ReciprocalAmount
         get() = ReciprocalAmount(canonical.component1().inverted)
 

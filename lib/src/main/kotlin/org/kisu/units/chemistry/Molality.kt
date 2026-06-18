@@ -27,6 +27,9 @@ class Molality(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MolPerKilogram(prefix))
 
+    /**
+     * Returns the molar mass associated with this molality by inverting its canonical magnitude.
+     */
     val molarMass: MolarMass
         get() = MolarMass(canonical.component1().inverted)
 

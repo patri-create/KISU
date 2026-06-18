@@ -30,6 +30,9 @@ class WaveNumber(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, ReciprocalMetre(prefix))
 
+    /**
+     * Returns the wavelength associated with this wave number by inverting its canonical magnitude.
+     */
     val wavelength: Length
         get() = Length(canonical.component1().inverted)
 }

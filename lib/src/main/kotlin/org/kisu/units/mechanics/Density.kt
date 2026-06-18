@@ -27,6 +27,9 @@ class Density(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, KilogramPerCubicMetre(prefix))
 
+    /**
+     * Returns the specific volume associated with this density by inverting its canonical magnitude.
+     */
     val specificVolume: SpecificVolume
         get() = SpecificVolume(canonical.component1().inverted)
 

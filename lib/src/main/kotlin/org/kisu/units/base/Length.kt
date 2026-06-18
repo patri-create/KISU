@@ -25,6 +25,9 @@ class Length internal constructor(magnitude: Magnitude, expression: Metre) :
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Metre(prefix))
 
+    /**
+     * Returns the wave number associated with this length by inverting its canonical magnitude.
+     */
     val waveNumber: WaveNumber
         get() = WaveNumber(canonical.component1().inverted)
 }

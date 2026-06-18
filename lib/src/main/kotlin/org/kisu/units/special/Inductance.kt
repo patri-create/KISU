@@ -28,6 +28,9 @@ class Inductance internal constructor(magnitude: Magnitude, expression: Henry) :
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Henry(prefix))
 
+    /**
+     * Returns the magnetic reluctance associated with this inductance by inverting its canonical magnitude.
+     */
     val magneticReluctance: MagneticReluctance
         get() = MagneticReluctance(canonical.component1().inverted)
 }

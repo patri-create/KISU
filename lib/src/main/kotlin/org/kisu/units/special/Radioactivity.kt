@@ -28,6 +28,9 @@ class Radioactivity internal constructor(magnitude: Magnitude, expression: Becqu
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Becquerel(prefix))
 
+    /**
+     * Returns the mean interval associated with this activity by inverting its canonical magnitude.
+     */
     val meanInterval: Time
         get() = Time(canonical.component1().inverted)
 }

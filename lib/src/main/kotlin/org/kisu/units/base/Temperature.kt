@@ -34,9 +34,15 @@ class Temperature internal constructor(magnitude: Magnitude, expression: Kelvin)
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Kelvin(prefix))
 
+    /**
+     * Returns this absolute temperature on the Celsius scale.
+     */
     val celsius: CelsiusTemperature
         get() = CelsiusTemperature(canonical.component1() - Celsius.KELVIN_TO_CELSIUS)
 
+    /**
+     * Returns the reciprocal-kelvin coefficient associated with this temperature.
+     */
     val thermalExpansionCoefficient: ThermalExpansionCoefficient
         get() = ThermalExpansionCoefficient(canonical.component1().inverted)
 }

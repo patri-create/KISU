@@ -30,6 +30,9 @@ class Molarity(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MolePerCubicMetre(prefix))
 
+    /**
+     * Returns the molar volume associated with this molarity by inverting its canonical magnitude.
+     */
     val molarVolume: MolarVolume
         get() = MolarVolume(canonical.component1().inverted)
 

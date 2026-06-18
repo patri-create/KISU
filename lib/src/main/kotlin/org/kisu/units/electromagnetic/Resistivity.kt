@@ -29,6 +29,9 @@ class Resistivity(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, OhmMetre(prefix))
 
+    /**
+     * Returns the electrical conductivity associated with this resistivity by inverting its canonical magnitude.
+     */
     val electricConductivity: ElectricConductivity
         get() = ElectricConductivity(canonical.component1().inverted)
 

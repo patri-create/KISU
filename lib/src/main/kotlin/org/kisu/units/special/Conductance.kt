@@ -26,6 +26,9 @@ class Conductance internal constructor(magnitude: Magnitude, expression: Siemens
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Siemens(prefix))
 
+    /**
+     * Returns the resistance associated with this conductance by inverting its canonical magnitude.
+     */
     val resistance: Resistance
         get() = Resistance(canonical.component1().inverted)
 }

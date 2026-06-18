@@ -30,6 +30,9 @@ class MagneticSusceptibility(
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, MetrePerHenry(prefix))
 
+    /**
+     * Returns the magnetic permeability associated with this susceptibility by inverting its canonical magnitude.
+     */
     val magneticPermittivity: MagneticPermittivity
         get() = MagneticPermittivity(canonical.component1().inverted)
 

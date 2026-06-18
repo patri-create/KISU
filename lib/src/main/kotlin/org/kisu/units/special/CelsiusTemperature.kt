@@ -28,6 +28,9 @@ class CelsiusTemperature internal constructor(magnitude: Magnitude, expression: 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Celsius(prefix))
 
+    /**
+     * Returns this Celsius temperature as an absolute kelvin temperature.
+     */
     val kelvin: Temperature
         get() = Temperature(canonical.component1() + Celsius.KELVIN_TO_CELSIUS)
 }

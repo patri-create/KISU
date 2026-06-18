@@ -28,6 +28,9 @@ class Pressure internal constructor(magnitude: Magnitude, expression: Pascal) :
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Pascal(prefix))
 
+    /**
+     * Returns the compressibility associated with this pressure by inverting its canonical magnitude.
+     */
     val compressibility: Compressibility
         get() = Compressibility(canonical.component1().inverted)
 }

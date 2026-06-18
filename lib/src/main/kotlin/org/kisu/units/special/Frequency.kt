@@ -26,6 +26,9 @@ class Frequency internal constructor(magnitude: Magnitude, expression: Hertz) :
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Hertz(prefix))
 
+    /**
+     * Returns the period associated with this frequency by inverting its canonical magnitude.
+     */
     val period: Time
         get() = Time(canonical.component1().inverted)
 }
