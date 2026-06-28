@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -72,4 +74,10 @@ class MolarConductivity(
                 Mole()
             )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.chemistry.Molarity
+    ): org.kisu.units.electromagnetic.ElectricConductivity =
+        org.kisu.units.electromagnetic.ElectricConductivity(canonical.component1() * other.canonical.component1())
 }

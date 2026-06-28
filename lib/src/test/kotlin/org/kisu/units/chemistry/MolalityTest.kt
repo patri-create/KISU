@@ -6,8 +6,11 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
 import org.kisu.test.generators.reciprocalMagnitude
+import org.kisu.units.base.Amount
+import org.kisu.units.base.Mass
 import org.kisu.units.builders.molesPerKilogram
 import org.kisu.units.chemistry.Molality.Companion.MolPerKilogram
 
@@ -41,4 +44,22 @@ class MolalityTest : StringSpec({
             }
         }
     }
+    // Dimension-aware arithmetic properties
+    "multiplying a Molality by a Mass returns an Amount" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Molality(leftMagnitude, leftPrefix)
+            val right = Mass(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Amount(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -69,4 +71,15 @@ class MolarHeatCapacity(
                 Product(Kelvin(), Mole())
             )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.thermodynamics.HeatCapacity =
+        org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Temperature
+    ): org.kisu.units.chemistry.MolarEnergy =
+        org.kisu.units.chemistry.MolarEnergy(canonical.component1() * other.canonical.component1())
 }

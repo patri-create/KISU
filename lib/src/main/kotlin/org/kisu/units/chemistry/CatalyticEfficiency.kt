@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -69,4 +71,15 @@ class CatalyticEfficiency(
             Product(Mole(), Second())
         )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.kinematics.VolumetricFlow =
+        org.kisu.units.kinematics.VolumetricFlow(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.chemistry.MolarVolume =
+        org.kisu.units.chemistry.MolarVolume(canonical.component1() * other.canonical.component1())
 }

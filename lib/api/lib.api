@@ -1536,6 +1536,8 @@ public final class org/kisu/units/builders/ZettaBuilder : org/kisu/units/builder
 public final class org/kisu/units/chemistry/CatalyticEfficiency : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/CatalyticEfficiency$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/kinematics/VolumetricFlow;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/chemistry/MolarVolume;
 }
 
 public final class org/kisu/units/chemistry/CatalyticEfficiency$Companion {
@@ -1545,6 +1547,7 @@ public final class org/kisu/units/chemistry/Molality : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/Molality$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getMolarMass ()Lorg/kisu/units/chemistry/MolarMass;
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/base/Amount;
 }
 
 public final class org/kisu/units/chemistry/Molality$Companion {
@@ -1553,6 +1556,7 @@ public final class org/kisu/units/chemistry/Molality$Companion {
 public final class org/kisu/units/chemistry/MolarConductivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarConductivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/chemistry/Molarity;)Lorg/kisu/units/electromagnetic/ElectricConductivity;
 }
 
 public final class org/kisu/units/chemistry/MolarConductivity$Companion {
@@ -1561,6 +1565,9 @@ public final class org/kisu/units/chemistry/MolarConductivity$Companion {
 public final class org/kisu/units/chemistry/MolarEnergy : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarEnergy$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Temperature;)Lorg/kisu/units/chemistry/MolarHeatCapacity;
+	public final fun div (Lorg/kisu/units/chemistry/MolarHeatCapacity;)Lorg/kisu/units/base/Temperature;
+	public final fun times (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/chemistry/MolarEnergy$Companion {
@@ -1569,6 +1576,8 @@ public final class org/kisu/units/chemistry/MolarEnergy$Companion {
 public final class org/kisu/units/chemistry/MolarHeatCapacity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarHeatCapacity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/thermodynamics/HeatCapacity;
+	public final fun times (Lorg/kisu/units/base/Temperature;)Lorg/kisu/units/chemistry/MolarEnergy;
 }
 
 public final class org/kisu/units/chemistry/MolarHeatCapacity$Companion {
@@ -1578,6 +1587,7 @@ public final class org/kisu/units/chemistry/MolarMass : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarMass$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getMolality ()Lorg/kisu/units/chemistry/Molality;
+	public final fun times (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/chemistry/MolarMass$Companion {
@@ -1586,7 +1596,10 @@ public final class org/kisu/units/chemistry/MolarMass$Companion {
 public final class org/kisu/units/chemistry/MolarVolume : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/MolarVolume$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/chemistry/CatalyticEfficiency;
+	public final fun div (Lorg/kisu/units/chemistry/CatalyticEfficiency;)Lorg/kisu/units/base/Time;
 	public final fun getMolarity ()Lorg/kisu/units/chemistry/Molarity;
+	public final fun times (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/special/Volume;
 }
 
 public final class org/kisu/units/chemistry/MolarVolume$Companion {
@@ -1596,6 +1609,8 @@ public final class org/kisu/units/chemistry/Molarity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/chemistry/Molarity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getMolarVolume ()Lorg/kisu/units/chemistry/MolarVolume;
+	public final fun times (Lorg/kisu/units/chemistry/MolarConductivity;)Lorg/kisu/units/electromagnetic/ElectricConductivity;
+	public final fun times (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/base/Amount;
 }
 
 public final class org/kisu/units/chemistry/Molarity$Companion {
