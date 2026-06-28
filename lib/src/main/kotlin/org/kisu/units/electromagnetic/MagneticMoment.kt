@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -47,4 +49,15 @@ class MagneticMoment(
         internal fun WeberMetre(prefix: Metric = Metric.BASE): WeberMetre =
             Product(Weber(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.MagneticFlux
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -57,4 +59,10 @@ class ElectricCurrentDensity(
         internal fun AmperePerSquareMetre(prefix: Metric = Metric.BASE): AmperePerSquareMetre =
             Quotient(Ampere(prefix), SquareMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() * other.canonical.component1())
 }

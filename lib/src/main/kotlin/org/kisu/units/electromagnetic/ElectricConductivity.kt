@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -63,4 +65,20 @@ class ElectricConductivity(
         internal fun SiemensPerMetre(prefix: Metric = Metric.BASE): SiemensPerMetre =
             Quotient(Siemens(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.chemistry.MolarConductivity
+    ): org.kisu.units.chemistry.Molarity =
+        org.kisu.units.chemistry.Molarity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.Molarity
+    ): org.kisu.units.chemistry.MolarConductivity =
+        org.kisu.units.chemistry.MolarConductivity(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Conductance =
+        org.kisu.units.special.Conductance(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -66,4 +68,10 @@ class ElectronMobility(
                 Product(Volt(), Second())
             )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.mechanics.KinematicViscosity =
+        org.kisu.units.mechanics.KinematicViscosity(canonical.component1() * other.canonical.component1())
 }

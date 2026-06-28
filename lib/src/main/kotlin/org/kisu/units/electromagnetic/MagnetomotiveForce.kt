@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -56,4 +58,15 @@ class MagnetomotiveForce(
         internal fun AmpereRadian(prefix: Metric = Metric.BASE): AmpereRadian =
             Product(Ampere(prefix), Radian())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.PlaneAngle =
+        org.kisu.units.special.PlaneAngle(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.PlaneAngle
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -60,4 +62,10 @@ class MagneticVectorPotential(
         internal fun WeberPerMetre(prefix: Metric = Metric.BASE): WeberPerMetre =
             Quotient(Weber(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
 }
