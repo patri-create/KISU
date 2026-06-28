@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -57,4 +59,10 @@ class ElectricChargeDensity(
         internal fun CoulombPerCubicMetre(prefix: Metric = Metric.BASE): CoulombPerCubicMetre =
             Quotient(Coulomb(prefix), CubicMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -61,4 +63,10 @@ class ElectricFieldStrength(
         internal fun VoltPerMetre(prefix: Metric = Metric.BASE): VoltPerMetre =
             Quotient(Volt(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
 }

@@ -1632,6 +1632,7 @@ public final class org/kisu/units/chemistry/ReciprocalMole$Companion {
 public final class org/kisu/units/electromagnetic/ElectricChargeDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricChargeDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/special/ElectricCharge;
 }
 
 public final class org/kisu/units/electromagnetic/ElectricChargeDensity$Companion {
@@ -1640,7 +1641,10 @@ public final class org/kisu/units/electromagnetic/ElectricChargeDensity$Companio
 public final class org/kisu/units/electromagnetic/ElectricConductivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricConductivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/chemistry/MolarConductivity;)Lorg/kisu/units/chemistry/Molarity;
+	public final fun div (Lorg/kisu/units/chemistry/Molarity;)Lorg/kisu/units/chemistry/MolarConductivity;
 	public final fun getResistivity ()Lorg/kisu/units/electromagnetic/Resistivity;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Conductance;
 }
 
 public final class org/kisu/units/electromagnetic/ElectricConductivity$Companion {
@@ -1649,6 +1653,7 @@ public final class org/kisu/units/electromagnetic/ElectricConductivity$Companion
 public final class org/kisu/units/electromagnetic/ElectricCurrentDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricCurrentDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/electromagnetic/ElectricCurrentDensity$Companion {
@@ -1657,6 +1662,7 @@ public final class org/kisu/units/electromagnetic/ElectricCurrentDensity$Compani
 public final class org/kisu/units/electromagnetic/ElectricDisplacementField : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricDisplacementField$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/ElectricCharge;
 }
 
 public final class org/kisu/units/electromagnetic/ElectricDisplacementField$Companion {
@@ -1665,6 +1671,7 @@ public final class org/kisu/units/electromagnetic/ElectricDisplacementField$Comp
 public final class org/kisu/units/electromagnetic/ElectricFieldStrength : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectricFieldStrength$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/ElectricPotential;
 }
 
 public final class org/kisu/units/electromagnetic/ElectricFieldStrength$Companion {
@@ -1673,6 +1680,7 @@ public final class org/kisu/units/electromagnetic/ElectricFieldStrength$Companio
 public final class org/kisu/units/electromagnetic/ElectronMobility : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/ElectronMobility$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/mechanics/KinematicViscosity;
 }
 
 public final class org/kisu/units/electromagnetic/ElectronMobility$Companion {
@@ -1681,6 +1689,7 @@ public final class org/kisu/units/electromagnetic/ElectronMobility$Companion {
 public final class org/kisu/units/electromagnetic/Exposure : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/Exposure$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/special/ElectricCharge;
 }
 
 public final class org/kisu/units/electromagnetic/Exposure$Companion {
@@ -1689,6 +1698,7 @@ public final class org/kisu/units/electromagnetic/Exposure$Companion {
 public final class org/kisu/units/electromagnetic/LinearChargeDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/LinearChargeDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/ElectricCharge;
 }
 
 public final class org/kisu/units/electromagnetic/LinearChargeDensity$Companion {
@@ -1697,6 +1707,8 @@ public final class org/kisu/units/electromagnetic/LinearChargeDensity$Companion 
 public final class org/kisu/units/electromagnetic/MagneticDipoleMoment : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticDipoleMoment$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticDipoleMoment$Companion {
@@ -1705,6 +1717,8 @@ public final class org/kisu/units/electromagnetic/MagneticDipoleMoment$Companion
 public final class org/kisu/units/electromagnetic/MagneticMoment : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticMoment$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/MagneticFlux;
+	public final fun div (Lorg/kisu/units/special/MagneticFlux;)Lorg/kisu/units/base/Length;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticMoment$Companion {
@@ -1714,6 +1728,7 @@ public final class org/kisu/units/electromagnetic/MagneticPermittivity : org/kis
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticPermittivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getMagneticSusceptibility ()Lorg/kisu/units/electromagnetic/MagneticSusceptibility;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Inductance;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticPermittivity$Companion {
@@ -1722,11 +1737,14 @@ public final class org/kisu/units/electromagnetic/MagneticPermittivity$Companion
 public final class org/kisu/units/electromagnetic/MagneticReluctance : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/electromagnetic/ReciprocalHenry;)V
 	public final fun getInductance ()Lorg/kisu/units/special/Inductance;
+	public final fun times (Lorg/kisu/units/special/MagneticFlux;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticRigidity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticRigidity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/MagneticFluxDensity;
+	public final fun div (Lorg/kisu/units/special/MagneticFluxDensity;)Lorg/kisu/units/base/Length;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticRigidity$Companion {
@@ -1736,6 +1754,7 @@ public final class org/kisu/units/electromagnetic/MagneticSusceptibility : org/k
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticSusceptibility$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getMagneticPermittivity ()Lorg/kisu/units/electromagnetic/MagneticPermittivity;
+	public final fun times (Lorg/kisu/units/special/Inductance;)Lorg/kisu/units/base/Length;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticSusceptibility$Companion {
@@ -1744,6 +1763,7 @@ public final class org/kisu/units/electromagnetic/MagneticSusceptibility$Compani
 public final class org/kisu/units/electromagnetic/MagneticVectorPotential : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagneticVectorPotential$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/MagneticFlux;
 }
 
 public final class org/kisu/units/electromagnetic/MagneticVectorPotential$Companion {
@@ -1752,6 +1772,7 @@ public final class org/kisu/units/electromagnetic/MagneticVectorPotential$Compan
 public final class org/kisu/units/electromagnetic/Magnetization : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/Magnetization$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/electromagnetic/Magnetization$Companion {
@@ -1760,6 +1781,8 @@ public final class org/kisu/units/electromagnetic/Magnetization$Companion {
 public final class org/kisu/units/electromagnetic/MagnetomotiveForce : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/MagnetomotiveForce$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/PlaneAngle;
+	public final fun div (Lorg/kisu/units/special/PlaneAngle;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/electromagnetic/MagnetomotiveForce$Companion {
@@ -1768,6 +1791,7 @@ public final class org/kisu/units/electromagnetic/MagnetomotiveForce$Companion {
 public final class org/kisu/units/electromagnetic/Permittivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/Permittivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Capacitance;
 }
 
 public final class org/kisu/units/electromagnetic/Permittivity$Companion {
@@ -1785,6 +1809,8 @@ public final class org/kisu/units/electromagnetic/ReciprocalHenry$Companion {
 public final class org/kisu/units/electromagnetic/Resistivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/electromagnetic/Resistivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Resistance;
+	public final fun div (Lorg/kisu/units/special/Resistance;)Lorg/kisu/units/base/Length;
 	public final fun getElectricConductivity ()Lorg/kisu/units/electromagnetic/ElectricConductivity;
 }
 

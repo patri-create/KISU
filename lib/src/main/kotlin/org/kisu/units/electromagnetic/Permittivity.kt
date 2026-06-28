@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -56,4 +58,10 @@ class Permittivity(
         internal fun FaradPerMetre(prefix: Metric = Metric.BASE): FaradPerMetre =
             Quotient(Farad(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Capacitance =
+        org.kisu.units.special.Capacitance(canonical.component1() * other.canonical.component1())
 }

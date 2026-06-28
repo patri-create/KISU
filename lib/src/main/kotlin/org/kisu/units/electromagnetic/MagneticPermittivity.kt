@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -61,4 +63,10 @@ class MagneticPermittivity(
         internal fun HenryPerMetre(prefix: Metric = Metric.BASE): HenryPerMetre =
             Quotient(Henry(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Inductance =
+        org.kisu.units.special.Inductance(canonical.component1() * other.canonical.component1())
 }

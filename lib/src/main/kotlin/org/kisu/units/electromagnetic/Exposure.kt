@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -55,4 +57,10 @@ class Exposure(
         internal fun CoulombPerKilogram(prefix: Metric = Metric.BASE): CoulombPerKilogram =
             Quotient(Coulomb(prefix), Kilogram())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
 }

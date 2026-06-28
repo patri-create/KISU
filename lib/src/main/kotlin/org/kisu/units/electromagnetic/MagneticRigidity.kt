@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.electromagnetic
 
 import org.kisu.Magnitude
@@ -54,4 +56,15 @@ class MagneticRigidity(
         internal fun TeslaMetre(prefix: Metric = Metric.BASE): TeslaMetre =
             Product(Tesla(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.MagneticFluxDensity =
+        org.kisu.units.special.MagneticFluxDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.MagneticFluxDensity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 }

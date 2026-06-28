@@ -6,9 +6,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
+import org.kisu.units.base.Length
 import org.kisu.units.builders.coulombsPerMetre
 import org.kisu.units.electromagnetic.LinearChargeDensity.Companion.CoulombPerMetre
+import org.kisu.units.special.ElectricCharge
 
 class LinearChargeDensityTest : StringSpec({
     "creates a LinearChargeDensity" {
@@ -30,4 +33,23 @@ class LinearChargeDensityTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "multiplying a LinearChargeDensity by a Length returns an ElectricCharge" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = LinearChargeDensity(leftMagnitude, leftPrefix)
+            val right = Length(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = ElectricCharge(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })
