@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.base
 
 import org.kisu.Magnitude
@@ -29,6 +31,102 @@ class Mass internal constructor(magnitude: Magnitude, expression: Kilogram) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.KILO) :
         this(magnitude, Kilogram(prefix to Magnitude.ONE))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.chemistry.MolarMass =
+        org.kisu.units.chemistry.MolarMass(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.mechanics.LinearMassDensity =
+        org.kisu.units.mechanics.LinearMassDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.mechanics.MassFlowRate =
+        org.kisu.units.mechanics.MassFlowRate(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.MolarMass
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.AreaDensity
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.Density
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.LinearMassDensity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.MassFlowRate
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.AreaDensity =
+        org.kisu.units.mechanics.AreaDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.mechanics.Density =
+        org.kisu.units.mechanics.Density(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.Molality
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.Exposure
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.kinematics.linear.Acceleration
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.kinematics.linear.Speed
+    ): org.kisu.units.mechanics.Momentum =
+        org.kisu.units.mechanics.Momentum(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpecificAngularMomentum
+    ): org.kisu.units.mechanics.AngularMomentum =
+        org.kisu.units.mechanics.AngularMomentum(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpecificEnergy
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpecificVolume
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.MomentOfInertia =
+        org.kisu.units.mechanics.MomentOfInertia(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.thermodynamics.SpecificHeatCapacity
+    ): org.kisu.units.thermodynamics.HeatCapacity =
+        org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
 }
 
 /**

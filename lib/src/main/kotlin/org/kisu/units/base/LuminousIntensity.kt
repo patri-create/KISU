@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.base
 
 import org.kisu.Magnitude
@@ -28,6 +30,22 @@ class LuminousIntensity internal constructor(magnitude: Magnitude, expression: C
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Candela(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.photometric.Luminance
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.photometric.Luminance =
+        org.kisu.units.photometric.Luminance(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.SolidAngle
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
 }
 
 /**

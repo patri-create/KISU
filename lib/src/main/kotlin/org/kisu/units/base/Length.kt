@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.base
 
 import org.kisu.Magnitude
@@ -30,6 +32,137 @@ class Length internal constructor(magnitude: Magnitude, expression: Metre) :
      */
     val waveNumber: WaveNumber
         get() = WaveNumber(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Speed =
+        org.kisu.units.kinematics.linear.Speed(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.MagneticSusceptibility
+    ): org.kisu.units.special.Inductance =
+        org.kisu.units.special.Inductance(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.linear.Speed
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.FuelEfficiency
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Inductance
+    ): org.kisu.units.electromagnetic.MagneticSusceptibility =
+        org.kisu.units.electromagnetic.MagneticSusceptibility(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.mechanics.FuelEfficiency =
+        org.kisu.units.mechanics.FuelEfficiency(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.ElectricConductivity
+    ): org.kisu.units.special.Conductance =
+        org.kisu.units.special.Conductance(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.ElectricFieldStrength
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.LinearChargeDensity
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.MagneticPermittivity
+    ): org.kisu.units.special.Inductance =
+        org.kisu.units.special.Inductance(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.MagneticVectorPotential
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.Magnetization
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.Permittivity
+    ): org.kisu.units.special.Capacitance =
+        org.kisu.units.special.Capacitance(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.LinearMassDensity
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.Momentum
+    ): org.kisu.units.mechanics.AngularMomentum =
+        org.kisu.units.mechanics.AngularMomentum(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpectralIntensity
+    ): org.kisu.units.mechanics.RadiantIntensity =
+        org.kisu.units.mechanics.RadiantIntensity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpectralPower
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpectralRadiance
+    ): org.kisu.units.mechanics.Radiance =
+        org.kisu.units.mechanics.Radiance(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SurfaceTension
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Force
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.MagneticFlux
+    ): org.kisu.units.electromagnetic.MagneticMoment =
+        org.kisu.units.electromagnetic.MagneticMoment(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.MagneticFluxDensity
+    ): org.kisu.units.electromagnetic.MagneticRigidity =
+        org.kisu.units.electromagnetic.MagneticRigidity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Resistance
+    ): org.kisu.units.electromagnetic.Resistivity =
+        org.kisu.units.electromagnetic.Resistivity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.thermodynamics.TemperatureGradient
+    ): org.kisu.units.base.Temperature =
+        org.kisu.units.base.Temperature(canonical.component1() * other.canonical.component1())
 }
 
 /**
