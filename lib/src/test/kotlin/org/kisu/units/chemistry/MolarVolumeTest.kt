@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.cubicMetresPerMole
 import org.kisu.units.chemistry.MolarVolume.Companion.CubicMetrePerMole
 
@@ -24,6 +25,16 @@ class MolarVolumeTest : StringSpec({
     "creates a base MolarEnergy" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.cubicMetresPerMole.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe CubicMetrePerMole()
+                symbol shouldBe CubicMetrePerMole().toString()
+            }
+        }
+    }
+
+    "converts to Molarity" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.cubicMetresPerMole.molarity.molarVolume.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetrePerMole()
                 symbol shouldBe CubicMetrePerMole().toString()

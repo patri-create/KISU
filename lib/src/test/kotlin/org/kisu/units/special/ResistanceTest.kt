@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.ohms
 
 class ResistanceTest : StringSpec({
@@ -23,6 +24,16 @@ class ResistanceTest : StringSpec({
     "creates a base Resistance" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.ohms.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Ohm()
+                symbol shouldBe Ohm.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to Conductance" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.ohms.conductance.resistance.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Ohm()
                 symbol shouldBe Ohm.UNIT.toString()

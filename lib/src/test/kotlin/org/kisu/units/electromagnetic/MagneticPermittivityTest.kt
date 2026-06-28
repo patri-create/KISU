@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.henriesPerMetre
 import org.kisu.units.electromagnetic.MagneticPermittivity.Companion.HenryPerMetre
 
@@ -24,6 +25,18 @@ class MagneticPermittivityTest : StringSpec({
     "creates a base MagneticPermittivity" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.henriesPerMetre.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe HenryPerMetre()
+                symbol shouldBe HenryPerMetre().toString()
+            }
+        }
+    }
+
+    "converts to MagneticSusceptibility" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            val roundTrip = magnitude.henriesPerMetre.magneticSusceptibility.magneticPermittivity
+
+            roundTrip.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe HenryPerMetre()
                 symbol shouldBe HenryPerMetre().toString()

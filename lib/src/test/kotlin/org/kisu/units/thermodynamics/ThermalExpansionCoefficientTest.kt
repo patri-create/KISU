@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.reciprocalKelvins
 
 class ThermalExpansionCoefficientTest : StringSpec({
@@ -23,6 +24,16 @@ class ThermalExpansionCoefficientTest : StringSpec({
     "creates a base ThermalExpansionCoefficient" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.reciprocalKelvins.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe ReciprocalKelvin()
+                symbol shouldBe ReciprocalKelvin().toString()
+            }
+        }
+    }
+
+    "converts to Temperature" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.reciprocalKelvins.temperature.thermalExpansionCoefficient.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe ReciprocalKelvin()
                 symbol shouldBe ReciprocalKelvin().toString()

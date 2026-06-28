@@ -9,6 +9,7 @@ import io.kotest.property.checkAll
 import org.kisu.magnitude
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.seconds
 
 class TimeTest : StringSpec({
@@ -25,6 +26,26 @@ class TimeTest : StringSpec({
     "creates a base Time" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.seconds.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Second()
+                symbol shouldBe Second.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to Frequency" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.seconds.frequency.period.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Second()
+                symbol shouldBe Second.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to Radioactivity" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.seconds.activity.meanInterval.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Second()
                 symbol shouldBe Second.UNIT.toString()

@@ -10,6 +10,7 @@ import io.kotest.property.checkAll
 import org.kisu.magnitude
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.metres
 
 class LengthTest : StringSpec({
@@ -26,6 +27,16 @@ class LengthTest : StringSpec({
     "creates a base Length" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.metres.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Metre()
+                symbol shouldBe Metre.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to WaveNumber" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.metres.waveNumber.wavelength.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Metre()
                 symbol shouldBe Metre.UNIT.toString()

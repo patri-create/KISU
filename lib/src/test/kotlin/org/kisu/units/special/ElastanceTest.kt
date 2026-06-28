@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.reciprocalFarads
 
 class ElastanceTest : StringSpec({
@@ -23,6 +24,16 @@ class ElastanceTest : StringSpec({
     "creates a base Elastance" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.reciprocalFarads.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe InverseFarad()
+                symbol shouldBe InverseFarad().toString()
+            }
+        }
+    }
+
+    "converts to Capacitance" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.reciprocalFarads.capacitance.elastance.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe InverseFarad()
                 symbol shouldBe InverseFarad().toString()

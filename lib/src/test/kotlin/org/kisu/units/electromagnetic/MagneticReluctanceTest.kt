@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.reciprocalHenries
 
 class MagneticReluctanceTest : StringSpec({
@@ -23,6 +24,16 @@ class MagneticReluctanceTest : StringSpec({
     "creates a base MagneticReluctance" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.reciprocalHenries.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe ReciprocalHenry()
+                symbol shouldBe ReciprocalHenry().toString()
+            }
+        }
+    }
+
+    "converts to Inductance" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.reciprocalHenries.inductance.magneticReluctance.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe ReciprocalHenry()
                 symbol shouldBe ReciprocalHenry().toString()
