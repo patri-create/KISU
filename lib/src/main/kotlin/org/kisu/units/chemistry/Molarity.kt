@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -64,4 +66,15 @@ class Molarity(
         internal fun MolePerCubicMetre(prefix: Metric = Metric.BASE): MolePerCubicMetre =
             Quotient(Mole(prefix), CubicMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.chemistry.MolarConductivity
+    ): org.kisu.units.electromagnetic.ElectricConductivity =
+        org.kisu.units.electromagnetic.ElectricConductivity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() * other.canonical.component1())
 }

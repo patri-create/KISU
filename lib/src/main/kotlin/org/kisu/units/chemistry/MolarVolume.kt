@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -63,4 +65,20 @@ class MolarVolume(
         internal fun CubicMetrePerMole(prefix: Metric = Metric.BASE): CubicMetrePerMole =
             Quotient(CubicMetre(prefix), Mole())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.chemistry.CatalyticEfficiency =
+        org.kisu.units.chemistry.CatalyticEfficiency(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.CatalyticEfficiency
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
 }

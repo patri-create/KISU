@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -61,4 +63,10 @@ class MolarMass(
         internal fun KilogramPerMole(prefix: Metric = Metric.BASE): KilogramPerMole =
             Quotient(Kilogram(prefix), Mole())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
 }

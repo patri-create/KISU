@@ -6,10 +6,14 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
 import org.kisu.test.generators.reciprocalMagnitude
+import org.kisu.units.base.Amount
 import org.kisu.units.builders.molesPerCubicMetre
 import org.kisu.units.chemistry.Molarity.Companion.MolePerCubicMetre
+import org.kisu.units.electromagnetic.ElectricConductivity
+import org.kisu.units.special.Volume
 
 class MolarityTest : StringSpec({
     "creates a Molarity" {
@@ -41,4 +45,38 @@ class MolarityTest : StringSpec({
             }
         }
     }
+    // Dimension-aware arithmetic properties
+    "multiplying a Molarity by a MolarConductivity returns an ElectricConductivity" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Molarity(leftMagnitude, leftPrefix)
+            val right = MolarConductivity(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = ElectricConductivity(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    "multiplying a Molarity by a Volume returns an Amount" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Molarity(leftMagnitude, leftPrefix)
+            val right = Volume(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Amount(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

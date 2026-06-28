@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -56,4 +58,20 @@ class MolarEnergy(
         internal fun JoulePerMole(prefix: Metric = Metric.BASE): JoulePerMole =
             Quotient(Joule(prefix), Mole())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Temperature
+    ): org.kisu.units.chemistry.MolarHeatCapacity =
+        org.kisu.units.chemistry.MolarHeatCapacity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.MolarHeatCapacity
+    ): org.kisu.units.base.Temperature =
+        org.kisu.units.base.Temperature(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 }

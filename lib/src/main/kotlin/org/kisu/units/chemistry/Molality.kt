@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.chemistry
 
 import org.kisu.Magnitude
@@ -60,4 +62,10 @@ class Molality(
         internal fun MolPerKilogram(prefix: Metric = Metric.BASE): MolePerKilogram =
             Quotient(Mole(prefix), Kilogram())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() * other.canonical.component1())
 }
