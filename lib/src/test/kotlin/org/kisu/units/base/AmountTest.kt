@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.moles
 
 class AmountTest : StringSpec({
@@ -23,6 +24,16 @@ class AmountTest : StringSpec({
     "creates a base Amount" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.moles.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Mole()
+                symbol shouldBe Mole.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to ReciprocalAmount" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.moles.reciprocalAmount.amount.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Mole()
                 symbol shouldBe Mole.UNIT.toString()

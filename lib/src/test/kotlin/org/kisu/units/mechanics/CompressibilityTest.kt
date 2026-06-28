@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.reciprocalPascals
 
 class CompressibilityTest : StringSpec({
@@ -23,6 +24,16 @@ class CompressibilityTest : StringSpec({
     "creates a base Compressibility" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.reciprocalPascals.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe ReciprocalPascal()
+                symbol shouldBe ReciprocalPascal().toString()
+            }
+        }
+    }
+
+    "converts to Pressure" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.reciprocalPascals.pressure.compressibility.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe ReciprocalPascal()
                 symbol shouldBe ReciprocalPascal().toString()

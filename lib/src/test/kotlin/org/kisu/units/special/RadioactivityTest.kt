@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.becquerels
 
 class RadioactivityTest : StringSpec({
@@ -23,6 +24,16 @@ class RadioactivityTest : StringSpec({
     "creates a base Radioactivity" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.becquerels.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Becquerel()
+                symbol shouldBe Becquerel.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to Time" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.becquerels.meanInterval.activity.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Becquerel()
                 symbol shouldBe Becquerel.UNIT.toString()

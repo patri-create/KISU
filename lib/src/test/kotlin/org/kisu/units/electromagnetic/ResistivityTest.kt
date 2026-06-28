@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.ohmsMetre
 import org.kisu.units.electromagnetic.Resistivity.Companion.OhmMetre
 
@@ -24,6 +25,16 @@ class ResistivityTest : StringSpec({
     "creates a base Resistivity" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.ohmsMetre.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe OhmMetre()
+                symbol shouldBe OhmMetre().toString()
+            }
+        }
+    }
+
+    "converts to ElectricConductivity" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.ohmsMetre.electricConductivity.resistivity.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe OhmMetre()
                 symbol shouldBe OhmMetre().toString()

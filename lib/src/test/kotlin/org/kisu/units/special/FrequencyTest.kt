@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.hertz
 
 class FrequencyTest : StringSpec({
@@ -23,6 +24,16 @@ class FrequencyTest : StringSpec({
     "creates a base Frequency" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.hertz.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe Hertz()
+                symbol shouldBe Hertz.UNIT.toString()
+            }
+        }
+    }
+
+    "converts to Time" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.hertz.period.frequency.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe Hertz()
                 symbol shouldBe Hertz.UNIT.toString()

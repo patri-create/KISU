@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.reciprocalMetres
 
 class WaveNumberTest : StringSpec({
@@ -23,6 +24,16 @@ class WaveNumberTest : StringSpec({
     "creates a base WaveNumber" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.reciprocalMetres.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe ReciprocalMetre()
+                symbol shouldBe ReciprocalMetre().toString()
+            }
+        }
+    }
+
+    "converts to Length" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.reciprocalMetres.wavelength.waveNumber.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe ReciprocalMetre()
                 symbol shouldBe ReciprocalMetre().toString()

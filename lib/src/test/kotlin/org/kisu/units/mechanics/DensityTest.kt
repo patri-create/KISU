@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.gramsPerCubicMetre
 import org.kisu.units.mechanics.Density.Companion.KilogramPerCubicMetre
 
@@ -24,6 +25,16 @@ class DensityTest : StringSpec({
     "creates a base Density" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.gramsPerCubicMetre.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe KilogramPerCubicMetre()
+                symbol shouldBe KilogramPerCubicMetre().toString()
+            }
+        }
+    }
+
+    "converts to SpecificVolume" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.gramsPerCubicMetre.specificVolume.density.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe KilogramPerCubicMetre()
                 symbol shouldBe KilogramPerCubicMetre().toString()

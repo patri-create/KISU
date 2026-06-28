@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.cubicMetresPerKilogram
 import org.kisu.units.mechanics.SpecificVolume.Companion.CubicMetrePerKilogram
 
@@ -24,6 +25,16 @@ class SpecificVolumeTest : StringSpec({
     "creates a base SpecificVolume" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.cubicMetresPerKilogram.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe CubicMetrePerKilogram()
+                symbol shouldBe CubicMetrePerKilogram().toString()
+            }
+        }
+    }
+
+    "converts to Density" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.cubicMetresPerKilogram.density.specificVolume.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe CubicMetrePerKilogram()
                 symbol shouldBe CubicMetrePerKilogram().toString()

@@ -7,6 +7,7 @@ import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
 import org.kisu.units.builders.molesPerKilogram
 import org.kisu.units.chemistry.Molality.Companion.MolPerKilogram
 
@@ -24,6 +25,16 @@ class MolalityTest : StringSpec({
     "creates a base Molality" {
         checkAll(Arb.magnitude()) { magnitude ->
             magnitude.molesPerKilogram.should { (amount, expression, symbol) ->
+                amount shouldBe magnitude
+                expression shouldBe MolPerKilogram()
+                symbol shouldBe MolPerKilogram().toString()
+            }
+        }
+    }
+
+    "converts to MolarMass" {
+        checkAll(Arb.reciprocalMagnitude()) { magnitude ->
+            magnitude.molesPerKilogram.molarMass.molality.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude
                 expression shouldBe MolPerKilogram()
                 symbol shouldBe MolPerKilogram().toString()
