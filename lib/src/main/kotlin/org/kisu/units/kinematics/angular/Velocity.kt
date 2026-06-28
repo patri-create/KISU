@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.angular
 
 import org.kisu.Magnitude
@@ -55,4 +57,20 @@ class Velocity(
         internal fun RadianPerSecond(prefix: Metric = Metric.BASE): RadianPerSecond =
             Quotient(Radian(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.angular.Acceleration =
+        org.kisu.units.kinematics.angular.Acceleration(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.angular.Acceleration
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.PlaneAngle =
+        org.kisu.units.special.PlaneAngle(canonical.component1() * other.canonical.component1())
 }

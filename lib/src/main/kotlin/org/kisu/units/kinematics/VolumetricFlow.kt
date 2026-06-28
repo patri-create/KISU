@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics
 
 import org.kisu.Magnitude
@@ -56,4 +58,20 @@ class VolumetricFlow internal constructor(
         internal fun CubicMetrePerSecond(prefix: Metric = Metric.BASE): CubicMetrePerSecond =
             Quotient(CubicMetre(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.chemistry.CatalyticEfficiency =
+        org.kisu.units.chemistry.CatalyticEfficiency(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.CatalyticEfficiency
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
 }

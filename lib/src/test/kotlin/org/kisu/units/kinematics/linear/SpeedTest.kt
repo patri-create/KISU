@@ -6,9 +6,17 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
+import org.kisu.units.base.Length
+import org.kisu.units.base.Mass
+import org.kisu.units.base.Time
 import org.kisu.units.builders.metresPerSecond
 import org.kisu.units.kinematics.linear.Speed.Companion.MetrePerSecond
+import org.kisu.units.mechanics.Momentum
+import org.kisu.units.special.Force
+import org.kisu.units.special.Power
 
 class SpeedTest : StringSpec({
     "creates a linear Speed" {
@@ -30,4 +38,87 @@ class SpeedTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "dividing a Speed by a Time returns an Acceleration" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.reciprocalMagnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Speed(leftMagnitude, leftPrefix)
+            val right = Time(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() / right.canonical.component1()
+            val expected = Acceleration(expectedMagnitude)
+
+            (left / right) shouldBe expected
+        }
+    }
+    "dividing a Speed by an Acceleration returns a Time" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.reciprocalMagnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Speed(leftMagnitude, leftPrefix)
+            val right = Acceleration(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() / right.canonical.component1()
+            val expected = Time(expectedMagnitude)
+
+            (left / right) shouldBe expected
+        }
+    }
+    "multiplying a Speed by a Mass returns a Momentum" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Speed(leftMagnitude, leftPrefix)
+            val right = Mass(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Momentum(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    "multiplying a Speed by a Time returns a Length" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Speed(leftMagnitude, leftPrefix)
+            val right = Time(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Length(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    "multiplying a Speed by a Force returns a Power" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Speed(leftMagnitude, leftPrefix)
+            val right = Force(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Power(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

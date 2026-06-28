@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.angular
 
 import org.kisu.Magnitude
@@ -54,4 +56,20 @@ class Crackle internal constructor(
         internal fun RadianPerSecondFifth(prefix: Metric = Metric.BASE): RadianPerSecondFifth =
             Quotient(Radian(prefix), SecondFifth())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.angular.Pop =
+        org.kisu.units.kinematics.angular.Pop(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.angular.Pop
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.angular.Snap =
+        org.kisu.units.kinematics.angular.Snap(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.linear
 
 import org.kisu.Magnitude
@@ -52,4 +54,10 @@ class Pop internal constructor(
         internal fun MetrePerSecondSixth(prefix: Metric = Metric.BASE): MetrePerSecondSixth =
             Quotient(Metre(prefix), SecondSixth())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Crackle =
+        org.kisu.units.kinematics.linear.Crackle(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.linear
 
 import org.kisu.Magnitude
@@ -56,4 +58,25 @@ class Acceleration(
         internal fun MetrePerSecondSquared(prefix: Metric = Metric.BASE): MetrePerSecondSquared =
             Quotient(Metre(prefix), SecondSquared())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Jerk =
+        org.kisu.units.kinematics.linear.Jerk(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.linear.Jerk
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Speed =
+        org.kisu.units.kinematics.linear.Speed(canonical.component1() * other.canonical.component1())
 }

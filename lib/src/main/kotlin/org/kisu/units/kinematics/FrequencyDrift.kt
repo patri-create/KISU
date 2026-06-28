@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics
 
 import org.kisu.Magnitude
@@ -55,4 +57,10 @@ class FrequencyDrift internal constructor(
         internal fun HertzPerSecond(prefix: Metric = Metric.BASE): HertzPerSecond =
             Quotient(Hertz(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Frequency =
+        org.kisu.units.special.Frequency(canonical.component1() * other.canonical.component1())
 }
