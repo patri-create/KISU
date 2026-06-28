@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.base
 
 import org.kisu.Magnitude
@@ -47,6 +49,62 @@ class Amount internal constructor(magnitude: Magnitude, expression: Mole) :
          */
         val AVOGADROS_NUMBER: Magnitude = Magnitude("6.02214076e23")
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.chemistry.Molality =
+        org.kisu.units.chemistry.Molality(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.CatalyticActivity =
+        org.kisu.units.special.CatalyticActivity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.Molality
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.Molarity
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.CatalyticActivity
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.chemistry.Molarity =
+        org.kisu.units.chemistry.Molarity(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.CatalyticEfficiency
+    ): org.kisu.units.kinematics.VolumetricFlow =
+        org.kisu.units.kinematics.VolumetricFlow(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.MolarEnergy
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.MolarHeatCapacity
+    ): org.kisu.units.thermodynamics.HeatCapacity =
+        org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.MolarMass
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.MolarVolume
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
 }
 
 class Mole private constructor(

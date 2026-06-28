@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.base
 
 import org.kisu.Magnitude
@@ -45,6 +47,42 @@ class Temperature internal constructor(magnitude: Magnitude, expression: Kelvin)
      */
     val thermalExpansionCoefficient: ThermalExpansionCoefficient
         get() = ThermalExpansionCoefficient(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.thermodynamics.TemperatureGradient =
+        org.kisu.units.thermodynamics.TemperatureGradient(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Power
+    ): org.kisu.units.thermodynamics.ThermalResistance =
+        org.kisu.units.thermodynamics.ThermalResistance(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.thermodynamics.TemperatureGradient
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.thermodynamics.ThermalResistance
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.MolarHeatCapacity
+    ): org.kisu.units.chemistry.MolarEnergy =
+        org.kisu.units.chemistry.MolarEnergy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.thermodynamics.HeatCapacity
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.thermodynamics.SpecificHeatCapacity
+    ): org.kisu.units.mechanics.SpecificEnergy =
+        org.kisu.units.mechanics.SpecificEnergy(canonical.component1() * other.canonical.component1())
 }
 
 class Kelvin private constructor(
