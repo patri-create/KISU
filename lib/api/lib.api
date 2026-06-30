@@ -2293,6 +2293,7 @@ public final class org/kisu/units/mechanics/WaveNumber : org/kisu/units/Measure 
 public final class org/kisu/units/photometric/Efficacy : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/photometric/Efficacy$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Power;)Lorg/kisu/units/special/LuminousFlux;
 }
 
 public final class org/kisu/units/photometric/Efficacy$Companion {
@@ -2301,6 +2302,8 @@ public final class org/kisu/units/photometric/Efficacy$Companion {
 public final class org/kisu/units/photometric/Exposure : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/photometric/Exposure$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Illuminance;
+	public final fun div (Lorg/kisu/units/special/Illuminance;)Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/photometric/Exposure$Companion {
@@ -2309,6 +2312,7 @@ public final class org/kisu/units/photometric/Exposure$Companion {
 public final class org/kisu/units/photometric/Luminance : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/photometric/Luminance$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/base/LuminousIntensity;
 }
 
 public final class org/kisu/units/photometric/Luminance$Companion {
@@ -2317,6 +2321,8 @@ public final class org/kisu/units/photometric/Luminance$Companion {
 public final class org/kisu/units/photometric/LuminousEnergy : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/photometric/LuminousEnergy$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/LuminousFlux;
+	public final fun div (Lorg/kisu/units/special/LuminousFlux;)Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/photometric/LuminousEnergy$Companion {

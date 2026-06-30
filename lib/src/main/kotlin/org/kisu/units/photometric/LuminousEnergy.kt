@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.photometric
 
 import org.kisu.Magnitude
@@ -54,4 +56,15 @@ class LuminousEnergy(
         internal fun LumenSecond(prefix: Metric = Metric.BASE): LumenSecond =
             Product(Lumen(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.LuminousFlux
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 }

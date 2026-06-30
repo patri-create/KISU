@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.photometric
 
 import org.kisu.Magnitude
@@ -56,4 +58,10 @@ class Efficacy(
         internal fun LumenPerWatt(prefix: Metric = Metric.BASE): LumenPerWatt =
             Quotient(Lumen(prefix), Watt())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Power
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
 }

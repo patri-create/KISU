@@ -6,9 +6,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.lumensPerWatt
 import org.kisu.units.photometric.Efficacy.Companion.LumenPerWatt
+import org.kisu.units.special.LuminousFlux
+import org.kisu.units.special.Power
 
 class EfficacyTest : StringSpec({
     "creates an Efficacy" {
@@ -30,4 +33,23 @@ class EfficacyTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "multiplying an Efficacy by a Power returns a LuminousFlux" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Efficacy(leftMagnitude, leftPrefix)
+            val right = Power(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = LuminousFlux(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

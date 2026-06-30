@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.photometric
 
 import org.kisu.Magnitude
@@ -55,4 +57,15 @@ class Exposure(
         internal fun LuxSecond(prefix: Metric = Metric.BASE): LuxSecond =
             Product(Lux(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Illuminance =
+        org.kisu.units.special.Illuminance(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Illuminance
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 }

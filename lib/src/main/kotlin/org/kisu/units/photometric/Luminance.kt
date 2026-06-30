@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.photometric
 
 import org.kisu.Magnitude
@@ -57,4 +59,10 @@ class Luminance(
         internal fun CandelaPerSquareMetre(prefix: Metric = Metric.BASE): CandelaPerSquareMetre =
             Quotient(Candela(prefix), SquareMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.base.LuminousIntensity =
+        org.kisu.units.base.LuminousIntensity(canonical.component1() * other.canonical.component1())
 }
