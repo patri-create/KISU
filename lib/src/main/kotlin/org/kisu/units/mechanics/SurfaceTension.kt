@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -53,4 +55,10 @@ class SurfaceTension(
         internal fun NewtonPerMetre(prefix: Metric = Metric.BASE): NewtonPerMetre =
             Quotient(Newton(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
 }

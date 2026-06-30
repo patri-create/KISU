@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -54,4 +56,10 @@ class SpectralIrradiance(
         internal fun WattPerCubicMetre(prefix: Metric = Metric.BASE): WattPerCubicMetre =
             Quotient(Watt(prefix), CubicMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.SpectralPower =
+        org.kisu.units.mechanics.SpectralPower(canonical.component1() * other.canonical.component1())
 }

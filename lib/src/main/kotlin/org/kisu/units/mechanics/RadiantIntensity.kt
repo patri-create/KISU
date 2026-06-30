@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -52,4 +54,30 @@ class RadiantIntensity(
         internal fun WattPerSteradian(prefix: Metric = Metric.BASE): WattPerSteradian =
             Quotient(Watt(prefix), Steradian())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.mechanics.SpectralIntensity =
+        org.kisu.units.mechanics.SpectralIntensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.Radiance
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.SpectralIntensity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.Radiance =
+        org.kisu.units.mechanics.Radiance(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.SolidAngle
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
 }

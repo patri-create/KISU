@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -52,4 +54,20 @@ class SpectralPower(
         internal fun WattPerMetre(prefix: Metric = Metric.BASE): WattPerMetre =
             Quotient(Watt(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.mechanics.SpectralIrradiance
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.SpectralIrradiance =
+        org.kisu.units.mechanics.SpectralIrradiance(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
 }

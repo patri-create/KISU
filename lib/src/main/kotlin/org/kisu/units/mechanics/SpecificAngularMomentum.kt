@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -62,4 +64,10 @@ class SpecificAngularMomentum(
                 Kilogram()
             )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.mechanics.AngularMomentum =
+        org.kisu.units.mechanics.AngularMomentum(canonical.component1() * other.canonical.component1())
 }

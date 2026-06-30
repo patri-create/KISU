@@ -2001,6 +2001,7 @@ public final class org/kisu/units/kinematics/linear/Speed$Companion {
 public final class org/kisu/units/mechanics/AbsorbedDoseRate : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/AbsorbedDoseRate$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/AbsorbedDose;
 }
 
 public final class org/kisu/units/mechanics/AbsorbedDoseRate$Companion {
@@ -2009,6 +2010,8 @@ public final class org/kisu/units/mechanics/AbsorbedDoseRate$Companion {
 public final class org/kisu/units/mechanics/Action : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/Action$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Energy;
+	public final fun div (Lorg/kisu/units/special/Energy;)Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/mechanics/Action$Companion {
@@ -2017,6 +2020,10 @@ public final class org/kisu/units/mechanics/Action$Companion {
 public final class org/kisu/units/mechanics/AngularMomentum : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/AngularMomentum$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/Momentum;
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/mechanics/SpecificAngularMomentum;
+	public final fun div (Lorg/kisu/units/mechanics/Momentum;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/mechanics/SpecificAngularMomentum;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/mechanics/AngularMomentum$Companion {
@@ -2025,6 +2032,7 @@ public final class org/kisu/units/mechanics/AngularMomentum$Companion {
 public final class org/kisu/units/mechanics/AreaDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/AreaDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/mechanics/AreaDensity$Companion {
@@ -2033,12 +2041,14 @@ public final class org/kisu/units/mechanics/AreaDensity$Companion {
 public final class org/kisu/units/mechanics/Compressibility : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/mechanics/ReciprocalPascal;)V
 	public final fun getPressure ()Lorg/kisu/units/special/Pressure;
+	public final fun times (Lorg/kisu/units/special/Force;)Lorg/kisu/units/special/Area;
 }
 
 public final class org/kisu/units/mechanics/Density : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/Density$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getSpecificVolume ()Lorg/kisu/units/mechanics/SpecificVolume;
+	public final fun times (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/mechanics/Density$Companion {
@@ -2047,6 +2057,8 @@ public final class org/kisu/units/mechanics/Density$Companion {
 public final class org/kisu/units/mechanics/DynamicViscosity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/DynamicViscosity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Pressure;
+	public final fun div (Lorg/kisu/units/special/Pressure;)Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/mechanics/DynamicViscosity$Companion {
@@ -2055,6 +2067,7 @@ public final class org/kisu/units/mechanics/DynamicViscosity$Companion {
 public final class org/kisu/units/mechanics/EnergyDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/EnergyDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/mechanics/EnergyDensity$Companion {
@@ -2063,6 +2076,7 @@ public final class org/kisu/units/mechanics/EnergyDensity$Companion {
 public final class org/kisu/units/mechanics/EnergyFluxDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/EnergyFluxDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/RadiantExposure;
 }
 
 public final class org/kisu/units/mechanics/EnergyFluxDensity$Companion {
@@ -2071,6 +2085,7 @@ public final class org/kisu/units/mechanics/EnergyFluxDensity$Companion {
 public final class org/kisu/units/mechanics/FuelEfficiency : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/FuelEfficiency$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/base/Length;
 }
 
 public final class org/kisu/units/mechanics/FuelEfficiency$Companion {
@@ -2079,6 +2094,9 @@ public final class org/kisu/units/mechanics/FuelEfficiency$Companion {
 public final class org/kisu/units/mechanics/HeatFluxDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/HeatFluxDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/thermodynamics/TemperatureGradient;)Lorg/kisu/units/thermodynamics/ThermalConductivity;
+	public final fun div (Lorg/kisu/units/thermodynamics/ThermalConductivity;)Lorg/kisu/units/thermodynamics/TemperatureGradient;
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/Power;
 }
 
 public final class org/kisu/units/mechanics/HeatFluxDensity$Companion {
@@ -2087,6 +2105,9 @@ public final class org/kisu/units/mechanics/HeatFluxDensity$Companion {
 public final class org/kisu/units/mechanics/KinematicViscosity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/KinematicViscosity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/electromagnetic/ElectronMobility;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun div (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/electromagnetic/ElectronMobility;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Area;
 }
 
 public final class org/kisu/units/mechanics/KinematicViscosity$Companion {
@@ -2095,6 +2116,7 @@ public final class org/kisu/units/mechanics/KinematicViscosity$Companion {
 public final class org/kisu/units/mechanics/LinearMassDensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/LinearMassDensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/mechanics/LinearMassDensity$Companion {
@@ -2103,6 +2125,7 @@ public final class org/kisu/units/mechanics/LinearMassDensity$Companion {
 public final class org/kisu/units/mechanics/MassFlowRate : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/MassFlowRate$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/mechanics/MassFlowRate$Companion {
@@ -2111,6 +2134,8 @@ public final class org/kisu/units/mechanics/MassFlowRate$Companion {
 public final class org/kisu/units/mechanics/MomentOfInertia : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/MomentOfInertia$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/base/Mass;
 }
 
 public final class org/kisu/units/mechanics/MomentOfInertia$Companion {
@@ -2119,6 +2144,11 @@ public final class org/kisu/units/mechanics/MomentOfInertia$Companion {
 public final class org/kisu/units/mechanics/Momentum : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/Momentum$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Product;)V
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/kinematics/linear/Speed;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Force;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Speed;)Lorg/kisu/units/base/Mass;
+	public final fun div (Lorg/kisu/units/special/Force;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/AngularMomentum;
 }
 
 public final class org/kisu/units/mechanics/Momentum$Companion {
@@ -2127,6 +2157,9 @@ public final class org/kisu/units/mechanics/Momentum$Companion {
 public final class org/kisu/units/mechanics/Radiance : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/Radiance$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/SpectralRadiance;
+	public final fun div (Lorg/kisu/units/mechanics/SpectralRadiance;)Lorg/kisu/units/base/Length;
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/mechanics/RadiantIntensity;
 }
 
 public final class org/kisu/units/mechanics/Radiance$Companion {
@@ -2135,6 +2168,9 @@ public final class org/kisu/units/mechanics/Radiance$Companion {
 public final class org/kisu/units/mechanics/RadiantExposure : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/RadiantExposure$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/EnergyFluxDensity;
+	public final fun div (Lorg/kisu/units/mechanics/EnergyFluxDensity;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/mechanics/RadiantExposure$Companion {
@@ -2143,6 +2179,11 @@ public final class org/kisu/units/mechanics/RadiantExposure$Companion {
 public final class org/kisu/units/mechanics/RadiantIntensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/RadiantIntensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/SpectralIntensity;
+	public final fun div (Lorg/kisu/units/mechanics/Radiance;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/mechanics/SpectralIntensity;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/mechanics/Radiance;
+	public final fun times (Lorg/kisu/units/special/SolidAngle;)Lorg/kisu/units/special/Power;
 }
 
 public final class org/kisu/units/mechanics/RadiantIntensity$Companion {
@@ -2169,6 +2210,7 @@ public final class org/kisu/units/mechanics/ReciprocalPascal$Companion {
 public final class org/kisu/units/mechanics/SpecificAngularMomentum : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpecificAngularMomentum$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/mechanics/AngularMomentum;
 }
 
 public final class org/kisu/units/mechanics/SpecificAngularMomentum$Companion {
@@ -2177,6 +2219,9 @@ public final class org/kisu/units/mechanics/SpecificAngularMomentum$Companion {
 public final class org/kisu/units/mechanics/SpecificEnergy : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpecificEnergy$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Temperature;)Lorg/kisu/units/thermodynamics/SpecificHeatCapacity;
+	public final fun div (Lorg/kisu/units/thermodynamics/SpecificHeatCapacity;)Lorg/kisu/units/base/Temperature;
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/mechanics/SpecificEnergy$Companion {
@@ -2186,6 +2231,7 @@ public final class org/kisu/units/mechanics/SpecificVolume : org/kisu/units/Meas
 	public static final field Companion Lorg/kisu/units/mechanics/SpecificVolume$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
 	public final fun getDensity ()Lorg/kisu/units/mechanics/Density;
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/special/Volume;
 }
 
 public final class org/kisu/units/mechanics/SpecificVolume$Companion {
@@ -2194,6 +2240,7 @@ public final class org/kisu/units/mechanics/SpecificVolume$Companion {
 public final class org/kisu/units/mechanics/SpectralIntensity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpectralIntensity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/RadiantIntensity;
 }
 
 public final class org/kisu/units/mechanics/SpectralIntensity$Companion {
@@ -2202,6 +2249,7 @@ public final class org/kisu/units/mechanics/SpectralIntensity$Companion {
 public final class org/kisu/units/mechanics/SpectralIrradiance : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpectralIrradiance$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/mechanics/SpectralPower;
 }
 
 public final class org/kisu/units/mechanics/SpectralIrradiance$Companion {
@@ -2210,6 +2258,9 @@ public final class org/kisu/units/mechanics/SpectralIrradiance$Companion {
 public final class org/kisu/units/mechanics/SpectralPower : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpectralPower$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/mechanics/SpectralIrradiance;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/mechanics/SpectralIrradiance;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Power;
 }
 
 public final class org/kisu/units/mechanics/SpectralPower$Companion {
@@ -2218,6 +2269,7 @@ public final class org/kisu/units/mechanics/SpectralPower$Companion {
 public final class org/kisu/units/mechanics/SpectralRadiance : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SpectralRadiance$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/Radiance;
 }
 
 public final class org/kisu/units/mechanics/SpectralRadiance$Companion {
@@ -2226,6 +2278,7 @@ public final class org/kisu/units/mechanics/SpectralRadiance$Companion {
 public final class org/kisu/units/mechanics/SurfaceTension : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/mechanics/SurfaceTension$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Force;
 }
 
 public final class org/kisu/units/mechanics/SurfaceTension$Companion {
@@ -2234,6 +2287,7 @@ public final class org/kisu/units/mechanics/SurfaceTension$Companion {
 public final class org/kisu/units/mechanics/WaveNumber : org/kisu/units/Measure {
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/mechanics/ReciprocalMetre;)V
 	public final fun getWavelength ()Lorg/kisu/units/base/Length;
+	public final fun times (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/special/Area;
 }
 
 public final class org/kisu/units/photometric/Efficacy : org/kisu/units/Measure {

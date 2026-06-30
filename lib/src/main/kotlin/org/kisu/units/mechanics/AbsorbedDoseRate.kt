@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -56,4 +58,10 @@ class AbsorbedDoseRate(
         internal fun GrayPerSecond(prefix: Metric = Metric.BASE): GrayPerSecond =
             Quotient(Gray(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.AbsorbedDose =
+        org.kisu.units.special.AbsorbedDose(canonical.component1() * other.canonical.component1())
 }

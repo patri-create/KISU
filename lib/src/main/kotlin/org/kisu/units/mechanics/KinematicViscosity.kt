@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -57,4 +59,20 @@ class KinematicViscosity(
         internal fun SquareMetrePerSecond(prefix: Metric = Metric.BASE): SquareMetrePerSecond =
             Quotient(SquareMetre(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.electromagnetic.ElectronMobility
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.electromagnetic.ElectronMobility =
+        org.kisu.units.electromagnetic.ElectronMobility(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -53,4 +55,10 @@ class EnergyDensity(
         internal fun JoulePerCubicMetre(prefix: Metric = Metric.BASE): JoulePerCubicMetre =
             Quotient(Joule(prefix), CubicMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 }
