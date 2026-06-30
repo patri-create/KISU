@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -59,4 +61,10 @@ class SpectralRadiance(
         internal fun WattPerSteradianCubicMetre(prefix: Metric = Metric.BASE): WattPerSteradianCubicMetre =
             Quotient(Watt(prefix), Product(Steradian(), CubicMetre()))
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.mechanics.Radiance =
+        org.kisu.units.mechanics.Radiance(canonical.component1() * other.canonical.component1())
 }

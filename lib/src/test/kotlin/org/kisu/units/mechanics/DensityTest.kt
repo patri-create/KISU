@@ -6,10 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
 import org.kisu.test.generators.reciprocalMagnitude
+import org.kisu.units.base.Mass
 import org.kisu.units.builders.gramsPerCubicMetre
 import org.kisu.units.mechanics.Density.Companion.KilogramPerCubicMetre
+import org.kisu.units.special.Volume
 
 class DensityTest : StringSpec({
     "creates a Density" {
@@ -41,4 +44,22 @@ class DensityTest : StringSpec({
             }
         }
     }
+    // Dimension-aware arithmetic properties
+    "multiplying a Density by a Volume returns a Mass" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Density(leftMagnitude, leftPrefix)
+            val right = Volume(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Mass(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

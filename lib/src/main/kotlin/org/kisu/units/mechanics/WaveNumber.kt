@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -35,6 +37,12 @@ class WaveNumber(
      */
     val wavelength: Length
         get() = Length(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() * other.canonical.component1())
 }
 
 /**

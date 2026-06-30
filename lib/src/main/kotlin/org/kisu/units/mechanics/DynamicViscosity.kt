@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -52,4 +54,15 @@ class DynamicViscosity(
         internal fun PascalSecond(prefix: Metric = Metric.BASE): PascalSecond =
             Product(Pascal(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Pressure =
+        org.kisu.units.special.Pressure(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Pressure
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 }

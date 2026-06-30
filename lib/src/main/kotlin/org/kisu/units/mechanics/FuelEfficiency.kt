@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -52,4 +54,10 @@ class FuelEfficiency(
         internal fun MetrePerCubicMetre(prefix: Metric = Metric.BASE): MetrePerCubicMetre =
             Quotient(Metre(prefix), CubicMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -53,4 +55,20 @@ class HeatFluxDensity(
         internal fun WattPerSquareMetre(prefix: Metric = Metric.BASE): WattPerSquareMetre =
             Quotient(Watt(prefix), SquareMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.thermodynamics.TemperatureGradient
+    ): org.kisu.units.thermodynamics.ThermalConductivity =
+        org.kisu.units.thermodynamics.ThermalConductivity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.thermodynamics.ThermalConductivity
+    ): org.kisu.units.thermodynamics.TemperatureGradient =
+        org.kisu.units.thermodynamics.TemperatureGradient(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
 }

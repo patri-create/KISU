@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -58,4 +60,10 @@ class EnergyFluxDensity(
         internal fun JoulePerSquareMetreSecond(prefix: Metric = Metric.BASE): JoulePerSquareMetreSecond =
             Quotient(Joule(prefix), Product(SquareMetre(), Second()))
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.mechanics.RadiantExposure =
+        org.kisu.units.mechanics.RadiantExposure(canonical.component1() * other.canonical.component1())
 }

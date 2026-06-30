@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -37,6 +39,12 @@ class Compressibility(
      */
     val pressure: Pressure
         get() = Pressure(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Force
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() * other.canonical.component1())
 }
 
 /**

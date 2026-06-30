@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -50,4 +52,30 @@ class Momentum(
         internal fun NewtonSecond(prefix: Metric = Metric.BASE): NewtonSecond =
             Product(Newton(prefix), Second())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.kinematics.linear.Speed =
+        org.kisu.units.kinematics.linear.Speed(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.linear.Speed
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Force
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.mechanics.AngularMomentum =
+        org.kisu.units.mechanics.AngularMomentum(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -53,4 +55,10 @@ class AreaDensity(
         internal fun KilogramPerSquareMetre(prefix: Metric = Metric.BASE): KilogramPerSquareMetre =
             Quotient(Kilogram(prefix), SquareMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
 }

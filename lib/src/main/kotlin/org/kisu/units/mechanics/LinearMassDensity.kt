@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -57,4 +59,10 @@ class LinearMassDensity(
         internal fun KilogramPerMetre(prefix: Metric = Metric.BASE): KilogramPerMetre =
             Quotient(Kilogram(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
 }

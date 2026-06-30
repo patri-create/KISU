@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -59,4 +61,10 @@ class SpecificVolume(
         internal fun CubicMetrePerKilogram(prefix: Metric = Metric.BASE): CubicMetrePerKilogram =
             Quotient(CubicMetre(prefix), Kilogram())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
 }

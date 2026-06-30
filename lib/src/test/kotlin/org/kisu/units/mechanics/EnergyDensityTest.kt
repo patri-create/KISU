@@ -6,9 +6,12 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
 import org.kisu.units.builders.joulesPerCubicMetre
 import org.kisu.units.mechanics.EnergyDensity.Companion.JoulePerCubicMetre
+import org.kisu.units.special.Energy
+import org.kisu.units.special.Volume
 
 class EnergyDensityTest : StringSpec({
     "creates an EnergyDensity" {
@@ -30,4 +33,23 @@ class EnergyDensityTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "multiplying an EnergyDensity by a Volume returns an Energy" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = EnergyDensity(leftMagnitude, leftPrefix)
+            val right = Volume(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Energy(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.mechanics
 
 import org.kisu.Magnitude
@@ -56,4 +58,15 @@ class MomentOfInertia(
         internal fun KilogramSquareMetre(prefix: Metric = Metric.BASE): KilogramSquareMetre =
             Product(Kilogram(prefix), SquareMetre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
 }
