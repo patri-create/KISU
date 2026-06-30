@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.thermodynamics
 
 import org.kisu.Magnitude
@@ -60,4 +62,15 @@ class TemperatureGradient(
         internal fun KelvinPerMetre(prefix: Metric = Metric.BASE): KelvinPerMetre =
             Quotient(Kelvin(prefix), Metre())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.base.Temperature =
+        org.kisu.units.base.Temperature(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.thermodynamics.ThermalConductivity
+    ): org.kisu.units.mechanics.HeatFluxDensity =
+        org.kisu.units.mechanics.HeatFluxDensity(canonical.component1() * other.canonical.component1())
 }

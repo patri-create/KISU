@@ -2933,6 +2933,11 @@ public final class org/kisu/units/special/Weber$Companion {
 public final class org/kisu/units/thermodynamics/HeatCapacity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/thermodynamics/HeatCapacity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/chemistry/MolarHeatCapacity;
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/thermodynamics/SpecificHeatCapacity;
+	public final fun div (Lorg/kisu/units/chemistry/MolarHeatCapacity;)Lorg/kisu/units/base/Amount;
+	public final fun div (Lorg/kisu/units/thermodynamics/SpecificHeatCapacity;)Lorg/kisu/units/base/Mass;
+	public final fun times (Lorg/kisu/units/base/Temperature;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/thermodynamics/HeatCapacity$Companion {
@@ -2950,6 +2955,8 @@ public final class org/kisu/units/thermodynamics/ReciprocalKelvin$Companion {
 public final class org/kisu/units/thermodynamics/SpecificHeatCapacity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/thermodynamics/SpecificHeatCapacity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/thermodynamics/HeatCapacity;
+	public final fun times (Lorg/kisu/units/base/Temperature;)Lorg/kisu/units/mechanics/SpecificEnergy;
 }
 
 public final class org/kisu/units/thermodynamics/SpecificHeatCapacity$Companion {
@@ -2958,6 +2965,8 @@ public final class org/kisu/units/thermodynamics/SpecificHeatCapacity$Companion 
 public final class org/kisu/units/thermodynamics/TemperatureGradient : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/thermodynamics/TemperatureGradient$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/base/Temperature;
+	public final fun times (Lorg/kisu/units/thermodynamics/ThermalConductivity;)Lorg/kisu/units/mechanics/HeatFluxDensity;
 }
 
 public final class org/kisu/units/thermodynamics/TemperatureGradient$Companion {
@@ -2966,6 +2975,7 @@ public final class org/kisu/units/thermodynamics/TemperatureGradient$Companion {
 public final class org/kisu/units/thermodynamics/ThermalConductivity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/thermodynamics/ThermalConductivity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/thermodynamics/TemperatureGradient;)Lorg/kisu/units/mechanics/HeatFluxDensity;
 }
 
 public final class org/kisu/units/thermodynamics/ThermalConductivity$Companion {
@@ -2979,6 +2989,7 @@ public final class org/kisu/units/thermodynamics/ThermalExpansionCoefficient : o
 public final class org/kisu/units/thermodynamics/ThermalResistance : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/thermodynamics/ThermalResistance$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun times (Lorg/kisu/units/special/Power;)Lorg/kisu/units/base/Temperature;
 }
 
 public final class org/kisu/units/thermodynamics/ThermalResistance$Companion {
