@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -28,6 +30,12 @@ class Elastance internal constructor(magnitude: Magnitude, expression: InverseFa
      */
     val capacitance: Capacitance
         get() = Capacitance(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.ElectricCharge
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
 }
 
 /**

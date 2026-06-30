@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -25,6 +27,67 @@ class Power internal constructor(magnitude: Magnitude, expression: Watt) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Watt(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.mechanics.SpectralPower =
+        org.kisu.units.mechanics.SpectralPower(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.linear.Speed
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.HeatFluxDensity
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.RadiantIntensity
+    ): org.kisu.units.special.SolidAngle =
+        org.kisu.units.special.SolidAngle(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.SpectralPower
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.HeatFluxDensity =
+        org.kisu.units.mechanics.HeatFluxDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Force
+    ): org.kisu.units.kinematics.linear.Speed =
+        org.kisu.units.kinematics.linear.Speed(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.SolidAngle
+    ): org.kisu.units.mechanics.RadiantIntensity =
+        org.kisu.units.mechanics.RadiantIntensity(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.photometric.Efficacy
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.thermodynamics.ThermalResistance
+    ): org.kisu.units.base.Temperature =
+        org.kisu.units.base.Temperature(canonical.component1() * other.canonical.component1())
 }
 
 /**

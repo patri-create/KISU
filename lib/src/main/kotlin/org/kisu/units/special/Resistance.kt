@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -31,6 +33,17 @@ class Resistance internal constructor(magnitude: Magnitude, expression: Ohm) :
      */
     val conductance: Conductance
         get() = Conductance(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.Resistivity =
+        org.kisu.units.electromagnetic.Resistivity(canonical.component1() * other.canonical.component1())
 }
 
 /**

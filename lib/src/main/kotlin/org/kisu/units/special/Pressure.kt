@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -33,6 +35,17 @@ class Pressure internal constructor(magnitude: Magnitude, expression: Pascal) :
      */
     val compressibility: Compressibility
         get() = Compressibility(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.mechanics.DynamicViscosity =
+        org.kisu.units.mechanics.DynamicViscosity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
 }
 
 /**

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -27,6 +29,77 @@ class ElectricCharge internal constructor(magnitude: Magnitude, expression: Coul
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Coulomb(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.LinearChargeDensity =
+        org.kisu.units.electromagnetic.LinearChargeDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.electromagnetic.Exposure =
+        org.kisu.units.electromagnetic.Exposure(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.ElectricChargeDensity
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.ElectricDisplacementField
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.Exposure
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.LinearChargeDensity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.electromagnetic.ElectricDisplacementField =
+        org.kisu.units.electromagnetic.ElectricDisplacementField(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Capacitance
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.special.Capacitance =
+        org.kisu.units.special.Capacitance(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.electromagnetic.ElectricChargeDensity =
+        org.kisu.units.electromagnetic.ElectricChargeDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Elastance
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 }
 
 /**

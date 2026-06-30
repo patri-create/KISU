@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -25,6 +27,92 @@ class Energy internal constructor(magnitude: Magnitude, expression: Joule) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Joule(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.chemistry.MolarEnergy =
+        org.kisu.units.chemistry.MolarEnergy(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.mechanics.SpecificEnergy =
+        org.kisu.units.mechanics.SpecificEnergy(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Temperature
+    ): org.kisu.units.thermodynamics.HeatCapacity =
+        org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.MolarEnergy
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.EnergyDensity
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.RadiantExposure
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.SpecificEnergy
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.mechanics.RadiantExposure =
+        org.kisu.units.mechanics.RadiantExposure(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.ElectricCharge
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Force
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.MagneticFlux
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.mechanics.EnergyDensity =
+        org.kisu.units.mechanics.EnergyDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.thermodynamics.HeatCapacity
+    ): org.kisu.units.base.Temperature =
+        org.kisu.units.base.Temperature(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.mechanics.Action =
+        org.kisu.units.mechanics.Action(canonical.component1() * other.canonical.component1())
 }
 
 /**

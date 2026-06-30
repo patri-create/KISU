@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -31,6 +33,22 @@ class Conductance internal constructor(magnitude: Magnitude, expression: Siemens
      */
     val resistance: Resistance
         get() = Resistance(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.ElectricConductivity =
+        org.kisu.units.electromagnetic.ElectricConductivity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.ElectricConductivity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() * other.canonical.component1())
 }
 
 /**

@@ -6,8 +6,11 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
+import org.kisu.units.base.Time
 import org.kisu.units.builders.lux
+import org.kisu.units.photometric.Exposure
 
 class IlluminanceTest : StringSpec({
     "creates an Illuminance" {
@@ -29,4 +32,39 @@ class IlluminanceTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "multiplying an Illuminance by a Time returns an Exposure" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Illuminance(leftMagnitude, leftPrefix)
+            val right = Time(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Exposure(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    "multiplying an Illuminance by an Area returns a LuminousFlux" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Illuminance(leftMagnitude, leftPrefix)
+            val right = Area(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = LuminousFlux(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })
