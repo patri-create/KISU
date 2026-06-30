@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics
 
 import org.kisu.Magnitude
@@ -79,4 +81,10 @@ class Yank internal constructor(
                 SecondCubed()
             )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
 }

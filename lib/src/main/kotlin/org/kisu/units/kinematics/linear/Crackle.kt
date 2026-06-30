@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.linear
 
 import org.kisu.Magnitude
@@ -54,4 +56,20 @@ class Crackle internal constructor(
         internal fun MetrePerSecondFifth(prefix: Metric = Metric.BASE): MetrePerSecondFifth =
             Quotient(Metre(prefix), SecondFifth())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Pop =
+        org.kisu.units.kinematics.linear.Pop(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.linear.Pop
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Snap =
+        org.kisu.units.kinematics.linear.Snap(canonical.component1() * other.canonical.component1())
 }

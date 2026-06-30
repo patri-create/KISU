@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.angular
 
 import org.kisu.Magnitude
@@ -54,4 +56,10 @@ class Pop internal constructor(
         internal fun RadianPerSecondSixth(prefix: Metric = Metric.BASE): RadianPerSecondSixth =
             Quotient(Radian(prefix), SecondSixth())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.angular.Crackle =
+        org.kisu.units.kinematics.angular.Crackle(canonical.component1() * other.canonical.component1())
 }

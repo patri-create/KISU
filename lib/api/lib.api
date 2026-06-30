@@ -1847,6 +1847,7 @@ public final class org/kisu/units/exceptions/SubBitInformation : java/lang/Arith
 
 public final class org/kisu/units/kinematics/FrequencyDrift : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/FrequencyDrift$Companion;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Frequency;
 }
 
 public final class org/kisu/units/kinematics/FrequencyDrift$Companion {
@@ -1854,6 +1855,9 @@ public final class org/kisu/units/kinematics/FrequencyDrift$Companion {
 
 public final class org/kisu/units/kinematics/VolumetricFlow : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/VolumetricFlow$Companion;
+	public final fun div (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/chemistry/CatalyticEfficiency;
+	public final fun div (Lorg/kisu/units/chemistry/CatalyticEfficiency;)Lorg/kisu/units/base/Amount;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Volume;
 }
 
 public final class org/kisu/units/kinematics/VolumetricFlow$Companion {
@@ -1861,6 +1865,7 @@ public final class org/kisu/units/kinematics/VolumetricFlow$Companion {
 
 public final class org/kisu/units/kinematics/Yank : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/Yank$Companion;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/Force;
 }
 
 public final class org/kisu/units/kinematics/Yank$Companion {
@@ -1869,6 +1874,9 @@ public final class org/kisu/units/kinematics/Yank$Companion {
 public final class org/kisu/units/kinematics/angular/Acceleration : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/angular/Acceleration$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Jerk;
+	public final fun div (Lorg/kisu/units/kinematics/angular/Jerk;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Velocity;
 }
 
 public final class org/kisu/units/kinematics/angular/Acceleration$Companion {
@@ -1876,6 +1884,9 @@ public final class org/kisu/units/kinematics/angular/Acceleration$Companion {
 
 public final class org/kisu/units/kinematics/angular/Crackle : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/angular/Crackle$Companion;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Pop;
+	public final fun div (Lorg/kisu/units/kinematics/angular/Pop;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Snap;
 }
 
 public final class org/kisu/units/kinematics/angular/Crackle$Companion {
@@ -1884,6 +1895,9 @@ public final class org/kisu/units/kinematics/angular/Crackle$Companion {
 public final class org/kisu/units/kinematics/angular/Jerk : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/angular/Jerk$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Snap;
+	public final fun div (Lorg/kisu/units/kinematics/angular/Snap;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Acceleration;
 }
 
 public final class org/kisu/units/kinematics/angular/Jerk$Companion {
@@ -1891,6 +1905,7 @@ public final class org/kisu/units/kinematics/angular/Jerk$Companion {
 
 public final class org/kisu/units/kinematics/angular/Pop : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/angular/Pop$Companion;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Crackle;
 }
 
 public final class org/kisu/units/kinematics/angular/Pop$Companion {
@@ -1899,6 +1914,9 @@ public final class org/kisu/units/kinematics/angular/Pop$Companion {
 public final class org/kisu/units/kinematics/angular/Snap : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/angular/Snap$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Crackle;
+	public final fun div (Lorg/kisu/units/kinematics/angular/Crackle;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Jerk;
 }
 
 public final class org/kisu/units/kinematics/angular/Snap$Companion {
@@ -1907,6 +1925,9 @@ public final class org/kisu/units/kinematics/angular/Snap$Companion {
 public final class org/kisu/units/kinematics/angular/Velocity : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/angular/Velocity$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Acceleration;
+	public final fun div (Lorg/kisu/units/kinematics/angular/Acceleration;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/PlaneAngle;
 }
 
 public final class org/kisu/units/kinematics/angular/Velocity$Companion {
@@ -1915,6 +1936,10 @@ public final class org/kisu/units/kinematics/angular/Velocity$Companion {
 public final class org/kisu/units/kinematics/linear/Acceleration : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/linear/Acceleration$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Jerk;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Jerk;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/special/Force;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Speed;
 }
 
 public final class org/kisu/units/kinematics/linear/Acceleration$Companion {
@@ -1922,6 +1947,9 @@ public final class org/kisu/units/kinematics/linear/Acceleration$Companion {
 
 public final class org/kisu/units/kinematics/linear/Crackle : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/linear/Crackle$Companion;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Pop;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Pop;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Snap;
 }
 
 public final class org/kisu/units/kinematics/linear/Crackle$Companion {
@@ -1930,6 +1958,9 @@ public final class org/kisu/units/kinematics/linear/Crackle$Companion {
 public final class org/kisu/units/kinematics/linear/Jerk : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/linear/Jerk$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Snap;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Snap;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Acceleration;
 }
 
 public final class org/kisu/units/kinematics/linear/Jerk$Companion {
@@ -1937,6 +1968,7 @@ public final class org/kisu/units/kinematics/linear/Jerk$Companion {
 
 public final class org/kisu/units/kinematics/linear/Pop : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/linear/Pop$Companion;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Crackle;
 }
 
 public final class org/kisu/units/kinematics/linear/Pop$Companion {
@@ -1945,6 +1977,9 @@ public final class org/kisu/units/kinematics/linear/Pop$Companion {
 public final class org/kisu/units/kinematics/linear/Snap : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/linear/Snap$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Crackle;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Crackle;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Jerk;
 }
 
 public final class org/kisu/units/kinematics/linear/Snap$Companion {
@@ -1953,6 +1988,11 @@ public final class org/kisu/units/kinematics/linear/Snap$Companion {
 public final class org/kisu/units/kinematics/linear/Speed : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/kinematics/linear/Speed$Companion;
 	public fun <init> (Lorg/kisu/Magnitude;Lorg/kisu/units/representation/Quotient;)V
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/linear/Acceleration;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Acceleration;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/mechanics/Momentum;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/base/Length;
+	public final fun times (Lorg/kisu/units/special/Force;)Lorg/kisu/units/special/Power;
 }
 
 public final class org/kisu/units/kinematics/linear/Speed$Companion {

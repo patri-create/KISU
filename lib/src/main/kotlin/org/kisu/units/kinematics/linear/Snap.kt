@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.kinematics.linear
 
 import org.kisu.Magnitude
@@ -54,4 +56,20 @@ class Snap(
         internal fun MetrePerSecondFourth(prefix: Metric = Metric.BASE): MetrePerSecondFourth =
             Quotient(Metre(prefix), SecondFourth())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Crackle =
+        org.kisu.units.kinematics.linear.Crackle(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.linear.Crackle
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.linear.Jerk =
+        org.kisu.units.kinematics.linear.Jerk(canonical.component1() * other.canonical.component1())
 }

@@ -6,9 +6,13 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
+import org.kisu.test.generators.reciprocalMagnitude
+import org.kisu.units.base.Time
 import org.kisu.units.builders.radiansPerSecond
 import org.kisu.units.kinematics.angular.Velocity.Companion.RadianPerSecond
+import org.kisu.units.special.PlaneAngle
 
 class VelocityTest : StringSpec({
     "creates an angular Velocity" {
@@ -30,4 +34,55 @@ class VelocityTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "dividing a Velocity by a Time returns an Acceleration" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.reciprocalMagnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Velocity(leftMagnitude, leftPrefix)
+            val right = Time(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() / right.canonical.component1()
+            val expected = Acceleration(expectedMagnitude)
+
+            (left / right) shouldBe expected
+        }
+    }
+    "dividing a Velocity by an Acceleration returns a Time" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.reciprocalMagnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Velocity(leftMagnitude, leftPrefix)
+            val right = Acceleration(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() / right.canonical.component1()
+            val expected = Time(expectedMagnitude)
+
+            (left / right) shouldBe expected
+        }
+    }
+    "multiplying a Velocity by a Time returns a PlaneAngle" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Velocity(leftMagnitude, leftPrefix)
+            val right = Time(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = PlaneAngle(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })
