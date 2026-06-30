@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -26,6 +28,12 @@ class CatalyticActivity internal constructor(magnitude: Magnitude, expression: K
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Katal(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() * other.canonical.component1())
 }
 
 /**

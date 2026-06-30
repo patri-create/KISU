@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -25,6 +27,62 @@ class MagneticFlux internal constructor(magnitude: Magnitude, expression: Weber)
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Weber(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.Inductance =
+        org.kisu.units.special.Inductance(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.MagneticVectorPotential =
+        org.kisu.units.electromagnetic.MagneticVectorPotential(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.special.ElectricPotential =
+        org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.MagneticVectorPotential
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.MagneticFluxDensity =
+        org.kisu.units.special.MagneticFluxDensity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Inductance
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.MagneticFluxDensity
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.MagneticMoment =
+        org.kisu.units.electromagnetic.MagneticMoment(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.MagneticReluctance
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() * other.canonical.component1())
 }
 
 /**

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -27,6 +29,22 @@ class PlaneAngle internal constructor(magnitude: Magnitude, expression: Radian) 
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Radian(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.angular.Velocity =
+        org.kisu.units.kinematics.angular.Velocity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.angular.Velocity
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.electromagnetic.MagnetomotiveForce =
+        org.kisu.units.electromagnetic.MagnetomotiveForce(canonical.component1() * other.canonical.component1())
 }
 
 /**

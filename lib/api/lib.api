@@ -2455,9 +2455,32 @@ public final class org/kisu/units/representation/Unit : java/lang/Comparable {
 }
 
 public final class org/kisu/units/special/AbsorbedDose : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/AbsorbedDoseRate;
+	public final fun div (Lorg/kisu/units/mechanics/AbsorbedDoseRate;)Lorg/kisu/units/base/Time;
 }
 
 public final class org/kisu/units/special/Area : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/KinematicViscosity;
+	public final fun div (Lorg/kisu/units/mechanics/Compressibility;)Lorg/kisu/units/special/Force;
+	public final fun div (Lorg/kisu/units/mechanics/KinematicViscosity;)Lorg/kisu/units/base/Time;
+	public final fun div (Lorg/kisu/units/mechanics/WaveNumber;)Lorg/kisu/units/special/Volume;
+	public final fun div (Lorg/kisu/units/special/Force;)Lorg/kisu/units/mechanics/Compressibility;
+	public final fun div (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/mechanics/WaveNumber;
+	public final fun times (Lorg/kisu/units/base/Current;)Lorg/kisu/units/electromagnetic/MagneticDipoleMoment;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Volume;
+	public final fun times (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/mechanics/MomentOfInertia;
+	public final fun times (Lorg/kisu/units/electromagnetic/ElectricCurrentDensity;)Lorg/kisu/units/base/Current;
+	public final fun times (Lorg/kisu/units/electromagnetic/ElectricDisplacementField;)Lorg/kisu/units/special/ElectricCharge;
+	public final fun times (Lorg/kisu/units/mechanics/AreaDensity;)Lorg/kisu/units/base/Mass;
+	public final fun times (Lorg/kisu/units/mechanics/HeatFluxDensity;)Lorg/kisu/units/special/Power;
+	public final fun times (Lorg/kisu/units/mechanics/Radiance;)Lorg/kisu/units/mechanics/RadiantIntensity;
+	public final fun times (Lorg/kisu/units/mechanics/RadiantExposure;)Lorg/kisu/units/special/Energy;
+	public final fun times (Lorg/kisu/units/mechanics/SpectralIrradiance;)Lorg/kisu/units/mechanics/SpectralPower;
+	public final fun times (Lorg/kisu/units/photometric/Luminance;)Lorg/kisu/units/base/LuminousIntensity;
+	public final fun times (Lorg/kisu/units/special/Illuminance;)Lorg/kisu/units/special/LuminousFlux;
+	public final fun times (Lorg/kisu/units/special/MagneticFluxDensity;)Lorg/kisu/units/special/MagneticFlux;
+	public final fun times (Lorg/kisu/units/special/Pressure;)Lorg/kisu/units/special/Force;
 }
 
 public final class org/kisu/units/special/Becquerel : org/kisu/units/representation/Scalar {
@@ -2488,10 +2511,14 @@ public final class org/kisu/units/special/Bytes$Companion {
 }
 
 public final class org/kisu/units/special/Capacitance : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/Permittivity;
+	public final fun div (Lorg/kisu/units/electromagnetic/Permittivity;)Lorg/kisu/units/base/Length;
 	public final fun getElastance ()Lorg/kisu/units/special/Elastance;
+	public final fun times (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/special/ElectricCharge;
 }
 
 public final class org/kisu/units/special/CatalyticActivity : org/kisu/units/Measure {
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/base/Amount;
 }
 
 public final class org/kisu/units/special/Celsius : org/kisu/units/representation/Scalar {
@@ -2508,7 +2535,10 @@ public final class org/kisu/units/special/CelsiusTemperature : org/kisu/units/Me
 }
 
 public final class org/kisu/units/special/Conductance : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/ElectricConductivity;
+	public final fun div (Lorg/kisu/units/electromagnetic/ElectricConductivity;)Lorg/kisu/units/base/Length;
 	public final fun getResistance ()Lorg/kisu/units/special/Resistance;
+	public final fun times (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/special/Coulomb : org/kisu/units/representation/Scalar {
@@ -2534,15 +2564,59 @@ public final class org/kisu/units/special/DoseEquivalent : org/kisu/units/Measur
 
 public final class org/kisu/units/special/Elastance : org/kisu/units/Measure {
 	public final fun getCapacitance ()Lorg/kisu/units/special/Capacitance;
+	public final fun times (Lorg/kisu/units/special/ElectricCharge;)Lorg/kisu/units/special/ElectricPotential;
 }
 
 public final class org/kisu/units/special/ElectricCharge : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/base/Time;
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/LinearChargeDensity;
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/electromagnetic/Exposure;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/base/Current;
+	public final fun div (Lorg/kisu/units/electromagnetic/ElectricChargeDensity;)Lorg/kisu/units/special/Volume;
+	public final fun div (Lorg/kisu/units/electromagnetic/ElectricDisplacementField;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/electromagnetic/Exposure;)Lorg/kisu/units/base/Mass;
+	public final fun div (Lorg/kisu/units/electromagnetic/LinearChargeDensity;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/electromagnetic/ElectricDisplacementField;
+	public final fun div (Lorg/kisu/units/special/Capacitance;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun div (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/special/Capacitance;
+	public final fun div (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/electromagnetic/ElectricChargeDensity;
+	public final fun times (Lorg/kisu/units/special/Elastance;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun times (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/special/ElectricPotential : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/Resistance;
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/ElectricFieldStrength;
+	public final fun div (Lorg/kisu/units/electromagnetic/ElectricFieldStrength;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/Elastance;)Lorg/kisu/units/special/ElectricCharge;
+	public final fun div (Lorg/kisu/units/special/ElectricCharge;)Lorg/kisu/units/special/Elastance;
+	public final fun div (Lorg/kisu/units/special/Resistance;)Lorg/kisu/units/base/Current;
+	public final fun times (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/Power;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/MagneticFlux;
+	public final fun times (Lorg/kisu/units/electromagnetic/ElectronMobility;)Lorg/kisu/units/mechanics/KinematicViscosity;
+	public final fun times (Lorg/kisu/units/special/Capacitance;)Lorg/kisu/units/special/ElectricCharge;
+	public final fun times (Lorg/kisu/units/special/Conductance;)Lorg/kisu/units/base/Current;
+	public final fun times (Lorg/kisu/units/special/ElectricCharge;)Lorg/kisu/units/special/Energy;
 }
 
 public final class org/kisu/units/special/Energy : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/chemistry/MolarEnergy;
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/MagneticFlux;
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Force;
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/mechanics/SpecificEnergy;
+	public final fun div (Lorg/kisu/units/base/Temperature;)Lorg/kisu/units/thermodynamics/HeatCapacity;
+	public final fun div (Lorg/kisu/units/chemistry/MolarEnergy;)Lorg/kisu/units/base/Amount;
+	public final fun div (Lorg/kisu/units/mechanics/EnergyDensity;)Lorg/kisu/units/special/Volume;
+	public final fun div (Lorg/kisu/units/mechanics/RadiantExposure;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/mechanics/SpecificEnergy;)Lorg/kisu/units/base/Mass;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/mechanics/RadiantExposure;
+	public final fun div (Lorg/kisu/units/special/ElectricCharge;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun div (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/special/ElectricCharge;
+	public final fun div (Lorg/kisu/units/special/Force;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/MagneticFlux;)Lorg/kisu/units/base/Current;
+	public final fun div (Lorg/kisu/units/special/Volume;)Lorg/kisu/units/mechanics/EnergyDensity;
+	public final fun div (Lorg/kisu/units/thermodynamics/HeatCapacity;)Lorg/kisu/units/base/Temperature;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/Action;
 }
 
 public final class org/kisu/units/special/Farad : org/kisu/units/representation/Scalar {
@@ -2555,9 +2629,23 @@ public final class org/kisu/units/special/Farad$Companion {
 }
 
 public final class org/kisu/units/special/Force : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/SurfaceTension;
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/kinematics/linear/Acceleration;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/Yank;
+	public final fun div (Lorg/kisu/units/kinematics/Yank;)Lorg/kisu/units/base/Time;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Acceleration;)Lorg/kisu/units/base/Mass;
+	public final fun div (Lorg/kisu/units/mechanics/SurfaceTension;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/Pressure;
+	public final fun div (Lorg/kisu/units/special/Pressure;)Lorg/kisu/units/special/Area;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Energy;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/Momentum;
+	public final fun times (Lorg/kisu/units/kinematics/linear/Speed;)Lorg/kisu/units/special/Power;
+	public final fun times (Lorg/kisu/units/mechanics/Compressibility;)Lorg/kisu/units/special/Area;
 }
 
 public final class org/kisu/units/special/Frequency : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/FrequencyDrift;
+	public final fun div (Lorg/kisu/units/kinematics/FrequencyDrift;)Lorg/kisu/units/base/Time;
 	public final fun getPeriod ()Lorg/kisu/units/base/Time;
 }
 
@@ -2589,10 +2677,16 @@ public final class org/kisu/units/special/Hertz$Companion {
 }
 
 public final class org/kisu/units/special/Illuminance : org/kisu/units/Measure {
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/photometric/Exposure;
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/LuminousFlux;
 }
 
 public final class org/kisu/units/special/Inductance : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/MagneticPermittivity;
+	public final fun div (Lorg/kisu/units/electromagnetic/MagneticPermittivity;)Lorg/kisu/units/base/Length;
 	public final fun getMagneticReluctance ()Lorg/kisu/units/electromagnetic/MagneticReluctance;
+	public final fun times (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/MagneticFlux;
+	public final fun times (Lorg/kisu/units/electromagnetic/MagneticSusceptibility;)Lorg/kisu/units/base/Length;
 }
 
 public final class org/kisu/units/special/InverseFarad : org/kisu/units/representation/Scalar {
@@ -2632,6 +2726,13 @@ public final class org/kisu/units/special/Lumen$Companion {
 }
 
 public final class org/kisu/units/special/LuminousFlux : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/LuminousIntensity;)Lorg/kisu/units/special/SolidAngle;
+	public final fun div (Lorg/kisu/units/photometric/Efficacy;)Lorg/kisu/units/special/Power;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/Illuminance;
+	public final fun div (Lorg/kisu/units/special/Illuminance;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/special/Power;)Lorg/kisu/units/photometric/Efficacy;
+	public final fun div (Lorg/kisu/units/special/SolidAngle;)Lorg/kisu/units/base/LuminousIntensity;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/photometric/LuminousEnergy;
 }
 
 public final class org/kisu/units/special/Lux : org/kisu/units/representation/Scalar {
@@ -2644,9 +2745,22 @@ public final class org/kisu/units/special/Lux$Companion {
 }
 
 public final class org/kisu/units/special/MagneticFlux : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/Inductance;
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/MagneticVectorPotential;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun div (Lorg/kisu/units/electromagnetic/MagneticVectorPotential;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/MagneticFluxDensity;
+	public final fun div (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/base/Time;
+	public final fun div (Lorg/kisu/units/special/Inductance;)Lorg/kisu/units/base/Current;
+	public final fun div (Lorg/kisu/units/special/MagneticFluxDensity;)Lorg/kisu/units/special/Area;
+	public final fun times (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/Energy;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/MagneticMoment;
+	public final fun times (Lorg/kisu/units/electromagnetic/MagneticReluctance;)Lorg/kisu/units/base/Current;
 }
 
 public final class org/kisu/units/special/MagneticFluxDensity : org/kisu/units/Measure {
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/MagneticRigidity;
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/MagneticFlux;
 }
 
 public final class org/kisu/units/special/Newton : org/kisu/units/representation/Scalar {
@@ -2677,13 +2791,30 @@ public final class org/kisu/units/special/Pascal$Companion {
 }
 
 public final class org/kisu/units/special/PlaneAngle : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/angular/Velocity;
+	public final fun div (Lorg/kisu/units/kinematics/angular/Velocity;)Lorg/kisu/units/base/Time;
+	public final fun times (Lorg/kisu/units/base/Current;)Lorg/kisu/units/electromagnetic/MagnetomotiveForce;
 }
 
 public final class org/kisu/units/special/Power : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/mechanics/SpectralPower;
+	public final fun div (Lorg/kisu/units/kinematics/linear/Speed;)Lorg/kisu/units/special/Force;
+	public final fun div (Lorg/kisu/units/mechanics/HeatFluxDensity;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/mechanics/RadiantIntensity;)Lorg/kisu/units/special/SolidAngle;
+	public final fun div (Lorg/kisu/units/mechanics/SpectralPower;)Lorg/kisu/units/base/Length;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/mechanics/HeatFluxDensity;
+	public final fun div (Lorg/kisu/units/special/ElectricPotential;)Lorg/kisu/units/base/Current;
+	public final fun div (Lorg/kisu/units/special/Force;)Lorg/kisu/units/kinematics/linear/Speed;
+	public final fun div (Lorg/kisu/units/special/SolidAngle;)Lorg/kisu/units/mechanics/RadiantIntensity;
+	public final fun times (Lorg/kisu/units/photometric/Efficacy;)Lorg/kisu/units/special/LuminousFlux;
+	public final fun times (Lorg/kisu/units/thermodynamics/ThermalResistance;)Lorg/kisu/units/base/Temperature;
 }
 
 public final class org/kisu/units/special/Pressure : org/kisu/units/Measure {
 	public final fun getCompressibility ()Lorg/kisu/units/mechanics/Compressibility;
+	public final fun times (Lorg/kisu/units/base/Time;)Lorg/kisu/units/mechanics/DynamicViscosity;
+	public final fun times (Lorg/kisu/units/special/Area;)Lorg/kisu/units/special/Force;
 }
 
 public final class org/kisu/units/special/Radian : org/kisu/units/representation/Scalar {
@@ -2701,6 +2832,8 @@ public final class org/kisu/units/special/Radioactivity : org/kisu/units/Measure
 
 public final class org/kisu/units/special/Resistance : org/kisu/units/Measure {
 	public final fun getConductance ()Lorg/kisu/units/special/Conductance;
+	public final fun times (Lorg/kisu/units/base/Current;)Lorg/kisu/units/special/ElectricPotential;
+	public final fun times (Lorg/kisu/units/base/Length;)Lorg/kisu/units/electromagnetic/Resistivity;
 }
 
 public final class org/kisu/units/special/Siemens : org/kisu/units/representation/Scalar {
@@ -2722,6 +2855,8 @@ public final class org/kisu/units/special/Sievert$Companion {
 }
 
 public final class org/kisu/units/special/SolidAngle : org/kisu/units/Measure {
+	public final fun times (Lorg/kisu/units/base/LuminousIntensity;)Lorg/kisu/units/special/LuminousFlux;
+	public final fun times (Lorg/kisu/units/mechanics/RadiantIntensity;)Lorg/kisu/units/special/Power;
 }
 
 public final class org/kisu/units/special/SquareMetre : org/kisu/units/representation/Scalar {
@@ -2761,6 +2896,20 @@ public final class org/kisu/units/special/Volt$Companion {
 }
 
 public final class org/kisu/units/special/Volume : org/kisu/units/Measure {
+	public final fun div (Lorg/kisu/units/base/Amount;)Lorg/kisu/units/chemistry/MolarVolume;
+	public final fun div (Lorg/kisu/units/base/Length;)Lorg/kisu/units/special/Area;
+	public final fun div (Lorg/kisu/units/base/Mass;)Lorg/kisu/units/mechanics/SpecificVolume;
+	public final fun div (Lorg/kisu/units/base/Time;)Lorg/kisu/units/kinematics/VolumetricFlow;
+	public final fun div (Lorg/kisu/units/chemistry/MolarVolume;)Lorg/kisu/units/base/Amount;
+	public final fun div (Lorg/kisu/units/kinematics/VolumetricFlow;)Lorg/kisu/units/base/Time;
+	public final fun div (Lorg/kisu/units/mechanics/SpecificVolume;)Lorg/kisu/units/base/Mass;
+	public final fun div (Lorg/kisu/units/special/Area;)Lorg/kisu/units/base/Length;
+	public final fun times (Lorg/kisu/units/chemistry/Molarity;)Lorg/kisu/units/base/Amount;
+	public final fun times (Lorg/kisu/units/electromagnetic/ElectricChargeDensity;)Lorg/kisu/units/special/ElectricCharge;
+	public final fun times (Lorg/kisu/units/mechanics/Density;)Lorg/kisu/units/base/Mass;
+	public final fun times (Lorg/kisu/units/mechanics/EnergyDensity;)Lorg/kisu/units/special/Energy;
+	public final fun times (Lorg/kisu/units/mechanics/FuelEfficiency;)Lorg/kisu/units/base/Length;
+	public final fun times (Lorg/kisu/units/mechanics/WaveNumber;)Lorg/kisu/units/special/Area;
 }
 
 public final class org/kisu/units/special/Watt : org/kisu/units/representation/Scalar {

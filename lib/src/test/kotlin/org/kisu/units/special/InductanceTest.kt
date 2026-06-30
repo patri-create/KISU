@@ -6,9 +6,14 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
 import org.kisu.test.generators.reciprocalMagnitude
+import org.kisu.units.base.Current
+import org.kisu.units.base.Length
 import org.kisu.units.builders.henries
+import org.kisu.units.electromagnetic.MagneticPermittivity
+import org.kisu.units.electromagnetic.MagneticSusceptibility
 
 class InductanceTest : StringSpec({
     "creates an Inductance" {
@@ -40,4 +45,70 @@ class InductanceTest : StringSpec({
             }
         }
     }
+    // Dimension-aware arithmetic properties
+    "dividing an Inductance by a Length returns a MagneticPermittivity" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.reciprocalMagnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Inductance(leftMagnitude, leftPrefix)
+            val right = Length(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() / right.canonical.component1()
+            val expected = MagneticPermittivity(expectedMagnitude)
+
+            (left / right) shouldBe expected
+        }
+    }
+    "dividing an Inductance by a MagneticPermittivity returns a Length" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.reciprocalMagnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Inductance(leftMagnitude, leftPrefix)
+            val right = MagneticPermittivity(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() / right.canonical.component1()
+            val expected = Length(expectedMagnitude)
+
+            (left / right) shouldBe expected
+        }
+    }
+    "multiplying an Inductance by a Current returns a MagneticFlux" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Inductance(leftMagnitude, leftPrefix)
+            val right = Current(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = MagneticFlux(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    "multiplying an Inductance by a MagneticSusceptibility returns a Length" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = Inductance(leftMagnitude, leftPrefix)
+            val right = MagneticSusceptibility(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Length(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

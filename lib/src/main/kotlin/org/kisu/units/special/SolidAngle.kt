@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -25,6 +27,17 @@ class SolidAngle internal constructor(magnitude: Magnitude, expression: Steradia
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Steradian(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.LuminousIntensity
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.RadiantIntensity
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
 }
 
 /**

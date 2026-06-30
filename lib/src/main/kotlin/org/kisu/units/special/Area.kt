@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -28,6 +30,112 @@ class Area internal constructor(magnitude: Magnitude, expression: SquareMetre) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, SquareMetre(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.mechanics.KinematicViscosity =
+        org.kisu.units.mechanics.KinematicViscosity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.Compressibility
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.KinematicViscosity
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.WaveNumber
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Force
+    ): org.kisu.units.mechanics.Compressibility =
+        org.kisu.units.mechanics.Compressibility(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Volume
+    ): org.kisu.units.mechanics.WaveNumber =
+        org.kisu.units.mechanics.WaveNumber(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.electromagnetic.MagneticDipoleMoment =
+        org.kisu.units.electromagnetic.MagneticDipoleMoment(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Volume =
+        org.kisu.units.special.Volume(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.mechanics.MomentOfInertia =
+        org.kisu.units.mechanics.MomentOfInertia(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.ElectricCurrentDensity
+    ): org.kisu.units.base.Current =
+        org.kisu.units.base.Current(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.ElectricDisplacementField
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.AreaDensity
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.HeatFluxDensity
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.Radiance
+    ): org.kisu.units.mechanics.RadiantIntensity =
+        org.kisu.units.mechanics.RadiantIntensity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.RadiantExposure
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.SpectralIrradiance
+    ): org.kisu.units.mechanics.SpectralPower =
+        org.kisu.units.mechanics.SpectralPower(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.photometric.Luminance
+    ): org.kisu.units.base.LuminousIntensity =
+        org.kisu.units.base.LuminousIntensity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Illuminance
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.MagneticFluxDensity
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Pressure
+    ): org.kisu.units.special.Force =
+        org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
 }
 
 /**

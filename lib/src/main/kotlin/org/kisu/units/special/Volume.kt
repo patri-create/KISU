@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -28,6 +30,77 @@ class Volume internal constructor(magnitude: Magnitude, expression: CubicMetre) 
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, CubicMetre(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.chemistry.MolarVolume =
+        org.kisu.units.chemistry.MolarVolume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.mechanics.SpecificVolume =
+        org.kisu.units.mechanics.SpecificVolume(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.VolumetricFlow =
+        org.kisu.units.kinematics.VolumetricFlow(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.MolarVolume
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.VolumetricFlow
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.mechanics.SpecificVolume
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.chemistry.Molarity
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.ElectricChargeDensity
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.Density
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.EnergyDensity
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.FuelEfficiency
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.mechanics.WaveNumber
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() * other.canonical.component1())
 }
 
 /**

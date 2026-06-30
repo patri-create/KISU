@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -26,6 +28,17 @@ class Illuminance internal constructor(magnitude: Magnitude, expression: Lux) :
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Lux(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.photometric.Exposure =
+        org.kisu.units.photometric.Exposure(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.LuminousFlux =
+        org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
 }
 
 /**

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -26,6 +28,42 @@ class LuminousFlux internal constructor(magnitude: Magnitude, expression: Lumen)
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Lumen(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.LuminousIntensity
+    ): org.kisu.units.special.SolidAngle =
+        org.kisu.units.special.SolidAngle(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.photometric.Efficacy
+    ): org.kisu.units.special.Power =
+        org.kisu.units.special.Power(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.Illuminance =
+        org.kisu.units.special.Illuminance(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Illuminance
+    ): org.kisu.units.special.Area =
+        org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.Power
+    ): org.kisu.units.photometric.Efficacy =
+        org.kisu.units.photometric.Efficacy(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.special.SolidAngle
+    ): org.kisu.units.base.LuminousIntensity =
+        org.kisu.units.base.LuminousIntensity(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.photometric.LuminousEnergy =
+        org.kisu.units.photometric.LuminousEnergy(canonical.component1() * other.canonical.component1())
 }
 
 /**

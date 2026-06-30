@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -31,6 +33,17 @@ class Frequency internal constructor(magnitude: Magnitude, expression: Hertz) :
      */
     val period: Time
         get() = Time(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Time
+    ): org.kisu.units.kinematics.FrequencyDrift =
+        org.kisu.units.kinematics.FrequencyDrift(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.kinematics.FrequencyDrift
+    ): org.kisu.units.base.Time =
+        org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 }
 
 /**

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -26,6 +28,17 @@ class MagneticFluxDensity internal constructor(magnitude: Magnitude, expression:
 
     internal constructor(magnitude: Magnitude, prefix: Metric = Metric.BASE) :
         this(magnitude, Tesla(prefix))
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.MagneticRigidity =
+        org.kisu.units.electromagnetic.MagneticRigidity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.Area
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
 }
 
 /**

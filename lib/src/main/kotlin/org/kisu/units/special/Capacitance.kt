@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -32,6 +34,22 @@ class Capacitance internal constructor(magnitude: Magnitude, expression: Farad) 
      */
     val elastance: Elastance
         get() = Elastance(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.Permittivity =
+        org.kisu.units.electromagnetic.Permittivity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.Permittivity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.special.ElectricPotential
+    ): org.kisu.units.special.ElectricCharge =
+        org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
 }
 
 /**

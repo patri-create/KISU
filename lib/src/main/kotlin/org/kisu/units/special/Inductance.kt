@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.special
 
 import org.kisu.Magnitude
@@ -33,6 +35,27 @@ class Inductance internal constructor(magnitude: Magnitude, expression: Henry) :
      */
     val magneticReluctance: MagneticReluctance
         get() = MagneticReluctance(canonical.component1().inverted)
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Length
+    ): org.kisu.units.electromagnetic.MagneticPermittivity =
+        org.kisu.units.electromagnetic.MagneticPermittivity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.electromagnetic.MagneticPermittivity
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Current
+    ): org.kisu.units.special.MagneticFlux =
+        org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.electromagnetic.MagneticSusceptibility
+    ): org.kisu.units.base.Length =
+        org.kisu.units.base.Length(canonical.component1() * other.canonical.component1())
 }
 
 /**
