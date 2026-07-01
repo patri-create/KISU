@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -25,3 +28,19 @@ jobs:
       - name: Build and test
         run: |
           ./gradlew :lib:build
+
+      - name: Generate coverage report
+        run: |
+          ./gradlew :lib:jacocoTestReport
+
+      - name: Verify coverage report output
+        run: |
+          test -f lib/build/reports/jacoco/test/jacocoTestReport.xml || {
+            echo "Expected JaCoCo XML report at lib/build/reports/jacoco/test/jacocoTestReport.xml"
+            exit 1
+          }
+
+      - name: Upload coverage to Codecov
+        uses: ./.github/actions/upload-codecov
+        with:
+          codecov-token: ${{ secrets.CODECOV_TOKEN }}

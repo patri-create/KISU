@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   check-feature:
     name: Check Feature Branch (Tests + Coverage)
@@ -44,10 +47,21 @@ jobs:
 
       - name: Verify coverage report output
         run: |
+          test -f lib/build/reports/jacoco/test/jacocoTestReport.xml || {
+            echo "Expected JaCoCo XML report at lib/build/reports/jacoco/test/jacocoTestReport.xml"
+            exit 1
+          }
+
           test -f lib/build/reports/jacoco/test/html/index.html || {
             echo "Expected JaCoCo HTML report at lib/build/reports/jacoco/test/html/index.html"
             exit 1
           }
+
+      - name: Upload coverage to Codecov
+        uses: ./.github/actions/upload-codecov
+        with:
+          codecov-token: ${{ secrets.CODECOV_TOKEN }}
+          use-token: ${{ github.event.pull_request.head.repo.full_name == github.repository && 'true' || 'false' }}
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
