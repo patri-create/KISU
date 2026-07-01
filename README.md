@@ -1,4 +1,6 @@
-# KISU
+<p align="center">
+  <img src="assets/logo-lettering.svg" alt="KISU" width="420">
+</p>
 
 KISU is a Kotlin library for working with SI quantities, prefixes, and derived units with typed value objects.
 
