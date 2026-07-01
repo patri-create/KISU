@@ -124,7 +124,7 @@ Generate the JaCoCo coverage report:
 ./gradlew :lib:jacocoTestReport
 ```
 
-GitHub Actions uploads `lib/build/reports/jacoco/test/jacocoTestReport.xml` to Codecov from pull requests and `main` pushes. Configure a `CODECOV_TOKEN` repository secret unless the Codecov organization allows tokenless public uploads.
+GitHub Actions uploads `lib/build/reports/jacoco/test/jacocoTestReport.xml` to Codecov from pull requests and `main` pushes. Configure a `CODECOV_TOKEN` repository secret for authenticated same-repository PR and `main` uploads; fork PRs use Codecov's tokenless public upload path.
 
 Generate API docs with Dokka:
 

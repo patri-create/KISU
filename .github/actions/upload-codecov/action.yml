@@ -1,0 +1,36 @@
+name: Upload Codecov coverage
+description: Uploads the library JaCoCo XML report to Codecov.
+
+inputs:
+  codecov-token:
+    description: Codecov repository upload token.
+    required: false
+    default: ""
+  use-token:
+    description: Whether to pass codecov-token to the upload action.
+    required: false
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - name: Upload coverage to Codecov
+      if: ${{ inputs.use-token == 'true' }}
+      uses: codecov/codecov-action@v7
+      with:
+        files: lib/build/reports/jacoco/test/jacocoTestReport.xml
+        flags: lib
+        name: kisu-lib
+        disable_search: true
+        fail_ci_if_error: true
+        token: ${{ inputs.codecov-token }}
+
+    - name: Upload coverage to Codecov without token
+      if: ${{ inputs.use-token != 'true' }}
+      uses: codecov/codecov-action@v7
+      with:
+        files: lib/build/reports/jacoco/test/jacocoTestReport.xml
+        flags: lib
+        name: kisu-lib
+        disable_search: true
+        fail_ci_if_error: true
