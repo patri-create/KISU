@@ -39,6 +39,12 @@ class WaveNumber(
         get() = Length(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [WaveNumber] by [Volume][org.kisu.units.special.Volume],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.special.Area =
@@ -54,7 +60,7 @@ class WaveNumber(
  * A familiar use is the spectroscopic wave number, where larger values correspond to
  * shorter wavelengths.
  *
- * In this library, [ReciprocalMetre] is defined as the inverse of [Metre.UNIT].
+ * In this library, [ReciprocalMetre] is defined as the inverse of `Metre.UNIT`.
  *
  * @see WaveNumber
  */

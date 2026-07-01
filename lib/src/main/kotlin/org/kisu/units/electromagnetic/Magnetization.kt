@@ -55,6 +55,12 @@ class Magnetization(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Magnetization] by [Length][org.kisu.units.base.Length],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.base.Current =

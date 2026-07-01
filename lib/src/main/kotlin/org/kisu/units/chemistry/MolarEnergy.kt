@@ -60,16 +60,34 @@ class MolarEnergy(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MolarEnergy] by [Temperature][org.kisu.units.base.Temperature],
+     * yielding [MolarHeatCapacity][org.kisu.units.chemistry.MolarHeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Temperature
     ): org.kisu.units.chemistry.MolarHeatCapacity =
         org.kisu.units.chemistry.MolarHeatCapacity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MolarEnergy] by [MolarHeatCapacity][org.kisu.units.chemistry.MolarHeatCapacity],
+     * yielding [Temperature][org.kisu.units.base.Temperature].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.MolarHeatCapacity
     ): org.kisu.units.base.Temperature =
         org.kisu.units.base.Temperature(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [MolarEnergy] by [Amount][org.kisu.units.base.Amount],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.special.Energy =

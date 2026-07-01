@@ -61,6 +61,12 @@ class Luminance(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Luminance] by [Area][org.kisu.units.special.Area],
+     * yielding [LuminousIntensity][org.kisu.units.base.LuminousIntensity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.base.LuminousIntensity =

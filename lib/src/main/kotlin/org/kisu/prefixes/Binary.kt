@@ -18,7 +18,8 @@ import org.kisu.prefixes.primitives.System
  * - Gibi (Gi) = 30, representing 2³⁰ = 1,073,741,824
  * and so forth.
  *
- * [Binary] prefixes are resolved into concrete multipliers by [org.kisu.prefixes.algebra.ExponentialAlgebra].
+ * [Binary] prefixes are resolved into concrete multipliers by
+ * [ExponentialAlgebra][org.kisu.prefixes.algebra.ExponentialAlgebra].
  *
  * @property power The exponent relative to the base unit (2⁰).
  * @property symbol The standard symbol representing the prefix.

@@ -59,11 +59,23 @@ class Exposure(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Exposure] by [Time][org.kisu.units.base.Time],
+     * yielding [Illuminance][org.kisu.units.special.Illuminance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Illuminance =
         org.kisu.units.special.Illuminance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Exposure] by [Illuminance][org.kisu.units.special.Illuminance],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Illuminance
     ): org.kisu.units.base.Time =

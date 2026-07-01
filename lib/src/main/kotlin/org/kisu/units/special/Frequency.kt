@@ -35,11 +35,23 @@ class Frequency internal constructor(magnitude: Magnitude, expression: Hertz) :
         get() = Time(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Frequency] by [Time][org.kisu.units.base.Time],
+     * yielding [FrequencyDrift][org.kisu.units.kinematics.FrequencyDrift].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.FrequencyDrift =
         org.kisu.units.kinematics.FrequencyDrift(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Frequency] by [FrequencyDrift][org.kisu.units.kinematics.FrequencyDrift],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.FrequencyDrift
     ): org.kisu.units.base.Time =

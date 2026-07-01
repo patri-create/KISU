@@ -26,7 +26,7 @@ typealias Merger<T> = T.(T) -> T
  * @param T the element type
  * @param other the other collection to intersect with
  * @param equalTo the comparison function used to determine if two elements match.
- * Defaults to reference equality via [id].
+ * Defaults to reference equality via `id`.
  * @param mergeWith the merge function used to combine matching elements.
  * Defaults to [mergeRight], keeping the element from [other].
  * @return a [Set] of merged elements found in both collections

@@ -29,11 +29,23 @@ class SolidAngle internal constructor(magnitude: Magnitude, expression: Steradia
         this(magnitude, Steradian(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [SolidAngle] by [LuminousIntensity][org.kisu.units.base.LuminousIntensity],
+     * yielding [LuminousFlux][org.kisu.units.special.LuminousFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.LuminousIntensity
     ): org.kisu.units.special.LuminousFlux =
         org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [SolidAngle] by [RadiantIntensity][org.kisu.units.mechanics.RadiantIntensity],
+     * yielding [Power][org.kisu.units.special.Power].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.mechanics.RadiantIntensity
     ): org.kisu.units.special.Power =

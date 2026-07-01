@@ -12,7 +12,7 @@ private const val MAX_BIG_DECIMAL_POWER = 999_999_999
  * Decimal magnitude used by KISU numeric operations.
  *
  * The current JVM implementation delegates storage and arithmetic to [BigDecimal]. Arithmetic results keep the left
- * operand's [config], which lets a custom [MagnitudeConfig] travel with an instance while preserving [KisuConfig] as
+ * operand's `config`, which lets a custom [MagnitudeConfig] travel with an instance while preserving [KisuConfig] as
  * the default behavior.
  *
  * @param value The decimal value represented by this magnitude.
@@ -24,7 +24,7 @@ class Magnitude(
     internal val config: MagnitudeConfig = KisuConfig
 ) : Number(), Comparable<Magnitude> {
     /**
-     * Creates a magnitude from an unscaled integer and decimal [scale].
+     * Creates a magnitude from an unscaled integer and decimal `scale`.
      */
     constructor(
         unscaledValue: BigInteger,
@@ -43,7 +43,7 @@ class Magnitude(
     constructor(value: Number, config: MagnitudeConfig = KisuConfig) : this(value.toBigDecimalValue(), config)
 
     /**
-     * Creates a magnitude by parsing [value] as a [BigDecimal].
+     * Creates a magnitude by parsing `value` as a [BigDecimal].
      */
     constructor(value: String, config: MagnitudeConfig = KisuConfig) : this(BigDecimal(value), config)
 
@@ -78,7 +78,7 @@ class Magnitude(
         get() = !hasFraction
 
     /**
-     * Returns the absolute value while keeping this magnitude's [config].
+     * Returns the absolute value while keeping this magnitude's `config`.
      */
     val abs: Magnitude
         get() = Magnitude(value.abs(), config)
@@ -107,7 +107,7 @@ class Magnitude(
         get() = value.scale()
 
     /**
-     * Returns the reciprocal magnitude, `1 / this`, using this magnitude's arithmetic [config].
+     * Returns the reciprocal magnitude, `1 / this`, using this magnitude's arithmetic `config`.
      *
      * @throws ArithmeticException when this magnitude is zero.
      */
@@ -115,19 +115,19 @@ class Magnitude(
         get() = Magnitude(BigDecimal.ONE.divide(value, config.precision), config)
 
     /**
-     * Adds [other] and keeps this magnitude's [config].
+     * Adds [other] and keeps this magnitude's `config`.
      */
     operator fun plus(other: Magnitude): Magnitude =
         Magnitude(value + other.value, config)
 
     /**
-     * Subtracts [other] and keeps this magnitude's [config].
+     * Subtracts [other] and keeps this magnitude's `config`.
      */
     operator fun minus(other: Magnitude): Magnitude =
         Magnitude(value - other.value, config)
 
     /**
-     * Multiplies by [other] and keeps this magnitude's [config].
+     * Multiplies by [other] and keeps this magnitude's `config`.
      */
     operator fun times(other: Magnitude): Magnitude =
         Magnitude(value * other.value, config)

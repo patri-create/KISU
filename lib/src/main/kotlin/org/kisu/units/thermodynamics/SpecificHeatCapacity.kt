@@ -72,11 +72,23 @@ class SpecificHeatCapacity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [SpecificHeatCapacity] by [Mass][org.kisu.units.base.Mass],
+     * yielding [HeatCapacity][org.kisu.units.thermodynamics.HeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.thermodynamics.HeatCapacity =
         org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [SpecificHeatCapacity] by [Temperature][org.kisu.units.base.Temperature],
+     * yielding [SpecificEnergy][org.kisu.units.mechanics.SpecificEnergy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Temperature
     ): org.kisu.units.mechanics.SpecificEnergy =

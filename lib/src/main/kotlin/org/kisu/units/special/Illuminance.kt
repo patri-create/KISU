@@ -30,11 +30,23 @@ class Illuminance internal constructor(magnitude: Magnitude, expression: Lux) :
         this(magnitude, Lux(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Illuminance] by [Time][org.kisu.units.base.Time],
+     * yielding [Exposure][org.kisu.units.photometric.Exposure].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.photometric.Exposure =
         org.kisu.units.photometric.Exposure(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Illuminance] by [Area][org.kisu.units.special.Area],
+     * yielding [LuminousFlux][org.kisu.units.special.LuminousFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.special.LuminousFlux =

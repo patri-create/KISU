@@ -18,7 +18,7 @@ import org.kisu.units.representation.Unit
  * This class models the SI base unit for counting discrete entities like atoms, molecules, or particles in a substance.
  * One mole corresponds to [AVOGADROS_NUMBER] elementary entities, typically used in chemistry and physics.
  *
- * The amount is composed of a [magnitude] and an optional metric [expression], allowing expressions such as millimoles
+ * The amount is composed of a `magnitude` and an optional metric `expression`, allowing expressions such as millimoles
  * (mmol), micromoles (µmol), or kilomoles (kmol).
  *
  * The value must not be negative, as a physical quantity representing a count of real entities cannot be less than
@@ -51,56 +51,122 @@ class Amount internal constructor(magnitude: Magnitude, expression: Mole) :
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Amount] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Molality][org.kisu.units.chemistry.Molality].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.chemistry.Molality =
         org.kisu.units.chemistry.Molality(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Amount] by [Time][org.kisu.units.base.Time],
+     * yielding [CatalyticActivity][org.kisu.units.special.CatalyticActivity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.CatalyticActivity =
         org.kisu.units.special.CatalyticActivity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Amount] by [Molality][org.kisu.units.chemistry.Molality],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.Molality
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Amount] by [Molarity][org.kisu.units.chemistry.Molarity],
+     * yielding [Volume][org.kisu.units.special.Volume].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.Molarity
     ): org.kisu.units.special.Volume =
         org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Amount] by [CatalyticActivity][org.kisu.units.special.CatalyticActivity],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.CatalyticActivity
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Amount] by [Volume][org.kisu.units.special.Volume],
+     * yielding [Molarity][org.kisu.units.chemistry.Molarity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.chemistry.Molarity =
         org.kisu.units.chemistry.Molarity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Amount] by [CatalyticEfficiency][org.kisu.units.chemistry.CatalyticEfficiency],
+     * yielding [VolumetricFlow][org.kisu.units.kinematics.VolumetricFlow].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.CatalyticEfficiency
     ): org.kisu.units.kinematics.VolumetricFlow =
         org.kisu.units.kinematics.VolumetricFlow(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Amount] by [MolarEnergy][org.kisu.units.chemistry.MolarEnergy],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.MolarEnergy
     ): org.kisu.units.special.Energy =
         org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Amount] by [MolarHeatCapacity][org.kisu.units.chemistry.MolarHeatCapacity],
+     * yielding [HeatCapacity][org.kisu.units.thermodynamics.HeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.MolarHeatCapacity
     ): org.kisu.units.thermodynamics.HeatCapacity =
         org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Amount] by [MolarMass][org.kisu.units.chemistry.MolarMass],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.MolarMass
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Amount] by [MolarVolume][org.kisu.units.chemistry.MolarVolume],
+     * yielding [Volume][org.kisu.units.special.Volume].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.MolarVolume
     ): org.kisu.units.special.Volume =

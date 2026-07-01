@@ -7,7 +7,7 @@ import org.kisu.prefixes.primitives.System
 import org.kisu.units.representation.Expression
 
 /**
- * Base type for a measured quantity expressed as a numeric [magnitude] in some unit [expression].
+ * Base type for a measured quantity expressed as a numeric `magnitude` in some unit `expression`.
  *
  * `Measure` handles arithmetic on quantities of the same concrete type, conversion between compatible expressions, and
  * normalization into canonical or human-friendly forms. The expression type [A] may be a single prefixed unit such as
@@ -16,8 +16,8 @@ import org.kisu.units.representation.Expression
  * @param A The unit-expression type used by the measure. It must be both an [Expression] and a [System] so it can be
  * ordered, converted, and normalized.
  * @param Self The concrete measure subtype. This self-referential type keeps fluent operations strongly typed.
- * @property magnitude The numeric value represented in [expression].
- * @property expression The unit expression associated with [magnitude].
+ * @property magnitude The numeric value represented in `expression`.
+ * @property expression The unit expression associated with `magnitude`.
  * @constructor Protected to enforce construction through concrete measure types.
  */
 @Suppress("TooManyFunctions")

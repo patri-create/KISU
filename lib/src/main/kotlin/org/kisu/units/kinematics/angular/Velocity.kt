@@ -59,16 +59,34 @@ class Velocity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Velocity] by [Time][org.kisu.units.base.Time],
+     * yielding [Acceleration][org.kisu.units.kinematics.angular.Acceleration].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Acceleration =
         org.kisu.units.kinematics.angular.Acceleration(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Velocity] by [Acceleration][org.kisu.units.kinematics.angular.Acceleration],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.angular.Acceleration
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Velocity] by [Time][org.kisu.units.base.Time],
+     * yielding [PlaneAngle][org.kisu.units.special.PlaneAngle].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.PlaneAngle =

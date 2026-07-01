@@ -54,26 +54,56 @@ class Momentum(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Momentum] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Speed][org.kisu.units.kinematics.linear.Speed].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.kinematics.linear.Speed =
         org.kisu.units.kinematics.linear.Speed(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Momentum] by [Time][org.kisu.units.base.Time],
+     * yielding [Force][org.kisu.units.special.Force].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Force =
         org.kisu.units.special.Force(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Momentum] by [Speed][org.kisu.units.kinematics.linear.Speed],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.linear.Speed
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Momentum] by [Force][org.kisu.units.special.Force],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Force
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Momentum] by [Length][org.kisu.units.base.Length],
+     * yielding [AngularMomentum][org.kisu.units.mechanics.AngularMomentum].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.mechanics.AngularMomentum =

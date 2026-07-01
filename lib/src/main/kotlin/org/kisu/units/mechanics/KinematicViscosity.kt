@@ -61,16 +61,34 @@ class KinematicViscosity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [KinematicViscosity] by [ElectronMobility][org.kisu.units.electromagnetic.ElectronMobility],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.ElectronMobility
     ): org.kisu.units.special.ElectricPotential =
         org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [KinematicViscosity] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [ElectronMobility][org.kisu.units.electromagnetic.ElectronMobility].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.electromagnetic.ElectronMobility =
         org.kisu.units.electromagnetic.ElectronMobility(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [KinematicViscosity] by [Time][org.kisu.units.base.Time],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Area =

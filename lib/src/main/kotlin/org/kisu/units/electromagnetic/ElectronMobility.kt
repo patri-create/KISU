@@ -70,6 +70,12 @@ class ElectronMobility(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [ElectronMobility] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [KinematicViscosity][org.kisu.units.mechanics.KinematicViscosity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.mechanics.KinematicViscosity =

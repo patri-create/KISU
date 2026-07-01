@@ -67,16 +67,34 @@ class MolarVolume(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MolarVolume] by [Time][org.kisu.units.base.Time],
+     * yielding [CatalyticEfficiency][org.kisu.units.chemistry.CatalyticEfficiency].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.chemistry.CatalyticEfficiency =
         org.kisu.units.chemistry.CatalyticEfficiency(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MolarVolume] by [CatalyticEfficiency][org.kisu.units.chemistry.CatalyticEfficiency],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.CatalyticEfficiency
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [MolarVolume] by [Amount][org.kisu.units.base.Amount],
+     * yielding [Volume][org.kisu.units.special.Volume].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.special.Volume =

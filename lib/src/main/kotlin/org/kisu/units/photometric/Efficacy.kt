@@ -60,6 +60,12 @@ class Efficacy(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Efficacy] by [Power][org.kisu.units.special.Power],
+     * yielding [LuminousFlux][org.kisu.units.special.LuminousFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Power
     ): org.kisu.units.special.LuminousFlux =

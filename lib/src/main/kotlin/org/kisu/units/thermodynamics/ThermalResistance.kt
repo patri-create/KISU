@@ -60,6 +60,12 @@ class ThermalResistance(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [ThermalResistance] by [Power][org.kisu.units.special.Power],
+     * yielding [Temperature][org.kisu.units.base.Temperature].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Power
     ): org.kisu.units.base.Temperature =

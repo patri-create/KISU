@@ -62,6 +62,12 @@ class EnergyFluxDensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [EnergyFluxDensity] by [Time][org.kisu.units.base.Time],
+     * yielding [RadiantExposure][org.kisu.units.mechanics.RadiantExposure].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.mechanics.RadiantExposure =

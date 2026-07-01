@@ -61,6 +61,12 @@ class ElectricChargeDensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [ElectricChargeDensity] by [Volume][org.kisu.units.special.Volume],
+     * yielding [ElectricCharge][org.kisu.units.special.ElectricCharge].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.special.ElectricCharge =

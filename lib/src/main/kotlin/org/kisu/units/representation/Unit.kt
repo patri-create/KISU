@@ -33,7 +33,7 @@ import org.kisu.units.special.Weber
  *
  * [Unit] is responsible only for unit symbols and exponent arithmetic. Prefix handling lives at the [Scalar] level.
  *
- * Equality and hash code include both [symbol] and [exponent].
+ * Equality and hash code include both `symbol` and `exponent`.
  *
  * @property symbol The unit symbol, such as `m` or `s`.
  * @property exponent The exponent applied to the symbol.
@@ -125,10 +125,10 @@ class Unit(
      * Compares this [Unit] with another [Unit] for ordering.
      *
      * The comparison is based on the canonical order of unit symbols defined
-     * in [CANONICAL_ORDER]. Units whose symbols appear earlier in the list
+     * in `CANONICAL_ORDER`. Units whose symbols appear earlier in the list
      * are considered "less" than those appearing later.
      *
-     * Units whose symbols are not found in [CANONICAL_ORDER] are considered
+     * Units whose symbols are not found in `CANONICAL_ORDER` are considered
      * greater than all known units and sorted at the end.
      *
      * Note that this comparison **does not** consider the exponent.
@@ -151,10 +151,10 @@ class Unit(
      *
      * Two [Unit] instances are considered equal if and only if:
      * - They are of the same runtime type, and
-     * - Their [symbol] and [exponent] properties are equal.
+     * - Their `symbol` and `exponent` properties are equal.
      *
      * @param other the object to compare with.
-     * @return `true` if [other] is a [Unit] with the same [symbol] and [exponent], `false` otherwise.
+     * @return `true` if [other] is a [Unit] with the same `symbol` and `exponent`, `false` otherwise.
      */
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -171,7 +171,7 @@ class Unit(
     /**
      * Returns a hash code value for this [Unit].
      *
-     * The hash code is computed from the [symbol] and [exponent] properties,
+     * The hash code is computed from the `symbol` and `exponent` properties,
      * ensuring consistency with [equals].
      *
      * @return an integer hash code for this [Unit].

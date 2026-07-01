@@ -49,7 +49,7 @@ class ThermalExpansionCoefficient(
  * Typical examples include coefficients describing how solids expand when heated or
  * how equilibrium relations vary with temperature.
  *
- * In this library, [ReciprocalKelvin] is built by inverting [Kelvin.UNIT].
+ * In this library, [ReciprocalKelvin] is built by inverting `Kelvin.UNIT`.
  *
  * @see ThermalExpansionCoefficient
  * @see Kelvin
@@ -63,7 +63,7 @@ class ReciprocalKelvin private constructor(
     constructor(prefix: Metric = Metric.BASE) : this(prefix = prefix, unit = UNIT)
 
     companion object {
-        /** The SI unit for reciprocal kelvin (K⁻¹), defined as the inverse of [Kelvin.UNIT]. */
+        /** The SI unit for reciprocal kelvin (K⁻¹), defined as the inverse of `Kelvin.UNIT`. */
         internal val UNIT = Kelvin.UNIT.inverted
     }
 }

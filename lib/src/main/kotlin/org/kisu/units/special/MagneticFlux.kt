@@ -29,56 +29,122 @@ class MagneticFlux internal constructor(magnitude: Magnitude, expression: Weber)
         this(magnitude, Weber(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MagneticFlux] by [Current][org.kisu.units.base.Current],
+     * yielding [Inductance][org.kisu.units.special.Inductance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.Inductance =
         org.kisu.units.special.Inductance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [Length][org.kisu.units.base.Length],
+     * yielding [MagneticVectorPotential][org.kisu.units.electromagnetic.MagneticVectorPotential].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.MagneticVectorPotential =
         org.kisu.units.electromagnetic.MagneticVectorPotential(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [Time][org.kisu.units.base.Time],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.ElectricPotential =
         org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [MagneticVectorPotential][org.kisu.units.electromagnetic.MagneticVectorPotential],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.MagneticVectorPotential
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [Area][org.kisu.units.special.Area],
+     * yielding [MagneticFluxDensity][org.kisu.units.special.MagneticFluxDensity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.special.MagneticFluxDensity =
         org.kisu.units.special.MagneticFluxDensity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [Inductance][org.kisu.units.special.Inductance],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Inductance
     ): org.kisu.units.base.Current =
         org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticFlux] by [MagneticFluxDensity][org.kisu.units.special.MagneticFluxDensity],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.MagneticFluxDensity
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [MagneticFlux] by [Current][org.kisu.units.base.Current],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.Energy =
         org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [MagneticFlux] by [Length][org.kisu.units.base.Length],
+     * yielding [MagneticMoment][org.kisu.units.electromagnetic.MagneticMoment].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.MagneticMoment =
         org.kisu.units.electromagnetic.MagneticMoment(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [MagneticFlux] by [MagneticReluctance][org.kisu.units.electromagnetic.MagneticReluctance],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.electromagnetic.MagneticReluctance
     ): org.kisu.units.base.Current =

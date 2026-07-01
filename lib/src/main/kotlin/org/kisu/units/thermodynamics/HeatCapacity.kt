@@ -59,26 +59,56 @@ class HeatCapacity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [HeatCapacity] by [Amount][org.kisu.units.base.Amount],
+     * yielding [MolarHeatCapacity][org.kisu.units.chemistry.MolarHeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.chemistry.MolarHeatCapacity =
         org.kisu.units.chemistry.MolarHeatCapacity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [HeatCapacity] by [Mass][org.kisu.units.base.Mass],
+     * yielding [SpecificHeatCapacity][org.kisu.units.thermodynamics.SpecificHeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.thermodynamics.SpecificHeatCapacity =
         org.kisu.units.thermodynamics.SpecificHeatCapacity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [HeatCapacity] by [MolarHeatCapacity][org.kisu.units.chemistry.MolarHeatCapacity],
+     * yielding [Amount][org.kisu.units.base.Amount].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.MolarHeatCapacity
     ): org.kisu.units.base.Amount =
         org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [HeatCapacity] by [SpecificHeatCapacity][org.kisu.units.thermodynamics.SpecificHeatCapacity],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.thermodynamics.SpecificHeatCapacity
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [HeatCapacity] by [Temperature][org.kisu.units.base.Temperature],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Temperature
     ): org.kisu.units.special.Energy =

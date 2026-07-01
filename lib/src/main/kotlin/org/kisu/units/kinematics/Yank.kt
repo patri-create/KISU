@@ -83,6 +83,12 @@ class Yank internal constructor(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Yank] by [Time][org.kisu.units.base.Time],
+     * yielding [Force][org.kisu.units.special.Force].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Force =

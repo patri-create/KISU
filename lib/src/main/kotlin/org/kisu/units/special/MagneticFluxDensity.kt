@@ -30,11 +30,23 @@ class MagneticFluxDensity internal constructor(magnitude: Magnitude, expression:
         this(magnitude, Tesla(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [MagneticFluxDensity] by [Length][org.kisu.units.base.Length],
+     * yielding [MagneticRigidity][org.kisu.units.electromagnetic.MagneticRigidity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.MagneticRigidity =
         org.kisu.units.electromagnetic.MagneticRigidity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [MagneticFluxDensity] by [Area][org.kisu.units.special.Area],
+     * yielding [MagneticFlux][org.kisu.units.special.MagneticFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.special.MagneticFlux =

@@ -63,6 +63,12 @@ class SpecificVolume(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [SpecificVolume] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Volume][org.kisu.units.special.Volume].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.special.Volume =

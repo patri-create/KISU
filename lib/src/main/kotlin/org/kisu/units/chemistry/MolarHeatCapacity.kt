@@ -73,11 +73,23 @@ class MolarHeatCapacity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [MolarHeatCapacity] by [Amount][org.kisu.units.base.Amount],
+     * yielding [HeatCapacity][org.kisu.units.thermodynamics.HeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.thermodynamics.HeatCapacity =
         org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [MolarHeatCapacity] by [Temperature][org.kisu.units.base.Temperature],
+     * yielding [MolarEnergy][org.kisu.units.chemistry.MolarEnergy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Temperature
     ): org.kisu.units.chemistry.MolarEnergy =

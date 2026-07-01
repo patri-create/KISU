@@ -74,7 +74,7 @@ class Information private constructor(magnitude: Magnitude, expression: Bit) :
  * Represents the library's scalar bit unit.
  *
  * One bit represents the canonical unit of digital information.
- * Use [Bit.UNIT] for the canonical unit.
+ * Use `Bit.UNIT` for the canonical unit.
  *
  * This type uses [Binary] prefixes such as `Ki`, `Mi`, and `Gi`.
  */

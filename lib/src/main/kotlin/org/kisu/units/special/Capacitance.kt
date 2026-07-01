@@ -36,16 +36,34 @@ class Capacitance internal constructor(magnitude: Magnitude, expression: Farad) 
         get() = Elastance(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Capacitance] by [Length][org.kisu.units.base.Length],
+     * yielding [Permittivity][org.kisu.units.electromagnetic.Permittivity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.Permittivity =
         org.kisu.units.electromagnetic.Permittivity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Capacitance] by [Permittivity][org.kisu.units.electromagnetic.Permittivity],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.Permittivity
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Capacitance] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [ElectricCharge][org.kisu.units.special.ElectricCharge].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.special.ElectricCharge =

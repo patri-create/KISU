@@ -32,71 +32,155 @@ class Volume internal constructor(magnitude: Magnitude, expression: CubicMetre) 
         this(magnitude, CubicMetre(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Volume] by [Amount][org.kisu.units.base.Amount],
+     * yielding [MolarVolume][org.kisu.units.chemistry.MolarVolume].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.chemistry.MolarVolume =
         org.kisu.units.chemistry.MolarVolume(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [Length][org.kisu.units.base.Length],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [Mass][org.kisu.units.base.Mass],
+     * yielding [SpecificVolume][org.kisu.units.mechanics.SpecificVolume].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.mechanics.SpecificVolume =
         org.kisu.units.mechanics.SpecificVolume(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [Time][org.kisu.units.base.Time],
+     * yielding [VolumetricFlow][org.kisu.units.kinematics.VolumetricFlow].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.VolumetricFlow =
         org.kisu.units.kinematics.VolumetricFlow(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [MolarVolume][org.kisu.units.chemistry.MolarVolume],
+     * yielding [Amount][org.kisu.units.base.Amount].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.MolarVolume
     ): org.kisu.units.base.Amount =
         org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [VolumetricFlow][org.kisu.units.kinematics.VolumetricFlow],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.VolumetricFlow
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [SpecificVolume][org.kisu.units.mechanics.SpecificVolume],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.SpecificVolume
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Volume] by [Area][org.kisu.units.special.Area],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Volume] by [Molarity][org.kisu.units.chemistry.Molarity],
+     * yielding [Amount][org.kisu.units.base.Amount].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.Molarity
     ): org.kisu.units.base.Amount =
         org.kisu.units.base.Amount(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Volume] by [ElectricChargeDensity][org.kisu.units.electromagnetic.ElectricChargeDensity],
+     * yielding [ElectricCharge][org.kisu.units.special.ElectricCharge].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.electromagnetic.ElectricChargeDensity
     ): org.kisu.units.special.ElectricCharge =
         org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Volume] by [Density][org.kisu.units.mechanics.Density],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.mechanics.Density
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Volume] by [EnergyDensity][org.kisu.units.mechanics.EnergyDensity],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.mechanics.EnergyDensity
     ): org.kisu.units.special.Energy =
         org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Volume] by [FuelEfficiency][org.kisu.units.mechanics.FuelEfficiency],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.mechanics.FuelEfficiency
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Volume] by [WaveNumber][org.kisu.units.mechanics.WaveNumber],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.mechanics.WaveNumber
     ): org.kisu.units.special.Area =

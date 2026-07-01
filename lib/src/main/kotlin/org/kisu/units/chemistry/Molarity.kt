@@ -68,11 +68,23 @@ class Molarity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Molarity] by [MolarConductivity][org.kisu.units.chemistry.MolarConductivity],
+     * yielding [ElectricConductivity][org.kisu.units.electromagnetic.ElectricConductivity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.MolarConductivity
     ): org.kisu.units.electromagnetic.ElectricConductivity =
         org.kisu.units.electromagnetic.ElectricConductivity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Molarity] by [Volume][org.kisu.units.special.Volume],
+     * yielding [Amount][org.kisu.units.base.Amount].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.base.Amount =

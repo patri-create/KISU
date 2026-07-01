@@ -60,11 +60,23 @@ class MomentOfInertia(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MomentOfInertia] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MomentOfInertia] by [Area][org.kisu.units.special.Area],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.base.Mass =

@@ -37,7 +37,7 @@ interface Prefix<Self : Prefix<Self>> : Symbol, Comparable<Self> {
  *
  * In most systems, this corresponds to the base coordinate for the system, such as power `0` for exponential prefixes
  * or factor `1` for linear prefixes. It compares the current prefix with the system-defined
- * [org.kisu.prefixes.primitives.System.canonical] prefix.
+ * [System.canonical][org.kisu.prefixes.primitives.System.canonical] prefix.
  *
  * @return `true` if this prefix is the canonical base unit, `false` otherwise.
  */

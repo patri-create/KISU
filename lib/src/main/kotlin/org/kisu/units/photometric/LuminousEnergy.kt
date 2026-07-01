@@ -58,11 +58,23 @@ class LuminousEnergy(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [LuminousEnergy] by [Time][org.kisu.units.base.Time],
+     * yielding [LuminousFlux][org.kisu.units.special.LuminousFlux].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.LuminousFlux =
         org.kisu.units.special.LuminousFlux(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [LuminousEnergy] by [LuminousFlux][org.kisu.units.special.LuminousFlux],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.LuminousFlux
     ): org.kisu.units.base.Time =

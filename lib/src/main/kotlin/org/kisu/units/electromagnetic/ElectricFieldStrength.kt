@@ -65,6 +65,12 @@ class ElectricFieldStrength(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [ElectricFieldStrength] by [Length][org.kisu.units.base.Length],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.ElectricPotential =

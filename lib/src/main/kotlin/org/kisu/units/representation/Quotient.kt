@@ -18,7 +18,7 @@ import org.kisu.productSymbol
  * - `J/(mol·K)` (joule per mole-kelvin)
  * - `(kg·m)/(s²)` (newton)
  *
- * A [Quotient] is formed by dividing a [numerator] expression by a [denominator] expression,
+ * A [Quotient] is formed by dividing a `numerator` expression by a `denominator` expression,
  * both of which are themselves required to be [Expression]s and [System]s.
  *
  * It preserves mathematical and symbolic correctness by:
@@ -82,7 +82,7 @@ class Quotient<A, B>(
     /**
      * The reduced set of scalar factors that define this quotient expression.
      *
-     * This combines the [factors] of the [numerator] and [denominator] expressions by:
+     * This combines the [factors] of the `numerator` and `denominator` expressions by:
      * - Finding scalars with matching units and merging them using subtraction (`this - other`).
      * - Retaining scalars that are only in the numerator.
      * - Inverting and including scalars that are only in the denominator.

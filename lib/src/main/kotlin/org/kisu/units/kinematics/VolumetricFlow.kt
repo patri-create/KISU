@@ -60,16 +60,34 @@ class VolumetricFlow internal constructor(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [VolumetricFlow] by [Amount][org.kisu.units.base.Amount],
+     * yielding [CatalyticEfficiency][org.kisu.units.chemistry.CatalyticEfficiency].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.chemistry.CatalyticEfficiency =
         org.kisu.units.chemistry.CatalyticEfficiency(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [VolumetricFlow] by [CatalyticEfficiency][org.kisu.units.chemistry.CatalyticEfficiency],
+     * yielding [Amount][org.kisu.units.base.Amount].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.CatalyticEfficiency
     ): org.kisu.units.base.Amount =
         org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [VolumetricFlow] by [Time][org.kisu.units.base.Time],
+     * yielding [Volume][org.kisu.units.special.Volume].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Volume =

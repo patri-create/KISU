@@ -57,6 +57,12 @@ class EnergyDensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [EnergyDensity] by [Volume][org.kisu.units.special.Volume],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.special.Energy =

@@ -58,16 +58,34 @@ class Crackle internal constructor(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Crackle] by [Time][org.kisu.units.base.Time],
+     * yielding [Pop][org.kisu.units.kinematics.angular.Pop].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Pop =
         org.kisu.units.kinematics.angular.Pop(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Crackle] by [Pop][org.kisu.units.kinematics.angular.Pop],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.angular.Pop
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Crackle] by [Time][org.kisu.units.base.Time],
+     * yielding [Snap][org.kisu.units.kinematics.angular.Snap].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Snap =

@@ -37,11 +37,23 @@ class Pressure internal constructor(magnitude: Magnitude, expression: Pascal) :
         get() = Compressibility(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Pressure] by [Time][org.kisu.units.base.Time],
+     * yielding [DynamicViscosity][org.kisu.units.mechanics.DynamicViscosity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.mechanics.DynamicViscosity =
         org.kisu.units.mechanics.DynamicViscosity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Pressure] by [Area][org.kisu.units.special.Area],
+     * yielding [Force][org.kisu.units.special.Force].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.special.Force =

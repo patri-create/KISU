@@ -64,11 +64,24 @@ class TemperatureGradient(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [TemperatureGradient] by [Length][org.kisu.units.base.Length],
+     * yielding [Temperature][org.kisu.units.base.Temperature].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.base.Temperature =
         org.kisu.units.base.Temperature(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [TemperatureGradient] by
+     * [ThermalConductivity][org.kisu.units.thermodynamics.ThermalConductivity],
+     * yielding [HeatFluxDensity][org.kisu.units.mechanics.HeatFluxDensity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.thermodynamics.ThermalConductivity
     ): org.kisu.units.mechanics.HeatFluxDensity =

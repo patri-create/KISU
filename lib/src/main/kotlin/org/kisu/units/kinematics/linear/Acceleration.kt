@@ -39,7 +39,7 @@ class Acceleration(
      *
      * Example usages include:
      * - Describing the acceleration of vehicles, projectiles, or objects in free fall
-     * - Calculating forces in Newtonian mechanics using [org.kisu.units.special.Newton] = kg·m/s²
+     * - Calculating forces in Newtonian mechanics using [Newton][org.kisu.units.special.Newton] = kg·m/s²
      * - Analysing motion in physics and engineering contexts
      *
      * @see Acceleration
@@ -60,21 +60,45 @@ class Acceleration(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Acceleration] by [Time][org.kisu.units.base.Time],
+     * yielding [Jerk][org.kisu.units.kinematics.linear.Jerk].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.linear.Jerk =
         org.kisu.units.kinematics.linear.Jerk(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Acceleration] by [Jerk][org.kisu.units.kinematics.linear.Jerk],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.linear.Jerk
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Acceleration] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Force][org.kisu.units.special.Force].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.special.Force =
         org.kisu.units.special.Force(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Acceleration] by [Time][org.kisu.units.base.Time],
+     * yielding [Speed][org.kisu.units.kinematics.linear.Speed].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.linear.Speed =

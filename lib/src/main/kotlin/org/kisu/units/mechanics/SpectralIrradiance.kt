@@ -58,6 +58,12 @@ class SpectralIrradiance(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [SpectralIrradiance] by [Area][org.kisu.units.special.Area],
+     * yielding [SpectralPower][org.kisu.units.mechanics.SpectralPower].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.mechanics.SpectralPower =

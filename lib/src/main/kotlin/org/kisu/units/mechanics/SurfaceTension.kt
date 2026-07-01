@@ -57,6 +57,12 @@ class SurfaceTension(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [SurfaceTension] by [Length][org.kisu.units.base.Length],
+     * yielding [Force][org.kisu.units.special.Force].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.Force =

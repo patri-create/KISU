@@ -56,11 +56,23 @@ class Action(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Action] by [Time][org.kisu.units.base.Time],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Energy =
         org.kisu.units.special.Energy(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Action] by [Energy][org.kisu.units.special.Energy],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Energy
     ): org.kisu.units.base.Time =

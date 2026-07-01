@@ -40,6 +40,12 @@ class MagneticReluctance(
         get() = Inductance(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [MagneticReluctance] by [MagneticFlux][org.kisu.units.special.MagneticFlux],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.MagneticFlux
     ): org.kisu.units.base.Current =
@@ -55,7 +61,7 @@ class MagneticReluctance(
  * This unit is useful in magnetic-circuit analysis for cores, gaps, coils, and related
  * electromagnetic devices.
  *
- * In this library, [ReciprocalHenry] is defined as the inverse of [Henry.UNIT].
+ * In this library, [ReciprocalHenry] is defined as the inverse of `Henry.UNIT`.
  *
  * @see MagneticReluctance
  * @see Henry

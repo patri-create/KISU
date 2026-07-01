@@ -56,26 +56,56 @@ class RadiantIntensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [RadiantIntensity] by [Length][org.kisu.units.base.Length],
+     * yielding [SpectralIntensity][org.kisu.units.mechanics.SpectralIntensity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.mechanics.SpectralIntensity =
         org.kisu.units.mechanics.SpectralIntensity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [RadiantIntensity] by [Radiance][org.kisu.units.mechanics.Radiance],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.Radiance
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [RadiantIntensity] by [SpectralIntensity][org.kisu.units.mechanics.SpectralIntensity],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.SpectralIntensity
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [RadiantIntensity] by [Area][org.kisu.units.special.Area],
+     * yielding [Radiance][org.kisu.units.mechanics.Radiance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.mechanics.Radiance =
         org.kisu.units.mechanics.Radiance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [RadiantIntensity] by [SolidAngle][org.kisu.units.special.SolidAngle],
+     * yielding [Power][org.kisu.units.special.Power].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.SolidAngle
     ): org.kisu.units.special.Power =

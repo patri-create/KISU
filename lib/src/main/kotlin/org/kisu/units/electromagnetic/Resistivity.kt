@@ -66,11 +66,23 @@ class Resistivity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Resistivity] by [Length][org.kisu.units.base.Length],
+     * yielding [Resistance][org.kisu.units.special.Resistance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.Resistance =
         org.kisu.units.special.Resistance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Resistivity] by [Resistance][org.kisu.units.special.Resistance],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Resistance
     ): org.kisu.units.base.Length =
