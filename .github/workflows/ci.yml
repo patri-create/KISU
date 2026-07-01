@@ -61,7 +61,7 @@ jobs:
         uses: ./.github/actions/upload-codecov
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
-          use-token: ${{ github.event.pull_request.head.repo.fork == false && 'true' || 'false' }}
+          use-token: ${{ github.event.pull_request.head.repo.full_name == github.repository && 'true' || 'false' }}
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
