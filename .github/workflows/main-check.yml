@@ -26,14 +26,18 @@ jobs:
           ./gradlew checkKotlinAbi
 
       - name: Build and test
+        id: build-test
+        continue-on-error: true
         run: |
           ./gradlew :lib:build
 
       - name: Generate coverage report
+        if: ${{ steps.build-test.outcome == 'success' }}
         run: |
           ./gradlew :lib:jacocoTestReport
 
       - name: Verify report outputs
+        if: ${{ !cancelled() }}
         run: |
           test -f lib/build/reports/jacoco/test/jacocoTestReport.xml || {
             echo "Expected JaCoCo XML report at lib/build/reports/jacoco/test/jacocoTestReport.xml"
@@ -52,6 +56,11 @@ jobs:
           }
 
       - name: Upload reports to Codecov
+        if: ${{ !cancelled() }}
         uses: ./.github/actions/upload-codecov
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Fail if build or tests failed
+        if: ${{ steps.build-test.outcome != 'success' }}
+        run: exit 1
