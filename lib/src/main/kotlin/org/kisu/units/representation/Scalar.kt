@@ -8,7 +8,7 @@ import org.kisu.prefixes.primitives.System
 import java.math.RoundingMode
 
 /**
- * Atomic unit expression consisting of a prefixed [unit], such as `km`, `ms`, or `kg`.
+ * Atomic unit expression consisting of a prefixed [Unit], such as `km`, `ms`, or `kg`.
  *
  * A [Scalar] is the building block for composite expressions. It can be combined with other expressions through
  * multiplication and division to produce [Product] and [Quotient] values.
@@ -28,7 +28,7 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     /**
      * Returns the multiplicative inverse of this scalar.
      *
-     * This creates a new [Scalar] with the same [prefix], but with the [unit] inverted.
+     * This creates a new [Scalar] with the same `prefix`, but with the `unit` inverted.
      * For example, if the current scalar represents "m", the inverted scalar represents "1/m".
      *
      * The result is computed lazily and cached for future access.
@@ -36,9 +36,9 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     val inverted: Self by lazy { create(algebra, prefix, unit.inverted) }
 
     /**
-     * Indicates whether this scalar's [unit] has a positive exponent.
+     * Indicates whether this scalar's `unit` has a positive exponent.
      *
-     * Returns `true` if the [unit] represents a positive power (e.g., m²),
+     * Returns `true` if the `unit` represents a positive power (e.g., m²),
      * and `false` if it is inverted or has a negative exponent (e.g., m⁻¹).
      *
      * The result is computed lazily and cached.
@@ -48,9 +48,9 @@ abstract class Scalar<A, Self : Scalar<A, Self>>(
     }
 
     /**
-     * Indicates whether this scalar's [unit] has a zero exponent.
+     * Indicates whether this scalar's `unit` has a zero exponent.
      *
-     * Returns `true` if the [unit] represents a positive power (e.g., m⁰), and `false` otherwise.
+     * Returns `true` if the `unit` represents a positive power (e.g., m⁰), and `false` otherwise.
      *
      * The result is computed lazily and cached.
      */

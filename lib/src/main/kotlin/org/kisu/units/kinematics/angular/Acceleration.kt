@@ -57,16 +57,34 @@ class Acceleration(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Acceleration] by [Time][org.kisu.units.base.Time],
+     * yielding [Jerk][org.kisu.units.kinematics.angular.Jerk].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Jerk =
         org.kisu.units.kinematics.angular.Jerk(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Acceleration] by [Jerk][org.kisu.units.kinematics.angular.Jerk],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.angular.Jerk
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Acceleration] by [Time][org.kisu.units.base.Time],
+     * yielding [Velocity][org.kisu.units.kinematics.angular.Velocity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Velocity =

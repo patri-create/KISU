@@ -13,7 +13,7 @@ import org.kisu.productSymbol
  * such as `N·m` (newton-meter), `mol·K`, or `W·s`, by combining simpler unit components through
  * multiplication.
  *
- * A [Product] composes two expressions — [left] and [right] — which are themselves both
+ * A [Product] composes two expressions, `left` and `right`, which are themselves both
  * [Expression]s and [System]s. The resulting expression retains type safety and can be further
  * composed, multiplied, or divided with other units to build arbitrarily complex units.
  *
@@ -53,7 +53,7 @@ class Product<A, B>(
     /**
      * The normalized set of scalar factors that result from the product of two expressions.
      *
-     * This property computes the combined factors of the [left] and [right] expressions,
+     * This property computes the combined factors of the `left` and `right` expressions,
      * merging them by symbol. Scalars with the same symbol are coalesced.
      *
      * Zero-valued scalars are excluded both before and after the reduction to ensure the resulting

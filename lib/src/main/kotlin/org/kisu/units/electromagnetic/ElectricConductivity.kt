@@ -67,16 +67,34 @@ class ElectricConductivity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [ElectricConductivity] by [MolarConductivity][org.kisu.units.chemistry.MolarConductivity],
+     * yielding [Molarity][org.kisu.units.chemistry.Molarity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.MolarConductivity
     ): org.kisu.units.chemistry.Molarity =
         org.kisu.units.chemistry.Molarity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricConductivity] by [Molarity][org.kisu.units.chemistry.Molarity],
+     * yielding [MolarConductivity][org.kisu.units.chemistry.MolarConductivity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.chemistry.Molarity
     ): org.kisu.units.chemistry.MolarConductivity =
         org.kisu.units.chemistry.MolarConductivity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricConductivity] by [Length][org.kisu.units.base.Length],
+     * yielding [Conductance][org.kisu.units.special.Conductance].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.Conductance =

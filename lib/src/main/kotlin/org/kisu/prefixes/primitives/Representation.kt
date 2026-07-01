@@ -12,7 +12,7 @@ class Representation(override val symbol: String) : Symbol {
     /**
      * Returns the symbol string.
      *
-     * Equivalent to accessing [symbol] directly.
+     * Equivalent to accessing `symbol` directly.
      */
     override fun toString(): String = symbol
 }

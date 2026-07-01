@@ -58,16 +58,34 @@ class Snap(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Snap] by [Time][org.kisu.units.base.Time],
+     * yielding [Crackle][org.kisu.units.kinematics.linear.Crackle].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.linear.Crackle =
         org.kisu.units.kinematics.linear.Crackle(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Snap] by [Crackle][org.kisu.units.kinematics.linear.Crackle],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.linear.Crackle
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Snap] by [Time][org.kisu.units.base.Time],
+     * yielding [Jerk][org.kisu.units.kinematics.linear.Jerk].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.linear.Jerk =

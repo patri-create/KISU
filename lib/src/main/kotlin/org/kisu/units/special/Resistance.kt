@@ -35,11 +35,23 @@ class Resistance internal constructor(magnitude: Magnitude, expression: Ohm) :
         get() = Conductance(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Resistance] by [Current][org.kisu.units.base.Current],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.ElectricPotential =
         org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Resistance] by [Length][org.kisu.units.base.Length],
+     * yielding [Resistivity][org.kisu.units.electromagnetic.Resistivity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.Resistivity =

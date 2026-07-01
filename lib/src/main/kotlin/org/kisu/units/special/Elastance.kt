@@ -32,6 +32,12 @@ class Elastance internal constructor(magnitude: Magnitude, expression: InverseFa
         get() = Capacitance(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Elastance] by [ElectricCharge][org.kisu.units.special.ElectricCharge],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.ElectricCharge
     ): org.kisu.units.special.ElectricPotential =
@@ -44,7 +50,7 @@ class Elastance internal constructor(magnitude: Magnitude, expression: InverseFa
  * Reciprocal farads are the direct inverse of farads and therefore describe the inverse
  * of electrical capacitance.
  *
- * In this library, [InverseFarad] is defined as the inverse of [Farad.UNIT].
+ * In this library, [InverseFarad] is defined as the inverse of `Farad.UNIT`.
  *
  * @see Elastance
  * @see Farad

@@ -37,7 +37,7 @@ class ReciprocalAmount internal constructor(magnitude: Magnitude, expression: Re
  * A reciprocal mole is the inverse of the mole unit. It appears in quantities where
  * amount of substance is the only denominator.
  *
- * In this library, [ReciprocalMole] is defined as the inverse of [Mole.UNIT].
+ * In this library, [ReciprocalMole] is defined as the inverse of `Mole.UNIT`.
  *
  * @see ReciprocalAmount
  * @see Mole

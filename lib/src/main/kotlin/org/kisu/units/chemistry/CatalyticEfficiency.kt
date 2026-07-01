@@ -73,11 +73,23 @@ class CatalyticEfficiency(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [CatalyticEfficiency] by [Amount][org.kisu.units.base.Amount],
+     * yielding [VolumetricFlow][org.kisu.units.kinematics.VolumetricFlow].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.kinematics.VolumetricFlow =
         org.kisu.units.kinematics.VolumetricFlow(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [CatalyticEfficiency] by [Time][org.kisu.units.base.Time],
+     * yielding [MolarVolume][org.kisu.units.chemistry.MolarVolume].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.chemistry.MolarVolume =

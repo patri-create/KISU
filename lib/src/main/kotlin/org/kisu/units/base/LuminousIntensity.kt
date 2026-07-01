@@ -16,11 +16,11 @@ import org.kisu.units.representation.Unit
  * Luminous intensity quantifies the perceived brightness emitted by a light source in a specific direction.
  * It is one of the seven SI base quantities and is measured in **candelas (cd)**.
  *
- * The [magnitude] must not be negative. Negative luminous intensity is physically meaningless because intensity
+ * The `magnitude` must not be negative. Negative luminous intensity is physically meaningless because intensity
  * describes an emission — light cannot be “less than none.” A value of zero represents no light output, and
  * any non-zero value indicates the intensity of light emitted.
  *
- * This class models the quantity as a combination of a [magnitude] and an [expression], enabling precise values
+ * This class models the quantity as a combination of a `magnitude` and an `expression`, enabling precise values
  * such as milllicandelas (mcd) or kilocandelas (kcd).
  *
  * All values are stored with high precision using [Magnitude], and instances are immutable.
@@ -32,16 +32,34 @@ class LuminousIntensity internal constructor(magnitude: Magnitude, expression: C
         this(magnitude, Candela(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [LuminousIntensity] by [Luminance][org.kisu.units.photometric.Luminance],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.photometric.Luminance
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [LuminousIntensity] by [Area][org.kisu.units.special.Area],
+     * yielding [Luminance][org.kisu.units.photometric.Luminance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.photometric.Luminance =
         org.kisu.units.photometric.Luminance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [LuminousIntensity] by [SolidAngle][org.kisu.units.special.SolidAngle],
+     * yielding [LuminousFlux][org.kisu.units.special.LuminousFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.SolidAngle
     ): org.kisu.units.special.LuminousFlux =

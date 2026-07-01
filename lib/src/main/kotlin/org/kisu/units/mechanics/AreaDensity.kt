@@ -57,6 +57,12 @@ class AreaDensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [AreaDensity] by [Area][org.kisu.units.special.Area],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.base.Mass =

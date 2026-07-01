@@ -37,21 +37,45 @@ class Inductance internal constructor(magnitude: Magnitude, expression: Henry) :
         get() = MagneticReluctance(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Inductance] by [Length][org.kisu.units.base.Length],
+     * yielding [MagneticPermittivity][org.kisu.units.electromagnetic.MagneticPermittivity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.MagneticPermittivity =
         org.kisu.units.electromagnetic.MagneticPermittivity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Inductance] by [MagneticPermittivity][org.kisu.units.electromagnetic.MagneticPermittivity],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.MagneticPermittivity
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Inductance] by [Current][org.kisu.units.base.Current],
+     * yielding [MagneticFlux][org.kisu.units.special.MagneticFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.MagneticFlux =
         org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Inductance] by [MagneticSusceptibility][org.kisu.units.electromagnetic.MagneticSusceptibility],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.electromagnetic.MagneticSusceptibility
     ): org.kisu.units.base.Length =

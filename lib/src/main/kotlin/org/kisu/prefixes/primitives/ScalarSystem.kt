@@ -8,7 +8,8 @@ import org.kisu.units.representation.Unit
 /**
  * Represents a system of [Scalar] units derived from a given prefix system and unit symbol.
  *
- * This class adapts a [System] of prefixes (e.g., [org.kisu.prefixes.Metric], [org.kisu.prefixes.Binary]) into a
+ * This class adapts a [System] of prefixes (e.g., [Metric][org.kisu.prefixes.Metric],
+ * [Binary][org.kisu.prefixes.Binary]) into a
  * system of full [Scalar] expressions, by pairing each prefix with a specific unit (e.g., `"m"` for meters, `"B"` for
  * bytes).
  *

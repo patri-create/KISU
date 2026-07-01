@@ -58,6 +58,12 @@ class Pop internal constructor(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Pop] by [Time][org.kisu.units.base.Time],
+     * yielding [Crackle][org.kisu.units.kinematics.angular.Crackle].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Crackle =

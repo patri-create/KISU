@@ -56,6 +56,12 @@ class FuelEfficiency(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [FuelEfficiency] by [Volume][org.kisu.units.special.Volume],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.base.Length =

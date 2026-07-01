@@ -56,16 +56,34 @@ class SpecificEnergy(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [SpecificEnergy] by [Temperature][org.kisu.units.base.Temperature],
+     * yielding [SpecificHeatCapacity][org.kisu.units.thermodynamics.SpecificHeatCapacity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Temperature
     ): org.kisu.units.thermodynamics.SpecificHeatCapacity =
         org.kisu.units.thermodynamics.SpecificHeatCapacity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [SpecificEnergy] by [SpecificHeatCapacity][org.kisu.units.thermodynamics.SpecificHeatCapacity],
+     * yielding [Temperature][org.kisu.units.base.Temperature].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.thermodynamics.SpecificHeatCapacity
     ): org.kisu.units.base.Temperature =
         org.kisu.units.base.Temperature(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [SpecificEnergy] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.special.Energy =

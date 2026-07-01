@@ -67,6 +67,12 @@ class MagneticSusceptibility(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [MagneticSusceptibility] by [Inductance][org.kisu.units.special.Inductance],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Inductance
     ): org.kisu.units.base.Length =

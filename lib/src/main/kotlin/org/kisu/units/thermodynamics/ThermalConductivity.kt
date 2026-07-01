@@ -67,6 +67,13 @@ class ThermalConductivity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [ThermalConductivity] by
+     * [TemperatureGradient][org.kisu.units.thermodynamics.TemperatureGradient],
+     * yielding [HeatFluxDensity][org.kisu.units.mechanics.HeatFluxDensity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.thermodynamics.TemperatureGradient
     ): org.kisu.units.mechanics.HeatFluxDensity =

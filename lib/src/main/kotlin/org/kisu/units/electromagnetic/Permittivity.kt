@@ -60,6 +60,12 @@ class Permittivity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Permittivity] by [Length][org.kisu.units.base.Length],
+     * yielding [Capacitance][org.kisu.units.special.Capacitance].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.Capacitance =

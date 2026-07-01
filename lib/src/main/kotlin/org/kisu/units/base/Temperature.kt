@@ -24,7 +24,7 @@ import org.kisu.units.thermodynamics.ThermalExpansionCoefficient
  * Because the kelvin scale is absolute, **negative values are not physically meaningful** — no system
  * can exist below absolute zero. A temperature of zero kelvin represents a complete absence of thermal energy.
  *
- * This class models temperature as a combination of a [magnitude] and an optional metric [expression],
+ * This class models temperature as a combination of a `magnitude` and an optional metric `expression`,
  * enabling precise representation of values such as millikelvin (mK) or kilokelvin (kK).
  *
  * The magnitude is stored using [Magnitude] for accuracy. All instances are validated to ensure they
@@ -49,36 +49,78 @@ class Temperature internal constructor(magnitude: Magnitude, expression: Kelvin)
         get() = ThermalExpansionCoefficient(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Temperature] by [Length][org.kisu.units.base.Length],
+     * yielding [TemperatureGradient][org.kisu.units.thermodynamics.TemperatureGradient].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.thermodynamics.TemperatureGradient =
         org.kisu.units.thermodynamics.TemperatureGradient(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Temperature] by [Power][org.kisu.units.special.Power],
+     * yielding [ThermalResistance][org.kisu.units.thermodynamics.ThermalResistance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Power
     ): org.kisu.units.thermodynamics.ThermalResistance =
         org.kisu.units.thermodynamics.ThermalResistance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Temperature] by [TemperatureGradient][org.kisu.units.thermodynamics.TemperatureGradient],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.thermodynamics.TemperatureGradient
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Temperature] by [ThermalResistance][org.kisu.units.thermodynamics.ThermalResistance],
+     * yielding [Power][org.kisu.units.special.Power].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.thermodynamics.ThermalResistance
     ): org.kisu.units.special.Power =
         org.kisu.units.special.Power(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Temperature] by [MolarHeatCapacity][org.kisu.units.chemistry.MolarHeatCapacity],
+     * yielding [MolarEnergy][org.kisu.units.chemistry.MolarEnergy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.chemistry.MolarHeatCapacity
     ): org.kisu.units.chemistry.MolarEnergy =
         org.kisu.units.chemistry.MolarEnergy(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Temperature] by [HeatCapacity][org.kisu.units.thermodynamics.HeatCapacity],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.thermodynamics.HeatCapacity
     ): org.kisu.units.special.Energy =
         org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Temperature] by [SpecificHeatCapacity][org.kisu.units.thermodynamics.SpecificHeatCapacity],
+     * yielding [SpecificEnergy][org.kisu.units.mechanics.SpecificEnergy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.thermodynamics.SpecificHeatCapacity
     ): org.kisu.units.mechanics.SpecificEnergy =

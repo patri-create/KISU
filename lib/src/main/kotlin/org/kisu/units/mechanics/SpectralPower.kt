@@ -56,16 +56,34 @@ class SpectralPower(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [SpectralPower] by [SpectralIrradiance][org.kisu.units.mechanics.SpectralIrradiance],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.SpectralIrradiance
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [SpectralPower] by [Area][org.kisu.units.special.Area],
+     * yielding [SpectralIrradiance][org.kisu.units.mechanics.SpectralIrradiance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.mechanics.SpectralIrradiance =
         org.kisu.units.mechanics.SpectralIrradiance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [SpectralPower] by [Length][org.kisu.units.base.Length],
+     * yielding [Power][org.kisu.units.special.Power].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.Power =

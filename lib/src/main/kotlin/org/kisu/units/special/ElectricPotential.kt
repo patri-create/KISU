@@ -31,61 +31,134 @@ class ElectricPotential internal constructor(magnitude: Magnitude, expression: V
         this(magnitude, Volt(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [ElectricPotential] by [Current][org.kisu.units.base.Current],
+     * yielding [Resistance][org.kisu.units.special.Resistance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.Resistance =
         org.kisu.units.special.Resistance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricPotential] by [Length][org.kisu.units.base.Length],
+     * yielding [ElectricFieldStrength][org.kisu.units.electromagnetic.ElectricFieldStrength].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.ElectricFieldStrength =
         org.kisu.units.electromagnetic.ElectricFieldStrength(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricPotential] by
+     * [ElectricFieldStrength][org.kisu.units.electromagnetic.ElectricFieldStrength],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.ElectricFieldStrength
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricPotential] by [Elastance][org.kisu.units.special.Elastance],
+     * yielding [ElectricCharge][org.kisu.units.special.ElectricCharge].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Elastance
     ): org.kisu.units.special.ElectricCharge =
         org.kisu.units.special.ElectricCharge(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricPotential] by [ElectricCharge][org.kisu.units.special.ElectricCharge],
+     * yielding [Elastance][org.kisu.units.special.Elastance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.ElectricCharge
     ): org.kisu.units.special.Elastance =
         org.kisu.units.special.Elastance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricPotential] by [Resistance][org.kisu.units.special.Resistance],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Resistance
     ): org.kisu.units.base.Current =
         org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricPotential] by [Current][org.kisu.units.base.Current],
+     * yielding [Power][org.kisu.units.special.Power].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.Power =
         org.kisu.units.special.Power(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricPotential] by [Time][org.kisu.units.base.Time],
+     * yielding [MagneticFlux][org.kisu.units.special.MagneticFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.MagneticFlux =
         org.kisu.units.special.MagneticFlux(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricPotential] by [ElectronMobility][org.kisu.units.electromagnetic.ElectronMobility],
+     * yielding [KinematicViscosity][org.kisu.units.mechanics.KinematicViscosity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.electromagnetic.ElectronMobility
     ): org.kisu.units.mechanics.KinematicViscosity =
         org.kisu.units.mechanics.KinematicViscosity(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricPotential] by [Capacitance][org.kisu.units.special.Capacitance],
+     * yielding [ElectricCharge][org.kisu.units.special.ElectricCharge].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Capacitance
     ): org.kisu.units.special.ElectricCharge =
         org.kisu.units.special.ElectricCharge(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricPotential] by [Conductance][org.kisu.units.special.Conductance],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Conductance
     ): org.kisu.units.base.Current =
         org.kisu.units.base.Current(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricPotential] by [ElectricCharge][org.kisu.units.special.ElectricCharge],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.ElectricCharge
     ): org.kisu.units.special.Energy =

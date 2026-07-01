@@ -65,6 +65,12 @@ class MolarMass(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [MolarMass] by [Amount][org.kisu.units.base.Amount],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Amount
     ): org.kisu.units.base.Mass =

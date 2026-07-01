@@ -35,16 +35,34 @@ class Conductance internal constructor(magnitude: Magnitude, expression: Siemens
         get() = Resistance(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Conductance] by [Length][org.kisu.units.base.Length],
+     * yielding [ElectricConductivity][org.kisu.units.electromagnetic.ElectricConductivity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.ElectricConductivity =
         org.kisu.units.electromagnetic.ElectricConductivity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Conductance] by [ElectricConductivity][org.kisu.units.electromagnetic.ElectricConductivity],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.ElectricConductivity
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Conductance] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.base.Current =

@@ -51,11 +51,23 @@ class MagneticMoment(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MagneticMoment] by [Length][org.kisu.units.base.Length],
+     * yielding [MagneticFlux][org.kisu.units.special.MagneticFlux].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.MagneticFlux =
         org.kisu.units.special.MagneticFlux(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticMoment] by [MagneticFlux][org.kisu.units.special.MagneticFlux],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.MagneticFlux
     ): org.kisu.units.base.Length =

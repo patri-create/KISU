@@ -17,7 +17,7 @@ import org.kisu.units.representation.Quotient
  * - Right: Metric prefixes with unit `"m"`
  *
  * You could create a composite system for `"kg·m"` or `"kg/m"` by combining each prefix from the left
- * with the right-hand expression using the provided [create] function.
+ * with the right-hand expression using the provided `create` function.
  *
  * @param T the resulting composite expression type (e.g., [Product], [Quotient]).
  * @param A the type of the left-hand component (must be a [Prefix] and provide a [System]).

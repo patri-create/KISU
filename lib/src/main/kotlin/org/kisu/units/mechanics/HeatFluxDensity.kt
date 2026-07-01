@@ -57,16 +57,34 @@ class HeatFluxDensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [HeatFluxDensity] by [TemperatureGradient][org.kisu.units.thermodynamics.TemperatureGradient],
+     * yielding [ThermalConductivity][org.kisu.units.thermodynamics.ThermalConductivity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.thermodynamics.TemperatureGradient
     ): org.kisu.units.thermodynamics.ThermalConductivity =
         org.kisu.units.thermodynamics.ThermalConductivity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [HeatFluxDensity] by [ThermalConductivity][org.kisu.units.thermodynamics.ThermalConductivity],
+     * yielding [TemperatureGradient][org.kisu.units.thermodynamics.TemperatureGradient].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.thermodynamics.ThermalConductivity
     ): org.kisu.units.thermodynamics.TemperatureGradient =
         org.kisu.units.thermodynamics.TemperatureGradient(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [HeatFluxDensity] by [Area][org.kisu.units.special.Area],
+     * yielding [Power][org.kisu.units.special.Power].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.special.Power =

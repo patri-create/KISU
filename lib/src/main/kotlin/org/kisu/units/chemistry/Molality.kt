@@ -64,6 +64,12 @@ class Molality(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Molality] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Amount][org.kisu.units.base.Amount].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.base.Amount =

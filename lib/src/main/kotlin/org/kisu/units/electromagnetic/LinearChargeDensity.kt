@@ -61,6 +61,12 @@ class LinearChargeDensity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [LinearChargeDensity] by [Length][org.kisu.units.base.Length],
+     * yielding [ElectricCharge][org.kisu.units.special.ElectricCharge].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.special.ElectricCharge =

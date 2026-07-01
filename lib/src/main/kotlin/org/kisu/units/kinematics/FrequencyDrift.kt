@@ -59,6 +59,12 @@ class FrequencyDrift internal constructor(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [FrequencyDrift] by [Time][org.kisu.units.base.Time],
+     * yielding [Frequency][org.kisu.units.special.Frequency].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Frequency =

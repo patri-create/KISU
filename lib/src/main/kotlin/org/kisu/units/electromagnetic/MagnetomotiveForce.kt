@@ -60,11 +60,23 @@ class MagnetomotiveForce(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MagnetomotiveForce] by [Current][org.kisu.units.base.Current],
+     * yielding [PlaneAngle][org.kisu.units.special.PlaneAngle].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.PlaneAngle =
         org.kisu.units.special.PlaneAngle(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagnetomotiveForce] by [PlaneAngle][org.kisu.units.special.PlaneAngle],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.PlaneAngle
     ): org.kisu.units.base.Current =

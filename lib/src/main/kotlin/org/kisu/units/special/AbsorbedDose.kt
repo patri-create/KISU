@@ -31,11 +31,23 @@ class AbsorbedDose internal constructor(magnitude: Magnitude, expression: Gray) 
         this(magnitude, Gray(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [AbsorbedDose] by [Time][org.kisu.units.base.Time],
+     * yielding [AbsorbedDoseRate][org.kisu.units.mechanics.AbsorbedDoseRate].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.mechanics.AbsorbedDoseRate =
         org.kisu.units.mechanics.AbsorbedDoseRate(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [AbsorbedDose] by [AbsorbedDoseRate][org.kisu.units.mechanics.AbsorbedDoseRate],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.AbsorbedDoseRate
     ): org.kisu.units.base.Time =

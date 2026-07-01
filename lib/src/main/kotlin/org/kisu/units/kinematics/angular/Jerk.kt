@@ -58,16 +58,34 @@ class Jerk(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Jerk] by [Time][org.kisu.units.base.Time],
+     * yielding [Snap][org.kisu.units.kinematics.angular.Snap].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Snap =
         org.kisu.units.kinematics.angular.Snap(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Jerk] by [Snap][org.kisu.units.kinematics.angular.Snap],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.angular.Snap
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Jerk] by [Time][org.kisu.units.base.Time],
+     * yielding [Acceleration][org.kisu.units.kinematics.angular.Acceleration].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.kinematics.angular.Acceleration =

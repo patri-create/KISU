@@ -41,6 +41,12 @@ class Compressibility(
         get() = Pressure(canonical.component1().inverted)
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [Compressibility] by [Force][org.kisu.units.special.Force],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Force
     ): org.kisu.units.special.Area =
@@ -56,7 +62,7 @@ class Compressibility(
  * This unit is used in fluid mechanics, materials science, geophysics, and
  * thermodynamics when comparing how gases, liquids, or solids respond to pressure.
  *
- * In this library, [ReciprocalPascal] is defined as the inverse of [Pascal.UNIT].
+ * In this library, [ReciprocalPascal] is defined as the inverse of `Pascal.UNIT`.
  *
  * @see Compressibility
  * @see Pascal

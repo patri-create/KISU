@@ -60,6 +60,12 @@ class AbsorbedDoseRate(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [AbsorbedDoseRate] by [Time][org.kisu.units.base.Time],
+     * yielding [AbsorbedDose][org.kisu.units.special.AbsorbedDose].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.AbsorbedDose =

@@ -63,11 +63,23 @@ class MagneticDipoleMoment(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [MagneticDipoleMoment] by [Current][org.kisu.units.base.Current],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [MagneticDipoleMoment] by [Area][org.kisu.units.special.Area],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.base.Current =

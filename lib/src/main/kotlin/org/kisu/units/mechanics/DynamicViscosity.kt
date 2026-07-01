@@ -56,11 +56,23 @@ class DynamicViscosity(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [DynamicViscosity] by [Time][org.kisu.units.base.Time],
+     * yielding [Pressure][org.kisu.units.special.Pressure].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.special.Pressure =
         org.kisu.units.special.Pressure(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [DynamicViscosity] by [Pressure][org.kisu.units.special.Pressure],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Pressure
     ): org.kisu.units.base.Time =

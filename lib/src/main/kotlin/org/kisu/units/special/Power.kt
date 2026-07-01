@@ -29,61 +29,133 @@ class Power internal constructor(magnitude: Magnitude, expression: Watt) :
         this(magnitude, Watt(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Power] by [Current][org.kisu.units.base.Current],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Current
     ): org.kisu.units.special.ElectricPotential =
         org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [Length][org.kisu.units.base.Length],
+     * yielding [SpectralPower][org.kisu.units.mechanics.SpectralPower].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.mechanics.SpectralPower =
         org.kisu.units.mechanics.SpectralPower(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [Speed][org.kisu.units.kinematics.linear.Speed],
+     * yielding [Force][org.kisu.units.special.Force].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.kinematics.linear.Speed
     ): org.kisu.units.special.Force =
         org.kisu.units.special.Force(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [HeatFluxDensity][org.kisu.units.mechanics.HeatFluxDensity],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.HeatFluxDensity
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [RadiantIntensity][org.kisu.units.mechanics.RadiantIntensity],
+     * yielding [SolidAngle][org.kisu.units.special.SolidAngle].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.RadiantIntensity
     ): org.kisu.units.special.SolidAngle =
         org.kisu.units.special.SolidAngle(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [SpectralPower][org.kisu.units.mechanics.SpectralPower],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.SpectralPower
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [Area][org.kisu.units.special.Area],
+     * yielding [HeatFluxDensity][org.kisu.units.mechanics.HeatFluxDensity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.mechanics.HeatFluxDensity =
         org.kisu.units.mechanics.HeatFluxDensity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.base.Current =
         org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [Force][org.kisu.units.special.Force],
+     * yielding [Speed][org.kisu.units.kinematics.linear.Speed].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Force
     ): org.kisu.units.kinematics.linear.Speed =
         org.kisu.units.kinematics.linear.Speed(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Power] by [SolidAngle][org.kisu.units.special.SolidAngle],
+     * yielding [RadiantIntensity][org.kisu.units.mechanics.RadiantIntensity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.SolidAngle
     ): org.kisu.units.mechanics.RadiantIntensity =
         org.kisu.units.mechanics.RadiantIntensity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Power] by [Efficacy][org.kisu.units.photometric.Efficacy],
+     * yielding [LuminousFlux][org.kisu.units.special.LuminousFlux].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.photometric.Efficacy
     ): org.kisu.units.special.LuminousFlux =
         org.kisu.units.special.LuminousFlux(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [Power] by [ThermalResistance][org.kisu.units.thermodynamics.ThermalResistance],
+     * yielding [Temperature][org.kisu.units.base.Temperature].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.thermodynamics.ThermalResistance
     ): org.kisu.units.base.Temperature =

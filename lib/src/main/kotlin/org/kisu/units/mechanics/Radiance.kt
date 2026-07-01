@@ -59,16 +59,34 @@ class Radiance(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [Radiance] by [Length][org.kisu.units.base.Length],
+     * yielding [SpectralRadiance][org.kisu.units.mechanics.SpectralRadiance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.mechanics.SpectralRadiance =
         org.kisu.units.mechanics.SpectralRadiance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [Radiance] by [SpectralRadiance][org.kisu.units.mechanics.SpectralRadiance],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.mechanics.SpectralRadiance
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [Radiance] by [Area][org.kisu.units.special.Area],
+     * yielding [RadiantIntensity][org.kisu.units.mechanics.RadiantIntensity].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Area
     ): org.kisu.units.mechanics.RadiantIntensity =

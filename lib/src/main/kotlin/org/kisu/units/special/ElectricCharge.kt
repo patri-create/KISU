@@ -31,71 +31,156 @@ class ElectricCharge internal constructor(magnitude: Magnitude, expression: Coul
         this(magnitude, Coulomb(prefix))
 
     // Dimension-aware arithmetic
+    /**
+     * Divides this [ElectricCharge] by [Current][org.kisu.units.base.Current],
+     * yielding [Time][org.kisu.units.base.Time].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Current
     ): org.kisu.units.base.Time =
         org.kisu.units.base.Time(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Length][org.kisu.units.base.Length],
+     * yielding [LinearChargeDensity][org.kisu.units.electromagnetic.LinearChargeDensity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Length
     ): org.kisu.units.electromagnetic.LinearChargeDensity =
         org.kisu.units.electromagnetic.LinearChargeDensity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Mass][org.kisu.units.base.Mass],
+     * yielding [Exposure][org.kisu.units.electromagnetic.Exposure].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Mass
     ): org.kisu.units.electromagnetic.Exposure =
         org.kisu.units.electromagnetic.Exposure(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Time][org.kisu.units.base.Time],
+     * yielding [Current][org.kisu.units.base.Current].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.base.Time
     ): org.kisu.units.base.Current =
         org.kisu.units.base.Current(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [ElectricChargeDensity][org.kisu.units.electromagnetic.ElectricChargeDensity],
+     * yielding [Volume][org.kisu.units.special.Volume].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.ElectricChargeDensity
     ): org.kisu.units.special.Volume =
         org.kisu.units.special.Volume(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by
+     * [ElectricDisplacementField][org.kisu.units.electromagnetic.ElectricDisplacementField],
+     * yielding [Area][org.kisu.units.special.Area].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.ElectricDisplacementField
     ): org.kisu.units.special.Area =
         org.kisu.units.special.Area(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Exposure][org.kisu.units.electromagnetic.Exposure],
+     * yielding [Mass][org.kisu.units.base.Mass].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.Exposure
     ): org.kisu.units.base.Mass =
         org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [LinearChargeDensity][org.kisu.units.electromagnetic.LinearChargeDensity],
+     * yielding [Length][org.kisu.units.base.Length].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.electromagnetic.LinearChargeDensity
     ): org.kisu.units.base.Length =
         org.kisu.units.base.Length(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Area][org.kisu.units.special.Area],
+     * yielding [ElectricDisplacementField][org.kisu.units.electromagnetic.ElectricDisplacementField].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Area
     ): org.kisu.units.electromagnetic.ElectricDisplacementField =
         org.kisu.units.electromagnetic.ElectricDisplacementField(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Capacitance][org.kisu.units.special.Capacitance],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Capacitance
     ): org.kisu.units.special.ElectricPotential =
         org.kisu.units.special.ElectricPotential(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [Capacitance][org.kisu.units.special.Capacitance].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.special.Capacitance =
         org.kisu.units.special.Capacitance(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Divides this [ElectricCharge] by [Volume][org.kisu.units.special.Volume],
+     * yielding [ElectricChargeDensity][org.kisu.units.electromagnetic.ElectricChargeDensity].
+     *
+     * Both operands are converted to their canonical units before the division result is calculated.
+     */
     operator fun div(
         other: org.kisu.units.special.Volume
     ): org.kisu.units.electromagnetic.ElectricChargeDensity =
         org.kisu.units.electromagnetic.ElectricChargeDensity(canonical.component1() / other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricCharge] by [Elastance][org.kisu.units.special.Elastance],
+     * yielding [ElectricPotential][org.kisu.units.special.ElectricPotential].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.Elastance
     ): org.kisu.units.special.ElectricPotential =
         org.kisu.units.special.ElectricPotential(canonical.component1() * other.canonical.component1())
 
+    /**
+     * Multiplies this [ElectricCharge] by [ElectricPotential][org.kisu.units.special.ElectricPotential],
+     * yielding [Energy][org.kisu.units.special.Energy].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.special.ElectricPotential
     ): org.kisu.units.special.Energy =

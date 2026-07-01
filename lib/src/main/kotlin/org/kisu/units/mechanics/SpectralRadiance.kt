@@ -63,6 +63,12 @@ class SpectralRadiance(
     }
 
     // Dimension-aware arithmetic
+    /**
+     * Multiplies this [SpectralRadiance] by [Length][org.kisu.units.base.Length],
+     * yielding [Radiance][org.kisu.units.mechanics.Radiance].
+     *
+     * Both operands are converted to their canonical units before the multiplication result is calculated.
+     */
     operator fun times(
         other: org.kisu.units.base.Length
     ): org.kisu.units.mechanics.Radiance =
