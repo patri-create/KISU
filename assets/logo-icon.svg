@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 807.69 932">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+        mix-blend-mode: multiply;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="21.51" y1="223.66" x2="796.28" y2="223.66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2c200"/>
+      <stop offset="1" stop-color="#bd3d0f"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0" y1="596.47" x2="387.39" y2="596.47" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3ea9ff"/>
+      <stop offset="1" stop-color="#7d45f8"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="193.69" y1="715.08" x2="193.69" y2="270.3" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3ea9ff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#7d45f8"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="798.01" cy="678.89" fx="798.01" fy="678.89" r="341.57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7d45f8"/>
+      <stop offset="1" stop-color="#3ea9ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g class="cls-3">
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="Layer_3" data-name="Layer 3">
+        <g>
+          <polygon class="cls-5" points="796.28 223.66 408.9 0 21.51 223.66 408.9 447.32 796.28 223.66"/>
+          <polygon class="cls-1" points="387.39 484.62 387.39 932 0 708.35 0 260.93 387.39 484.62"/>
+          <polygon class="cls-4" points="387.39 484.62 387.39 932 0 708.35 0 260.93 387.39 484.62"/>
+          <polygon class="cls-2" points="784.88 269.3 782.06 686.53 424.24 902.01 436.01 921.55 807.69 697.73 807.69 269.3 784.88 269.3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
