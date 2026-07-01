@@ -77,14 +77,13 @@ Two non-obvious cases are worth calling out:
 - readable Kotlin DSL for prefixed quantities
 - explicit quantity types instead of raw numbers and strings
 
-KISU is moving toward dimension-aware arithmetic between quantities. For example, a future milestone targets operations like:
+KISU supports dimension-aware arithmetic between catalog quantities where a dedicated result type exists:
 
 ```kotlin
 2.metres * 3.metres == 6.squareMetres
 10.metres / 2.seconds == 5.metresPerSecond
+5.metresPerSecond * 2.seconds == 10.metres
 ```
-
-That work is tracked in the roadmap for milestone `0.3.0`.
 
 ## Project Structure
 
