@@ -40,12 +40,16 @@ jobs:
         run: ./gradlew checkKotlinAbi
 
       - name: Build and test
+        id: build-test
+        continue-on-error: true
         run: ./gradlew :lib:build
 
       - name: Generate coverage report
+        if: ${{ steps.build-test.outcome == 'success' }}
         run: ./gradlew :lib:jacocoTestReport
 
-      - name: Verify coverage report output
+      - name: Verify report outputs
+        if: ${{ !cancelled() }}
         run: |
           test -f lib/build/reports/jacoco/test/jacocoTestReport.xml || {
             echo "Expected JaCoCo XML report at lib/build/reports/jacoco/test/jacocoTestReport.xml"
@@ -57,15 +61,32 @@ jobs:
             exit 1
           }
 
-      - name: Upload coverage to Codecov
+          test -d lib/build/test-results/test || {
+            echo "Expected JUnit XML test results directory at lib/build/test-results/test"
+            exit 1
+          }
+
+          test_result="$(find lib/build/test-results/test -name 'TEST-*.xml' -print -quit)"
+          test -n "$test_result" || {
+            echo "Expected JUnit XML test results under lib/build/test-results/test"
+            exit 1
+          }
+
+      - name: Upload reports to Codecov
+        if: ${{ !cancelled() }}
         uses: ./.github/actions/upload-codecov
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           use-token: ${{ github.event.pull_request.head.repo.full_name == github.repository && 'true' || 'false' }}
 
       - name: Upload coverage report
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: feature-coverage-report
           path: lib/build/reports/jacoco/test/html
           if-no-files-found: error
+
+      - name: Fail if build or tests failed
+        if: ${{ steps.build-test.outcome != 'success' }}
+        run: exit 1
