@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.thermodynamics
 
 import org.kisu.Magnitude
@@ -56,4 +58,10 @@ class ThermalResistance(
         internal fun KelvinPerWatt(prefix: Metric = Metric.BASE): KelvinPerWatt =
             Quotient(Kelvin(prefix), Watt())
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.special.Power
+    ): org.kisu.units.base.Temperature =
+        org.kisu.units.base.Temperature(canonical.component1() * other.canonical.component1())
 }

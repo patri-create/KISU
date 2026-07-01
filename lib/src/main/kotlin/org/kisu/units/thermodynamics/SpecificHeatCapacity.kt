@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.thermodynamics
 
 import org.kisu.Magnitude
@@ -68,4 +70,15 @@ class SpecificHeatCapacity(
                 Product(Kilogram(prefix), Kelvin())
             )
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.thermodynamics.HeatCapacity =
+        org.kisu.units.thermodynamics.HeatCapacity(canonical.component1() * other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Temperature
+    ): org.kisu.units.mechanics.SpecificEnergy =
+        org.kisu.units.mechanics.SpecificEnergy(canonical.component1() * other.canonical.component1())
 }

@@ -6,8 +6,11 @@ import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.checkAll
 import org.kisu.test.generators.MetricBuilders
+import org.kisu.test.generators.Metrics
 import org.kisu.test.generators.magnitude
+import org.kisu.units.base.Temperature
 import org.kisu.units.builders.kelvinsPerWatt
+import org.kisu.units.special.Power
 import org.kisu.units.thermodynamics.ThermalResistance.Companion.KelvinPerWatt
 
 class ThermalResistanceTest : StringSpec({
@@ -30,4 +33,23 @@ class ThermalResistanceTest : StringSpec({
             }
         }
     }
+
+    // Dimension-aware arithmetic properties
+    "multiplying a ThermalResistance by a Power returns a Temperature" {
+        checkAll(
+            50,
+            Arb.magnitude(),
+            Arb.magnitude(),
+            Metrics.generator,
+            Metrics.generator,
+        ) { leftMagnitude, rightMagnitude, leftPrefix, rightPrefix ->
+            val left = ThermalResistance(leftMagnitude, leftPrefix)
+            val right = Power(rightMagnitude, rightPrefix)
+            val expectedMagnitude = left.canonical.component1() * right.canonical.component1()
+            val expected = Temperature(expectedMagnitude)
+
+            (left * right) shouldBe expected
+        }
+    }
+    // End dimension-aware arithmetic properties
 })

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.thermodynamics
 
 import org.kisu.Magnitude
@@ -63,4 +65,10 @@ class ThermalConductivity(
         internal fun WattPerMetreKelvin(prefix: Metric = Metric.BASE): WattPerMetreKelvin =
             Quotient(Watt(prefix), Product(Metre(), Kelvin()))
     }
+
+    // Dimension-aware arithmetic
+    operator fun times(
+        other: org.kisu.units.thermodynamics.TemperatureGradient
+    ): org.kisu.units.mechanics.HeatFluxDensity =
+        org.kisu.units.mechanics.HeatFluxDensity(canonical.component1() * other.canonical.component1())
 }

@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package org.kisu.units.thermodynamics
 
 import org.kisu.Magnitude
@@ -55,4 +57,30 @@ class HeatCapacity(
         internal fun JoulePerKelvin(prefix: Metric = Metric.BASE): JoulePerKelvin =
             Quotient(Joule(prefix), Kelvin())
     }
+
+    // Dimension-aware arithmetic
+    operator fun div(
+        other: org.kisu.units.base.Amount
+    ): org.kisu.units.chemistry.MolarHeatCapacity =
+        org.kisu.units.chemistry.MolarHeatCapacity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.base.Mass
+    ): org.kisu.units.thermodynamics.SpecificHeatCapacity =
+        org.kisu.units.thermodynamics.SpecificHeatCapacity(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.chemistry.MolarHeatCapacity
+    ): org.kisu.units.base.Amount =
+        org.kisu.units.base.Amount(canonical.component1() / other.canonical.component1())
+
+    operator fun div(
+        other: org.kisu.units.thermodynamics.SpecificHeatCapacity
+    ): org.kisu.units.base.Mass =
+        org.kisu.units.base.Mass(canonical.component1() / other.canonical.component1())
+
+    operator fun times(
+        other: org.kisu.units.base.Temperature
+    ): org.kisu.units.special.Energy =
+        org.kisu.units.special.Energy(canonical.component1() * other.canonical.component1())
 }
