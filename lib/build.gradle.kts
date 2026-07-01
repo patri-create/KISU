@@ -85,6 +85,8 @@ dokka {
     }
     pluginsConfiguration {
         html {
+            customAssets.from(rootProject.layout.projectDirectory.file("assets/logo-icon.svg"))
+            customStyleSheets.from(layout.projectDirectory.file("src/dokka/styles/theme.css"))
             footerMessage.set("(c) Sefford & Patri-create 2025")
         }
     }

@@ -1,0 +1,466 @@
+/*
+ * KISU Dokka theme
+ */
+
+:root,
+:root.theme-dark,
+.theme-dark,
+.light {
+    --kisu-background: #f6f9ff;
+    --kisu-surface: #ffffff;
+    --kisu-surface-alt: #edf4ff;
+    --kisu-surface-strong: #dceaff;
+    --kisu-primary: #006db8;
+    --kisu-primary-hover: #004f91;
+    --kisu-accent-purple: #6733d3;
+    --kisu-accent-gold: #8a6a00;
+    --kisu-secondary: #a93410;
+    --kisu-text-primary: #08122f;
+    --kisu-text-secondary: #4d5d7f;
+    --kisu-border: #cbd6ec;
+    --kisu-white-panel: #ffffff;
+    --kisu-on-white: var(--kisu-text-primary);
+    --kisu-on-white-secondary: var(--kisu-text-secondary);
+    --kisu-on-white-border: var(--kisu-border);
+
+    --default-gray: var(--kisu-surface-alt);
+    --default-font-color: var(--kisu-text-primary);
+    --header-font-color: var(--kisu-text-primary);
+    --hover-link-color: var(--kisu-primary-hover);
+    --color-scrollbar: rgba(0, 109, 184, 0.34);
+    --color-scrollbar-track: var(--kisu-background);
+    --background-color: var(--kisu-background);
+    --color-dark: var(--kisu-surface-alt);
+    --font-family-default: inter, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+    --font-family-mono: "JetBrains Mono", sfmono-regular, consolas, "Liberation Mono", menlo, monospace;
+    --default-font-family: var(--font-family-default);
+    --default-monospace-font-family: var(--font-family-mono);
+    --blockquote-background: rgba(0, 109, 184, 0.08);
+    --border-color: var(--kisu-border);
+    --navigation-highlight-color: rgba(0, 109, 184, 0.10);
+    --active-tab-border-color: var(--kisu-primary);
+    --inactive-tab-border-color: var(--kisu-border);
+    --active-section-color: var(--kisu-primary);
+    --inactive-section-color: var(--kisu-text-secondary);
+    --sidemenu-section-active-color: var(--kisu-surface-alt);
+
+    --color-key-blue: var(--kisu-primary);
+    --color-key-blue-hover: var(--kisu-primary-hover);
+    --color-key-blue-50: rgba(0, 109, 184, 0.34);
+    --color-background-nav: var(--kisu-surface);
+    --color-background-nav-dt: var(--kisu-surface);
+    --color-background-page: var(--kisu-background);
+    --color-background-page-dt: var(--kisu-background);
+    --color-background-footer: var(--kisu-surface);
+    --color-background-footer-dt: var(--kisu-surface);
+    --color-text: var(--kisu-text-primary);
+    --color-text-dt: var(--kisu-text-primary);
+    --color-text-light: var(--kisu-text-secondary);
+    --color-text-light-dt: var(--kisu-text-secondary);
+    --color-w05: rgba(0, 109, 184, 0.05);
+    --color-w08: rgba(0, 109, 184, 0.08);
+    --color-w10: rgba(0, 109, 184, 0.10);
+    --color-w16: rgba(0, 109, 184, 0.16);
+    --color-w21: rgba(0, 109, 184, 0.21);
+    --color-w50: rgba(8, 18, 47, 0.50);
+    --color-w70: rgba(77, 93, 127, 0.82);
+    --color-w80: rgba(8, 18, 47, 0.88);
+    --color-w100: var(--kisu-surface);
+    --color-b05: rgba(0, 109, 184, 0.05);
+    --color-b08: rgba(0, 109, 184, 0.08);
+    --color-b20: var(--kisu-border);
+    --color-b50: rgba(8, 18, 47, 0.50);
+    --color-b70: rgba(8, 18, 47, 0.70);
+    --color-b100: var(--kisu-background);
+    --color-background-inline-code: rgba(103, 51, 211, 0.10);
+    --color-background-code-block: var(--kisu-surface-alt);
+    --color-background: var(--kisu-background);
+    --color-background-hover: rgba(0, 109, 184, 0.10);
+    --color-cd-punctuation: var(--kisu-text-secondary);
+    --color-cd-keyword: var(--kisu-primary);
+    --color-cd-keyword-alternative: var(--kisu-primary);
+    --color-cd-builtin: var(--kisu-accent-gold);
+    --color-cd-builtin-alternative: var(--kisu-accent-gold);
+    --color-cd-function: var(--kisu-accent-purple);
+    --color-cd-function-alternative: var(--kisu-accent-purple);
+    --color-cd-operator: var(--kisu-text-secondary);
+    --color-cd-operator-alternative: var(--kisu-text-secondary);
+    --color-cd-number: var(--kisu-secondary);
+    --color-cd-number-alternative: var(--kisu-secondary);
+    --color-generic: var(--kisu-primary);
+    --color-jvm: var(--kisu-accent-gold);
+    --color-js: var(--kisu-accent-purple);
+    --color-wasm: var(--kisu-text-primary);
+    --copy-icon-color: var(--kisu-text-secondary);
+    --copy-icon-hover-color: var(--kisu-text-primary);
+    --focus-outline: 4px solid rgba(0, 109, 184, 0.32);
+    --text-color: var(--kisu-text-primary);
+    --text-outline: var(--kisu-border);
+
+    --font-h1: 700 44px/48px var(--font-family-default);
+    --font-h2: 600 32px/38px var(--font-family-default);
+    --font-h3: 600 24px/30px var(--font-family-default);
+    --font-h4: 600 16px/24px var(--font-family-default);
+    --font-text-m: 400 16px/24px var(--font-family-default);
+    --font-text-s: 500 14px/20px var(--font-family-default);
+    --font-code: 400 15.5px/24px var(--font-family-mono);
+    --toc-font: 500 13px/24px var(--font-family-default);
+    --toc-color: var(--kisu-text-secondary);
+    --toc-hover-color: rgba(0, 109, 184, 0.10);
+    --toc-link-hover-gradient: linear-gradient(90deg, rgba(0, 109, 184, 0.10), rgba(103, 51, 211, 0.05));
+    --toc-button-hover-gradient: linear-gradient(270deg, rgba(0, 109, 184, 0.10), rgba(103, 51, 211, 0.04));
+}
+
+html {
+    background: var(--kisu-background);
+    scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    letter-spacing: 0;
+}
+
+body,
+.root,
+#container,
+#main {
+    background: linear-gradient(180deg, #fbfdff 0, var(--kisu-background) 320px);
+    color: var(--kisu-text-primary);
+}
+
+body {
+    font: var(--font-text-m);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.main-content :is(h1, h2) {
+    color: var(--kisu-text-primary);
+    font-family: var(--font-family-default);
+}
+
+h1,
+h1.cover {
+    font-weight: 700;
+}
+
+h1.cover > span,
+h1.cover > span > span {
+    background: none;
+    color: var(--kisu-primary);
+    -webkit-text-fill-color: var(--kisu-primary);
+}
+
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 600;
+}
+
+small,
+.platform-tag,
+.library-version,
+.toc--part,
+.button,
+.dropdown--option {
+    font-family: var(--font-family-default);
+}
+
+code,
+pre,
+.symbol,
+.block,
+code.block,
+code:not(.block) {
+    font-family: var(--font-family-mono);
+}
+
+.navigation {
+    background: linear-gradient(90deg, var(--kisu-surface), var(--kisu-surface-alt));
+    border-bottom: 1px solid var(--kisu-border);
+    box-shadow: 0 10px 28px rgba(8, 18, 47, 0.08);
+}
+
+.navigation-controls,
+.library-version {
+    background: transparent;
+}
+
+.library-name--link,
+.library-version,
+.navigation-controls--btn {
+    color: var(--kisu-text-primary);
+}
+
+.library-name--link {
+    font-weight: 700;
+}
+
+.navigation-controls--btn:hover,
+.button:hover {
+    background-color: rgba(0, 109, 184, 0.10);
+}
+
+.navigation-controls--btn:active,
+.button:active {
+    background-color: rgba(0, 109, 184, 0.16);
+}
+
+.navigation-controls--btn_theme {
+    display: none;
+}
+
+.button_background {
+    background-color: var(--kisu-white-panel);
+    color: var(--kisu-on-white);
+}
+
+.button_background:hover {
+    background-color: #eaf3ff;
+    color: var(--kisu-on-white);
+}
+
+.sidebar {
+    background: var(--kisu-surface-alt);
+    border-right-color: var(--kisu-border);
+}
+
+.sidebar--inner,
+.dropdown--list_toc-list {
+    background: var(--kisu-surface-alt);
+}
+
+.toc--part {
+    color: var(--kisu-text-secondary);
+}
+
+.toc--part[data-active] > .toc--row .toc--button,
+.toc--part[data-active] > .toc--row .toc--link {
+    background: linear-gradient(90deg, rgba(0, 109, 184, 0.14), rgba(103, 51, 211, 0.10));
+    color: var(--kisu-text-primary);
+}
+
+.toc--part[data-active] > .toc--row .toc--link:hover,
+.toc--part[data-active] > .toc--row .toc--button:hover {
+    background: linear-gradient(90deg, rgba(0, 109, 184, 0.20), rgba(103, 51, 211, 0.14));
+}
+
+.main-content {
+    color: var(--kisu-text-primary);
+}
+
+.main-content a:not([data-name]),
+.main-content a:not([data-name]):active,
+.main-content a:not([data-name]):focus,
+.main-content a:not([data-name]):hover,
+.footer--link {
+    border-bottom-color: rgba(0, 109, 184, 0.34);
+    color: var(--kisu-primary);
+}
+
+.main-content a:not([data-name]):hover,
+.footer--link:hover {
+    border-bottom-color: var(--kisu-accent-gold);
+    color: var(--kisu-primary-hover);
+}
+
+.breadcrumbs,
+.brief-comment,
+.table-row .brief-comment,
+.content .brief,
+.content .paragraph,
+dt {
+    color: var(--kisu-text-secondary);
+}
+
+.table-row,
+.divergent-group,
+tbody > tr {
+    background: var(--kisu-background);
+    border-color: var(--kisu-border);
+}
+
+.table-row:hover {
+    background: rgba(0, 109, 184, 0.04);
+}
+
+.main-subrow {
+    color: var(--kisu-text-primary);
+}
+
+table {
+    background: var(--kisu-surface);
+}
+
+td,
+th {
+    border-color: var(--kisu-border);
+}
+
+th {
+    background: var(--kisu-surface-alt);
+    color: var(--kisu-text-primary);
+}
+
+td {
+    color: var(--kisu-text-secondary);
+}
+
+.symbol:not(.token):not(.wrapped),
+code.block,
+.block,
+.sample-container {
+    background: var(--kisu-surface-alt);
+    border: 1px solid var(--kisu-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    color: var(--kisu-text-primary);
+}
+
+code:not(.block) {
+    background: rgba(103, 51, 211, 0.10);
+    border: 1px solid rgba(103, 51, 211, 0.18);
+    color: var(--kisu-text-primary);
+}
+
+blockquote {
+    background: rgba(0, 109, 184, 0.07);
+    border-left-color: var(--kisu-primary);
+    color: var(--kisu-text-secondary);
+    padding: 12px 16px;
+}
+
+.deprecation-content,
+.copy-popup-wrapper,
+.dropdown--list,
+.popup-wrapper {
+    background: var(--kisu-surface);
+    border-color: var(--kisu-border);
+    color: var(--kisu-text-primary);
+}
+
+.dropdown--header,
+.dropdown--option {
+    background: var(--kisu-surface);
+    color: var(--kisu-text-secondary);
+}
+
+.dropdown--option:hover,
+.popup-wrapper [class*="hover"] {
+    background-color: rgba(0, 109, 184, 0.10) !important;
+}
+
+.dropdown--option_active,
+.button_dropdown_active {
+    background-color: var(--kisu-primary);
+    color: var(--kisu-surface);
+}
+
+.platform-tag {
+    font-weight: 500;
+}
+
+.platform-tag.jvm-like[data-active],
+.platform-tags .platform-tag.jvm-like {
+    --platform-tag-color: var(--kisu-accent-gold);
+}
+
+.platform-tag[data-active] {
+    color: var(--kisu-background);
+}
+
+.platform-tag:not([data-active]) {
+    background-color: rgba(77, 93, 127, 0.10);
+    color: var(--kisu-text-secondary);
+}
+
+.platform-tags .platform-tag::before {
+    background: var(--kisu-primary);
+}
+
+.anchor-icon,
+.copy-icon {
+    background-color: rgba(0, 109, 184, 0.10);
+}
+
+.anchor-icon::before,
+.copy-icon::before {
+    background-color: var(--kisu-text-primary);
+}
+
+.theme-dark .anchor-icon::before,
+.theme-dark .copy-icon::before {
+    background-color: var(--kisu-text-primary);
+}
+
+.footer {
+    background: var(--kisu-surface-alt);
+    border-top: 1px solid var(--kisu-border);
+    color: var(--kisu-text-secondary);
+}
+
+.footer--container {
+    color: inherit;
+}
+
+.search-root,
+.popup-wrapper {
+    --ring-content-background-color: var(--kisu-surface);
+    --ring-popup-background-color: var(--kisu-surface);
+    --ring-sidebar-background-color: var(--kisu-surface-alt);
+    --ring-selected-background-color: rgba(0, 109, 184, 0.14);
+    --ring-hover-background-color: rgba(0, 109, 184, 0.08);
+    --ring-navigation-background-color: var(--kisu-surface);
+    --ring-main-color: var(--kisu-primary);
+    --ring-main-hover-color: var(--kisu-primary-hover);
+    --ring-link-color: var(--kisu-primary);
+    --ring-link-hover-color: var(--kisu-primary-hover);
+    --ring-text-color: var(--kisu-text-primary);
+    --ring-heading-color: var(--kisu-text-primary);
+    --ring-secondary-color: var(--kisu-text-secondary);
+    --ring-border-hover-color: var(--kisu-primary);
+    --ring-line-color: var(--kisu-border);
+    --ring-borders-color: var(--kisu-border);
+    --ring-code-background-color: var(--kisu-surface);
+    --ring-code-color: var(--kisu-text-primary);
+    --ring-font-family: var(--font-family-default);
+    --ring-font-family-monospace: var(--font-family-mono);
+}
+
+.popup-wrapper input {
+    color: var(--kisu-text-primary);
+}
+
+.template-title,
+.template-wrapper strong {
+    color: var(--kisu-text-primary);
+}
+
+.template-description {
+    color: var(--kisu-text-secondary);
+}
+
+.anchor-highlight {
+    border-color: var(--kisu-primary) !important;
+    box-shadow: 0 0 0 0.2em rgba(0, 109, 184, 0.16);
+}
+
+.navigation-controls--btn,
+.theme-dark .ui-kit-icon,
+.theme-dark_mobile .ui-kit-icon,
+.theme-dark .button_dropdown::after,
+.theme-dark .toc--button::after {
+    filter: invert(1) brightness(0.28) sepia(1) saturate(1.9) hue-rotate(185deg);
+}
+
+.library-name--link::before,
+.footer--button {
+    filter: none;
+}
