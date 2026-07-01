@@ -107,14 +107,15 @@ val ordered = listOf(500.metres, 1.kilo.metres).sorted()
 val inRange = 750.metres in 500.metres..1.kilo.metres
 ```
 
-Quantity-level dimensional arithmetic is not implemented yet. For now, create derived quantities from the catalog:
+Quantity-level dimensional arithmetic is available for catalog relationships with a dedicated result type. Operands are
+converted to canonical form before the result is created:
 
 ```kotlin
 import org.kisu.units.builders.*
 
-val speed = 10.metresPerSecond
-val area = 12.squareMetres
-val pressure = 101.3.kilo.pascals
+val speed = 10.metres / 2.seconds
+val area = 3.metres * 4.metres
+val distance = speed * 2.seconds
 ```
 
 ## Recipes

@@ -294,22 +294,25 @@ A typical value moves through the system like this:
    converted magnitude is at least `1`.
 6. Equality, ordering, and comparison use canonical magnitudes so storage prefix does not affect value semantics.
 
-## Current Boundaries
+## Dimensional Arithmetic
 
-The expression layer can model products and quotients today. Quantity-level dimensional arithmetic is not implemented
-yet, so these operations are intentionally absent at the `Measure` level:
+The expression layer models products and quotients, and concrete measures expose typed operators for catalog
+relationships with dedicated result wrappers. Operands are canonicalized before magnitudes are combined:
 
 ```kotlin
-2.metres * 3.metres  // does not produce 6.squareMetres
-10.metres / 2.seconds // does not produce 5.metresPerSecond
+2.metres * 3.metres == 6.squareMetres
+10.metres / 2.seconds == 5.metresPerSecond
+5.metresPerSecond * 2.seconds == 10.metres
 ```
 
-Use catalog builders for derived quantities until dimension-aware measure arithmetic is added:
+Operators are declared on concrete quantity classes, not as extension functions. Unsupported combinations remain absent
+from the `Measure` API until a catalog relationship and result wrapper are added.
 
 ```kotlin
 import org.kisu.units.builders.*
 
-val area = 6.squareMetres
+val pressure = 10.newtons / 2.squareMetres
+val force = pressure * 2.squareMetres
 val speed = 5.metresPerSecond
 ```
 
