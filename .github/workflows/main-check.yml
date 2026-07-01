@@ -33,14 +33,25 @@ jobs:
         run: |
           ./gradlew :lib:jacocoTestReport
 
-      - name: Verify coverage report output
+      - name: Verify report outputs
         run: |
           test -f lib/build/reports/jacoco/test/jacocoTestReport.xml || {
             echo "Expected JaCoCo XML report at lib/build/reports/jacoco/test/jacocoTestReport.xml"
             exit 1
           }
 
-      - name: Upload coverage to Codecov
+          test -d lib/build/test-results/test || {
+            echo "Expected JUnit XML test results directory at lib/build/test-results/test"
+            exit 1
+          }
+
+          test_result="$(find lib/build/test-results/test -name 'TEST-*.xml' -print -quit)"
+          test -n "$test_result" || {
+            echo "Expected JUnit XML test results under lib/build/test-results/test"
+            exit 1
+          }
+
+      - name: Upload reports to Codecov
         uses: ./.github/actions/upload-codecov
         with:
           codecov-token: ${{ secrets.CODECOV_TOKEN }}

@@ -1,5 +1,5 @@
-name: Upload Codecov coverage
-description: Uploads the library JaCoCo XML report to Codecov.
+name: Upload Codecov reports
+description: Uploads the library JaCoCo XML coverage and JUnit XML test reports to Codecov.
 
 inputs:
   codecov-token:
@@ -25,6 +25,18 @@ runs:
         fail_ci_if_error: true
         token: ${{ inputs.codecov-token }}
 
+    - name: Upload test results to Codecov
+      if: ${{ inputs.use-token == 'true' }}
+      uses: codecov/codecov-action@v7
+      with:
+        files: lib/build/test-results/test/TEST-*.xml
+        flags: lib
+        name: kisu-lib-tests
+        disable_search: true
+        fail_ci_if_error: true
+        report_type: test_results
+        token: ${{ inputs.codecov-token }}
+
     - name: Upload coverage to Codecov without token
       if: ${{ inputs.use-token != 'true' }}
       uses: codecov/codecov-action@v7
@@ -34,3 +46,14 @@ runs:
         name: kisu-lib
         disable_search: true
         fail_ci_if_error: true
+
+    - name: Upload test results to Codecov without token
+      if: ${{ inputs.use-token != 'true' }}
+      uses: codecov/codecov-action@v7
+      with:
+        files: lib/build/test-results/test/TEST-*.xml
+        flags: lib
+        name: kisu-lib-tests
+        disable_search: true
+        fail_ci_if_error: true
+        report_type: test_results
