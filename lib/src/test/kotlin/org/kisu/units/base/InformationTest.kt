@@ -11,6 +11,7 @@ import io.kotest.property.checkAll
 import org.kisu.Magnitude
 import org.kisu.magnitude
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.test.generators.BinaryBuilders
 import org.kisu.test.generators.magnitude
@@ -44,9 +45,29 @@ class InformationTest : StringSpec({
         checkAll(Arb.positiveLong()) { magnitude ->
             magnitude.bits.should { (amount, expression, symbol) ->
                 amount shouldBe magnitude.magnitude
-                expression shouldBe Bit()
+                expression shouldBe Bit(Binary.BASE)
                 symbol shouldBe Bit.UNIT.toString()
             }
+        }
+    }
+
+    "keeps optimal information representation in its original lane" {
+        Information(Magnitude(8000), Bit(Decimal.BASE)).optimal.representation shouldBe "8 kbit"
+        Information(Magnitude(8192), Bit(Binary.BASE)).optimal.representation shouldBe "8 Kibit"
+        Information(Magnitude(1000), Byte(Decimal.BASE)).optimal.representation shouldBe "1 kB"
+        Information(Magnitude(1024), Byte(Binary.BASE)).optimal.representation shouldBe "1 KiB"
+    }
+
+    "canonicalizes byte information to bits" {
+        Information(Magnitude(1), Byte(Decimal.KILO)).canonical.should { (amount, expression, symbol) ->
+            amount shouldBe Magnitude(8000)
+            expression shouldBe Bit(Decimal.BASE)
+            symbol shouldBe Bit.UNIT.toString()
+        }
+        Information(Magnitude(1), Byte(Binary.KIBI)).canonical.should { (amount, expression, symbol) ->
+            amount shouldBe Magnitude(8192)
+            expression shouldBe Bit(Binary.BASE)
+            symbol shouldBe Bit.UNIT.toString()
         }
     }
 })

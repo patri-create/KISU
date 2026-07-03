@@ -56,8 +56,9 @@ abstract class Measure<A, Self : Measure<A, Self>> protected constructor(
             else ->
                 expression.all
                     .asSequence()
-                    .map(this::to)
-                    .lastOrNull { measure -> measure.magnitude.abs >= Magnitude.ONE }
+                    .map { candidate -> candidate to magnitude * expression.to(candidate) }
+                    .lastOrNull { (_, candidateMagnitude) -> candidateMagnitude.abs >= Magnitude.ONE }
+                    ?.let { (candidate, _) -> to(candidate) }
                     .orElse { to(expression.largest) }
         }
     }

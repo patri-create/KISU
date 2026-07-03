@@ -6,8 +6,9 @@ import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.next
 import org.kisu.prefixes.Binary
 import org.kisu.prefixes.Metric
+import org.kisu.prefixes.algebra.Algebra
+import org.kisu.prefixes.algebra.ExponentialAlgebra
 import org.kisu.units.base.Ampere
-import org.kisu.units.base.Bit
 import org.kisu.units.base.Candela
 import org.kisu.units.base.Kelvin
 import org.kisu.units.base.Kilogram
@@ -15,6 +16,7 @@ import org.kisu.units.base.Metre
 import org.kisu.units.base.Mole
 import org.kisu.units.base.Second
 import org.kisu.units.representation.Scalar
+import org.kisu.units.representation.Unit
 import org.kisu.units.special.Becquerel
 import org.kisu.units.special.Coulomb
 import org.kisu.units.special.Farad
@@ -43,8 +45,8 @@ object Units : Generator<Scalar<Metric, *>> {
 
     fun binaries(prefixMode: Mode = Mode.BASE): Arb<Scalar<Binary, *>> {
         return when (prefixMode) {
-            Mode.BASE -> arbitrary { Bit(Binary.BASE) }
-            Mode.RANDOM -> Binaries.generator.map { Bit(it) }
+            Mode.BASE -> arbitrary { TestBinaryScalar(Binary.BASE) }
+            Mode.RANDOM -> Binaries.generator.map { TestBinaryScalar(it) }
         }
     }
 
@@ -63,6 +65,18 @@ object Units : Generator<Scalar<Metric, *>> {
     }
 
     enum class Mode { BASE, RANDOM }
+}
+
+private class TestBinaryScalar private constructor(
+    algebra: Algebra<Binary> = ExponentialAlgebra(2),
+    prefix: Binary,
+    unit: Unit,
+) : Scalar<Binary, TestBinaryScalar>(algebra, prefix, unit, ::TestBinaryScalar) {
+    constructor(prefix: Binary = Binary.BASE) : this(prefix = prefix, unit = UNIT)
+
+    companion object {
+        private val UNIT = Unit("bit", 1)
+    }
 }
 
 private val METRIC_UNITS: List<(Metric) -> Scalar<Metric, *>> = listOf(

@@ -111,7 +111,7 @@ public final class org/kisu/PairsKt {
 	public static final fun getInverted (Lkotlin/Pair;)Lkotlin/Pair;
 }
 
-public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/ExponentialPrefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
+public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/InformationPrefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
 	public static final field BASE Lorg/kisu/prefixes/Binary;
 	public static final field EXBI Lorg/kisu/prefixes/Binary;
 	public static final field GIBI Lorg/kisu/prefixes/Binary;
@@ -123,7 +123,6 @@ public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/
 	public static final field TEBI Lorg/kisu/prefixes/Binary;
 	public static final field YOBI Lorg/kisu/prefixes/Binary;
 	public static final field ZEBI Lorg/kisu/prefixes/Binary;
-	public synthetic fun compareTo (Lorg/kisu/prefixes/ExponentialPrefix;)I
 	public fun find (Lorg/kisu/Magnitude;)Lorg/kisu/prefixes/Binary;
 	public synthetic fun find (Lorg/kisu/Magnitude;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
@@ -133,6 +132,7 @@ public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/
 	public fun getLargest ()Lorg/kisu/prefixes/Binary;
 	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
 	public fun getPower ()I
+	public fun getRadix ()Lorg/kisu/Magnitude;
 	public fun getSmallest ()Lorg/kisu/prefixes/Binary;
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSymbol ()Ljava/lang/String;
@@ -143,7 +143,7 @@ public final class org/kisu/prefixes/Binary : java/lang/Enum, org/kisu/prefixes/
 	public static fun values ()[Lorg/kisu/prefixes/Binary;
 }
 
-public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes/ExponentialPrefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
+public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes/InformationPrefix, org/kisu/prefixes/primitives/Symbol, org/kisu/prefixes/primitives/System {
 	public static final field BASE Lorg/kisu/prefixes/Decimal;
 	public static final field EXA Lorg/kisu/prefixes/Decimal;
 	public static final field GIGA Lorg/kisu/prefixes/Decimal;
@@ -155,7 +155,6 @@ public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes
 	public static final field TERA Lorg/kisu/prefixes/Decimal;
 	public static final field YOTTA Lorg/kisu/prefixes/Decimal;
 	public static final field ZETTA Lorg/kisu/prefixes/Decimal;
-	public synthetic fun compareTo (Lorg/kisu/prefixes/ExponentialPrefix;)I
 	public fun find (Lorg/kisu/Magnitude;)Lorg/kisu/prefixes/Decimal;
 	public synthetic fun find (Lorg/kisu/Magnitude;)Lorg/kisu/prefixes/Prefix;
 	public fun getAll ()Ljava/util/List;
@@ -165,6 +164,7 @@ public final class org/kisu/prefixes/Decimal : java/lang/Enum, org/kisu/prefixes
 	public fun getLargest ()Lorg/kisu/prefixes/Decimal;
 	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
 	public fun getPower ()I
+	public fun getRadix ()Lorg/kisu/Magnitude;
 	public fun getSmallest ()Lorg/kisu/prefixes/Decimal;
 	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
 	public fun getSymbol ()Ljava/lang/String;
@@ -189,6 +189,15 @@ public final class org/kisu/prefixes/ExponentialPrefix$DefaultImpls {
 public final class org/kisu/prefixes/ExponentialPrefixKt {
 	public static final fun minus (Lorg/kisu/prefixes/ExponentialPrefix;Lorg/kisu/prefixes/ExponentialPrefix;)Lkotlin/Pair;
 	public static final fun plus (Lorg/kisu/prefixes/ExponentialPrefix;Lorg/kisu/prefixes/ExponentialPrefix;)Lkotlin/Pair;
+}
+
+public abstract interface class org/kisu/prefixes/InformationPrefix : org/kisu/prefixes/ExponentialPrefix, org/kisu/prefixes/primitives/System {
+	public abstract fun getRadix ()Lorg/kisu/Magnitude;
+}
+
+public final class org/kisu/prefixes/InformationPrefix$DefaultImpls {
+	public static fun compareTo (Lorg/kisu/prefixes/InformationPrefix;Lorg/kisu/prefixes/InformationPrefix;)I
+	public static fun sortWith (Lorg/kisu/prefixes/InformationPrefix;Lorg/kisu/prefixes/InformationPrefix;)Lkotlin/Pair;
 }
 
 public abstract interface class org/kisu/prefixes/LinearPrefix : org/kisu/prefixes/Prefix {
@@ -459,13 +468,32 @@ public final class org/kisu/units/base/Ampere : org/kisu/units/representation/Sc
 public final class org/kisu/units/base/Ampere$Companion {
 }
 
-public final class org/kisu/units/base/Bit : org/kisu/units/representation/Scalar {
+public final class org/kisu/units/base/Bit : org/kisu/units/base/InformationUnit {
 	public static final field Companion Lorg/kisu/units/base/Bit$Companion;
-	public fun <init> (Lorg/kisu/prefixes/Binary;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Binary;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lorg/kisu/prefixes/InformationPrefix;)V
+	public fun decompose (Lorg/kisu/Magnitude;)Ljava/util/List;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/base/InformationUnit;
+	public fun getFactor ()Lorg/kisu/Magnitude;
+	public final fun getPrefix ()Lorg/kisu/prefixes/InformationPrefix;
 }
 
 public final class org/kisu/units/base/Bit$Companion {
+}
+
+public final class org/kisu/units/base/Byte : org/kisu/units/base/InformationUnit {
+	public static final field Companion Lorg/kisu/units/base/Byte$Companion;
+	public fun <init> (Lorg/kisu/prefixes/InformationPrefix;)V
+	public fun decompose (Lorg/kisu/Magnitude;)Ljava/util/List;
+	public fun getAll ()Ljava/util/List;
+	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
+	public fun getCanonical ()Lorg/kisu/units/base/InformationUnit;
+	public fun getFactor ()Lorg/kisu/Magnitude;
+	public final fun getPrefix ()Lorg/kisu/prefixes/InformationPrefix;
+}
+
+public final class org/kisu/units/base/Byte$Companion {
 }
 
 public final class org/kisu/units/base/Candela : org/kisu/units/representation/Scalar {
@@ -500,10 +528,29 @@ public final class org/kisu/units/base/Information : org/kisu/units/Measure {
 }
 
 public final class org/kisu/units/base/Information$Companion {
+	public final fun invoke (Lorg/kisu/Magnitude;)Lorg/kisu/units/base/Information;
 	public final fun invoke (Lorg/kisu/Magnitude;Lorg/kisu/prefixes/Binary;)Lorg/kisu/units/base/Information;
 	public final fun invoke (Lorg/kisu/Magnitude;Lorg/kisu/units/base/Bit;)Lorg/kisu/units/base/Information;
+	public final fun invoke (Lorg/kisu/Magnitude;Lorg/kisu/units/base/Byte;)Lorg/kisu/units/base/Information;
+	public final fun invoke (Lorg/kisu/Magnitude;Lorg/kisu/units/base/InformationUnit;)Lorg/kisu/units/base/Information;
 	public static synthetic fun invoke$default (Lorg/kisu/units/base/Information$Companion;Lorg/kisu/Magnitude;Lorg/kisu/prefixes/Binary;ILjava/lang/Object;)Lorg/kisu/units/base/Information;
-	public static synthetic fun invoke$default (Lorg/kisu/units/base/Information$Companion;Lorg/kisu/Magnitude;Lorg/kisu/units/base/Bit;ILjava/lang/Object;)Lorg/kisu/units/base/Information;
+}
+
+public abstract class org/kisu/units/base/InformationUnit : org/kisu/units/representation/Expression {
+	public static final field Companion Lorg/kisu/units/base/InformationUnit$Companion;
+	public synthetic fun find (Lorg/kisu/Magnitude;)Lorg/kisu/prefixes/Prefix;
+	public fun find (Lorg/kisu/Magnitude;)Lorg/kisu/units/base/InformationUnit;
+	public fun getFactors ()Ljava/util/Set;
+	public synthetic fun getLargest ()Lorg/kisu/prefixes/Prefix;
+	public fun getLargest ()Lorg/kisu/units/base/InformationUnit;
+	public synthetic fun getSmallest ()Lorg/kisu/prefixes/Prefix;
+	public fun getSmallest ()Lorg/kisu/units/base/InformationUnit;
+	public fun getSymbol ()Ljava/lang/String;
+	public synthetic fun to (Lorg/kisu/prefixes/Prefix;)Lorg/kisu/Magnitude;
+	public fun to (Lorg/kisu/units/base/InformationUnit;)Lorg/kisu/Magnitude;
+}
+
+public final class org/kisu/units/base/InformationUnit$Companion {
 }
 
 public final class org/kisu/units/base/Kelvin : org/kisu/units/representation/Scalar {

@@ -1,5 +1,6 @@
 package org.kisu.prefixes
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
@@ -29,7 +30,7 @@ import org.kisu.prefixes.primitives.System
 enum class Decimal(
     override val power: Int,
     symbol: String,
-) : ExponentialPrefix<Decimal>,
+) : InformationPrefix<Decimal>,
     System<Decimal> by ExponentialEnumSystem(Decimal::class),
     Symbol by Representation(symbol) {
     /** 1000⁰ = 1 */
@@ -64,4 +65,7 @@ enum class Decimal(
 
     /** 1000¹⁰ = 1,000,000,000,000,000,000,000,000,000,000 */
     QUETTA(30, "Q"),
+    ;
+
+    override val radix: Magnitude = Magnitude.TEN
 }

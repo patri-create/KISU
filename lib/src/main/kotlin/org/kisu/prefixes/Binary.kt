@@ -1,5 +1,6 @@
 package org.kisu.prefixes
 
+import org.kisu.Magnitude
 import org.kisu.prefixes.primitives.ExponentialEnumSystem
 import org.kisu.prefixes.primitives.Representation
 import org.kisu.prefixes.primitives.Symbol
@@ -28,7 +29,7 @@ import org.kisu.prefixes.primitives.System
 enum class Binary(
     override val power: Int,
     symbol: String,
-) : ExponentialPrefix<Binary>,
+) : InformationPrefix<Binary>,
     System<Binary> by ExponentialEnumSystem(Binary::class),
     Symbol by Representation(symbol) {
     /** Base unit with exponent 0 (2⁰). */
@@ -63,4 +64,7 @@ enum class Binary(
 
     /** Quebi — 2¹⁰⁰ = 1,267,650,600,228,229,401,496,703,205,376 */
     QUEBI(100, "Qi"),
+    ;
+
+    override val radix: Magnitude = Magnitude.TWO
 }
