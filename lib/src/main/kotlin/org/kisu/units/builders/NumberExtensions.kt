@@ -2,8 +2,10 @@ package org.kisu.units.builders
 
 import org.kisu.magnitude
 import org.kisu.prefixes.Binary
+import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.Metric
 import org.kisu.units.base.Amount
+import org.kisu.units.base.Byte
 import org.kisu.units.base.Current
 import org.kisu.units.base.Information
 import org.kisu.units.base.Length
@@ -82,7 +84,6 @@ import org.kisu.units.photometric.Luminance
 import org.kisu.units.photometric.LuminousEnergy
 import org.kisu.units.special.AbsorbedDose
 import org.kisu.units.special.Area
-import org.kisu.units.special.Bytes
 import org.kisu.units.special.Capacitance
 import org.kisu.units.special.CatalyticActivity
 import org.kisu.units.special.CelsiusTemperature
@@ -149,20 +150,18 @@ val Number.amperes: Current get() = Current(magnitude)
 val Number.becquerels: Radioactivity get() = Radioactivity(magnitude)
 
 /**
- * Creates an [Information] from this [Number] representing a bytes in bytes,
- * the SI unit for bytes.
- */
-/**
  * Creates an [Information] value from this [Number] representing a quantity of bits.
- * This assumes 1 bit = base unit of information.
+ *
+ * The returned value uses the unprefixed IEC bit expression, which is the canonical information unit.
  */
 val Number.bits get() = Information(magnitude, Binary.BASE)
 
 /**
- * Creates a [Bytes] from this [Number] representing a bytes in bytes,
- * the SI unit for bytes.
+ * Creates an [Information] value from this [Number] representing a quantity of unprefixed bytes.
+ *
+ * The returned value uses the SI byte scale, so optimal formatting uses SI byte prefixes such as `kB` and `MB`.
  */
-val Number.bytes: Bytes get() = Bytes(magnitude)
+val Number.bytes: Information get() = Information(magnitude, Byte(Decimal.BASE))
 
 /**
  * Creates a [Luminance] from this [Number] representing a luminance in candela per square metre,

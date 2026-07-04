@@ -472,11 +472,13 @@ public final class org/kisu/units/base/Bit : org/kisu/units/base/InformationUnit
 	public static final field Companion Lorg/kisu/units/base/Bit$Companion;
 	public fun <init> (Lorg/kisu/prefixes/InformationPrefix;)V
 	public fun decompose (Lorg/kisu/Magnitude;)Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
 	public fun getAll ()Ljava/util/List;
 	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun getCanonical ()Lorg/kisu/units/base/InformationUnit;
 	public fun getFactor ()Lorg/kisu/Magnitude;
 	public final fun getPrefix ()Lorg/kisu/prefixes/InformationPrefix;
+	public fun hashCode ()I
 }
 
 public final class org/kisu/units/base/Bit$Companion {
@@ -486,11 +488,13 @@ public final class org/kisu/units/base/Byte : org/kisu/units/base/InformationUni
 	public static final field Companion Lorg/kisu/units/base/Byte$Companion;
 	public fun <init> (Lorg/kisu/prefixes/InformationPrefix;)V
 	public fun decompose (Lorg/kisu/Magnitude;)Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
 	public fun getAll ()Ljava/util/List;
 	public synthetic fun getCanonical ()Lorg/kisu/prefixes/Prefix;
 	public fun getCanonical ()Lorg/kisu/units/base/InformationUnit;
 	public fun getFactor ()Lorg/kisu/Magnitude;
 	public final fun getPrefix ()Lorg/kisu/prefixes/InformationPrefix;
+	public fun hashCode ()I
 }
 
 public final class org/kisu/units/base/Byte$Companion {
@@ -525,6 +529,11 @@ public final class org/kisu/units/base/Current : org/kisu/units/Measure {
 
 public final class org/kisu/units/base/Information : org/kisu/units/Measure {
 	public static final field Companion Lorg/kisu/units/base/Information$Companion;
+	public final fun getBinary ()Lorg/kisu/units/base/Information;
+	public final fun getBits ()Lorg/kisu/units/base/Information;
+	public final fun getBytes ()Lorg/kisu/units/base/Information;
+	public final fun getDecimal ()Lorg/kisu/units/base/Information;
+	public final fun getIec ()Lorg/kisu/units/base/Information;
 }
 
 public final class org/kisu/units/base/Information$Companion {
@@ -994,7 +1003,7 @@ public final class org/kisu/units/builders/MetricUnitBuilderKt {
 	public static final fun getAmperesPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/ElectricCurrentDensity;
 	public static final fun getAmperesRadian (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/electromagnetic/MagnetomotiveForce;
 	public static final fun getBecquerels (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Radioactivity;
-	public static final fun getBytes (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/Bytes;
+	public static final fun getBytes (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/Information;
 	public static final fun getCandelas (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/base/LuminousIntensity;
 	public static final fun getCandelasPerSquareMetre (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/photometric/Luminance;
 	public static final fun getCelsius (Lorg/kisu/units/builders/MetricUnitBuilder;)Lorg/kisu/units/special/CelsiusTemperature;
@@ -1160,7 +1169,7 @@ public final class org/kisu/units/builders/NumberExtensionsKt {
 	public static final fun getAmperesRadian (Ljava/lang/Number;)Lorg/kisu/units/electromagnetic/MagnetomotiveForce;
 	public static final fun getBecquerels (Ljava/lang/Number;)Lorg/kisu/units/special/Radioactivity;
 	public static final fun getBits (Ljava/lang/Number;)Lorg/kisu/units/base/Information;
-	public static final fun getBytes (Ljava/lang/Number;)Lorg/kisu/units/special/Bytes;
+	public static final fun getBytes (Ljava/lang/Number;)Lorg/kisu/units/base/Information;
 	public static final fun getCandelas (Ljava/lang/Number;)Lorg/kisu/units/base/LuminousIntensity;
 	public static final fun getCandelasPerSquareMetre (Ljava/lang/Number;)Lorg/kisu/units/photometric/Luminance;
 	public static final fun getCelsius (Ljava/lang/Number;)Lorg/kisu/units/special/CelsiusTemperature;
@@ -2537,24 +2546,6 @@ public final class org/kisu/units/special/Becquerel : org/kisu/units/representat
 }
 
 public final class org/kisu/units/special/Becquerel$Companion {
-}
-
-public final class org/kisu/units/special/Byte : org/kisu/units/representation/Scalar {
-	public static final field Companion Lorg/kisu/units/special/Byte$Companion;
-	public fun <init> (Lorg/kisu/prefixes/Metric;)V
-	public synthetic fun <init> (Lorg/kisu/prefixes/Metric;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-}
-
-public final class org/kisu/units/special/Byte$Companion {
-}
-
-public final class org/kisu/units/special/Bytes : org/kisu/units/Measure {
-	public static final field Companion Lorg/kisu/units/special/Bytes$Companion;
-}
-
-public final class org/kisu/units/special/Bytes$Companion {
-	public final fun invoke (Lorg/kisu/Magnitude;Lorg/kisu/prefixes/Metric;)Lorg/kisu/units/special/Bytes;
-	public static synthetic fun invoke$default (Lorg/kisu/units/special/Bytes$Companion;Lorg/kisu/Magnitude;Lorg/kisu/prefixes/Metric;ILjava/lang/Object;)Lorg/kisu/units/special/Bytes;
 }
 
 public final class org/kisu/units/special/Capacitance : org/kisu/units/Measure {

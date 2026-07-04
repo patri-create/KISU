@@ -3,13 +3,11 @@ package org.kisu.units.exceptions
 import org.kisu.Magnitude
 
 /**
- * Exception thrown when an attempt is made to create or represent
- * an information quantity smaller than one bit in canonical form.
+ * Exception thrown when an information quantity does not resolve to a whole number of canonical bits.
  *
- * Information quantities must be whole numbers of bits when represented
- * without a binary prefix, as fractional bits are not physically meaningful.
+ * Fractional SI or IEC prefixed values are accepted only when conversion to unprefixed bits produces an integer amount.
  *
- * @param value The invalid fractional magnitude provided.
+ * @param value The invalid fractional bit magnitude.
  * @param symbol The unit symbol (e.g., "bit").
  */
 class SubBitInformation(value: Magnitude, symbol: String) : ArithmeticException(

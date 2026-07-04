@@ -1,9 +1,12 @@
 package org.kisu.units.builders
 
 import org.kisu.Magnitude
+import org.kisu.prefixes.Decimal
 import org.kisu.prefixes.Metric
 import org.kisu.units.base.Amount
+import org.kisu.units.base.Byte
 import org.kisu.units.base.Current
+import org.kisu.units.base.Information
 import org.kisu.units.base.Length
 import org.kisu.units.base.LuminousIntensity
 import org.kisu.units.base.Mass
@@ -184,14 +187,16 @@ val MetricUnitBuilder.amperes: Current get() = Current(magnitude, metric)
 val MetricUnitBuilder.becquerels: Radioactivity get() = Radioactivity(magnitude, metric)
 
 /**
- * Creates a [Byte] measure by applying the metric prefix scale to the magnitude.
+ * Creates an [Information] measure in byte units by applying the metric prefix as an SI information prefix.
  *
  * Example usage:
  * ```
  * val size = 10.mega.bytes // 10 * 10^6 bytes
  * ```
+ *
+ * @throws IllegalStateException when the metric prefix cannot be represented as an SI information prefix.
  */
-val MetricUnitBuilder.bytes: org.kisu.units.special.Bytes get() = org.kisu.units.special.Bytes(magnitude, metric)
+val MetricUnitBuilder.bytes: Information get() = Information(magnitude, Byte(metric.toDecimalInformationPrefix()))
 
 /**
  * Creates a [Luminance] measure by applying the metric prefix scale to the magnitude.
@@ -1353,3 +1358,35 @@ val MetricUnitBuilder.webersPerMetre: MagneticVectorPotential
  * ```
  */
 val MetricUnitBuilder.webers: MagneticFlux get() = MagneticFlux(magnitude, metric)
+
+private fun Metric.toDecimalInformationPrefix(): Decimal =
+    when (this) {
+        Metric.BASE -> Decimal.BASE
+        Metric.KILO -> Decimal.KILO
+        Metric.MEGA -> Decimal.MEGA
+        Metric.GIGA -> Decimal.GIGA
+        Metric.TERA -> Decimal.TERA
+        Metric.PETA -> Decimal.PETA
+        Metric.EXA -> Decimal.EXA
+        Metric.ZETTA -> Decimal.ZETTA
+        Metric.YOTTA -> Decimal.YOTTA
+        Metric.RONNA -> Decimal.RONNA
+        Metric.QUETTA -> Decimal.QUETTA
+        Metric.QUECTO,
+        Metric.RONTO,
+        Metric.YOCTO,
+        Metric.ZEPTO,
+        Metric.ATTO,
+        Metric.FEMTO,
+        Metric.PICO,
+        Metric.NANO,
+        Metric.MICRO,
+        Metric.MILLI,
+        Metric.CENTI,
+        Metric.DECI,
+        Metric.DECA,
+        Metric.HECTO -> unsupportedDecimalInformationPrefix(this)
+    }
+
+private fun unsupportedDecimalInformationPrefix(prefix: Metric): Nothing =
+    error("Metric prefix $prefix cannot be represented as a decimal information prefix")

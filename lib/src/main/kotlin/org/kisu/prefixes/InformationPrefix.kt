@@ -6,13 +6,14 @@ import org.kisu.prefixes.primitives.System
 /**
  * Prefix family that can scale information units such as bits and bytes.
  *
- * Decimal and binary information prefixes remain separate systems. This marker only lets information units accept
- * either family without merging their prefix lists.
+ * The built-in information prefix families are [Decimal], used as the SI scale with powers of 1000, and [Binary],
+ * used as the IEC scale with powers of 2. They remain separate systems; this marker lets information units accept
+ * either scale without merging their prefix lists.
  */
 interface InformationPrefix<Self> : ExponentialPrefix<Self>, System<Self>
     where Self : InformationPrefix<Self> {
     /**
-     * The numeric base used to resolve this prefix family's exponent coordinates.
+     * Numeric base used to resolve this prefix scale's exponent coordinates.
      */
     val radix: Magnitude
 }
